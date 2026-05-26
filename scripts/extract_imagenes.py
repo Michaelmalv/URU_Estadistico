@@ -6,6 +6,7 @@ import unicodedata
 from pathlib import Path
 
 import fitz
+from PIL import Image
 
 OUT_DIR = Path(__file__).resolve().parents[1] / "data" / "imagenes_senderos"
 META_FILE = OUT_DIR / "catalogo.json"
@@ -59,6 +60,38 @@ def _render_page_region(page, clip, path: Path):
     pix.save(str(path))
 
 
+def _trim_left_margin(path: Path):
+    with Image.open(path) as source:
+        image = source.convert("RGB")
+        grayscale = image.convert("L")
+        width, height = image.size
+        sample_width = min(120, width)
+        if sample_width < 20:
+            return
+
+        def column_average(column: int) -> float:
+            return sum(grayscale.getpixel((column, row)) for row in range(height)) / height
+
+        baseline = sum(column_average(column) for column in range(sample_width)) / sample_width
+        if baseline < 150:
+            return
+
+        threshold = baseline - 25
+        window = min(24, width)
+        crop_x = 0
+        for left in range(0, max(1, width - window)):
+            window_average = sum(column_average(column) for column in range(left, left + window)) / window
+            if window_average <= threshold:
+                crop_x = max(0, left - 6)
+                break
+
+        if crop_x <= 0:
+            return
+
+        trimmed = image.crop((crop_x, 0, width, height))
+        trimmed.save(path)
+
+
 def _clip_mapa_extension(page):
     rects = []
     for img in page.get_images(full=True):
@@ -99,6 +132,7 @@ def extraer():
             clip_mapa = _clip_mapa_extension(page)
             ext_path = carpeta / "extension.png"
             _render_page_region(page, clip_mapa, ext_path)
+            _trim_left_margin(ext_path)
             entry["extension"] = f"data/imagenes_senderos/{carpeta.name}/extension.png"
 
         if p_antes and p_antes <= doc.page_count:
