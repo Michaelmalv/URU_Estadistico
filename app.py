@@ -2,7 +2,10 @@ import html
 import io
 import hashlib
 import os
+import re
 import textwrap
+import unicodedata
+from datetime import date, datetime
 from pathlib import Path
 import openpyxl
 import pandas as pd
@@ -38,6 +41,39 @@ DEFAULT_EXCEL_NAMES = (
     'datos_seguridad.xlsx',
     'datos.xlsx',
 )
+DEFAULT_ECONOMIA_EXCEL_NAMES = (
+    'resultado_cruce_predios_renovacion_v3.xlsx',
+    'resultado_cruce_predios_emision_v3.xlsx',
+)
+
+MONTHS_ES = {
+    'enero': 1,
+    'febrero': 2,
+    'marzo': 3,
+    'abril': 4,
+    'mayo': 5,
+    'junio': 6,
+    'julio': 7,
+    'agosto': 8,
+    'septiembre': 9,
+    'setiembre': 9,
+    'octubre': 10,
+    'noviembre': 11,
+    'diciembre': 12,
+}
+
+SECTOR_HEADER_CANDIDATES = (
+    'sector', 'proyecto', 'nombre proyecto', 'nombre del proyecto',
+    'parroquia', 'ubicacion', 'ubicación', 'barrio', 'zona'
+)
+MOVIMIENTO_HEADER_CANDIDATES = (
+    'tipo de movimiento(proceso', 'tipo de movimiento (proceso',
+    'tipo de movimiento', 'proceso', 'movimiento', 'tipo movimiento'
+)
+IMPRESION_HEADER_CANDIDATES = (
+    'fecha de impresion', 'fecha de impresión', 'impresion', 'impresión',
+    'fecha impresion', 'fecha impresión'
+)
 
 
 def find_default_excel():
@@ -63,6 +99,11 @@ def load_workbook_data(cache_key: str, file_bytes: bytes):
     return parse_workbook(file_bytes)
 
 
+@st.cache_data(show_spinner='Cargando datos económicos…')
+def load_economia_data(cache_key: str, file_bytes: bytes, source_label: str):
+    return parse_economia_workbook(file_bytes, source_label)
+
+
 def workbook_cache_key(source_label: str, file_bytes: bytes, file_path: Path | None = None):
     if file_path is not None:
         stat = file_path.stat()
@@ -78,6 +119,265 @@ def safe_float(v):
         return float(v)
     except:
         return None
+
+
+def normalize_text(value):
+    if value is None:
+        return ''
+    text = str(value).strip().lower()
+    text = unicodedata.normalize('NFKD', text).encode('ascii', 'ignore').decode('ascii')
+    text = re.sub(r'[^a-z0-9]+', ' ', text)
+    text = re.sub(r'\s+', ' ', text)
+    return text
+
+
+def parse_flexible_date(value):
+    if value is None:
+        return None
+    if isinstance(value, pd.Timestamp):
+        value = value.to_pydatetime()
+    if isinstance(value, datetime):
+        return {
+            'date': value.date(),
+            'year': value.year,
+            'month': value.month,
+            'day': value.day,
+            'precision': 'date',
+            'raw': value,
+        }
+    if isinstance(value, date):
+        return {
+            'date': value,
+            'year': value.year,
+            'month': value.month,
+            'day': value.day,
+            'precision': 'date',
+            'raw': value,
+        }
+    if isinstance(value, (int, float)) and not pd.isna(value):
+        year = int(value)
+        if 1900 <= year <= 2100 and abs(float(value) - year) < 1e-6:
+            return {
+                'date': date(year, 1, 1),
+                'year': year,
+                'month': None,
+                'day': None,
+                'precision': 'year',
+                'raw': value,
+            }
+        return None
+
+    text = str(value).strip()
+    if not text or normalize_text(text) in ('no', 'nan', 'none', '-', '—'):
+        return None
+
+    dt = pd.to_datetime(text, dayfirst=True, errors='coerce')
+    if pd.notna(dt):
+        return {
+            'date': dt.date(),
+            'year': dt.year,
+            'month': dt.month,
+            'day': dt.day,
+            'precision': 'date',
+            'raw': text,
+        }
+
+    norm = normalize_text(text)
+    m = re.search(r'(?P<day>\d{1,2})\s*(?:de\s*)?(?P<month>[a-zñ]+)\s*(?:de\s*)?(?P<year>\d{4})', norm)
+    if m:
+        month = MONTHS_ES.get(m.group('month'))
+        if month:
+            year = int(m.group('year'))
+            day = int(m.group('day'))
+            try:
+                dt = date(year, month, day)
+                return {
+                    'date': dt,
+                    'year': year,
+                    'month': month,
+                    'day': day,
+                    'precision': 'date',
+                    'raw': text,
+                }
+            except ValueError:
+                pass
+
+    m = re.search(r'(?P<month>[a-zñ]+)\s+(?P<year>\d{4})', norm)
+    if m:
+        month = MONTHS_ES.get(m.group('month'))
+        if month:
+            year = int(m.group('year'))
+            try:
+                dt = date(year, month, 1)
+                return {
+                    'date': dt,
+                    'year': year,
+                    'month': month,
+                    'day': None,
+                    'precision': 'month',
+                    'raw': text,
+                }
+            except ValueError:
+                pass
+
+    m = re.search(r'\b(19|20)\d{2}\b', norm)
+    if m:
+        year = int(m.group(0))
+        return {
+            'date': date(year, 1, 1),
+            'year': year,
+            'month': None,
+            'day': None,
+            'precision': 'year',
+            'raw': text,
+        }
+
+    return None
+
+
+def match_column_name(headers, candidates):
+    normalized_headers = [normalize_text(h) for h in headers]
+    normalized_candidates = [normalize_text(c) for c in candidates]
+    for candidate in normalized_candidates:
+        for idx, header in enumerate(normalized_headers):
+            if header == candidate or candidate in header or header in candidate:
+                return idx
+    return None
+
+
+def find_header_row(rows, candidates, limit=20):
+    for idx, row in enumerate(rows[:limit]):
+        normalized = ' | '.join(normalize_text(cell) for cell in row if cell is not None)
+        if any(normalize_text(candidate) in normalized for candidate in candidates):
+            return idx
+    return None
+
+
+def parse_economia_workbook(file_bytes, source_label):
+    wb = openpyxl.load_workbook(io.BytesIO(file_bytes), read_only=True, data_only=True)
+    ws = wb.active
+    rows = list(ws.iter_rows(values_only=True))
+    header_row_idx = find_header_row(rows, SECTOR_HEADER_CANDIDATES + MOVIMIENTO_HEADER_CANDIDATES + IMPRESION_HEADER_CANDIDATES)
+    if header_row_idx is None:
+        header_row_idx = 0
+    headers = list(rows[header_row_idx]) if rows else []
+    sector_idx = match_column_name(headers, SECTOR_HEADER_CANDIDATES)
+    movimiento_idx = match_column_name(headers, MOVIMIENTO_HEADER_CANDIDATES)
+    fecha_idx = match_column_name(headers, IMPRESION_HEADER_CANDIDATES)
+    if sector_idx is None and headers:
+        sector_idx = 0
+
+    records = []
+    for row in rows[header_row_idx + 1:]:
+        if not row:
+            continue
+        sector_raw = row[sector_idx] if sector_idx is not None and sector_idx < len(row) else None
+        movimiento_raw = row[movimiento_idx] if movimiento_idx is not None and movimiento_idx < len(row) else None
+        fecha_raw = row[fecha_idx] if fecha_idx is not None and fecha_idx < len(row) else None
+
+        if sector_raw is None and movimiento_raw is None and fecha_raw is None:
+            continue
+
+        records.append({
+            'sector_raw': str(sector_raw or '').strip(),
+            'movimiento_raw': str(movimiento_raw or '').strip(),
+            'fecha_impresion_raw': fecha_raw,
+            'fecha_impresion': parse_flexible_date(fecha_raw),
+            'source_label': source_label,
+        })
+
+    return {
+        'records': records,
+        'headers': headers,
+        'sector_idx': sector_idx,
+        'movimiento_idx': movimiento_idx,
+        'fecha_idx': fecha_idx,
+        'header_row_idx': header_row_idx,
+    }
+
+
+def build_sector_alias_map(proyectos):
+    alias_map = {}
+    for nombre, proyecto in proyectos.items():
+        alias_map[normalize_text(nombre)] = nombre
+        if proyecto.get('ubicacion'):
+            alias_map[normalize_text(proyecto['ubicacion'])] = nombre
+    return alias_map
+
+
+def resolve_sector_name(raw_sector, alias_map):
+    normalized = normalize_text(raw_sector)
+    if not normalized:
+        return None
+    if normalized in alias_map:
+        return alias_map[normalized]
+    for alias, canonical in alias_map.items():
+        if alias and (alias in normalized or normalized in alias):
+            return canonical
+    return None
+
+
+def classify_business(record, fecha_referencia):
+    movimiento = normalize_text(record.get('movimiento_raw'))
+    fecha_impresion = record.get('fecha_impresion')
+
+    if 'renov' in movimiento:
+        return 'renovado', 'proceso'
+    if 'emisi' in movimiento:
+        return 'abierto', 'proceso'
+
+    if fecha_referencia and fecha_impresion:
+        ref_precision = fecha_referencia.get('precision')
+        imp_precision = fecha_impresion.get('precision')
+        if ref_precision == 'date' and imp_precision == 'date':
+            if fecha_impresion['date'] < fecha_referencia['date']:
+                return 'renovado', 'fecha'
+            if fecha_impresion['date'] >= fecha_referencia['date']:
+                return 'abierto', 'fecha'
+        else:
+            if fecha_impresion['year'] < fecha_referencia['year']:
+                return 'renovado', 'anio'
+            if fecha_impresion['year'] > fecha_referencia['year']:
+                return 'abierto', 'anio'
+
+    return 'indeterminado', 'sin_datos'
+
+
+def is_after_or_equal_reference(fecha_impresion, fecha_referencia):
+    if not fecha_impresion or not fecha_referencia:
+        return True
+
+    ref_precision = fecha_referencia.get('precision')
+    imp_precision = fecha_impresion.get('precision')
+
+    if ref_precision == 'date' and imp_precision == 'date':
+        return fecha_impresion['date'] >= fecha_referencia['date']
+
+    return fecha_impresion['year'] >= fecha_referencia['year']
+
+
+def find_default_economia_excels():
+    env_renovacion = os.environ.get('ECONOMIA_RENOVACION_EXCEL')
+    env_emision = os.environ.get('ECONOMIA_EMISION_EXCEL')
+    encontrados = []
+
+    for env_path in (env_renovacion, env_emision):
+        if env_path:
+            path = Path(env_path).expanduser().resolve()
+            if path.is_file():
+                encontrados.append(path)
+
+    for name in DEFAULT_ECONOMIA_EXCEL_NAMES:
+        path = DATA_DIR / name
+        if path.is_file() and path not in encontrados:
+            encontrados.append(path)
+
+    if DATA_DIR.is_dir():
+        for path in sorted(DATA_DIR.glob('resultado_cruce_predios_*v3.xlsx')):
+            if path not in encontrados:
+                encontrados.append(path)
+
+    return encontrados[:2]
 
 
 def parse_workbook(file_bytes):
@@ -430,11 +730,140 @@ def render_ficha_sendero(ficha: dict, proyecto: dict):
     )
 
 
+def generar_grafico_economia(proyectos, sector_seleccionado, records):
+    alias_map = build_sector_alias_map(proyectos)
+    proyecto_ref = proyectos.get(sector_seleccionado, {})
+    fecha_referencia = parse_flexible_date(proyecto_ref.get('fecha'))
+
+    clasificados = []
+    control_mov = {'renovacion': 0, 'emision': 0}
+    excluidos_fecha = 0
+    for record in records:
+        sector_resuelto = resolve_sector_name(record.get('sector_raw'), alias_map)
+        if sector_resuelto != sector_seleccionado:
+            continue
+        if not is_after_or_equal_reference(record.get('fecha_impresion'), fecha_referencia):
+            excluidos_fecha += 1
+            continue
+
+        mov = normalize_text(record.get('movimiento_raw'))
+        if 'renov' in mov:
+            control_mov['renovacion'] += 1
+        elif 'emisi' in mov:
+            control_mov['emision'] += 1
+
+        categoria, metodo = classify_business(record, fecha_referencia)
+        if categoria == 'indeterminado':
+            continue
+        clasificados.append({
+            'categoria': categoria,
+            'metodo': metodo,
+            'source_label': record.get('source_label', ''),
+        })
+
+    if not clasificados:
+        fig, ax = plt.subplots(figsize=(10, 4.5), dpi=120)
+        ax.axis('off')
+        ax.text(
+            0.5, 0.5,
+            'No se encontraron registros para este sector con los archivos cargados.',
+            ha='center', va='center', fontsize=13,
+        )
+        return fig, pd.DataFrame(), fecha_referencia, excluidos_fecha, control_mov
+
+    df = pd.DataFrame(clasificados)
+    resumen = (
+        df.groupby('categoria')
+        .size()
+        .reindex(['abierto', 'renovado'], fill_value=0)
+        .reset_index(name='cantidad')
+    )
+
+    fecha_txt = proyecto_ref.get('fecha', 'Sin fecha')
+    titulo_sector = sector_seleccionado
+    if proyecto_ref.get('ubicacion'):
+        titulo_sector = f"{sector_seleccionado} | {proyecto_ref['ubicacion']}"
+
+    fig, ax = plt.subplots(figsize=(10.5, 6), dpi=130)
+    fig.patch.set_facecolor('white')
+    colores = ['#1e8449', '#1f4e79']
+    etiquetas = ['Abiertos', 'Renovados']
+    valores = [int(resumen.loc[resumen['categoria'] == 'abierto', 'cantidad'].iloc[0]), int(resumen.loc[resumen['categoria'] == 'renovado', 'cantidad'].iloc[0])]
+
+    barras = ax.bar(etiquetas, valores, color=colores, width=0.55)
+    ax.set_title(
+        f'Comparativa económica por sector\n{titulo_sector}',
+        fontsize=16, fontweight='bold', pad=18,
+    )
+    ax.set_ylabel('Número de negocios', fontsize=12)
+    ax.set_ylim(0, max(valores + [1]) * 1.35)
+    ax.grid(axis='y', linestyle='--', alpha=0.25)
+    ax.spines['top'].set_visible(False)
+    ax.spines['right'].set_visible(False)
+
+    for barra, cantidad in zip(barras, valores):
+        ax.text(
+            barra.get_x() + barra.get_width() / 2,
+            barra.get_height() + max(valores + [1]) * 0.05,
+            f'{cantidad}',
+            ha='center', va='bottom', fontsize=12, fontweight='bold', color='#1f2937',
+        )
+
+    referencia = 'sin fecha de referencia'
+    if fecha_referencia:
+        if fecha_referencia.get('precision') == 'year':
+            referencia = f"año {fecha_referencia['year']}"
+        elif fecha_referencia.get('precision') == 'month':
+            mes = [k for k, v in MONTHS_ES.items() if v == fecha_referencia['month']][0].capitalize()
+            referencia = f"{mes} {fecha_referencia['year']}"
+        else:
+            referencia = fecha_referencia['date'].strftime('%d/%m/%Y')
+
+    ax.text(
+        0.5, -0.18,
+        f'Referencia: {fecha_txt} | Comparación aplicada con {referencia}.',
+        transform=ax.transAxes, ha='center', va='top', fontsize=10, color='#64748b',
+    )
+    fig.tight_layout()
+    return fig, resumen, fecha_referencia, excluidos_fecha, control_mov
+
+
+def get_economia_project_filters(proyectos):
+    categoria_map = {
+        'Todas': None,
+        'Senderos Seguros': 'Senderos Seguros',
+        'Zonas Metro': 'Zonas Metro',
+        'Rehabilitación de Espacio Público': 'Recuperación de espacios público',
+    }
+    fecha_map = {
+        'Todas': 'all',
+        'Con fecha de inauguración/entrega': 'with_date',
+        'Sin fecha de inauguración/entrega': 'without_date',
+    }
+    return categoria_map, fecha_map
+
+
+def filter_economia_projects(proyectos, categoria_ui, fecha_filter):
+    categoria_map, _ = get_economia_project_filters(proyectos)
+    categoria_real = categoria_map.get(categoria_ui)
+
+    filtrados = {}
+    for nombre, proyecto in proyectos.items():
+        if categoria_real and proyecto.get('categoria') != categoria_real:
+            continue
+        tiene_fecha = parse_flexible_date(proyecto.get('fecha')) is not None
+        if fecha_filter == 'with_date' and not tiene_fecha:
+            continue
+        if fecha_filter == 'without_date' and tiene_fecha:
+            continue
+        filtrados[nombre] = proyecto
+    return filtrados
+
+
 def main():
-    st.title('Evaluación de Seguridad — Generador interactivo')
+    st.title('Panel de proyectos estratégicos — Generador interactivo')
     st.markdown(
-        'Genera cuadros comparativos, gráficos y datos. '
-        'Si colocas el Excel en la carpeta `data/`, se carga solo al abrir la app.'
+        'Explora resultados de seguridad y economía por sector, con gráficos y resúmenes interactivos.'
     )
 
     default_path = find_default_excel()
@@ -444,12 +873,7 @@ def main():
             st.success(f'Archivo local: `{default_path.name}`')
             st.caption(str(default_path))
         else:
-            st.warning('Sin Excel en `data/`. Sube uno abajo o copia el archivo ahí.')
-        uploaded = st.file_uploader(
-            'Subir otro Excel (opcional)',
-            type=['xlsx'],
-            help='Reemplaza temporalmente el archivo local de esta sesión.',
-        )
+            st.warning('Sin Excel en `data/`. Coloca allí el archivo del proyecto para poder cargarlo.')
         if st.button('Recargar datos', help='Vuelve a leer el Excel tras actualizarlo en disco.'):
             load_workbook_data.clear()
             st.rerun()
@@ -458,18 +882,14 @@ def main():
     source_label = None
     cache_path = None
 
-    if uploaded is not None:
-        file_bytes = uploaded.getvalue()
-        source_label = uploaded.name
-    elif default_path is not None:
+    if default_path is not None:
         file_bytes = default_path.read_bytes()
         source_label = default_path.name
         cache_path = default_path
 
     if file_bytes is None:
         st.info(
-            'Coloca tu archivo `.xlsx` en la carpeta `data/` del proyecto '
-            '(por ejemplo `data/datos_seguridad.xlsx`) o súbelo en el panel lateral.'
+            'Coloca el archivo `.xlsx` del proyecto en la carpeta `data/` del proyecto.'
         )
         return
 
@@ -485,88 +905,207 @@ def main():
         f'Datos cargados: **{source_label}** · {len(proyectos)} proyectos '
         f'({n_senderos} Senderos Seguros)'
     )
+    tab_seguridad, tab_economia = st.tabs(['SEGURIDAD', 'ECONOMIA'])
 
-    modo = st.radio('Modo', ['Por proyecto', 'Por categoría'])
-    if modo == 'Por proyecto':
-        proy = st.selectbox('Proyecto', sorted(list(proyectos.keys())))
-    else:
-        cat = st.selectbox('Categoría', list(categorias.keys()))
-        proy = st.selectbox('Proyecto', sorted(categorias.get(cat, [])))
+    with tab_seguridad:
+        st.subheader('Resumen de seguridad por proyecto')
+        st.caption(
+            'Esta sección permite explorar los proyectos estratégicos de seguridad y visualizar sus indicadores, fichas e imágenes asociadas.'
+        )
+        st.info(
+            'La vista consolida cuadros comparativos y gráficos por proyecto o por categoría para analizar incidentes y delitos en cada intervención.'
+        )
 
-    p = proyectos[proy]
-    fichas = fichas_sendero(proy)
-    if fichas or es_sendero_seguro(proy, p.get('categoria', '')):
-        st.subheader('Ficha del sendero seguro')
-        if fichas:
-            for ficha in fichas:
-                with st.container(border=True):
-                    render_ficha_sendero(ficha, p)
+        modo = st.radio('Modo', ['Por proyecto', 'Por categoría'])
+        if modo == 'Por proyecto':
+            proy = st.selectbox('Proyecto', sorted(list(proyectos.keys())))
         else:
-            st.caption('Proyecto de Senderos Seguros sin ficha en las matrices 2024–2026.')
+            cat = st.selectbox('Categoría', list(categorias.keys()))
+            proy = st.selectbox('Proyecto', sorted(categorias.get(cat, [])))
 
-        imgs = imagenes_sendero(proy)
-        if imgs['extension'] or imgs['antes_despues']:
-            st.markdown('#### Imágenes del sendero')
-            if imgs['extension']:
-                st.markdown('**Mapa de extensión**')
-                st.image(str(imgs['extension']), use_container_width=True)
-            if imgs['antes_despues']:
-                st.markdown('**Antes y después**')
-                st.image(str(imgs['antes_despues']), use_container_width=True)
-            elif imgs['extension']:
-                st.caption('En el PDF no hay diapositiva de antes/después para este sendero (solo ficha).')
+        p = proyectos[proy]
+        fichas = fichas_sendero(proy)
+        if fichas or es_sendero_seguro(proy, p.get('categoria', '')):
+            st.subheader('Ficha del sendero seguro')
+            if fichas:
+                for ficha in fichas:
+                    with st.container(border=True):
+                        render_ficha_sendero(ficha, p)
+            else:
+                st.caption('Proyecto de Senderos Seguros sin ficha en las matrices 2024–2026.')
 
-    ant = st.multiselect('Años anterior', PERIODOS, default=['2024'])
-    act = st.multiselect('Años actual', PERIODOS, default=['2025'])
+            imgs = imagenes_sendero(proy)
+            if imgs['extension'] or imgs['antes_despues']:
+                st.markdown('#### Imágenes del sendero')
+                if imgs['extension']:
+                    st.markdown('**Mapa de extensión**')
+                    st.image(str(imgs['extension']), use_container_width=True)
+                if imgs['antes_despues']:
+                    st.markdown('**Antes y después**')
+                    st.image(str(imgs['antes_despues']), use_container_width=True)
+                elif imgs['extension']:
+                    st.caption('En el PDF no hay diapositiva de antes/después para este sendero (solo ficha).')
 
-    col1, col2, col3 = st.columns(3)
-    with col1:
-        btn_tabla = st.button('📊 Generar tabla comparativa')
-    with col2:
-        btn_grafico = st.button('📈 Generar resumen gráfico')
-    with col3:
-        btn_csv = st.button('💾 Exportar CSV')
+        ant = st.multiselect('Años anterior', PERIODOS, default=['2024'])
+        act = st.multiselect('Años actual', PERIODOS, default=['2025'])
 
-    if btn_tabla:
-        if not p.get('tiene_estadisticas', True):
-            st.warning('Este proyecto aún no tiene datos de incidentes/delitos en el Excel.')
-        elif not ant or not act:
-            st.warning('Selecciona al menos un año en ambos periodos.')
-        elif set(ant) & set(act):
-            st.warning('No se deben repetir años en ambos periodos.')
+        col1, col2, col3 = st.columns(3)
+        with col1:
+            btn_tabla = st.button('📊 Generar tabla comparativa')
+        with col2:
+            btn_grafico = st.button('📈 Generar resumen gráfico')
+        with col3:
+            btn_csv = st.button('💾 Exportar CSV')
+
+        if btn_tabla:
+            if not p.get('tiene_estadisticas', True):
+                st.warning('Este proyecto aún no tiene datos de incidentes/delitos en el Excel.')
+            elif not ant or not act:
+                st.warning('Selecciona al menos un año en ambos periodos.')
+            elif set(ant) & set(act):
+                st.warning('No se deben repetir años en ambos periodos.')
+            else:
+                st.info('Generando tabla comparativa...')
+                fig = generar_tabla(proyectos[proy], ant, act)
+                mostrar_figura_alta_res(fig, dpi_pantalla=200)
+                buf = io.BytesIO()
+                fig.savefig(buf, format='png', dpi=300, bbox_inches='tight', facecolor='white')
+                buf.seek(0)
+                st.download_button('⬇️ Descargar tabla (PNG)', data=buf.getvalue(),
+                                  file_name=f'{proy}_tabla_comparativa.png', mime='image/png')
+                plt.close(fig)
+
+        if btn_grafico:
+            if not p.get('tiene_estadisticas', True):
+                st.warning('Este proyecto aún no tiene datos de incidentes/delitos en el Excel.')
+            elif not ant or not act:
+                st.warning('Selecciona al menos un año en ambos periodos.')
+            elif set(ant) & set(act):
+                st.warning('No se deben repetir años en ambos periodos.')
+            else:
+                st.info('Generando resumen gráfico...')
+                fig = generar_grafico_resumen(proyectos[proy], ant, act)
+                mostrar_figura_alta_res(fig, dpi_pantalla=220)
+                buf = io.BytesIO()
+                fig.savefig(buf, format='png', dpi=300, bbox_inches='tight', facecolor='white')
+                buf.seek(0)
+                st.download_button('⬇️ Descargar gráfico (PNG)', data=buf.getvalue(),
+                                  file_name=f'{proy}_grafico_resumen.png', mime='image/png')
+                plt.close(fig)
+
+        if btn_csv:
+            df = export_csv(proyectos)
+            csv = df.to_csv(index=False, encoding='utf-8-sig')
+            st.download_button('⬇️ Descargar CSV', data=csv, file_name='seguridad_proyectos_powerbi.csv', mime='text/csv')
+
+    with tab_economia:
+        st.subheader('Conteo económico por sector')
+        st.caption(
+            'Esta sección resume el comportamiento económico por sector y muestra cuántos negocios se abrieron y cuántos renovaron en torno a la inauguración o entrega de cada proyecto.'
+        )
+        st.info(
+            'La vista cruza la fecha de impresión de los registros económicos con la fecha de entrega o inauguración del proyecto para identificar aperturas y renovaciones; cuando la referencia solo tiene año, se toma ese año como base.'
+        )
+
+        economia_sources = []
+        default_economia_paths = find_default_economia_excels()
+        if default_economia_paths:
+            for path in default_economia_paths:
+                file_bytes = path.read_bytes()
+                cache_key = workbook_cache_key(path.name, file_bytes, path)
+                economia_sources.append({
+                    'label': path.name,
+                    'data': load_economia_data(cache_key, file_bytes, path.name),
+                })
+
+        if not economia_sources:
+            st.warning(
+                'No encontré los archivos de economía. Coloca los Excel en la carpeta data/ del proyecto con estos nombres: resultado_cruce_predios_renovacion_v3.xlsx y resultado_cruce_predios_emision_v3.xlsx.'
+            )
         else:
-            st.info('Generando tabla comparativa...')
-            fig = generar_tabla(proyectos[proy], ant, act)
-            mostrar_figura_alta_res(fig, dpi_pantalla=200)
-            buf = io.BytesIO()
-            fig.savefig(buf, format='png', dpi=300, bbox_inches='tight', facecolor='white')
-            buf.seek(0)
-            st.download_button('⬇️ Descargar tabla (PNG)', data=buf.getvalue(), 
-                              file_name=f'{proy}_tabla_comparativa.png', mime='image/png')
-            plt.close(fig)
+            etiquetas_fuente = ', '.join(src['label'] for src in economia_sources)
+            st.caption(f'Archivos cargados: {etiquetas_fuente}')
 
-    if btn_grafico:
-        if not p.get('tiene_estadisticas', True):
-            st.warning('Este proyecto aún no tiene datos de incidentes/delitos en el Excel.')
-        elif not ant or not act:
-            st.warning('Selecciona al menos un año en ambos periodos.')
-        elif set(ant) & set(act):
-            st.warning('No se deben repetir años en ambos periodos.')
-        else:
-            st.info('Generando resumen gráfico...')
-            fig = generar_grafico_resumen(proyectos[proy], ant, act)
-            mostrar_figura_alta_res(fig, dpi_pantalla=220)
-            buf = io.BytesIO()
-            fig.savefig(buf, format='png', dpi=300, bbox_inches='tight', facecolor='white')
-            buf.seek(0)
-            st.download_button('⬇️ Descargar gráfico (PNG)', data=buf.getvalue(), 
-                              file_name=f'{proy}_grafico_resumen.png', mime='image/png')
-            plt.close(fig)
+            categoria_map, fecha_map = get_economia_project_filters(proyectos)
+            categoria_ui = st.selectbox(
+                'Categoría',
+                list(categoria_map.keys()),
+                key='categoria_economia',
+                help='Filtra los proyectos por su categoría original en el Excel de Seguridad.',
+            )
+            fecha_ui = st.selectbox(
+                'Fecha de inauguración/entrega',
+                list(fecha_map.keys()),
+                key='fecha_economia',
+                help='Filtra proyectos con fecha cargada o sin fecha en el Excel de Seguridad.',
+            )
 
-    if btn_csv:
-        df = export_csv(proyectos)
-        csv = df.to_csv(index=False, encoding='utf-8-sig')
-        st.download_button('⬇️ Descargar CSV', data=csv, file_name='seguridad_proyectos_powerbi.csv', mime='text/csv')
+            proyectos_filtrados = filter_economia_projects(proyectos, categoria_ui, fecha_map[fecha_ui])
+            if not proyectos_filtrados:
+                st.warning('No hay proyectos que coincidan con esos filtros.')
+                return
+
+            sector_options = sorted(proyectos_filtrados.keys())
+            sector_seleccionado = st.selectbox('Sector', sector_options, key='sector_economia')
+
+            records = []
+            for source in economia_sources:
+                records.extend(source['data']['records'])
+
+            fig, resumen, fecha_referencia, excluidos_fecha, control_mov = generar_grafico_economia(proyectos_filtrados, sector_seleccionado, records)
+
+            if resumen.empty:
+                st.warning('No se encontraron registros compatibles para ese sector con los archivos cargados.')
+            else:
+                mostrar_figura_alta_res(fig, dpi_pantalla=220)
+                col_a, col_b = st.columns(2)
+                with col_a:
+                    st.metric('Negocios abiertos', int(resumen.loc[resumen['categoria'] == 'abierto', 'cantidad'].iloc[0]))
+                with col_b:
+                    st.metric('Negocios renovados', int(resumen.loc[resumen['categoria'] == 'renovado', 'cantidad'].iloc[0]))
+
+                abiertos_calc = int(resumen.loc[resumen['categoria'] == 'abierto', 'cantidad'].iloc[0])
+                renovados_calc = int(resumen.loc[resumen['categoria'] == 'renovado', 'cantidad'].iloc[0])
+                abiertos_mov = int(control_mov.get('emision', 0))
+                renovados_mov = int(control_mov.get('renovacion', 0))
+
+                if abiertos_calc != abiertos_mov or renovados_calc != renovados_mov:
+                    st.error(
+                        'Control de consistencia: diferencia entre clasificación y tipo de movimiento. '
+                        f'Abiertos graficados={abiertos_calc}, por Emisión={abiertos_mov}; '
+                        f'Renovados graficados={renovados_calc}, por Renovación={renovados_mov}.'
+                    )
+                else:
+                    st.caption(
+                        f'Control OK: Emisión={abiertos_mov} y Renovación={renovados_mov} coinciden con la gráfica.'
+                    )
+
+                st.dataframe(
+                    resumen.rename(columns={'categoria': 'Estado', 'cantidad': 'Cantidad'}).assign(
+                        Estado=lambda df: df['Estado'].map({'abierto': 'Abiertos', 'renovado': 'Renovados'})
+                    ),
+                    use_container_width=True,
+                    hide_index=True,
+                )
+
+                if excluidos_fecha:
+                    st.caption(f'Registros excluidos por estar antes de la fecha de referencia: {excluidos_fecha}')
+
+                if fecha_referencia:
+                    st.caption(
+                        f"Fecha de referencia del sector: {proyectos[sector_seleccionado].get('fecha', 'Sin fecha')}"
+                    )
+
+                buf = io.BytesIO()
+                fig.savefig(buf, format='png', dpi=300, bbox_inches='tight', facecolor='white')
+                buf.seek(0)
+                st.download_button(
+                    '⬇️ Descargar gráfico económico (PNG)',
+                    data=buf.getvalue(),
+                    file_name=f'{sector_seleccionado}_economia.png',
+                    mime='image/png'
+                )
+                plt.close(fig)
 
 
 if __name__ == '__main__':
