@@ -7,25 +7,29 @@ import textwrap
 import unicodedata
 from datetime import date, datetime
 from pathlib import Path
+
+import matplotlib.gridspec as gridspec
+import matplotlib.patches as mpatches
+import matplotlib.pyplot as plt
+import numpy as np
 import openpyxl
 import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-import matplotlib.patches as mpatches
-import matplotlib.gridspec as gridspec
 import streamlit as st
+
 from senderos_imagenes import imagenes_sendero
 from senderos_matriz import es_sendero_seguro, fichas_sendero
 
 
 INCIDENTES = [
     'Daño a propiedad pública y privada',
-    'Escándalos', 'Eventos clandestinos',
-    'Libadores', 'Venta y consumo de sustancias'
+    'Escándalos',
+    'Eventos clandestinos',
+    'Libadores',
+    'Venta y consumo de sustancias',
 ]
 DELITOS = [
     'Robo a carros', 'Robo a motos', 'Robo a personas',
-    'Robo a unidades económicas', 'Robo de autopartes', 'Robo a domicilios'
+    'Robo a unidades económicas', 'Robo de autopartes', 'Robo a domicilios',
 ]
 ALL_VARS = INCIDENTES + DELITOS
 
@@ -45,6 +49,7 @@ def _periodos_actuales_disponibles(anios_anterior):
         return PERIODOS
     max_anterior = max(_anio_base(anio) for anio in anios_anterior)
     return [anio for anio in PERIODOS if _anio_base(anio) > max_anterior]
+
 
 BASE_DIR = Path(__file__).resolve().parent
 DATA_DIR = BASE_DIR / 'data'
@@ -157,6 +162,32 @@ VALOR_SUELO_CATEGORIA_ORDER = [
     'Rehabilitación del Espacio Público y Centro Histórico',
     'Senderos Seguros',
 ]
+
+PORTAL_TITLE = 'PORTAL DE EVALUACIÓN DE PROYECTOS ESTRATÉGICOS'
+PORTAL_SUBTITLE = 'DIRECCIÓN DE DESARROLLO URBANÍSTICO'
+HEADER_IMAGE_CANDIDATES = (
+    DATA_DIR / 'header.png',
+    DATA_DIR / 'header.jpg',
+    DATA_DIR / 'header.jpeg',
+    DATA_DIR / 'header.webp',
+)
+
+
+def render_portal_header():
+    for image_path in HEADER_IMAGE_CANDIDATES:
+        if image_path.is_file():
+            st.image(str(image_path), use_container_width=True)
+            st.markdown(
+                """
+                <div style="margin-top:0.6rem; padding:0.4rem 0 0.8rem 0;">
+                  <h1 style="margin:0; font-size:32px; line-height:1.05; letter-spacing:0.02em; color:#24367f; text-transform:uppercase;">PORTAL DE EVALUACIÓN DE PROYECTOS ESTRATÉGICOS</h1>
+                  <p style="margin:6px 0 0; font-size:12px; color:#56607c; text-transform:uppercase; font-weight:700;">DIRECCIÓN DE DESARROLLO URBANÍSTICO</p>
+                </div>
+                """,
+                unsafe_allow_html=True,
+            )
+            return
+    st.warning('Falta la imagen del header. Coloca el archivo en data/header.png para mostrarla en el inicio.')
 
 
 def find_default_excel():
@@ -916,9 +947,18 @@ _FICHA_CSS = """
     border-bottom: 2px solid #e2e8f0;
 }
 </style>
+
+<style>
+/* Dark mode overrides to ensure readable contrast */
+@media (prefers-color-scheme: dark) {
+  .ficha-label { color: #93c5fd !important; }
+  .ficha-valor { color: #e6eef8 !important; }
+  .ficha-titulo-anio { color: #ffffff !important; border-bottom-color: rgba(255,255,255,0.08) !important; }
+  .ficha-sendero-grid { color: #e6eef8 !important; }
+}
+</style>
+
 """
-
-
 def render_ficha_sendero(ficha: dict, proyecto: dict):
     """Muestra la ficha sin truncar valores largos (p. ej. presupuesto)."""
     label_fecha = 'Fecha entrega' if ficha['anio'] == 2024 else 'Fecha inauguración'
@@ -1131,7 +1171,8 @@ def filter_economia_projects(proyectos, categoria_ui, fecha_filter):
 
 
 def main():
-    st.title('Panel de proyectos estratégicos — Generador interactivo')
+    st.set_page_config(page_title=PORTAL_TITLE, layout='wide')
+    render_portal_header()
     st.markdown(
         'Explora resultados de seguridad y economía por sector, con gráficos y resúmenes interactivos.'
     )
@@ -1171,10 +1212,7 @@ def main():
         return
 
     n_senderos = sum(1 for p in proyectos.values() if p.get('categoria') == 'Senderos Seguros')
-    st.caption(
-        f'Datos cargados: **{source_label}** · {len(proyectos)} proyectos '
-        f'({n_senderos} Senderos Seguros)'
-    )
+    # Se omite el mensaje de "Datos cargados" en el header por solicitud del usuario.
     tab_seguridad, tab_economia, tab_valor_suelo = st.tabs(['SEGURIDAD', 'ECONOMIA', 'VALOR DE SUELO'])
 
     with tab_seguridad:
@@ -1305,7 +1343,7 @@ def main():
             )
         else:
             etiquetas_fuente = ', '.join(src['label'] for src in economia_sources)
-            st.caption(f'Archivos cargados: {etiquetas_fuente}')
+            # Se omite el mensaje de "Archivos cargados" en el header por solicitud del usuario.
 
             categoria_map, fecha_map = get_economia_project_filters(proyectos)
             categoria_ui = st.selectbox(
