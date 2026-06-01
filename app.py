@@ -34,6 +34,18 @@ COL_TASA_EXCEL = {'2023-2024': 49, '2024-2025': 60}
 PERIODOS = list(COL_INICIO.keys())
 MESES_2026 = 4
 
+
+def _anio_base(periodo: str) -> int:
+    match = re.search(r'\d{4}', periodo)
+    return int(match.group()) if match else 0
+
+
+def _periodos_actuales_disponibles(anios_anterior):
+    if not anios_anterior:
+        return PERIODOS
+    max_anterior = max(_anio_base(anio) for anio in anios_anterior)
+    return [anio for anio in PERIODOS if _anio_base(anio) > max_anterior]
+
 BASE_DIR = Path(__file__).resolve().parent
 DATA_DIR = BASE_DIR / 'data'
 DEFAULT_EXCEL_NAMES = (
@@ -44,6 +56,12 @@ DEFAULT_EXCEL_NAMES = (
 DEFAULT_ECONOMIA_EXCEL_NAMES = (
     'resultado_cruce_predios_renovacion_v3.xlsx',
     'resultado_cruce_predios_emision_v3.xlsx',
+)
+DEFAULT_VALOR_SUELO_EXCEL_NAMES = (
+    'AIVAS_cruce_codigos_nuevo.xlsx',
+    'valor_de_suelo.xlsx',
+    'valor_suelo.xlsx',
+    'valores_suelo.xlsx',
 )
 
 MONTHS_ES = {
@@ -74,6 +92,71 @@ IMPRESION_HEADER_CANDIDATES = (
     'fecha de impresion', 'fecha de impresión', 'impresion', 'impresión',
     'fecha impresion', 'fecha impresión'
 )
+VALOR_SUELO_HEADER_CANDIDATES = (
+    'proyecto', 'descripcion', 'descripción', '2022-2023', '2024', '2026'
+)
+PROYECTO_SUELO_HEADER_CANDIDATES = ('proyecto',)
+DESCRIPCION_SUELO_HEADER_CANDIDATES = ('descripcion', 'descripción')
+VALOR_SUELO_2022_HEADER_CANDIDATES = ('2022-2023', '2022 2023', '2022_2023')
+VALOR_SUELO_2024_HEADER_CANDIDATES = ('2024',)
+VALOR_SUELO_2026_HEADER_CANDIDATES = ('2026',)
+
+VALOR_SUELO_CATEGORIAS = {
+    'Zonas Metro': [
+        'AIVAS EL EJIDO',
+        'AIVAS ALAMEDA',
+        'AIVAS CARDENAL DE LA TORRE',
+        'AIVAS EL LABRADOR',
+        'AIVAS EL RECREO',
+        'AIVAS IÑAQUITO',
+        'AIVAS JIPIJAPA',
+        'AIVAS LA CAROLINA',
+        'AIVAS LA MAGDALENA',
+        'AIVAS LA PRADERA',
+        'AIVAS MORAN VALVERDE',
+        'AIVAS QUITUMBE',
+        'AIVAS SAN FRANCISCO',
+        'AIVAS SOLANDA',
+        'AIVAS UNIVERSIDAD CENTRAL',
+    ],
+    'Rehabilitación del Espacio Público y Centro Histórico': [
+        'AIVAS PARQUE NAVARRO',
+        'AIVAS BENALCAZAR',
+        'AIVAS ROCAFUERTE',
+        'AIVAS TRIBUNA DE LOS SHYRIS',
+    ],
+    'Senderos Seguros': [
+        'AIVAS AV. AJAVÍ',
+        'AIVAS LA ECUATORIANA',
+        'AIVAS CALLE RUIZ DE CASTILLA',
+        'AIVAS CALLE RÍO DE JANEIRO',
+        'AIVAS COMITÉ DEL PUEBLO',
+        'AIVAS LA MARISCAL',
+        'AIVAS RAMÓN BORJA',
+        'AIVAS AV. 2 DE AGOSTO',
+        'AIVAS AV. CARAPUNGO',
+        'AIVAS COLINAS DEL NORTE',
+        'AIVAS CALLE CALDAS Y ANTEPARA',
+        'AIVAS CALLE JUAN MONTALVO',
+        'AIVAS CALLE GABRIEL GARCÍA MORENO',
+        'AIVAS CALLE LIZARDO RUIZ',
+        'AIVAS VÍAS DEL FERROCARRIL',
+        'AIVAS AV. CACHA',
+        'AIVAS CONOCOTO',
+        'AIVAS NANEGALITO',
+        'AIVAS PATRIA',
+        'AIVAS AV. MICHELENA',
+        'AIVAS CALLE LUIS LÓPEZ',
+        'AIVAS AV. COLÓN',
+        'AIVAS ISLA TORTUGA',
+    ],
+}
+VALOR_SUELO_CATEGORIA_ORDER = [
+    'Todas',
+    'Zonas Metro',
+    'Rehabilitación del Espacio Público y Centro Histórico',
+    'Senderos Seguros',
+]
 
 
 def find_default_excel():
@@ -102,6 +185,11 @@ def load_workbook_data(cache_key: str, file_bytes: bytes):
 @st.cache_data(show_spinner='Cargando datos económicos…')
 def load_economia_data(cache_key: str, file_bytes: bytes, source_label: str):
     return parse_economia_workbook(file_bytes, source_label)
+
+
+@st.cache_data(show_spinner='Cargando datos de valor de suelo…')
+def load_valor_suelo_data(cache_key: str, file_bytes: bytes, source_label: str):
+    return parse_valor_suelo_workbook(file_bytes, source_label)
 
 
 def workbook_cache_key(source_label: str, file_bytes: bytes, file_path: Path | None = None):
@@ -296,6 +384,99 @@ def parse_economia_workbook(file_bytes, source_label):
     }
 
 
+def parse_valor_suelo_workbook(file_bytes, source_label):
+    wb = openpyxl.load_workbook(io.BytesIO(file_bytes), read_only=True, data_only=True)
+    ws = wb.active
+    rows = list(ws.iter_rows(values_only=True))
+    header_row_idx = find_header_row(rows, VALOR_SUELO_HEADER_CANDIDATES, limit=30)
+    if header_row_idx is None:
+        header_row_idx = 0
+
+    headers = list(rows[header_row_idx]) if rows else []
+    proyecto_idx = match_column_name(headers, PROYECTO_SUELO_HEADER_CANDIDATES)
+    descripcion_idx = match_column_name(headers, DESCRIPCION_SUELO_HEADER_CANDIDATES)
+    valor_2022_idx = match_column_name(headers, VALOR_SUELO_2022_HEADER_CANDIDATES)
+    valor_2024_idx = match_column_name(headers, VALOR_SUELO_2024_HEADER_CANDIDATES)
+    valor_2026_idx = match_column_name(headers, VALOR_SUELO_2026_HEADER_CANDIDATES)
+
+    records = []
+    current_proyecto = ''
+    current_proyecto_key = ''
+
+    for row in rows[header_row_idx + 1:]:
+        if not row:
+            continue
+
+        proyecto_raw = row[proyecto_idx] if proyecto_idx is not None and proyecto_idx < len(row) else None
+        if proyecto_raw is not None and str(proyecto_raw).strip():
+            current_proyecto = str(proyecto_raw).strip()
+            current_proyecto_key = normalize_text(current_proyecto)
+        elif current_proyecto:
+            proyecto_raw = current_proyecto
+
+        descripcion_raw = row[descripcion_idx] if descripcion_idx is not None and descripcion_idx < len(row) else None
+        valor_2022 = safe_float(row[valor_2022_idx] if valor_2022_idx is not None and valor_2022_idx < len(row) else None)
+        valor_2024 = safe_float(row[valor_2024_idx] if valor_2024_idx is not None and valor_2024_idx < len(row) else None)
+        valor_2026 = safe_float(row[valor_2026_idx] if valor_2026_idx is not None and valor_2026_idx < len(row) else None)
+
+        if not current_proyecto_key and not str(descripcion_raw or '').strip() and all(v is None for v in (valor_2022, valor_2024, valor_2026)):
+            continue
+
+        records.append({
+            'proyecto_raw': current_proyecto,
+            'proyecto_key': current_proyecto_key,
+            'descripcion_raw': str(descripcion_raw or '').strip(),
+            'valor_2022_2023': valor_2022,
+            'valor_2024': valor_2024,
+            'valor_2026': valor_2026,
+            'source_label': source_label,
+        })
+
+    if not records:
+        return {
+            'records': [],
+            'resumen': pd.DataFrame(),
+            'headers': headers,
+            'header_row_idx': header_row_idx,
+            'source_label': source_label,
+        }
+
+    df = pd.DataFrame(records)
+    df = df[df['proyecto_key'].astype(str).str.strip() != '']
+    if df.empty:
+        return {
+            'records': records,
+            'resumen': pd.DataFrame(),
+            'headers': headers,
+            'header_row_idx': header_row_idx,
+            'source_label': source_label,
+        }
+
+    resumen = (
+        df.groupby('proyecto_key', dropna=False)
+        .agg(
+            proyecto=('proyecto_raw', 'first'),
+            sectores=('descripcion_raw', lambda s: int(s.astype(str).str.strip().ne('').sum())),
+            descripciones=('descripcion_raw', lambda s: sorted({x for x in (str(v).strip() for v in s) if x})),
+            valor_2022_2023=('valor_2022_2023', 'mean'),
+            valor_2024=('valor_2024', 'mean'),
+            valor_2026=('valor_2026', 'mean'),
+        )
+        .reset_index(drop=True)
+    )
+    resumen['descripciones'] = resumen['descripciones'].apply(lambda values: ', '.join(values) if values else '')
+    resumen['proyecto'] = resumen['proyecto'].fillna('').astype(str).str.strip()
+    resumen = resumen.sort_values('proyecto', kind='stable').reset_index(drop=True)
+
+    return {
+        'records': records,
+        'resumen': resumen,
+        'headers': headers,
+        'header_row_idx': header_row_idx,
+        'source_label': source_label,
+    }
+
+
 def build_sector_alias_map(proyectos):
     alias_map = {}
     for nombre, proyecto in proyectos.items():
@@ -378,6 +559,45 @@ def find_default_economia_excels():
                 encontrados.append(path)
 
     return encontrados[:2]
+
+
+def find_default_valor_suelo_excel():
+    env_path = os.environ.get('VALOR_SUELO_EXCEL')
+    if env_path:
+        path = Path(env_path).expanduser().resolve()
+        if path.is_file():
+            return path
+
+    for name in DEFAULT_VALOR_SUELO_EXCEL_NAMES:
+        path = DATA_DIR / name
+        if path.is_file():
+            return path
+
+    if DATA_DIR.is_dir():
+        for pattern in ('*AIVAS*.xlsx', '*suelo*.xlsx', '*valor*.xlsx'):
+            matches = sorted(DATA_DIR.glob(pattern))
+            if matches:
+                return matches[0]
+
+    return None
+
+
+def resolve_valor_suelo_categoria(proyecto: str):
+    normalizado = normalize_text(proyecto)
+    for categoria, proyectos_categoria in VALOR_SUELO_CATEGORIAS.items():
+        for candidato in proyectos_categoria:
+            if normalizado == normalize_text(candidato):
+                return categoria
+    return 'Sin categoría'
+
+
+def filtrar_valor_suelo_por_categoria(resumen_suelo: pd.DataFrame, categoria: str):
+    if categoria == 'Todas':
+        return resumen_suelo.copy()
+    if resumen_suelo.empty:
+        return resumen_suelo.copy()
+    filtrado = resumen_suelo[resumen_suelo['categoria'] == categoria].copy()
+    return filtrado.reset_index(drop=True)
 
 
 def parse_workbook(file_bytes):
@@ -828,6 +1048,56 @@ def generar_grafico_economia(proyectos, sector_seleccionado, records):
     return fig, resumen, fecha_referencia, excluidos_fecha, control_mov
 
 
+def generar_grafico_valor_suelo(registro_proyecto, source_label):
+    proyecto = registro_proyecto.get('proyecto', 'Proyecto sin nombre')
+    valores = [
+        registro_proyecto.get('valor_2022_2023'),
+        registro_proyecto.get('valor_2024'),
+        registro_proyecto.get('valor_2026'),
+    ]
+    etiquetas = ['2022-2023', '2024-2025', '2026-2027']
+    colores = ['#64748b', '#0f766e', '#b45309']
+
+    fig, ax = plt.subplots(figsize=(10.5, 6), dpi=130)
+    fig.patch.set_facecolor('white')
+
+    valores_plot = [0 if v is None or pd.isna(v) else float(v) for v in valores]
+    barras = ax.bar(etiquetas, valores_plot, color=colores, width=0.6)
+    ax.set_title(
+        f'Comparativa de valor de suelo por año\n{proyecto}',
+        fontsize=16, fontweight='bold', pad=18,
+    )
+    ax.set_ylabel('Valor de suelo promedio', fontsize=12)
+    ax.grid(axis='y', linestyle='--', alpha=0.25)
+    ax.spines['top'].set_visible(False)
+    ax.spines['right'].set_visible(False)
+
+    max_valor = max(valores_plot or [1])
+    ax.set_ylim(0, max_valor * 1.35 if max_valor > 0 else 1)
+
+    for barra, valor in zip(barras, valores):
+        if valor is None or pd.isna(valor):
+            etiqueta = 'Sin dato'
+            altura = 0
+        else:
+            altura = float(valor)
+            etiqueta = f'{altura:,.2f}'
+        ax.text(
+            barra.get_x() + barra.get_width() / 2,
+            max(altura, 0) + max_valor * 0.05 if max_valor > 0 else 0.05,
+            etiqueta,
+            ha='center', va='bottom', fontsize=11, fontweight='bold', color='#1f2937',
+        )
+
+    ax.text(
+        0.5, -0.16,
+        f'Archivo fuente: {source_label} | Se promedian los valores de todos los sectores bajo cada PROYECTO.',
+        transform=ax.transAxes, ha='center', va='top', fontsize=10, color='#64748b',
+    )
+    fig.tight_layout()
+    return fig
+
+
 def get_economia_project_filters(proyectos):
     categoria_map = {
         'Todas': None,
@@ -905,7 +1175,7 @@ def main():
         f'Datos cargados: **{source_label}** · {len(proyectos)} proyectos '
         f'({n_senderos} Senderos Seguros)'
     )
-    tab_seguridad, tab_economia = st.tabs(['SEGURIDAD', 'ECONOMIA'])
+    tab_seguridad, tab_economia, tab_valor_suelo = st.tabs(['SEGURIDAD', 'ECONOMIA', 'VALOR DE SUELO'])
 
     with tab_seguridad:
         st.subheader('Resumen de seguridad por proyecto')
@@ -946,8 +1216,15 @@ def main():
                 elif imgs['extension']:
                     st.caption('En el PDF no hay diapositiva de antes/después para este sendero (solo ficha).')
 
-        ant = st.multiselect('Años anterior', PERIODOS, default=['2024'])
-        act = st.multiselect('Años actual', PERIODOS, default=['2025'])
+        ant = st.multiselect('Años anterior', PERIODOS[:-1], default=['2024'])
+        act_options = _periodos_actuales_disponibles(ant)
+        act_default = ['2025'] if '2025' in act_options else act_options[:1]
+        act = st.multiselect('Años actual', act_options, default=act_default)
+
+        ant_max = max((_anio_base(anio) for anio in ant), default=None)
+        if ant_max is not None and any(_anio_base(anio) <= ant_max for anio in act):
+            st.warning('Los Años actual deben ser posteriores al año más alto de Años anterior.')
+            act = [anio for anio in act if _anio_base(anio) > ant_max]
 
         col1, col2, col3 = st.columns(3)
         with col1:
@@ -964,6 +1241,8 @@ def main():
                 st.warning('Selecciona al menos un año en ambos periodos.')
             elif set(ant) & set(act):
                 st.warning('No se deben repetir años en ambos periodos.')
+            elif ant and act and max(_anio_base(a) for a in act) <= max(_anio_base(a) for a in ant):
+                st.warning('Los Años actual deben ser posteriores al periodo anterior.')
             else:
                 st.info('Generando tabla comparativa...')
                 fig = generar_tabla(proyectos[proy], ant, act)
@@ -982,6 +1261,8 @@ def main():
                 st.warning('Selecciona al menos un año en ambos periodos.')
             elif set(ant) & set(act):
                 st.warning('No se deben repetir años en ambos periodos.')
+            elif ant and act and max(_anio_base(a) for a in act) <= max(_anio_base(a) for a in ant):
+                st.warning('Los Años actual deben ser posteriores al periodo anterior.')
             else:
                 st.info('Generando resumen gráfico...')
                 fig = generar_grafico_resumen(proyectos[proy], ant, act)
@@ -1106,6 +1387,99 @@ def main():
                     mime='image/png'
                 )
                 plt.close(fig)
+
+    with tab_valor_suelo:
+        st.subheader('Valor de Suelo')
+        st.caption(
+            'Esta sección agrupa todos los sectores de cada PROYECTO y compara el promedio del valor de suelo para 2022-2023, 2024-2025 y 2026-2027.'
+        )
+        valor_suelo_bytes = None
+        valor_suelo_source = None
+        valor_suelo_cache_key = None
+
+        default_valor_suelo_path = find_default_valor_suelo_excel()
+        if default_valor_suelo_path is not None:
+            valor_suelo_bytes = default_valor_suelo_path.read_bytes()
+            valor_suelo_source = default_valor_suelo_path.name
+            valor_suelo_cache_key = workbook_cache_key(valor_suelo_source, valor_suelo_bytes, default_valor_suelo_path)
+
+        if valor_suelo_bytes is None:
+            st.warning(
+                'No encontré un Excel de valor de suelo. Colócalo en data/ con un nombre como AIVAS_cruce_codigos_nuevo.xlsx o define VALOR_SUELO_EXCEL.'
+            )
+        else:
+            try:
+                valor_suelo_data = load_valor_suelo_data(valor_suelo_cache_key, valor_suelo_bytes, valor_suelo_source)
+            except Exception as exc:
+                st.error(f'No se pudo leer el Excel de valor de suelo ({valor_suelo_source}): {exc}')
+            else:
+                resumen_suelo = valor_suelo_data['resumen']
+                if not resumen_suelo.empty:
+                    resumen_suelo = resumen_suelo.copy()
+                    resumen_suelo['categoria'] = resumen_suelo['proyecto'].apply(resolve_valor_suelo_categoria)
+
+                if resumen_suelo.empty:
+                    st.warning('No se encontraron filas válidas con PROYECTO y valores de suelo en el Excel cargado.')
+                else:
+                    categoria_valor_suelo = st.selectbox(
+                        'Categoría',
+                        VALOR_SUELO_CATEGORIA_ORDER,
+                        key='categoria_valor_suelo',
+                    )
+
+                    resumen_filtrado = filtrar_valor_suelo_por_categoria(resumen_suelo, categoria_valor_suelo)
+                    if resumen_filtrado.empty:
+                        st.warning('No hay proyectos para esa categoría.')
+                    else:
+                        st.caption(
+                            f'Categoría seleccionada: **{categoria_valor_suelo}** · {len(resumen_filtrado)} proyectos disponibles'
+                        )
+
+                        proyecto_valor_suelo = st.selectbox(
+                            'Proyecto',
+                            resumen_filtrado['proyecto'].tolist(),
+                            key='proyecto_valor_suelo',
+                        )
+
+                        fila_proyecto = resumen_filtrado.loc[resumen_filtrado['proyecto'] == proyecto_valor_suelo].iloc[0]
+                        fig = generar_grafico_valor_suelo(fila_proyecto, valor_suelo_source)
+                        mostrar_figura_alta_res(fig, dpi_pantalla=220)
+
+                        col1, col2, col3 = st.columns(3)
+                        with col1:
+                            st.metric('2022-2023', 'Sin dato' if pd.isna(fila_proyecto['valor_2022_2023']) else f"{fila_proyecto['valor_2022_2023']:,.2f}")
+                        with col2:
+                            st.metric('2024-2025', 'Sin dato' if pd.isna(fila_proyecto['valor_2024']) else f"{fila_proyecto['valor_2024']:,.2f}")
+                        with col3:
+                            st.metric('2026-2027', 'Sin dato' if pd.isna(fila_proyecto['valor_2026']) else f"{fila_proyecto['valor_2026']:,.2f}")
+
+                        detalle_proyecto = pd.DataFrame(valor_suelo_data['records'])
+                        detalle_proyecto = detalle_proyecto[detalle_proyecto['proyecto_raw'] == fila_proyecto['proyecto']]
+                        if not detalle_proyecto.empty:
+                            st.markdown('#### Sectores utilizados en el promedio')
+                            st.dataframe(
+                                detalle_proyecto[['descripcion_raw', 'valor_2022_2023', 'valor_2024', 'valor_2026']].rename(
+                                    columns={
+                                        'descripcion_raw': 'DESCRIPCION',
+                                        'valor_2022_2023': '2022-2023',
+                                        'valor_2024': '2024-2025',
+                                        'valor_2026': '2026-2027',
+                                    }
+                                ),
+                                use_container_width=True,
+                                hide_index=True,
+                            )
+
+                        buf = io.BytesIO()
+                        fig.savefig(buf, format='png', dpi=300, bbox_inches='tight', facecolor='white')
+                        buf.seek(0)
+                        st.download_button(
+                            '⬇️ Descargar gráfico de valor de suelo (PNG)',
+                            data=buf.getvalue(),
+                            file_name=f'{proyecto_valor_suelo}_valor_de_suelo.png',
+                            mime='image/png',
+                        )
+                        plt.close(fig)
 
 
 if __name__ == '__main__':

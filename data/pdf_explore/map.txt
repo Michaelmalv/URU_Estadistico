@@ -1,0 +1,87 @@
+--- p8 ['FICHA'] ---
+SENDEROS SEGUROS 2024 | AV. PATRIA | EPMMOP | Av. Patria | Monto de Inversión:  $ 712.639 | Fecha de entrega de obra: 25 de enero de 2024 | Beneﬁciarios: 200 mil habitantes | Empresa / Contratista: EPMMOP
+
+--- p9 ['ANTES_DESPUES'] ---
+SENDEROS SEGUROS 2024 | EPMMOP | Av. Patria | ANTES | DESPUÉS
+
+--- p10 ['FICHA'] ---
+SENDEROS SEGUROS 2024 | Particularidades | ▪ | Calzada de 4 carriles con parterre central, dos por cada sentido | ▪ | Combina arquitectura moderna y tradicional, los cuales tienen un valor | histórico o cultural importante para la ciudad. | ▪
+
+--- p11 ['ANTES_DESPUES'] ---
+ANTES | DESPUÉS | SENDEROS SEGUROS 2024
+
+--- p12 ['FICHA'] ---
+SENDEROS SEGUROS 2024 | Adm. Zonal Los Chillos | EL TINGO-Av. Ilaló-Intervalles | Particularidades | ▪ | Aceras angostas, un punto crítico en la interrupción de la acera junto | al puente vehicular sobre la quebrada. | ▪
+
+--- p13 ['ANTES_DESPUES'] ---
+ANTES | DESPUÉS | SENDEROS SEGUROS 2024
+
+--- p14 ['FICHA'] ---
+Particularidades | ▪ | Cometimiento de delitos. | ▪ | Presencia de equipamientos: Unidad Educativa Abdón | Calderón, Tribuna del sur, parques. | ▪ | Presencia de comerciantes informales
+
+--- p15 ['ANTES_DESPUES'] ---
+ANTES | SENDEROS SEGUROS 2024 | ANTES | DESPUÉS
+
+--- p16 ['FICHA'] ---
+Francisco | Particularidades | ▪ | Cometimiento de delitos. | ▪ | Presencia de equipamientos: Unidad Educativa Jesús de | Nazareth, Parque Central, UPC, Super AKI. | ▪
+
+--- p17 ['ANTES_DESPUES'] ---
+ANTES | ANTES | SENDEROS SEGUROS 2024 | ANTES | DESPUÉS
+
+--- p18 ['FICHA'] ---
+Particularidades | ▪ | Cometimiento de delitos. | ▪ | Presencia | de | equipamientos: | Iglesia
+
+--- p19 ['ANTES_DESPUES'] ---
+SENDEROS SEGUROS 2024 | ANTES | DESPUÉS
+
+--- p20 ['FICHA'] ---
+Particularidades | ▪ | Presencia de comercio formal e informal. | ▪ | Libadores en el espacio público | ▪ | Presencia de equipamientos: Casa Somos, Parque Central | Carapungo, Centro de salud, Unidades Educativas.
+
+--- p21 ['ANTES_DESPUES'] ---
+ANTES | ANTES | SENDEROS SEGUROS 2024 | ANTES | DESPUÉS
+
+--- p22 ['FICHA'] ---
+Particularidades | ▪ | Cometimiento de delitos. | ▪ | Libadores en el espacio público. | ▪ | Presencia de equipamientos: Casa Somos, UPC, | Unidades educativas, Parque, Canchas barriales.
+
+--- p23 ['ANTES_DESPUES'] ---
+ANTES | ANTES | SENDEROS SEGUROS 2024 | ANTES | DESPUÉS
+
+--- p24 ['FICHA'] ---
+SENDEROS SEGUROS 2024 | Adm. Zonal Eugenio Espejo | Parque Isla Tortuga | Particularidades | ▪ | Estación Metro Jipijapa. | ▪ | Cometimiento de delitos.
+
+--- p25 ['ANTES_DESPUES'] ---
+ANTES | SENDEROS SEGUROS 2024 | ANTES | DESPUÉS
+
+--- p26 ['FICHA'] ---
+Particularidades | ▪ | Presencia de comercio informal. | ▪ | Cometimiento de delitos. | ▪ | Libadores en el espacio público | ▪
+
+--- p27 ['ANTES_DESPUES'] ---
+ANTES | DESPUÉS | ANTES | SENDEROS SEGUROS 2024 | ANTES | DESPUÉS
+
+--- p29 ['FICHA'] ---
+Particularidades | ▪ | Zona de alta actividad económica. | ▪ | Presencia de comercio informal. | ▪ | Cometimiento de delitos. | ▪
+
+--- p30 ['FICHA'] ---
+Particularidades | ▪ | Zona de alta actividad económica. | ▪ | Presencia de comercio informal a gran escala. | ▪ | Cometimiento de delitos. | ▪
+
+--- p31 ['FICHA'] ---
+Particularidades | ▪ | Zona de alta actividad económica. | ▪ | Presencia de comercio informal. | ▪ | Cometimiento de delitos. | ▪
+
+--- p32 ['FICHA'] ---
+Particularidades | ▪ | Zona de alta actividad económica. | ▪ | Presencia de comercio informal. | ▪ | Cometimiento de delitos. | ▪
+
+--- p33 ['FICHA'] ---
+Particularidades | ▪ | Cometimiento de delitos. | ▪ | Libadores en el espacio público | ▪ | Falta de iluminación peatonal. | ▪
+
+--- p34 ['FICHA'] ---
+Particularidades | ▪ | Zona de alta actividad económica. | ▪ | Presencia de comercio informal a gran escala. | ▪ | Cometimiento de delitos. | ▪
+
+--- p35 ['FICHA'] ---
+Particularidades | ▪ | Zona de alta actividad económica. | ▪ | Presencia de comercio informal a gran escala. | ▪ | Cometimiento de delitos. | ▪
+
+--- p36 ['FICHA'] ---
+Particularidades | ▪ | Zona de alta actividad económica. | ▪ | Cometimiento de delitos. | ▪ | Falta de iluminación peatonal. | ▪
+
+--- p37 ['FICHA'] ---
+Particularidades | ▪ | Cometimiento de delitos. | ▪ | Libadores en el espacio público | ▪ | Falta de iluminación peatonal. | ▪
+
