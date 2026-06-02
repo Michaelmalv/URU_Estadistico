@@ -924,43 +924,55 @@ def export_csv(proyectos):
     return df
 
 
-_FICHA_CSS = """
+def _ficha_css():
+    tema_base = str(st.get_option('theme.base') or '').lower()
+    if tema_base == 'dark':
+        label_color = '#d2deec'
+        value_color = '#ffffff'
+        title_color = '#ffffff'
+        border_color = 'rgba(255, 255, 255, 0.18)'
+        card_bg = 'rgba(15, 23, 42, 0.90)'
+        title_bg = 'rgba(59, 130, 246, 0.14)'
+        title_border = 'rgba(148, 163, 184, 0.30)'
+    else:
+        label_color = '#334155'
+        value_color = '#0f172a'
+        title_color = '#0f172a'
+        border_color = 'rgba(148, 163, 184, 0.55)'
+        card_bg = 'rgba(248, 250, 252, 0.92)'
+        title_bg = 'rgba(59, 130, 246, 0.06)'
+        title_border = 'rgba(148, 163, 184, 0.32)'
+
+    return f"""
 <style>
-.ficha-sendero-grid {
+.ficha-sendero-grid {{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 1rem 1.75rem;
     margin-top: 0.5rem;
-}
-.ficha-campo { display: flex; flex-direction: column; gap: 0.25rem; min-width: 0; }
-.ficha-label {
-    font-size: 0.75rem; color: #64748b; font-weight: 600;
+    padding: 1rem 1rem 0.9rem;
+    border: 1px solid {border_color};
+    border-radius: 12px;
+    background: {card_bg};
+}}
+.ficha-campo {{ display: flex; flex-direction: column; gap: 0.25rem; min-width: 0; }}
+.ficha-label {{
+    font-size: 0.74rem; color: {label_color}; font-weight: 700;
     text-transform: uppercase; letter-spacing: 0.03em;
-}
-.ficha-valor {
-    font-size: 1.05rem; color: #0f172a; line-height: 1.45;
+}}
+.ficha-valor {{
+    font-size: 1.08rem; color: {value_color}; line-height: 1.45; font-weight: 600;
     word-wrap: break-word; overflow-wrap: anywhere;
-}
-.ficha-titulo-anio {
-    font-size: 1rem; font-weight: 700; color: #1e3a5f;
-    margin-bottom: 0.75rem; padding-bottom: 0.5rem;
-    border-bottom: 2px solid #e2e8f0;
-}
-</style>
-
-<style>
-/* Dark mode overrides to ensure readable contrast */
-@media (prefers-color-scheme: dark) {
-  .ficha-label { color: #93c5fd !important; }
-  .ficha-valor { color: #e6eef8 !important; }
-  .ficha-titulo-anio { color: #ffffff !important; border-bottom-color: rgba(255,255,255,0.08) !important; }
-  .ficha-sendero-grid { color: #e6eef8 !important; }
-}
+}}
 </style>
 
 """
 def render_ficha_sendero(ficha: dict, proyecto: dict):
     """Muestra la ficha sin truncar valores largos (p. ej. presupuesto)."""
+    titulo_color = '#ffffff'
+    titulo_bg = '#1d4ed8'
+    titulo_border = '#1e40af'
+
     label_fecha = 'Fecha entrega' if ficha['anio'] == 2024 else 'Fecha inauguración'
     campos = [
         ('Ejecutor', ficha['ejecutor']),
@@ -982,9 +994,17 @@ def render_ficha_sendero(ficha: dict, proyecto: dict):
         for lbl, valor in campos
     )
     titulo = html.escape(f'Matriz Senderos Seguros {ficha["anio"]} — {ficha["nombre"]}')
+    titulo_html = (
+        f'<div style="display:inline-block; color:{titulo_color} !important; '
+        f'background:{titulo_bg} !important; border:1px solid {titulo_border} !important; '
+        'border-radius:10px; padding:0.45rem 0.75rem 0.5rem; '
+        'font-size:1.02rem; font-weight:800; line-height:1.2; '
+        'text-shadow:none; box-shadow:0 1px 0 rgba(0, 0, 0, 0.12);">'
+        f'{titulo}</div>'
+    )
     st.markdown(
-        _FICHA_CSS
-        + f'<div class="ficha-titulo-anio">{titulo}</div>'
+        _ficha_css()
+        + f'<div style="margin-bottom:0.75rem;">{titulo_html}</div>'
         + f'<div class="ficha-sendero-grid">{celdas}</div>',
         unsafe_allow_html=True,
     )
