@@ -6,7 +6,6 @@ import re
 import textwrap
 import unicodedata
 from datetime import date, datetime
-from functools import partial
 from pathlib import Path
 
 import matplotlib.gridspec as gridspec
@@ -52,11 +51,6 @@ def _periodos_actuales_disponibles(anios_anterior):
     return [anio for anio in PERIODOS if _anio_base(anio) > max_anterior]
 
 
-def guardar_seleccion_seguridad(categoria: str, select_key: str):
-    st.session_state['seguridad_categoria_seleccionada'] = categoria
-    st.session_state['seguridad_proyecto_seleccionado'] = st.session_state.get(select_key)
-
-
 BASE_DIR = Path(__file__).resolve().parent
 DATA_DIR = BASE_DIR / 'data'
 DEFAULT_EXCEL_NAMES = (
@@ -100,290 +94,158 @@ MOVIMIENTO_HEADER_CANDIDATES = (
     'tipo de movimiento', 'proceso', 'movimiento', 'tipo movimiento'
 )
 IMPRESION_HEADER_CANDIDATES = (
-    'fecha de impresion', 'fecha de impresión', 'impresion', 'impresión',
-    'fecha impresion', 'fecha impresión'
-)
-VALOR_SUELO_HEADER_CANDIDATES = (
-    'proyecto', 'descripcion', 'descripción', '2022-2023', '2024', '2026'
-)
-PROYECTO_SUELO_HEADER_CANDIDATES = ('proyecto',)
-DESCRIPCION_SUELO_HEADER_CANDIDATES = ('descripcion', 'descripción')
-VALOR_SUELO_2022_HEADER_CANDIDATES = ('2022-2023', '2022 2023', '2022_2023')
-VALOR_SUELO_2024_HEADER_CANDIDATES = ('2024',)
-VALOR_SUELO_2026_HEADER_CANDIDATES = ('2026',)
+        with tab_informacion:
+                st.subheader('Información')
+                st.info(
+                        'Esta página ofrece un resumen de los principales ejes de intervención institucional.'
+                )
+                st.markdown('''
+**El Nuevo Paradigma Urbano
+de Quito**
 
-VALOR_SUELO_CATEGORIAS = {
-    'Zonas Metro': [
-        'AIVAS EL EJIDO',
-        'AIVAS ALAMEDA',
-        'AIVAS CARDENAL DE LA TORRE',
-        'AIVAS EL LABRADOR',
-        'AIVAS EL RECREO',
-        'AIVAS IÑAQUITO',
-        'AIVAS JIPIJAPA',
-        'AIVAS LA CAROLINA',
-        'AIVAS LA MAGDALENA',
-        'AIVAS LA PRADERA',
-        'AIVAS MORAN VALVERDE',
-        'AIVAS QUITUMBE',
-        'AIVAS SAN FRANCISCO',
-        'AIVAS SOLANDA',
-        'AIVAS UNIVERSIDAD CENTRAL',
-    ],
-    'Rehabilitación del Espacio Público y Centro Histórico': [
-        'AIVAS PARQUE NAVARRO',
-        'AIVAS BENALCAZAR',
-        'AIVAS ROCAFUERTE',
-        'AIVAS TRIBUNA DE LOS SHYRIS',
-    ],
-    'Senderos Seguros': [
-        'AIVAS AV. AJAVÍ',
-        'AIVAS LA ECUATORIANA',
-        'AIVAS CALLE RUIZ DE CASTILLA',
-        'AIVAS CALLE RÍO DE JANEIRO',
-        'AIVAS COMITÉ DEL PUEBLO',
-        'AIVAS LA MARISCAL',
-        'AIVAS RAMÓN BORJA',
-        'AIVAS AV. 2 DE AGOSTO',
-        'AIVAS AV. CARAPUNGO',
-        'AIVAS COLINAS DEL NORTE',
-        'AIVAS CALLE CALDAS Y ANTEPARA',
-        'AIVAS CALLE JUAN MONTALVO',
-        'AIVAS CALLE GABRIEL GARCÍA MORENO',
-        'AIVAS CALLE LIZARDO RUIZ',
-        'AIVAS VÍAS DEL FERROCARRIL',
-        'AIVAS AV. CACHA',
-        'AIVAS CONOCOTO',
-        'AIVAS NANEGALITO',
-        'AIVAS PATRIA',
-        'AIVAS AV. MICHELENA',
-        'AIVAS CALLE LUIS LÓPEZ',
-        'AIVAS AV. COLÓN',
-        'AIVAS ISLA TORTUGA',
-    ],
-}
-VALOR_SUELO_CATEGORIA_ORDER = [
-    'Todas',
-    'Zonas Metro',
-    'Rehabilitación del Espacio Público y Centro Histórico',
-    'Senderos Seguros',
-]
+La transformación urbana de la capital se fundamenta en los principios de
+urbanismo democrático, hábitat sostenible, acceso universal al espacio público
+y justicia urbano-rural. Con el inicio de operaciones del Metro de Quito —que
+conecta la ciudad de norte a sur en solo 34 minutos— surgió la necesidad
+crítica de reconfigurar la superficie.
 
-PORTAL_TITLE = 'PORTAL DE EVALUACIÓN DE PROYECTOS ESTRATÉGICOS'
-PORTAL_SUBTITLE = 'DIRECCIÓN DE DESARROLLO URBANÍSTICO'
-HEADER_IMAGE_CANDIDATES = (
-    DATA_DIR / 'header.png',
-    DATA_DIR / 'header.jpg',
-    DATA_DIR / 'header.jpeg',
-    DATA_DIR / 'header.webp',
-)
+El objetivo central es invertir la pirámide de la movilidad, priorizando al peatón
+y recuperando los entornos urbanos de las estaciones para transformarlos en
+espacios dignos, inclusivos y seguros que mejoren la accesibilidad universal.
 
+**[Imagen Recomendada 1]:**
+__Dejar espacio para imagen: (inserta aquí la imagen más tarde)__
 
-def render_portal_header():
-    for image_path in HEADER_IMAGE_CANDIDATES:
-        if image_path.is_file():
-            st.image(str(image_path), use_container_width=True)
-            st.markdown(
-                """
-                <div style="margin-top:0.6rem; padding:0.4rem 0 0.8rem 0;">
-                  <h1 style="margin:0; font-size:32px; line-height:1.05; letter-spacing:0.02em; color:#24367f; text-transform:uppercase;">PORTAL DE EVALUACIÓN DE PROYECTOS ESTRATÉGICOS</h1>
-                  <p style="margin:6px 0 0; font-size:12px; color:#56607c; text-transform:uppercase; font-weight:700;">DIRECCIÓN DE DESARROLLO URBANÍSTICO</p>
-                </div>
-                """,
-                unsafe_allow_html=True,
-            )
-            return
-    st.warning('Falta la imagen del header. Coloca el archivo en data/header.png para mostrarla en el inicio.')
+**Senderos Seguros**
 
+Los Senderos Seguros son corredores de circulación diseñados estratégicamente para
+mejorar la percepción de seguridad en el espacio público, mitigar los índices
+delictivos y promover el flujo de transeúntes en zonas identificadas como
+vulnerables. Su origen se inspira en proyectos exitosos de ciudades como
+México, adaptados a la realidad de la capital ecuatoriana para erradicar
+problemáticas como el acoso y la violencia de género en las calles.
 
-def find_default_excel():
-    """Busca el Excel local: variable de entorno, nombres por defecto o cualquier .xlsx en data/."""
-    env_path = os.environ.get('SEGURIDAD_EXCEL')
-    if env_path:
-        path = Path(env_path).expanduser().resolve()
-        if path.is_file():
-            return path
-    for name in DEFAULT_EXCEL_NAMES:
-        path = DATA_DIR / name
-        if path.is_file():
-            return path
-    if DATA_DIR.is_dir():
-        files = sorted(DATA_DIR.glob('*.xlsx'))
-        if files:
-            return files[0]
-    return None
+**Metodología de Identificación y Priorización**
 
+Para identificar los corredores que requieren intervención prioritaria, las
+secretarías metropolitanas analizan el territorio utilizando una matriz técnica
+basada en **6 dimensiones urbanas y 18 indicadores**:
 
-@st.cache_data(show_spinner='Cargando datos del Excel…')
-def load_workbook_data(cache_key: str, file_bytes: bytes):
-    return parse_workbook(file_bytes)
+- **Seguridad ciudadana:** Monitoreo de actos delictivos (robos a personas),
+    focos de venta de droga y estadísticas de atropellamientos a transeúntes.
 
+- **Equidad socioespacial:** Densidad poblacional, cercanía a unidades educativas,
+    equipamientos de salud y Necesidades Básicas Insatisfechas (NBI).
 
-@st.cache_data(show_spinner='Cargando datos económicos…')
-def load_economia_data(cache_key: str, file_bytes: bytes, source_label: str):
-    return parse_economia_workbook(file_bytes, source_label)
+- **Perspectiva de género:** Reportes administrativos de violencia de género y
+    acoso en la vía pública.
 
+- **Sostenibilidad urbana:** Índices de uso de suelo múltiple, uso residencial
+    urbano de alta densidad (RUA) y presencia de áreas verdes.
 
-@st.cache_data(show_spinner='Cargando datos de valor de suelo…')
-def load_valor_suelo_data(cache_key: str, file_bytes: bytes, source_label: str):
-    return parse_valor_suelo_workbook(file_bytes, source_label)
+- **Capital social:** Proximidad y articulación con centros comunitarios como
+    Casas Somos, Centros de Desarrollo Infantil (CDI) y Centros de Equidad y Justicia (CEJ).
 
+- **Acceso a transporte público:** Conectividad e intermodalidad con paradas
+    del Metro, paradas de Buses de Tránsito Rápido (BTR) y paradas de buses convencionales.
 
-def workbook_cache_key(source_label: str, file_bytes: bytes, file_path: Path | None = None):
-    if file_path is not None:
-        stat = file_path.stat()
-        return f'file:{file_path}:{stat.st_mtime_ns}:{stat.st_size}'
-    digest = hashlib.md5(file_bytes).hexdigest()
-    return f'upload:{source_label}:{digest}'
+**[Imagen Recomendada 2]:** __Dejar espacio para imagen: (inserta aquí la imagen más tarde)__
 
+**Tipos de Intervención en el Territorio**
 
-def safe_float(v):
-    if v is None or str(v).strip() in ('', '-'):
-        return None
-    try:
-        return float(v)
-    except:
-        return None
+Las obras se dividen en dos líneas de acción complementarias:
 
+1. **Físicas Permanentes:** Ampliación geométrica de aceras, soterramiento de
+     cables de servicios, instalación de baldosas podotáctiles (guía y advertencia)
+     para accesibilidad universal, iluminación con tecnología LED, contenedores
+     para separación de desechos y pacificación vial mediante estrategias de
+     calmado de tránsito como orejas de elefante o resaltos peatonales.
 
-def normalize_text(value):
-    if value is None:
-        return ''
-    text = str(value).strip().lower()
-    text = unicodedata.normalize('NFKD', text).encode('ascii', 'ignore').decode('ascii')
-    text = re.sub(r'[^a-z0-9]+', ' ', text)
-    text = re.sub(r'\s+', ' ', text)
-    return text
+2. **De Reactivación Itinerante o Permanente:** Aplicación de urbanismo táctico
+     con diseños coloridos sobre las calzadas, galerías de murales artísticos,
+     ferias de producción cultural y activación de circuitos económicos locales en
+     coordinación con la comunidad.
 
+**Proyectos Emblemáticos Ejecutados**
 
-def parse_flexible_date(value):
-    if value is None:
-        return None
-    if isinstance(value, pd.Timestamp):
-        value = value.to_pydatetime()
-    if isinstance(value, datetime):
-        return {
-            'date': value.date(),
-            'year': value.year,
-            'month': value.month,
-            'day': value.day,
-            'precision': 'date',
-            'raw': value,
-        }
-    if isinstance(value, date):
-        return {
-            'date': value,
-            'year': value.year,
-            'month': value.month,
-            'day': value.day,
-            'precision': 'date',
-            'raw': value,
-        }
-    if isinstance(value, (int, float)) and not pd.isna(value):
-        year = int(value)
-        if 1900 <= year <= 2100 and abs(float(value) - year) < 1e-6:
-            return {
-                'date': date(year, 1, 1),
-                'year': year,
-                'month': None,
-                'day': None,
-                'precision': 'year',
-                'raw': value,
-            }
-        return None
+- **Av. Patria (1,270 m):** Rediseño integral de aceras, soterramiento de cables,
+    iluminación LED de alta potencia, paisajismo con plantas endémicas y la construcción
+    de la Plaza de la Memoria. Beneficia a más de 200,000 habitantes.
 
-    text = str(value).strip()
-    if not text or normalize_text(text) in ('no', 'nan', 'none', '-', '—'):
-        return None
+- **Av. Colón (2,000 m):** Eje multimodal que articula el transporte público. Incluye
+    reformas geométricas para accesibilidad, alcorques para arbolado urbano, luminarias
+    solares y sistemas de videovigilancia.
 
-    dt = pd.to_datetime(text, dayfirst=True, errors='coerce')
-    if pd.notna(dt):
-        return {
-            'date': dt.date(),
-            'year': dt.year,
-            'month': dt.month,
-            'day': dt.day,
-            'precision': 'date',
-            'raw': text,
-        }
+- **Intervenciones Zonales:** Proyectos adaptados a las particularidades de cada
+    sector en El Tingo (Los Chillos), Av. Michelena (Eloy Alfaro), Chillogallo (Quitumbe),
+    Caldas y Antepara (Manuela Sáenz), Av. Carapungo (Calderón) e Isla Tortuga (Eugenio Espejo).
 
-    norm = normalize_text(text)
-    m = re.search(r'(?P<day>\d{1,2})\s*(?:de\s*)?(?P<month>[a-zñ]+)\s*(?:de\s*)?(?P<year>\d{4})', norm)
-    if m:
-        month = MONTHS_ES.get(m.group('month'))
-        if month:
-            year = int(m.group('year'))
-            day = int(m.group('day'))
-            try:
-                dt = date(year, month, day)
-                return {
-                    'date': dt,
-                    'year': year,
-                    'month': month,
-                    'day': day,
-                    'precision': 'date',
-                    'raw': text,
-                }
-            except ValueError:
-                pass
+**[Imagen Recomendada 3]:** __Dejar espacio para imagen: (inserta aquí la imagen más tarde)__
 
-    m = re.search(r'(?P<month>[a-zñ]+)\s+(?P<year>\d{4})', norm)
-    if m:
-        month = MONTHS_ES.get(m.group('month'))
-        if month:
-            year = int(m.group('year'))
-            try:
-                dt = date(year, month, 1)
-                return {
-                    'date': dt,
-                    'year': year,
-                    'month': month,
-                    'day': None,
-                    'precision': 'month',
-                    'raw': text,
-                }
-            except ValueError:
-                pass
+**Zonas Metro**
 
-    m = re.search(r'\b(19|20)\d{2}\b', norm)
-    if m:
-        year = int(m.group(0))
-        return {
-            'date': date(year, 1, 1),
-            'year': year,
-            'month': None,
-            'day': None,
-            'precision': 'year',
-            'raw': text,
-        }
+Para ordenar la alta concentración peatonal y el flujo masivo en los exteriores de
+las estaciones del Metro de Quito, se diseñó un modelo de ordenamiento físico-espacial
+que divide los accesos en tres zonas concéntricas:
 
-    return None
+- **Zona A - Aglomeración:** El área colindante inmediata a la boca de ingreso del Metro.
+- **Zona B - Concentración:** Franja o área de amortiguamiento urbano donde se permite
+    la instalación regulada de mobiliario confortable (bancas, basureros, iluminación).
+- **Zona C - Dispersión:** Área abierta perimetral idónea para señalética, casetas de
+    comerciantes regularizados y paradas de transporte complementario.
 
+**[Imagen Recomendada 4]:** __Dejar espacio para imagen: (inserta aquí la imagen más tarde)__
 
-def match_column_name(headers, candidates):
-    normalized_headers = [normalize_text(h) for h in headers]
-    normalized_candidates = [normalize_text(c) for c in candidates]
-    for candidate in normalized_candidates:
-        for idx, header in enumerate(normalized_headers):
-            if header == candidate or candidate in header or header in candidate:
-                return idx
-    return None
+**Tótems de Identidad Metropolitana**
 
+Cada estación cuenta con un hito vertical unificado de **4.04 metros de altura** y
+0.70 metros de ancho que integra:
 
-def find_header_row(rows, candidates, limit=20):
-    for idx, row in enumerate(rows[:limit]):
-        normalized = ' | '.join(normalize_text(cell) for cell in row if cell is not None)
-        if any(normalize_text(candidate) in normalized for candidate in candidates):
-            return idx
-    return None
+- Logo iconográfico de la estación y su nombre visible a larga distancia.
+- Mapas del sector y de la red del sistema para la orientación del usuario.
+- **Mapa Háptico** con texturas y relieves braille para accesibilidad universal.
+- Espacios inferiores destinados a paneles informativos o publicidad regulada.
 
+**[Imagen Recomendada 5]:** __Dejar espacio para imagen: (inserta aquí la imagen más tarde)__
 
-def parse_economia_workbook(file_bytes, source_label):
-    wb = openpyxl.load_workbook(io.BytesIO(file_bytes), read_only=True, data_only=True)
-    ws = wb.active
-    rows = list(ws.iter_rows(values_only=True))
-    header_row_idx = find_header_row(rows, SECTOR_HEADER_CANDIDATES + MOVIMIENTO_HEADER_CANDIDATES + IMPRESION_HEADER_CANDIDATES)
-    if header_row_idx is None:
+**Rehabilitación del Espacio Público (Centro Histórico)**
+
+El plan de revitalización urbana busca devolver las calles al peatón, recuperando la
+memoria histórica y promoviendo la reactivación comercial, turística y cultural tanto
+de día como de noche.
+
+**Intervención en la Calle Benalcázar (Plaza de San Francisco)**
+
+Se modificó la sección vial tradicional mediante la **ampliación de la plataforma peatonal**
+en el primer tramo de la Av. Benalcázar, eliminando las plazas de estacionamiento vehicular.
+
+**[Imagen Recomendada 6]:** __Dejar espacio para imagen: (inserta aquí la imagen más tarde)__
+
+**Recuperación del Viaducto de la 24 de Mayo**
+
+Transformación integral de la infraestructura del viaducto subterráneo para conectar de forma
+segura la superficie con el transporte masivo, incluyendo bahía técnica y túnel peatonal.
+
+**[Imagen Recomendada 7]:** __Dejar espacio para imagen: (inserta aquí la imagen más tarde)__
+
+**Bicentenario**
+
+La repotenciación de las **105 hectáreas** del antiguo aeropuerto representa el proyecto de renovación
+y revitalización urbana más ambicioso del Distrito Metropolitano.
+
+**[Imagen Recomendada 8]:** __Dejar espacio para imagen: (inserta aquí la imagen más tarde)__
+
+**Sección Técnica: Parámetros de Diseño en Aceras (Para Profesionales o Descargas)**
+
+Para mantener una imagen urbana homogénea, inclusiva y ordenada, la normativa técnica establece zonas
+funcionales en las aceras:
+
+- **Banda de Circulación (BC):** Tránsito peatonal libre de obstáculos y adoquín podotáctil de guía.
+- **Banda de Equipamiento (BE):** Mobiliario urbano, alumbrado y jardineras.
+- **Banda de Seguridad (BS):** Franja de demarcación física entre peatón y calzada.
+
+**[Imagen Recomendada 9]:** __Dejar espacio para imagen: (inserta aquí la imagen más tarde)__
+''')
         header_row_idx = 0
     headers = list(rows[header_row_idx]) if rows else []
     sector_idx = match_column_name(headers, SECTOR_HEADER_CANDIDATES)
@@ -666,53 +528,11 @@ def parse_workbook(file_bytes):
             tasas_excel[llave] = {var: safe_float(row[c + i] if c + i < len(row) else None)
                                   for i, var in enumerate(ALL_VARS)}
 
-        # Proyección 2026 más razonada:
-        # - Si hay datos de 2026 (parciales), usamos el promedio mensual observado en 2026
-        #   y lo combinamos con el promedio mensual del año anterior disponible (2025, 2024, 2023)
-        #   para estimar los meses faltantes. Esto incorpora la tendencia reciente.
-        proyeccion_2026 = {}
-        for var in ALL_VARS:
-            val_2026_obs = anios.get('2026*', {}).get(var)
-            if val_2026_obs is None:
-                proyeccion_2026[var] = None
-                continue
-
-            # promedio mensual observado en 2026 (con los meses disponibles)
-            try:
-                mensual_2026_obs = float(val_2026_obs) / float(MESES_2026)
-            except Exception:
-                mensual_2026_obs = None
-
-            # calcular promedio mensual del periodo previo usando media móvil 2023-2025
-            prev_vals = []
-            for candidate in ('2023', '2024', '2025'):
-                prev_val = anios.get(candidate, {}).get(var)
-                if prev_val is not None:
-                    try:
-                        prev_vals.append(float(prev_val))
-                    except Exception:
-                        continue
-            mensual_prev = None
-            if prev_vals:
-                mensual_prev = (sum(prev_vals) / len(prev_vals)) / 12.0
-
-            if mensual_prev is None:
-                # sin referencia previa, escala clásica (fallback)
-                if mensual_2026_obs is None:
-                    proyeccion_2026[var] = None
-                else:
-                    proyeccion_2026[var] = mensual_2026_obs * 12.0
-                continue
-
-            # aplicar factor de tendencia: ratio entre lo observado en 2026 y el mensual previo
-            if mensual_prev > 0 and mensual_2026_obs is not None:
-                tendencia = mensual_2026_obs / mensual_prev
-            else:
-                tendencia = 1.0
-
-            meses_restantes = 12 - MESES_2026
-            proyectado_restante = mensual_prev * tendencia * meses_restantes
-            proyeccion_2026[var] = val_2026_obs + proyectado_restante
+        proyeccion_2026 = {
+            var: (anios['2026*'][var] * 12 / MESES_2026
+                  if anios['2026*'][var] is not None else None)
+            for var in ALL_VARS
+        }
 
         tiene_datos = any(any(v is not None for v in d.values()) for d in anios.values())
         tiene_metadatos = any(str(row[i] or '').strip() for i in (2, 3, 4))
@@ -890,8 +710,8 @@ def generar_grafico_resumen(p, anios_ant, anios_act):
             k26 = todos.index('2026*')
             offset26 = (k26 - n / 2 + .5) * w
             for j, var in enumerate(vlist):
-                real = p.get('anios', {}).get('2026*', {}).get(var) or 0
-                proy = p.get('proyeccion_2026', {}).get(var) or 0
+                real = p['anios']['2026*'].get(var) or 0
+                proy = p['proyeccion_2026'].get(var) or 0
                 if proy > real:
                     ax.bar(
                         x[j] + offset26, proy - real, width=w * .9,
@@ -901,6 +721,27 @@ def generar_grafico_resumen(p, anios_ant, anios_act):
                         x[j] + offset26, proy + max_val * 0.04, f'~{int(proy)}',
                         ha='center', va='bottom', fontsize=10, color='#1e8449',
                     )
+
+        techo = max(max_val * 1.45, 1)
+        for j, var in enumerate(vlist):
+            va_v = p['anios'][anio_ref_ant].get(var)
+            vb_v = p['anios'][anio_ref_act].get(var)
+            t = tasa_calc(va_v, vb_v)
+            if t is None:
+                continue
+            flecha = '↑' if t > 0 else '↓'
+            color = '#c0392b' if t > 0 else '#27ae60'
+            ax.text(
+                x[j], techo * 0.96, f'{flecha}{abs(t * 100):.0f}%',
+                ha='center', va='top', fontsize=12, fontweight='bold', color=color,
+            )
+
+        ancho_etiq = 16 if len(vlist) >= 6 else 20
+        etiq = [_etiqueta_grafico(v, ancho_etiq) for v in vlist]
+        ax.set_xticks(x)
+        ax.set_xticklabels(etiq, fontsize=11, rotation=30, ha='right')
+        ax.set_title(titulo, fontsize=14, backgroundcolor='#2c3e50', color='white', pad=12)
+        ax.set_ylim(0, techo)
         ax.legend(fontsize=11, loc='upper left', framealpha=0.9)
         ax.margins(x=0.06)
         ax.tick_params(axis='x', pad=10)
@@ -911,52 +752,6 @@ def generar_grafico_resumen(p, anios_ant, anios_act):
     fig.tight_layout(rect=[0, 0.02, 1, 0.97], h_pad=4.0)
     fig.subplots_adjust(hspace=0.45)
     return fig
-
-
-def compute_proyeccion_for_proyecto(p):
-    """Recalcula la proyección 2026 para un único proyecto `p` usando la lógica refinada.
-    Devuelve un dict variable->valor proyectado.
-    """
-    anios = p.get('anios', {})
-    proyeccion_2026 = {}
-    for var in ALL_VARS:
-        val_2026_obs = anios.get('2026*', {}).get(var)
-        if val_2026_obs is None:
-            proyeccion_2026[var] = None
-            continue
-        try:
-            mensual_2026_obs = float(val_2026_obs) / float(MESES_2026)
-        except Exception:
-            mensual_2026_obs = None
-
-        prev_vals = []
-        for candidate in ('2023', '2024', '2025'):
-            prev_val = anios.get(candidate, {}).get(var)
-            if prev_val is not None:
-                try:
-                    prev_vals.append(float(prev_val))
-                except Exception:
-                    continue
-        mensual_prev = None
-        if prev_vals:
-            mensual_prev = (sum(prev_vals) / len(prev_vals)) / 12.0
-
-        # Blend factor igual que en parse_workbook
-        BLEND_FACTOR = 0.6
-
-        proj_scaling = mensual_2026_obs * 12.0 if mensual_2026_obs is not None else None
-        proj_prev = mensual_prev * 12.0 if mensual_prev is not None else None
-
-        if proj_scaling is None and proj_prev is None:
-            proyeccion_2026[var] = None
-        elif proj_scaling is None:
-            proyeccion_2026[var] = proj_prev
-        elif proj_prev is None:
-            proyeccion_2026[var] = proj_scaling
-        else:
-            proyeccion_2026[var] = BLEND_FACTOR * proj_scaling + (1 - BLEND_FACTOR) * proj_prev
-
-    return proyeccion_2026
 
 
 def export_csv(proyectos):
@@ -1281,7 +1076,7 @@ def main():
         if st.button('Recargar datos', help='Vuelve a leer el Excel tras actualizarlo en disco.'):
             load_workbook_data.clear()
             st.rerun()
-        # Pestaña de información solicitada
+
         st.markdown('### Información')
         st.markdown(
             '- **Información**\n'
@@ -1315,12 +1110,9 @@ def main():
 
     n_senderos = sum(1 for p in proyectos.values() if p.get('categoria') == 'Senderos Seguros')
     # Se omite el mensaje de "Datos cargados" en el header por solicitud del usuario.
-    # Crear las pestañas con 'INFORMACIÓN' primero y mapearlas a las variables existentes
-    tabs = st.tabs(['INFORMACIÓN', 'SEGURIDAD', 'ECONOMIA', 'VALOR DE SUELO'])
-    tab_informacion = tabs[0]
-    tab_seguridad = tabs[1]
-    tab_economia = tabs[2]
-    tab_valor_suelo = tabs[3]
+    tab_seguridad, tab_economia, tab_valor_suelo, tab_informacion = st.tabs(
+        ['SEGURIDAD', 'ECONOMIA', 'VALOR DE SUELO', 'INFORMACIÓN']
+    )
 
     with tab_seguridad:
         st.subheader('Resumen de seguridad por proyecto')
@@ -1331,68 +1123,14 @@ def main():
             'La vista consolida cuadros comparativos y gráficos por proyecto o por categoría para analizar incidentes y delitos en cada intervención.'
         )
 
-        with st.expander('Proyección 2026 — método (breve)', expanded=False):
-            st.markdown(
-                "- Si hay datos parciales de 2026 (enero–abril), calculamos el promedio mensual observado en esos meses.\n"
-                "- Referencia: usamos la media móvil de los años 2023–2025 (cuando existen) para obtener un promedio mensual de base.\n"
-                "- Aplicamos un factor de tendencia (observado 2026 / referencia) a los meses faltantes y sumamos el resultado a lo ya observado.\n"
-                "- Fallback: si no hay datos previos, escalamos el promedio observado de 2026 al año completo."
-            )
-
-        category_names = sorted(categorias.keys())
-        category_tabs = st.tabs(category_names)
-        primer_proyecto = None
-
-        for idx, cat_name in enumerate(category_names):
-            with category_tabs[idx]:
-                proyectos_cat = sorted(categorias.get(cat_name, []))
-                if proyectos_cat:
-                    if primer_proyecto is None:
-                        primer_proyecto = proyectos_cat[0]
-
-                    st.markdown('**Proyectos en esta categoría**')
-                    for proyecto_nombre in proyectos_cat:
-                        st.write(f'- {proyecto_nombre}')
-
-                    select_key = f'seguridad_categoria_proyecto_{idx}'
-                    st.selectbox(
-                        f'Seleccionar proyecto de {cat_name}',
-                        proyectos_cat,
-                        key=select_key,
-                        on_change=partial(guardar_seleccion_seguridad, cat_name, select_key),
-                    )
-                else:
-                    st.write('No hay proyectos para esta categoría.')
-
-        if 'seguridad_proyecto_seleccionado' not in st.session_state and primer_proyecto is not None:
-            st.session_state['seguridad_proyecto_seleccionado'] = primer_proyecto
-
-        proy = st.session_state.get('seguridad_proyecto_seleccionado')
-        if proy is None:
-            st.warning('Selecciona un proyecto en alguna pestaña para ver sus detalles.')
-            st.stop()
+        modo = st.radio('Modo', ['Por proyecto', 'Por categoría'])
+        if modo == 'Por proyecto':
+            proy = st.selectbox('Proyecto', sorted(list(proyectos.keys())))
+        else:
+            cat = st.selectbox('Categoría', list(categorias.keys()))
+            proy = st.selectbox('Proyecto', sorted(categorias.get(cat, [])))
 
         p = proyectos[proy]
-        # Proyección mejorada automática para todos los proyectos
-        p['proyeccion_2026'] = compute_proyeccion_for_proyecto(p)
-
-        # Mostrar desglose breve para verificar la proyección
-        rows = []
-        for var in ALL_VARS:
-            observed = p.get('anios', {}).get('2026*', {}).get(var) or 0
-            proyectado = p.get('proyeccion_2026', {}).get(var) or 0
-            proyectado_restante = proyectado - observed
-
-            rows.append({
-                'Variable': var,
-                'observado_2026_parcial': int(round(observed)),
-                'proyectado_restante': int(round(proyectado_restante)),
-                'total_proyectado': int(round(proyectado)),
-            })
-
-        st.markdown('**Desglose 2026 (observado / proyectado — método: media móvil 2023–2025 + blend 60/40)**')
-        st.table(pd.DataFrame(rows))
-
         fichas = fichas_sendero(proy)
         if fichas or es_sendero_seguro(proy, p.get('categoria', '')):
             st.subheader('Ficha del sendero seguro')
@@ -1682,213 +1420,451 @@ def main():
 
     with tab_informacion:
         st.subheader('Información')
-        st.info('Esta página ofrece un resumen de los principales ejes de intervención institucional.')
-        
-        # Inicializar session state para la navegación
-        if 'seccion_activa' not in st.session_state:
-            st.session_state.seccion_activa = None
-        
-        # Definir las categorías y rutas de imágenes (agregar nuevas carpetas según sea necesario)
-        categorias_info = {
-            'Senderos Seguros': 'data/imagenes_categorias/senderos_seguros',
-            'Zonas Metro': 'data/imagenes_categorias/zonas_metro',
-            'Rehabilitación del Espacio Público': 'data/imagenes_categorias/rehabilitacion_espacio_publico',
-            'Bicentenario': 'data/imagenes_categorias/bicentenario',
-            'Arena del Sur': 'data/imagenes_categorias/arena_del_sur'
-        }
-        
-        # Función para obtener la imagen principal de una categoría
-        def obtener_imagen_categoria(ruta_carpeta):
-            from pathlib import Path
-            carpeta = Path(ruta_carpeta)
-            if not carpeta.exists():
-                return None
-            # Buscar archivos de imagen
-            extensiones = ['.jpg', '.jpeg', '.png', '.gif', '.webp']
-            for archivo in sorted(carpeta.glob('*')):
-                if archivo.suffix.lower() in extensiones:
-                    return str(archivo)
-            return None
+        st.info(
+            'Esta página ofrece un resumen de los principales ejes de intervención institucional.'
+        )
+        st.markdown('''
+- Normal
+  0
+  
+  
+  21
+  
+  
+  false
+  false
+  false
+  
+  ES-EC
+  X-NONE
+  X-NONE
+  
+   
+   
+   
+   
+   
+   
+   
+   
+  
+  
+   
+   
+   
+   
+   
+   
+   
+   
+   
+  
+   
+   
+   
+   
+   
+   
+   
+   
+  
+ 
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+ 
+ 
+  /* Style Definitions */
+ table.MsoNormalTable
+    {mso-style-name:"Tabla normal";
+    mso-tstyle-rowband-size:0;
+    mso-tstyle-colband-size:0;
+    mso-style-noshow:yes;
+    mso-style-priority:99;
+    mso-style-parent:"";
+    mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+    mso-para-margin-top:0cm;
+    mso-para-margin-right:0cm;
+    mso-para-margin-bottom:8.0pt;
+    mso-para-margin-left:0cm;
+    line-height:107%;
+    mso-pagination:widow-orphan;
+    font-size:11.0pt;
+    font-family:"Calibri",sans-serif;
+    mso-ascii-font-family:Calibri;
+    mso-ascii-theme-font:minor-latin;
+    mso-hansi-font-family:Calibri;
+    mso-hansi-theme-font:minor-latin;
+    mso-bidi-font-family:"Times New Roman";
+    mso-bidi-theme-font:minor-bidi;
+    mso-fareast-language:EN-US;}
 
-        # Contenidos detallados por categoría (añade más entradas según sea necesario)
-        contenidos_categoria = {
-            'Arena del Sur': '''# **Quitumbe: Arena Cultural del Sur**
+**El Nuevo Paradigma Urbano
+de Quito**
 
-### **¿Qué es?**
-Es un equipamiento cultural metropolitano de infraestructura inclusiva y multifuncional impulsado por la Alcaldía Metropolitana de Quito. Está diseñado para fortalecer la integración social, el acceso equitativo a la cultura y la dinamización comunitaria en el sur de la ciudad.
+La
+transformación urbana de la capital se fundamenta en los principios de
+urbanismo democrático, hábitat sostenible, acceso universal al espacio público
+y justicia urbano-rural. Con el inicio de operaciones del Metro de Quito —que
+conecta la ciudad de norte a sur en solo 34 minutos— surgió la necesidad
+crítica de reconfigurar la superficie. 
 
-### **Cifras Clave del Proyecto**
+El
+objetivo central es invertir la pirámide de la movilidad, priorizando al peatón
+y recuperando los entornos urbanos de las estaciones para transformarlos en
+espacios dignos, inclusivos y seguros que mejoren la accesibilidad universal. 
 
-- **Área de intervención:** 33.944,72 m²
-- **Inversión estimada:** USD 6,2 millones
-- **Ubicación:** Centralidad Urbana Quitumbe
+**[Imagen
+Recomendada 1]:** Una
+fotografía de alta calidad del interior de los vagones en operación con
+usuarios o una toma panorámica de la Estación San Francisco en el Centro
+Histórico. 
 
-### **Componentes Principales (Plan de Intervención)**
-El proyecto articula sus actividades e infraestructura en dos grandes bloques de equipamiento:
+**Senderos Seguros**
 
-1. **Centro Cultural Quitumbe:** Un nodo de encuentro enfocado en la educación y las artes que incluye: Biblioteca de diseño moderno y zonas de lectura.
-2. Talleres artísticos (artes plásticas, escultura).
-3. Espacios de creación y salas de danza/expresión corporal.
-4. Auditorios y áreas educativas.
-5. **Plaza de Espectáculos Quitumbe:** Una infraestructura al aire libre dotada de una gran cubierta de diseño contemporáneo, optimizada para albergar eventos recreativos y conciertos masivos.
+Los
+Senderos Seguros son corredores de circulación diseñados estratégicamente para
+mejorar la percepción de seguridad en el espacio público, mitigar los índices
+delictivos y promover el flujo de transeúntes en zonas identificadas como
+vulnerables. Su origen se inspira en proyectos exitosos de ciudades como
+México, adaptados a la realidad de la capital ecuatoriana para erradicar
+problemáticas como el acoso y la violencia de género en las calles. 
 
-### **Propósito e Impacto**
+**Metodología de Identificación y Priorización**
 
-- **Encuentro ciudadano:** Funciona como un espacio para articular actividades artísticas, educativas y recreativas.
-- **Fomento de la cohesión:** Busca promover la apropiación pacífica del espacio público, la cohesión social y el bienestar de la población del sur de Quito.
-''',
+Para
+identificar los corredores que requieren intervención prioritaria, las
+secretarías metropolitanas analizan el territorio utilizando una matriz técnica
+basada en **6 dimensiones urbanas y 18 indicadores**:
 
-            'Senderos Seguros': '''## Senderos Seguros
+ **Seguridad ciudadana:** Monitoreo de actos
+     delictivos (robos a personas), focos de venta de droga y estadísticas de
+     atropellamientos a transeúntes.
 
-Los **Senderos Seguros** son corredores de circulación diseñados estratégicamente para mejorar la percepción de seguridad en el espacio público, mitigar los índices delictivos y promover el flujo de transeúntes en zonas identificadas como vulnerables.
+ - **Equidad socioespacial:** Densidad poblacional,
+     cercanía a unidades educativas, equipamientos de salud y Necesidades
+     Básicas Insatisfechas (NBI).
 
-Su origen se inspira en proyectos exitosos de ciudades como México, adaptados a la realidad de la capital ecuatoriana para erradicar problemáticas como el acoso y la violencia de género en las calles.
+ - **Perspectiva de género:** Reportes administrativos de
+     violencia de género y acoso en la vía pública.
 
-### Metodología de Identificación y Priorización
-Para identificar los corredores que requieren intervención prioritaria, las secretarías metropolitanas analizan el territorio utilizando una **matriz técnica basada en 6 dimensiones urbanas y 18 indicadores**:
+ - **Sostenibilidad urbana:** Índices de uso de suelo
+     múltiple, uso residencial urbano de alta densidad (RUA) y presencia de
+     áreas verdes.
 
-- **Seguridad ciudadana:** Monitoreo de actos delictivos (robos a personas), focos de venta de droga y estadísticas de atropellamientos a transeúntes.
-- **Equidad socioespacial:** Densidad poblacional, cercanía a unidades educativas, equipamientos de salud y Necesidades Básicas Insatisfechas (NBI).
-- **Perspectiva de género:** Reportes administrativos de violencia de género y acoso en la vía pública.
-- **Sostenibilidad urbana:** Índices de uso de suelo múltiple, uso residencial urbano de alta densidad (RUA) y presencia de áreas verdes.
-- **Capital social:** Proximidad y articulación con centros comunitarios como Casas Somos, Centros de Desarrollo Infantil (CDI) y Centros de Equidad y Justicia (CEJ).
-- **Acceso a transporte público:** Conectividad e intermodalidad con paradas del Metro, paradas de Buses de Tránsito Rápido (BTR) y paradas de buses convencionales.
+ - **Capital social:** Proximidad y articulación
+     con centros comunitarios como Casas Somos, Centros de Desarrollo Infantil
+     (CDI) y Centros de Equidad y Justicia (CEJ).
 
-### Tipos de Intervención en el Territorio
-Las obras se dividen en dos líneas de acción complementarias:
+ - **Acceso a transporte público:** Conectividad e
+     intermodalidad con paradas del Metro, paradas de Buses de Tránsito Rápido
+     (BTR) y paradas de buses convencionales.
 
-1. **Físicas Permanentes:** Ampliación geométrica de aceras, soterramiento de cables de servicios, instalación de baldosas podotáctiles (guía y advertencia) para accesibilidad universal, iluminación con tecnología LED, contenedores para separación de desechos y pacificación vial mediante estrategias de calmado de tránsito (como orejas de elefante o resaltos peatonales).
-2. **De Reactivación Itinerante o Permanente:** Aplicación de urbanismo táctico con diseños coloridos sobre las calzadas, galerías de murales artísticos, ferias de producción cultural y activación de circuitos económicos locales en coordinación con la comunidad.
+**[Imagen
+Recomendada 2]:**
+Infografía o diagrama circular que ilustre de forma clara las 6 dimensiones
+metodológicas con sus respectivos indicadores iconográficos. 
 
-### Proyectos Emblemáticos Ejecutados
+**Tipos de Intervención en el Territorio**
 
-- **Av. Patria (1.270 m):** Rediseño integral de aceras, soterramiento de cables, iluminación LED de alta potencia, paisajismo con plantas endémicas y la construcción de la Plaza de la Memoria. Beneficia a más de 200.000 habitantes.
-- **Av. Colón (2.000 m):** Eje multimodal que articula el transporte público. Incluye reformas geométricas para accesibilidad, alcorques para arbolado urbano, luminarias solares y sistemas de videovigilancia.
-- **Intervenciones Zonales:** Proyectos adaptados a las particularidades de cada sector en: **Los Chillos** (El Tingo), **Eloy Alfaro** (Av. Michelena), **Quitumbe** (Chillogallo), **Manuela Sáenz** (Caldas y Antepara), **Calderón** (Av. Carapungo) e **Eugenio Espejo** (Isla Tortuga).
-''',
+Las obras
+se dividen en dos líneas de acción complementarias:
 
-            'Zonas Metro': '''## Zonas Metro
+ 1. **Físicas Permanentes:** Ampliación geométrica de
+     aceras, soterramiento de cables de servicios, instalación de baldosas
+     podotáctiles (guía y advertencia) para accesibilidad universal,
+     iluminación con tecnología LED, contenedores para separación de desechos y
+     pacificación vial mediante estrategias de calmado de tránsito como orejas
+     de elefante o resaltos peatonales.
 
-Para ordenar la alta concentración peatonal y el flujo masivo en los exteriores de las estaciones del Metro de Quito, se diseñó un **modelo de ordenamiento físico-espacial** que divide los accesos en tres zonas concéntricas:
+ 2. **De Reactivación Itinerante o
+     Permanente:**
+     Aplicación de urbanismo táctico con diseños coloridos sobre las calzadas,
+     galerías de murales artísticos, ferias de producción cultural y activación
+     de circuitos económicos locales en coordinación con la comunidad.
 
-- **Zona A - Aglomeración:** Es el área colindante inmediata a la boca de ingreso del Metro. Está destinada de forma **exclusiva** a garantizar la entrada y salida fluida y segura de los pasajeros, por lo que debe mantenerse completamente libre de obstáculos.
-- **Zona B - Concentración:** Funciona como una franja o área de amortiguamiento urbano. En este espacio se permite la instalación regulada de **mobiliario confortable** (bancas, basureros, iluminación) diseñado para la permanencia o espera de los usuarios.
-- **Zona C - Dispersión:** Es el área abierta perimetral. Está perfilada como el lugar idóneo para la colocación de **señalética de orientación**, paradas de transporte complementario y casetas de **comerciantes autónomos regularizados** bajo el debido proceso de autorización.
+**Proyectos Emblemáticos Ejecutados**
 
-### Tótems de Identidad Metropolitana
-Cada estación cuenta con un **hito vertical unificado** que le otorga identidad al entorno urbano. Este elemento técnico cuenta con las siguientes especificaciones y componentes:
+ - **Av. Patria (1,270 m):** Rediseño integral de
+     aceras, soterramiento de cables, iluminación LED de alta potencia,
+     paisajismo con plantas endémicas y la construcción de la Plaza de la
+     Memoria. Beneficia a más de 200,000 habitantes.
 
-> **Dimensiones estructurales:** 4.04 metros de altura $\\times$ 0.70 metros de ancho.
+ - **Av. Colón (2,000 m):** Eje multimodal que articula
+     el transporte público. Incluye reformas geométricas para accesibilidad,
+     alcorques para arbolado urbano, luminarias solares y sistemas de
+     videovigilancia.
 
-- **Identificación:** Incorpora el logo iconográfico de la estación y su nombre visible a larga distancia.
-- **Orientación:** Integra mapas detallados del sector y de la red completa del sistema de transporte.
-- **Accesibilidad universal:** Incluye un **Mapa Háptico** con texturas y relieves en braille especialmente diseñado para personas con discapacidad visual.
-- **Información y servicios:** Cuenta con espacios inferiores destinados a paneles informativos de la ciudad o publicidad regulada.
-''',
+ - **Intervenciones Zonales:** Proyectos adaptados a las
+     particularidades de cada sector en El Tingo (Los Chillos), Av. Michelena
+     (Eloy Alfaro), Chillogallo (Quitumbe), Caldas y Antepara (Manuela Sáenz),
+     Av. Carapungo (Calderón) e Isla Tortuga (Eugenio Espejo).
 
-            'Rehabilitación del Espacio Público': '''## Rehabilitación del Espacio Público
+**[Imagen
+Recomendada 3]:** Carrusel
+fotográfico interactivo de "Antes y Después" que muestre el cambio
+visual del espacio público en la Av. Patria o la Av. Michelena.
 
-El plan de revitalización urbana busca devolver las calles al peatón, recuperando la memoria histórica y promoviendo la reactivación comercial, turística y cultural tanto de día como de noche.
+** **
 
-### Intervención en la Calle Benalcázar *(Plaza de San Francisco)*
-Se modificó la sección vial tradicional mediante la **ampliación de la plataforma peatonal** en el primer tramo de la Av. Benalcázar, eliminando las plazas de estacionamiento vehicular que congestionaban la acera. Esta obra contempla:
+**Zonas Metro**
 
-- **Terrazas Urbanas:** Autorización para la colocación de mesas en las veredas por parte de cafeterías y restaurantes (con un ancho máximo de 2.50 m). Esto promueve la estrategia de *"ojos en la calle"* y mejora la seguridad ciudadana a través de la activación económica.
-- **Galerías Culturales Urbanas:** Utilización de muros ciegos y fachadas patrimoniales para la proyección nocturna de imágenes informativas, artísticas y culturales de la ciudad (*mapping*), como en la fachada de la Iglesia de la Compañía de Jesús.
+Para
+ordenar la alta concentración peatonal y el flujo masivo en los exteriores de
+las estaciones del Metro de Quito, se diseñó un modelo de ordenamiento
+físico-espacial que divide los accesos en tres zonas concéntricas:
 
-### Recuperación del Viaducto de la 24 de Mayo
-Transformación integral de la infraestructura del viaducto subterráneo para **conectar de forma segura la superficie con el transporte masivo**. El proyecto incorpora:
+ - **Zona A - Aglomeración:** El área colindante
+     inmediata a la boca de ingreso del Metro. Está destinada de forma
+     exclusiva a garantizar la entrada y salida fluida y segura de los
+     pasajeros, manteniéndose libre de obstáculos.
 
-- **Bahía técnica:** Espacio exclusivo para la carga y descarga segura de pasajeros.
-- **Seguridad vial:** Señalización técnica diseñada para la reducción de velocidad vehicular.
-- **Túnel peatonal:** Conexión subterránea bajo la calle Cuenca que guía de forma directa a los usuarios hacia el hall del subsuelo de la estación del Metro.
-''',
+ - **Zona B - Concentración:** Franja o área de
+     amortiguamiento urbano donde se permite la instalación regulada de
+     mobiliario confortable (bancas, basureros, iluminación) para la
+     permanencia o espera de los usuarios.
 
-            'Bicentenario': '''## Bicentenario
+ - **Zona C - Dispersión:** Área abierta perimetral idónea
+     para la colocación de señalética de orientación, casetas de comerciantes
+     autónomos regularizados bajo el debió proceso de autorización y paradas de
+     transporte complementario.
 
-La repotenciación de las 105 hectáreas del antiguo aeropuerto representa el proyecto de renovación y revitalización urbana más ambicioso del Distrito Metropolitano. Proyectado bajo las normativas del Plan de Uso y Gestión del Suelo (PUGS), este espacio técnico tiene el potencial de albergar vivienda y servicios para una población de hasta 304.000 habitantes, frenando la expansión descontrolada de las periferias.
+**[Imagen
+Recomendada 4]:** El
+gráfico conceptual axonométrico en 3D que delimita visualmente las zonas A, B y
+C pintadas alrededor de una boca de acceso al metro. 
 
-### Sostenibilidad e Infraestructura Verde-Azul
-Con el fin de mitigar los efectos del cambio climático en la zona centro-norte, el parque implementa soluciones ambientales estratégicas:
+**Tótems de Identidad Metropolitana**
 
-- **Suelo permeable:** Incremento del 5% de su superficie de absorción.
-- **Red Verde-Azul:** Consolidación de 8 hectáreas que contemplan la creación de **6 cuerpos de agua y humedales** diseñados para la captación técnica de aguas lluvias, la regulación del microclima y el fomento de la biodiversidad urbana.
+Cada
+estación cuenta con un hito vertical unificado de **4.04 metros de altura**
+y 0.70 metros de ancho que le otorga identidad al entorno urbano. Este elemento
+técnico integra en su estructura: 
 
-### Deporte, Comercio y Recreación Replicable
-El megaproyecto organiza su espacio público a través de módulos replicables de equipamiento de alta calidad:
+ - Logo iconográfico de la
+     estación y su nombre visible a larga distancia.
 
-- **67 Canchas Deportivas:** 21 de fútbol, 19 de voleibol y 11 de básquet.
-- 7 de tenis, 5 múltiples, 3 de balonmano y 1 de béisbol.
+ - Mapas del sector y de la red
+     del sistema para la orientación del usuario.
 
-- **Movilidad Activa:** Construcción de **12 km de caminerías internas** iluminadas (divididas en 5 tipologías de diseño de estancia) y una red de **14.4 km de ciclovías** con carril segregado.
-- **14 Plazas Comerciales:** Equipadas con **360 kioscos modulares** de madera ($1.80 \\times 1.80\\text{ m}$) integrados a zonas de vegetación y descanso para promover y ordenar el comercio local.
-- **Zonas Temáticas:** Incorporación de 12 áreas de juegos infantiles (con zonas especiales para la primera infancia), 38 zonas de picnic/descanso y 5 parques caninos (*dogparks*).
+ - **Mapa Háptico** con texturas y relieves
+     braille para garantizar la accesibilidad universal de personas con
+     discapacidad visual.
 
+ - Espacios inferiores
+     destinados a paneles informativos de la ciudad o publicidad regulada.
 
-### Grandes Hitos de Entretenimiento Masivo
+**[Imagen
+Recomendada 5]:** Plano
+ técnico de elevación del tótem de 4.04 metros detallando las medidas y la
+ubicación de cada componente (nombre, mapa háptico, publicidad). 
 
-- **Arena de Espectáculos Quito:** Megaestructura equipada con un escenario principal con capacidad para **50.000 espectadores**, diseñado para insertar a la capital en el circuito internacional de grandes conciertos, festivales y ferias masivas a cargo de Quito Turismo.
-- **Anfiteatro Polifuncional:** Espacio cultural al aire libre totalmente integrado al paisaje del parque, el cual utiliza relieves técnicos y graderíos naturales de césped para albergar eventos artísticos y comunitarios.
-'''
-        }
-        
-        # Mostrar la vista de la cuadrícula o la vista detallada
-        if st.session_state.seccion_activa is None:
-            # VISTA DE CUADRÍCULA
-            st.markdown("## Áreas de Intervención")
-            
-            # Crear cuadrícula dinámica (3 columnas para acomodar 5 tarjetas)
-            n_cols = 3
-            cols = st.columns(n_cols)
+** **
 
-            for idx, (nombre_cat, ruta_img) in enumerate(categorias_info.items()):
-                col = cols[idx % n_cols]
-                
-                with col:
-                    # Crear contenedor clickeable
-                    imagen_path = obtener_imagen_categoria(ruta_img)
-                    
-                    if imagen_path and Path(imagen_path).exists():
-                        # Evitar el parámetro deprecado `use_column_width`
-                        # usar `use_container_width=True` para ajustar al contenedor
-                        st.image(imagen_path, use_container_width=True)
-                    else:
-                        # Placeholder si no hay imagen
-                        st.write("📷")
-                        st.info(f"Coloca la imagen principal en: `{ruta_img}/`")
-                    
-                    st.markdown(f"### {nombre_cat}")
-                    
-                    if st.button(f"Ver más", key=f"btn_{idx}"):
-                        st.session_state.seccion_activa = nombre_cat
-                        st.rerun()
-        else:
-            # VISTA DETALLADA
-            col_back, col_title = st.columns([1, 10])
-            with col_back:
-                if st.button("← Volver"):
-                    st.session_state.seccion_activa = None
-                    st.rerun()
-            
-            with col_title:
-                st.title(st.session_state.seccion_activa)
+**Rehabilitación del Espacio
+Público (Centro Histórico)**
 
-            # Mostrar contenido específico si existe
-            contenido = contenidos_categoria.get(st.session_state.seccion_activa)
-            if contenido:
-                st.markdown(contenido)
-            else:
-                st.markdown(f"""
-                ### Información de {st.session_state.seccion_activa}
-                
-                Aquí irá la información detallada de {st.session_state.seccion_activa}.
-                Puedes añadir:
-                - Descripciones
-                - Estadísticas
-                - Imágenes adicionales
-                - Mapas
-                - Cualquier otro contenido
-                """)
+El plan
+de revitalizaci f3n urbana busca devolver las calles al peat f3n, recuperando la
+memoria hist f3rica y promoviendo la reactivaci f3n comercial, tur edstica y cultural
+ tanto de d eda como de noche. 
+
+**Intervenci f3n en la Calle Benalc e1zar (Plaza de San
+Francisco)**
+
+Se
+modific f3 la secci f3n vial tradicional mediante la **ampliaci f3n de la plataforma
+peatonal** en el primer tramo de la Av. Benalc e1zar, eliminando las plazas de
+estacionamiento vehicular que congestionaban la acera. Esta obra contempla: 
+
+ - **Terrazas Urbanas:** Autorizaci f3n para la
+     colocaci f3n de mesas en las veredas por parte de cafeter edas y restaurantes
+     (con un ancho m e1ximo de 2.50 m), promoviendo la estrategia de "ojos
+     en la calle" y la seguridad ciudadana a trav e9s de actividades
+     econ f3micas.
+
+ - **Galer edas Culturales Urbanas:** Utilizaci f3n de muros ciegos
+     y fachadas patrimoniales para la proyecci f3n nocturna de im e1genes
+     informativas, art edsticas y culturales de la ciudad (mapping), como en la
+     Fachada de la Iglesia de la Compa f1 eda de Jes fas.
+
+**[Imagen
+Recomendada 6]:** Imagen
+ comparativa dividida en dos: el estado actual/anterior de la calle Benalc e1zar
+ llena de veh edculos y la proyecci f3n/render de la vereda ampliada con peatones
+ caminando junto a las terrazas de los caf e9s. 
+
+**Recuperaci f3n del Viaducto de la 24 de Mayo**
+
+Transformaci f3n
+integral de la infraestructura del viaducto subterr e1neo para conectar de forma
+segura la superficie con el transporte masivo. Incorpora una bah eda t e9cnica
+exclusiva para la carga y descarga de pasajeros, señalizaci f3n vial para
+reducci f3n de velocidad y un t fanel peatonal bajo la calle Cuenca que guia de
+forma directa al hall del subsuelo de la estaci f3n del Metro. 
+
+**[Imagen
+Recomendada 7]:** Plano
+ isom e9trico del corte arquitect f3nico del Viaducto de la 24 de Mayo, mostrando la
+ distribuci f3n de la bah eda de pasajeros y el t fanel de conexi f3n al metro. 
+
+** **
+
+**Bicentenario**
+
+La
+repotenciaci f3n de las **105 hect e1reas** del antiguo aeropuerto representa el
+proyecto de renovaci f3n y revitalizaci f3n urbana m e1s ambicioso del Distrito
+Metropolitano. Proyectado como una gran centralidad urbana bajo las normativas
+del Plan de Uso y Gesti f3n del Suelo (PUGS), este espacio t e9cnico tiene el
+potencial de albergar vivienda y servicios para una poblaci f3n de hasta 304,000
+habitantes, frenando la expans f3n descontrolada de las periferias. 
+
+**Sostenibilidad e Infraestructura Verde-Azul**
+
+Con el
+fin de mitigar los efectos del cambio climático en la zona centro-norte, el
+parque incrementa un 5% de su suelo permeable y consolida **8 hect e1reas de
+infraestructura verde-azul**. Esto contempla la creaci f3n de 6 cuerpos de agua
+y humedales dise f1ados para la captaci f3n t e9cnica de aguas lluvias, la regulaci f3n
+del microclima y el fomento de la biodiversidad urbana. 
+
+**Deporte, Comercio y Recreaci f3n Replicable**
+
+El
+megaproyecto organiza su espacio p fablico a trav e9s de m f3dulos replicables de
+equipamiento de alta calidad:
+
+ - **67 Canchas Deportivas:** Distribuidas en 21 de f fatbol,
+     19 de voleibol, 11 de b e1squet, 7 de tenis, 5 m faltiples, 3 de balonmano y 1
+     cancha de b e9isbol.
+
+ - **Movilidad Activa:** Construcci f3n de 12 km de
+     caminer edas internas iluminadas (divididas en 5 tipolog edas de dise f1o de
+     estancia) y una red perimetral e interna de 14.4 km de ciclov edas de carril
+     segregado.
+
+ - **14 Plazas Comerciales:** Equipadas con 360 kioscos
+     modulares de madera (de 1.80 x 1.80 m) integrados a zonas de vegetaci f3n y
+     descanso para promover y ordenar el comercio local.
+
+ - **Zonas Tem e1ticas:** Incorporaci f3n de 12  areas
+     de juegos infantiles (con zonas especiales para la primera infancia), 38
+     zonas de picnic/descanso y 5 parques caninos (dogparks).
+
+**[Imagen
+Recomendada 8]:** Render
+conceptual que muestre el bulevar del Parque Bicentenario con ciclistas en la
+v eda segregada, peatones en la caminer eda interna e instalaciones de kioscos
+modulares. 
+
+**Grandes Hitos de Entretenimiento Masivo**
+
+ - **Arena de Espect e1culos Quito:** Megaestructura equipada con
+     un escenario principal con capacidad para 50,000 espectadores, dise f1ado
+     para albergar grandes conciertos internacionales, festivales y ferias
+     masivas a cargo de Quito Turismo.
+
+ - **Anfiteatro Polifuncional:** Espacio cultural al aire
+     libre totalmente integrado al paisaje del parque, el cual utiliza relieves
+     t e9cnicos y grader edos naturales de c e9sped para albergar eventos art edsticos
+     y comunitarios.
+
+**[Imagen
+Recomendada 9]:** Render
+digitalizado en alta resoluci f3n de la propuesta arquitect f3nica para la fachada
+de la Arena de Espect e1culos "Arena Quito" o la vista a e9rea del
+Anfiteatro Polifuncional verde. 
+
+**Secci f3n T e9cnica: Par e1metros
+de Dise f1o en Aceras (Para Profesionales o Descargas)**
+
+Para
+mantener una imagen urbana homog e9nea, inclusiva y ordenada en los proyectos de
+la ciudad, la normativa t e9cnica establece directrices r edgidas de dise f1o p fablico
+seg fan el ancho total de las aceras (par e1metros Tipo A hasta Tipo H). Toda acera
+intervenida mayor a 1.20 metros debe zonificarse estrictamente en tres bandas
+funcionales: 
+
+ - **Banda de Circulaci f3n (BC):** El 
+     
+''')
 
 
 if __name__ == '__main__':
