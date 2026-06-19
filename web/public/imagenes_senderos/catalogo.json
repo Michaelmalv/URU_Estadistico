@@ -1,0 +1,69 @@
+{
+  "av patria": {
+    "extension": "data/imagenes_senderos/av_patria/extension.png",
+    "antes_despues": "data/imagenes_senderos/av_patria/antes_despues.png"
+  },
+  "av colon": {
+    "extension": "data/imagenes_senderos/av_colon/extension.png",
+    "antes_despues": "data/imagenes_senderos/av_colon/antes_despues.png"
+  },
+  "el tingo": {
+    "extension": "data/imagenes_senderos/el_tingo/extension.png",
+    "antes_despues": "data/imagenes_senderos/el_tingo/antes_despues.png"
+  },
+  "av michelena": {
+    "extension": "data/imagenes_senderos/av_michelena/extension.png",
+    "antes_despues": "data/imagenes_senderos/av_michelena/antes_despues.png"
+  },
+  "chillogallo": {
+    "extension": "data/imagenes_senderos/chillogallo/extension.png",
+    "antes_despues": "data/imagenes_senderos/chillogallo/antes_despues.png"
+  },
+  "caldas y antepara": {
+    "extension": "data/imagenes_senderos/caldas_y_antepara/extension.png",
+    "antes_despues": "data/imagenes_senderos/caldas_y_antepara/antes_despues.png"
+  },
+  "av carapungo": {
+    "extension": "data/imagenes_senderos/av_carapungo/extension.png",
+    "antes_despues": "data/imagenes_senderos/av_carapungo/antes_despues.png"
+  },
+  "la roldos oe13": {
+    "extension": "data/imagenes_senderos/la_roldos_oe13/extension.png",
+    "antes_despues": "data/imagenes_senderos/la_roldos_oe13/antes_despues.png"
+  },
+  "isla tortuga": {
+    "extension": "data/imagenes_senderos/isla_tortuga/extension.png",
+    "antes_despues": "data/imagenes_senderos/isla_tortuga/antes_despues.png"
+  },
+  "juan montalvo": {
+    "extension": "data/imagenes_senderos/juan_montalvo/extension.png",
+    "antes_despues": "data/imagenes_senderos/juan_montalvo/antes_despues.png"
+  },
+  "conocoto": {
+    "extension": "data/imagenes_senderos/conocoto/extension.png"
+  },
+  "av ajavi": {
+    "extension": "data/imagenes_senderos/av_ajavi/extension.png"
+  },
+  "escalinatas rocafuerte": {
+    "extension": "data/imagenes_senderos/escalinatas_rocafuerte/extension.png"
+  },
+  "gabriel garcia moreno": {
+    "extension": "data/imagenes_senderos/gabriel_garcia_moreno/extension.png"
+  },
+  "lizardo ruiz": {
+    "extension": "data/imagenes_senderos/lizardo_ruiz/extension.png"
+  },
+  "av ramon borja": {
+    "extension": "data/imagenes_senderos/av_ramon_borja/extension.png"
+  },
+  "via del ferrocarril": {
+    "extension": "data/imagenes_senderos/via_del_ferrocarril/extension.png"
+  },
+  "av la ecuatoriana": {
+    "extension": "data/imagenes_senderos/av_la_ecuatoriana/extension.png"
+  },
+  "ruiz de castilla": {
+    "extension": "data/imagenes_senderos/ruiz_de_castilla/extension.png"
+  }
+}
