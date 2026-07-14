@@ -1,0 +1,354 @@
+{
+  "title": "Senderos Seguros",
+  "key": "Senderos Seguros",
+  "images": [
+    "/imagenes_categorias/senderos_seguros/extracted_1.png",
+    "/imagenes_categorias/senderos_seguros/extracted_2.png"
+  ],
+  "paragraphs": [
+    {
+      "index": 0,
+      "text": "Senderos Seguros",
+      "style": "Normal",
+      "is_bold": true,
+      "runs": [
+        {
+          "text": "Senderos Seguros",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "text": "Los Senderos Seguros son corredores de circulación diseñados estratégicamente para mejorar la percepción de seguridad en el espacio público, mitigar los índices delictivos y promover el flujo de transeúntes en zonas identificadas como vulnerables.",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "Los ",
+          "bold": false
+        },
+        {
+          "text": "Senderos Seguros",
+          "bold": true
+        },
+        {
+          "text": " son corredores de circulación diseñados estratégicamente para mejorar la percepción de seguridad en el espacio público, mitigar los índices delictivos y promover el flujo de transeúntes en zonas identificadas como vulnerables.",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "text": "Su origen se inspira en proyectos exitosos de ciudades como México, adaptados a la realidad de la capital ecuatoriana para erradicar problemáticas como el acoso y la violencia de género en las calles.",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "Su origen se inspira en proyectos exitosos de ciudades como México, adaptados a la realidad de la capital ecuatoriana para erradicar problemáticas como el acoso y la violencia de género en las calles.",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "text": "Metodología de Identificación y Priorización",
+      "style": "Normal",
+      "is_bold": true,
+      "runs": [
+        {
+          "text": "Metodología de Identificación y Priorización",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "index": 4,
+      "text": "Para identificar los corredores que requieren intervención prioritaria, las secretarías metropolitanas analizan el territorio utilizando una matriz técnica basada en 6 dimensiones urbanas y 18 indicadores:",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "Para identificar los corredores que requieren intervención prioritaria, las secretarías metropolitanas analizan el territorio utilizando una ",
+          "bold": false
+        },
+        {
+          "text": "matriz técnica basada en 6 dimensiones urbanas y 18 indicadores",
+          "bold": true
+        },
+        {
+          "text": ":",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 5,
+      "text": "Seguridad ciudadana: Monitoreo de actos delictivos (robos a personas), focos de venta de droga y estadísticas de atropellamientos a transeúntes.",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "Seguridad ciudadana:",
+          "bold": true
+        },
+        {
+          "text": " Monitoreo de actos delictivos (robos a personas), focos de venta de droga y estadísticas de atropellamientos a transeúntes.",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 6,
+      "text": "Equidad socioespacial: Densidad poblacional, cercanía a unidades educativas, equipamientos de salud y Necesidades Básicas Insatisfechas (NBI).",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "Equidad socioespacial:",
+          "bold": true
+        },
+        {
+          "text": " Densidad poblacional, cercanía a unidades educativas, equipamientos de salud y Necesidades Básicas Insatisfechas (NBI).",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 7,
+      "text": "Perspectiva de género: Reportes administrativos de violencia de género y acoso en la vía pública.",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "Perspectiva de género:",
+          "bold": true
+        },
+        {
+          "text": " Reportes administrativos de violencia de género y acoso en la vía pública.",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 8,
+      "text": "Sostenibilidad urbana: Índices de uso de suelo múltiple, uso residencial urbano de alta densidad (RUA) y presencia de áreas verdes.",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "Sostenibilidad urbana:",
+          "bold": true
+        },
+        {
+          "text": " Índices de uso de suelo múltiple, uso residencial urbano de alta densidad (RUA) y presencia de áreas verdes.",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 9,
+      "text": "Capital social: Proximidad y articulación con centros comunitarios como Casas Somos, Centros de Desarrollo Infantil (CDI) y Centros de Equidad y Justicia (CEJ).",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "Capital social:",
+          "bold": true
+        },
+        {
+          "text": " Proximidad y articulación con centros comunitarios como Casas Somos, Centros de Desarrollo Infantil (CDI) y Centros de Equidad y Justicia (CEJ).",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 10,
+      "text": "Acceso a transporte público: Conectividad e intermodalidad con paradas del Metro, paradas de Buses de Tránsito Rápido (BTR) y paradas de buses convencionales.",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "Acceso a transporte público:",
+          "bold": true
+        },
+        {
+          "text": " Conectividad e intermodalidad con paradas del Metro, paradas de Buses de Tránsito Rápido (BTR) y paradas de buses convencionales.",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 15,
+      "text": "Tipos de Intervención en el Territorio",
+      "style": "Normal",
+      "is_bold": true,
+      "runs": [
+        {
+          "text": "Tipos de Intervención en el Territorio",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "index": 16,
+      "text": "Las obras se dividen en dos líneas de acción complementarias:",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "Las obras se dividen en dos líneas de acción complementarias:",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 17,
+      "text": "Físicas Permanentes: Ampliación geométrica de aceras, soterramiento de cables de servicios, instalación de baldosas podotáctiles para accesibilidad universal, iluminación con tecnología LED, contenedores para separación de desechos y pacificación vial mediante estrategias de calmado de tránsito (como orejas de elefante o resaltos peatonales).",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "Físicas Permanentes:",
+          "bold": true
+        },
+        {
+          "text": " Ampliación geométrica de aceras, soterramiento de cables de servicios, instalación de baldosas ",
+          "bold": false
+        },
+        {
+          "text": "podotáctiles",
+          "bold": false
+        },
+        {
+          "text": " para accesibilidad universal, iluminación con tecnología LED, contenedores para separación de desechos y pacificación vial mediante estrategias de calmado de tránsito (como orejas de elefante o resaltos peatonales).",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 18,
+      "text": "De Reactivación Itinerante o Permanente: Aplicación de urbanismo táctico con diseños coloridos sobre las calzadas, galerías de murales artísticos, ferias de producción cultural y activación de circuitos económicos locales en coordinación con la comunidad.",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "De Reactivación Itinerante o Permanente:",
+          "bold": true
+        },
+        {
+          "text": " Aplicación de urbanismo táctico con diseños coloridos sobre las calzadas, galerías de murales artísticos, ferias de producción cultural y activación de circuitos económicos locales en coordinación con la comunidad.",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 19,
+      "text": "Proyectos Emblemáticos Ejecutados",
+      "style": "Normal",
+      "is_bold": true,
+      "runs": [
+        {
+          "text": "Proyectos Emblemáticos Ejecutados",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "index": 20,
+      "text": "Av. Patria (1.270 m): Rediseño integral de aceras, soterramiento de cables, iluminación LED de alta potencia, paisajismo con plantas endémicas y la construcción de la Plaza de la Memoria. Beneficia a más de 200.000 habitantes.",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "Av. Patria (1.270 m):",
+          "bold": true
+        },
+        {
+          "text": " Rediseño integral de aceras, soterramiento de cables, iluminación LED de alta potencia, paisajismo con plantas endémicas y la construcción de la Plaza de la Memoria. Beneficia a más de 200.000 habitantes.",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 21,
+      "text": "Av. Colón (2.000 m): Eje multimodal que articula el transporte público. Incluye reformas geométricas para accesibilidad, alcorques para arbolado urbano, luminarias solares y sistemas de videovigilancia.",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "Av. Colón (2.000 m):",
+          "bold": true
+        },
+        {
+          "text": " Eje multimodal que articula el transporte público. Incluye reformas geométricas para accesibilidad, alcorques para arbolado urbano, luminarias solares y sistemas de videovigilancia.",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 22,
+      "text": "Intervenciones Zonales: Proyectos adaptados a las particularidades de cada sector en: Los Chillos (El Tingo), Eloy Alfaro (Av. Michelena), Quitumbe (Chillogallo), Manuela Sáenz (Caldas y Antepara), Calderón (Av. Carapungo) e Eugenio Espejo (Isla Tortuga).",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "Intervenciones Zonales:",
+          "bold": true
+        },
+        {
+          "text": " Proyectos adaptados a las particularidades de cada sector en: ",
+          "bold": false
+        },
+        {
+          "text": "Los Chillos",
+          "bold": false
+        },
+        {
+          "text": " (El Tingo), ",
+          "bold": false
+        },
+        {
+          "text": "Eloy Alfaro",
+          "bold": false
+        },
+        {
+          "text": " (Av. Michelena), ",
+          "bold": false
+        },
+        {
+          "text": "Quitumbe",
+          "bold": false
+        },
+        {
+          "text": " (Chillogallo), ",
+          "bold": false
+        },
+        {
+          "text": "Manuela Sáenz",
+          "bold": false
+        },
+        {
+          "text": " (Caldas y Antepara), ",
+          "bold": false
+        },
+        {
+          "text": "Calderón",
+          "bold": false
+        },
+        {
+          "text": " (Av. Carapungo) e ",
+          "bold": false
+        },
+        {
+          "text": "Eugenio Espejo",
+          "bold": false
+        },
+        {
+          "text": " (Isla Tortuga).",
+          "bold": false
+        }
+      ]
+    }
+  ]
+}

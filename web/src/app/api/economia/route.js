@@ -160,6 +160,14 @@ function resolveSectorName(rawSector, aliasMap) {
     global.resolvedSectorsCache[rawSector] = null;
     return null;
   }
+
+  // Mapeos explícitos manuales para casos especiales
+  if (normalized === 'entorno bicentenario' || normalized === 'bicentenario') {
+    const canonical = 'El Labrador: Bulevar y Parque de la Resiliencia';
+    global.resolvedSectorsCache[rawSector] = canonical;
+    return canonical;
+  }
+
   if (aliasMap[normalized]) {
     global.resolvedSectorsCache[rawSector] = aliasMap[normalized];
     return aliasMap[normalized];
@@ -219,6 +227,12 @@ export async function GET(request) {
   const { searchParams } = new URL(request.url);
   const sectorSeleccionado = searchParams.get('sector');
 
+  if (searchParams.get('clearCache') === 'true') {
+    global.resolvedSectorsCache = {};
+    global.cachedEcoRecords = null;
+    global.lastEcoFetchTime = null;
+  }
+
   if (!sectorSeleccionado) {
     return NextResponse.json({ success: false, error: 'Falta el parámetro de sector' }, { status: 400 });
   }
@@ -244,39 +258,28 @@ export async function GET(request) {
 
     const fechaReferencia = parseFlexibleDate(proyectoRef.fecha_inauguracion);
 
-    // 2. Obtener registros de economía (paginado o desde el caché)
+    // 2. Obtener registros de economía para el sector seleccionado de forma paginada
     let records = [];
-    const now = Date.now();
-    let cachedEcoRecords = global.cachedEcoRecords || null;
-    let lastEcoFetchTime = global.lastEcoFetchTime || null;
+    let page = 0;
+    const pageSize = 1000;
+    let hasMore = true;
 
-    if (cachedEcoRecords && lastEcoFetchTime && (now - lastEcoFetchTime < ECO_CACHE_TTL)) {
-      records = cachedEcoRecords;
-    } else {
-      let page = 0;
-      const pageSize = 1000;
-      let hasMore = true;
+    while (hasMore) {
+      const { data: pageData, error: ecoError } = await supabase
+        .from('economia_registros')
+        .select('*')
+        .eq('sector_raw', sectorSeleccionado)
+        .range(page * pageSize, (page + 1) * pageSize - 1);
 
-      while (hasMore) {
-        const { data: pageData, error: ecoError } = await supabase
-          .from('economia_registros')
-          .select('*')
-          .range(page * pageSize, (page + 1) * pageSize - 1);
+      if (ecoError) throw ecoError;
 
-        if (ecoError) throw ecoError;
-
-        if (pageData && pageData.length > 0) {
-          records = records.concat(pageData);
-          hasMore = pageData.length === pageSize;
-          page++;
-        } else {
-          hasMore = false;
-        }
+      if (pageData && pageData.length > 0) {
+        records = records.concat(pageData);
+        hasMore = pageData.length === pageSize;
+        page++;
+      } else {
+        hasMore = false;
       }
-      global.cachedEcoRecords = records;
-      global.lastEcoFetchTime = now;
-      global.resolvedSectorsCache = {}; // Reset resolved cache if database records refresh
-      records = records;
     }
 
     const aliasMap = buildSectorAliasMap(proyectos);
@@ -284,12 +287,29 @@ export async function GET(request) {
     const controlMov = { renovacion: 0, emision: 0 };
     let excluidosFecha = 0;
 
+    const desgloseAnualMap = {};
+
     records.forEach((record) => {
       const sectorResuelto = resolveSectorName(record.sector_raw, aliasMap);
       if (sectorResuelto !== sectorSeleccionado) {
         return;
       }
 
+      // Clasificación y desglose anual de todos los registros del sector (sin filtrar por fecha)
+      const recordType = classifyBusiness(record, fechaReferencia);
+      if (recordType !== 'indeterminado') {
+        const anio = record.fecha_impresion ? new Date(record.fecha_impresion).getFullYear() : 'Desconocido';
+        if (!desgloseAnualMap[anio]) {
+          desgloseAnualMap[anio] = { abiertos: 0, renovados: 0 };
+        }
+        if (recordType === 'abierto') {
+          desgloseAnualMap[anio].abiertos++;
+        } else if (recordType === 'renovado') {
+          desgloseAnualMap[anio].renovados++;
+        }
+      }
+
+      // Filtro por fecha de inauguración para estadísticas principales del dashboard
       if (!isAfterOrEqualReference(record.fecha_impresion, fechaReferencia)) {
         excluidosFecha++;
         return;
@@ -302,9 +322,8 @@ export async function GET(request) {
         controlMov.emision++;
       }
 
-      const categoria = classifyBusiness(record, fechaReferencia);
-      if (categoria !== 'indeterminado') {
-        clasificados.push(categoria);
+      if (recordType !== 'indeterminado') {
+        clasificados.push(recordType);
       }
     });
 
@@ -316,11 +335,24 @@ export async function GET(request) {
       { categoria: 'renovado', cantidad: renovadosCount }
     ];
 
+    const desgloseAnual = Object.entries(desgloseAnualMap)
+      .map(([anio, data]) => ({
+        anio: anio === 'Desconocido' ? anio : parseInt(anio),
+        abiertos: data.abiertos,
+        renovados: data.renovados
+      }))
+      .sort((a, b) => {
+        if (a.anio === 'Desconocido') return 1;
+        if (b.anio === 'Desconocido') return -1;
+        return a.anio - b.anio;
+      });
+
     return NextResponse.json({
       success: true,
       abiertos: abiertosCount,
       renovados: renovadosCount,
       resumen,
+      desglose_anual: desgloseAnual,
       excluidos_fecha: excluidosFecha,
       control_mov: controlMov,
       fecha_referencia: fechaReferencia,

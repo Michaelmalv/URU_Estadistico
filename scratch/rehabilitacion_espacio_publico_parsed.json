@@ -1,0 +1,514 @@
+{
+  "title": "Rehabilitación del Espacio Público",
+  "key": "Rehabilitación del Espacio Público",
+  "images": [
+    "/imagenes_categorias/rehabilitacion_espacio_publico/extracted_1.jpeg",
+    "/imagenes_categorias/rehabilitacion_espacio_publico/extracted_2.jpeg"
+  ],
+  "paragraphs": [
+    {
+      "index": 0,
+      "text": "REHABILITACIÓN DEL ESPACIO PÚBLICO",
+      "style": "Normal",
+      "is_bold": true,
+      "runs": [
+        {
+          "text": "REHABILITACIÓN DEL ESPACIO PÚBLICO",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "text": "1. Bulevar Tribuna de los Shyris",
+      "style": "Normal",
+      "is_bold": true,
+      "runs": [
+        {
+          "text": "1. Bulevar Tribuna de los Shyris ",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "text": "Concepto del Proyecto: Transformación radical de la Av. De los Shyris mediante el derrocamiento de la antigua Tribuna para dar paso a un espacio público vanguardista enfocado en las personas, la movilidad activa y la mitigación del riesgo urbano.",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "Concepto del Proyecto:",
+          "bold": true
+        },
+        {
+          "text": " Transformación radical de la Av. De los Shyris mediante el derrocamiento de la antigua Tribuna para dar paso a un espacio público vanguardista enfocado en las personas, la movilidad activa y la mitigación del riesgo urbano. ",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "text": "Inversión y Beneficiarios: Cuenta con una inversión referencial de USD 950.000,00, beneficiando de forma directa a más de 400.000 usuarios recurrentes del sector de La Carolina.",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "Inversión y Beneficiarios:",
+          "bold": true
+        },
+        {
+          "text": " Cuenta con una inversión referencial de ",
+          "bold": false
+        },
+        {
+          "text": "USD 950.000,00",
+          "bold": true
+        },
+        {
+          "text": ", beneficiando de forma directa a más de 400.000 usuarios recurrentes del sector de La Carolina. ",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 4,
+      "text": "Fases y Componentes de Obra:",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "Fases y Componentes de Obra:",
+          "bold": true
+        },
+        {
+          "text": " ",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 5,
+      "text": "Fase 1 (Pacificadores): Construcción de amplias plataformas de pacificación vial y mejoramiento de cruces peatonales accesibles en las intersecciones con las calles Holanda ($950\\text{ m}^2$) y Bélgica ($800\\text{ m}^2$), incorporando adoquines podotáctiles y bolardos disuasivos.",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "Fase 1 (Pacificadores):",
+          "bold": false
+        },
+        {
+          "text": " Construcción de amplias plataformas de pacificación vial y mejoramiento de cruces peatonales accesibles en las intersecciones con las calles Holanda ($950\\",
+          "bold": false
+        },
+        {
+          "text": "text{ m",
+          "bold": false
+        },
+        {
+          "text": "}^2$) y Bélgica ($800\\text{ m}^2$), incorporando adoquines podotáctiles y bolardos disuasivos. ",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 6,
+      "text": "Fase 2 (Bulevar y Arborización): Derrocamiento de la estructura de la tribuna, ampliación y reconfiguración de la acera este, arborización con especies nativas y la instalación de 21 estructuras arquitectónicas con iluminación LED ornamental rotativa.",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "Fase 2 (Bulevar y Arborización):",
+          "bold": false
+        },
+        {
+          "text": " Derrocamiento de la estructura de la tribuna, ampliación y reconfiguración de la acera este, arborización con especies nativas y la instalación de 21 estructuras arquitectónicas con ",
+          "bold": false
+        },
+        {
+          "text": "iluminación LED ornamental",
+          "bold": true
+        },
+        {
+          "text": " rotativa. ",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 9,
+      "text": "2. Calle Benalcázar (Eje Centro Histórico)",
+      "style": "Normal",
+      "is_bold": true,
+      "runs": [
+        {
+          "text": "2. Calle Benalcázar (Eje Centro Histórico)",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "index": 10,
+      "text": "Estrategia de Intervención: Proyecto prioritario enmarcado en la Primera Fase de Recuperación Urbana del Centro Histórico (CHQ), orientado a revertir el paradigma del uso del vehículo y rescatar la caminabilidad patrimonial[cite: 1, 10].",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "Estrategia de Intervención:",
+          "bold": true
+        },
+        {
+          "text": " Proyecto prioritario enmarcado en la ",
+          "bold": false
+        },
+        {
+          "text": "Primera Fase de Recuperación Urbana del Centro Histórico (CHQ)",
+          "bold": true
+        },
+        {
+          "text": ", orientado a revertir el paradigma del uso del vehículo y rescatar la caminabilidad ",
+          "bold": false
+        },
+        {
+          "text": "patrimonial[",
+          "bold": false
+        },
+        {
+          "text": "cite: 1, 10].",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 11,
+      "text": "Alcance de la Obra: Intervención a lo largo de un eje continuo de $0.8\\text{ km}$ de longitud que sirve como conector directo hacia la estación de Metro San Francisco y los principales equipamientos culturales del casco colonial[cite: 1, 10].",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "Alcance de la Obra:",
+          "bold": true
+        },
+        {
+          "text": " Intervención a lo largo de un eje continuo de ",
+          "bold": false
+        },
+        {
+          "text": "$0.8\\",
+          "bold": true
+        },
+        {
+          "text": "text{ km",
+          "bold": true
+        },
+        {
+          "text": "}$",
+          "bold": true
+        },
+        {
+          "text": " de longitud que sirve como conector directo hacia la estación de Metro San Francisco y los principales equipamientos culturales del casco colonial[cite: 1, 10].",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 12,
+      "text": "Mejoras en el Espacio Público:",
+      "style": "Normal",
+      "is_bold": true,
+      "runs": [
+        {
+          "text": "Mejoras en el Espacio Público:",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "index": 13,
+      "text": "Ensanchamiento general de aceras y colocación de bandas podotáctiles para accesibilidad universal.",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "Ensanchamiento general de aceras y colocación de bandas podotáctiles para accesibilidad universal. ",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 14,
+      "text": "Implementación de plataformas únicas y nivelación de calzada en cruces peatonales críticos para reducir la velocidad vehicular a un máximo de $30\\text{ km/h}$.",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "Implementación de plataformas únicas y nivelación de calzada en cruces peatonales críticos para reducir la velocidad vehicular a un máximo de $30\\",
+          "bold": false
+        },
+        {
+          "text": "text{ km",
+          "bold": false
+        },
+        {
+          "text": "/h}$. ",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 15,
+      "text": "Arborización urbana mediante la dotación de alcorques técnicos e instalación de mobiliario con iluminación pública peatonal homogénea.",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "Arborización urbana mediante la dotación de alcorques técnicos e instalación de mobiliario con iluminación pública peatonal homogénea. ",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 16,
+      "text": "3. Calle Rocafuerte (Conectividad San Roque - La Loma)",
+      "style": "Normal",
+      "is_bold": true,
+      "runs": [
+        {
+          "text": "3. Calle Rocafuerte (Conectividad San Roque - La Loma)",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "index": 17,
+      "text": "Alcance e Inversión: Proyecto integral a cargo del Instituto Metropolitano de Patrimonio (IMP) y la SHOT, con una extensión de $0.9\\text{ km}$ ejecutados entre el Arco de Santo Domingo y la Plaza de la Mama Cuchara (alcanzando los $1.90\\text{ km}$ en el circuito general de intervención)[cite: 1, 12]. Representa una inversión aproximada de USD 1.16 millones[cite: 1, 12].",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "Alcance e Inversión:",
+          "bold": true
+        },
+        {
+          "text": " Proyecto integral a cargo del Instituto Metropolitano de Patrimonio (IMP) y la SHOT, con una extensión de ",
+          "bold": false
+        },
+        {
+          "text": "$0.9\\",
+          "bold": true
+        },
+        {
+          "text": "text{ km",
+          "bold": true
+        },
+        {
+          "text": "}$",
+          "bold": true
+        },
+        {
+          "text": " ejecutados entre el Arco de Santo Domingo y la Plaza de la Mama Cuchara (alcanzando los $1.90\\text{ km}$ en el circuito general de intervención)[cite: 1, 12]. Representa una inversión aproximada de ",
+          "bold": false
+        },
+        {
+          "text": "USD 1.16 ",
+          "bold": true
+        },
+        {
+          "text": "millones",
+          "bold": true
+        },
+        {
+          "text": "[",
+          "bold": false
+        },
+        {
+          "text": "cite: 1, 12].",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 18,
+      "text": "Espacio Público Ganado: Recuperación de $2.830\\text{ m}^2$ de superficie de rodadura que pasó a ser de uso exclusivo para el peatón mediante ampliación geométrica de aceras[cite: 1, 12].",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "Espacio Público Ganado:",
+          "bold": true
+        },
+        {
+          "text": " Recuperación de ",
+          "bold": false
+        },
+        {
+          "text": "$2.830\\",
+          "bold": true
+        },
+        {
+          "text": "text{ m",
+          "bold": true
+        },
+        {
+          "text": "}^2$",
+          "bold": true
+        },
+        {
+          "text": " de superficie de rodadura que pasó a ser de uso exclusivo para el peatón mediante ampliación geométrica de aceras[cite: 1, 12].",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 19,
+      "text": "Beneficiarios Directos: $20.250$ habitantes de los barrios residenciales tradicionales de La Loma y San Roque, priorizando las zonas seguras al contorno de la UEM Fernández Madrid[cite: 1, 10, 12].",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "Beneficiarios Directos:",
+          "bold": true
+        },
+        {
+          "text": " $20.250$ habitantes de los barrios residenciales tradicionales de La Loma y San Roque, priorizando las zonas seguras al contorno de la UEM Fernández ",
+          "bold": false
+        },
+        {
+          "text": "Madrid[",
+          "bold": false
+        },
+        {
+          "text": "cite: 1, 10, 12].",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 20,
+      "text": "Manejo Urbano Integrado: Redistribución de los flujos de tráfico vehicular, operativos interinstitucionales de control del comercio autónomo informal (AMC y Cuerpo de Agentes) y campañas de seguridad vial los fines de semana.",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "Manejo Urbano Integrado:",
+          "bold": true
+        },
+        {
+          "text": " Redistribución de los flujos de tráfico vehicular, operativos interinstitucionales de control del comercio autónomo informal (AMC y Cuerpo de Agentes) y campañas de seguridad vial los fines de semana. ",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 21,
+      "text": "4. Parque Navarro (Plaza de las Tripas - La Floresta)",
+      "style": "Normal",
+      "is_bold": true,
+      "runs": [
+        {
+          "text": "4. Parque Navarro (Plaza de las Tripas - La Floresta)",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "index": 22,
+      "text": "Concepto del Proyecto: Regeneración urbana y patrimonial profunda de la plaza icónica de la gastronomía quiteña tradicional en el barrio de La Floresta, rescatando un espacio que se encontraba en condiciones de deterioro.",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "Concepto del Proyecto:",
+          "bold": true
+        },
+        {
+          "text": " Regeneración urbana y patrimonial profunda de la plaza icónica de la gastronomía quiteña tradicional en el barrio de La Floresta, rescatando un espacio que se encontraba en condiciones de deterioro. ",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 23,
+      "text": "Metodología y Co-diseño: Desarrollado bajo un esquema de diseño participativo y asambleas comunitarias con moradores del sector y la Asociación de Vendedoras \"Santa Marianita de Jesús\".",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "Metodología y Co-diseño:",
+          "bold": true
+        },
+        {
+          "text": " Desarrollado bajo un esquema de ",
+          "bold": false
+        },
+        {
+          "text": "diseño participativo y asambleas comunitarias",
+          "bold": true
+        },
+        {
+          "text": " con moradores del sector y la Asociación de Vendedoras \"Santa Marianita de Jesús\". ",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 24,
+      "text": "Componentes de Revitalización:",
+      "style": "Normal",
+      "is_bold": true,
+      "runs": [
+        {
+          "text": "Componentes de Revitalización:",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "index": 25,
+      "text": "Módulos Gastronómicos Técnicos: Diseño e instalación de casetas modulares homologadas con altos criterios de salubridad pública y manejo de alimentos.",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "Módulos Gastronómicos Técnicos:",
+          "bold": false
+        },
+        {
+          "text": " Diseño e instalación de casetas modulares homologadas con altos criterios de salubridad pública y manejo de alimentos. ",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 26,
+      "text": "Infraestructura Comunitaria: Renovación de caminerías, iluminación ornamental de alta eficiencia, áreas de estancia dotadas de mobiliario y habilitación de zonas verdes seguras para los usuarios.",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "Infraestructura Comunitaria:",
+          "bold": false
+        },
+        {
+          "text": " Renovación de caminerías, iluminación ornamental de alta eficiencia, áreas de estancia dotadas de mobiliario y habilitación de zonas verdes seguras para los usuarios. ",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 27,
+      "text": "Dinámica Social: El proyecto consolidó un modelo de reactivación económica barrial donde el 58% de los usuarios recurrentes oscila entre los 18 y 34 años, atrayendo turismo local e internacional.",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "Dinámica Social:",
+          "bold": false
+        },
+        {
+          "text": " El proyecto consolidó un modelo de reactivación económica barrial donde el 58% de los usuarios recurrentes oscila entre los 18 y 34 años, atrayendo turismo local e internacional. ",
+          "bold": false
+        }
+      ]
+    }
+  ]
+}

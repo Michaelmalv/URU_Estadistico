@@ -1,0 +1,578 @@
+{
+  "title": "Quitopía",
+  "key": "Quitopia",
+  "images": [
+    "/imagenes_categorias/quitopia/extracted_1.png",
+    "/imagenes_categorias/quitopia/extracted_2.png",
+    "/imagenes_categorias/quitopia/extracted_3.png",
+    "/imagenes_categorias/quitopia/extracted_4.png",
+    "/imagenes_categorias/quitopia/extracted_5.png",
+    "/imagenes_categorias/quitopia/extracted_6.png"
+  ],
+  "paragraphs": [
+    {
+      "index": 0,
+      "text": "Quitopía",
+      "style": "Normal",
+      "is_bold": true,
+      "runs": [
+        {
+          "text": "Quitopía",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "text": "Un Sistema Integrado de Cuidados e Innovación",
+      "style": "Normal",
+      "is_bold": true,
+      "runs": [
+        {
+          "text": "Un Sistema Integrado de Cuidados e Innovación",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "text": "Concepto del Proyecto",
+      "style": "Normal",
+      "is_bold": true,
+      "runs": [
+        {
+          "text": "Concepto del Proyecto",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "text": "Las Quitopías representan el modelo de gestión territorial más ambicioso del Distrito Metropolitano de Quito. Funcionan como una red descentralizada de equipamientos comunitarios multisectoriales que superan la fragmentación institucional para garantizar los derechos, el cuidado, la cultura y la convivencia social de las familias de la capital.",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "Las ",
+          "bold": false
+        },
+        {
+          "text": "Quitopías",
+          "bold": false
+        },
+        {
+          "text": " representan el modelo de gestión territorial más ambicioso del Distrito Metropolitano de Quito. Funcionan como una ",
+          "bold": false
+        },
+        {
+          "text": "red descentralizada de equipamientos comunitarios multisectoriales",
+          "bold": true
+        },
+        {
+          "text": " que superan la fragmentación institucional para garantizar los derechos, el cuidado, la cultura y la convivencia social de las familias de la capital. ",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 4,
+      "text": "Inspirado en los mejores referentes globales de urbanismo social, este proyecto transforma infraestructuras subutilizadas en centralidades vivas donde se articulan de manera directa los servicios públicos, la academia y la comunidad.",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "Inspirado en los mejores referentes globales de urbanismo social, este proyecto transforma infraestructuras subutilizadas en centralidades vivas donde se articulan de manera directa los servicios públicos, la academia y la comunidad. ",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 6,
+      "text": "Ficha Técnica y Datos de Impacto (Nodo Piloto: Quitopía \"La Y\")",
+      "style": "Normal",
+      "is_bold": true,
+      "runs": [
+        {
+          "text": "Ficha Técnica y Datos de Impacto (Nodo Piloto: ",
+          "bold": true
+        },
+        {
+          "text": "Quitopía",
+          "bold": true
+        },
+        {
+          "text": " \"La Y\")",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "index": 7,
+      "text": "Área Total de Intervención: Un ecosistema urbano integral de $19.544,98\\text{ m}^2$ distribuidos de manera estratégica en tres frentes de obra:",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "Área Total de Intervención:",
+          "bold": true
+        },
+        {
+          "text": " Un ecosistema urbano integral de ",
+          "bold": false
+        },
+        {
+          "text": "$19.544,98\\",
+          "bold": true
+        },
+        {
+          "text": "text",
+          "bold": true
+        },
+        {
+          "text": "{ m",
+          "bold": true
+        },
+        {
+          "text": "}^2$",
+          "bold": true
+        },
+        {
+          "text": " distribuidos de manera estratégica en tres frentes de obra: ",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 8,
+      "text": "Edificio de Equipamiento Público Central: $6.800,00\\text{ m}^2$.",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "Edificio de Equipamiento Público Central:",
+          "bold": false
+        },
+        {
+          "text": " $6.800,00\\",
+          "bold": false
+        },
+        {
+          "text": "text",
+          "bold": false
+        },
+        {
+          "text": "{ m",
+          "bold": false
+        },
+        {
+          "text": "}^2$. ",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 9,
+      "text": "Parque Vecinal y Pasaje Peatonal Recreativo: $8.060,83\\text{ m}^2$.",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "Parque Vecinal y Pasaje Peatonal Recreativo:",
+          "bold": false
+        },
+        {
+          "text": " $8.060,83\\",
+          "bold": false
+        },
+        {
+          "text": "text",
+          "bold": false
+        },
+        {
+          "text": "{ m",
+          "bold": false
+        },
+        {
+          "text": "}^2$. ",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 10,
+      "text": "Proyecto Integral Vial y Obras de Urbanización: $4.684,15\\text{ m}^2$.",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "Proyecto Integral Vial y Obras de Urbanización:",
+          "bold": false
+        },
+        {
+          "text": " $4.684,15\\",
+          "bold": false
+        },
+        {
+          "text": "text",
+          "bold": false
+        },
+        {
+          "text": "{ m",
+          "bold": false
+        },
+        {
+          "text": "}^2$. ",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 11,
+      "text": "Inversión Pública Consolidada: USD $10'398.332,77$ financiados por el Municipio de Quito y distribuidos en edificación matriz (USD $8'862.893,44$), espacio público verde (USD $678.486,17$) y urbanización periférica (USD $856.953,16$).",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "Inversión Pública Consolidada:",
+          "bold": true
+        },
+        {
+          "text": " ",
+          "bold": false
+        },
+        {
+          "text": "USD $10'398.332,77$",
+          "bold": true
+        },
+        {
+          "text": " financiados por el Municipio de Quito y distribuidos en edificación matriz (USD $8'862.893,44$), espacio público verde (USD $678.486,17$) y urbanización periférica (USD $856.953,16$). ",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 12,
+      "text": "Cronograma y Estado de Obra: Las intervenciones viales y del pasaje peatonal arrancaron en marzo de 2025, mientras que la edificación central inició en noviembre de 2025. El proyecto registra un avance físico general del $75\\%$ y su entrega definitiva está programada para julio de 2026.",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "Cronograma y Estado de Obra:",
+          "bold": true
+        },
+        {
+          "text": " Las intervenciones viales y del pasaje peatonal arrancaron en marzo de 2025, mientras que la edificación central inició en noviembre de 2025. El proyecto registra un avance físico general del $75\\%$ y su entrega definitiva está programada para ",
+          "bold": false
+        },
+        {
+          "text": "julio de 2026",
+          "bold": true
+        },
+        {
+          "text": ". ",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 14,
+      "text": "Componentes y Servicios del Complejo Integrado",
+      "style": "Normal",
+      "is_bold": true,
+      "runs": [
+        {
+          "text": "Componentes y Servicios del Complejo Integrado",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "index": 15,
+      "text": "La Quitopía rompe los esquemas tradicionales dividiendo su infraestructura en tres grandes bloques funcionales diseñados para todas las edades:",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "La ",
+          "bold": false
+        },
+        {
+          "text": "Quitopía",
+          "bold": false
+        },
+        {
+          "text": " rompe los esquemas tradicionales dividiendo su infraestructura en tres grandes bloques funcionales diseñados para todas las edades: ",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 16,
+      "text": "1. Edificio de Capacitación, Innovación y Cultura (Bloque A)",
+      "style": "Normal",
+      "is_bold": true,
+      "runs": [
+        {
+          "text": "1. Edificio de Capacitación, Innovación y Cultura (Bloque A)",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "index": 17,
+      "text": "Un espacio tecnológico de libre acceso orientado a fortalecer el tejido productivo y las capacidades digitales de la ciudadanía a través de actividades continuas:",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "Un espacio tecnológico de libre acceso orientado a fortalecer el tejido productivo y las capacidades digitales de la ciudadanía a través de actividades continuas: ",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 18,
+      "text": "FabLab Metropolitano: Laboratorios públicos equipados para el prototipado digital, la programación avanzada, la robótica y talleres experimentales de Inteligencia Artificial.",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "FabLab",
+          "bold": true
+        },
+        {
+          "text": " Metropolitano:",
+          "bold": true
+        },
+        {
+          "text": " Laboratorios públicos equipados para el prototipado digital, la programación avanzada, la robótica y talleres experimentales de Inteligencia Artificial. ",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 19,
+      "text": "Expresión y Multimedia: Un estudio y cabina de grabación profesional con convocatorias abiertas para colectivos musicales y comunitarios.",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "Expresión y Multimedia:",
+          "bold": true
+        },
+        {
+          "text": " Un estudio y cabina de grabación profesional con convocatorias abiertas para colectivos musicales y comunitarios. ",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 20,
+      "text": "Salas Multifuncionales: Espacios destinados a la danza, artes plásticas, expresión corporal y un gimnasio público con programas de entrenamiento funcional guiado.",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "Salas Multifuncionales:",
+          "bold": true
+        },
+        {
+          "text": " Espacios destinados a la danza, artes plásticas, expresión corporal y un gimnasio público con programas de entrenamiento funcional guiado. ",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 22,
+      "text": "2. Edificio Centro de los Cuidados (Bloque B)",
+      "style": "Normal",
+      "is_bold": true,
+      "runs": [
+        {
+          "text": "2. Edificio Centro de los Cuidados (Bloque B)",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "index": 23,
+      "text": "La columna vertebral del proyecto, diseñada para aliviar la carga de trabajo doméstico y de cuidado, brindando un soporte integral a las familias:",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "La columna vertebral del proyecto, diseñada para aliviar la carga de trabajo doméstico y de cuidado, brindando un soporte integral a las familias: ",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 24,
+      "text": "Centro Infantil \"Quito Wawas\": Un espacio seguro y lúdico para el cuidado y la estimulación de la primera infancia.",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "Centro Infantil \"Quito ",
+          "bold": true
+        },
+        {
+          "text": "Wawas",
+          "bold": true
+        },
+        {
+          "text": "\":",
+          "bold": true
+        },
+        {
+          "text": " Un espacio seguro y lúdico para el cuidado y la estimulación de la primera infancia. ",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 25,
+      "text": "Lactario: Área especializada, higiénica y confortable habilitada para la libre lactancia.",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "Lactario:",
+          "bold": true
+        },
+        {
+          "text": " Área especializada, higiénica y confortable habilitada para la libre lactancia. ",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 26,
+      "text": "Cuidado Intergeneracional: Módulos de lavandería comunitaria bajo reserva, y salas destinadas a actividades lúdicas, talleres de memoria y diálogo para adultos mayores.",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "Cuidado Intergeneracional:",
+          "bold": true
+        },
+        {
+          "text": " Módulos de lavandería comunitaria bajo reserva, y salas destinadas a actividades lúdicas, talleres de memoria y diálogo para adultos mayores. ",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 28,
+      "text": "3. Edificio Teatro - Polideportivo (Bloque C)",
+      "style": "Normal",
+      "is_bold": true,
+      "runs": [
+        {
+          "text": "3. Edificio Teatro - Polideportivo (Bloque C)",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "index": 29,
+      "text": "El punto de encuentro para el esparcimiento masivo, la cultura y la salud preventiva:",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "El punto de encuentro para el esparcimiento masivo, la cultura y la salud preventiva: ",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 30,
+      "text": "Teatro - Cinemateca: Una moderna sala con capacidad para 450 personas diseñada para lanzamientos artísticos, proyecciones culturales y encuentros ciudadanos.",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "Teatro - Cinemateca:",
+          "bold": true
+        },
+        {
+          "text": " Una moderna sala con capacidad para 450 personas diseñada para lanzamientos artísticos, proyecciones culturales y encuentros ciudadanos. ",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 31,
+      "text": "Infraestructura Deportiva: Préstamo de canchas por horas, copas interbarriales y programas permanentes de salud preventiva en articulación con las entidades municipales.",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "Infraestructura Deportiva:",
+          "bold": true
+        },
+        {
+          "text": " Préstamo de canchas por horas, copas ",
+          "bold": false
+        },
+        {
+          "text": "interbarriales",
+          "bold": false
+        },
+        {
+          "text": " y programas permanentes de salud preventiva en articulación con las entidades municipales. ",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 33,
+      "text": "Sostenibilidad Urbana y Gestión Ambiental",
+      "style": "Normal",
+      "is_bold": true,
+      "runs": [
+        {
+          "text": "Sostenibilidad Urbana y Gestión Ambiental",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "index": 34,
+      "text": "El entorno exterior de la Quitopía funciona como un amortiguador ecológico de la ciudad. Incorpora soluciones basadas en la naturaleza, como jardines de lluvia y humedales conectados a un tanque de retención de aguas lluvias, diseñados específicamente para mitigar las históricas inundaciones de la Av. 10 de Agosto. Todo el perímetro cuenta con criterios de accesibilidad universal, soterramiento de redes, pacificación de tránsito y un parque lineal que integra la vida vecinal con el comercio local regularizado.",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "El entorno exterior de la ",
+          "bold": false
+        },
+        {
+          "text": "Quitopía",
+          "bold": false
+        },
+        {
+          "text": " funciona como un amortiguador ecológico de la ciudad. Incorpora soluciones basadas en la naturaleza, como ",
+          "bold": false
+        },
+        {
+          "text": "jardines de lluvia y humedales",
+          "bold": true
+        },
+        {
+          "text": " conectados a un tanque de retención de aguas lluvias, diseñados específicamente para mitigar las históricas inundaciones de la Av. 10 de ",
+          "bold": false
+        },
+        {
+          "text": "Agosto",
+          "bold": false
+        },
+        {
+          "text": ". Todo el perímetro cuenta con criterios de accesibilidad universal, soterramiento de redes, pacificación de tránsito y un parque lineal que integra la vida vecinal con el comercio local regularizado. ",
+          "bold": false
+        }
+      ]
+    }
+  ]
+}

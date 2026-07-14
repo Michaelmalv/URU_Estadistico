@@ -1,0 +1,403 @@
+{
+  "title": "Repotenciación Parque Bicentenario",
+  "key": "Repotenciación Parque Bicentenario",
+  "images": [
+    "/imagenes_categorias/repotenciacion_parque_bicentenario/extracted_1.png",
+    "/imagenes_categorias/repotenciacion_parque_bicentenario/extracted_2.png",
+    "/imagenes_categorias/repotenciacion_parque_bicentenario/extracted_3.png"
+  ],
+  "paragraphs": [
+    {
+      "index": 0,
+      "text": "Repotenciación Parque Metropolitano Bicentenario",
+      "style": "Normal",
+      "is_bold": true,
+      "runs": [
+        {
+          "text": "Repotenciación Parque Metropolitano Bicentenario",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "text": "Concepto del Proyecto",
+      "style": "Normal",
+      "is_bold": true,
+      "runs": [
+        {
+          "text": "Concepto del Proyecto",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "text": "El proyecto de Repotenciación del Parque Metropolitano Bicentenario consolida este espacio histórico como el principal pulmón verde, recreativo, cultural y de desarrollo urbano del norte de Quito. Aprovechando los terrenos del antiguo aeropuerto, la intervención no solo amplía la cobertura vegetal de la ciudad, sino que introduce un modelo de centralidad urbana sostenible.",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "El proyecto de ",
+          "bold": false
+        },
+        {
+          "text": "Repotenciación del Parque Metropolitano Bicentenario",
+          "bold": true
+        },
+        {
+          "text": " consolida este espacio histórico como el principal pulmón verde, recreativo, cultural y de desarrollo urbano del norte de Quito. Aprovechando los terrenos del antiguo aeropuerto, la intervención no solo amplía la cobertura vegetal de la ciudad, sino que introduce un modelo de centralidad urbana sostenible. ",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "text": "Bajo la coordinación técnica de la Secretaría de Hábitat y Ordenamiento Territorial (SHOT) y en cumplimiento del Plan de Uso y Gestión del Suelo (PUGS), el parque equilibra la preservación ecológica con la inserción de infraestructura deportiva de alto rendimiento y espacios masivos para la cultura y el turismo internacional.",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "Bajo la coordinación técnica de la Secretaría de Hábitat y Ordenamiento Territorial (SHOT) y en cumplimiento del Plan de Uso y Gestión del Suelo (PUGS), el parque equilibra la preservación ecológica con la inserción de infraestructura deportiva de alto rendimiento y espacios masivos para la cultura y el turismo internacional. ",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 4,
+      "text": "Ficha Técnica y Datos de Impacto",
+      "style": "Normal",
+      "is_bold": true,
+      "runs": [
+        {
+          "text": "Ficha Técnica y Datos de Impacto",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "index": 5,
+      "text": "Área Total de Intervención: Una macro-infraestructura de $115\\text{ Hectáreas}$ de terreno público integrado, consolidándose como uno de los parques urbanos más grandes del Distrito Metropolitano.",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "Área Total de Intervención:",
+          "bold": true
+        },
+        {
+          "text": " Una macro-infraestructura de ",
+          "bold": false
+        },
+        {
+          "text": "$115\\text{ Hectáreas}$",
+          "bold": true
+        },
+        {
+          "text": " de terreno público integrado, consolidándose como uno de los parques urbanos más grandes del Distrito Metropolitano. ",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 6,
+      "text": "Población Beneficiaria: Impacto positivo directo sobre $73.051$ habitantes de la parroquia La Concepción y zonas de influencia, proyectando recibir a más de $150.000$ visitantes mensuales.",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "Población Beneficiaria:",
+          "bold": true
+        },
+        {
+          "text": " Impacto positivo directo sobre ",
+          "bold": false
+        },
+        {
+          "text": "$73.051$ habitantes",
+          "bold": true
+        },
+        {
+          "text": " de la parroquia La Concepción y zonas de influencia, proyectando recibir a más de $150.000$ visitantes mensuales. ",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 7,
+      "text": "Inversión Pública Referencial: USD $74.530.000,00 financiados y ejecutados de manera plurianual y por fases a través de la EPMMOP.",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "Inversión Pública Referencial:",
+          "bold": true
+        },
+        {
+          "text": " ",
+          "bold": false
+        },
+        {
+          "text": "USD $74.530.000,00",
+          "bold": true
+        },
+        {
+          "text": " financiados y ejecutados de manera plurianual y por fases a través de la EPMMOP. ",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 8,
+      "text": "Cronograma y Estado Técnico: El diseño vial y el trazado arquitectónico definitivo concluyeron sus aprobaciones a finales de 2025. Durante el presente año 2026, se ejecutan de manera prioritaria las ingenierías civiles, eléctricas e hidrosanitarias en red con la EEQ y la EPMAPS, avanzando en el desarrollo de la Fase 2 ($44.5\\text{ Ha}$) y Fase 3 ($42.5\\text{ Ha}$).",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "Cronograma y Estado Técnico:",
+          "bold": true
+        },
+        {
+          "text": " El diseño vial y el trazado arquitectónico definitivo concluyeron sus aprobaciones a finales de 2025. Durante el presente año ",
+          "bold": false
+        },
+        {
+          "text": "2026",
+          "bold": true
+        },
+        {
+          "text": ", se ejecutan de manera prioritaria las ingenierías civiles, eléctricas e hidrosanitarias en red con la EEQ y la EPMAPS, avanzando en el desarrollo de la Fase 2 ($44.5\\text{ Ha}$) y Fase 3 ($42.5\\text{ Ha}$). ",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 9,
+      "text": "Zonificación Estratégica y Componentes del Parque",
+      "style": "Normal",
+      "is_bold": true,
+      "runs": [
+        {
+          "text": "Zonificación Estratégica y Componentes del Parque",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "index": 10,
+      "text": "El desarrollo del parque metropolitano se divide en zonas especializadas para garantizar un uso múltiple y equilibrado del suelo:",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "El desarrollo del parque metropolitano se divide en zonas especializadas para garantizar un uso múltiple y equilibrado del suelo: ",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 11,
+      "text": "1. Zona Recreativa Deportiva y de Alto Rendimiento",
+      "style": "Normal",
+      "is_bold": true,
+      "runs": [
+        {
+          "text": "1. Zona Recreativa Deportiva y de Alto Rendimiento",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "index": 12,
+      "text": "Red de Caminerías e Iluminación: Construcción de $12\\text{ km}$ de caminerías internas distribuidas en 5 tipologías que integran ciclovías, espacios de estancia y áreas comerciales modulares.",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "Red de Caminerías e Iluminación:",
+          "bold": true
+        },
+        {
+          "text": " Construcción de ",
+          "bold": false
+        },
+        {
+          "text": "$12\\text{ km}$ de caminerías internas",
+          "bold": true
+        },
+        {
+          "text": " distribuidas en 5 tipologías que integran ciclovías, espacios de estancia y áreas comerciales modulares. ",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 13,
+      "text": "Circuito de Ruedas: Implementación de una pista técnica de BMX, tres pistas especializadas de velocidad/patinaje y una red perimetral de $14.4\\text{ km}$ de ciclovías exclusivas.",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "Circuito de Ruedas:",
+          "bold": true
+        },
+        {
+          "text": " Implementación de una pista técnica de BMX, tres pistas especializadas de velocidad/patinaje y una red perimetral de $14.4\\text{ km}$ de ciclovías exclusivas. ",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 14,
+      "text": "Canchas Multifuncionales: El complejo deportivo integra 67 canchas planificadas para el esparcimiento (21 de fútbol, 19 de voleibol, 11 de básquet, 7 de tenis, 3 de balonmano, 1 de béisbol y 5 de uso múltiple).",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "Canchas Multifuncionales:",
+          "bold": true
+        },
+        {
+          "text": " El complejo deportivo integra ",
+          "bold": false
+        },
+        {
+          "text": "67 canchas",
+          "bold": true
+        },
+        {
+          "text": " planificadas para el esparcimiento (21 de fútbol, 19 de voleibol, 11 de básquet, 7 de tenis, 3 de balonmano, 1 de béisbol y 5 de uso múltiple). ",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 17,
+      "text": "2. Zona de Conservación Ecológica y Cuerpos de Agua",
+      "style": "Normal",
+      "is_bold": true,
+      "runs": [
+        {
+          "text": "2. Zona de Conservación Ecológica y Cuerpos de Agua",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "index": 18,
+      "text": "Reserva Forestal: Siembra masiva de árboles nativos agrupados por zonas climáticas para potenciar la biodiversidad, la captura de carbono y la recuperación de suelos.",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "Reserva Forestal:",
+          "bold": true
+        },
+        {
+          "text": " Siembra masiva de árboles nativos agrupados por zonas climáticas para potenciar la biodiversidad, la captura de carbono y la recuperación de suelos. ",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 19,
+      "text": "Lagunas Reguladoras: Creación de $15.000\\text{ m}^2$ en cuerpos de agua (6 humedales y lagunas de retención) diseñados como infraestructura verde-azul para la captación de aguas lluvias y control de escorrentías.",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "Lagunas Reguladoras:",
+          "bold": true
+        },
+        {
+          "text": " Creación de ",
+          "bold": false
+        },
+        {
+          "text": "$15.000\\text{ m}^2$ en cuerpos de agua",
+          "bold": true
+        },
+        {
+          "text": " (6 humedales y lagunas de retención) diseñados como infraestructura verde-azul para la captación de aguas lluvias y control de escorrentías. ",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 21,
+      "text": "3. Zona de Espectáculos y Encuentro Cultural",
+      "style": "Normal",
+      "is_bold": true,
+      "runs": [
+        {
+          "text": "3. Zona de Espectáculos y Encuentro Cultural",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "index": 22,
+      "text": "Arena de Espectáculos Quito: Un gran nodo cultural modular y flexible diseñado con un escenario principal con capacidad para $50.000$ espectadores y un escenario secundario para $4.000$ personas, insertando de forma definitiva a la capital en el circuito internacional de eventos masivos.",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "Arena de Espectáculos Quito:",
+          "bold": true
+        },
+        {
+          "text": " Un gran nodo cultural modular y flexible diseñado con un escenario principal con capacidad para ",
+          "bold": false
+        },
+        {
+          "text": "$50.000$ espectadores",
+          "bold": true
+        },
+        {
+          "text": " y un escenario secundario para $4.000$ personas, insertando de forma definitiva a la capital en el circuito internacional de eventos masivos. ",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 23,
+      "text": "Anfiteatro Polifuncional: Una estructura al aire libre totalmente integrada a la topografía del parque, diseñada para expresiones artísticas locales y comunitarias.",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "Anfiteatro Polifuncional:",
+          "bold": true
+        },
+        {
+          "text": " Una estructura al aire libre totalmente integrada a la topografía del parque, diseñada para expresiones artísticas locales y comunitarias. ",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 24,
+      "text": "Equipamiento Vecinal: Distribución técnica de 14 plazas duras, 18 zonas lúdicas de primera infancia, 38 áreas de picnic equipadas, 12 zonas de gimnasios biosaludables al aire libre, 10 bloques de baños públicos y 5 parques caninos (dogparks) organizados.",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "Equipamiento Vecinal:",
+          "bold": true
+        },
+        {
+          "text": " Distribución técnica de 14 plazas duras, 18 zonas lúdicas de primera infancia, 38 áreas de picnic equipadas, 12 zonas de gimnasios biosaludables al aire libre, 10 bloques de baños públicos y 5 parques caninos (",
+          "bold": false
+        },
+        {
+          "text": "dogparks",
+          "bold": false
+        },
+        {
+          "text": ") organizados.",
+          "bold": false
+        }
+      ]
+    }
+  ]
+}

@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "predev": "node copy-images.js",
+    "prebuild": "node copy-images.js",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
@@ -10,6 +12,7 @@
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.108.1",
+    "exceljs": "^4.4.0",
     "lucide-react": "^1.18.0",
     "mapbox-gl": "^3.25.0",
     "next": "16.2.9",

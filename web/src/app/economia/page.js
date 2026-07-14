@@ -110,6 +110,267 @@ export default function EconomiaPage() {
     }
   }, []);
 
+  const exportToExcel = async () => {
+    if (!economiaResult) return;
+
+    const currentProjectObj = proyectos.find(p => p.nombre === selectedProyecto);
+    const fileName = `Reporte_Economia_${getProyectoDisplayName(selectedProyecto).replace(/\s+/g, '_')}.xlsx`;
+
+    try {
+      const ExcelJS = (await import('exceljs')).default;
+      const workbook = new ExcelJS.Workbook();
+      const worksheet = workbook.addWorksheet('Economía');
+
+      // Mostrar líneas de cuadrícula
+      worksheet.views = [{ showGridLines: true }];
+
+      const primaryColor = 'FF1B5276';
+      const fontName = 'Segoe UI';
+
+      // 1. Título del Reporte
+      const rowTitle = worksheet.addRow(['Portal de Evaluación de Proyectos Estratégicos']);
+      rowTitle.getCell(1).font = { name: fontName, size: 16, bold: true, color: { argb: primaryColor } };
+      worksheet.mergeCells('A1:D1');
+
+      // Subtítulo
+      const rowSubtitle = worksheet.addRow(['Reporte de Conteo y Dinámica Económica Comercial']);
+      rowSubtitle.getCell(1).font = { name: fontName, size: 10, color: { argb: 'FF64748B' } };
+      worksheet.mergeCells('A2:D2');
+
+      worksheet.addRow([]); // Espacio
+
+      // 2. Información del Proyecto
+      const sectionInfo = worksheet.addRow(['Información del Proyecto']);
+      sectionInfo.getCell(1).font = { name: fontName, size: 13, bold: true, color: { argb: 'FF0F172A' } };
+      worksheet.mergeCells('A4:D4');
+
+      const metaData = [
+        ['Categoría:', currentProjectObj?.categoria || '—'],
+        ['Proyecto / Sector:', getProyectoDisplayName(selectedProyecto)],
+        ['Ubicación:', currentProjectObj?.ubicacion || '—'],
+        ['Fecha de Inauguración:', currentProjectObj?.fecha_inauguracion || '—'],
+        ['Fecha Base de Referencia:', economiaResult.fecha_txt || '—'],
+        ['Periodo Comparado con:', getReferenciaTxt()]
+      ];
+
+      metaData.forEach(item => {
+        const row = worksheet.addRow([item[0], item[1]]);
+        row.getCell(1).font = { name: fontName, size: 10, bold: true, color: { argb: 'FF334155' } };
+        row.getCell(2).font = { name: fontName, size: 10 };
+      });
+
+      worksheet.addRow([]); // Espacio
+
+      // 3. Tabla Resumen de Actividad Comercial
+      const sectionResumen = worksheet.addRow(['Resumen de Registros Comerciales']);
+      sectionResumen.getCell(1).font = { name: fontName, size: 13, bold: true, color: { argb: 'FF0F172A' } };
+      worksheet.mergeCells('A12:D12');
+
+      const headerRow = worksheet.addRow(['Estado / Tipo de Registro', 'Cantidad de Negocios', 'Descripción de Variable']);
+      worksheet.mergeCells(`C${headerRow.number}:D${headerRow.number}`);
+      headerRow.eachCell((cell) => {
+        cell.fill = {
+          type: 'pattern',
+          pattern: 'solid',
+          fgColor: { argb: primaryColor }
+        };
+        cell.font = { name: fontName, size: 11, bold: true, color: { argb: 'FFFFFFFF' } };
+        cell.border = {
+          top: { style: 'thin', color: { argb: 'FFCBD5E1' } },
+          left: { style: 'thin', color: { argb: 'FFCBD5E1' } },
+          bottom: { style: 'thin', color: { argb: 'FFCBD5E1' } },
+          right: { style: 'thin', color: { argb: 'FFCBD5E1' } }
+        };
+      });
+      headerRow.getCell(2).alignment = { horizontal: 'right' };
+
+      // Filas de datos
+      const rowsData = [
+        {
+          label: 'Abiertos (Nuevos)',
+          val: abiertosCalc,
+          color: 'FF27AE60',
+          desc: 'Patentes/permisos emitidos en fecha posterior a la inauguración del proyecto.'
+        },
+        {
+          label: 'Renovados',
+          val: renovadosCalc,
+          color: 'FF1F4E79',
+          desc: 'Patentes/permisos renovados por negocios en funcionamiento en el sector.'
+        }
+      ];
+
+      rowsData.forEach(item => {
+        const row = worksheet.addRow([item.label, item.val, item.desc]);
+        worksheet.mergeCells(`C${row.number}:D${row.number}`);
+        row.getCell(1).font = { name: fontName, size: 10, bold: true };
+        row.getCell(2).font = { name: fontName, size: 10, bold: true, color: { argb: item.color } };
+        row.getCell(2).alignment = { horizontal: 'right' };
+        row.getCell(2).numFmt = '#,##0';
+        row.getCell(3).font = { name: fontName, size: 10 };
+
+        row.eachCell((cell) => {
+          cell.border = {
+            top: { style: 'thin', color: { argb: 'FFCBD5E1' } },
+            left: { style: 'thin', color: { argb: 'FFCBD5E1' } },
+            bottom: { style: 'thin', color: { argb: 'FFCBD5E1' } },
+            right: { style: 'thin', color: { argb: 'FFCBD5E1' } }
+          };
+        });
+      });
+
+      // Fila de Total
+      const totalRow = worksheet.addRow([
+        'Total Actividad Comercial Registrada', 
+        abiertosCalc + renovadosCalc, 
+        'Suma de negocios activos mapeados en el área de influencia.'
+      ]);
+      worksheet.mergeCells(`C${totalRow.number}:D${totalRow.number}`);
+      totalRow.eachCell((cell, colNumber) => {
+        cell.font = { name: fontName, size: 10, bold: true };
+        cell.fill = {
+          type: 'pattern',
+          pattern: 'solid',
+          fgColor: { argb: 'FFF8FAFC' }
+        };
+        cell.border = {
+          top: { style: 'thin', color: { argb: 'FFCBD5E1' } },
+          left: { style: 'thin', color: { argb: 'FFCBD5E1' } },
+          bottom: { style: 'thin', color: { argb: 'FFCBD5E1' } },
+          right: { style: 'thin', color: { argb: 'FFCBD5E1' } }
+        };
+        if (colNumber === 2) {
+          cell.alignment = { horizontal: 'right' };
+          cell.numFmt = '#,##0';
+        }
+      });
+
+      // 4. Tabla Detalle Anual de Registros
+      if (economiaResult.desglose_anual && economiaResult.desglose_anual.length > 0) {
+        worksheet.addRow([]); // Espacio
+
+        const sectionDetalle = worksheet.addRow(['Detalle Anual de Registros']);
+        sectionDetalle.getCell(1).font = { name: fontName, size: 13, bold: true, color: { argb: 'FF0F172A' } };
+        worksheet.mergeCells(`A${sectionDetalle.number}:D${sectionDetalle.number}`);
+
+        const headerDetalle = worksheet.addRow(['Año', 'Negocios Abiertos (Nuevos)', 'Negocios Renovados', 'Total del Año']);
+        headerDetalle.eachCell((cell, colNum) => {
+          cell.fill = {
+            type: 'pattern',
+            pattern: 'solid',
+            fgColor: { argb: primaryColor }
+          };
+          cell.font = { name: fontName, size: 11, bold: true, color: { argb: 'FFFFFFFF' } };
+          cell.border = {
+            top: { style: 'thin', color: { argb: 'FFCBD5E1' } },
+            left: { style: 'thin', color: { argb: 'FFCBD5E1' } },
+            bottom: { style: 'thin', color: { argb: 'FFCBD5E1' } },
+            right: { style: 'thin', color: { argb: 'FFCBD5E1' } }
+          };
+          if (colNum > 1) {
+            cell.alignment = { horizontal: 'right' };
+          }
+        });
+
+        let totalAbiertosAnual = 0;
+        let totalRenovadosAnual = 0;
+
+        economiaResult.desglose_anual.forEach(item => {
+          const totalAnio = item.abiertos + item.renovados;
+          totalAbiertosAnual += item.abiertos;
+          totalRenovadosAnual += item.renovados;
+
+          const row = worksheet.addRow([item.anio, item.abiertos, item.renovados, totalAnio]);
+          row.getCell(1).font = { name: fontName, size: 10, bold: true };
+          row.getCell(2).font = { name: fontName, size: 10 };
+          row.getCell(3).font = { name: fontName, size: 10 };
+          row.getCell(4).font = { name: fontName, size: 10, bold: true };
+
+          row.eachCell((cell, colNum) => {
+            cell.border = {
+              top: { style: 'thin', color: { argb: 'FFCBD5E1' } },
+              left: { style: 'thin', color: { argb: 'FFCBD5E1' } },
+              bottom: { style: 'thin', color: { argb: 'FFCBD5E1' } },
+              right: { style: 'thin', color: { argb: 'FFCBD5E1' } }
+            };
+            if (colNum > 1) {
+              cell.alignment = { horizontal: 'right' };
+              cell.numFmt = '#,##0';
+            }
+          });
+        });
+
+        // Fila Total Anual
+        const totalAnualRow = worksheet.addRow(['TOTAL ACUMULADO', totalAbiertosAnual, totalRenovadosAnual, totalAbiertosAnual + totalRenovadosAnual]);
+        totalAnualRow.eachCell((cell, colNum) => {
+          cell.font = { name: fontName, size: 10, bold: true };
+          cell.fill = {
+            type: 'pattern',
+            pattern: 'solid',
+            fgColor: { argb: 'FFF8FAFC' }
+          };
+          cell.border = {
+            top: { style: 'thin', color: { argb: 'FFCBD5E1' } },
+            left: { style: 'thin', color: { argb: 'FFCBD5E1' } },
+            bottom: { style: 'thin', color: { argb: 'FFCBD5E1' } },
+            right: { style: 'thin', color: { argb: 'FFCBD5E1' } }
+          };
+          if (colNum > 1) {
+            cell.alignment = { horizontal: 'right' };
+            cell.numFmt = '#,##0';
+          }
+        });
+      }
+
+      worksheet.addRow([]); // Espacio
+
+      // Pie de página
+      const footer1 = worksheet.addRow([`* Registros comerciales excluidos por estar impresos antes de la fecha de inauguración del proyecto: ${economiaResult.excluidos_fecha || 0}`]);
+      footer1.getCell(1).font = { name: fontName, size: 8, color: { argb: 'FF94A3B8' }, italic: true };
+      worksheet.mergeCells(`A${footer1.number}:D${footer1.number}`);
+
+      const footer2 = worksheet.addRow([`Generado automáticamente el ${new Date().toLocaleDateString('es-EC')}`]);
+      footer2.getCell(1).font = { name: fontName, size: 8, color: { argb: 'FF94A3B8' }, italic: true };
+      worksheet.mergeCells(`A${footer2.number}:D${footer2.number}`);
+
+      // Auto-ajuste de columnas
+      worksheet.columns.forEach((column, i) => {
+        let maxLen = 0;
+        column.eachCell({ includeEmpty: true }, (cell) => {
+          // Excluir celdas combinadas de gran longitud del cálculo de ancho
+          if (
+            cell.address.includes('A1') || 
+            cell.address.includes('A2') || 
+            cell.address.includes('A4') || 
+            cell.address.includes('A12') || 
+            cell.address.startsWith('A' + footer1.number) || 
+            cell.address.startsWith('A' + footer2.number)
+          ) {
+            return;
+          }
+          const val = cell.value ? cell.value.toString() : '';
+          if (val.length > maxLen) {
+            maxLen = val.length;
+          }
+        });
+        column.width = Math.max(maxLen + 4, 15);
+      });
+
+      const buffer = await workbook.xlsx.writeBuffer();
+      const blob = new Blob([buffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.setAttribute('download', fileName);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error('Error exporting to Excel:', error);
+    }
+  };
+
   useEffect(() => {
     fetchEconomiaStats(selectedProyecto);
   }, [selectedProyecto, fetchEconomiaStats]);
@@ -199,6 +460,13 @@ export default function EconomiaPage() {
       ) : economiaResult ? (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
           
+          {/* Botones de acción */}
+          <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+            <button className="btn btn-accent" onClick={exportToExcel}>
+              📊 Descargar Excel
+            </button>
+          </div>
+
           {/* Métricas Rápidas */}
           <div className="metric-row">
             <div className="metric-card metric-card-horizontal metric-card-abiertos">
@@ -229,7 +497,7 @@ export default function EconomiaPage() {
           )}
 
           {/* Gráfico y Tabla */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(450px, 1fr))', gap: '2rem', alignItems: 'flex-start' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem', alignItems: 'flex-start' }}>
             
             {/* Gráfico */}
             <div className="card" style={{ minHeight: '400px' }}>

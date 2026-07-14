@@ -1,0 +1,431 @@
+{
+  "title": "Recuperación Urbana Av. 10 de Agosto",
+  "key": "Recuperación Urbana Av. 10 de Agosto",
+  "images": [],
+  "paragraphs": [
+    {
+      "index": 0,
+      "text": "Recuperación Urbana Av. 10 de Agosto",
+      "style": "Normal",
+      "is_bold": true,
+      "runs": [
+        {
+          "text": "Recuperación Urbana Av. 10 de ",
+          "bold": true
+        },
+        {
+          "text": "Agosto",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "text": "Concepto del Proyecto",
+      "style": "Normal",
+      "is_bold": true,
+      "runs": [
+        {
+          "text": "Concepto del Proyecto",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "text": "El proyecto de Revitalización de la Av. 10 de Agosto es una estrategia de renovación urbana de gran escala y con enfoque humano, diseñada para recuperar el dinamismo residencial, económico y social de uno de los ejes viales longitudinales más emblemáticos y conectores de Quito.",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "El proyecto de ",
+          "bold": false
+        },
+        {
+          "text": "Revitalización de la Av. 10 de ",
+          "bold": true
+        },
+        {
+          "text": "Agosto",
+          "bold": true
+        },
+        {
+          "text": " es una estrategia de renovación urbana de gran escala y con enfoque humano, diseñada para recuperar el dinamismo residencial, económico y social de uno de los ejes viales longitudinales más emblemáticos y conectores de Quito. ",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "text": "Alineado con las directrices del Plan de Uso y Gestión del Suelo (PUGS) y el Plan Maestro de Movilidad Sostenible, el proyecto revierte el modelo tradicional dando prioridad absoluta a la movilidad activa, implementando infraestructura verde resiliente y promoviendo el acceso a vivienda pública inclusiva.",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "Alineado con las directrices del Plan de Uso y Gestión del Suelo (PUGS) y el Plan Maestro de Movilidad Sostenible, el proyecto revierte el modelo tradicional dando prioridad absoluta a la movilidad activa, implementando infraestructura verde resiliente y promoviendo el acceso a vivienda pública inclusiva. ",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 4,
+      "text": "Ficha Técnica y Datos de Impacto (Polígono 1 de 3)",
+      "style": "Normal",
+      "is_bold": true,
+      "runs": [
+        {
+          "text": "Ficha Técnica y Datos de Impacto (Polígono 1 de 3)",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "index": 5,
+      "text": "Superficie de Intervención: Un área de $15.000\\text{ m}^2$ priorizados en el primer tramo estratégico del eje vial.",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "Superficie de Intervención:",
+          "bold": true
+        },
+        {
+          "text": " Un área de ",
+          "bold": false
+        },
+        {
+          "text": "$15.000\\",
+          "bold": true
+        },
+        {
+          "text": "text",
+          "bold": true
+        },
+        {
+          "text": "{ m",
+          "bold": true
+        },
+        {
+          "text": "}^2$",
+          "bold": true
+        },
+        {
+          "text": " priorizados en el primer tramo estratégico del eje vial. ",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 6,
+      "text": "Inversión Pública Directa: USD $1,5\\text{ millones}$ financiados por el Municipio de Quito para la ejecución física y arquitectónica del Polígono 1.",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "Inversión Pública Directa:",
+          "bold": true
+        },
+        {
+          "text": " ",
+          "bold": false
+        },
+        {
+          "text": "USD $1,5\\",
+          "bold": true
+        },
+        {
+          "text": "text",
+          "bold": true
+        },
+        {
+          "text": "{ millones",
+          "bold": true
+        },
+        {
+          "text": "}$",
+          "bold": true
+        },
+        {
+          "text": " financiados por el Municipio de Quito para la ejecución física y arquitectónica del Polígono 1. ",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 7,
+      "text": "Plazos y Cronograma de Entregas: Las intervenciones principales de repavimentación, soterramiento y reformas geométricas complementarias se encuentran planificadas en fases sucesivas que inician a finales de 2026 y concluyen en el 2027.",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "Plazos y Cronograma de Entregas:",
+          "bold": true
+        },
+        {
+          "text": " Las intervenciones principales de repavimentación, soterramiento y reformas geométricas complementarias se encuentran planificadas en fases sucesivas que inician a finales de ",
+          "bold": false
+        },
+        {
+          "text": "2026",
+          "bold": true
+        },
+        {
+          "text": " y concluyen en el ",
+          "bold": false
+        },
+        {
+          "text": "2027",
+          "bold": true
+        },
+        {
+          "text": ". ",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 8,
+      "text": "Entidades Involucradas: Coordinación y articulación técnica liderada por la SHOT, Secretaría de Movilidad, la Empresa Pública Metropolitana de Movilidad y Obras Públicas (EPMMOP como ejecutor principal) y la EPMTPQ.",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "Entidades Involucradas:",
+          "bold": true
+        },
+        {
+          "text": " Coordinación y articulación técnica liderada por la SHOT, Secretaría de Movilidad, la Empresa Pública Metropolitana de Movilidad y Obras Públicas (",
+          "bold": false
+        },
+        {
+          "text": "EPMMOP",
+          "bold": true
+        },
+        {
+          "text": " como ejecutor principal) y la EPMTPQ. ",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 9,
+      "text": "Ejes Estructurantes de la Transformación Urbana",
+      "style": "Normal",
+      "is_bold": true,
+      "runs": [
+        {
+          "text": "Ejes Estructurantes de la Transformación Urbana",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "index": 10,
+      "text": "La revitalización integral del polígono transforma el espacio público mediante tres componentes fundamentales:",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "La revitalización integral del polígono transforma el espacio público mediante tres componentes fundamentales: ",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 11,
+      "text": "1. Reconfiguración Vial y Conectividad Eficiente",
+      "style": "Normal",
+      "is_bold": true,
+      "runs": [
+        {
+          "text": "1. Reconfiguración Vial y Conectividad Eficiente",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "index": 12,
+      "text": "Espacio para las Personas: Ensanchamiento técnico de aceras y reducción de carriles para vehículos de combustión, abriendo espacio para la micromovilidad.",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "Espacio para las Personas:",
+          "bold": true
+        },
+        {
+          "text": " Ensanchamiento técnico de aceras y reducción de carriles para vehículos de combustión, abriendo espacio para la ",
+          "bold": false
+        },
+        {
+          "text": "micromovilidad",
+          "bold": false
+        },
+        {
+          "text": ". ",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 13,
+      "text": "Accesibilidad Universal: Eliminación de barreras arquitectónicas mediante la nivelación de calzadas, construcción de resaltos peatonales continuos y la obligatoriedad de pisos podotáctiles en vados y cruces seguros.",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "Accesibilidad Universal:",
+          "bold": true
+        },
+        {
+          "text": " Eliminación de barreras arquitectónicas mediante la nivelación de calzadas, construcción de resaltos peatonales continuos y la obligatoriedad de pisos ",
+          "bold": false
+        },
+        {
+          "text": "podotáctiles",
+          "bold": false
+        },
+        {
+          "text": " en vados y cruces seguros. ",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 14,
+      "text": "Infraestructura de Transporte: Rediseño e integración de paradas de transporte público (BRT y sistema convencional) ubicadas de forma ordenada dentro de las franjas de servicio técnico.",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "Infraestructura de Transporte:",
+          "bold": true
+        },
+        {
+          "text": " Rediseño e integración de paradas de transporte público (BRT y sistema convencional) ubicadas de forma ordenada dentro de las franjas de servicio técnico. ",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 15,
+      "text": "2. Red Verde Urbana y Soluciones Ambientales",
+      "style": "Normal",
+      "is_bold": true,
+      "runs": [
+        {
+          "text": "2. Red Verde Urbana y Soluciones Ambientales",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "index": 16,
+      "text": "Mitigación de Inundaciones: Implementación pionera de Sistemas Urbanos de Drenaje Sostenible (SUDS) y jardines de lluvia permeables integrados al parterre central y aceras laterales, diseñados para captar y regular de forma natural las aguas lluvias.",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "Mitigación de Inundaciones:",
+          "bold": true
+        },
+        {
+          "text": " Implementación pionera de ",
+          "bold": false
+        },
+        {
+          "text": "Sistemas Urbanos de Drenaje Sostenible (SUDS)",
+          "bold": true
+        },
+        {
+          "text": " y jardines de lluvia permeables integrados al ",
+          "bold": false
+        },
+        {
+          "text": "parterre central y aceras laterales, diseñados para captar y regular de forma natural las aguas lluvias. ",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 17,
+      "text": "Arborización Técnica: Siembra masiva de árboles nativos y alcorques de protección que actúan como sumideros de carbono y mejoran el microclima, disminuyendo el impacto de las islas de calor urbanas.",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "Arborización Técnica:",
+          "bold": true
+        },
+        {
+          "text": " Siembra masiva de árboles nativos y alcorques de protección que actúan como sumideros de carbono y mejoran el microclima, disminuyendo el impacto de las islas de calor urbanas. ",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 18,
+      "text": "3. Seguridad, Economía y Residencialidad",
+      "style": "Normal",
+      "is_bold": true,
+      "runs": [
+        {
+          "text": "3. Seguridad, Economía y ",
+          "bold": true
+        },
+        {
+          "text": "Residencialidad",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "index": 19,
+      "text": "Plaza de Comercio Seguro: Habilitación de una zona dedicada al comercio regularizado y autónomo bajo un estricto censo, combatiendo la informalidad mediante módulos ordenados.",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "Plaza de Comercio Seguro:",
+          "bold": true
+        },
+        {
+          "text": " Habilitación de una zona dedicada al comercio regularizado y autónomo bajo un estricto censo, combatiendo la informalidad mediante módulos ordenados. ",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 20,
+      "text": "Ojos en la Calle: Activación de fachadas vivas y zonas comerciales en planta baja que, junto a una iluminación pública eficiente orientada al peatón y sistemas disuasivos conectados, mejoran drásticamente la seguridad real y percibida.",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "Ojos en la Calle:",
+          "bold": true
+        },
+        {
+          "text": " Activación de fachadas vivas y zonas comerciales en planta baja que, junto a una iluminación pública eficiente orientada al peatón y sistemas disuasivos conectados, mejoran drásticamente la seguridad real y percibida. ",
+          "bold": false
+        }
+      ]
+    },
+    {
+      "index": 21,
+      "text": "Incentivos Inmobiliarios: Aplicación de políticas urbanas que facilitan un mayor aprovechamiento de la edificabilidad para proyectos de vivienda colectiva inclusiva y usos mixtos, repoblando el corazón del norte de Quito.",
+      "style": "Normal",
+      "is_bold": false,
+      "runs": [
+        {
+          "text": "Incentivos Inmobiliarios:",
+          "bold": true
+        },
+        {
+          "text": " Aplicación de políticas urbanas que facilitan un mayor aprovechamiento de la edificabilidad para proyectos de vivienda colectiva inclusiva y usos mixtos, repoblando el corazón del norte de Quito. ",
+          "bold": false
+        }
+      ]
+    }
+  ]
+}

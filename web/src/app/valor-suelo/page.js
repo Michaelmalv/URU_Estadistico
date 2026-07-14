@@ -165,6 +165,237 @@ export default function ValorSueloPage() {
     ];
   }, [currentProjectObj]);
 
+  // Exportar datos a Excel
+  const exportToExcel = async () => {
+    if (!currentProjectObj) return;
+
+    const fileName = `Reporte_ValorSuelo_${normalizeText(currentProjectObj.proyecto).replace(/\s+/g, '_')}.xlsx`;
+
+    try {
+      const ExcelJS = (await import('exceljs')).default;
+      const workbook = new ExcelJS.Workbook();
+      const worksheet = workbook.addWorksheet('Valor Suelo');
+
+      // Mostrar líneas de cuadrícula
+      worksheet.views = [{ showGridLines: true }];
+
+      const primaryColor = 'FFB45309';
+      const fontName = 'Segoe UI';
+
+      const writeVal = (cell, val) => {
+        if (val === null || val === undefined || isNaN(val) || val === '') {
+          cell.value = '—';
+        } else {
+          cell.value = Number(val);
+          cell.numFmt = '"$"#,##0.00';
+        }
+      };
+
+      // 1. Título del Reporte
+      const rowTitle = worksheet.addRow(['Portal de Evaluación de Proyectos Estratégicos']);
+      rowTitle.getCell(1).font = { name: fontName, size: 16, bold: true, color: { argb: primaryColor } };
+      worksheet.mergeCells('A1:D1');
+
+      // Subtítulo
+      const rowSubtitle = worksheet.addRow(['Reporte de Evolución del Valor del Suelo (Promedio y Desglose)']);
+      rowSubtitle.getCell(1).font = { name: fontName, size: 10, color: { argb: 'FF64748B' } };
+      worksheet.mergeCells('A2:D2');
+
+      worksheet.addRow([]); // Espacio
+
+      // 2. Información del Proyecto
+      const sectionInfo = worksheet.addRow(['Información del Proyecto']);
+      sectionInfo.getCell(1).font = { name: fontName, size: 13, bold: true, color: { argb: 'FF0F172A' } };
+      worksheet.mergeCells('A4:D4');
+
+      const metaData = [
+        ['Categoría:', currentProjectObj.categoria || '—'],
+        ['Proyecto:', currentProjectObj.proyecto || '—']
+      ];
+
+      metaData.forEach(item => {
+        const row = worksheet.addRow([item[0], item[1]]);
+        row.getCell(1).font = { name: fontName, size: 10, bold: true, color: { argb: 'FF334155' } };
+        row.getCell(2).font = { name: fontName, size: 10 };
+        worksheet.mergeCells(`B${row.number}:D${row.number}`);
+      });
+
+      worksheet.addRow([]); // Espacio
+
+      // 3. Promedios Generales por Periodo
+      const sectionProm = worksheet.addRow(['Promedios Generales por Periodo']);
+      sectionProm.getCell(1).font = { name: fontName, size: 13, bold: true, color: { argb: 'FF0F172A' } };
+      worksheet.mergeCells('A8:D8');
+
+      const headerProm = worksheet.addRow(['Periodo de Emisión', 'Valor de Suelo Promedio (USD/m²)']);
+      worksheet.mergeCells(`B${headerProm.number}:D${headerProm.number}`);
+      headerProm.eachCell((cell, colNum) => {
+        cell.fill = {
+          type: 'pattern',
+          pattern: 'solid',
+          fgColor: { argb: primaryColor }
+        };
+        cell.font = { name: fontName, size: 11, bold: true, color: { argb: 'FFFFFFFF' } };
+        cell.border = {
+          top: { style: 'thin', color: { argb: 'FFCBD5E1' } },
+          left: { style: 'thin', color: { argb: 'FFCBD5E1' } },
+          bottom: { style: 'thin', color: { argb: 'FFCBD5E1' } },
+          right: { style: 'thin', color: { argb: 'FFCBD5E1' } }
+        };
+        if (colNum > 1) {
+          cell.alignment = { horizontal: 'right' };
+        }
+      });
+
+      const pRows = [
+        { label: '2022-2023', val: currentProjectObj.valor_2022_2023, color: 'FF64748B' },
+        { label: '2024-2025', val: currentProjectObj.valor_2024, color: 'FF0F766E' },
+        { label: '2026-2027', val: currentProjectObj.valor_2026, color: 'FFB45309' }
+      ];
+
+      pRows.forEach(item => {
+        const row = worksheet.addRow([item.label, '']);
+        worksheet.mergeCells(`B${row.number}:D${row.number}`);
+        row.getCell(1).font = { name: fontName, size: 10, bold: true };
+        row.getCell(2).font = { name: fontName, size: 10, bold: true, color: { argb: item.color } };
+        row.getCell(2).alignment = { horizontal: 'right' };
+        writeVal(row.getCell(2), item.val);
+
+        row.eachCell((cell) => {
+          cell.border = {
+            top: { style: 'thin', color: { argb: 'FFCBD5E1' } },
+            left: { style: 'thin', color: { argb: 'FFCBD5E1' } },
+            bottom: { style: 'thin', color: { argb: 'FFCBD5E1' } },
+            right: { style: 'thin', color: { argb: 'FFCBD5E1' } }
+          };
+        });
+      });
+
+      worksheet.addRow([]); // Espacio
+
+      // 4. Desglose Detallado por Sector
+      const sectionDesglose = worksheet.addRow(['Desglose Detallado por Sector']);
+      sectionDesglose.getCell(1).font = { name: fontName, size: 13, bold: true, color: { argb: 'FF0F172A' } };
+      worksheet.mergeCells(`A${sectionDesglose.number}:D${sectionDesglose.number}`);
+
+      const headerDesglose = worksheet.addRow([
+        'Descripción del Predio / Sector',
+        'Valor 2022-2023 (USD/m²)',
+        'Valor 2024-2025 (USD/m²)',
+        'Valor 2026-2027 (USD/m²)'
+      ]);
+
+      headerDesglose.eachCell((cell, colNum) => {
+        cell.fill = {
+          type: 'pattern',
+          pattern: 'solid',
+          fgColor: { argb: primaryColor }
+        };
+        cell.font = { name: fontName, size: 11, bold: true, color: { argb: 'FFFFFFFF' } };
+        cell.border = {
+          top: { style: 'thin', color: { argb: 'FFCBD5E1' } },
+          left: { style: 'thin', color: { argb: 'FFCBD5E1' } },
+          bottom: { style: 'thin', color: { argb: 'FFCBD5E1' } },
+          right: { style: 'thin', color: { argb: 'FFCBD5E1' } }
+        };
+        if (colNum > 1) {
+          cell.alignment = { horizontal: 'right' };
+        }
+      });
+
+      currentProjectObj.sectores.forEach(sec => {
+        const row = worksheet.addRow([sec.descripcion || '—', '', '', '']);
+        row.getCell(1).font = { name: fontName, size: 10, bold: true };
+        writeVal(row.getCell(2), sec.valor_2022_2023);
+        writeVal(row.getCell(3), sec.valor_2024);
+        writeVal(row.getCell(4), sec.valor_2026);
+
+        row.eachCell((cell, colNum) => {
+          cell.border = {
+            top: { style: 'thin', color: { argb: 'FFCBD5E1' } },
+            left: { style: 'thin', color: { argb: 'FFCBD5E1' } },
+            bottom: { style: 'thin', color: { argb: 'FFCBD5E1' } },
+            right: { style: 'thin', color: { argb: 'FFCBD5E1' } }
+          };
+          if (colNum > 1) {
+            cell.alignment = { horizontal: 'right' };
+            cell.font = { name: fontName, size: 10 };
+          }
+        });
+      });
+
+      // Fila de Promedio General
+      const totalRow = worksheet.addRow(['PROMEDIO GENERAL', '', '', '']);
+      totalRow.getCell(1).font = { name: fontName, size: 10, bold: true };
+      writeVal(totalRow.getCell(2), currentProjectObj.valor_2022_2023);
+      writeVal(totalRow.getCell(3), currentProjectObj.valor_2024);
+      writeVal(totalRow.getCell(4), currentProjectObj.valor_2026);
+
+      totalRow.eachCell((cell, colNum) => {
+        cell.font = { name: fontName, size: 10, bold: true };
+        cell.fill = {
+          type: 'pattern',
+          pattern: 'solid',
+          fgColor: { argb: 'FFFFF3C7' }
+        };
+        cell.border = {
+          top: { style: 'thin', color: { argb: 'FFCBD5E1' } },
+          left: { style: 'thin', color: { argb: 'FFCBD5E1' } },
+          bottom: { style: 'thin', color: { argb: 'FFCBD5E1' } },
+          right: { style: 'thin', color: { argb: 'FFCBD5E1' } }
+        };
+        if (colNum > 1) {
+          cell.alignment = { horizontal: 'right' };
+        }
+      });
+
+      worksheet.addRow([]); // Espacio
+
+      // Pie de página
+      const footerRow = worksheet.addRow([`Generado automáticamente el ${new Date().toLocaleDateString('es-EC')}`]);
+      footerRow.getCell(1).font = { name: fontName, size: 8, color: { argb: 'FF94A3B8' }, italic: true };
+      worksheet.mergeCells(`A${footerRow.number}:D${footerRow.number}`);
+
+      // Auto-ajuste de columnas
+      worksheet.columns.forEach((column, i) => {
+        let maxLen = 0;
+        column.eachCell({ includeEmpty: true }, (cell) => {
+          // Excluir celdas combinadas de gran longitud del cálculo de ancho
+          if (
+            cell.address.includes('A1') || 
+            cell.address.includes('A2') || 
+            cell.address.includes('A4') || 
+            cell.address.includes('A8') || 
+            cell.address.startsWith('A' + sectionDesglose.number) ||
+            cell.address.startsWith('A' + footerRow.number) ||
+            (cell.row >= 5 && cell.row <= 6 && cell.col >= 2) ||
+            (cell.row >= 9 && cell.row <= 12 && cell.col >= 2)
+          ) {
+            return;
+          }
+          const val = cell.value ? cell.value.toString() : '';
+          if (val.length > maxLen) {
+            maxLen = val.length;
+          }
+        });
+        column.width = Math.max(maxLen + 4, 15);
+      });
+
+      const buffer = await workbook.xlsx.writeBuffer();
+      const blob = new Blob([buffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.setAttribute('download', fileName);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error('Error exporting to Excel:', error);
+    }
+  };
+
   if (loading) {
     return (
       <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '300px' }}>
@@ -215,8 +446,15 @@ export default function ValorSueloPage() {
       {currentProjectObj ? (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
           
+          {/* Botones de acción */}
+          <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+            <button className="btn btn-accent" onClick={exportToExcel}>
+              📊 Descargar Excel
+            </button>
+          </div>
+
           {/* Gráfico y Métricas */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(450px, 1fr))', gap: '2rem', alignItems: 'flex-start' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem', alignItems: 'flex-start' }}>
             
             {/* Gráfico Recharts */}
             <div className="card" style={{ minHeight: '400px' }}>

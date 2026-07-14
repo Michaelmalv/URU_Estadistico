@@ -238,33 +238,160 @@ export default function SeguridadPage() {
 
   const images = getProjectImages();
 
-  // Exportar datos a CSV
-  const exportToCSV = () => {
+  // Exportar datos a Excel
+  const exportToExcel = async () => {
     if (!currentProjectObj) return;
-    
-    let csvContent = 'data:text/csv;charset=utf-8,\uFEFF';
-    csvContent += 'Categoria,Proyecto,Ubicacion,Extension,Fecha Inauguracion,Anio,Variable,Valor,Tipo\n';
 
-    // Agregar estadísticas reales
-    currentStats.forEach(s => {
-      csvContent += `"${currentProjectObj.categoria}","${currentProjectObj.nombre}","${currentProjectObj.ubicacion}","${currentProjectObj.extension}","${currentProjectObj.fecha_inauguracion}","${s.anio}","${s.variable}",${s.valor},"Observado"\n`;
-    });
+    const fileName = `Reporte_Seguridad_${normalizeText(currentProjectObj.nombre)}.xlsx`;
 
-    // Agregar proyecciones 2026
-    ALL_VARS.forEach(varName => {
-      const val = proyecciones2026[varName];
-      if (val !== null && val !== undefined) {
-        csvContent += `"${currentProjectObj.categoria}","${currentProjectObj.nombre}","${currentProjectObj.ubicacion}","${currentProjectObj.extension}","${currentProjectObj.fecha_inauguracion}","2026_proyeccion","${varName}",${Math.round(val)},"Proyectado"\n`;
-      }
-    });
+    try {
+      const ExcelJS = (await import('exceljs')).default;
+      const workbook = new ExcelJS.Workbook();
+      const worksheet = workbook.addWorksheet('Seguridad');
 
-    const encodedUri = encodeURI(csvContent);
-    const link = document.createElement('a');
-    link.setAttribute('href', encodedUri);
-    link.setAttribute('download', `${normalizeText(currentProjectObj.nombre)}_seguridad.csv`);
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+      // Mostrar líneas de cuadrícula
+      worksheet.views = [{ showGridLines: true }];
+
+      const primaryColor = 'FF1E3A8A';
+      const fontName = 'Segoe UI';
+
+      // 1. Título del Reporte
+      const rowTitle = worksheet.addRow(['Portal de Evaluación de Proyectos Estratégicos']);
+      rowTitle.getCell(1).font = { name: fontName, size: 16, bold: true, color: { argb: primaryColor } };
+      worksheet.mergeCells('A1:F1');
+
+      // Subtítulo
+      const rowSubtitle = worksheet.addRow(['Reporte de Indicadores de Seguridad y Convivencia Ciudadana']);
+      rowSubtitle.getCell(1).font = { name: fontName, size: 10, color: { argb: 'FF64748B' } };
+      worksheet.mergeCells('A2:F2');
+
+      worksheet.addRow([]); // Espacio
+
+      // 2. Información del Proyecto
+      const sectionInfo = worksheet.addRow(['Información del Proyecto']);
+      sectionInfo.getCell(1).font = { name: fontName, size: 13, bold: true, color: { argb: 'FF0F172A' } };
+      worksheet.mergeCells('A4:F4');
+
+      const metaData = [
+        ['Categoría:', currentProjectObj.categoria || '—'],
+        ['Proyecto:', currentProjectObj.nombre || '—'],
+        ['Ubicación:', currentProjectObj.ubicacion || '—'],
+        ['Extensión:', currentProjectObj.extension || '—'],
+        ['Fecha de Inauguración:', currentProjectObj.fecha_inauguracion || '—']
+      ];
+
+      metaData.forEach(item => {
+        const row = worksheet.addRow([item[0], item[1]]);
+        row.getCell(1).font = { name: fontName, size: 10, bold: true, color: { argb: 'FF334155' } };
+        row.getCell(2).font = { name: fontName, size: 10 };
+        worksheet.mergeCells(`B${row.number}:F${row.number}`);
+      });
+
+      worksheet.addRow([]); // Espacio
+
+      // 3. Histórico de Incidentes y Proyecciones
+      const sectionHist = worksheet.addRow(['Histórico de Incidentes y Proyecciones']);
+      sectionHist.getCell(1).font = { name: fontName, size: 13, bold: true, color: { argb: 'FF0F172A' } };
+      worksheet.mergeCells('A11:F11');
+
+      const headerRow = worksheet.addRow([
+        'Variable / Indicador',
+        '2023',
+        '2024',
+        '2025',
+        '2026 (Obs. Ene-Abr)',
+        '2026 (Proyectado Total)'
+      ]);
+
+      headerRow.eachCell((cell, colNum) => {
+        cell.fill = {
+          type: 'pattern',
+          pattern: 'solid',
+          fgColor: { argb: primaryColor }
+        };
+        cell.font = { name: fontName, size: 11, bold: true, color: { argb: 'FFFFFFFF' } };
+        cell.border = {
+          top: { style: 'thin', color: { argb: 'FFCBD5E1' } },
+          left: { style: 'thin', color: { argb: 'FFCBD5E1' } },
+          bottom: { style: 'thin', color: { argb: 'FFCBD5E1' } },
+          right: { style: 'thin', color: { argb: 'FFCBD5E1' } }
+        };
+        if (colNum > 1) {
+          cell.alignment = { horizontal: 'right' };
+        }
+      });
+
+      // Filas de datos
+      ALL_VARS.forEach(v => {
+        const v23 = currentStats.find(s => s.anio === '2023' && s.variable === v)?.valor ?? '—';
+        const v24 = currentStats.find(s => s.anio === '2024' && s.variable === v)?.valor ?? '—';
+        const v25 = currentStats.find(s => s.anio === '2025' && s.variable === v)?.valor ?? '—';
+        const v26Obs = currentStats.find(s => s.anio === '2026*' && s.variable === v)?.valor ?? '—';
+        const v26Proy = proyecciones2026[v] !== null && proyecciones2026[v] !== undefined ? Math.round(proyecciones2026[v]) : '—';
+
+        const row = worksheet.addRow([v, v23, v24, v25, v26Obs, v26Proy]);
+        row.getCell(1).font = { name: fontName, size: 10, bold: true };
+        
+        row.eachCell((cell, colNum) => {
+          cell.border = {
+            top: { style: 'thin', color: { argb: 'FFCBD5E1' } },
+            left: { style: 'thin', color: { argb: 'FFCBD5E1' } },
+            bottom: { style: 'thin', color: { argb: 'FFCBD5E1' } },
+            right: { style: 'thin', color: { argb: 'FFCBD5E1' } }
+          };
+
+          if (colNum > 1) {
+            cell.alignment = { horizontal: 'right' };
+            if (typeof cell.value === 'number') {
+              cell.numFmt = '#,##0';
+            }
+          }
+        });
+      });
+
+      worksheet.addRow([]); // Espacio
+
+      // Pie de página
+      const footerRow = worksheet.addRow([`* Proyección 2026 calculada usando ponderación mixta (Media Móvil 60/40). Fuente de datos: ECU 911. Generado el ${new Date().toLocaleDateString('es-EC')}`]);
+      footerRow.getCell(1).font = { name: fontName, size: 8, color: { argb: 'FF94A3B8' }, italic: true };
+      worksheet.mergeCells(`A${footerRow.number}:F${footerRow.number}`);
+
+      // Auto-ajuste de columnas
+      worksheet.columns.forEach((column, i) => {
+        let maxLen = 0;
+        column.eachCell({ includeEmpty: true }, (cell) => {
+          // Excluir combinadas
+          if (
+            cell.address.includes('A1') || 
+            cell.address.includes('A2') || 
+            cell.address.includes('A4') || 
+            cell.address.includes('A11') || 
+            cell.address.startsWith('A' + footerRow.number) ||
+            (cell.row >= 5 && cell.row <= 9 && cell.col >= 2)
+          ) {
+            return;
+          }
+          const val = cell.value ? cell.value.toString() : '';
+          if (val.length > maxLen) {
+            maxLen = val.length;
+          }
+        });
+        column.width = Math.max(maxLen + 4, 12);
+      });
+
+      const buffer = await workbook.xlsx.writeBuffer();
+      const blob = new Blob([buffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.setAttribute('download', fileName);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error('Error exporting to Excel:', error);
+    }
   };
 
   const chartColors = ['#1a5276', '#2e86c1', '#5dade2', '#1e8449', '#27ae60', '#82e0aa'];
@@ -305,7 +432,7 @@ export default function SeguridadPage() {
 
         <div className="filter-group" style={{ flex: '1 1 250px' }}>
           <span className="filter-label">Años Anterior</span>
-          <div style={{ display: 'flex', gap: '0.75rem', marginTop: '0.4rem' }}>
+          <div style={{ display: 'flex', gap: '0.75rem', marginTop: '0.4rem', flexWrap: 'wrap' }}>
             {PERIODOS.slice(0, -1).map(year => (
               <label key={year} style={{ display: 'flex', alignItems: 'center', gap: '0.25rem', fontSize: '0.85rem', cursor: 'pointer' }}>
                 <input 
@@ -321,7 +448,7 @@ export default function SeguridadPage() {
 
         <div className="filter-group" style={{ flex: '1 1 250px' }}>
           <span className="filter-label">Años Actual</span>
-          <div style={{ display: 'flex', gap: '0.75rem', marginTop: '0.4rem' }}>
+          <div style={{ display: 'flex', gap: '0.75rem', marginTop: '0.4rem', flexWrap: 'wrap' }}>
             {getAñosActualDisponibles().map(year => (
               <label key={year} style={{ display: 'flex', alignItems: 'center', gap: '0.25rem', fontSize: '0.85rem', cursor: 'pointer' }}>
                 <input 
@@ -371,49 +498,45 @@ export default function SeguridadPage() {
           )}
 
           {/* Botones de acción */}
-          <div style={{ display: 'flex', gap: '1rem' }}>
-            <button className="btn btn-accent" onClick={exportToCSV}>
-              💾 Exportar CSV
+          <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+            <button className="btn btn-accent" onClick={exportToExcel}>
+              📊 Descargar Excel
             </button>
           </div>
 
-          {/* Desglose de Proyección 2026 */}
-          <div className="card">
-            <h3 style={{ marginBottom: '1rem' }}>Proyecciones 2026 (Obs. / Proy.)</h3>
-            <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem', marginBottom: '1rem' }}>
-              Método: Media Móvil 2023-2025 (Blend 60/40). Muestra los datos observados acumulados y el total del año proyectado.
+          {/* Metodología de Proyección 2026 */}
+          <div className="card" style={{ borderLeft: '4px solid var(--accent-color, #3b82f6)' }}>
+            <h3 style={{ marginBottom: '1rem', color: 'var(--accent-color, #3b82f6)' }}>Metodología de Proyección Anual 2026</h3>
+            <p style={{ color: 'var(--text-color)', fontSize: '0.9rem', lineHeight: '1.6', marginBottom: '1.25rem' }}>
+              Para estimar los indicadores de seguridad de todo el año 2026, se utiliza un modelo de promedio ponderado que combina la tendencia observada del año actual con el comportamiento histórico:
             </p>
-            <div className="table-container">
-              <table className="custom-table">
-                <thead>
-                  <tr>
-                    <th>Variable</th>
-                    <th>Observado 2026 (Ene-Abr)</th>
-                    <th>Estimado Restante</th>
-                    <th>Total Proyectado 2026</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {ALL_VARS.map(v => {
-                    const obs = currentStats.find(s => s.anio === '2026*' && s.variable === v)?.valor || 0;
-                    const proy = proyecciones2026[v] || 0;
-                    const restante = Math.max(0, Math.round(proy - obs));
-                    return (
-                      <tr key={v}>
-                        <td><strong>{v}</strong></td>
-                        <td>{obs || '-'}</td>
-                        <td>{restante || '-'}</td>
-                        <td><strong>{Math.round(proy) || '-'}</strong></td>
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
+            
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1.25rem', marginBottom: '1.25rem' }}>
+              <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.02)', padding: '1rem', borderRadius: '8px', border: '1px solid rgba(255, 255, 255, 0.05)' }}>
+                <h4 style={{ marginBottom: '0.5rem', fontSize: '0.9rem', color: '#60a5fa' }}>1. Tendencia Reciente (Peso 60%)</h4>
+                <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', margin: 0, lineHeight: '1.4' }}>
+                  Se toma el valor observado de enero a abril de 2026 (4 meses), se calcula su promedio mensual y se proyecta para los 12 meses. Esto permite reflejar las dinámicas de seguridad del presente año.
+                </p>
+              </div>
+              
+              <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.02)', padding: '1rem', borderRadius: '8px', border: '1px solid rgba(255, 255, 255, 0.05)' }}>
+                <h4 style={{ marginBottom: '0.5rem', fontSize: '0.9rem', color: '#60a5fa' }}>2. Base Histórica (Peso 40%)</h4>
+                <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', margin: 0, lineHeight: '1.4' }}>
+                  Se calcula el promedio histórico anual de los incidentes registrados entre 2023 y 2025. Funciona como un regulador estadístico que evita sobrestimaciones causadas por picos atípicos.
+                </p>
+              </div>
+            </div>
+
+            <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.01)', padding: '0.75rem', borderRadius: '6px', border: '1px dashed rgba(255, 255, 255, 0.08)', textAlign: 'center' }}>
+              <strong style={{ fontSize: '0.85rem', display: 'block', marginBottom: '0.25rem' }}>Fórmula de Ponderación Mixta:</strong>
+              <code style={{ fontSize: '0.9rem', color: 'var(--accent-color, #60a5fa)', fontFamily: 'monospace' }}>
+                Proyección 2026 = (Proyección Simple 2026 × 0.60) + (Media Histórica 2023-2025 × 0.40)
+              </code>
             </div>
           </div>
 
           {/* Gráficos de barras interactivos */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(500px, 1fr))', gap: '2rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem' }}>
             {/* Gráfico Incidentes */}
             <div className="card" style={{ minHeight: '400px' }}>
               <h3 style={{ marginBottom: '1rem' }}>Incidentes de Seguridad (ECU 911)</h3>
