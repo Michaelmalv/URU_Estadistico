@@ -173,12 +173,14 @@ def main():
     def get_year_label(val):
         if val is None:
             return None
-        s = str(val).strip()
+        s = str(val).strip().lower()
+        if 'tasa' in s:
+            return None
         if s.endswith('.0'):
             s = s[:-2]
-        match_yr = re.search(r'\d+', s)
+        match_yr = re.match(r'^(20\d{2})', s)
         if match_yr:
-            return match_yr.group(0)
+            return match_yr.group(1)
         return None
 
     # Detectar columnas de años dinámicamente en Fila 2 (index 1)
@@ -383,8 +385,10 @@ def main():
         if economia_records:
             print(f"  > Subiendo {len(economia_records)} registros de economía por lotes...")
             # Lotes de 1000
+            import time
             for idx in range(0, len(economia_records), 1000):
                 supabase.table("economia_registros").insert(economia_records[idx:idx+1000]).execute()
+                time.sleep(0.5) # Pequeña pausa para evitar rate-limiting de Supabase
             print(f"  > Carga de {file_path.name} completada.")
 
     # --- 4. PROCESAR Y CARGAR VALOR DE SUELO ---
