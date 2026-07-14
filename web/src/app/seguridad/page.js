@@ -54,6 +54,9 @@ export default function SeguridadPage() {
 
   const [catalogoImagenes, setCatalogoImagenes] = useState({});
 
+  const [expandIncidentes, setExpandIncidentes] = useState(false);
+  const [expandDelitos, setExpandDelitos] = useState(false);
+
   // Cargar datos al montar
   useEffect(() => {
     async function fetchData() {
@@ -206,6 +209,31 @@ export default function SeguridadPage() {
     const firstAct = añosActual[0];
     const valA = getVal(varName, lastAnt);
     const valB = getVal(varName, firstAct);
+    if (valA === null || valB === null || valA === 0) return null;
+    return (valB - valA) / valA;
+  };
+
+  // Calcular sumas para un grupo de variables y un año específico
+  const getGroupSum = (varsList, year) => {
+    let sum = 0;
+    let hasValue = false;
+    varsList.forEach(v => {
+      const val = getVal(v, year);
+      if (val !== null && val !== undefined) {
+        sum += val;
+        hasValue = true;
+      }
+    });
+    return hasValue ? sum : null;
+  };
+
+  // Calcular Tasa para el grupo de variables
+  const calculateGroupTasa = (varsList) => {
+    if (añosAnterior.length === 0 || añosActual.length === 0) return null;
+    const lastAnt = añosAnterior[añosAnterior.length - 1];
+    const firstAct = añosActual[0];
+    const valA = getGroupSum(varsList, lastAnt);
+    const valB = getGroupSum(varsList, firstAct);
     if (valA === null || valB === null || valA === 0) return null;
     return (valB - valA) / valA;
   };
@@ -614,22 +642,50 @@ export default function SeguridadPage() {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td colSpan={2 + añosAnterior.length + añosActual.length} style={{ backgroundColor: 'rgba(36, 54, 127, 0.05)', fontWeight: 'bold' }}>
-                      INCIDENTES DE SEGURIDAD
+                  {/* Fila Principal de Incidentes (Expandible) */}
+                  <tr 
+                    onClick={() => setExpandIncidentes(!expandIncidentes)} 
+                    style={{ cursor: 'pointer', backgroundColor: 'rgba(36, 54, 127, 0.08)', fontWeight: 'bold' }}
+                    className="parent-row"
+                  >
+                    <td style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                      <span style={{ 
+                        display: 'inline-block', 
+                        fontSize: '0.8rem',
+                        transition: 'transform 0.2s', 
+                        transform: expandIncidentes ? 'rotate(90deg)' : 'rotate(0deg)' 
+                      }}>
+                        ▶
+                      </span>
+                      TOTAL INCIDENTES DE SEGURIDAD
+                    </td>
+                    {añosAnterior.map(y => <td key={y}>{getGroupSum(INCIDENTES, y) ?? '-'}</td>)}
+                    {añosActual.map(y => <td key={y}>{getGroupSum(INCIDENTES, y) ?? '-'}</td>)}
+                    <td>
+                      {(() => {
+                        const tasa = calculateGroupTasa(INCIDENTES);
+                        const isUp = tasa && tasa > 0;
+                        return tasa !== null ? (
+                          <span className={`rate-badge ${isUp ? 'rate-up' : 'rate-down'}`}>
+                            {isUp ? '+' : ''}{(tasa * 100).toFixed(0)}%
+                          </span>
+                        ) : 'N/A';
+                      })()}
                     </td>
                   </tr>
-                  {INCIDENTES.map(v => {
+
+                  {/* Filas Hijas de Incidentes */}
+                  {expandIncidentes && INCIDENTES.map(v => {
                     const tasa = calculateTasa(v);
                     const isUp = tasa && tasa > 0;
                     return (
-                      <tr key={v}>
-                        <td style={{ paddingLeft: '2rem' }}>{v}</td>
-                        {añosAnterior.map(y => <td key={y}>{getVal(v, y) ?? '-'}</td>)}
-                        {añosActual.map(y => <td key={y}>{getVal(v, y) ?? '-'}</td>)}
+                      <tr key={v} style={{ backgroundColor: 'rgba(255, 255, 255, 0.02)' }}>
+                        <td style={{ paddingLeft: '2.5rem', color: 'var(--text-muted)' }}>{v}</td>
+                        {añosAnterior.map(y => <td key={y} style={{ color: 'var(--text-muted)' }}>{getVal(v, y) ?? '-'}</td>)}
+                        {añosActual.map(y => <td key={y} style={{ color: 'var(--text-muted)' }}>{getVal(v, y) ?? '-'}</td>)}
                         <td>
                           {tasa !== null ? (
-                            <span className={`rate-badge ${isUp ? 'rate-up' : 'rate-down'}`}>
+                            <span className={`rate-badge ${isUp ? 'rate-up' : 'rate-down'}`} style={{ opacity: 0.85 }}>
                               {isUp ? '+' : ''}{(tasa * 100).toFixed(0)}%
                             </span>
                           ) : 'N/A'}
@@ -637,22 +693,51 @@ export default function SeguridadPage() {
                       </tr>
                     );
                   })}
-                  <tr>
-                    <td colSpan={2 + añosAnterior.length + añosActual.length} style={{ backgroundColor: 'rgba(36, 54, 127, 0.05)', fontWeight: 'bold' }}>
-                      DELITOS
+
+                  {/* Fila Principal de Delitos (Expandible) */}
+                  <tr 
+                    onClick={() => setExpandDelitos(!expandDelitos)} 
+                    style={{ cursor: 'pointer', backgroundColor: 'rgba(36, 54, 127, 0.08)', fontWeight: 'bold' }}
+                    className="parent-row"
+                  >
+                    <td style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                      <span style={{ 
+                        display: 'inline-block', 
+                        fontSize: '0.8rem',
+                        transition: 'transform 0.2s', 
+                        transform: expandDelitos ? 'rotate(90deg)' : 'rotate(0deg)' 
+                      }}>
+                        ▶
+                      </span>
+                      TOTAL DELITOS
+                    </td>
+                    {añosAnterior.map(y => <td key={y}>{getGroupSum(DELITOS, y) ?? '-'}</td>)}
+                    {añosActual.map(y => <td key={y}>{getGroupSum(DELITOS, y) ?? '-'}</td>)}
+                    <td>
+                      {(() => {
+                        const tasa = calculateGroupTasa(DELITOS);
+                        const isUp = tasa && tasa > 0;
+                        return tasa !== null ? (
+                          <span className={`rate-badge ${isUp ? 'rate-up' : 'rate-down'}`}>
+                            {isUp ? '+' : ''}{(tasa * 100).toFixed(0)}%
+                          </span>
+                        ) : 'N/A';
+                      })()}
                     </td>
                   </tr>
-                  {DELITOS.map(v => {
+
+                  {/* Filas Hijas de Delitos */}
+                  {expandDelitos && DELITOS.map(v => {
                     const tasa = calculateTasa(v);
                     const isUp = tasa && tasa > 0;
                     return (
-                      <tr key={v}>
-                        <td style={{ paddingLeft: '2rem' }}>{v}</td>
-                        {añosAnterior.map(y => <td key={y}>{getVal(v, y) ?? '-'}</td>)}
-                        {añosActual.map(y => <td key={y}>{getVal(v, y) ?? '-'}</td>)}
+                      <tr key={v} style={{ backgroundColor: 'rgba(255, 255, 255, 0.02)' }}>
+                        <td style={{ paddingLeft: '2.5rem', color: 'var(--text-muted)' }}>{v}</td>
+                        {añosAnterior.map(y => <td key={y} style={{ color: 'var(--text-muted)' }}>{getVal(v, y) ?? '-'}</td>)}
+                        {añosActual.map(y => <td key={y} style={{ color: 'var(--text-muted)' }}>{getVal(v, y) ?? '-'}</td>)}
                         <td>
                           {tasa !== null ? (
-                            <span className={`rate-badge ${isUp ? 'rate-up' : 'rate-down'}`}>
+                            <span className={`rate-badge ${isUp ? 'rate-up' : 'rate-down'}`} style={{ opacity: 0.85 }}>
                               {isUp ? '+' : ''}{(tasa * 100).toFixed(0)}%
                             </span>
                           ) : 'N/A'}
