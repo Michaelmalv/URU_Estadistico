@@ -269,6 +269,13 @@ def main():
                     })
 
     if seguridad_list:
+        print("  > Limpiando estadísticas de seguridad anteriores en la base de datos...")
+        try:
+            supabase.table("seguridad_estadisticas").delete().neq("id", -1).execute()
+            print("  > Limpieza de seguridad completada.")
+        except Exception as e:
+            print(f"Error al limpiar seguridad: {e}")
+
         print(f"  > Subiendo {len(seguridad_list)} registros de estadísticas de seguridad...")
         # Subir en lotes de 1000
         for idx in range(0, len(seguridad_list), 1000):
@@ -300,12 +307,26 @@ def main():
         })
     
     if fichas_list:
+        print("  > Limpiando fichas de senderos anteriores...")
+        try:
+            supabase.table("senderos_fichas").delete().neq("id", -1).execute()
+            print("  > Limpieza de fichas completada.")
+        except Exception as e:
+            print(f"Error al limpiar fichas: {e}")
+
         print(f"  > Subiendo {len(fichas_list)} fichas de senderos...")
         supabase.table("senderos_fichas").insert(fichas_list).execute()
         print("  > Carga de fichas de senderos completada.")
 
     # --- 3. PROCESAR Y CARGAR REGISTROS DE ECONOMÍA ---
     print("\n[3/4] Procesando Excels de Economía...")
+    print("  > Limpiando registros de economía anteriores...")
+    try:
+        supabase.table("economia_registros").delete().neq("id", -1).execute()
+        print("  > Limpieza de economía completada.")
+    except Exception as e:
+        print(f"Error al limpiar economía: {e}")
+
     economia_files = [
         DATA_DIR / 'resultado_cruce_predios_renovacion_v3.xlsx',
         DATA_DIR / 'resultado_cruce_predios_emision_v3.xlsx'
@@ -429,6 +450,13 @@ def main():
             })
 
         if suelo_records:
+            print("  > Limpiando registros de valor de suelo anteriores...")
+            try:
+                supabase.table("valor_suelo").delete().neq("id", -1).execute()
+                print("  > Limpieza de valor de suelo completada.")
+            except Exception as e:
+                print(f"Error al limpiar valor de suelo: {e}")
+
             print(f"  > Subiendo {len(suelo_records)} registros de valor de suelo...")
             supabase.table("valor_suelo").insert(suelo_records).execute()
             print("  > Carga de valor de suelo completada.")
