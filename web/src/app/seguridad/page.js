@@ -648,16 +648,18 @@ export default function SeguridadPage() {
                     style={{ cursor: 'pointer', backgroundColor: 'rgba(36, 54, 127, 0.08)', fontWeight: 'bold' }}
                     className="parent-row"
                   >
-                    <td style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                      <span style={{ 
-                        display: 'inline-block', 
-                        fontSize: '0.8rem',
-                        transition: 'transform 0.2s', 
-                        transform: expandIncidentes ? 'rotate(90deg)' : 'rotate(0deg)' 
-                      }}>
-                        ▶
-                      </span>
-                      TOTAL INCIDENTES DE SEGURIDAD
+                    <td>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                        <span style={{ 
+                          display: 'inline-block', 
+                          fontSize: '0.8rem',
+                          transition: 'transform 0.2s', 
+                          transform: expandIncidentes ? 'rotate(90deg)' : 'rotate(0deg)' 
+                        }}>
+                          ▶
+                        </span>
+                        TOTAL INCIDENTES DE SEGURIDAD
+                      </div>
                     </td>
                     {añosAnterior.map(y => <td key={y}>{getGroupSum(INCIDENTES, y) ?? '-'}</td>)}
                     {añosActual.map(y => <td key={y}>{getGroupSum(INCIDENTES, y) ?? '-'}</td>)}
@@ -700,16 +702,18 @@ export default function SeguridadPage() {
                     style={{ cursor: 'pointer', backgroundColor: 'rgba(36, 54, 127, 0.08)', fontWeight: 'bold' }}
                     className="parent-row"
                   >
-                    <td style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                      <span style={{ 
-                        display: 'inline-block', 
-                        fontSize: '0.8rem',
-                        transition: 'transform 0.2s', 
-                        transform: expandDelitos ? 'rotate(90deg)' : 'rotate(0deg)' 
-                      }}>
-                        ▶
-                      </span>
-                      TOTAL DELITOS
+                    <td>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                        <span style={{ 
+                          display: 'inline-block', 
+                          fontSize: '0.8rem',
+                          transition: 'transform 0.2s', 
+                          transform: expandDelitos ? 'rotate(90deg)' : 'rotate(0deg)' 
+                        }}>
+                          ▶
+                        </span>
+                        TOTAL DELITOS
+                      </div>
                     </td>
                     {añosAnterior.map(y => <td key={y}>{getGroupSum(DELITOS, y) ?? '-'}</td>)}
                     {añosActual.map(y => <td key={y}>{getGroupSum(DELITOS, y) ?? '-'}</td>)}
