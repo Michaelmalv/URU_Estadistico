@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { supabase } from '@/lib/supabase';
 
-const CACHE_TTL = 600000; // 10 minutes cache
+const CACHE_TTL = 0; // Disable cache for real-time updates
 
 export async function GET() {
   const now = Date.now();
