@@ -231,6 +231,7 @@ export async function GET(request) {
     global.resolvedSectorsCache = {};
     global.cachedEcoRecords = null;
     global.lastEcoFetchTime = null;
+    global.cachedUniqueRawSectors = null;
   }
 
   if (!sectorSeleccionado) {
@@ -258,31 +259,66 @@ export async function GET(request) {
 
     const fechaReferencia = parseFlexibleDate(proyectoRef.fecha_inauguracion);
 
-    // 2. Obtener registros de economía para el sector seleccionado de forma paginada
-    let records = [];
-    let page = 0;
-    const pageSize = 1000;
-    let hasMore = true;
+    const aliasMap = buildSectorAliasMap(proyectos);
 
-    while (hasMore) {
-      const { data: pageData, error: ecoError } = await supabase
-        .from('economia_registros')
-        .select('*')
-        .eq('sector_raw', sectorSeleccionado)
-        .range(page * pageSize, (page + 1) * pageSize - 1);
+    // Obtener y cachear todos los sectores_raw únicos que existen en la base de datos de forma paginada
+    if (!global.cachedUniqueRawSectors) {
+      const allSectors = new Set();
+      let page = 0;
+      const pageSize = 1000;
+      let hasMore = true;
 
-      if (ecoError) throw ecoError;
+      while (hasMore) {
+        const { data: pageData, error: rawError } = await supabase
+          .from('economia_registros')
+          .select('sector_raw')
+          .range(page * pageSize, (page + 1) * pageSize - 1);
 
-      if (pageData && pageData.length > 0) {
-        records = records.concat(pageData);
-        hasMore = pageData.length === pageSize;
-        page++;
-      } else {
-        hasMore = false;
+        if (rawError) throw rawError;
+
+        if (pageData && pageData.length > 0) {
+          pageData.forEach(r => {
+            if (r.sector_raw) allSectors.add(r.sector_raw);
+          });
+          hasMore = pageData.length === pageSize;
+          page++;
+        } else {
+          hasMore = false;
+        }
       }
+      global.cachedUniqueRawSectors = Array.from(allSectors);
     }
 
-    const aliasMap = buildSectorAliasMap(proyectos);
+    // Filtrar cuáles de los sectores_raw corresponden al proyecto seleccionado usando la lógica de alias
+    const matchingRawSectors = global.cachedUniqueRawSectors.filter(raw => {
+      return resolveSectorName(raw, aliasMap) === sectorSeleccionado;
+    });
+
+    // 2. Obtener registros de economía para el sector seleccionado de forma paginada
+    let records = [];
+    if (matchingRawSectors.length > 0) {
+      let page = 0;
+      const pageSize = 1000;
+      let hasMore = true;
+
+      while (hasMore) {
+        const { data: pageData, error: ecoError } = await supabase
+          .from('economia_registros')
+          .select('*')
+          .in('sector_raw', matchingRawSectors)
+          .range(page * pageSize, (page + 1) * pageSize - 1);
+
+        if (ecoError) throw ecoError;
+
+        if (pageData && pageData.length > 0) {
+          records = records.concat(pageData);
+          hasMore = pageData.length === pageSize;
+          page++;
+        } else {
+          hasMore = false;
+        }
+      }
+    }
     const clasificados = [];
     const controlMov = { renovacion: 0, emision: 0 };
     let excluidosFecha = 0;
