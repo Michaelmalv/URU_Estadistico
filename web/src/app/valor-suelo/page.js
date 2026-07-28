@@ -18,7 +18,7 @@ const VALOR_SUELO_CATEGORIAS = {
     'AIVAS PARQUE NAVARRO', 'AIVAS BENALCAZAR', 'AIVAS ROCAFUERTE',
     'AIVAS TRIBUNA DE LOS SHYRIS',
   ],
-  'Senderos Seguros': [
+  'Corredores Vivos': [
     'AIVAS AV. AJAVÍ', 'AIVAS LA ECUATORIANA', 'AIVAS CALLE RUIZ DE CASTILLA',
     'AIVAS CALLE RÍO DE JANEIRO', 'AIVAS COMITÉ DEL PUEBLO', 'AIVAS LA MARISCAL',
     'AIVAS RAMÓN BORJA', 'AIVAS AV. 2 DE AGOSTO', 'AIVAS AV. CARAPUNGO',
@@ -31,7 +31,7 @@ const VALOR_SUELO_CATEGORIAS = {
   ],
 };
 
-const CATEGORIAS_LIST = ['Todas', 'Zonas Metro', 'Rehabilitación del Espacio Público y Centro Histórico', 'Senderos Seguros'];
+const CATEGORIAS_LIST = ['Todas', 'Zonas Metro', 'Rehabilitación del Espacio Público y Centro Histórico', 'Corredores Vivos'];
 
 function normalizeText(value) {
   if (value === null || value === undefined) return '';

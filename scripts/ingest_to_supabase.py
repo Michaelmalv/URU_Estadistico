@@ -223,6 +223,8 @@ def main():
     for row in rows[4:]:
         if row[0] and isinstance(row[0], str) and row[0].strip():
             current_cat = row[0].strip()
+            if current_cat == 'Senderos Seguros':
+                current_cat = 'Corredores Vivos'
 
         nombre = row[1]
         if not nombre or not isinstance(nombre, str) or not nombre.strip():

@@ -56,7 +56,7 @@ export default function EconomiaPage() {
           }
         } else {
           const catMap = {
-            'Senderos Seguros': 'Senderos Seguros',
+            'Corredores Vivos': 'Corredores Vivos',
             'Zonas Metro': 'Zonas Metro'
           };
           if (p.categoria !== catMap[categoriaUi]) return false;
@@ -420,7 +420,7 @@ export default function EconomiaPage() {
             onChange={(e) => setCategoriaUi(e.target.value)}
           >
             <option value="Todas">Todas</option>
-            <option value="Senderos Seguros">Senderos Seguros</option>
+            <option value="Corredores Vivos">Corredores Vivos</option>
             <option value="Zonas Metro">Zonas Metro</option>
             <option value="Rehabilitación de Espacio Público">Rehabilitación de Espacio Público</option>
           </select>

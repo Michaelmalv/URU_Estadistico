@@ -2,13 +2,13 @@
 import React from 'react';
 
 export const CATEGORIAS_INFO = {
-  'Senderos Seguros': {
+  'Corredores Vivos': {
     image: '/imagenes_categorias/senderos_seguros/Senderos Seguros.png',
     summary: 'Corredores peatonales diseñados estratégicamente para mitigar índices delictivos y mejorar la seguridad de transeúntes.',
     content: (
       <div className="article-content">
-        <h1>Senderos Seguros</h1>
-        <p>Los <strong>Senderos Seguros</strong> son corredores de circulación diseñados estratégicamente para mejorar la percepción de seguridad en el espacio público, mitigar los índices delictivos y promover el flujo de transeúntes en zonas identificadas como vulnerables.</p>
+        <h1>Corredores Vivos</h1>
+        <p>Los <strong>Corredores Vivos</strong> son corredores de circulación diseñados estratégicamente para mejorar la percepción de seguridad en el espacio público, mitigar los índices delictivos y promover el flujo de transeúntes en zonas identificadas como vulnerables.</p>
         <p>Su origen se inspira en proyectos exitosos de ciudades como México, adaptados a la realidad de la capital ecuatoriana para erradicar problemáticas como el acoso y la violencia de género en las calles.</p>
         <h3>Metodología de Identificación y Priorización</h3>
         <p>Para identificar los corredores que requieren intervención prioritaria, las secretarías metropolitanas analizan el territorio utilizando una <strong>matriz técnica basada en 6 dimensiones urbanas y 18 indicadores</strong>:</p>
