@@ -3,7 +3,7 @@
 
 import { useState, useEffect, useMemo } from 'react';
 import { 
-  BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell 
+  BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell, LabelList
 } from 'recharts';
 
 const VALOR_SUELO_CATEGORIAS = {
@@ -464,7 +464,7 @@ export default function ValorSueloPage() {
               </p>
               <div style={{ width: '100%', height: '280px' }}>
                 <ResponsiveContainer width="100%" height="100%">
-                  <BarChart data={chartData} margin={{ top: 10, right: 30, left: 0, bottom: 10 }}>
+                  <BarChart data={chartData} margin={{ top: 25, right: 30, left: 0, bottom: 10 }}>
                     <CartesianGrid strokeDasharray="3 3" opacity={0.1} />
                     <XAxis dataKey="name" tick={{ fontSize: 12, fontWeight: 'bold' }} />
                     <YAxis tick={{ fontSize: 11 }} />
@@ -473,6 +473,7 @@ export default function ValorSueloPage() {
                       {chartData.map((entry, index) => (
                         <Cell key={`cell-${index}`} fill={entry.fill} />
                       ))}
+                      <LabelList dataKey="valor" position="top" formatter={formatCurrency} style={{ fill: 'var(--text-color)', fontSize: 11, fontWeight: 'bold' }} />
                     </Bar>
                   </BarChart>
                 </ResponsiveContainer>

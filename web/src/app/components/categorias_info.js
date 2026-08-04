@@ -22,6 +22,9 @@ export const CATEGORIAS_INFO = {
         </ul>
         <div className="detail-image-container">
           <img src="/imagenes_categorias/senderos_seguros/extracted_1.png" alt="Detalle" />
+          <div className="detail-image-caption">
+            Fuente: Secretaría de Hábitat y Ordenamiento Territorial
+          </div>
         </div>
         <h3>Tipos de Intervención en el Territorio</h3>
         <p>Las obras se dividen en dos líneas de acción complementarias:</p>
@@ -37,6 +40,9 @@ export const CATEGORIAS_INFO = {
         </ul>
         <div className="detail-image-container">
           <img src="/imagenes_categorias/senderos_seguros/extracted_2.png" alt="Detalle" />
+          <div className="detail-image-caption">
+            Fuente: Secretaría de Hábitat y Ordenamiento Territorial
+          </div>
         </div>
       </div>
     )
@@ -88,9 +94,15 @@ export const CATEGORIAS_INFO = {
         <p>Fase 2 (Bulevar y Arborización): Derrocamiento de la estructura de la tribuna, ampliación y reconfiguración de la acera este, arborización con especies nativas y la instalación de 21 estructuras arquitectónicas con <strong>iluminación LED ornamental</strong> rotativa. </p>
         <div className="detail-image-container">
           <img src="/imagenes_categorias/rehabilitacion_espacio_publico/extracted_1.jpeg" alt="Detalle" />
+          <div className="detail-image-caption">
+            Fuente: Secretaría de Hábitat y Ordenamiento Territorial
+          </div>
         </div>
         <div className="detail-image-container">
           <img src="/imagenes_categorias/rehabilitacion_espacio_publico/extracted_2.jpeg" alt="Detalle" />
+          <div className="detail-image-caption">
+            Fuente: Secretaría de Hábitat y Ordenamiento Territorial
+          </div>
         </div>
         <h3>2. Calle Benalcázar (Eje Centro Histórico)</h3>
         <ul>
@@ -148,6 +160,9 @@ export const CATEGORIAS_INFO = {
         </ul>
         <div className="detail-image-container">
           <img src="/imagenes_categorias/repotenciacion_parque_bicentenario/extracted_1.png" alt="Detalle" />
+          <div className="detail-image-caption">
+            Fuente: Secretaría de Hábitat y Ordenamiento Territorial
+          </div>
         </div>
         <h3>2. Zona de Conservación Ecológica y Cuerpos de Agua</h3>
         <ul>
@@ -156,6 +171,9 @@ export const CATEGORIAS_INFO = {
         </ul>
         <div className="detail-image-container">
           <img src="/imagenes_categorias/repotenciacion_parque_bicentenario/extracted_2.png" alt="Detalle" />
+          <div className="detail-image-caption">
+            Fuente: Secretaría de Hábitat y Ordenamiento Territorial
+          </div>
         </div>
         <h3>3. Zona de Espectáculos y Encuentro Cultural</h3>
         <ul>
@@ -165,6 +183,9 @@ export const CATEGORIAS_INFO = {
         </ul>
         <div className="detail-image-container">
           <img src="/imagenes_categorias/repotenciacion_parque_bicentenario/extracted_3.png" alt="Detalle" />
+          <div className="detail-image-caption">
+            Fuente: Secretaría de Hábitat y Ordenamiento Territorial
+          </div>
         </div>
       </div>
     )
@@ -183,6 +204,9 @@ export const CATEGORIAS_INFO = {
         <p>Inspirado en los mejores referentes globales de urbanismo social, este proyecto transforma infraestructuras subutilizadas en centralidades vivas donde se articulan de manera directa los servicios públicos, la academia y la comunidad. </p>
         <div className="detail-image-container">
           <img src="/imagenes_categorias/quitopia/extracted_1.png" alt="Detalle" />
+          <div className="detail-image-caption">
+            Fuente: Secretaría de Hábitat y Ordenamiento Territorial
+          </div>
         </div>
         <h3>Ficha Técnica y Datos de Impacto (Nodo Piloto: Quitopía "La Y")</h3>
         <ul>
@@ -197,6 +221,9 @@ export const CATEGORIAS_INFO = {
         </ul>
         <div className="detail-image-container">
           <img src="/imagenes_categorias/quitopia/extracted_2.png" alt="Detalle" />
+          <div className="detail-image-caption">
+            Fuente: Secretaría de Hábitat y Ordenamiento Territorial
+          </div>
         </div>
         <h3>Componentes y Servicios del Complejo Integrado</h3>
         <p>La Quitopía rompe los esquemas tradicionales dividiendo su infraestructura en tres grandes bloques funcionales diseñados para todas las edades: </p>
@@ -209,6 +236,9 @@ export const CATEGORIAS_INFO = {
         </ul>
         <div className="detail-image-container">
           <img src="/imagenes_categorias/quitopia/extracted_3.png" alt="Detalle" />
+          <div className="detail-image-caption">
+            Fuente: Secretaría de Hábitat y Ordenamiento Territorial
+          </div>
         </div>
         <h3>2. Edificio Centro de los Cuidados (Bloque B)</h3>
         <p>La columna vertebral del proyecto, diseñada para aliviar la carga de trabajo doméstico y de cuidado, brindando un soporte integral a las familias: </p>
@@ -219,6 +249,9 @@ export const CATEGORIAS_INFO = {
         </ul>
         <div className="detail-image-container">
           <img src="/imagenes_categorias/quitopia/extracted_4.png" alt="Detalle" />
+          <div className="detail-image-caption">
+            Fuente: Secretaría de Hábitat y Ordenamiento Territorial
+          </div>
         </div>
         <h3>3. Edificio Teatro - Polideportivo (Bloque C)</h3>
         <p>El punto de encuentro para el esparcimiento masivo, la cultura y la salud preventiva: </p>
@@ -228,11 +261,17 @@ export const CATEGORIAS_INFO = {
         </ul>
         <div className="detail-image-container">
           <img src="/imagenes_categorias/quitopia/extracted_5.png" alt="Detalle" />
+          <div className="detail-image-caption">
+            Fuente: Secretaría de Hábitat y Ordenamiento Territorial
+          </div>
         </div>
         <h3>Sostenibilidad Urbana y Gestión Ambiental</h3>
         <p>El entorno exterior de la Quitopía funciona como un amortiguador ecológico de la ciudad. Incorpora soluciones basadas en la naturaleza, como <strong>jardines de lluvia y humedales</strong> conectados a un tanque de retención de aguas lluvias, diseñados específicamente para mitigar las históricas inundaciones de la Av. 10 de Agosto. Todo el perímetro cuenta con criterios de accesibilidad universal, soterramiento de redes, pacificación de tránsito y un parque lineal que integra la vida vecinal con el comercio local regularizado. </p>
         <div className="detail-image-container">
           <img src="/imagenes_categorias/quitopia/extracted_6.png" alt="Detalle" />
+          <div className="detail-image-caption">
+            Fuente: Secretaría de Hábitat y Ordenamiento Territorial
+          </div>
         </div>
       </div>
     )

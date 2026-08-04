@@ -3,7 +3,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { 
-  BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell 
+  BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell, LabelList
 } from 'recharts';
 import { TrendingUp, RotateCw } from 'lucide-react';
 
@@ -507,7 +507,7 @@ export default function EconomiaPage() {
               </p>
               <div style={{ width: '100%', height: '280px' }}>
                 <ResponsiveContainer width="100%" height="100%">
-                  <BarChart data={economiaResult.resumen} margin={{ top: 10, right: 30, left: 0, bottom: 10 }}>
+                  <BarChart data={economiaResult.resumen} margin={{ top: 25, right: 30, left: 0, bottom: 10 }}>
                     <CartesianGrid strokeDasharray="3 3" opacity={0.1} />
                     <XAxis 
                       dataKey="categoria" 
@@ -520,6 +520,7 @@ export default function EconomiaPage() {
                       {economiaResult.resumen.map((entry, index) => (
                         <Cell key={`cell-${index}`} fill={entry.categoria === 'abierto' ? '#27ae60' : '#1f4e79'} />
                       ))}
+                      <LabelList dataKey="cantidad" position="top" style={{ fill: 'var(--text-color)', fontSize: 12, fontWeight: 'bold' }} />
                     </Bar>
                   </BarChart>
                 </ResponsiveContainer>

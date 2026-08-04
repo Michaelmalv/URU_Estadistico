@@ -3,7 +3,7 @@
 
 import { useState, useEffect } from 'react';
 import { 
-  BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer 
+  BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, LabelList 
 } from 'recharts';
 import dynamic from 'next/dynamic';
 
@@ -570,7 +570,7 @@ export default function SeguridadPage() {
               <h3 style={{ marginBottom: '1rem' }}>Incidentes de Seguridad (ECU 911)</h3>
               <div style={{ width: '100%', height: '320px' }}>
                 <ResponsiveContainer width="100%" height="100%">
-                  <BarChart data={getChartData(INCIDENTES)} margin={{ top: 10, right: 30, left: 0, bottom: 70 }}>
+                  <BarChart data={getChartData(INCIDENTES)} margin={{ top: 25, right: 30, left: 0, bottom: 70 }}>
                     <CartesianGrid strokeDasharray="3 3" opacity={0.1} />
                     <XAxis 
                       dataKey="name" 
@@ -583,14 +583,19 @@ export default function SeguridadPage() {
                     <YAxis tick={{ fontSize: 11 }} />
                     <Tooltip />
                     <Legend />
-                    {[...añosAnterior, ...añosActual].map((y, idx) => (
-                      <Bar 
-                        key={y} 
-                        dataKey={y === '2026*' ? '2026 (Proyectado)' : y} 
-                        fill={chartColors[idx % chartColors.length]} 
-                        radius={[4, 4, 0, 0]}
-                      />
-                    ))}
+                    {[...añosAnterior, ...añosActual].map((y, idx) => {
+                      const dKey = y === '2026*' ? '2026 (Proyectado)' : y;
+                      return (
+                        <Bar 
+                          key={y} 
+                          dataKey={dKey} 
+                          fill={chartColors[idx % chartColors.length]} 
+                          radius={[4, 4, 0, 0]}
+                        >
+                          <LabelList dataKey={dKey} position="top" style={{ fill: 'var(--text-color)', fontSize: 9, fontWeight: 'bold' }} />
+                        </Bar>
+                      );
+                    })}
                   </BarChart>
                 </ResponsiveContainer>
               </div>
@@ -601,7 +606,7 @@ export default function SeguridadPage() {
               <h3 style={{ marginBottom: '1rem' }}>Delitos Registrados (PPNN)</h3>
               <div style={{ width: '100%', height: '320px' }}>
                 <ResponsiveContainer width="100%" height="100%">
-                  <BarChart data={getChartData(DELITOS)} margin={{ top: 10, right: 30, left: 0, bottom: 70 }}>
+                  <BarChart data={getChartData(DELITOS)} margin={{ top: 25, right: 30, left: 0, bottom: 70 }}>
                     <CartesianGrid strokeDasharray="3 3" opacity={0.1} />
                     <XAxis 
                       dataKey="name" 
@@ -614,14 +619,19 @@ export default function SeguridadPage() {
                     <YAxis tick={{ fontSize: 11 }} />
                     <Tooltip />
                     <Legend />
-                    {[...añosAnterior, ...añosActual].map((y, idx) => (
-                      <Bar 
-                        key={y} 
-                        dataKey={y === '2026*' ? '2026 (Proyectado)' : y} 
-                        fill={chartColors[(idx + 3) % chartColors.length]} 
-                        radius={[4, 4, 0, 0]}
-                      />
-                    ))}
+                    {[...añosAnterior, ...añosActual].map((y, idx) => {
+                      const dKey = y === '2026*' ? '2026 (Proyectado)' : y;
+                      return (
+                        <Bar 
+                          key={y} 
+                          dataKey={dKey} 
+                          fill={chartColors[(idx + 3) % chartColors.length]} 
+                          radius={[4, 4, 0, 0]}
+                        >
+                          <LabelList dataKey={dKey} position="top" style={{ fill: 'var(--text-color)', fontSize: 9, fontWeight: 'bold' }} />
+                        </Bar>
+                      );
+                    })}
                   </BarChart>
                 </ResponsiveContainer>
               </div>
@@ -770,12 +780,15 @@ export default function SeguridadPage() {
           {images.antes_despues && (
             <div className="card">
               <h3 style={{ marginBottom: '1.5rem' }}>Impacto Visual (Antes / Después)</h3>
-              <div>
+              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                 <img 
                   src={images.antes_despues} 
                   alt="Impacto visual antes y después" 
                   style={{ width: '100%', borderRadius: '12px', border: '1px solid var(--border-color)' }}
                 />
+                <div className="detail-image-caption" style={{ marginTop: '0.75rem' }}>
+                  Fuente: Secretaría de Hábitat y Ordenamiento Territorial
+                </div>
               </div>
             </div>
           )}
