@@ -811,22 +811,7 @@ export default function SeguridadPage() {
             />
           </div>
 
-          {/* Registros Antes / Después (Impacto Visual) */}
-          {images.antes_despues && (
-            <div className="card">
-              <h3 style={{ marginBottom: '1.5rem' }}>Impacto Visual (Antes / Después)</h3>
-              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                <img 
-                  src={images.antes_despues} 
-                  alt="Impacto visual antes y después" 
-                  style={{ width: '100%', borderRadius: '12px', border: '1px solid var(--border-color)' }}
-                />
-                <div className="detail-image-caption" style={{ marginTop: '0.75rem' }}>
-                  Fuente: Secretaría de Hábitat y Ordenamiento Territorial
-                </div>
-              </div>
-            </div>
-          )}
+
 
         </div>
       )}
