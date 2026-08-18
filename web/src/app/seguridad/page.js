@@ -625,23 +625,22 @@ export default function SeguridadPage() {
                               type="button" 
                               onClick={() => {
                                 setAñoBase(y);
-                                const baseNum = parseInt(y.replace('*', ''));
-                                const compNum = parseInt(añoComparativo.replace('*', ''));
-                                if (compNum <= baseNum) {
-                                  const nextAvail = PERIODOS.find(p => parseInt(p.replace('*', '')) > baseNum);
-                                  if (nextAvail) setAñoComparativo(nextAvail);
+                                const baseIdx = PERIODOS.indexOf(y);
+                                if (PERIODOS.indexOf(añoComparativo) <= baseIdx) {
+                                  setAñoComparativo(PERIODOS[baseIdx + 1]);
                                 }
                               }}
+                              disabled={y === PERIODOS[PERIODOS.length - 1]}
                               style={{
                                 padding: '2px 6px',
                                 fontSize: '0.7rem',
                                 borderRadius: '4px',
                                 border: '1px solid rgba(255,255,255,0.15)',
-                                cursor: 'pointer',
+                                cursor: y === PERIODOS[PERIODOS.length - 1] ? 'not-allowed' : 'pointer',
                                 backgroundColor: añoBase === y ? '#2563eb' : 'rgba(255,255,255,0.05)',
                                 color: '#ffffff',
                                 fontWeight: 'bold',
-                                opacity: añoBase === y ? 1 : 0.45,
+                                opacity: añoBase === y ? 1 : (y === PERIODOS[PERIODOS.length - 1] ? 0.15 : 0.45),
                                 transition: 'all 0.15s'
                               }}
                             >
@@ -650,17 +649,17 @@ export default function SeguridadPage() {
                             <button 
                               type="button" 
                               onClick={() => setAñoComparativo(y)}
-                              disabled={parseInt(y.replace('*', '')) <= parseInt(añoBase.replace('*', ''))}
+                              disabled={PERIODOS.indexOf(y) <= PERIODOS.indexOf(añoBase)}
                               style={{
                                 padding: '2px 6px',
                                 fontSize: '0.7rem',
                                 borderRadius: '4px',
                                 border: '1px solid rgba(255,255,255,0.15)',
-                                cursor: parseInt(y.replace('*', '')) <= parseInt(añoBase.replace('*', '')) ? 'not-allowed' : 'pointer',
+                                cursor: PERIODOS.indexOf(y) <= PERIODOS.indexOf(añoBase) ? 'not-allowed' : 'pointer',
                                 backgroundColor: añoComparativo === y ? '#d97706' : 'rgba(255,255,255,0.05)',
                                 color: '#ffffff',
                                 fontWeight: 'bold',
-                                opacity: añoComparativo === y ? 1 : (parseInt(y.replace('*', '')) <= parseInt(añoBase.replace('*', '')) ? 0.15 : 0.45),
+                                opacity: añoComparativo === y ? 1 : (PERIODOS.indexOf(y) <= PERIODOS.indexOf(añoBase) ? 0.15 : 0.45),
                                 transition: 'all 0.15s'
                               }}
                             >
