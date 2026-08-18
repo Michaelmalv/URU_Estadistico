@@ -56,6 +56,9 @@ export default function SeguridadPage() {
   const [expandIncidentes, setExpandIncidentes] = useState(false);
   const [expandDelitos, setExpandDelitos] = useState(false);
   const [showMetodologia, setShowMetodologia] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [tempAnterior, setTempAnterior] = useState(['2024']);
+  const [tempActual, setTempActual] = useState(['2025']);
 
   // Cargar datos al montar
   useEffect(() => {
@@ -458,38 +461,222 @@ export default function SeguridadPage() {
           </select>
         </div>
 
-        <div className="filter-group" style={{ flex: '1 1 250px' }}>
-          <span className="filter-label">Años Anterior</span>
-          <div style={{ display: 'flex', gap: '0.75rem', marginTop: '0.4rem', flexWrap: 'wrap' }}>
-            {PERIODOS.slice(0, -1).map(year => (
-              <label key={year} style={{ display: 'flex', alignItems: 'center', gap: '0.25rem', fontSize: '0.85rem', cursor: 'pointer' }}>
-                <input 
-                  type="checkbox"
-                  checked={añosAnterior.includes(year)}
-                  onChange={() => handlesAñosAnteriorChange(year)}
-                />
-                {year}
-              </label>
-            ))}
-          </div>
-        </div>
-
-        <div className="filter-group" style={{ flex: '1 1 250px' }}>
-          <span className="filter-label">Años Actual</span>
-          <div style={{ display: 'flex', gap: '0.75rem', marginTop: '0.4rem', flexWrap: 'wrap' }}>
-            {getAñosActualDisponibles().map(year => (
-              <label key={year} style={{ display: 'flex', alignItems: 'center', gap: '0.25rem', fontSize: '0.85rem', cursor: 'pointer' }}>
-                <input 
-                  type="checkbox"
-                  checked={añosActual.includes(year)}
-                  onChange={() => handleAñosActualChange(year)}
-                />
-                {year === '2026*' ? '2026 (Proyectado)' : year}
-              </label>
-            ))}
-          </div>
+        <div className="filter-group" style={{ minWidth: '220px' }}>
+          <span className="filter-label">Comparación de Años</span>
+          <button 
+            type="button" 
+            className="btn btn-outline" 
+            style={{ 
+              width: '100%', 
+              marginTop: '0.25rem',
+              display: 'flex', 
+              alignItems: 'center', 
+              justifyContent: 'center', 
+              gap: '0.5rem',
+              padding: '0.6rem 1rem',
+              fontSize: '0.85rem'
+            }}
+            onClick={() => {
+              setTempAnterior(añosAnterior);
+              setTempActual(añosActual);
+              setIsModalOpen(true);
+            }}
+          >
+            📅 {añosAnterior.join(', ')} vs {añosActual.map(y => y === '2026*' ? '2026' : y).join(', ')}
+          </button>
         </div>
       </div>
+
+      {/* Pantalla Emergente (Modal) para Selección de Años */}
+      {isModalOpen && (
+        <div style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundColor: 'rgba(15, 23, 42, 0.85)',
+          backdropFilter: 'blur(8px)',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          zIndex: 1000
+        }}>
+          <div className="card" style={{
+            width: '90%',
+            maxWidth: '520px',
+            padding: '2rem',
+            border: '1px solid var(--border-color)',
+            boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.5)',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '1.5rem',
+            backgroundColor: '#0b1329' // Asegura el tono oscuro de la tarjeta
+          }}>
+            <div>
+              <h3 style={{ fontSize: '1.25rem', marginBottom: '0.5rem', color: 'var(--accent-color, #3b82f6)' }}>
+                Comparación de Años
+              </h3>
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem', margin: 0 }}>
+                Selecciona los años para el período base (anterior) y el período comparativo (actual) para calcular la tasa de cambio de seguridad.
+              </p>
+            </div>
+
+            {/* Presets Rápidos */}
+            <div>
+              <span style={{ fontSize: '0.75rem', fontWeight: 'bold', color: 'var(--text-muted)', display: 'block', marginBottom: '0.5rem' }}>
+                COMPARACIONES RÁPIDAS:
+              </span>
+              <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+                <button 
+                  type="button" 
+                  className="btn btn-outline" 
+                  style={{ padding: '0.35rem 0.75rem', fontSize: '0.75rem' }}
+                  onClick={() => {
+                    setTempAnterior(['2023']);
+                    setTempActual(['2024']);
+                  }}
+                >
+                  2023 vs 2024
+                </button>
+                <button 
+                  type="button" 
+                  className="btn btn-outline" 
+                  style={{ padding: '0.35rem 0.75rem', fontSize: '0.75rem' }}
+                  onClick={() => {
+                    setTempAnterior(['2024']);
+                    setTempActual(['2025']);
+                  }}
+                >
+                  2024 vs 2025
+                </button>
+                <button 
+                  type="button" 
+                  className="btn btn-outline" 
+                  style={{ padding: '0.35rem 0.75rem', fontSize: '0.75rem' }}
+                  onClick={() => {
+                    setTempAnterior(['2025']);
+                    setTempActual(['2026*']);
+                  }}
+                >
+                  2025 vs 2026
+                </button>
+                <button 
+                  type="button" 
+                  className="btn btn-outline" 
+                  style={{ padding: '0.35rem 0.75rem', fontSize: '0.75rem' }}
+                  onClick={() => {
+                    setTempAnterior(['2023', '2024']);
+                    setTempActual(['2026*']);
+                  }}
+                >
+                  Histórico vs 2026
+                </button>
+              </div>
+            </div>
+
+            {/* Columnas de Selección */}
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', padding: '1rem', backgroundColor: 'rgba(255, 255, 255, 0.02)', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
+              {/* Columna Anterior */}
+              <div>
+                <span style={{ fontSize: '0.8rem', fontWeight: 'bold', display: 'block', marginBottom: '0.75rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.25rem', color: 'var(--text-color)' }}>
+                  Período Anterior (Base)
+                </span>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
+                  {PERIODOS.slice(0, -1).map(year => (
+                    <label key={year} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.9rem', cursor: 'pointer', color: 'var(--text-color)' }}>
+                      <input 
+                        type="checkbox"
+                        checked={tempAnterior.includes(year)}
+                        onChange={() => {
+                          if (tempAnterior.includes(year)) {
+                            setTempAnterior(tempAnterior.filter(y => y !== year));
+                          } else {
+                            setTempAnterior([...tempAnterior, year]);
+                          }
+                        }}
+                      />
+                      {year}
+                    </label>
+                  ))}
+                </div>
+              </div>
+
+              {/* Columna Actual */}
+              <div>
+                <span style={{ fontSize: '0.8rem', fontWeight: 'bold', display: 'block', marginBottom: '0.75rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.25rem', color: 'var(--text-color)' }}>
+                  Período Actual (Comparar)
+                </span>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
+                  {PERIODOS.map(year => {
+                    const maxAnt = tempAnterior.length > 0 ? Math.max(...tempAnterior.map(y => parseInt(y.replace('*', '')))) : 0;
+                    const yNum = parseInt(year.replace('*', ''));
+                    const disabled = yNum <= maxAnt;
+                    
+                    return (
+                      <label 
+                        key={year} 
+                        style={{ 
+                          display: 'flex', 
+                          alignItems: 'center', 
+                          gap: '0.5rem', 
+                          fontSize: '0.9rem', 
+                          cursor: disabled ? 'not-allowed' : 'pointer',
+                          opacity: disabled ? 0.35 : 1,
+                          color: 'var(--text-color)'
+                        }}
+                      >
+                        <input 
+                          type="checkbox"
+                          disabled={disabled}
+                          checked={!disabled && tempActual.includes(year)}
+                          onChange={() => {
+                            if (tempActual.includes(year)) {
+                              setTempActual(tempActual.filter(y => y !== year));
+                            } else {
+                              setTempActual([...tempActual, year]);
+                            }
+                          }}
+                        />
+                        {year === '2026*' ? '2026 (Proyectado)' : year}
+                      </label>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+
+            {/* Acciones */}
+            <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '1rem' }}>
+              <button 
+                type="button"
+                className="btn btn-outline"
+                onClick={() => setIsModalOpen(false)}
+              >
+                Cancelar
+              </button>
+              <button 
+                type="button"
+                className="btn btn-primary"
+                disabled={tempAnterior.length === 0 || tempActual.filter(y => {
+                  const maxAnt = tempAnterior.length > 0 ? Math.max(...tempAnterior.map(a => parseInt(a.replace('*', '')))) : 0;
+                  return parseInt(y.replace('*', '')) > maxAnt;
+                }).length === 0}
+                onClick={() => {
+                  const maxAnt = tempAnterior.length > 0 ? Math.max(...tempAnterior.map(a => parseInt(a.replace('*', '')))) : 0;
+                  const finalActual = tempActual.filter(y => parseInt(y.replace('*', '')) > maxAnt);
+                  
+                  setAñosAnterior(tempAnterior);
+                  setAñosActual(finalActual);
+                  setIsModalOpen(false);
+                }}
+              >
+                Aplicar
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {currentProjectObj && (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
