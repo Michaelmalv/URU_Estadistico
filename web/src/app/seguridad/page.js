@@ -11,14 +11,13 @@ const MapboxMap = dynamic(() => import('../components/MapboxMap'), { ssr: false 
 
 const INCIDENTES = [
   'Daño a propiedad pública y privada',
-  'Escándalos',
-  'Eventos clandestinos',
   'Libadores',
   'Venta y consumo de sustancias',
 ];
 const DELITOS = [
-  'Robo a carros', 'Robo a motos', 'Robo a personas',
-  'Robo a unidades económicas', 'Robo de autopartes', 'Robo a domicilios',
+  'Robo a personas',
+  'Robo a unidades económicas',
+  'Robo a domicilios',
 ];
 const ALL_VARS = [...INCIDENTES, ...DELITOS];
 const PERIODOS = ['2023', '2024', '2025', '2026*'];
