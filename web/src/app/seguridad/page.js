@@ -514,24 +514,24 @@ export default function SeguridadPage() {
             backgroundColor: '#0b1329' // Asegura el tono oscuro de la tarjeta
           }}>
             <div>
-              <h3 style={{ fontSize: '1.25rem', marginBottom: '0.5rem', color: 'var(--accent-color, #3b82f6)' }}>
+              <h3 style={{ fontSize: '1.25rem', marginBottom: '0.5rem', color: 'var(--accent-color, #3b82f6)', fontWeight: 'bold' }}>
                 Comparación de Años
               </h3>
-              <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem', margin: 0 }}>
+              <p style={{ color: '#cbd5e1', fontSize: '0.85rem', margin: 0, lineHeight: '1.4' }}>
                 Selecciona los años para el período base (anterior) y el período comparativo (actual) para calcular la tasa de cambio de seguridad.
               </p>
             </div>
 
             {/* Presets Rápidos */}
             <div>
-              <span style={{ fontSize: '0.75rem', fontWeight: 'bold', color: 'var(--text-muted)', display: 'block', marginBottom: '0.5rem' }}>
+              <span style={{ fontSize: '0.75rem', fontWeight: 'bold', color: '#cbd5e1', display: 'block', marginBottom: '0.5rem' }}>
                 COMPARACIONES RÁPIDAS:
               </span>
               <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
                 <button 
                   type="button" 
                   className="btn btn-outline" 
-                  style={{ padding: '0.35rem 0.75rem', fontSize: '0.75rem' }}
+                  style={{ padding: '0.35rem 0.75rem', fontSize: '0.75rem', color: '#ffffff', borderColor: 'rgba(255,255,255,0.2)' }}
                   onClick={() => {
                     setTempAnterior(['2023']);
                     setTempActual(['2024']);
@@ -542,7 +542,7 @@ export default function SeguridadPage() {
                 <button 
                   type="button" 
                   className="btn btn-outline" 
-                  style={{ padding: '0.35rem 0.75rem', fontSize: '0.75rem' }}
+                  style={{ padding: '0.35rem 0.75rem', fontSize: '0.75rem', color: '#ffffff', borderColor: 'rgba(255,255,255,0.2)' }}
                   onClick={() => {
                     setTempAnterior(['2024']);
                     setTempActual(['2025']);
@@ -553,7 +553,7 @@ export default function SeguridadPage() {
                 <button 
                   type="button" 
                   className="btn btn-outline" 
-                  style={{ padding: '0.35rem 0.75rem', fontSize: '0.75rem' }}
+                  style={{ padding: '0.35rem 0.75rem', fontSize: '0.75rem', color: '#ffffff', borderColor: 'rgba(255,255,255,0.2)' }}
                   onClick={() => {
                     setTempAnterior(['2025']);
                     setTempActual(['2026*']);
@@ -564,7 +564,7 @@ export default function SeguridadPage() {
                 <button 
                   type="button" 
                   className="btn btn-outline" 
-                  style={{ padding: '0.35rem 0.75rem', fontSize: '0.75rem' }}
+                  style={{ padding: '0.35rem 0.75rem', fontSize: '0.75rem', color: '#ffffff', borderColor: 'rgba(255,255,255,0.2)' }}
                   onClick={() => {
                     setTempAnterior(['2023', '2024']);
                     setTempActual(['2026*']);
@@ -579,21 +579,24 @@ export default function SeguridadPage() {
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', padding: '1rem', backgroundColor: 'rgba(255, 255, 255, 0.02)', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
               {/* Columna Anterior */}
               <div>
-                <span style={{ fontSize: '0.8rem', fontWeight: 'bold', display: 'block', marginBottom: '0.75rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.25rem', color: 'var(--text-color)' }}>
+                <span style={{ fontSize: '0.85rem', fontWeight: 'bold', display: 'block', marginBottom: '0.75rem', borderBottom: '1px solid rgba(255, 255, 255, 0.1)', paddingBottom: '0.25rem', color: '#f8fafc' }}>
                   Período Anterior (Base)
                 </span>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
                   {PERIODOS.slice(0, -1).map(year => (
-                    <label key={year} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.9rem', cursor: 'pointer', color: 'var(--text-color)' }}>
+                    <label key={year} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.9rem', cursor: 'pointer', color: '#ffffff', fontWeight: '500' }}>
                       <input 
                         type="checkbox"
                         checked={tempAnterior.includes(year)}
                         onChange={() => {
+                          let next;
                           if (tempAnterior.includes(year)) {
-                            setTempAnterior(tempAnterior.filter(y => y !== year));
+                            next = tempAnterior.filter(y => y !== year);
                           } else {
-                            setTempAnterior([...tempAnterior, year]);
+                            next = [...tempAnterior, year];
                           }
+                          next.sort((a, b) => parseInt(a.replace('*', '')) - parseInt(b.replace('*', '')));
+                          setTempAnterior(next);
                         }}
                       />
                       {year}
@@ -604,7 +607,7 @@ export default function SeguridadPage() {
 
               {/* Columna Actual */}
               <div>
-                <span style={{ fontSize: '0.8rem', fontWeight: 'bold', display: 'block', marginBottom: '0.75rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.25rem', color: 'var(--text-color)' }}>
+                <span style={{ fontSize: '0.85rem', fontWeight: 'bold', display: 'block', marginBottom: '0.75rem', borderBottom: '1px solid rgba(255, 255, 255, 0.1)', paddingBottom: '0.25rem', color: '#f8fafc' }}>
                   Período Actual (Comparar)
                 </span>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
@@ -623,7 +626,8 @@ export default function SeguridadPage() {
                           fontSize: '0.9rem', 
                           cursor: disabled ? 'not-allowed' : 'pointer',
                           opacity: disabled ? 0.35 : 1,
-                          color: 'var(--text-color)'
+                          color: disabled ? '#64748b' : '#ffffff',
+                          fontWeight: disabled ? 'normal' : '500'
                         }}
                       >
                         <input 
@@ -631,11 +635,14 @@ export default function SeguridadPage() {
                           disabled={disabled}
                           checked={!disabled && tempActual.includes(year)}
                           onChange={() => {
+                            let next;
                             if (tempActual.includes(year)) {
-                              setTempActual(tempActual.filter(y => y !== year));
+                              next = tempActual.filter(y => y !== year);
                             } else {
-                              setTempActual([...tempActual, year]);
+                              next = [...tempActual, year];
                             }
+                            next.sort((a, b) => parseInt(a.replace('*', '')) - parseInt(b.replace('*', '')));
+                            setTempActual(next);
                           }}
                         />
                         {year === '2026*' ? '2026 (Proyectado)' : year}
@@ -652,6 +659,7 @@ export default function SeguridadPage() {
                 type="button"
                 className="btn btn-outline"
                 onClick={() => setIsModalOpen(false)}
+                style={{ color: '#ffffff', borderColor: 'rgba(255,255,255,0.2)' }}
               >
                 Cancelar
               </button>
@@ -666,8 +674,12 @@ export default function SeguridadPage() {
                   const maxAnt = tempAnterior.length > 0 ? Math.max(...tempAnterior.map(a => parseInt(a.replace('*', '')))) : 0;
                   const finalActual = tempActual.filter(y => parseInt(y.replace('*', '')) > maxAnt);
                   
-                  setAñosAnterior(tempAnterior);
-                  setAñosActual(finalActual);
+                  // Ordenar cronológicamente ambos arreglos al aplicar
+                  const sortedAnterior = [...tempAnterior].sort((a, b) => parseInt(a.replace('*', '')) - parseInt(b.replace('*', '')));
+                  const sortedActual = finalActual.sort((a, b) => parseInt(a.replace('*', '')) - parseInt(b.replace('*', '')));
+                  
+                  setAñosAnterior(sortedAnterior);
+                  setAñosActual(sortedActual);
                   setIsModalOpen(false);
                 }}
               >
