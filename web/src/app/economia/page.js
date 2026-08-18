@@ -3,7 +3,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { 
-  BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell, LabelList
+  BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell, LabelList, Legend
 } from 'recharts';
 import { TrendingUp, RotateCw } from 'lucide-react';
 
@@ -23,6 +23,7 @@ export default function EconomiaPage() {
   const [categoriaUi, setCategoriaUi] = useState('Todas');
   const [fechaFilter, setFechaFilter] = useState('Todas');
   const [selectedProyecto, setSelectedProyecto] = useState('');
+  const [selectedAnio, setSelectedAnio] = useState('Todos');
 
   // Resultados
   const [economiaResult, setEconomiaResult] = useState(null);
@@ -150,7 +151,8 @@ export default function EconomiaPage() {
         ['Ubicación:', currentProjectObj?.ubicacion || '—'],
         ['Fecha de Inauguración:', currentProjectObj?.fecha_inauguracion || '—'],
         ['Fecha Base de Referencia:', economiaResult.fecha_txt || '—'],
-        ['Periodo Comparado con:', getReferenciaTxt()]
+        ['Periodo Comparado con:', getReferenciaTxt()],
+        ['Filtro de Año Seleccionado:', selectedAnio === 'Todos' ? 'Todos los años (2023-2026)' : selectedAnio]
       ];
 
       metaData.forEach(item => {
@@ -384,11 +386,24 @@ export default function EconomiaPage() {
   }
 
   // Preparar consistencia
-  const abiertosCalc = economiaResult?.abiertos || 0;
-  const renovadosCalc = economiaResult?.renovados || 0;
+  const isAllYears = selectedAnio === 'Todos';
+  let abiertosCalc = 0;
+  let renovadosCalc = 0;
+
+  if (economiaResult) {
+    if (isAllYears) {
+      abiertosCalc = economiaResult.abiertos || 0;
+      renovadosCalc = economiaResult.renovados || 0;
+    } else {
+      const yearData = economiaResult.desglose_anual?.find(d => d.anio === Number(selectedAnio));
+      abiertosCalc = yearData ? yearData.abiertos : 0;
+      renovadosCalc = yearData ? yearData.renovados : 0;
+    }
+  }
+
   const abiertosMov = economiaResult?.control_mov?.emision || 0;
   const renovadosMov = economiaResult?.control_mov?.renovacion || 0;
-  const showConsistencyError = (abiertosCalc !== abiertosMov || renovadosCalc !== renovadosMov);
+  const showConsistencyError = isAllYears && (abiertosCalc !== abiertosMov || renovadosCalc !== renovadosMov);
 
   // Formatear referencia para subtítulo de gráfica
   const getReferenciaTxt = () => {
@@ -436,6 +451,21 @@ export default function EconomiaPage() {
             <option value="Todas">Todas</option>
             <option value="Con fecha de inauguración/entrega">Con fecha de inauguración/entrega</option>
             <option value="Sin fecha de inauguración/entrega">Sin fecha de inauguración/entrega</option>
+          </select>
+        </div>
+
+        <div className="filter-group">
+          <span className="filter-label">Año</span>
+          <select 
+            className="filter-select"
+            value={selectedAnio}
+            onChange={(e) => setSelectedAnio(e.target.value)}
+          >
+            <option value="Todos">Todos los años</option>
+            <option value="2023">2023</option>
+            <option value="2024">2024</option>
+            <option value="2025">2025</option>
+            <option value="2026">2026</option>
           </select>
         </div>
 
@@ -501,28 +531,49 @@ export default function EconomiaPage() {
             
             {/* Gráfico */}
             <div className="card" style={{ minHeight: '400px' }}>
-              <h3 style={{ marginBottom: '0.5rem' }}>Comparativa económica: {getProyectoDisplayName(selectedProyecto)}</h3>
+              <h3 style={{ marginBottom: '0.5rem' }}>
+                {isAllYears 
+                  ? `Evolución económica anual: ${getProyectoDisplayName(selectedProyecto)}` 
+                  : `Comparativa económica (${selectedAnio}): ${getProyectoDisplayName(selectedProyecto)}`}
+              </h3>
               <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem', marginBottom: '1.5rem' }}>
                 Referencia: {economiaResult.fecha_txt} | Comparación con {getReferenciaTxt()}.
               </p>
               <div style={{ width: '100%', height: '280px' }}>
                 <ResponsiveContainer width="100%" height="100%">
-                  <BarChart data={economiaResult.resumen} margin={{ top: 25, right: 30, left: 0, bottom: 10 }}>
-                    <CartesianGrid strokeDasharray="3 3" opacity={0.1} />
-                    <XAxis 
-                      dataKey="categoria" 
-                      tickFormatter={(v) => v === 'abierto' ? 'Abiertos' : 'Renovados'}
-                      tick={{ fontSize: 12, fontWeight: 'bold' }}
-                    />
-                    <YAxis tick={{ fontSize: 11 }} />
-                    <Tooltip formatter={(value, name, props) => [value, props.payload.categoria === 'abierto' ? 'Abiertos' : 'Renovados']} />
-                    <Bar dataKey="cantidad" radius={[4, 4, 0, 0]} barSize={80}>
-                      {economiaResult.resumen.map((entry, index) => (
-                        <Cell key={`cell-${index}`} fill={entry.categoria === 'abierto' ? '#27ae60' : '#1f4e79'} />
-                      ))}
-                      <LabelList dataKey="cantidad" position="top" style={{ fill: 'var(--text-color)', fontSize: 12, fontWeight: 'bold' }} />
-                    </Bar>
-                  </BarChart>
+                  {isAllYears ? (
+                    <BarChart data={economiaResult.desglose_anual} margin={{ top: 25, right: 30, left: 0, bottom: 10 }}>
+                      <CartesianGrid strokeDasharray="3 3" opacity={0.1} />
+                      <XAxis dataKey="anio" tick={{ fontSize: 12, fontWeight: 'bold' }} />
+                      <YAxis tick={{ fontSize: 11 }} />
+                      <Tooltip />
+                      <Legend />
+                      <Bar dataKey="abiertos" name="Abiertos (Nuevos)" fill="#27ae60" radius={[4, 4, 0, 0]}>
+                        <LabelList dataKey="abiertos" position="top" style={{ fill: 'var(--text-color)', fontSize: 10, fontWeight: 'bold' }} />
+                      </Bar>
+                      <Bar dataKey="renovados" name="Renovados" fill="#1f4e79" radius={[4, 4, 0, 0]}>
+                        <LabelList dataKey="renovados" position="top" style={{ fill: 'var(--text-color)', fontSize: 10, fontWeight: 'bold' }} />
+                      </Bar>
+                    </BarChart>
+                  ) : (
+                    <BarChart 
+                      data={[
+                        { name: 'Abiertos', cantidad: abiertosCalc, fill: '#27ae60' },
+                        { name: 'Renovados', cantidad: renovadosCalc, fill: '#1f4e79' }
+                      ]} 
+                      margin={{ top: 25, right: 30, left: 0, bottom: 10 }}
+                    >
+                      <CartesianGrid strokeDasharray="3 3" opacity={0.1} />
+                      <XAxis dataKey="name" tick={{ fontSize: 12, fontWeight: 'bold' }} />
+                      <YAxis tick={{ fontSize: 11 }} />
+                      <Tooltip formatter={(value, name, props) => [value, props.payload.name]} />
+                      <Bar dataKey="cantidad" radius={[4, 4, 0, 0]} barSize={80}>
+                        <Cell fill="#27ae60" />
+                        <Cell fill="#1f4e79" />
+                        <LabelList dataKey="cantidad" position="top" style={{ fill: 'var(--text-color)', fontSize: 12, fontWeight: 'bold' }} />
+                      </Bar>
+                    </BarChart>
+                  )}
                 </ResponsiveContainer>
               </div>
             </div>
