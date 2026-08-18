@@ -48,17 +48,17 @@ export default function SeguridadPage() {
   const [selectedCategoria, setSelectedCategoria] = useState('');
   const [selectedProyecto, setSelectedProyecto] = useState('');
   
-  const [añosAnterior, setAñosAnterior] = useState(['2024']);
-  const [añosActual, setAñosActual] = useState(['2025']);
+  const [añoBase, setAñoBase] = useState('2024');
+  const [añoComparativo, setAñoComparativo] = useState('2025');
+
+  const añosAnterior = [añoBase];
+  const añosActual = [añoComparativo];
 
   const [catalogoImagenes, setCatalogoImagenes] = useState({});
 
   const [expandIncidentes, setExpandIncidentes] = useState(false);
   const [expandDelitos, setExpandDelitos] = useState(false);
   const [showMetodologia, setShowMetodologia] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [tempAnterior, setTempAnterior] = useState(['2024']);
-  const [tempActual, setTempActual] = useState(['2025']);
 
   // Cargar datos al montar
   useEffect(() => {
@@ -162,38 +162,7 @@ export default function SeguridadPage() {
     });
   }
 
-  // Filtrar años disponibles para Años Actual
-  const getAñosActualDisponibles = () => {
-    if (añosAnterior.length === 0) return PERIODOS;
-    const yearsNum = añosAnterior.map(y => parseInt(y.replace('*', '')));
-    const maxAnt = Math.max(...yearsNum);
-    return PERIODOS.filter(y => {
-      const yNum = parseInt(y.replace('*', ''));
-      return yNum > maxAnt;
-    });
-  };
 
-  const handlesAñosAnteriorChange = (year) => {
-    let nextAnt;
-    if (añosAnterior.includes(year)) {
-      nextAnt = añosAnterior.filter(y => y !== year);
-    } else {
-      nextAnt = [...añosAnterior, year];
-    }
-    setAñosAnterior(nextAnt);
-
-    // Ajustar años actuales si chocan
-    const maxAnt = nextAnt.length > 0 ? Math.max(...nextAnt.map(y => parseInt(y.replace('*', '')))) : 0;
-    setAñosActual(prev => prev.filter(y => parseInt(y.replace('*', '')) > maxAnt));
-  };
-
-  const handleAñosActualChange = (year) => {
-    if (añosActual.includes(year)) {
-      setAñosActual(añosActual.filter(y => y !== year));
-    } else {
-      setAñosActual([...añosActual, year]);
-    }
-  };
 
   // Obtener valor para el año
   const getVal = (varName, year) => {
@@ -461,234 +430,7 @@ export default function SeguridadPage() {
           </select>
         </div>
 
-        <div className="filter-group" style={{ minWidth: '220px' }}>
-          <span className="filter-label">Comparación de Años</span>
-          <button 
-            type="button" 
-            className="btn btn-outline" 
-            style={{ 
-              width: '100%', 
-              marginTop: '0.25rem',
-              display: 'flex', 
-              alignItems: 'center', 
-              justifyContent: 'center', 
-              gap: '0.5rem',
-              padding: '0.6rem 1rem',
-              fontSize: '0.85rem'
-            }}
-            onClick={() => {
-              setTempAnterior(añosAnterior);
-              setTempActual(añosActual);
-              setIsModalOpen(true);
-            }}
-          >
-            📅 {añosAnterior.join(', ')} vs {añosActual.map(y => y === '2026*' ? '2026' : y).join(', ')}
-          </button>
-        </div>
       </div>
-
-      {/* Pantalla Emergente (Modal) para Selección de Años */}
-      {isModalOpen && (
-        <div style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          backgroundColor: 'rgba(15, 23, 42, 0.85)',
-          backdropFilter: 'blur(8px)',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          zIndex: 1000
-        }}>
-          <div className="card" style={{
-            width: '90%',
-            maxWidth: '520px',
-            padding: '2rem',
-            border: '1px solid var(--border-color)',
-            boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.5)',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '1.5rem',
-            backgroundColor: '#0b1329' // Asegura el tono oscuro de la tarjeta
-          }}>
-            <div>
-              <h3 style={{ fontSize: '1.25rem', marginBottom: '0.5rem', color: 'var(--accent-color, #3b82f6)', fontWeight: 'bold' }}>
-                Comparación de Años
-              </h3>
-              <p style={{ color: '#cbd5e1', fontSize: '0.85rem', margin: 0, lineHeight: '1.4' }}>
-                Selecciona los años para el período base (anterior) y el período comparativo (actual) para calcular la tasa de cambio de seguridad.
-              </p>
-            </div>
-
-            {/* Presets Rápidos */}
-            <div>
-              <span style={{ fontSize: '0.75rem', fontWeight: 'bold', color: '#cbd5e1', display: 'block', marginBottom: '0.5rem' }}>
-                COMPARACIONES RÁPIDAS:
-              </span>
-              <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
-                <button 
-                  type="button" 
-                  className="btn btn-outline" 
-                  style={{ padding: '0.35rem 0.75rem', fontSize: '0.75rem', color: '#ffffff', borderColor: 'rgba(255,255,255,0.2)' }}
-                  onClick={() => {
-                    setTempAnterior(['2023']);
-                    setTempActual(['2024']);
-                  }}
-                >
-                  2023 vs 2024
-                </button>
-                <button 
-                  type="button" 
-                  className="btn btn-outline" 
-                  style={{ padding: '0.35rem 0.75rem', fontSize: '0.75rem', color: '#ffffff', borderColor: 'rgba(255,255,255,0.2)' }}
-                  onClick={() => {
-                    setTempAnterior(['2024']);
-                    setTempActual(['2025']);
-                  }}
-                >
-                  2024 vs 2025
-                </button>
-                <button 
-                  type="button" 
-                  className="btn btn-outline" 
-                  style={{ padding: '0.35rem 0.75rem', fontSize: '0.75rem', color: '#ffffff', borderColor: 'rgba(255,255,255,0.2)' }}
-                  onClick={() => {
-                    setTempAnterior(['2025']);
-                    setTempActual(['2026*']);
-                  }}
-                >
-                  2025 vs 2026
-                </button>
-                <button 
-                  type="button" 
-                  className="btn btn-outline" 
-                  style={{ padding: '0.35rem 0.75rem', fontSize: '0.75rem', color: '#ffffff', borderColor: 'rgba(255,255,255,0.2)' }}
-                  onClick={() => {
-                    setTempAnterior(['2023', '2024']);
-                    setTempActual(['2026*']);
-                  }}
-                >
-                  Histórico vs 2026
-                </button>
-              </div>
-            </div>
-
-            {/* Columnas de Selección */}
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', padding: '1rem', backgroundColor: 'rgba(255, 255, 255, 0.02)', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
-              {/* Columna Anterior */}
-              <div>
-                <span style={{ fontSize: '0.85rem', fontWeight: 'bold', display: 'block', marginBottom: '0.75rem', borderBottom: '1px solid rgba(255, 255, 255, 0.1)', paddingBottom: '0.25rem', color: '#f8fafc' }}>
-                  Período Anterior (Base)
-                </span>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
-                  {PERIODOS.slice(0, -1).map(year => (
-                    <label key={year} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.9rem', cursor: 'pointer', color: '#ffffff', fontWeight: '500' }}>
-                      <input 
-                        type="checkbox"
-                        checked={tempAnterior.includes(year)}
-                        onChange={() => {
-                          let next;
-                          if (tempAnterior.includes(year)) {
-                            next = tempAnterior.filter(y => y !== year);
-                          } else {
-                            next = [...tempAnterior, year];
-                          }
-                          next.sort((a, b) => parseInt(a.replace('*', '')) - parseInt(b.replace('*', '')));
-                          setTempAnterior(next);
-                        }}
-                      />
-                      {year}
-                    </label>
-                  ))}
-                </div>
-              </div>
-
-              {/* Columna Actual */}
-              <div>
-                <span style={{ fontSize: '0.85rem', fontWeight: 'bold', display: 'block', marginBottom: '0.75rem', borderBottom: '1px solid rgba(255, 255, 255, 0.1)', paddingBottom: '0.25rem', color: '#f8fafc' }}>
-                  Período Actual (Comparar)
-                </span>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
-                  {PERIODOS.map(year => {
-                    const maxAnt = tempAnterior.length > 0 ? Math.max(...tempAnterior.map(y => parseInt(y.replace('*', '')))) : 0;
-                    const yNum = parseInt(year.replace('*', ''));
-                    const disabled = yNum <= maxAnt;
-                    
-                    return (
-                      <label 
-                        key={year} 
-                        style={{ 
-                          display: 'flex', 
-                          alignItems: 'center', 
-                          gap: '0.5rem', 
-                          fontSize: '0.9rem', 
-                          cursor: disabled ? 'not-allowed' : 'pointer',
-                          opacity: disabled ? 0.35 : 1,
-                          color: disabled ? '#64748b' : '#ffffff',
-                          fontWeight: disabled ? 'normal' : '500'
-                        }}
-                      >
-                        <input 
-                          type="checkbox"
-                          disabled={disabled}
-                          checked={!disabled && tempActual.includes(year)}
-                          onChange={() => {
-                            let next;
-                            if (tempActual.includes(year)) {
-                              next = tempActual.filter(y => y !== year);
-                            } else {
-                              next = [...tempActual, year];
-                            }
-                            next.sort((a, b) => parseInt(a.replace('*', '')) - parseInt(b.replace('*', '')));
-                            setTempActual(next);
-                          }}
-                        />
-                        {year === '2026*' ? '2026 (Proyectado)' : year}
-                      </label>
-                    );
-                  })}
-                </div>
-              </div>
-            </div>
-
-            {/* Acciones */}
-            <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '1rem' }}>
-              <button 
-                type="button"
-                className="btn btn-outline"
-                onClick={() => setIsModalOpen(false)}
-                style={{ color: '#ffffff', borderColor: 'rgba(255,255,255,0.2)' }}
-              >
-                Cancelar
-              </button>
-              <button 
-                type="button"
-                className="btn btn-primary"
-                disabled={tempAnterior.length === 0 || tempActual.filter(y => {
-                  const maxAnt = tempAnterior.length > 0 ? Math.max(...tempAnterior.map(a => parseInt(a.replace('*', '')))) : 0;
-                  return parseInt(y.replace('*', '')) > maxAnt;
-                }).length === 0}
-                onClick={() => {
-                  const maxAnt = tempAnterior.length > 0 ? Math.max(...tempAnterior.map(a => parseInt(a.replace('*', '')))) : 0;
-                  const finalActual = tempActual.filter(y => parseInt(y.replace('*', '')) > maxAnt);
-                  
-                  // Ordenar cronológicamente ambos arreglos al aplicar
-                  const sortedAnterior = [...tempAnterior].sort((a, b) => parseInt(a.replace('*', '')) - parseInt(b.replace('*', '')));
-                  const sortedActual = finalActual.sort((a, b) => parseInt(a.replace('*', '')) - parseInt(b.replace('*', '')));
-                  
-                  setAñosAnterior(sortedAnterior);
-                  setAñosActual(sortedActual);
-                  setIsModalOpen(false);
-                }}
-              >
-                Aplicar
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
 
       {currentProjectObj && (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
@@ -872,9 +614,65 @@ export default function SeguridadPage() {
                 <thead>
                   <tr>
                     <th>Variable</th>
-                    {añosAnterior.map(y => <th key={y}>{y}</th>)}
-                    {añosActual.map(y => <th key={y}>{y === '2026*' ? '2026 (Proy)' : y}</th>)}
-                    <th>Tasa {añosAnterior[añosAnterior.length - 1]} → {añosActual[0]}</th>
+                    {PERIODOS.map(y => (
+                      <th key={y} style={{ textAlign: 'center', padding: '0.75rem 0.5rem' }}>
+                        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.25rem' }}>
+                          <span style={{ fontSize: '0.9rem', color: '#ffffff', fontWeight: 'bold' }}>
+                            {y === '2026*' ? '2026 (Proy)' : y}
+                          </span>
+                          <div style={{ display: 'flex', gap: '0.35rem', marginTop: '0.2rem' }}>
+                            <button 
+                              type="button" 
+                              onClick={() => {
+                                setAñoBase(y);
+                                const baseNum = parseInt(y.replace('*', ''));
+                                const compNum = parseInt(añoComparativo.replace('*', ''));
+                                if (compNum <= baseNum) {
+                                  const nextAvail = PERIODOS.find(p => parseInt(p.replace('*', '')) > baseNum);
+                                  if (nextAvail) setAñoComparativo(nextAvail);
+                                }
+                              }}
+                              style={{
+                                padding: '2px 6px',
+                                fontSize: '0.7rem',
+                                borderRadius: '4px',
+                                border: '1px solid rgba(255,255,255,0.15)',
+                                cursor: 'pointer',
+                                backgroundColor: añoBase === y ? '#2563eb' : 'rgba(255,255,255,0.05)',
+                                color: '#ffffff',
+                                fontWeight: 'bold',
+                                opacity: añoBase === y ? 1 : 0.45,
+                                transition: 'all 0.15s'
+                              }}
+                            >
+                              Base
+                            </button>
+                            <button 
+                              type="button" 
+                              onClick={() => setAñoComparativo(y)}
+                              disabled={parseInt(y.replace('*', '')) <= parseInt(añoBase.replace('*', ''))}
+                              style={{
+                                padding: '2px 6px',
+                                fontSize: '0.7rem',
+                                borderRadius: '4px',
+                                border: '1px solid rgba(255,255,255,0.15)',
+                                cursor: parseInt(y.replace('*', '')) <= parseInt(añoBase.replace('*', '')) ? 'not-allowed' : 'pointer',
+                                backgroundColor: añoComparativo === y ? '#d97706' : 'rgba(255,255,255,0.05)',
+                                color: '#ffffff',
+                                fontWeight: 'bold',
+                                opacity: añoComparativo === y ? 1 : (parseInt(y.replace('*', '')) <= parseInt(añoBase.replace('*', '')) ? 0.15 : 0.45),
+                                transition: 'all 0.15s'
+                              }}
+                            >
+                              Comp
+                            </button>
+                          </div>
+                        </div>
+                      </th>
+                    ))}
+                    <th style={{ minWidth: '130px' }}>
+                      Tasa {añoBase.replace('*', '')} → {añoComparativo.replace('*', '')}
+                    </th>
                   </tr>
                 </thead>
                 <tbody>
@@ -897,8 +695,11 @@ export default function SeguridadPage() {
                         TOTAL INCIDENTES DE SEGURIDAD
                       </div>
                     </td>
-                    {añosAnterior.map(y => <td key={y}>{getGroupSum(INCIDENTES, y) ?? '-'}</td>)}
-                    {añosActual.map(y => <td key={y}>{getGroupSum(INCIDENTES, y) ?? '-'}</td>)}
+                    {PERIODOS.map(y => (
+                      <td key={y} style={{ textAlign: 'center', fontWeight: (y === añoBase || y === añoComparativo) ? 'bold' : 'normal', backgroundColor: y === añoBase ? 'rgba(37, 99, 235, 0.05)' : (y === añoComparativo ? 'rgba(217, 119, 6, 0.05)' : 'transparent') }}>
+                        {getGroupSum(INCIDENTES, y) ?? '-'}
+                      </td>
+                    ))}
                     <td>
                       {(() => {
                         const tasa = calculateGroupTasa(INCIDENTES);
@@ -919,8 +720,11 @@ export default function SeguridadPage() {
                     return (
                       <tr key={v} style={{ backgroundColor: 'rgba(255, 255, 255, 0.02)' }}>
                         <td style={{ paddingLeft: '2.5rem', color: 'var(--text-muted)' }}>{v}</td>
-                        {añosAnterior.map(y => <td key={y} style={{ color: 'var(--text-muted)' }}>{getVal(v, y) ?? '-'}</td>)}
-                        {añosActual.map(y => <td key={y} style={{ color: 'var(--text-muted)' }}>{getVal(v, y) ?? '-'}</td>)}
+                        {PERIODOS.map(y => (
+                          <td key={y} style={{ textAlign: 'center', color: (y === añoBase || y === añoComparativo) ? 'var(--text-color)' : 'var(--text-muted)', fontWeight: (y === añoBase || y === añoComparativo) ? 'bold' : 'normal', backgroundColor: y === añoBase ? 'rgba(37, 99, 235, 0.03)' : (y === añoComparativo ? 'rgba(217, 119, 6, 0.03)' : 'transparent') }}>
+                            {getVal(v, y) ?? '-'}
+                          </td>
+                        ))}
                         <td>
                           {tasa !== null ? (
                             <span className={`rate-badge ${isUp ? 'rate-up' : 'rate-down'}`} style={{ opacity: 0.85 }}>
@@ -951,8 +755,11 @@ export default function SeguridadPage() {
                         TOTAL DELITOS
                       </div>
                     </td>
-                    {añosAnterior.map(y => <td key={y}>{getGroupSum(DELITOS, y) ?? '-'}</td>)}
-                    {añosActual.map(y => <td key={y}>{getGroupSum(DELITOS, y) ?? '-'}</td>)}
+                    {PERIODOS.map(y => (
+                      <td key={y} style={{ textAlign: 'center', fontWeight: (y === añoBase || y === añoComparativo) ? 'bold' : 'normal', backgroundColor: y === añoBase ? 'rgba(37, 99, 235, 0.05)' : (y === añoComparativo ? 'rgba(217, 119, 6, 0.05)' : 'transparent') }}>
+                        {getGroupSum(DELITOS, y) ?? '-'}
+                      </td>
+                    ))}
                     <td>
                       {(() => {
                         const tasa = calculateGroupTasa(DELITOS);
@@ -973,8 +780,11 @@ export default function SeguridadPage() {
                     return (
                       <tr key={v} style={{ backgroundColor: 'rgba(255, 255, 255, 0.02)' }}>
                         <td style={{ paddingLeft: '2.5rem', color: 'var(--text-muted)' }}>{v}</td>
-                        {añosAnterior.map(y => <td key={y} style={{ color: 'var(--text-muted)' }}>{getVal(v, y) ?? '-'}</td>)}
-                        {añosActual.map(y => <td key={y} style={{ color: 'var(--text-muted)' }}>{getVal(v, y) ?? '-'}</td>)}
+                        {PERIODOS.map(y => (
+                          <td key={y} style={{ textAlign: 'center', color: (y === añoBase || y === añoComparativo) ? 'var(--text-color)' : 'var(--text-muted)', fontWeight: (y === añoBase || y === añoComparativo) ? 'bold' : 'normal', backgroundColor: y === añoBase ? 'rgba(37, 99, 235, 0.03)' : (y === añoComparativo ? 'rgba(217, 119, 6, 0.03)' : 'transparent') }}>
+                            {getVal(v, y) ?? '-'}
+                          </td>
+                        ))}
                         <td>
                           {tasa !== null ? (
                             <span className={`rate-badge ${isUp ? 'rate-up' : 'rate-down'}`} style={{ opacity: 0.85 }}>
