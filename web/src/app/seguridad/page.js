@@ -199,6 +199,25 @@ export default function SeguridadPage() {
     return hasValue ? sum : null;
   };
 
+  // Obtener valor real (sin proyecciones)
+  const getRealVal = (varName, year) => {
+    const record = currentStats.find(s => s.anio === year && s.variable === varName);
+    return record ? record.valor : null;
+  };
+
+  const getRealGroupSum = (varsList, year) => {
+    let sum = 0;
+    let hasValue = false;
+    varsList.forEach(v => {
+      const val = getRealVal(v, year);
+      if (val !== null && val !== undefined) {
+        sum += val;
+        hasValue = true;
+      }
+    });
+    return hasValue ? sum : null;
+  };
+
   // Calcular Tasa para el grupo de variables
   const calculateGroupTasa = (varsList) => {
     if (añosAnterior.length === 0 || añosActual.length === 0) return null;
@@ -614,11 +633,11 @@ export default function SeguridadPage() {
                 <thead>
                   <tr>
                     <th>Variable</th>
-                    {PERIODOS.map(y => (
+                    {PERIODOS.slice(0, -1).map(y => (
                       <th key={y} style={{ textAlign: 'center', padding: '0.75rem 0.5rem' }}>
                         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.25rem' }}>
                           <span style={{ fontSize: '0.9rem', color: '#ffffff', fontWeight: 'bold' }}>
-                            {y === '2026*' ? '2026 (Proy)' : y}
+                            {y}
                           </span>
                           <div style={{ display: 'flex', gap: '0.35rem', marginTop: '0.2rem' }}>
                             <button 
@@ -630,17 +649,16 @@ export default function SeguridadPage() {
                                   setAñoComparativo(PERIODOS[baseIdx + 1]);
                                 }
                               }}
-                              disabled={y === PERIODOS[PERIODOS.length - 1]}
                               style={{
                                 padding: '2px 6px',
                                 fontSize: '0.7rem',
                                 borderRadius: '4px',
                                 border: '1px solid rgba(255,255,255,0.15)',
-                                cursor: y === PERIODOS[PERIODOS.length - 1] ? 'not-allowed' : 'pointer',
+                                cursor: 'pointer',
                                 backgroundColor: añoBase === y ? '#2563eb' : 'rgba(255,255,255,0.05)',
                                 color: '#ffffff',
                                 fontWeight: 'bold',
-                                opacity: añoBase === y ? 1 : (y === PERIODOS[PERIODOS.length - 1] ? 0.15 : 0.45),
+                                opacity: añoBase === y ? 1 : 0.45,
                                 transition: 'all 0.15s'
                               }}
                             >
@@ -669,6 +687,67 @@ export default function SeguridadPage() {
                         </div>
                       </th>
                     ))}
+                    
+                    {/* Columna Informativa de 2026 Real Ene-Abr */}
+                    <th style={{ textAlign: 'center', padding: '0.75rem 0.5rem', verticalAlign: 'middle' }}>
+                      <span style={{ fontSize: '0.9rem', color: '#ffffff', fontWeight: 'bold', display: 'block' }}>
+                        2026 (Real Ene-Abr)
+                      </span>
+                      <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', display: 'block', marginTop: '0.2rem' }}>
+                        (Obs. 4 meses)
+                      </span>
+                    </th>
+
+                    {/* Columna de 2026 Proyectado */}
+                    {PERIODOS.slice(-1).map(y => (
+                      <th key={y} style={{ textAlign: 'center', padding: '0.75rem 0.5rem' }}>
+                        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.25rem' }}>
+                          <span style={{ fontSize: '0.9rem', color: '#ffffff', fontWeight: 'bold' }}>
+                            2026 (Proy)
+                          </span>
+                          <div style={{ display: 'flex', gap: '0.35rem', marginTop: '0.2rem' }}>
+                            <button 
+                              type="button" 
+                              disabled={true}
+                              style={{
+                                padding: '2px 6px',
+                                fontSize: '0.7rem',
+                                borderRadius: '4px',
+                                border: '1px solid rgba(255,255,255,0.15)',
+                                cursor: 'not-allowed',
+                                backgroundColor: 'transparent',
+                                color: '#ffffff',
+                                fontWeight: 'bold',
+                                opacity: 0.15,
+                                transition: 'all 0.15s'
+                              }}
+                            >
+                              Base
+                            </button>
+                            <button 
+                              type="button" 
+                              onClick={() => setAñoComparativo(y)}
+                              disabled={PERIODOS.indexOf(y) <= PERIODOS.indexOf(añoBase)}
+                              style={{
+                                padding: '2px 6px',
+                                fontSize: '0.7rem',
+                                borderRadius: '4px',
+                                border: '1px solid rgba(255,255,255,0.15)',
+                                cursor: PERIODOS.indexOf(y) <= PERIODOS.indexOf(añoBase) ? 'not-allowed' : 'pointer',
+                                backgroundColor: añoComparativo === y ? '#d97706' : 'rgba(255,255,255,0.05)',
+                                color: '#ffffff',
+                                fontWeight: 'bold',
+                                opacity: añoComparativo === y ? 1 : (PERIODOS.indexOf(y) <= PERIODOS.indexOf(añoBase) ? 0.15 : 0.45),
+                                transition: 'all 0.15s'
+                              }}
+                            >
+                              Comp
+                            </button>
+                          </div>
+                        </div>
+                      </th>
+                    ))}
+                    
                     <th style={{ minWidth: '130px' }}>
                       Tasa {añoBase.replace('*', '')} → {añoComparativo.replace('*', '')}
                     </th>
@@ -694,7 +773,17 @@ export default function SeguridadPage() {
                         TOTAL INCIDENTES DE SEGURIDAD
                       </div>
                     </td>
-                    {PERIODOS.map(y => (
+                    {PERIODOS.slice(0, -1).map(y => (
+                      <td key={y} style={{ textAlign: 'center', fontWeight: (y === añoBase || y === añoComparativo) ? 'bold' : 'normal', backgroundColor: y === añoBase ? 'rgba(37, 99, 235, 0.05)' : (y === añoComparativo ? 'rgba(217, 119, 6, 0.05)' : 'transparent') }}>
+                        {getGroupSum(INCIDENTES, y) ?? '-'}
+                      </td>
+                    ))}
+                    {/* Año 2026 Real Ene-Abr */}
+                    <td style={{ textAlign: 'center', color: 'var(--text-muted)', backgroundColor: 'transparent' }}>
+                      {getRealGroupSum(INCIDENTES, '2026*') ?? '-'}
+                    </td>
+                    {/* Año 2026 Proyectado */}
+                    {PERIODOS.slice(-1).map(y => (
                       <td key={y} style={{ textAlign: 'center', fontWeight: (y === añoBase || y === añoComparativo) ? 'bold' : 'normal', backgroundColor: y === añoBase ? 'rgba(37, 99, 235, 0.05)' : (y === añoComparativo ? 'rgba(217, 119, 6, 0.05)' : 'transparent') }}>
                         {getGroupSum(INCIDENTES, y) ?? '-'}
                       </td>
@@ -719,7 +808,17 @@ export default function SeguridadPage() {
                     return (
                       <tr key={v} style={{ backgroundColor: 'rgba(255, 255, 255, 0.02)' }}>
                         <td style={{ paddingLeft: '2.5rem', color: 'var(--text-muted)' }}>{v}</td>
-                        {PERIODOS.map(y => (
+                        {PERIODOS.slice(0, -1).map(y => (
+                          <td key={y} style={{ textAlign: 'center', color: (y === añoBase || y === añoComparativo) ? 'var(--text-color)' : 'var(--text-muted)', fontWeight: (y === añoBase || y === añoComparativo) ? 'bold' : 'normal', backgroundColor: y === añoBase ? 'rgba(37, 99, 235, 0.03)' : (y === añoComparativo ? 'rgba(217, 119, 6, 0.03)' : 'transparent') }}>
+                            {getVal(v, y) ?? '-'}
+                          </td>
+                        ))}
+                        {/* Año 2026 Real Ene-Abr */}
+                        <td style={{ textAlign: 'center', color: 'var(--text-muted)', backgroundColor: 'transparent' }}>
+                          {getRealVal(v, '2026*') ?? '-'}
+                        </td>
+                        {/* Año 2026 Proyectado */}
+                        {PERIODOS.slice(-1).map(y => (
                           <td key={y} style={{ textAlign: 'center', color: (y === añoBase || y === añoComparativo) ? 'var(--text-color)' : 'var(--text-muted)', fontWeight: (y === añoBase || y === añoComparativo) ? 'bold' : 'normal', backgroundColor: y === añoBase ? 'rgba(37, 99, 235, 0.03)' : (y === añoComparativo ? 'rgba(217, 119, 6, 0.03)' : 'transparent') }}>
                             {getVal(v, y) ?? '-'}
                           </td>
@@ -754,7 +853,17 @@ export default function SeguridadPage() {
                         TOTAL DELITOS
                       </div>
                     </td>
-                    {PERIODOS.map(y => (
+                    {PERIODOS.slice(0, -1).map(y => (
+                      <td key={y} style={{ textAlign: 'center', fontWeight: (y === añoBase || y === añoComparativo) ? 'bold' : 'normal', backgroundColor: y === añoBase ? 'rgba(37, 99, 235, 0.05)' : (y === añoComparativo ? 'rgba(217, 119, 6, 0.05)' : 'transparent') }}>
+                        {getGroupSum(DELITOS, y) ?? '-'}
+                      </td>
+                    ))}
+                    {/* Año 2026 Real Ene-Abr */}
+                    <td style={{ textAlign: 'center', color: 'var(--text-muted)', backgroundColor: 'transparent' }}>
+                      {getRealGroupSum(DELITOS, '2026*') ?? '-'}
+                    </td>
+                    {/* Año 2026 Proyectado */}
+                    {PERIODOS.slice(-1).map(y => (
                       <td key={y} style={{ textAlign: 'center', fontWeight: (y === añoBase || y === añoComparativo) ? 'bold' : 'normal', backgroundColor: y === añoBase ? 'rgba(37, 99, 235, 0.05)' : (y === añoComparativo ? 'rgba(217, 119, 6, 0.05)' : 'transparent') }}>
                         {getGroupSum(DELITOS, y) ?? '-'}
                       </td>
@@ -779,7 +888,17 @@ export default function SeguridadPage() {
                     return (
                       <tr key={v} style={{ backgroundColor: 'rgba(255, 255, 255, 0.02)' }}>
                         <td style={{ paddingLeft: '2.5rem', color: 'var(--text-muted)' }}>{v}</td>
-                        {PERIODOS.map(y => (
+                        {PERIODOS.slice(0, -1).map(y => (
+                          <td key={y} style={{ textAlign: 'center', color: (y === añoBase || y === añoComparativo) ? 'var(--text-color)' : 'var(--text-muted)', fontWeight: (y === añoBase || y === añoComparativo) ? 'bold' : 'normal', backgroundColor: y === añoBase ? 'rgba(37, 99, 235, 0.03)' : (y === añoComparativo ? 'rgba(217, 119, 6, 0.03)' : 'transparent') }}>
+                            {getVal(v, y) ?? '-'}
+                          </td>
+                        ))}
+                        {/* Año 2026 Real Ene-Abr */}
+                        <td style={{ textAlign: 'center', color: 'var(--text-muted)', backgroundColor: 'transparent' }}>
+                          {getRealVal(v, '2026*') ?? '-'}
+                        </td>
+                        {/* Año 2026 Proyectado */}
+                        {PERIODOS.slice(-1).map(y => (
                           <td key={y} style={{ textAlign: 'center', color: (y === añoBase || y === añoComparativo) ? 'var(--text-color)' : 'var(--text-muted)', fontWeight: (y === añoBase || y === añoComparativo) ? 'bold' : 'normal', backgroundColor: y === añoBase ? 'rgba(37, 99, 235, 0.03)' : (y === añoComparativo ? 'rgba(217, 119, 6, 0.03)' : 'transparent') }}>
                             {getVal(v, y) ?? '-'}
                           </td>
