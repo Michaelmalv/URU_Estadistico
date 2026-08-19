@@ -101,6 +101,7 @@ def main():
     font_header = Font(name="Segoe UI", size=9, bold=True, color="FFFFFF")
     font_data = Font(name="Segoe UI", size=9)
     font_bold = Font(name="Segoe UI", size=9, bold=True)
+    font_muted_text = Font(name="Segoe UI", size=8, italic=True, color="7F7F7F")
     
     fill_header = PatternFill(start_color="1F497D", end_color="1F497D", fill_type="solid")
     fill_sub_header = PatternFill(start_color="4F81BD", end_color="4F81BD", fill_type="solid")
@@ -247,9 +248,9 @@ def main():
 
         def calc_rate(pre_val, inaug_val, post_24, post_25, post_26):
             last_post = next((v for v in [post_26, post_25, post_24] if v is not None), None)
-            if pre_val is not None and pre_val > 0:
+            if pre_val is not None:
                 return (last_post - pre_val) / pre_val if last_post is not None else (inaug_val - pre_val) / pre_val
-            elif pre_val is None and inaug_val is not None and inaug_val > 0:
+            elif pre_val is None and inaug_val is not None:
                 return (last_post - inaug_val) / inaug_val if last_post is not None else None
             return None
 
@@ -264,22 +265,70 @@ def main():
         ws1.cell(row=row_idx, column=4).alignment = Alignment(horizontal='center')
         
         # Write cells for Incidentes (Col E to L)
+        # E: Año Pre (1 Año Antes)
         ws1.cell(row=row_idx, column=5, value=pre_year if pre_year >= 2023 else "N/D").font = font_bold
         ws1.cell(row=row_idx, column=5).alignment = Alignment(horizontal='center')
         ws1.cell(row=row_idx, column=5).fill = fill_t_minus
         
-        ws1.cell(row=row_idx, column=6, value=inc_pre_val if inc_pre_val is not None else "—").fill = fill_t_minus
+        # F: Cantidad Pre
+        if pre_year < 2023:
+            cell_f = ws1.cell(row=row_idx, column=6, value="Sin registro (Año 2022)")
+            cell_f.font = font_muted_text
+            cell_f.alignment = Alignment(horizontal='center')
+        else:
+            ws1.cell(row=row_idx, column=6, value=inc_pre_val if inc_pre_val is not None else 0).font = font_data
+        ws1.cell(row=row_idx, column=6).fill = fill_t_minus
         
+        # G: Año Inaug
         ws1.cell(row=row_idx, column=7, value=t0_year).font = font_bold
         ws1.cell(row=row_idx, column=7).alignment = Alignment(horizontal='center')
         ws1.cell(row=row_idx, column=7).fill = fill_t0
         
-        ws1.cell(row=row_idx, column=8, value=inc_inaug_val if inc_inaug_val is not None else "—").fill = fill_t0
-        ws1.cell(row=row_idx, column=9, value=inc_post_24 if inc_post_24 is not None else "—").fill = fill_t_plus
-        ws1.cell(row=row_idx, column=10, value=inc_post_25 if inc_post_25 is not None else "—").fill = fill_t_plus
-        ws1.cell(row=row_idx, column=11, value=inc_post_26_proy if inc_post_26_proy is not None else "—").fill = fill_t_plus
+        # H: Cantidad Inaug
+        ws1.cell(row=row_idx, column=8, value=inc_inaug_val if inc_inaug_val is not None else 0).fill = fill_t0
         
-        cell_rate_inc = ws1.cell(row=row_idx, column=12, value=rate_inc if rate_inc is not None else "—")
+        # I: Cantidad 2024 Post
+        cell_i = ws1.cell(row=row_idx, column=9)
+        if t0_year == 2024:
+            cell_i.value = "Año de Inauguración (2024)"
+            cell_i.font = font_muted_text
+            cell_i.alignment = Alignment(horizontal='center')
+        elif t0_year > 2024:
+            cell_i.value = "Pre-Inauguración (2024)"
+            cell_i.font = font_muted_text
+            cell_i.alignment = Alignment(horizontal='center')
+        else:
+            cell_i.value = inc_post_24 if inc_post_24 is not None else 0
+            cell_i.font = font_data
+        cell_i.fill = fill_t_plus
+        
+        # J: Cantidad 2025 Post
+        cell_j = ws1.cell(row=row_idx, column=10)
+        if t0_year == 2025:
+            cell_j.value = "Año de Inauguración (2025)"
+            cell_j.font = font_muted_text
+            cell_j.alignment = Alignment(horizontal='center')
+        elif t0_year > 2025:
+            cell_j.value = "Pre-Inauguración (2025)"
+            cell_j.font = font_muted_text
+            cell_j.alignment = Alignment(horizontal='center')
+        else:
+            cell_j.value = inc_post_25 if inc_post_25 is not None else 0
+            cell_j.font = font_data
+        cell_j.fill = fill_t_plus
+        
+        # K: Cantidad 2026 Proy
+        cell_k = ws1.cell(row=row_idx, column=11)
+        if t0_year == 2026:
+            cell_k.value = "Año de Inauguración (2026)"
+            cell_k.font = font_muted_text
+            cell_k.alignment = Alignment(horizontal='center')
+        else:
+            cell_k.value = inc_post_26_proy if inc_post_26_proy is not None else 0
+            cell_k.font = font_data
+        cell_k.fill = fill_t_plus
+        
+        cell_rate_inc = ws1.cell(row=row_idx, column=12, value=rate_inc if rate_inc is not None else "N/A")
         cell_rate_inc.alignment = Alignment(horizontal='center')
         if rate_inc is not None:
             cell_rate_inc.number_format = '+0.0%;-0.0%;0.0%'
@@ -288,22 +337,70 @@ def main():
             cell_rate_inc.font = font_data
 
         # Write cells for Delitos (Col M to T)
+        # M: Año Pre (1 Año Antes)
         ws1.cell(row=row_idx, column=13, value=pre_year if pre_year >= 2023 else "N/D").font = font_bold
         ws1.cell(row=row_idx, column=13).alignment = Alignment(horizontal='center')
         ws1.cell(row=row_idx, column=13).fill = fill_t_minus
         
-        ws1.cell(row=row_idx, column=14, value=del_pre_val if del_pre_val is not None else "—").fill = fill_t_minus
+        # N: Cantidad Pre
+        if pre_year < 2023:
+            cell_n = ws1.cell(row=row_idx, column=14, value="Sin registro (Año 2022)")
+            cell_n.font = font_muted_text
+            cell_n.alignment = Alignment(horizontal='center')
+        else:
+            ws1.cell(row=row_idx, column=14, value=del_pre_val if del_pre_val is not None else 0).font = font_data
+        ws1.cell(row=row_idx, column=14).fill = fill_t_minus
         
+        # O: Año Inaug
         ws1.cell(row=row_idx, column=15, value=t0_year).font = font_bold
         ws1.cell(row=row_idx, column=15).alignment = Alignment(horizontal='center')
         ws1.cell(row=row_idx, column=15).fill = fill_t0
         
-        ws1.cell(row=row_idx, column=16, value=del_inaug_val if del_inaug_val is not None else "—").fill = fill_t0
-        ws1.cell(row=row_idx, column=17, value=del_post_24 if del_post_24 is not None else "—").fill = fill_t_plus
-        ws1.cell(row=row_idx, column=18, value=del_post_25 if del_post_25 is not None else "—").fill = fill_t_plus
-        ws1.cell(row=row_idx, column=19, value=del_post_26_proy if del_post_26_proy is not None else "—").fill = fill_t_plus
+        # P: Cantidad Inaug
+        ws1.cell(row=row_idx, column=16, value=del_inaug_val if del_inaug_val is not None else 0).fill = fill_t0
         
-        cell_rate_del = ws1.cell(row=row_idx, column=20, value=rate_del if rate_del is not None else "—")
+        # Q: Cantidad 2024 Post
+        cell_q = ws1.cell(row=row_idx, column=17)
+        if t0_year == 2024:
+            cell_q.value = "Año de Inauguración (2024)"
+            cell_q.font = font_muted_text
+            cell_q.alignment = Alignment(horizontal='center')
+        elif t0_year > 2024:
+            cell_q.value = "Pre-Inauguración (2024)"
+            cell_q.font = font_muted_text
+            cell_q.alignment = Alignment(horizontal='center')
+        else:
+            cell_q.value = del_post_24 if del_post_24 is not None else 0
+            cell_q.font = font_data
+        cell_q.fill = fill_t_plus
+        
+        # R: Cantidad 2025 Post
+        cell_r = ws1.cell(row=row_idx, column=18)
+        if t0_year == 2025:
+            cell_r.value = "Año de Inauguración (2025)"
+            cell_r.font = font_muted_text
+            cell_r.alignment = Alignment(horizontal='center')
+        elif t0_year > 2025:
+            cell_r.value = "Pre-Inauguración (2025)"
+            cell_r.font = font_muted_text
+            cell_r.alignment = Alignment(horizontal='center')
+        else:
+            cell_r.value = del_post_25 if del_post_25 is not None else 0
+            cell_r.font = font_data
+        cell_r.fill = fill_t_plus
+        
+        # S: Cantidad 2026 Proy
+        cell_s = ws1.cell(row=row_idx, column=19)
+        if t0_year == 2026:
+            cell_s.value = "Año de Inauguración (2026)"
+            cell_s.font = font_muted_text
+            cell_s.alignment = Alignment(horizontal='center')
+        else:
+            cell_s.value = del_post_26_proy if del_post_26_proy is not None else 0
+            cell_s.font = font_data
+        cell_s.fill = fill_t_plus
+        
+        cell_rate_del = ws1.cell(row=row_idx, column=20, value=rate_del if rate_del is not None else "N/A")
         cell_rate_del.alignment = Alignment(horizontal='center')
         if rate_del is not None:
             cell_rate_del.number_format = '+0.0%;-0.0%;0.0%'
@@ -319,8 +416,9 @@ def main():
         for c in range(1, 21):
             cell = ws1.cell(row=row_idx, column=c)
             cell.border = border_thin
-            if c in [6, 8, 9, 10, 11, 14, 16, 17, 18, 19]:
+            if c in [6, 8, 9, 10, 11, 14, 16, 17, 18, 19] and isinstance(cell.value, int):
                 cell.alignment = Alignment(horizontal='right')
+                cell.number_format = '#,##0'
 
         row_idx += 1
 
@@ -328,7 +426,7 @@ def main():
     ws1.cell(row=row_idx+1, column=1, value="* Notas explicativas de la tabla:").font = font_bold
     ws1.cell(row=row_idx+2, column=1, value="  - Año Pre (Rojo): Corresponde a exactamente un año calendario antes de la fecha de inauguración (Periodo de control Pre-Proyecto).").font = font_subtitle
     ws1.cell(row=row_idx+3, column=1, value="  - Cantidad Inauguración (Amarillo): Suma registrada durante el año de entrega del proyecto (Hito cero).").font = font_subtitle
-    ws1.cell(row=row_idx+4, column=1, value="  - Cantidades por Años Posteriores (Verde): Sumas correspondientes únicamente a los años posteriores a la inauguración. Si una casilla está vacía (—) es porque ese año calendario fue la inauguración o el periodo previo del proyecto.").font = font_subtitle
+    ws1.cell(row=row_idx+4, column=1, value="  - Cantidades por Años Posteriores (Verde): Sumas correspondientes únicamente a los años posteriores a la inauguración. Si una casilla está explicada con texto es porque ese año calendario fue la inauguración o el periodo previo del proyecto.").font = font_subtitle
     ws1.cell(row=row_idx+5, column=1, value="  - Tasa de Cambio: Mide la diferencia porcentual entre el Año Pre y el último año Post disponible (2026 Proyectado). Para proyectos de 2023, al no haber datos de 2022 (t-1), se mide desde el año de inauguración (2023).").font = font_subtitle
 
     # --- SHEET 2: HISTÓRICO AÑO CALENDARIO ---
@@ -407,7 +505,7 @@ def main():
         ws2.cell(row=row_idx_cal, column=4).alignment = Alignment(horizontal='center')
         
         def set_cal_cell(sheet, r, c, val, is_t0):
-            cell = sheet.cell(row=r, column=c, value=val if val is not None else "—")
+            cell = sheet.cell(row=r, column=c, value=val if val is not None else 0)
             cell.alignment = Alignment(horizontal='right')
             if is_t0:
                 cell.fill = fill_t0
@@ -462,7 +560,7 @@ def main():
         ws.column_dimensions['C'].width = 24
 
     # Save to local workspace
-    filename = "Reporte_Evaluacion_Proyectos_Inaugurados_v3.xlsx"
+    filename = "Reporte_Evaluacion_Proyectos_Inaugurados_v4.xlsx"
     wb.save(filename)
     print(f"Excel saved to workspace: {filename}")
     
