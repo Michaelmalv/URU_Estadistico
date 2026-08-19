@@ -11,8 +11,6 @@ const MapboxMap = dynamic(() => import('../components/MapboxMap'), { ssr: false 
 
 const INCIDENTES = [
   'Daño a propiedad pública y privada',
-  'Libadores',
-  'Venta y consumo de sustancias',
 ];
 const DELITOS = [
   'Robo a personas',
