@@ -9,9 +9,7 @@ import dynamic from 'next/dynamic';
 
 const MapboxMap = dynamic(() => import('../components/MapboxMap'), { ssr: false });
 
-const INCIDENTES = [
-  'Daño a propiedad pública y privada',
-];
+const INCIDENTES = [];
 const DELITOS = [
   'Robo a personas',
   'Robo a unidades económicas',
@@ -417,7 +415,7 @@ export default function SeguridadPage() {
     <div>
       <h2 style={{ marginBottom: '0.5rem', fontSize: '1.75rem' }}>Resumen de Seguridad por Proyecto</h2>
       <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem' }}>
-        Analiza los indicadores de seguridad de incidentes y delitos registrados en cada intervención.
+        Analiza los indicadores de delitos registrados en cada intervención.
       </p>
 
       {/* Fila de Filtros */}
@@ -533,7 +531,7 @@ export default function SeguridadPage() {
                   <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.02)', padding: '1rem', borderRadius: '8px', border: '1px solid rgba(255, 255, 255, 0.05)' }}>
                     <h4 style={{ marginBottom: '0.5rem', fontSize: '0.9rem', color: '#60a5fa' }}>2. Base Histórica (Peso 40%)</h4>
                     <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', margin: 0, lineHeight: '1.4' }}>
-                      Se calcula el promedio histórico anual de los incidentes registrados entre 2023 y 2025. Funciona como un regulador estadístico que evita sobrestimaciones causadas por picos atípicos.
+                      Se calcula el promedio histórico anual de los delitos registrados entre 2023 y 2025. Funciona como un regulador estadístico que evita sobrestimaciones causadas por picos atípicos.
                     </p>
                   </div>
                 </div>
@@ -549,43 +547,7 @@ export default function SeguridadPage() {
           </div>
 
           {/* Gráficos de barras interactivos */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem' }}>
-            {/* Gráfico Incidentes */}
-            <div className="card" style={{ minHeight: '400px' }}>
-              <h3 style={{ marginBottom: '1rem' }}>Incidentes de Seguridad (ECU 911)</h3>
-              <div style={{ width: '100%', height: '320px' }}>
-                <ResponsiveContainer width="100%" height="100%">
-                  <BarChart data={getChartData(INCIDENTES)} margin={{ top: 25, right: 30, left: 0, bottom: 70 }}>
-                    <CartesianGrid strokeDasharray="3 3" opacity={0.1} />
-                    <XAxis 
-                      dataKey="name" 
-                      tick={{ fontSize: 9 }} 
-                      interval={0} 
-                      angle={-40} 
-                      textAnchor="end" 
-                      height={90}
-                    />
-                    <YAxis tick={{ fontSize: 11 }} />
-                    <Tooltip />
-                    <Legend />
-                    {[...añosAnterior, ...añosActual].map((y, idx) => {
-                      const dKey = y === '2026*' ? '2026 (Proyectado)' : y;
-                      return (
-                        <Bar 
-                          key={y} 
-                          dataKey={dKey} 
-                          fill={chartColors[idx % chartColors.length]} 
-                          radius={[4, 4, 0, 0]}
-                        >
-                          <LabelList dataKey={dKey} position="top" style={{ fill: 'var(--text-color)', fontSize: 9, fontWeight: 'bold' }} />
-                        </Bar>
-                      );
-                    })}
-                  </BarChart>
-                </ResponsiveContainer>
-              </div>
-            </div>
-
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '2rem' }}>
             {/* Gráfico Delitos */}
             <div className="card" style={{ minHeight: '400px' }}>
               <h3 style={{ marginBottom: '1rem' }}>Delitos Registrados (PPNN)</h3>
@@ -625,7 +587,7 @@ export default function SeguridadPage() {
 
           {/* Tabla Comparativa de Años */}
           <div className="card">
-            <h3 style={{ marginBottom: '1rem' }}>Tabla Comparativa de Incidentes y Delitos</h3>
+            <h3 style={{ marginBottom: '1rem' }}>Tabla Comparativa de Delitos</h3>
             <div className="table-container">
               <table className="custom-table">
                 <thead>
@@ -752,86 +714,6 @@ export default function SeguridadPage() {
                   </tr>
                 </thead>
                 <tbody>
-                  {/* Fila Principal de Incidentes (Expandible) */}
-                  <tr 
-                    onClick={() => setExpandIncidentes(!expandIncidentes)} 
-                    style={{ cursor: 'pointer', backgroundColor: 'rgba(36, 54, 127, 0.08)', fontWeight: 'bold' }}
-                    className="parent-row"
-                  >
-                    <td>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                        <span style={{ 
-                          display: 'inline-block', 
-                          fontSize: '0.8rem',
-                          transition: 'transform 0.2s', 
-                          transform: expandIncidentes ? 'rotate(90deg)' : 'rotate(0deg)' 
-                        }}>
-                          ▶
-                        </span>
-                        TOTAL INCIDENTES DE SEGURIDAD
-                      </div>
-                    </td>
-                    {PERIODOS.slice(0, -1).map(y => (
-                      <td key={y} style={{ textAlign: 'center', fontWeight: (y === añoBase || y === añoComparativo) ? 'bold' : 'normal', backgroundColor: y === añoBase ? 'rgba(37, 99, 235, 0.05)' : (y === añoComparativo ? 'rgba(217, 119, 6, 0.05)' : 'transparent') }}>
-                        {getGroupSum(INCIDENTES, y) ?? '-'}
-                      </td>
-                    ))}
-                    {/* Año 2026 Real Ene-Abr */}
-                    <td style={{ textAlign: 'center', color: 'var(--text-muted)', backgroundColor: 'transparent' }}>
-                      {getRealGroupSum(INCIDENTES, '2026*') ?? '-'}
-                    </td>
-                    {/* Año 2026 Proyectado */}
-                    {PERIODOS.slice(-1).map(y => (
-                      <td key={y} style={{ textAlign: 'center', fontWeight: (y === añoBase || y === añoComparativo) ? 'bold' : 'normal', backgroundColor: y === añoBase ? 'rgba(37, 99, 235, 0.05)' : (y === añoComparativo ? 'rgba(217, 119, 6, 0.05)' : 'transparent') }}>
-                        {getGroupSum(INCIDENTES, y) ?? '-'}
-                      </td>
-                    ))}
-                    <td>
-                      {(() => {
-                        const tasa = calculateGroupTasa(INCIDENTES);
-                        const isUp = tasa && tasa > 0;
-                        return tasa !== null ? (
-                          <span className={`rate-badge ${isUp ? 'rate-up' : 'rate-down'}`}>
-                            {isUp ? '+' : ''}{(tasa * 100).toFixed(0)}%
-                          </span>
-                        ) : 'N/A';
-                      })()}
-                    </td>
-                  </tr>
-
-                  {/* Filas Hijas de Incidentes */}
-                  {expandIncidentes && INCIDENTES.map(v => {
-                    const tasa = calculateTasa(v);
-                    const isUp = tasa && tasa > 0;
-                    return (
-                      <tr key={v} style={{ backgroundColor: 'rgba(255, 255, 255, 0.02)' }}>
-                        <td style={{ paddingLeft: '2.5rem', color: 'var(--text-muted)' }}>{v}</td>
-                        {PERIODOS.slice(0, -1).map(y => (
-                          <td key={y} style={{ textAlign: 'center', color: (y === añoBase || y === añoComparativo) ? 'var(--text-color)' : 'var(--text-muted)', fontWeight: (y === añoBase || y === añoComparativo) ? 'bold' : 'normal', backgroundColor: y === añoBase ? 'rgba(37, 99, 235, 0.03)' : (y === añoComparativo ? 'rgba(217, 119, 6, 0.03)' : 'transparent') }}>
-                            {getVal(v, y) ?? '-'}
-                          </td>
-                        ))}
-                        {/* Año 2026 Real Ene-Abr */}
-                        <td style={{ textAlign: 'center', color: 'var(--text-muted)', backgroundColor: 'transparent' }}>
-                          {getRealVal(v, '2026*') ?? '-'}
-                        </td>
-                        {/* Año 2026 Proyectado */}
-                        {PERIODOS.slice(-1).map(y => (
-                          <td key={y} style={{ textAlign: 'center', color: (y === añoBase || y === añoComparativo) ? 'var(--text-color)' : 'var(--text-muted)', fontWeight: (y === añoBase || y === añoComparativo) ? 'bold' : 'normal', backgroundColor: y === añoBase ? 'rgba(37, 99, 235, 0.03)' : (y === añoComparativo ? 'rgba(217, 119, 6, 0.03)' : 'transparent') }}>
-                            {getVal(v, y) ?? '-'}
-                          </td>
-                        ))}
-                        <td>
-                          {tasa !== null ? (
-                            <span className={`rate-badge ${isUp ? 'rate-up' : 'rate-down'}`} style={{ opacity: 0.85 }}>
-                              {isUp ? '+' : ''}{(tasa * 100).toFixed(0)}%
-                            </span>
-                          ) : 'N/A'}
-                        </td>
-                      </tr>
-                    );
-                  })}
-
                   {/* Fila Principal de Delitos (Expandible) */}
                   <tr 
                     onClick={() => setExpandDelitos(!expandDelitos)} 

@@ -22,15 +22,12 @@ key = env.get("SUPABASE_SERVICE_ROLE_KEY") or os.environ.get("SUPABASE_SERVICE_R
 
 supabase = create_client(url, key)
 
-INCIDENTES = [
-  'Daño a propiedad pública y privada',
-]
 DELITOS = [
   'Robo a personas',
   'Robo a unidades económicas',
   'Robo a domicilios',
 ]
-ALL_VARS = INCIDENTES + DELITOS
+ALL_VARS = DELITOS
 PERIODOS = ['2023', '2024', '2025', '2026*']
 
 def parse_inauguracion_year(proj_name, date_str):
@@ -160,9 +157,9 @@ def main():
         return s if has_val else None
 
     # --- SHEET 1: EVALUACIÓN DE IMPACTO (CALENDARIO ALINEADO) ---
-    ws1.cell(row=2, column=1, value="EVALUACIÓN DE IMPACTO DE SEGURIDAD (CONSOLIDADO COMPARATIVO)").font = font_title
-    ws1.cell(row=3, column=1, value="Comparación de incidentes y delitos un año antes de la inauguración, año de entrega y años posteriores").font = font_subtitle
-    ws1.cell(row=4, column=1, value=f"Generado el {datetime.datetime.now().strftime('%d/%m/%Y')} - Fuente: Secretaría de Hábitat / ECU-911").font = font_subtitle
+    ws1.cell(row=2, column=1, value="EVALUACIÓN DE IMPACTO DE SEGURIDAD (CONSOLIDADO COMPARATIVO DE DELITOS)").font = font_title
+    ws1.cell(row=3, column=1, value="Comparación de delitos un año antes de la inauguración, año de entrega y años posteriores").font = font_subtitle
+    ws1.cell(row=4, column=1, value=f"Generado el {datetime.datetime.now().strftime('%d/%m/%Y')} - Fuente: Secretaría de Hábitat / PPNN").font = font_subtitle
     
     # Table headers
     ws1.merge_cells('A6:A7')
@@ -180,17 +177,10 @@ def main():
         ws1.cell(row=6, column=c).fill = fill_header
     
     ws1.merge_cells('E6:L6')
-    ws1.cell(row=6, column=5, value="TOTAL INCIDENTES DE SEGURIDAD").font = font_header
+    ws1.cell(row=6, column=5, value="TOTAL DELITOS").font = font_header
     ws1.cell(row=6, column=5).alignment = Alignment(horizontal='center', vertical='center')
     
-    ws1.merge_cells('M6:T6')
-    ws1.cell(row=6, column=13, value="TOTAL DELITOS").font = font_header
-    ws1.cell(row=6, column=13).alignment = Alignment(horizontal='center', vertical='center')
-    
     headers_sub1 = [
-        "Año Pre", "Cantidad Pre (1 Año Antes)", "Año Inaug.", "Cantidad Inauguración", 
-        "Cantidad 2024 (Post-Inaug.)", "Cantidad 2025 (Post-Inaug.)", "Cantidad 2026 (Proyectado)", "Tasa Cambio Total*",
-        
         "Año Pre", "Cantidad Pre (1 Año Antes)", "Año Inaug.", "Cantidad Inauguración", 
         "Cantidad 2024 (Post-Inaug.)", "Cantidad 2025 (Post-Inaug.)", "Cantidad 2026 (Proyectado)", "Tasa Cambio Total*"
     ]
@@ -202,7 +192,7 @@ def main():
         cell_sub.alignment = Alignment(horizontal='center', vertical='center', wrap_text=True)
 
     for r in [6, 7]:
-        for c in range(1, 21):
+        for c in range(1, 13):
             cell = ws1.cell(row=r, column=c)
             cell.border = border_thin
             if not cell.fill.fill_type:
@@ -232,13 +222,6 @@ def main():
                 return get_sum(proj_id, var_list, '2026_proy', proys_2026)
             return None
 
-        # Incidentes values mapping
-        inc_pre_val = get_cal_val(INCIDENTES, pre_year)
-        inc_inaug_val = get_cal_val(INCIDENTES, t0_year)
-        inc_post_24 = get_cal_val(INCIDENTES, 2024) if t0_year < 2024 else None
-        inc_post_25 = get_cal_val(INCIDENTES, 2025) if t0_year < 2025 else None
-        inc_post_26_proy = get_cal_val(INCIDENTES, 2026) if t0_year < 2026 else None
-
         # Delitos values mapping
         del_pre_val = get_cal_val(DELITOS, pre_year)
         del_inaug_val = get_cal_val(DELITOS, t0_year)
@@ -254,7 +237,6 @@ def main():
                 return (last_post - inaug_val) / inaug_val if last_post is not None else None
             return None
 
-        rate_inc = calc_rate(inc_pre_val, inc_inaug_val, inc_post_24, inc_post_25, inc_post_26_proy)
         rate_del = calc_rate(del_pre_val, del_inaug_val, del_post_24, del_post_25, del_post_26_proy)
 
         # General Info
@@ -264,103 +246,30 @@ def main():
         ws1.cell(row=row_idx, column=4, value=t0_year).font = font_bold
         ws1.cell(row=row_idx, column=4).alignment = Alignment(horizontal='center')
         
-        # Write cells for Incidentes (Col E to L)
-        # E: Año Pre (1 Año Antes)
+        # Write cells for Delitos (Col E to L)
         ws1.cell(row=row_idx, column=5, value=pre_year if pre_year >= 2023 else "N/D").font = font_bold
         ws1.cell(row=row_idx, column=5).alignment = Alignment(horizontal='center')
         ws1.cell(row=row_idx, column=5).fill = fill_t_minus
         
-        # F: Cantidad Pre
+        # Cantidad Pre
         if pre_year < 2023:
-            cell_f = ws1.cell(row=row_idx, column=6, value="Sin registro (Año 2022)")
-            cell_f.font = font_muted_text
-            cell_f.alignment = Alignment(horizontal='center')
+            cell_n = ws1.cell(row=row_idx, column=6, value="Sin registro (Año 2022)")
+            cell_n.font = font_muted_text
+            cell_n.alignment = Alignment(horizontal='center')
         else:
-            ws1.cell(row=row_idx, column=6, value=inc_pre_val if inc_pre_val is not None else 0).font = font_data
+            ws1.cell(row=row_idx, column=6, value=del_pre_val if del_pre_val is not None else 0).font = font_data
         ws1.cell(row=row_idx, column=6).fill = fill_t_minus
         
-        # G: Año Inaug
+        # Año Inaug
         ws1.cell(row=row_idx, column=7, value=t0_year).font = font_bold
         ws1.cell(row=row_idx, column=7).alignment = Alignment(horizontal='center')
         ws1.cell(row=row_idx, column=7).fill = fill_t0
         
-        # H: Cantidad Inaug
-        ws1.cell(row=row_idx, column=8, value=inc_inaug_val if inc_inaug_val is not None else 0).fill = fill_t0
+        # Cantidad Inaug
+        ws1.cell(row=row_idx, column=8, value=del_inaug_val if del_inaug_val is not None else 0).fill = fill_t0
         
-        # I: Cantidad 2024 Post
-        cell_i = ws1.cell(row=row_idx, column=9)
-        if t0_year == 2024:
-            cell_i.value = "Año de Inauguración (2024)"
-            cell_i.font = font_muted_text
-            cell_i.alignment = Alignment(horizontal='center')
-        elif t0_year > 2024:
-            cell_i.value = "Pre-Inauguración (2024)"
-            cell_i.font = font_muted_text
-            cell_i.alignment = Alignment(horizontal='center')
-        else:
-            cell_i.value = inc_post_24 if inc_post_24 is not None else 0
-            cell_i.font = font_data
-        cell_i.fill = fill_t_plus
-        
-        # J: Cantidad 2025 Post
-        cell_j = ws1.cell(row=row_idx, column=10)
-        if t0_year == 2025:
-            cell_j.value = "Año de Inauguración (2025)"
-            cell_j.font = font_muted_text
-            cell_j.alignment = Alignment(horizontal='center')
-        elif t0_year > 2025:
-            cell_j.value = "Pre-Inauguración (2025)"
-            cell_j.font = font_muted_text
-            cell_j.alignment = Alignment(horizontal='center')
-        else:
-            cell_j.value = inc_post_25 if inc_post_25 is not None else 0
-            cell_j.font = font_data
-        cell_j.fill = fill_t_plus
-        
-        # K: Cantidad 2026 Proy
-        cell_k = ws1.cell(row=row_idx, column=11)
-        if t0_year == 2026:
-            cell_k.value = "Año de Inauguración (2026)"
-            cell_k.font = font_muted_text
-            cell_k.alignment = Alignment(horizontal='center')
-        else:
-            cell_k.value = inc_post_26_proy if inc_post_26_proy is not None else 0
-            cell_k.font = font_data
-        cell_k.fill = fill_t_plus
-        
-        cell_rate_inc = ws1.cell(row=row_idx, column=12, value=rate_inc if rate_inc is not None else "N/A")
-        cell_rate_inc.alignment = Alignment(horizontal='center')
-        if rate_inc is not None:
-            cell_rate_inc.number_format = '+0.0%;-0.0%;0.0%'
-            cell_rate_inc.font = Font(name="Segoe UI", size=9, bold=True, color="C00000" if rate_inc > 0 else "385723")
-        else:
-            cell_rate_inc.font = font_data
-
-        # Write cells for Delitos (Col M to T)
-        # M: Año Pre (1 Año Antes)
-        ws1.cell(row=row_idx, column=13, value=pre_year if pre_year >= 2023 else "N/D").font = font_bold
-        ws1.cell(row=row_idx, column=13).alignment = Alignment(horizontal='center')
-        ws1.cell(row=row_idx, column=13).fill = fill_t_minus
-        
-        # N: Cantidad Pre
-        if pre_year < 2023:
-            cell_n = ws1.cell(row=row_idx, column=14, value="Sin registro (Año 2022)")
-            cell_n.font = font_muted_text
-            cell_n.alignment = Alignment(horizontal='center')
-        else:
-            ws1.cell(row=row_idx, column=14, value=del_pre_val if del_pre_val is not None else 0).font = font_data
-        ws1.cell(row=row_idx, column=14).fill = fill_t_minus
-        
-        # O: Año Inaug
-        ws1.cell(row=row_idx, column=15, value=t0_year).font = font_bold
-        ws1.cell(row=row_idx, column=15).alignment = Alignment(horizontal='center')
-        ws1.cell(row=row_idx, column=15).fill = fill_t0
-        
-        # P: Cantidad Inaug
-        ws1.cell(row=row_idx, column=16, value=del_inaug_val if del_inaug_val is not None else 0).fill = fill_t0
-        
-        # Q: Cantidad 2024 Post
-        cell_q = ws1.cell(row=row_idx, column=17)
+        # Cantidad 2024 Post
+        cell_q = ws1.cell(row=row_idx, column=9)
         if t0_year == 2024:
             cell_q.value = "Año de Inauguración (2024)"
             cell_q.font = font_muted_text
@@ -374,8 +283,8 @@ def main():
             cell_q.font = font_data
         cell_q.fill = fill_t_plus
         
-        # R: Cantidad 2025 Post
-        cell_r = ws1.cell(row=row_idx, column=18)
+        # Cantidad 2025 Post
+        cell_r = ws1.cell(row=row_idx, column=10)
         if t0_year == 2025:
             cell_r.value = "Año de Inauguración (2025)"
             cell_r.font = font_muted_text
@@ -389,8 +298,8 @@ def main():
             cell_r.font = font_data
         cell_r.fill = fill_t_plus
         
-        # S: Cantidad 2026 Proy
-        cell_s = ws1.cell(row=row_idx, column=19)
+        # Cantidad 2026 Proy
+        cell_s = ws1.cell(row=row_idx, column=11)
         if t0_year == 2026:
             cell_s.value = "Año de Inauguración (2026)"
             cell_s.font = font_muted_text
@@ -400,7 +309,8 @@ def main():
             cell_s.font = font_data
         cell_s.fill = fill_t_plus
         
-        cell_rate_del = ws1.cell(row=row_idx, column=20, value=rate_del if rate_del is not None else "N/A")
+        # Tasa de cambio
+        cell_rate_del = ws1.cell(row=row_idx, column=12, value=rate_del if rate_del is not None else "N/A")
         cell_rate_del.alignment = Alignment(horizontal='center')
         if rate_del is not None:
             cell_rate_del.number_format = '+0.0%;-0.0%;0.0%'
@@ -413,10 +323,10 @@ def main():
             for c in [1, 2, 3]:
                 ws1.cell(row=row_idx, column=c).fill = fill_zebra
                 
-        for c in range(1, 21):
+        for c in range(1, 13):
             cell = ws1.cell(row=row_idx, column=c)
             cell.border = border_thin
-            if c in [6, 8, 9, 10, 11, 14, 16, 17, 18, 19] and isinstance(cell.value, int):
+            if c in [6, 8, 9, 10, 11] and isinstance(cell.value, int):
                 cell.alignment = Alignment(horizontal='right')
                 cell.number_format = '#,##0'
 
@@ -430,8 +340,8 @@ def main():
     ws1.cell(row=row_idx+5, column=1, value="  - Tasa de Cambio: Mide la diferencia porcentual entre el Año Pre y el último año Post disponible (2026 Proyectado). Para proyectos de 2023, al no haber datos de 2022 (t-1), se mide desde el año de inauguración (2023).").font = font_subtitle
 
     # --- SHEET 2: HISTÓRICO AÑO CALENDARIO ---
-    ws2.cell(row=2, column=1, value="HISTÓRICO GENERAL POR AÑO CALENDARIO").font = font_title
-    ws2.cell(row=3, column=1, value="Consolidado de incidentes y delitos reales (2023-2025, 2026 Ene-Abr) y proyectados (2026) organizados cronológicamente").font = font_subtitle
+    ws2.cell(row=2, column=1, value="HISTÓRICO GENERAL POR AÑO CALENDARIO (DELITOS)").font = font_title
+    ws2.cell(row=3, column=1, value="Consolidado de delitos reales (2023-2025, 2026 Ene-Abr) y proyectados (2026) organizados cronológicamente").font = font_subtitle
     ws2.cell(row=4, column=1, value=f"Generado el {datetime.datetime.now().strftime('%d/%m/%Y')}").font = font_subtitle
     
     # Headers
@@ -450,15 +360,10 @@ def main():
         ws2.cell(row=6, column=c).fill = fill_header
         
     ws2.merge_cells('E6:I6')
-    ws2.cell(row=6, column=5, value="TOTAL INCIDENTES DE SEGURIDAD").font = font_header
+    ws2.cell(row=6, column=5, value="TOTAL DELITOS").font = font_header
     ws2.cell(row=6, column=5).alignment = Alignment(horizontal='center', vertical='center')
     
-    ws2.merge_cells('J6:N6')
-    ws2.cell(row=6, column=10, value="TOTAL DELITOS").font = font_header
-    ws2.cell(row=6, column=10).alignment = Alignment(horizontal='center', vertical='center')
-    
     headers_sub2 = [
-        "2023", "2024", "2025", "2026 (Real Ene-Abr)", "2026 (Proy)",
         "2023", "2024", "2025", "2026 (Real Ene-Abr)", "2026 (Proy)"
     ]
     for idx, text in enumerate(headers_sub2):
@@ -469,7 +374,7 @@ def main():
         cell_sub.alignment = Alignment(horizontal='center', vertical='center')
 
     for r in [6, 7]:
-        for c in range(1, 15):
+        for c in range(1, 10):
             cell = ws2.cell(row=r, column=c)
             cell.border = border_thin
             if not cell.fill.fill_type:
@@ -485,12 +390,6 @@ def main():
         proj_id = p['id']
         
         proys_2026 = get_projections_for_project(proj_id)
-        
-        inc_23 = get_sum(proj_id, INCIDENTES, '2023', proys_2026)
-        inc_24 = get_sum(proj_id, INCIDENTES, '2024', proys_2026)
-        inc_25 = get_sum(proj_id, INCIDENTES, '2025', proys_2026)
-        inc_26_real = get_sum(proj_id, INCIDENTES, '2026*', proys_2026)
-        inc_26_proy = get_sum(proj_id, INCIDENTES, '2026_proy', proys_2026)
         
         del_23 = get_sum(proj_id, DELITOS, '2023', proys_2026)
         del_24 = get_sum(proj_id, DELITOS, '2024', proys_2026)
@@ -515,19 +414,12 @@ def main():
             if isinstance(val, int):
                 cell.number_format = '#,##0'
 
-        # Set values for Incidentes (Col E-I)
-        set_cal_cell(ws2, row_idx_cal, 5, inc_23, t0_year == 2023)
-        set_cal_cell(ws2, row_idx_cal, 6, inc_24, t0_year == 2024)
-        set_cal_cell(ws2, row_idx_cal, 7, inc_25, t0_year == 2025)
-        set_cal_cell(ws2, row_idx_cal, 8, inc_26_real, False)
-        set_cal_cell(ws2, row_idx_cal, 9, inc_26_proy, t0_year == 2026)
-        
-        # Set values for Delitos (Col J-N)
-        set_cal_cell(ws2, row_idx_cal, 10, del_23, t0_year == 2023)
-        set_cal_cell(ws2, row_idx_cal, 11, del_24, t0_year == 2024)
-        set_cal_cell(ws2, row_idx_cal, 12, del_25, t0_year == 2025)
-        set_cal_cell(ws2, row_idx_cal, 13, del_26_real, False)
-        set_cal_cell(ws2, row_idx_cal, 14, del_26_proy, t0_year == 2026)
+        # Set values for Delitos (Col E-I)
+        set_cal_cell(ws2, row_idx_cal, 5, del_23, t0_year == 2023)
+        set_cal_cell(ws2, row_idx_cal, 6, del_24, t0_year == 2024)
+        set_cal_cell(ws2, row_idx_cal, 7, del_25, t0_year == 2025)
+        set_cal_cell(ws2, row_idx_cal, 8, del_26_real, False)
+        set_cal_cell(ws2, row_idx_cal, 9, del_26_proy, t0_year == 2026)
 
         # Zebra striping on first 3 cols
         if row_idx_cal % 2 == 1:
@@ -535,7 +427,7 @@ def main():
                 if not ws2.cell(row=row_idx_cal, column=c).fill.fill_type:
                     ws2.cell(row=row_idx_cal, column=c).fill = fill_zebra
                 
-        for c in range(1, 15):
+        for c in range(1, 10):
             ws2.cell(row=row_idx_cal, column=c).border = border_thin
 
         row_idx_cal += 1
@@ -560,7 +452,7 @@ def main():
         ws.column_dimensions['C'].width = 24
 
     # Save to local workspace
-    filename = "Reporte_Evaluacion_Proyectos_Inaugurados_v4.xlsx"
+    filename = "Reporte_Evaluacion_Proyectos_Inaugurados_v5.xlsx"
     wb.save(filename)
     print(f"Excel saved to workspace: {filename}")
     
