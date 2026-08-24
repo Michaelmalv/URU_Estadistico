@@ -120,10 +120,8 @@ def main():
         proys = {}
         for var in ALL_VARS:
             v26_obs = next((s['valor'] for s in proj_stats if s['anio'] == '2026*' and s['variable'] == var), None)
-            if v26_obs is None:
-                proys[var] = None
-                continue
-            proj_scaling = (v26_obs / 4.0) * 12.0
+            val26 = v26_obs if v26_obs is not None else 0
+            proj_scaling = (val26 / 4.0) * 12.0
             
             past_vals = []
             for y in ['2023', '2024', '2025']:
@@ -457,7 +455,7 @@ def main():
         ws.column_dimensions['C'].width = 24
 
     # Save to local workspace
-    filename = "Reporte_Evaluacion_Proyectos_Inaugurados_v6.xlsx"
+    filename = "Reporte_Evaluacion_Proyectos_Inaugurados_v7.xlsx"
     wb.save(filename)
     print(f"Excel saved to workspace: {filename}")
     

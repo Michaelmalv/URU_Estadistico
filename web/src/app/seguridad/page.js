@@ -126,11 +126,8 @@ export default function SeguridadPage() {
   const proyecciones2026 = {};
   if (currentProjectObj) {
     ALL_VARS.forEach(varName => {
-      const val26Obs = currentStats.find(s => s.anio === '2026*' && s.variable === varName)?.valor;
-      if (val26Obs === undefined || val26Obs === null) {
-        proyecciones2026[varName] = null;
-        return;
-      }
+      const val26ObsRaw = currentStats.find(s => s.anio === '2026*' && s.variable === varName)?.valor;
+      const val26Obs = (val26ObsRaw !== undefined && val26ObsRaw !== null) ? val26ObsRaw : 0;
       const mensual26Obs = val26Obs / 4.0; // 4 meses de observación
       
       const prevVals = [];
