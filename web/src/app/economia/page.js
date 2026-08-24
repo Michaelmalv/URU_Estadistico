@@ -436,7 +436,6 @@ export default function EconomiaPage() {
           >
             <option value="Todas">Todas</option>
             <option value="Corredores Vivos">Corredores Vivos</option>
-            <option value="Zonas Metro">Zonas Metro</option>
             <option value="Rehabilitación de Espacio Público">Rehabilitación de Espacio Público</option>
           </select>
         </div>

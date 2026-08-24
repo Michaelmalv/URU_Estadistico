@@ -31,7 +31,7 @@ const VALOR_SUELO_CATEGORIAS = {
   ],
 };
 
-const CATEGORIAS_LIST = ['Todas', 'Zonas Metro', 'Rehabilitación del Espacio Público y Centro Histórico', 'Corredores Vivos'];
+const CATEGORIAS_LIST = ['Todas', 'Rehabilitación del Espacio Público y Centro Histórico', 'Corredores Vivos'];
 
 function normalizeText(value) {
   if (value === null || value === undefined) return '';
