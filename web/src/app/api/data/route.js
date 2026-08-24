@@ -76,9 +76,28 @@ export async function GET() {
     const filteredSeguridad = (seguridad || []).filter(s => allowedIds.has(s.proyecto_id));
     const filteredFichas = (fichas || []).filter(f => allowedIds.has(f.proyecto_id));
     
-    const normalizeName = (name) => name ? name.toLowerCase().trim().replace(/[\s\-_]+/g, ' ') : '';
-    const normalizedAllowed = ALLOWED_PROJECT_NAMES.map(normalizeName);
-    const filteredValorSuelo = (valorSuelo || []).filter(v => normalizedAllowed.includes(normalizeName(v.proyecto)));
+    const ALLOWED_AIVAS_NAMES = [
+      'AIVAS AV. COLÓN',
+      'AIVAS PATRIA',
+      'AIVAS ROCAFUERTE',
+      'AIVAS ISLA TORTUGA',
+      'AIVAS COLINAS DEL NORTE',
+      'AIVAS TRIBUNA DE LOS SHYRIS',
+      'AIVAS PARQUE NAVARRO',
+      'AIVAS BENALCAZAR'
+    ];
+
+    const normalizeAivas = (name) => {
+      if (!name) return '';
+      return name.toString().toLowerCase().trim()
+        .normalize('NFKD').replace(/[\u0300-\u036f]/g, '')
+        .replace(/[^a-z0-9]+/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim();
+    };
+
+    const normalizedAllowedAivas = ALLOWED_AIVAS_NAMES.map(normalizeAivas);
+    const filteredValorSuelo = (valorSuelo || []).filter(v => normalizedAllowedAivas.includes(normalizeAivas(v.proyecto)));
 
     const resultData = {
       success: true,
