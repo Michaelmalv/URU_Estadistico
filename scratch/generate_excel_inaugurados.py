@@ -305,8 +305,13 @@ def main():
             cell_s.font = font_muted_text
             cell_s.alignment = Alignment(horizontal='center')
         else:
-            cell_s.value = del_post_26_proy if del_post_26_proy is not None else 0
-            cell_s.font = font_data
+            if del_post_26_proy is not None:
+                cell_s.value = del_post_26_proy
+                cell_s.font = font_data
+            else:
+                cell_s.value = "Sin registro (Año 2026)"
+                cell_s.font = font_muted_text
+                cell_s.alignment = Alignment(horizontal='center')
         cell_s.fill = fill_t_plus
         
         # Tasa de cambio
@@ -452,7 +457,7 @@ def main():
         ws.column_dimensions['C'].width = 24
 
     # Save to local workspace
-    filename = "Reporte_Evaluacion_Proyectos_Inaugurados_v5.xlsx"
+    filename = "Reporte_Evaluacion_Proyectos_Inaugurados_v6.xlsx"
     wb.save(filename)
     print(f"Excel saved to workspace: {filename}")
     

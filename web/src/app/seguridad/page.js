@@ -163,8 +163,8 @@ export default function SeguridadPage() {
   // Obtener valor para el año
   const getVal = (varName, year) => {
     if (year === '2026*') {
-      // Devolver la proyección si existe
-      return proyecciones2026[varName] !== undefined ? Math.round(proyecciones2026[varName]) : null;
+      const proj = proyecciones2026[varName];
+      return (proj !== undefined && proj !== null) ? Math.round(proj) : null;
     }
     const record = currentStats.find(s => s.anio === year && s.variable === varName);
     return record ? record.valor : null;
