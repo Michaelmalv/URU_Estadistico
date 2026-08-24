@@ -52,8 +52,20 @@ def parse_inauguracion_year(proj_name, date_str):
 def main():
     print("Fetching projects from Supabase...")
     res_p = supabase.table("proyectos").select("*").execute()
-    proyectos = res_p.data or []
-    print(f"Fetched {len(proyectos)} projects.")
+    proyectos_raw = res_p.data or []
+    ALLOWED_PROJECTS = [
+        'Av. Colón',
+        'Av. Patria',
+        'Escalinatas Rocafuerte',
+        'Isla Tortuga',
+        'La Roldós Oe13-Colinas del Norte',
+        'Bulevar Tribuna de los Shyris',
+        'Parque Navarro - Plaza de las tripas',
+        'Calle Rocafuerte',
+        'Calle Benalcazar'
+    ]
+    proyectos = [p for p in proyectos_raw if p['nombre'] in ALLOWED_PROJECTS]
+    print(f"Fetched {len(proyectos_raw)} projects. Filtered to {len(proyectos)} whitelisted projects.")
 
     print("Fetching security stats (paginated)...")
     seguridad = []
@@ -455,7 +467,7 @@ def main():
         ws.column_dimensions['C'].width = 24
 
     # Save to local workspace
-    filename = "Reporte_Evaluacion_Proyectos_Inaugurados_v7.xlsx"
+    filename = "Reporte_Evaluacion_Proyectos_Inaugurados_v8.xlsx"
     wb.save(filename)
     print(f"Excel saved to workspace: {filename}")
     

@@ -58,12 +58,34 @@ export async function GET() {
 
     if (sueloError) throw sueloError;
 
+    const ALLOWED_PROJECT_NAMES = [
+      'Av. Colón',
+      'Av. Patria',
+      'Escalinatas Rocafuerte',
+      'Isla Tortuga',
+      'La Roldós Oe13-Colinas del Norte',
+      'Bulevar Tribuna de los Shyris',
+      'Parque Navarro - Plaza de las tripas',
+      'Calle Rocafuerte',
+      'Calle Benalcazar'
+    ];
+
+    const filteredProyectos = (proyectos || []).filter(p => ALLOWED_PROJECT_NAMES.includes(p.nombre));
+    const allowedIds = new Set(filteredProyectos.map(p => p.id));
+
+    const filteredSeguridad = (seguridad || []).filter(s => allowedIds.has(s.proyecto_id));
+    const filteredFichas = (fichas || []).filter(f => allowedIds.has(f.proyecto_id));
+    
+    const normalizeName = (name) => name ? name.toLowerCase().trim().replace(/[\s\-_]+/g, ' ') : '';
+    const normalizedAllowed = ALLOWED_PROJECT_NAMES.map(normalizeName);
+    const filteredValorSuelo = (valorSuelo || []).filter(v => normalizedAllowed.includes(normalizeName(v.proyecto)));
+
     const resultData = {
       success: true,
-      proyectos: proyectos || [],
-      seguridad: seguridad || [],
-      fichas: fichas || [],
-      valorSuelo: valorSuelo || [],
+      proyectos: filteredProyectos,
+      seguridad: filteredSeguridad,
+      fichas: filteredFichas,
+      valorSuelo: filteredValorSuelo,
     };
     global.cachedData = resultData;
     global.lastFetchTime = now;
