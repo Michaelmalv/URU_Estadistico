@@ -6,6 +6,10 @@ import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, LabelList 
 } from 'recharts';
 import dynamic from 'next/dynamic';
+import equipamientoData from '@/lib/equipamiento.json';
+import { 
+  Coins, Footprints, Lightbulb, Wrench, Zap, TrafficCone, Paintbrush, Sprout, Sofa, Fence, Construction, Video, Hammer 
+} from 'lucide-react';
 
 const MapboxMap = dynamic(() => import('../components/MapboxMap'), { ssr: false });
 
@@ -34,6 +38,14 @@ const getProyectoDisplayName = (nombre) => {
   return nombre;
 };
 
+const NORM_EQUIPMENT_MAP = {
+  'isla tortuga': 'Isla Tortuga',
+  'la roldos oe13 colinas del norte': 'La Roldos',
+  'av colon': 'Av Colón',
+  'av patria': 'Av Patria',
+  'calle rocafuerte': 'Calle Rocafuerte'
+};
+
 export default function SeguridadPage() {
   const [loading, setLoading] = useState(true);
   const [proyectos, setProyectos] = useState([]);
@@ -46,6 +58,7 @@ export default function SeguridadPage() {
   
   const [añoBase, setAñoBase] = useState('2024');
   const [añoComparativo, setAñoComparativo] = useState('2025');
+  const [equipamientoTab, setEquipamientoTab] = useState('total');
 
   const añosAnterior = [añoBase];
   const añosActual = [añoComparativo];
@@ -107,6 +120,7 @@ export default function SeguridadPage() {
       } else {
         setSelectedProyecto('');
       }
+      setEquipamientoTab('total');
     }
   }, [selectedCategoria, proyectos, seguridadData]);
 
@@ -249,6 +263,97 @@ export default function SeguridadPage() {
   };
 
   const images = getProjectImages();
+
+  const formatMoney = (value) => {
+    if (value === null || value === undefined) return '—';
+    let formatted = value.toLocaleString('es-EC', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    if (value >= 1000000) {
+      const parts = formatted.split('.');
+      if (parts.length >= 3) {
+        formatted = parts[0] + "'" + parts.slice(1).join('.');
+      }
+    }
+    return '$ ' + formatted;
+  };
+
+  const formatNumber = (value) => {
+    if (value === null || value === undefined) return '—';
+    return value.toLocaleString('es-EC');
+  };
+
+  const formatArea = (value) => {
+    if (value === null || value === undefined || value === 0) return '—';
+    return value.toLocaleString('es-EC') + ' m²';
+  };
+
+  const formatLength = (value) => {
+    if (value === null || value === undefined || value === 0) return '—';
+    return value.toLocaleString('es-EC') + ' m';
+  };
+
+  const getEquipamientoData = () => {
+    if (!currentProjectObj) return null;
+    const norm = normalizeText(currentProjectObj.nombre);
+    const excelName = NORM_EQUIPMENT_MAP[norm];
+    if (!excelName) return null;
+
+    const records = equipamientoData.filter(e => e.nombre_sendero === excelName);
+    if (records.length === 0) return null;
+
+    const hasAnyData = records.some(r => r.presupuesto !== null || r.luminarias_instaladas !== null || r.cruces_seguros !== null || r.acera_intervenida !== null);
+    if (!hasAnyData) return null;
+
+    if (records.length > 1) {
+      const totalRecord = {
+        nombre_sendero: excelName,
+        administracion_zonal: records[0].administracion_zonal,
+        barrios: records[0].barrios,
+        fecha_inicio: null,
+        fecha_fin: null,
+        longitud_intervenida: records.map(r => r.longitud_intervenida).filter(Boolean).join(' / '),
+        presupuesto: records.reduce((sum, r) => sum + (r.presupuesto || 0), 0),
+        luminarias_instaladas: records.reduce((sum, r) => sum + (r.luminarias_instaladas || 0), 0),
+        luminarias_reparadas: records.reduce((sum, r) => sum + (r.luminarias_reparadas || 0), 0),
+        postes_intervenidos: records.reduce((sum, r) => sum + (r.postes_intervenidos || 0), 0),
+        senales_instaladas: records.reduce((sum, r) => sum + (r.senales_instaladas || 0), 0),
+        cruces_seguros: records.reduce((sum, r) => sum + (r.cruces_seguros || 0), 0),
+        pintura_vial: records.reduce((sum, r) => sum + (r.pintura_vial || 0), 0),
+        jardineria: records.reduce((sum, r) => sum + (r.jardineria || 0), 0),
+        mobiliario_urbano: records.reduce((sum, r) => sum + (r.mobiliario_urbano || 0), 0),
+        bolardos: records.reduce((sum, r) => sum + (r.bolardos || 0), 0),
+        acera_intervenida: records.reduce((sum, r) => sum + (r.acera_intervenida || 0), 0),
+        bacheo: records.reduce((sum, r) => sum + (r.bacheo || 0), 0),
+        camaras: records.reduce((sum, r) => sum + (r.camaras || 0), 0),
+        tipo: 'total'
+      };
+      return {
+        records,
+        hasTabs: true,
+        total: totalRecord
+      };
+    }
+
+    return {
+      records,
+      hasTabs: false,
+      total: records[0]
+    };
+  };
+
+  const equipDataInfo = getEquipamientoData();
+  
+  let activeEquipRecord = null;
+  if (equipDataInfo) {
+    if (equipDataInfo.hasTabs) {
+      if (equipamientoTab === 'total') {
+        activeEquipRecord = equipDataInfo.total;
+      } else {
+        activeEquipRecord = equipDataInfo.records.find(r => r.tipo === equipamientoTab);
+      }
+    } else {
+      activeEquipRecord = equipDataInfo.total;
+    }
+  }
 
   // Exportar datos a Excel
   const exportToExcel = async () => {
@@ -433,7 +538,7 @@ export default function SeguridadPage() {
           <select 
             className="filter-select"
             value={selectedProyecto}
-            onChange={(e) => setSelectedProyecto(e.target.value)}
+            onChange={(e) => { setSelectedProyecto(e.target.value); setEquipamientoTab('total'); }}
           >
             {proyectos
               .filter(p => p.categoria === selectedCategoria)
@@ -474,6 +579,196 @@ export default function SeguridadPage() {
                   <span className="ficha-label">Fecha de Inauguración</span>
                   <span className="ficha-value">{currentFichas[0].fecha || '—'}</span>
                 </div>
+              </div>
+            </div>
+          )}
+
+          {/* Ficha Detallada de Equipamiento e Inversión */}
+          {activeEquipRecord && (
+            <div className="equipamiento-section">
+              <div className="equipamiento-header">
+                <span style={{ fontSize: '1.15rem', fontWeight: 700 }}>Detalle de Obras y Equipamiento de Convivencia</span>
+                
+                {equipDataInfo.hasTabs && (
+                  <div className="equipamiento-tabs">
+                    <button 
+                      className={`equipamiento-tab-btn ${equipamientoTab === 'total' ? 'active' : ''}`}
+                      onClick={() => setEquipamientoTab('total')}
+                    >
+                      Total
+                    </button>
+                    <button 
+                      className={`equipamiento-tab-btn ${equipamientoTab === 'vial' ? 'active' : ''}`}
+                      onClick={() => setEquipamientoTab('vial')}
+                    >
+                      Vial
+                    </button>
+                    <button 
+                      className={`equipamiento-tab-btn ${equipamientoTab === 'espacio publico' ? 'active' : ''}`}
+                      onClick={() => setEquipamientoTab('espacio publico')}
+                    >
+                      Espacio Público
+                    </button>
+                  </div>
+                )}
+              </div>
+
+              <div className="equipamiento-grid">
+                {activeEquipRecord.presupuesto !== null && (
+                  <div className="equip-card">
+                    <div className="equip-icon-wrapper orange">
+                      <Coins size={24} />
+                    </div>
+                    <div className="equip-details">
+                      <span className="equip-value">{formatMoney(activeEquipRecord.presupuesto)}</span>
+                      <span className="equip-label">Presupuesto / Inversión</span>
+                    </div>
+                  </div>
+                )}
+
+                {activeEquipRecord.cruces_seguros !== null && (
+                  <div className="equip-card">
+                    <div className="equip-icon-wrapper blue">
+                      <Footprints size={24} />
+                    </div>
+                    <div className="equip-details">
+                      <span className="equip-value">{formatNumber(activeEquipRecord.cruces_seguros)}</span>
+                      <span className="equip-label">Cruces seguros</span>
+                    </div>
+                  </div>
+                )}
+
+                {activeEquipRecord.luminarias_instaladas !== null && (
+                  <div className="equip-card">
+                    <div className="equip-icon-wrapper blue">
+                      <Lightbulb size={24} />
+                    </div>
+                    <div className="equip-details">
+                      <span className="equip-value">{formatNumber(activeEquipRecord.luminarias_instaladas)}</span>
+                      <span className="equip-label">Luminarias instaladas</span>
+                    </div>
+                  </div>
+                )}
+
+                {activeEquipRecord.luminarias_reparadas !== null && (
+                  <div className="equip-card">
+                    <div className="equip-icon-wrapper blue">
+                      <Wrench size={24} />
+                    </div>
+                    <div className="equip-details">
+                      <span className="equip-value">{formatNumber(activeEquipRecord.luminarias_reparadas)}</span>
+                      <span className="equip-label">Luminarias reparadas</span>
+                    </div>
+                  </div>
+                )}
+
+                {activeEquipRecord.postes_intervenidos !== null && (
+                  <div className="equip-card">
+                    <div className="equip-icon-wrapper blue">
+                      <Zap size={24} />
+                    </div>
+                    <div className="equip-details">
+                      <span className="equip-value">{formatNumber(activeEquipRecord.postes_intervenidos)}</span>
+                      <span className="equip-label">Postes intervenidos</span>
+                    </div>
+                  </div>
+                )}
+
+                {activeEquipRecord.senales_instaladas !== null && (
+                  <div className="equip-card">
+                    <div className="equip-icon-wrapper blue">
+                      <TrafficCone size={24} />
+                    </div>
+                    <div className="equip-details">
+                      <span className="equip-value">{formatNumber(activeEquipRecord.senales_instaladas)}</span>
+                      <span className="equip-label">Señales instaladas</span>
+                    </div>
+                  </div>
+                )}
+
+                {activeEquipRecord.pintura_vial !== null && (
+                  <div className="equip-card">
+                    <div className="equip-icon-wrapper blue">
+                      <Paintbrush size={24} />
+                    </div>
+                    <div className="equip-details">
+                      <span className="equip-value">{formatArea(activeEquipRecord.pintura_vial)}</span>
+                      <span className="equip-label">Pintura vial / Muralismo</span>
+                    </div>
+                  </div>
+                )}
+
+                {activeEquipRecord.jardineria !== null && (
+                  <div className="equip-card">
+                    <div className="equip-icon-wrapper blue">
+                      <Sprout size={24} />
+                    </div>
+                    <div className="equip-details">
+                      <span className="equip-value">{formatArea(activeEquipRecord.jardineria)}</span>
+                      <span className="equip-label">Jardinería / Paisajismo</span>
+                    </div>
+                  </div>
+                )}
+
+                {activeEquipRecord.mobiliario_urbano !== null && (
+                  <div className="equip-card">
+                    <div className="equip-icon-wrapper blue">
+                      <Sofa size={24} />
+                    </div>
+                    <div className="equip-details">
+                      <span className="equip-value">{formatNumber(activeEquipRecord.mobiliario_urbano)}</span>
+                      <span className="equip-label">Mobiliario urbano</span>
+                    </div>
+                  </div>
+                )}
+
+                {activeEquipRecord.bolardos !== null && (
+                  <div className="equip-card">
+                    <div className="equip-icon-wrapper blue">
+                      <Fence size={24} />
+                    </div>
+                    <div className="equip-details">
+                      <span className="equip-value">{formatNumber(activeEquipRecord.bolardos)}</span>
+                      <span className="equip-label">Bolardos y barandas</span>
+                    </div>
+                  </div>
+                )}
+
+                {activeEquipRecord.acera_intervenida !== null && activeEquipRecord.acera_intervenida !== 0 && (
+                  <div className="equip-card">
+                    <div className="equip-icon-wrapper blue">
+                      <Construction size={24} />
+                    </div>
+                    <div className="equip-details">
+                      <span className="equip-value">{formatLength(activeEquipRecord.acera_intervenida)}</span>
+                      <span className="equip-label">Acera intervenida</span>
+                    </div>
+                  </div>
+                )}
+
+                {activeEquipRecord.bacheo !== null && activeEquipRecord.bacheo !== 0 && (
+                  <div className="equip-card">
+                    <div className="equip-icon-wrapper blue">
+                      <Hammer size={24} />
+                    </div>
+                    <div className="equip-details">
+                      <span className="equip-value">{formatArea(activeEquipRecord.bacheo)}</span>
+                      <span className="equip-label">Bacheo / Reparación vial</span>
+                    </div>
+                  </div>
+                )}
+
+                {activeEquipRecord.camaras !== null && (
+                  <div className="equip-card">
+                    <div className="equip-icon-wrapper blue">
+                      <Video size={24} />
+                    </div>
+                    <div className="equip-details">
+                      <span className="equip-value">{formatNumber(activeEquipRecord.camaras)}</span>
+                      <span className="equip-label">Cámaras de seguridad</span>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           )}

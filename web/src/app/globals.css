@@ -751,3 +751,141 @@ h1, h2, h3, h4, h5, h6 {
     }
   }
 }
+
+/* --- Detalle de Equipamiento e Inversión --- */
+.equipamiento-section {
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  background: var(--bg-card);
+  padding: 1.75rem;
+  margin: 1.5rem 0;
+  box-shadow: var(--shadow-sm);
+}
+
+.equipamiento-header {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.equipamiento-tabs {
+  display: flex;
+  gap: 0.5rem;
+  background: rgba(0, 0, 0, 0.03);
+  padding: 0.25rem;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+}
+
+.equipamiento-tab-btn {
+  background: transparent;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.equipamiento-tab-btn:hover {
+  color: var(--text-main);
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.equipamiento-tab-btn.active {
+  background: var(--text-white);
+  color: var(--color-primary);
+  box-shadow: var(--shadow-xs);
+}
+
+.equipamiento-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.equip-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.01);
+  border: 1px solid rgba(0, 0, 0, 0.03);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.equip-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+  background: var(--text-white);
+}
+
+.equip-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+.equip-icon-wrapper.blue {
+  background: rgba(59, 130, 246, 0.1);
+  color: #3b82f6;
+}
+
+.equip-icon-wrapper.orange {
+  background: rgba(245, 158, 11, 0.1);
+  color: #f59e0b;
+}
+
+.equip-details {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.equip-value {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #3b82f6; /* Blue for values matching design schema */
+}
+
+.equip-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-top: 0.1rem;
+}
+
+/* Dark mode adjustment for tabs */
+@media (prefers-color-scheme: dark) {
+  .equipamiento-tabs {
+    background: rgba(255, 255, 255, 0.05);
+  }
+  .equipamiento-tab-btn.active {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--color-accent);
+  }
+  .equip-card {
+    background: rgba(255, 255, 255, 0.02);
+    border-color: rgba(255, 255, 255, 0.05);
+  }
+  .equip-card:hover {
+    background: rgba(255, 255, 255, 0.05);
+  }
+  .equip-value {
+    color: var(--color-accent, #f59e0b);
+  }
+}
+
