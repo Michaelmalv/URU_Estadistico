@@ -46,9 +46,11 @@ export default function EconomiaPage() {
     fetchProjects();
   }, []);
 
-  // Filtrar proyectos según los filtros de UI
   const getProyectosFiltrados = useCallback(() => {
     return proyectos.filter(p => {
+      // Ocultar Escalinatas Rocafuerte solo de esta pestaña de economía
+      if (p.nombre === 'Escalinatas Rocafuerte') return false;
+
       // Filtrar por categoría
       if (categoriaUi !== 'Todas') {
         if (categoriaUi === 'Rehabilitación de Espacio Público') {
