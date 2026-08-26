@@ -5,7 +5,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { 
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell, LabelList, Legend
 } from 'recharts';
-import { TrendingUp, RotateCw } from 'lucide-react';
+import { TrendingUp, RotateCw, Clock, Sparkles, CheckCircle2, AlertCircle } from 'lucide-react';
 
 const getProyectoDisplayName = (nombre) => {
   if (nombre === 'El Labrador: Bulevar y Parque de la Resiliencia') {
@@ -27,6 +27,70 @@ export default function EconomiaPage() {
 
   // Resultados
   const [economiaResult, setEconomiaResult] = useState(null);
+
+  const currentProjectObj = proyectos.find(p => p.nombre === selectedProyecto);
+
+  const getProjectStatus = () => {
+    if (!currentProjectObj) return null;
+    
+    const fechaStr = currentProjectObj.fecha_inauguracion;
+    if (!fechaStr || fechaStr.toLowerCase() === 'no' || fechaStr.trim() === '' || fechaStr.toLowerCase() === 'reprogramado') {
+      return {
+        type: 'unknown',
+        label: 'Sin Fecha Confirmada',
+        description: `El proyecto ${getProyectoDisplayName(selectedProyecto)} no registra una fecha de inauguración confirmada en el sistema.`,
+        icon: AlertCircle
+      };
+    }
+
+    const match = fechaStr.match(/\b(202\d)\b/);
+    if (!match) {
+      return {
+        type: 'unknown',
+        label: 'Sin Fecha Confirmada',
+        description: `El proyecto ${getProyectoDisplayName(selectedProyecto)} no registra una fecha de inauguración confirmada en el sistema.`,
+        icon: AlertCircle
+      };
+    }
+
+    const inaugurationYear = Number(match[1]);
+
+    if (selectedAnio === 'Todos') {
+      return {
+        type: 'info',
+        label: 'Acumulado',
+        description: `Visualizando la evolución económica acumulada de los periodos. Proyecto inaugurado en ${fechaStr}.`,
+        icon: Clock
+      };
+    }
+
+    const yearNum = Number(selectedAnio);
+
+    if (yearNum < inaugurationYear) {
+      return {
+        type: 'pre',
+        label: 'Antes del Proyecto (Pre-Inauguración)',
+        description: `El año seleccionado (${yearNum}) es anterior a la fecha de inauguración del proyecto (${fechaStr}). Los registros económicos corresponden al estado previo a la intervención.`,
+        icon: Clock
+      };
+    } else if (yearNum === inaugurationYear) {
+      return {
+        type: 'during',
+        label: 'Año de Inauguración / Entrega',
+        description: `El año seleccionado (${yearNum}) coincide con el periodo de inauguración y entrega oficial del proyecto (${fechaStr}).`,
+        icon: Sparkles
+      };
+    } else {
+      return {
+        type: 'post',
+        label: 'Después del Proyecto (Post-Inauguración)',
+        description: `El año seleccionado (${yearNum}) es posterior a la fecha de inauguración del proyecto (${fechaStr}). Los registros reflejan la dinámica comercial post-intervención.`,
+        icon: CheckCircle2
+      };
+    }
+  };
+
+  const projectStatus = getProjectStatus();
 
   // Cargar proyectos iniciales
   useEffect(() => {
@@ -154,7 +218,8 @@ export default function EconomiaPage() {
         ['Fecha de Inauguración:', currentProjectObj?.fecha_inauguracion || '—'],
         ['Fecha Base de Referencia:', economiaResult.fecha_txt || '—'],
         ['Periodo Comparado con:', getReferenciaTxt()],
-        ['Filtro de Año Seleccionado:', selectedAnio === 'Todos' ? 'Todos los años (2023-2026)' : selectedAnio]
+        ['Filtro de Año Seleccionado:', selectedAnio === 'Todos' ? 'Todos los años (2023-2026)' : selectedAnio],
+        ['Estado del Proyecto en este Año:', projectStatus ? projectStatus.label : '—']
       ];
 
       metaData.forEach(item => {
@@ -489,8 +554,21 @@ export default function EconomiaPage() {
           <p style={{ color: 'var(--text-muted)' }}>Analizando cruces económicos...</p>
         </div>
       ) : economiaResult ? (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
           
+          {/* Banner de Estado del Proyecto */}
+          {projectStatus && (
+            <div className={`project-status-banner ${projectStatus.type}`}>
+              <div className={`status-badge ${projectStatus.type}`}>
+                {projectStatus.icon && <projectStatus.icon size={16} strokeWidth={2.5} />}
+                <span>{projectStatus.label}</span>
+              </div>
+              <span className="status-desc">
+                {projectStatus.description}
+              </span>
+            </div>
+          )}
+
           {/* Botones de acción */}
           <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
             <button className="btn btn-accent" onClick={exportToExcel}>

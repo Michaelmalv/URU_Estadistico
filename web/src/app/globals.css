@@ -889,3 +889,107 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+/* --- Estado del Proyecto (Economía) --- */
+.project-status-banner {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 0.35rem 0.75rem;
+  border-radius: 9999px;
+  letter-spacing: 0.025em;
+  flex-shrink: 0;
+}
+
+.status-desc {
+  font-size: 0.9rem;
+  color: var(--text-main);
+  line-height: 1.4;
+}
+
+/* Pre-inauguración: Soft Blue-Gray */
+.project-status-banner.pre {
+  background: rgba(100, 116, 139, 0.08);
+  border-color: rgba(100, 116, 139, 0.2);
+}
+.status-badge.pre {
+  background: #64748b;
+  color: #ffffff;
+}
+
+/* Inauguración: Amber / Yellow-Orange */
+.project-status-banner.during {
+  background: rgba(245, 158, 11, 0.08);
+  border-color: rgba(245, 158, 11, 0.2);
+}
+.status-badge.during {
+  background: #f59e0b;
+  color: #ffffff;
+}
+
+/* Post-inauguración: Green */
+.project-status-banner.post {
+  background: rgba(39, 174, 96, 0.08);
+  border-color: rgba(39, 174, 96, 0.2);
+}
+.status-badge.post {
+  background: #27ae60;
+  color: #ffffff;
+}
+
+/* Acumulado / Info: Indigo */
+.project-status-banner.info {
+  background: rgba(99, 102, 241, 0.08);
+  border-color: rgba(99, 102, 241, 0.2);
+}
+.status-badge.info {
+  background: #6366f1;
+  color: #ffffff;
+}
+
+/* Sin registro / Desconocido: Gray */
+.project-status-banner.unknown {
+  background: rgba(148, 163, 184, 0.08);
+  border-color: rgba(148, 163, 184, 0.2);
+}
+.status-badge.unknown {
+  background: #94a3b8;
+  color: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+  .project-status-banner.pre {
+    background: rgba(148, 163, 184, 0.15);
+  }
+  .project-status-banner.during {
+    background: rgba(245, 158, 11, 0.15);
+  }
+  .project-status-banner.post {
+    background: rgba(39, 174, 96, 0.15);
+  }
+  .project-status-banner.info {
+    background: rgba(99, 102, 241, 0.15);
+  }
+  .project-status-banner.unknown {
+    background: rgba(148, 163, 184, 0.15);
+  }
+  .status-desc {
+    color: #e2e8f0;
+  }
+}
+
+
