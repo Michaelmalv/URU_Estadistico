@@ -406,7 +406,7 @@ export default function SeguridadPage() {
     }
   };
 
-  const chartColors = ['#1a5276', '#2e86c1', '#5dade2', '#1e8449', '#27ae60', '#82e0aa'];
+  const chartColors = ['#3b82f6', '#f59e0b'];
 
   return (
     <div>
@@ -569,7 +569,7 @@ export default function SeguridadPage() {
                         <Bar 
                           key={y} 
                           dataKey={dKey} 
-                          fill={chartColors[(idx + 3) % chartColors.length]} 
+                          fill={chartColors[idx % chartColors.length]} 
                           radius={[4, 4, 0, 0]}
                         >
                           <LabelList dataKey={dKey} position="top" style={{ fill: 'var(--text-color)', fontSize: 9, fontWeight: 'bold' }} />
