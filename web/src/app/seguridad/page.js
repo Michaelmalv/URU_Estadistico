@@ -565,7 +565,7 @@ export default function SeguridadPage() {
                 <span style={{ fontSize: '1.15rem', fontWeight: 700 }}>
                   {activeEquipRecord 
                     ? `Detalle de Obras y Equipamiento de Convivencia — ${getProyectoDisplayName(currentProjectObj.nombre)}`
-                    : `Ficha del Sendero Seguro — ${getProyectoDisplayName(currentProjectObj.nombre)}`}
+                    : `Ficha del Corredor Vivo — ${getProyectoDisplayName(currentProjectObj.nombre)}`}
                 </span>
                 <span style={{ 
                   display: 'inline-block', 
