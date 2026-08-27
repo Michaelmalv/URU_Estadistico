@@ -8,7 +8,8 @@ import {
 import dynamic from 'next/dynamic';
 import equipamientoData from '@/lib/equipamiento.json';
 import { 
-  Coins, Footprints, Lightbulb, Wrench, Zap, TrafficCone, Paintbrush, Sprout, Sofa, Fence, Construction, Video, Hammer 
+  Coins, Footprints, Lightbulb, Wrench, Zap, TrafficCone, Paintbrush, Sprout, Sofa, Fence, Construction, Video, Hammer,
+  Building2, Calendar, Users, Route
 } from 'lucide-react';
 
 const MapboxMap = dynamic(() => import('../components/MapboxMap'), { ssr: false });
@@ -553,46 +554,19 @@ export default function SeguridadPage() {
       {currentProjectObj && (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
           
-          {/* Ficha Técnica */}
-          {currentFichas.length > 0 && (
-            <div className="ficha-sendero">
-              <div className="ficha-header">
-                Ficha del Sendero Seguro — {getProyectoDisplayName(currentProjectObj.nombre)}
-              </div>
-              <div className="ficha-grid">
-                <div className="ficha-item">
-                  <span className="ficha-label">Ejecutor</span>
-                  <span className="ficha-value">{currentFichas[0].ejecutor || '—'}</span>
-                </div>
-                <div className="ficha-item">
-                  <span className="ficha-label">Presupuesto</span>
-                  <span className="ficha-value">{currentFichas[0].presupuesto || '—'}</span>
-                </div>
-                <div className="ficha-item">
-                  <span className="ficha-label">Extensión</span>
-                  <span className="ficha-value">{currentFichas[0].extension || '—'}</span>
-                </div>
-                <div className="ficha-item">
-                  <span className="ficha-label">Beneficiarios</span>
-                  <span className="ficha-value">{currentFichas[0].beneficiarios || '—'}</span>
-                </div>
-                <div className="ficha-item">
-                  <span className="ficha-label">Fecha de Inauguración</span>
-                  <span className="ficha-value">{currentFichas[0].fecha || '—'}</span>
-                </div>
-              </div>
-            </div>
-          )}
-
-          {/* Ficha Detallada de Equipamiento e Inversión */}
-          {activeEquipRecord && (
+          {/* Ficha / Detalle de Obras Unificado */}
+          {(currentFichas.length > 0 || activeEquipRecord) && (
             <div className="equipamiento-section">
               <div 
                 className="equipamiento-header"
                 onClick={() => setShowEquipamiento(!showEquipamiento)}
                 style={{ cursor: 'pointer', userSelect: 'none', marginBottom: showEquipamiento ? '1.25rem' : '0' }}
               >
-                <span style={{ fontSize: '1.15rem', fontWeight: 700 }}>Detalle de Obras y Equipamiento de Convivencia</span>
+                <span style={{ fontSize: '1.15rem', fontWeight: 700 }}>
+                  {activeEquipRecord 
+                    ? `Detalle de Obras y Equipamiento de Convivencia — ${getProyectoDisplayName(currentProjectObj.nombre)}`
+                    : `Ficha del Sendero Seguro — ${getProyectoDisplayName(currentProjectObj.nombre)}`}
+                </span>
                 <span style={{ 
                   display: 'inline-block', 
                   fontSize: '0.85rem',
@@ -606,7 +580,8 @@ export default function SeguridadPage() {
 
               {showEquipamiento && (
                 <>
-                  {equipDataInfo.hasTabs && (
+                  {/* Pestañas de subcomponente (solo si tiene equipamiento con pestañas) */}
+                  {activeEquipRecord && equipDataInfo.hasTabs && (
                     <div className="equipamiento-tabs" style={{ marginBottom: '1.5rem', display: 'inline-flex' }}>
                       <button 
                         className={`equipamiento-tab-btn ${equipamientoTab === 'total' ? 'active' : ''}`}
@@ -630,160 +605,225 @@ export default function SeguridadPage() {
                   )}
 
                   <div className="equipamiento-grid">
-                    {activeEquipRecord.presupuesto !== null && (
-                      <div className="equip-card">
-                        <div className="equip-icon-wrapper orange">
-                          <Coins size={24} />
+                    {/* Campos Básicos de Ficha (siempre se muestran) */}
+                    {currentFichas.length > 0 && (
+                      <>
+                        <div className="equip-card">
+                          <div className="equip-icon-wrapper blue">
+                            <Building2 size={24} />
+                          </div>
+                          <div className="equip-details">
+                            <span className="equip-value" style={{ fontSize: '1.15rem' }}>{currentFichas[0].ejecutor || '—'}</span>
+                            <span className="equip-label">Ejecutor</span>
+                          </div>
                         </div>
-                        <div className="equip-details">
-                          <span className="equip-value">{formatMoney(activeEquipRecord.presupuesto)}</span>
-                          <span className="equip-label">Presupuesto / Inversión</span>
+
+                        <div className="equip-card">
+                          <div className="equip-icon-wrapper blue">
+                            <Calendar size={24} />
+                          </div>
+                          <div className="equip-details">
+                            <span className="equip-value" style={{ fontSize: '1.15rem' }}>{currentFichas[0].fecha || '—'}</span>
+                            <span className="equip-label">Fecha de Inauguración</span>
+                          </div>
                         </div>
-                      </div>
+
+                        <div className="equip-card">
+                          <div className="equip-icon-wrapper blue">
+                            <Users size={24} />
+                          </div>
+                          <div className="equip-details">
+                            <span className="equip-value" style={{ fontSize: '1.15rem' }}>{currentFichas[0].beneficiarios || '—'}</span>
+                            <span className="equip-label">Beneficiarios</span>
+                          </div>
+                        </div>
+
+                        <div className="equip-card">
+                          <div className="equip-icon-wrapper blue">
+                            <Route size={24} />
+                          </div>
+                          <div className="equip-details">
+                            <span className="equip-value" style={{ fontSize: '1.15rem' }}>{currentFichas[0].extension || '—'}</span>
+                            <span className="equip-label">Extensión</span>
+                          </div>
+                        </div>
+                      </>
                     )}
 
-                    {activeEquipRecord.cruces_seguros !== null && (
-                      <div className="equip-card">
-                        <div className="equip-icon-wrapper blue">
-                          <Footprints size={24} />
+                    {/* Presupuesto (Si tiene equipamiento, usa el detallado; si no, usa el de la ficha básica) */}
+                    {activeEquipRecord ? (
+                      activeEquipRecord.presupuesto !== null && (
+                        <div className="equip-card">
+                          <div className="equip-icon-wrapper orange">
+                            <Coins size={24} />
+                          </div>
+                          <div className="equip-details">
+                            <span className="equip-value">{formatMoney(activeEquipRecord.presupuesto)}</span>
+                            <span className="equip-label">Presupuesto / Inversión</span>
+                          </div>
                         </div>
-                        <div className="equip-details">
-                          <span className="equip-value">{formatNumber(activeEquipRecord.cruces_seguros)}</span>
-                          <span className="equip-label">Cruces seguros</span>
+                      )
+                    ) : (
+                      currentFichas.length > 0 && currentFichas[0].presupuesto && (
+                        <div className="equip-card">
+                          <div className="equip-icon-wrapper orange">
+                            <Coins size={24} />
+                          </div>
+                          <div className="equip-details">
+                            <span className="equip-value" style={{ fontSize: '1.15rem' }}>{currentFichas[0].presupuesto}</span>
+                            <span className="equip-label">Presupuesto / Inversión</span>
+                          </div>
                         </div>
-                      </div>
+                      )
                     )}
 
-                    {activeEquipRecord.luminarias_instaladas !== null && (
-                      <div className="equip-card">
-                        <div className="equip-icon-wrapper blue">
-                          <Lightbulb size={24} />
-                        </div>
-                        <div className="equip-details">
-                          <span className="equip-value">{formatNumber(activeEquipRecord.luminarias_instaladas)}</span>
-                          <span className="equip-label">Luminarias instaladas</span>
-                        </div>
-                      </div>
-                    )}
+                    {/* Campos Detallados de Equipamiento (solo si tiene equipamiento) */}
+                    {activeEquipRecord && (
+                      <>
+                        {activeEquipRecord.cruces_seguros !== null && (
+                          <div className="equip-card">
+                            <div className="equip-icon-wrapper blue">
+                              <Footprints size={24} />
+                            </div>
+                            <div className="equip-details">
+                              <span className="equip-value">{formatNumber(activeEquipRecord.cruces_seguros)}</span>
+                              <span className="equip-label">Cruces seguros</span>
+                            </div>
+                          </div>
+                        )}
 
-                    {activeEquipRecord.luminarias_reparadas !== null && (
-                      <div className="equip-card">
-                        <div className="equip-icon-wrapper blue">
-                          <Wrench size={24} />
-                        </div>
-                        <div className="equip-details">
-                          <span className="equip-value">{formatNumber(activeEquipRecord.luminarias_reparadas)}</span>
-                          <span className="equip-label">Luminarias reparadas</span>
-                        </div>
-                      </div>
-                    )}
+                        {activeEquipRecord.luminarias_instaladas !== null && (
+                          <div className="equip-card">
+                            <div className="equip-icon-wrapper blue">
+                              <Lightbulb size={24} />
+                            </div>
+                            <div className="equip-details">
+                              <span className="equip-value">{formatNumber(activeEquipRecord.luminarias_instaladas)}</span>
+                              <span className="equip-label">Luminarias instaladas</span>
+                            </div>
+                          </div>
+                        )}
 
-                    {activeEquipRecord.postes_intervenidos !== null && (
-                      <div className="equip-card">
-                        <div className="equip-icon-wrapper blue">
-                          <Zap size={24} />
-                        </div>
-                        <div className="equip-details">
-                          <span className="equip-value">{formatNumber(activeEquipRecord.postes_intervenidos)}</span>
-                          <span className="equip-label">Postes intervenidos</span>
-                        </div>
-                      </div>
-                    )}
+                        {activeEquipRecord.luminarias_reparadas !== null && (
+                          <div className="equip-card">
+                            <div className="equip-icon-wrapper blue">
+                              <Wrench size={24} />
+                            </div>
+                            <div className="equip-details">
+                              <span className="equip-value">{formatNumber(activeEquipRecord.luminarias_reparadas)}</span>
+                              <span className="equip-label">Luminarias reparadas</span>
+                            </div>
+                          </div>
+                        )}
 
-                    {activeEquipRecord.senales_instaladas !== null && (
-                      <div className="equip-card">
-                        <div className="equip-icon-wrapper blue">
-                          <TrafficCone size={24} />
-                        </div>
-                        <div className="equip-details">
-                          <span className="equip-value">{formatNumber(activeEquipRecord.senales_instaladas)}</span>
-                          <span className="equip-label">Señales instaladas</span>
-                        </div>
-                      </div>
-                    )}
+                        {activeEquipRecord.postes_intervenidos !== null && (
+                          <div className="equip-card">
+                            <div className="equip-icon-wrapper blue">
+                              <Zap size={24} />
+                            </div>
+                            <div className="equip-details">
+                              <span className="equip-value">{formatNumber(activeEquipRecord.postes_intervenidos)}</span>
+                              <span className="equip-label">Postes intervenidos</span>
+                            </div>
+                          </div>
+                        )}
 
-                    {activeEquipRecord.pintura_vial !== null && (
-                      <div className="equip-card">
-                        <div className="equip-icon-wrapper blue">
-                          <Paintbrush size={24} />
-                        </div>
-                        <div className="equip-details">
-                          <span className="equip-value">{formatArea(activeEquipRecord.pintura_vial)}</span>
-                          <span className="equip-label">Pintura vial / Muralismo</span>
-                        </div>
-                      </div>
-                    )}
+                        {activeEquipRecord.senales_instaladas !== null && (
+                          <div className="equip-card">
+                            <div className="equip-icon-wrapper blue">
+                              <TrafficCone size={24} />
+                            </div>
+                            <div className="equip-details">
+                              <span className="equip-value">{formatNumber(activeEquipRecord.senales_instaladas)}</span>
+                              <span className="equip-label">Señales instaladas</span>
+                            </div>
+                          </div>
+                        )}
 
-                    {activeEquipRecord.jardineria !== null && (
-                      <div className="equip-card">
-                        <div className="equip-icon-wrapper blue">
-                          <Sprout size={24} />
-                        </div>
-                        <div className="equip-details">
-                          <span className="equip-value">{formatArea(activeEquipRecord.jardineria)}</span>
-                          <span className="equip-label">Jardinería / Paisajismo</span>
-                        </div>
-                      </div>
-                    )}
+                        {activeEquipRecord.pintura_vial !== null && (
+                          <div className="equip-card">
+                            <div className="equip-icon-wrapper blue">
+                              <Paintbrush size={24} />
+                            </div>
+                            <div className="equip-details">
+                              <span className="equip-value">{formatArea(activeEquipRecord.pintura_vial)}</span>
+                              <span className="equip-label">Pintura vial / Muralismo</span>
+                            </div>
+                          </div>
+                        )}
 
-                    {activeEquipRecord.mobiliario_urbano !== null && (
-                      <div className="equip-card">
-                        <div className="equip-icon-wrapper blue">
-                          <Sofa size={24} />
-                        </div>
-                        <div className="equip-details">
-                          <span className="equip-value">{formatNumber(activeEquipRecord.mobiliario_urbano)}</span>
-                          <span className="equip-label">Mobiliario urbano</span>
-                        </div>
-                      </div>
-                    )}
+                        {activeEquipRecord.jardineria !== null && (
+                          <div className="equip-card">
+                            <div className="equip-icon-wrapper blue">
+                              <Sprout size={24} />
+                            </div>
+                            <div className="equip-details">
+                              <span className="equip-value">{formatArea(activeEquipRecord.jardineria)}</span>
+                              <span className="equip-label">Jardinería / Paisajismo</span>
+                            </div>
+                          </div>
+                        )}
 
-                    {activeEquipRecord.bolardos !== null && (
-                      <div className="equip-card">
-                        <div className="equip-icon-wrapper blue">
-                          <Fence size={24} />
-                        </div>
-                        <div className="equip-details">
-                          <span className="equip-value">{formatNumber(activeEquipRecord.bolardos)}</span>
-                          <span className="equip-label">Bolardos y barandas</span>
-                        </div>
-                      </div>
-                    )}
+                        {activeEquipRecord.mobiliario_urbano !== null && (
+                          <div className="equip-card">
+                            <div className="equip-icon-wrapper blue">
+                              <Sofa size={24} />
+                            </div>
+                            <div className="equip-details">
+                              <span className="equip-value">{formatNumber(activeEquipRecord.mobiliario_urbano)}</span>
+                              <span className="equip-label">Mobiliario urbano</span>
+                            </div>
+                          </div>
+                        )}
 
-                    {activeEquipRecord.acera_intervenida !== null && activeEquipRecord.acera_intervenida !== 0 && (
-                      <div className="equip-card">
-                        <div className="equip-icon-wrapper blue">
-                          <Construction size={24} />
-                        </div>
-                        <div className="equip-details">
-                          <span className="equip-value">{formatLength(activeEquipRecord.acera_intervenida)}</span>
-                          <span className="equip-label">Acera intervenida</span>
-                        </div>
-                      </div>
-                    )}
+                        {activeEquipRecord.bolardos !== null && (
+                          <div className="equip-card">
+                            <div className="equip-icon-wrapper blue">
+                              <Fence size={24} />
+                            </div>
+                            <div className="equip-details">
+                              <span className="equip-value">{formatNumber(activeEquipRecord.bolardos)}</span>
+                              <span className="equip-label">Bolardos y barandas</span>
+                            </div>
+                          </div>
+                        )}
 
-                    {activeEquipRecord.bacheo !== null && activeEquipRecord.bacheo !== 0 && (
-                      <div className="equip-card">
-                        <div className="equip-icon-wrapper blue">
-                          <Hammer size={24} />
+                        {activeEquipRecord.acera_intervenida !== null && activeEquipRecord.acera_intervenida !== 0 && (
+                          <div className="equip-card">
+                            <div className="equip-icon-wrapper blue">
+                              <Construction size={24} />
+                            </div>
+                            <div className="equip-details">
+                              <span className="equip-value">{formatLength(activeEquipRecord.acera_intervenida)}</span>
+                              <span className="equip-label">Acera intervenida</span>
                         </div>
-                        <div className="equip-details">
-                          <span className="equip-value">{formatArea(activeEquipRecord.bacheo)}</span>
-                          <span className="equip-label">Bacheo / Reparación vial</span>
-                        </div>
-                      </div>
-                    )}
+                          </div>
+                        )}
 
-                    {activeEquipRecord.camaras !== null && (
-                      <div className="equip-card">
-                        <div className="equip-icon-wrapper blue">
-                          <Video size={24} />
-                        </div>
-                        <div className="equip-details">
-                          <span className="equip-value">{formatNumber(activeEquipRecord.camaras)}</span>
-                          <span className="equip-label">Cámaras de seguridad</span>
-                        </div>
-                      </div>
+                        {activeEquipRecord.bacheo !== null && activeEquipRecord.bacheo !== 0 && (
+                          <div className="equip-card">
+                            <div className="equip-icon-wrapper blue">
+                              <Hammer size={24} />
+                            </div>
+                            <div className="equip-details">
+                              <span className="equip-value">{formatArea(activeEquipRecord.bacheo)}</span>
+                              <span className="equip-label">Bacheo / Reparación vial</span>
+                            </div>
+                          </div>
+                        )}
+
+                        {activeEquipRecord.camaras !== null && (
+                          <div className="equip-card">
+                            <div className="equip-icon-wrapper blue">
+                              <Video size={24} />
+                            </div>
+                            <div className="equip-details">
+                              <span className="equip-value">{formatNumber(activeEquipRecord.camaras)}</span>
+                              <span className="equip-label">Cámaras de seguridad</span>
+                            </div>
+                          </div>
+                        )}
+                      </>
                     )}
                   </div>
                 </>
