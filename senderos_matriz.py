@@ -82,7 +82,7 @@ MATRIZ = [
      'beneficiarios': '1.000 directos / 5.000 indirectos', 'fecha': 'NO'},
     {'clave': 'escalinatas rocafuerte', 'anio': 2025, 'nombre': 'Escalinatas Rocafuerte',
      'ejecutor': 'IMP', 'presupuesto': 'USD 399.961,11 eje vial / USD 199.846,16 escalinatas',
-     'extension': '900 m', 'beneficiarios': '1.700 directos / 8.500 indirectos', 'fecha': 'NO'},
+     'extension': '900 m', 'beneficiarios': '1.700 directos / 8.500 indirectos', 'fecha': '11 de diciembre de 2025'},
     {'clave': 'av la ecuatoriana', 'anio': 2025, 'nombre': 'Av. La Ecuatoriana',
      'ejecutor': 'Adm. Zonal Quitumbe', 'presupuesto': 'USD 44.854,97', 'extension': '480 m',
      'beneficiarios': '1.200 directos / 6.000 indirectos', 'fecha': 'NO'},
