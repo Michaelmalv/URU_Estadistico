@@ -57,8 +57,8 @@ export default function SeguridadPage() {
   const [selectedCategoria, setSelectedCategoria] = useState('');
   const [selectedProyecto, setSelectedProyecto] = useState('');
   
-  const [añoBase, setAñoBase] = useState('2024');
-  const [añoComparativo, setAñoComparativo] = useState('2025');
+  const [añoBase, setAñoBase] = useState('2023');
+  const [añoComparativo, setAñoComparativo] = useState('2026*');
   const [equipamientoTab, setEquipamientoTab] = useState('total');
   const [showEquipamiento, setShowEquipamiento] = useState(true);
 
