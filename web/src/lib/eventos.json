@@ -57,5 +57,27 @@
         "imagen": "/imagenes_senderos/banco_internacional_final.png"
       }
     ]
+  },
+  {
+    "proyecto": "Bulevar Tribuna de los Shyris",
+    "titulo_override": "Transformación Urbana: Antes / Después",
+    "eventos": [
+      {
+        "titulo": "Estado Inicial (Antes)",
+        "edicion": "Infraestructura Anterior",
+        "fecha": "Diciembre 2023",
+        "lugar": "Av. de los Shyris (Tribuna)",
+        "descripcion": "El espacio estaba ocupado por la antigua estructura de hormigón de la Tribuna de los Shyris, construida en los años 70, la cual generaba problemas de inseguridad, contaminación visual, y mal uso del espacio público destinado a estacionamientos vehiculares.",
+        "imagen": "/imagenes_senderos/tribuna_antes.jpg"
+      },
+      {
+        "titulo": "Intervención y Regeneración (Después)",
+        "edicion": "Nuevo Bulevar Peatonal",
+        "fecha": "Año 2024",
+        "lugar": "Av. de los Shyris",
+        "descripcion": "Desmantelamiento completo de la tribuna e implementación de un bulevar caminable con senderos peatonales, iluminación ornamental, arborización, y una fuente lineal decorativa. Este proyecto recuperó el espacio para la convivencia pacífica y el disfrute familiar.",
+        "imagen": "/imagenes_senderos/tribuna_despues.jpg"
+      }
+    ]
   }
 ]
