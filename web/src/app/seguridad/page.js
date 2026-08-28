@@ -835,79 +835,6 @@ export default function SeguridadPage() {
             </div>
           )}
 
-          {/* Sección de Eventos y Activación del Espacio Público */}
-          {projectEvents && projectEvents.length > 0 && (
-            <div className="card" style={{ transition: 'all 0.3s ease' }}>
-              <div 
-                className="eventos-header"
-                onClick={() => setShowEventos(!showEventos)} 
-                style={{ 
-                  cursor: 'pointer', 
-                  display: 'flex', 
-                  alignItems: 'center', 
-                  justifyContent: 'space-between',
-                  userSelect: 'none'
-                }}
-              >
-                <span style={{ fontSize: '1.15rem', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                  🎉 Encadenamiento económico: FERIAS — {getProyectoDisplayName(currentProjectObj.nombre)}
-                </span>
-                <span style={{ 
-                  display: 'inline-block', 
-                  fontSize: '0.85rem',
-                  color: 'var(--text-muted)',
-                  transition: 'transform 0.2s', 
-                  transform: showEventos ? 'rotate(90deg)' : 'rotate(0deg)' 
-                }}>
-                  ▶
-                </span>
-              </div>
-
-              {showEventos && (
-                <div style={{ marginTop: '1.5rem' }}>
-                  <div className="eventos-grid">
-                    {projectEvents.map((evento, idx) => (
-                      <div key={idx} className="evento-card">
-                        {evento.imagen && (
-                          <div className="evento-image-wrapper">
-                            <img 
-                              src={evento.imagen} 
-                              alt={evento.titulo} 
-                              className="evento-image"
-                            />
-                          </div>
-                        )}
-                        <div className="evento-content">
-                          <h4 className="evento-title">{evento.titulo}</h4>
-                          {evento.edicion && <span className="evento-edition">{evento.edicion}</span>}
-                          
-                          <div className="evento-meta">
-                            <div className="evento-meta-item">
-                              <Calendar size={16} />
-                              <span>{evento.fecha}</span>
-                            </div>
-                            {evento.hora && (
-                              <div className="evento-meta-item">
-                                <Clock size={16} />
-                                <span>{evento.hora}</span>
-                              </div>
-                            )}
-                            <div className="evento-meta-item">
-                              <MapPin size={16} />
-                              <span>{evento.lugar}</span>
-                            </div>
-                          </div>
-
-                          <p className="evento-description">{evento.descripcion}</p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
-          )}
-
           {/* Botones de acción */}
           <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
             <button className="btn btn-accent" onClick={exportToExcel}>
@@ -1237,7 +1164,78 @@ export default function SeguridadPage() {
             />
           </div>
 
+          {/* Sección de Eventos y Activación del Espacio Público */}
+          {projectEvents && projectEvents.length > 0 && (
+            <div className="card" style={{ marginTop: '1.5rem', transition: 'all 0.3s ease' }}>
+              <div 
+                className="eventos-header"
+                onClick={() => setShowEventos(!showEventos)} 
+                style={{ 
+                  cursor: 'pointer', 
+                  display: 'flex', 
+                  alignItems: 'center', 
+                  justifyContent: 'space-between',
+                  userSelect: 'none'
+                }}
+              >
+                <span style={{ fontSize: '1.15rem', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  🎉 Encadenamiento económico: FERIAS — {getProyectoDisplayName(currentProjectObj.nombre)}
+                </span>
+                <span style={{ 
+                  display: 'inline-block', 
+                  fontSize: '0.85rem',
+                  color: 'var(--text-muted)',
+                  transition: 'transform 0.2s', 
+                  transform: showEventos ? 'rotate(90deg)' : 'rotate(0deg)' 
+                }}>
+                  ▶
+                </span>
+              </div>
 
+              {showEventos && (
+                <div style={{ marginTop: '1.5rem' }}>
+                  <div className="eventos-grid">
+                    {projectEvents.map((evento, idx) => (
+                      <div key={idx} className="evento-card">
+                        {evento.imagen && (
+                          <div className="evento-image-wrapper">
+                            <img 
+                              src={evento.imagen} 
+                              alt={evento.titulo} 
+                              className="evento-image"
+                            />
+                          </div>
+                        )}
+                        <div className="evento-content">
+                          <h4 className="evento-title">{evento.titulo}</h4>
+                          {evento.edicion && <span className="evento-edition">{evento.edicion}</span>}
+                          
+                          <div className="evento-meta">
+                            <div className="evento-meta-item">
+                              <Calendar size={16} />
+                              <span>{evento.fecha}</span>
+                            </div>
+                            {evento.hora && (
+                              <div className="evento-meta-item">
+                                <Clock size={16} />
+                                <span>{evento.hora}</span>
+                              </div>
+                            )}
+                            <div className="evento-meta-item">
+                              <MapPin size={16} />
+                              <span>{evento.lugar}</span>
+                            </div>
+                          </div>
+
+                          <p className="evento-description">{evento.descripcion}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
 
         </div>
       )}
