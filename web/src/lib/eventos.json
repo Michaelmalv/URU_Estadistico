@@ -12,5 +12,28 @@
         "imagen": "/imagenes_senderos/manden_a_las_casas.jpg"
       }
     ]
+  },
+  {
+    "proyecto": "Av. Colón",
+    "titulo_override": "Encadenamiento económico: INVERSIONES COMERCIALES",
+    "eventos": [
+      {
+        "titulo": "Apertura de Carl's Jr. Colón",
+        "edicion": "Nueva Inversión Comercial",
+        "fecha": "Mayo 2024",
+        "hora": "Horario Extendido",
+        "lugar": "Av. Colón, entre Diego de Almagro y Santa María",
+        "descripcion": "Gran apertura del primer restaurante formato 'freestanding' de Carl's Jr. en Quito. La completa renovación del Corredor Vivo Av. Colón (nuevas aceras amplias, iluminación LED y soterramiento de cables) incrementó el valor urbano de la zona, atrayendo importantes inversiones de franquicias internacionales.",
+        "imagen": "/imagenes_senderos/carls_jr_apertura.png"
+      },
+      {
+        "titulo": "Cobertura de Prensa: Primer Freestanding de la Ciudad",
+        "edicion": "Repercusión en Medios",
+        "fecha": "Mayo 2024",
+        "lugar": "Av. Colón",
+        "descripcion": "La prensa destacó la apertura del nuevo local comercial, resaltando la la incorporación de desayunos, área infantil, drive-thru y horario extendido, dinamizando el sector y la oferta comercial del corredor.",
+        "imagen": "/imagenes_senderos/carls_jr_prensa.jpg"
+      }
+    ]
   }
 ]
