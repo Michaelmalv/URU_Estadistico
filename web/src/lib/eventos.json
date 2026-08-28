@@ -140,6 +140,46 @@
         "lugar": "Esquema Arquitectónico",
         "descripcion": "Diseño en planta detallado del complejo Quitopia La Y, mostrando la distribución estratégica de sus bloques (Bloque A de Capacitación, Bloque B Teatro, Bloque C Polideportivo, Bloque D Cuidados, áreas de skatepark y ciclovía).",
         "imagen": "/imagenes_senderos/quitopia_5.jpg"
+      },
+      {
+        "titulo": "Patio y Cubierta Tensionada",
+        "edicion": "Área Recreativa Exterior",
+        "fecha": "Año 2024",
+        "lugar": "Quitopia La Y",
+        "descripcion": "Fotografía del patio central de Quitopia, coronado por una gran cubierta de membrana tensionada (tensoestructura) blanca, ofreciendo sombra y protección climática para actividades culturales comunitarias.",
+        "imagen": "/imagenes_senderos/quitopia_6.jpg"
+      },
+      {
+        "titulo": "Polideportivo y Canchas Cubiertas",
+        "edicion": "Infraestructura Deportiva",
+        "fecha": "Año 2024",
+        "lugar": "Quitopia La Y",
+        "descripcion": "Vista del coliseo polideportivo interior, equipado con piso de resina azul para básquet y vóley, paneles acústicos e iluminación cenital mediante una cubierta translúcida de alta tecnología.",
+        "imagen": "/imagenes_senderos/quitopia_7.jpg"
+      },
+      {
+        "titulo": "Juegos Infantiles y Parques",
+        "edicion": "Espacio Lúdico Infantil",
+        "fecha": "Año 2024",
+        "lugar": "Quitopia La Y",
+        "descripcion": "Detalle del parque de juegos infantiles con caminerías de colores y áreas lúdicas diseñadas con materiales blandos de seguridad, ideales para el sano esparcimiento de los niños del sector.",
+        "imagen": "/imagenes_senderos/quitopia_8.jpg"
+      },
+      {
+        "titulo": "Aula Multiuso y Estimulación",
+        "edicion": "Edificio de los Cuidados",
+        "fecha": "Año 2024",
+        "lugar": "Quitopia La Y",
+        "descripcion": "Interior de las salas de estimulación temprana y psicomotricidad infantil, con ventanales de madera, iluminación cálida y pisos idóneos para el cuidado seguro de la primera infancia.",
+        "imagen": "/imagenes_senderos/quitopia_9.jpg"
+      },
+      {
+        "titulo": "Auditorio y Teatro Quitopia",
+        "edicion": "Fomento de Cultura y Arte",
+        "fecha": "Año 2024",
+        "lugar": "Teatro La Y",
+        "descripcion": "Vista del moderno auditorio con butacas tipo teatro y paneles acústicos de última generación, configurándose como un polo de difusión artística y eventos culturales en el norte de Quito.",
+        "imagen": "/imagenes_senderos/quitopia_10.jpg"
       }
     ]
   }
