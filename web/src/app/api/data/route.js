@@ -67,7 +67,8 @@ export async function GET() {
       'Bulevar Tribuna de los Shyris',
       'Parque Navarro - Plaza de las tripas',
       'Calle Rocafuerte',
-      'Calle Benalcazar'
+      'Calle Benalcazar',
+      'Ruiz de Castilla'
     ];
 
     const filteredProyectos = (proyectos || []).filter(p => ALLOWED_PROJECT_NAMES.includes(p.nombre));
