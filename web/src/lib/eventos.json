@@ -35,5 +35,27 @@
         "imagen": "/imagenes_senderos/carls_jr_prensa.jpg"
       }
     ]
+  },
+  {
+    "proyecto": "Av. Patria",
+    "titulo_override": "Encadenamiento económico: REVALORIZACIÓN EDILICIA",
+    "eventos": [
+      {
+        "titulo": "Remodelación de Fachadas (En Obra)",
+        "edicion": "Proyecto 50 Años - Fase Constructiva",
+        "fecha": "Año 2024",
+        "lugar": "Av. Patria y 9 de Octubre",
+        "descripcion": "Remodelación integral de las fachadas de los edificios Matriz y Patria de Banco Internacional S.A. La intervención del corredor peatonal de la Av. Patria motivó a la institución privada a adecuar y modernizar sus edificaciones emblemáticas en sintonía con la nueva estética urbana de la zona.",
+        "imagen": "/imagenes_senderos/banco_internacional_obra.png"
+      },
+      {
+        "titulo": "Remodelación de Fachadas (Propuesta Final)",
+        "edicion": "Proyecto 50 Años - Finalizado",
+        "fecha": "Año 2025",
+        "lugar": "Av. Patria y 9 de Octubre",
+        "descripcion": "Diseño final de la fachada modernizada del Banco Internacional S.A. Esta revalorización edilicia resalta el impacto positivo del Corredor Vivo Av. Patria al incentivar al sector corporativo privado a invertir en el mejoramiento estético e inmobiliario de su patrimonio arquitectónico.",
+        "imagen": "/imagenes_senderos/banco_internacional_final.png"
+      }
+    ]
   }
 ]
