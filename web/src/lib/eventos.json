@@ -96,5 +96,51 @@
         "imagen": "/imagenes_senderos/tribuna_despues.jpg"
       }
     ]
+  },
+  {
+    "proyecto": "Isla Tortuga",
+    "titulo_override": "Proyecto Especial: QUITOPIA",
+    "eventos": [
+      {
+        "titulo": "Centro de Capacitación y Desarrollo",
+        "edicion": "Talleres y Aulas Interactivas",
+        "fecha": "Año 2024",
+        "lugar": "Quitopia La Y (Isla Tortuga)",
+        "descripcion": "Instalaciones completamente equipadas del centro de capacitación comunitaria de Quitopia. Se aprecian las aulas equipadas con mobiliario moderno y sistemas de iluminación natural e inteligente para el aprendizaje de los vecinos.",
+        "imagen": "/imagenes_senderos/quitopia_1.jpg"
+      },
+      {
+        "titulo": "Salón de Reuniones y Eventos",
+        "edicion": "Área de Convivencia y Diálogo",
+        "fecha": "Año 2024",
+        "lugar": "Quitopia La Y",
+        "descripcion": "Vista del área de conferencias y reuniones comunitarias del complejo social, diseñada para el encuentro vecinal, socialización de proyectos y talleres de debate del barrio.",
+        "imagen": "/imagenes_senderos/quitopia_2.jpg"
+      },
+      {
+        "titulo": "Fachada y Entorno Exterior",
+        "edicion": "Diseño Arquitectónico Moderno",
+        "fecha": "Año 2024",
+        "lugar": "Quitopia La Y",
+        "descripcion": "El exterior del complejo Quitopia resalta por su diseño arquitectónico de vanguardia e integrador. Cuenta con amplias caminerías exteriores, áreas verdes de recreación y pistas para actividades al aire libre.",
+        "imagen": "/imagenes_senderos/quitopia_3.jpg"
+      },
+      {
+        "titulo": "Instalaciones Internas y Ventanal Central",
+        "edicion": "Iluminación e Infraestructura",
+        "fecha": "Año 2024",
+        "lugar": "Quitopia La Y",
+        "descripcion": "Vista del imponente ventanal en arco que conecta el vestíbulo principal del polideportivo y centro de cuidados con el entorno natural circundante, optimizando la iluminación natural del edificio.",
+        "imagen": "/imagenes_senderos/quitopia_4.jpg"
+      },
+      {
+        "titulo": "Planos y Distribución de Bloques",
+        "edicion": "Mapa de Servicios Quitopia La Y",
+        "fecha": "Año 2024",
+        "lugar": "Esquema Arquitectónico",
+        "descripcion": "Diseño en planta detallado del complejo Quitopia La Y, mostrando la distribución estratégica de sus bloques (Bloque A de Capacitación, Bloque B Teatro, Bloque C Polideportivo, Bloque D Cuidados, áreas de skatepark y ciclovía).",
+        "imagen": "/imagenes_senderos/quitopia_5.jpg"
+      }
+    ]
   }
 ]
