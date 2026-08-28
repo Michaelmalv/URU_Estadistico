@@ -850,7 +850,7 @@ export default function SeguridadPage() {
                 }}
               >
                 <span style={{ fontSize: '1.15rem', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                  🎉 Eventos y Activación del Espacio Público — {getProyectoDisplayName(currentProjectObj.nombre)}
+                  🎉 Encadenamiento económico: FERIAS — {getProyectoDisplayName(currentProjectObj.nombre)}
                 </span>
                 <span style={{ 
                   display: 'inline-block', 
