@@ -61,13 +61,13 @@ export async function GET() {
     const ALLOWED_PROJECT_NAMES = [
       'Av. Colón',
       'Av. Patria',
+      'Escalinatas Rocafuerte',
       'Isla Tortuga',
       'La Roldós Oe13-Colinas del Norte',
       'Bulevar Tribuna de los Shyris',
       'Parque Navarro - Plaza de las tripas',
       'Calle Rocafuerte',
-      'Calle Benalcazar',
-      'Ruiz de Castilla'
+      'Calle Benalcazar'
     ];
 
     const filteredProyectos = (proyectos || []).filter(p => ALLOWED_PROJECT_NAMES.includes(p.nombre));
@@ -75,7 +75,7 @@ export async function GET() {
 
     const filteredSeguridad = (seguridad || []).filter(s => allowedIds.has(s.proyecto_id));
     const filteredFichas = (fichas || []).filter(f => allowedIds.has(f.proyecto_id));
-    
+
     const ALLOWED_AIVAS_NAMES = [
       'AIVAS AV. COLÓN',
       'AIVAS PATRIA',

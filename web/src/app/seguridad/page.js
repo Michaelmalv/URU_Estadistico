@@ -10,7 +10,7 @@ import equipamientoData from '@/lib/equipamiento.json';
 import eventosData from '@/lib/eventos.json';
 import { 
   Coins, Footprints, Lightbulb, Wrench, Zap, TrafficCone, Paintbrush, Sprout, Sofa, Fence, Construction, Video, Hammer,
-  Building2, Calendar, Users, Route, Clock, MapPin
+  Building2, Calendar, Users, Route, Clock, MapPin, X, Maximize2
 } from 'lucide-react';
 
 const MapboxMap = dynamic(() => import('../components/MapboxMap'), { ssr: false });
@@ -68,10 +68,22 @@ export default function SeguridadPage() {
   const añosActual = [añoComparativo];
 
   const [catalogoImagenes, setCatalogoImagenes] = useState({});
+  const [modalImage, setModalImage] = useState(null);
 
   const [expandIncidentes, setExpandIncidentes] = useState(false);
   const [expandDelitos, setExpandDelitos] = useState(false);
   const [showMetodologia, setShowMetodologia] = useState(false);
+
+  // Cerrar modal con tecla Escape
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        setModalImage(null);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
 
   // Cargar datos al montar
   useEffect(() => {
@@ -1198,12 +1210,26 @@ export default function SeguridadPage() {
                     {projectEvents.map((evento, idx) => (
                       <div key={idx} className="evento-card">
                         {evento.imagen && (
-                          <div className="evento-image-wrapper">
+                          <div 
+                            className="evento-image-wrapper"
+                            onClick={() => setModalImage({
+                              src: evento.imagen,
+                              alt: evento.titulo,
+                              title: evento.titulo,
+                              edicion: evento.edicion,
+                              description: evento.descripcion
+                            })}
+                            title="Haz clic para ver en pantalla completa"
+                          >
                             <img 
                               src={evento.imagen} 
                               alt={evento.titulo} 
                               className="evento-image"
                             />
+                            <div className="evento-image-zoom-hint">
+                              <Maximize2 size={16} />
+                              <span>Ampliar</span>
+                            </div>
                           </div>
                         )}
                         <div className="evento-content">
@@ -1237,6 +1263,46 @@ export default function SeguridadPage() {
             </div>
           )}
 
+        </div>
+      )}
+
+      {/* Modal / Lightbox para ampliación de imagen */}
+      {modalImage && (
+        <div 
+          className="lightbox-overlay"
+          onClick={() => setModalImage(null)}
+        >
+          <div 
+            className="lightbox-container"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button 
+              className="lightbox-close-btn"
+              onClick={() => setModalImage(null)}
+              title="Cerrar (Esc)"
+              aria-label="Cerrar"
+            >
+              <X size={22} />
+            </button>
+
+            <div className="lightbox-image-wrapper">
+              <img 
+                src={modalImage.src} 
+                alt={modalImage.alt || 'Imagen ampliada'} 
+                className="lightbox-image"
+              />
+            </div>
+
+            {(modalImage.title || modalImage.description) && (
+              <div className="lightbox-caption">
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '0.75rem', flexWrap: 'wrap' }}>
+                  {modalImage.title && <h3 className="lightbox-title">{modalImage.title}</h3>}
+                  {modalImage.edicion && <span className="lightbox-edition">{modalImage.edicion}</span>}
+                </div>
+                {modalImage.description && <p className="lightbox-desc">{modalImage.description}</p>}
+              </div>
+            )}
+          </div>
         </div>
       )}
     </div>
