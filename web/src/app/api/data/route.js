@@ -61,7 +61,7 @@ export async function GET() {
     const ALLOWED_PROJECT_NAMES = [
       'Av. Colón',
       'Av. Patria',
-      'Escalinatas Rocafuerte',
+      'Ruiz de Castilla',
       'Isla Tortuga',
       'La Roldós Oe13-Colinas del Norte',
       'Bulevar Tribuna de los Shyris',
