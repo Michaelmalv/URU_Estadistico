@@ -9,16 +9,17 @@ export default function Navbar() {
 
   const tabs = [
     { name: 'INFORMACIÓN', path: '/' },
-    { name: 'SEGURIDAD', path: '/seguridad' },
-    { name: 'ECONOMÍA', path: '/economia' },
-    { name: 'VALOR DE SUELO', path: '/valor-suelo' },
+    { name: 'CORREDORES VIVOS', path: '/corredores-vivos' },
+    { name: 'ZONAS METRO', path: '/zonas-metro' },
+    { name: 'REHABILITACIÓN DEL ESPACIO PÚBLICO', path: '/rehabilitacion-espacio-publico' },
+    { name: 'SOTERRAMIENTO', path: '/soterramiento' },
   ];
 
   return (
     <nav className="navbar-tabs">
       <div className="navbar-container">
         {tabs.map((tab) => {
-          const isActive = pathname === tab.path;
+          const isActive = pathname === tab.path || (tab.path !== '/' && pathname?.startsWith(tab.path));
           return (
             <Link
               key={tab.path}

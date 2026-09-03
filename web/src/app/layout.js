@@ -1,16 +1,5 @@
-import { Outfit, Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
-
-const outfit = Outfit({
-  variable: "--font-heading",
-  subsets: ["latin"],
-});
-
-const inter = Inter({
-  variable: "--font-body",
-  subsets: ["latin"],
-});
 
 export const metadata = {
   title: "PORTAL DE EVALUACIÓN DE PROYECTOS ESTRATÉGICOS",
@@ -19,7 +8,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="es" className={`${outfit.variable} ${inter.variable}`}>
+    <html lang="es">
       <body>
         <header className="portal-header">
           <div 
