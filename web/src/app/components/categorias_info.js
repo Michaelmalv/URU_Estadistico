@@ -383,5 +383,82 @@ export const CATEGORIAS_INFO = {
         </ul>
       </div>
     )
+  },
+
+  'Soterramiento': {
+    image: '/imagenes_categorias/soterramiento/soterramiento_portada.png',
+    summary: 'Plan integral de intervención urbana para trasladar bajo tierra el tendido aéreo de redes eléctricas y de telecomunicaciones.',
+    content: (
+      <div className="article-content">
+        <h1>Soterramiento de Redes de Servicios en Quito</h1>
+        <div className="info-alert">
+          El <strong>Soterramiento de Redes de Servicios</strong> es una intervención urbana estratégica orientada a trasladar al subsuelo el tendido aéreo de cables correspondiente a redes eléctricas y de telecomunicaciones en el Distrito Metropolitano de Quito.
+        </div>
+        
+        <h3>1. ¿Qué es el soterramiento?</h3>
+        <p>
+          Es la intervención urbana orientada a trasladar bajo tierra (al subsuelo) el tendido aéreo de cables correspondiente a redes eléctricas y de telecomunicaciones.
+        </p>
+        <p>
+          No se trata únicamente de ocultar cables: es un proyecto integral de regeneración del espacio público que incluye la rehabilitación de aceras, la adecuación del mobiliario urbano y la eliminación de postes saturados.
+        </p>
+
+        <h3>2. ¿Por qué es necesario en la ciudad?</h3>
+        <p>
+          El crecimiento urbano no planificado generó una saturación extrema de cables aéreos (conocidos popularmente como «tallarines»). El plan responde a cuatro urgencias principales:
+        </p>
+        <ul>
+          <li><strong>Seguridad ciudadana y salud:</strong> Prevenir accidentes por desprendimiento de cables, caídas de postes o cortocircuitos que amenazan a peatones y viviendas.</li>
+          <li><strong>Medio ambiente y arbolado:</strong> El cableado aéreo limita severamente el crecimiento natural y la siembra de árboles urbanos nativos.</li>
+          <li><strong>Paisaje e imagen urbana:</strong> Eliminar la severa contaminación visual en zonas residenciales, comerciales, patrimoniales y turísticas.</li>
+          <li><strong>Calidad técnica del servicio:</strong> Reducir fallas e interrupciones en los servicios de energía e internet provocadas por la sobrecarga y el desorden físico.</li>
+        </ul>
+
+        <div className="detail-image-container">
+          <img src="/imagenes_categorias/soterramiento/image1.jpeg" alt="Metodología y Alcance del Soterramiento" />
+          <div className="detail-image-caption">
+            Fuente: Empresa Pública Metropolitana de Movilidad y Obras Públicas (EPMMOP) / Municipio de Quito
+          </div>
+        </div>
+
+        <h3>3. ¿Cómo se eligen las zonas a intervenir? (Metodología de Priorización)</h3>
+        <p>
+          Para no intervenir de forma dispersa, el Municipio estableció <strong>14 criterios técnicos agrupados en 5 dimensiones clave</strong>:
+        </p>
+        <ul>
+          <li><strong>Conectividad con el Espacio Público:</strong> Cercanía a áreas verdes por habitante, parques, plazas y conexión con corredores verdes ecológicos.</li>
+          <li><strong>Mejoramiento del Espacio Público:</strong> Calles con mayor saturación de cables, anchos de acera y continuidad con tramos ya soterrados.</li>
+          <li><strong>Imagen Urbana y Desarrollo Turístico:</strong> Áreas de interés patrimonial, rutas culturales y sectores de alta prioridad según la normativa metropolitana.</li>
+          <li><strong>Población Beneficiada y Comercio:</strong> Zonas de alta densidad poblacional, cobertura de equipamientos (salud, educación) y centralidades urbanas.</li>
+          <li><strong>Movilidad Sostenible:</strong> Integración con paradas del Metro de Quito, corredores de transporte público (BRT/buses) y la red de ciclovías.</li>
+        </ul>
+
+        <h3>4. Metas y Alcance del Plan</h3>
+        <p>
+          El Plan Metropolitano de Intervención contempla la ejecución de obras a través de la <strong>EPMMOP</strong>:
+        </p>
+        <ul>
+          <li><strong>Meta total:</strong> <strong>504 km</strong> en polígonos y ejes viales priorizados.</li>
+          <li><strong>Distribución territorial de las obras:</strong>
+            <ul style={{ marginTop: '0.5rem' }}>
+              <li><strong>Norte:</strong> 56,78% (286,19 km)</li>
+              <li><strong>Sur:</strong> 33,01% (166,16 km)</li>
+              <li><strong>Centro:</strong> 7,43% (37,53 km)</li>
+              <li><strong>Valles:</strong> 2,78% (14,16 km)</li>
+            </ul>
+          </li>
+          <li><strong>Fases de intervención:</strong> Se ejecutan en <strong>Fase 1</strong> aquellos proyectos con ponderación técnica igual o superior a 50 puntos (como sectores de alta afluencia: Pradera, Río Coca, Centro Histórico, corredores de transporte), y en <strong>Fase 2</strong> aquellos con calificación menor a 50 puntos.</li>
+        </ul>
+
+        <h3>5. Beneficios para la ciudadanía</h3>
+        <ul>
+          <li><strong>Aceras más amplias y accesibles:</strong> Espacio libre de obstáculos para peatones, coches de bebé y personas con movilidad reducida.</li>
+          <li><strong>Calles visualmente limpias:</strong> Revalorización del entorno barrial, comercial y patrimonial.</li>
+          <li><strong>Mayor resiliencia y servicios estables:</strong> Infraestructuras protegidas bajo tierra frente a lluvias, vientos o incidentes viales.</li>
+          <li><strong>Más verde para la ciudad:</strong> Permite arborizar calles que antes tenían prohibida la plantación de especies por el riesgo con los cables aéreos.</li>
+        </ul>
+      </div>
+    )
   }
 };
+
