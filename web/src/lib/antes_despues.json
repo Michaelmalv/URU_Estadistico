@@ -1,0 +1,20 @@
+[
+  {
+    "proyecto": "Av. Patria",
+    "titulo": "Transformación Urbana — Av. Patria",
+    "subtitulo": "Comparativa de intervención vial, seguridad peatonal e iluminación",
+    "descripcion": "Evidencia de la regeneración integral en la intersección y corredor de la Av. Patria: modernización del perfil vial, incorporación de cruces cebras seguros y señalización táctica de colores, ampliación de áreas peatonales y repotenciación del alumbrado público.",
+    "antes": {
+      "imagen": "/antes_despues/av_patria/antes.jpg",
+      "etiqueta": "ANTES",
+      "fecha": "Pre-Intervención",
+      "descripcion": "Perfil vial convencional con asfalto desgastado, menor visibilidad nocturna y sin delimitación de cruces seguros."
+    },
+    "despues": {
+      "imagen": "/antes_despues/av_patria/despues.jpg",
+      "etiqueta": "DESPUÉS",
+      "fecha": "Inaugurado y Operativo",
+      "descripcion": "Corredor Vivo iluminado con señalética peatonal de alto impacto, ciclovía segregada, pintura mural y cruces tácticos."
+    }
+  }
+]

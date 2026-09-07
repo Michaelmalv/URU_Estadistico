@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import equipamientoData from '@/lib/equipamiento.json';
 import eventosData from '@/lib/eventos.json';
+import AntesDespuesView from './AntesDespuesView';
 import { 
   Building2, Calendar, Users, Route, Clock, MapPin, X, Maximize2,
   Coins, Footprints, Lightbulb, Wrench, Zap, TrafficCone, Paintbrush, 
@@ -480,7 +481,13 @@ export default function InformacionGeneralView({
         </div>
       )}
 
-      {/* 2. Mapa Interactivo del Proyecto */}
+      {/* 2. Transformación Urbana: Antes y Después */}
+      <AntesDespuesView 
+        projectName={currentProjectObj.nombre} 
+        onOpenModalImage={setModalImage} 
+      />
+
+      {/* 3. Mapa Interactivo del Proyecto */}
       <div className="card">
         <h3 style={{ marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
           <MapIcon size={20} color="var(--color-primary)" /> Mapa Interactivo del Proyecto
