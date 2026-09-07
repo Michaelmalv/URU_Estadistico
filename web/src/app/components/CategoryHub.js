@@ -2,11 +2,10 @@
 'use client';
 
 import { useState } from 'react';
-import { Shield, TrendingUp, Landmark, Info } from 'lucide-react';
+import { Shield, TrendingUp, Landmark } from 'lucide-react';
 import SeguridadView from './SeguridadView';
 import EconomiaView from './EconomiaView';
 import ValorSueloView from './ValorSueloView';
-import { CATEGORIAS_INFO } from './categorias_info';
 
 export default function CategoryHub({
   categoryKey,
@@ -20,10 +19,7 @@ export default function CategoryHub({
     { id: 'seguridad', label: 'Seguridad', icon: Shield },
     { id: 'economia', label: 'Economía', icon: TrendingUp },
     { id: 'valor-suelo', label: 'Valor de Suelo', icon: Landmark },
-    { id: 'informacion', label: 'Información del Eje', icon: Info },
   ];
-
-  const infoData = CATEGORIAS_INFO[categoryKey];
 
   return (
     <div className="category-hub">
@@ -73,20 +69,6 @@ export default function CategoryHub({
         {activeSubTab === 'valor-suelo' && (
           <div className="subtab-panel fade-in">
             <ValorSueloView fixedCategoria={categoryKey} hideCategorySelector={true} />
-          </div>
-        )}
-
-        {activeSubTab === 'informacion' && (
-          <div className="subtab-panel fade-in">
-            {infoData?.content ? (
-              <div className="article-card">
-                {infoData.content}
-              </div>
-            ) : (
-              <div className="card" style={{ padding: '3rem 1.5rem', textAlign: 'center' }}>
-                <p style={{ color: 'var(--text-muted)' }}>No hay información descriptiva disponible para este eje.</p>
-              </div>
-            )}
           </div>
         )}
       </div>
