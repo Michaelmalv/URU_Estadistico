@@ -2,7 +2,8 @@
 'use client';
 
 import { useState, useEffect, useMemo } from 'react';
-import { Shield, TrendingUp, Landmark } from 'lucide-react';
+import { Info, Shield, TrendingUp, Landmark } from 'lucide-react';
+import InformacionGeneralView from './InformacionGeneralView';
 import SeguridadView from './SeguridadView';
 import EconomiaView from './EconomiaView';
 import ValorSueloView from './ValorSueloView';
@@ -19,7 +20,7 @@ export default function CategoryHub({
   categoryKey,
   title,
   subtitle,
-  defaultSubTab = 'seguridad'
+  defaultSubTab = 'info-general'
 }) {
   const [activeSubTab, setActiveSubTab] = useState(defaultSubTab);
   const [proyectos, setProyectos] = useState([]);
@@ -27,6 +28,7 @@ export default function CategoryHub({
   const [loading, setLoading] = useState(true);
 
   const subTabs = [
+    { id: 'info-general', label: 'Información General', icon: Info },
     { id: 'seguridad', label: 'Seguridad', icon: Shield },
     { id: 'economia', label: 'Economía', icon: TrendingUp },
     { id: 'valor-suelo', label: 'Valor de Suelo', icon: Landmark },
@@ -146,6 +148,16 @@ export default function CategoryHub({
 
       {/* 4. Contenido de la Subpestaña Activa con Proyecto Persistente */}
       <div className="subnav-content-container">
+        {activeSubTab === 'info-general' && (
+          <div className="subtab-panel fade-in">
+            <InformacionGeneralView
+              fixedCategoria={categoryKey}
+              externalSelectedProyecto={selectedProyecto}
+              onSelectProyecto={setSelectedProyecto}
+            />
+          </div>
+        )}
+
         {activeSubTab === 'seguridad' && (
           <div className="subtab-panel fade-in">
             <SeguridadView

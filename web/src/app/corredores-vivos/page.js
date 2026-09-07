@@ -13,7 +13,7 @@ export default function CorredoresVivosPage() {
       categoryKey="Corredores Vivos"
       title="Corredores Vivos"
       subtitle="Corredores peatonales seguros y senderos urbanos diseñados para revitalizar el espacio público y mitigar la incidencia delictiva."
-      defaultSubTab="seguridad"
+      defaultSubTab="info-general"
     />
   );
 }

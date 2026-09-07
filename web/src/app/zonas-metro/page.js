@@ -13,7 +13,7 @@ export default function ZonasMetroPage() {
       categoryKey="Zonas Metro"
       title="Zonas Metro"
       subtitle="Evaluación de impacto urbano, dinámicas comerciales y seguridad en las 15 estaciones del Metro de Quito."
-      defaultSubTab="seguridad"
+      defaultSubTab="info-general"
     />
   );
 }

@@ -13,7 +13,7 @@ export default function RehabilitacionEspacioPublicoPage() {
       categoryKey="Rehabilitación del Espacio Público"
       title="Rehabilitación del Espacio Público"
       subtitle="Intervenciones emblemáticas de recuperación urbana, bulevares y patrimonio en el Centro Histórico y sectores estratégicos."
-      defaultSubTab="seguridad"
+      defaultSubTab="info-general"
     />
   );
 }
