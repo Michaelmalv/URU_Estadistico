@@ -5,15 +5,13 @@ import { useState, useEffect } from 'react';
 import { 
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, LabelList 
 } from 'recharts';
-import { Shield, TrendingDown, TrendingUp, AlertTriangle } from 'lucide-react';
 
-const INCIDENTES = [];
 const DELITOS = [
   'Robo a personas',
   'Robo a unidades económicas',
   'Robo a domicilios',
 ];
-const ALL_VARS = [...INCIDENTES, ...DELITOS];
+const ALL_VARS = [...DELITOS];
 const PERIODOS = ['2023', '2024', '2025', '2026*'];
 
 function normalizeText(text) {
@@ -42,7 +40,6 @@ export default function SeguridadView({
   const [loading, setLoading] = useState(true);
   const [proyectos, setProyectos] = useState([]);
   const [seguridadData, setSeguridadData] = useState([]);
-  const [fichas, setFichas] = useState([]);
   
   const [categorias, setCategorias] = useState([]);
   const [selectedCategoria, setSelectedCategoria] = useState('');
@@ -50,30 +47,12 @@ export default function SeguridadView({
   
   const [añoBase, setAñoBase] = useState('2023');
   const [añoComparativo, setAñoComparativo] = useState('2026*');
-  const [equipamientoTab, setEquipamientoTab] = useState('total');
-  const [showEquipamiento, setShowEquipamiento] = useState(true);
-  const [showEventos, setShowEventos] = useState(true);
 
   const añosAnterior = [añoBase];
   const añosActual = [añoComparativo];
 
-  const [catalogoImagenes, setCatalogoImagenes] = useState({});
-  const [modalImage, setModalImage] = useState(null);
-
-  const [expandIncidentes, setExpandIncidentes] = useState(false);
   const [expandDelitos, setExpandDelitos] = useState(false);
   const [showMetodologia, setShowMetodologia] = useState(false);
-
-  // Cerrar modal con tecla Escape
-  useEffect(() => {
-    const handleKeyDown = (e) => {
-      if (e.key === 'Escape') {
-        setModalImage(null);
-      }
-    };
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, []);
 
   // Cargar datos al montar
   useEffect(() => {
@@ -82,12 +61,11 @@ export default function SeguridadView({
         const res = await fetch('/api/data');
         const data = await res.json();
         if (data.success) {
-          setProyectos(data.proyectos);
-          setSeguridadData(data.seguridad);
-          setFichas(data.fichas);
+          setProyectos(data.proyectos || []);
+          setSeguridadData(data.seguridad || []);
           
           // Extraer categorias únicas
-          let cats = [...new Set(data.proyectos.map(p => p.categoria))].filter(Boolean).sort();
+          let cats = [...new Set((data.proyectos || []).map(p => p.categoria))].filter(Boolean).sort();
           
           if (fixedCategoria) {
             if (fixedCategoria === 'Rehabilitación del Espacio Público' || fixedCategoria === 'Rehabilitación del Espacio Público y Centro Histórico') {
@@ -110,25 +88,13 @@ export default function SeguridadView({
       }
     }
 
-    async function fetchCatalogo() {
-      try {
-        const res = await fetch('/imagenes_senderos/catalogo.json');
-        const data = await res.json();
-        setCatalogoImagenes(data);
-      } catch (err) {
-        console.warn('No se pudo cargar el catalogo de imagenes:', err);
-      }
-    }
-
     fetchData();
-    fetchCatalogo();
   }, [fixedCategoria]);
 
   // Sincronizar proyecto externo si es provisto
   useEffect(() => {
     if (externalSelectedProyecto) {
       setSelectedProyecto(externalSelectedProyecto);
-      setEquipamientoTab('total');
     }
   }, [externalSelectedProyecto]);
 
@@ -162,7 +128,6 @@ export default function SeguridadView({
     } else {
       setSelectedProyecto('');
     }
-    setEquipamientoTab('total');
   }, [selectedCategoria, fixedCategoria, proyectos, seguridadData, selectedProyecto, externalSelectedProyecto]);
 
   if (loading) {
@@ -187,10 +152,7 @@ export default function SeguridadView({
     .filter(p => seguridadData.some(s => s.proyecto_id === p.id));
 
   const currentProjectObj = proyectos.find(p => p.nombre === selectedProyecto);
-  const currentFichas = fichas.filter(f => f.proyecto_id === currentProjectObj?.id);
   const currentStats = seguridadData.filter(s => s.proyecto_id === currentProjectObj?.id);
-  const projectEventData = eventosData.find(e => e.proyecto === selectedProyecto);
-  const projectEvents = projectEventData ? projectEventData.eventos : [];
 
   // Lógica de Proyección 2026 (blend 60/40)
   const proyecciones2026 = {};
@@ -302,97 +264,6 @@ export default function SeguridadView({
       return row;
     });
   };
-
-  const formatMoney = (value) => {
-    if (value === null || value === undefined) return '—';
-    let formatted = value.toLocaleString('es-EC', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-    if (value >= 1000000) {
-      const parts = formatted.split('.');
-      if (parts.length >= 3) {
-        formatted = parts[0] + "'" + parts.slice(1).join('.');
-      }
-    }
-    return '$ ' + formatted;
-  };
-
-  const formatNumber = (value) => {
-    if (value === null || value === undefined) return '—';
-    return value.toLocaleString('es-EC');
-  };
-
-  const formatArea = (value) => {
-    if (value === null || value === undefined || value === 0) return '—';
-    return value.toLocaleString('es-EC') + ' m²';
-  };
-
-  const formatLength = (value) => {
-    if (value === null || value === undefined || value === 0) return '—';
-    return value.toLocaleString('es-EC') + ' m';
-  };
-
-  const getEquipamientoData = () => {
-    if (!currentProjectObj) return null;
-    const norm = normalizeText(currentProjectObj.nombre);
-    const excelName = NORM_EQUIPMENT_MAP[norm];
-    if (!excelName) return null;
-
-    const records = equipamientoData.filter(e => e.nombre_sendero === excelName);
-    if (records.length === 0) return null;
-
-    const hasAnyData = records.some(r => r.presupuesto !== null || r.luminarias_instaladas !== null || r.cruces_seguros !== null || r.acera_intervenida !== null);
-    if (!hasAnyData) return null;
-
-    if (records.length > 1) {
-      const totalRecord = {
-        nombre_sendero: excelName,
-        administracion_zonal: records[0].administracion_zonal,
-        barrios: records[0].barrios,
-        fecha_inicio: null,
-        fecha_fin: null,
-        longitud_intervenida: records.map(r => r.longitud_intervenida).filter(Boolean).join(' / '),
-        presupuesto: records.reduce((sum, r) => sum + (r.presupuesto || 0), 0),
-        luminarias_instaladas: records.reduce((sum, r) => sum + (r.luminarias_instaladas || 0), 0),
-        luminarias_reparadas: records.reduce((sum, r) => sum + (r.luminarias_reparadas || 0), 0),
-        postes_intervenidos: records.reduce((sum, r) => sum + (r.postes_intervenidos || 0), 0),
-        senales_instaladas: records.reduce((sum, r) => sum + (r.senales_instaladas || 0), 0),
-        cruces_seguros: records.reduce((sum, r) => sum + (r.cruces_seguros || 0), 0),
-        pintura_vial: records.reduce((sum, r) => sum + (r.pintura_vial || 0), 0),
-        jardineria: records.reduce((sum, r) => sum + (r.jardineria || 0), 0),
-        mobiliario_urbano: records.reduce((sum, r) => sum + (r.mobiliario_urbano || 0), 0),
-        bolardos: records.reduce((sum, r) => sum + (r.bolardos || 0), 0),
-        acera_intervenida: records.reduce((sum, r) => sum + (r.acera_intervenida || 0), 0),
-        bacheo: records.reduce((sum, r) => sum + (r.bacheo || 0), 0),
-        camaras: records.reduce((sum, r) => sum + (r.camaras || 0), 0),
-        tipo: 'total'
-      };
-      return {
-        records,
-        hasTabs: true,
-        total: totalRecord
-      };
-    }
-
-    return {
-      records,
-      hasTabs: false,
-      total: records[0]
-    };
-  };
-
-  const equipDataInfo = getEquipamientoData();
-  
-  let activeEquipRecord = null;
-  if (equipDataInfo) {
-    if (equipDataInfo.hasTabs) {
-      if (equipamientoTab === 'total') {
-        activeEquipRecord = equipDataInfo.total;
-      } else {
-        activeEquipRecord = equipDataInfo.records.find(r => r.tipo === equipamientoTab);
-      }
-    } else {
-      activeEquipRecord = equipDataInfo.total;
-    }
-  }
 
   // Exportar datos a Excel
   const exportToExcel = async () => {
@@ -578,7 +449,6 @@ export default function SeguridadView({
               value={selectedProyecto}
               onChange={(e) => { 
                 setSelectedProyecto(e.target.value); 
-                setEquipamientoTab('total'); 
                 if (onSelectProyecto) onSelectProyecto(e.target.value);
               }}
             >
