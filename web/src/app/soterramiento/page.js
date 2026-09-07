@@ -13,7 +13,7 @@ export default function SoterramientoPage() {
       categoryKey="Soterramiento"
       title="Soterramiento"
       subtitle="Plan integral de soterramiento de redes eléctricas y de telecomunicaciones para la regeneración urbana y seguridad de Quito."
-      defaultSubTab="informacion"
+      defaultSubTab="seguridad"
     />
   );
 }

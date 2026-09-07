@@ -48,7 +48,13 @@ const NORM_EQUIPMENT_MAP = {
   'calle rocafuerte': 'Calle Rocafuerte'
 };
 
-export default function SeguridadView({ fixedCategoria = null, hideCategorySelector = false }) {
+export default function SeguridadView({ 
+  fixedCategoria = null, 
+  hideCategorySelector = false,
+  hideProjectSelector = false,
+  externalSelectedProyecto = null,
+  onSelectProyecto = null
+}) {
   const [loading, setLoading] = useState(true);
   const [proyectos, setProyectos] = useState([]);
   const [seguridadData, setSeguridadData] = useState([]);
@@ -56,7 +62,7 @@ export default function SeguridadView({ fixedCategoria = null, hideCategorySelec
   
   const [categorias, setCategorias] = useState([]);
   const [selectedCategoria, setSelectedCategoria] = useState('');
-  const [selectedProyecto, setSelectedProyecto] = useState('');
+  const [selectedProyecto, setSelectedProyecto] = useState(externalSelectedProyecto || '');
   
   const [añoBase, setAñoBase] = useState('2023');
   const [añoComparativo, setAñoComparativo] = useState('2026*');
@@ -134,8 +140,18 @@ export default function SeguridadView({ fixedCategoria = null, hideCategorySelec
     fetchCatalogo();
   }, [fixedCategoria]);
 
-  // Al cambiar categoria o proyectos, seleccionar primer proyecto válido
+  // Sincronizar proyecto externo si es provisto
   useEffect(() => {
+    if (externalSelectedProyecto) {
+      setSelectedProyecto(externalSelectedProyecto);
+      setEquipamientoTab('total');
+    }
+  }, [externalSelectedProyecto]);
+
+  // Al cambiar categoria o proyectos, seleccionar primer proyecto válido si no hay externo
+  useEffect(() => {
+    if (externalSelectedProyecto) return;
+
     let availableProjects = [];
     if (fixedCategoria) {
       if (fixedCategoria === 'Rehabilitación del Espacio Público' || fixedCategoria === 'Rehabilitación del Espacio Público y Centro Histórico') {
@@ -163,7 +179,7 @@ export default function SeguridadView({ fixedCategoria = null, hideCategorySelec
       setSelectedProyecto('');
     }
     setEquipamientoTab('total');
-  }, [selectedCategoria, fixedCategoria, proyectos, seguridadData, selectedProyecto]);
+  }, [selectedCategoria, fixedCategoria, proyectos, seguridadData, selectedProyecto, externalSelectedProyecto]);
 
   if (loading) {
     return (
@@ -555,34 +571,40 @@ export default function SeguridadView({ fixedCategoria = null, hideCategorySelec
 
   return (
     <div>
-      {/* Fila de Filtros */}
-      <div className="filter-row">
-        {(!hideCategorySelector || (!fixedCategoria && categorias.length > 1)) && (
-          <div className="filter-group">
-            <span className="filter-label">Categoría</span>
+      {/* Fila de Filtros (ocultada si el selector se renderiza a nivel de CategoryHub) */}
+      {!hideProjectSelector && (
+        <div className="filter-row">
+          {(!hideCategorySelector || (!fixedCategoria && categorias.length > 1)) && (
+            <div className="filter-group">
+              <span className="filter-label">Categoría</span>
+              <select 
+                className="filter-select"
+                value={selectedCategoria}
+                onChange={(e) => setSelectedCategoria(e.target.value)}
+              >
+                {categorias.map(c => <option key={c} value={c}>{c}</option>)}
+              </select>
+            </div>
+          )}
+
+          <div className="filter-group" style={{ flexGrow: 1 }}>
+            <span className="filter-label">Proyecto / Intervención</span>
             <select 
               className="filter-select"
-              value={selectedCategoria}
-              onChange={(e) => setSelectedCategoria(e.target.value)}
+              value={selectedProyecto}
+              onChange={(e) => { 
+                setSelectedProyecto(e.target.value); 
+                setEquipamientoTab('total'); 
+                if (onSelectProyecto) onSelectProyecto(e.target.value);
+              }}
             >
-              {categorias.map(c => <option key={c} value={c}>{c}</option>)}
+              {availableProjectsForSelect.map(p => (
+                <option key={p.id} value={p.nombre}>{getProyectoDisplayName(p.nombre)}</option>
+              ))}
             </select>
           </div>
-        )}
-
-        <div className="filter-group" style={{ flexGrow: 1 }}>
-          <span className="filter-label">Proyecto / Intervención</span>
-          <select 
-            className="filter-select"
-            value={selectedProyecto}
-            onChange={(e) => { setSelectedProyecto(e.target.value); setEquipamientoTab('total'); }}
-          >
-            {availableProjectsForSelect.map(p => (
-              <option key={p.id} value={p.nombre}>{getProyectoDisplayName(p.nombre)}</option>
-            ))}
-          </select>
         </div>
-      </div>
+      )}
 
       {currentProjectObj && (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', marginTop: '1.5rem' }}>

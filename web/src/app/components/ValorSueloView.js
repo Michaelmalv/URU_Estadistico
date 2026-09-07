@@ -52,7 +52,50 @@ function resolveValorSueloCategoria(proyecto) {
   return 'Sin categoría';
 }
 
-export default function ValorSueloView({ fixedCategoria = null, hideCategorySelector = false }) {
+const mapToAivasProject = (canonicalName, list) => {
+  if (!canonicalName || !list || list.length === 0) return null;
+  const norm = normalizeText(canonicalName);
+
+  // Exact match
+  let found = list.find(p => normalizeText(p.proyecto) === norm);
+  if (found) return found.proyecto;
+
+  // Specific alias mappings
+  const ALIAS_MAP = {
+    'av colon': 'AIVAS AV. COLÓN',
+    'av patria': 'AIVAS PATRIA',
+    'isla tortuga': 'AIVAS ISLA TORTUGA',
+    'ruiz de castilla': 'AIVAS CALLE RUIZ DE CASTILLA',
+    'la roldos oe13 colinas del norte': 'AIVAS COLINAS DEL NORTE',
+    'bulevar tribuna de los shyris': 'AIVAS TRIBUNA DE LOS SHYRIS',
+    'parque navarro plaza de las tripas': 'AIVAS PARQUE NAVARRO',
+    'calle rocafuerte': 'AIVAS ROCAFUERTE',
+    'calle benalcazar': 'AIVAS BENALCAZAR',
+  };
+
+  const mappedAlias = ALIAS_MAP[norm];
+  if (mappedAlias) {
+    found = list.find(p => normalizeText(p.proyecto) === normalizeText(mappedAlias));
+    if (found) return found.proyecto;
+  }
+
+  // Fuzzy search without 'aivas ' prefix
+  found = list.find(p => {
+    const normP = normalizeText(p.proyecto).replace(/^aivas\s+/, '');
+    return normP === norm || norm.includes(normP) || normP.includes(norm);
+  });
+  if (found) return found.proyecto;
+
+  return null;
+};
+
+export default function ValorSueloView({ 
+  fixedCategoria = null, 
+  hideCategorySelector = false,
+  hideProjectSelector = false,
+  externalSelectedProyecto = null,
+  onSelectProyecto = null
+}) {
   const [loading, setLoading] = useState(true);
   const [rawRecords, setRawRecords] = useState([]);
   
@@ -154,8 +197,20 @@ export default function ValorSueloView({ fixedCategoria = null, hideCategorySele
     return proyectosResumen.filter(p => p.categoria === selectedCategoria);
   }, [proyectosResumen, selectedCategoria]);
 
-  // Sincronizar el proyecto seleccionado cuando cambie la categoría o los proyectos filtrados
+  // Sincronizar proyecto externo si es provisto
   useEffect(() => {
+    if (externalSelectedProyecto && (proyectosFiltrados.length > 0 || proyectosResumen.length > 0)) {
+      const matched = mapToAivasProject(externalSelectedProyecto, proyectosFiltrados) ||
+                      mapToAivasProject(externalSelectedProyecto, proyectosResumen);
+      if (matched) {
+        setSelectedProyecto(matched);
+      }
+    }
+  }, [externalSelectedProyecto, proyectosFiltrados, proyectosResumen]);
+
+  // Sincronizar el proyecto seleccionado cuando cambie la categoría o los proyectos filtrados si no hay selección externa
+  useEffect(() => {
+    if (externalSelectedProyecto) return;
     if (proyectosFiltrados.length > 0) {
       const index = proyectosFiltrados.findIndex(p => p.proyecto === selectedProyecto);
       if (index === -1) {
@@ -164,7 +219,7 @@ export default function ValorSueloView({ fixedCategoria = null, hideCategorySele
     } else {
       setSelectedProyecto('');
     }
-  }, [proyectosFiltrados, selectedProyecto]);
+  }, [proyectosFiltrados, selectedProyecto, externalSelectedProyecto]);
 
   const currentProjectObj = useMemo(() => {
     return proyectosFiltrados.find(p => p.proyecto === selectedProyecto);
@@ -424,34 +479,39 @@ export default function ValorSueloView({ fixedCategoria = null, hideCategorySele
 
   return (
     <div>
-      {/* Filtros */}
-      <div className="filter-row">
-        {(!hideCategorySelector || !fixedCategoria) && (
-          <div className="filter-group">
-            <span className="filter-label">Categoría</span>
+      {/* Filtros (ocultados si el selector de proyecto se renderiza a nivel de CategoryHub) */}
+      {!hideProjectSelector && (
+        <div className="filter-row">
+          {(!hideCategorySelector || !fixedCategoria) && (
+            <div className="filter-group">
+              <span className="filter-label">Categoría</span>
+              <select 
+                className="filter-select"
+                value={selectedCategoria}
+                onChange={(e) => setSelectedCategoria(e.target.value)}
+              >
+                {CATEGORIAS_LIST.map(c => <option key={c} value={c}>{c}</option>)}
+              </select>
+            </div>
+          )}
+
+          <div className="filter-group" style={{ flexGrow: 1 }}>
+            <span className="filter-label">AIVAS / Sector de Valor de Suelo</span>
             <select 
               className="filter-select"
-              value={selectedCategoria}
-              onChange={(e) => setSelectedCategoria(e.target.value)}
+              value={selectedProyecto}
+              onChange={(e) => {
+                setSelectedProyecto(e.target.value);
+                if (onSelectProyecto) onSelectProyecto(e.target.value);
+              }}
             >
-              {CATEGORIAS_LIST.map(c => <option key={c} value={c}>{c}</option>)}
+              {proyectosFiltrados.map(p => (
+                <option key={p.proyectoKey} value={p.proyecto}>{p.proyecto}</option>
+              ))}
             </select>
           </div>
-        )}
-
-        <div className="filter-group" style={{ flexGrow: 1 }}>
-          <span className="filter-label">AIVAS / Sector de Valor de Suelo</span>
-          <select 
-            className="filter-select"
-            value={selectedProyecto}
-            onChange={(e) => setSelectedProyecto(e.target.value)}
-          >
-            {proyectosFiltrados.map(p => (
-              <option key={p.proyectoKey} value={p.proyecto}>{p.proyecto}</option>
-            ))}
-          </select>
         </div>
-      </div>
+      )}
 
       {currentProjectObj ? (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', marginTop: '1.5rem' }}>

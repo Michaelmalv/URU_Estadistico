@@ -14,7 +14,13 @@ const getProyectoDisplayName = (nombre) => {
   return nombre;
 };
 
-export default function EconomiaView({ fixedCategoria = null, hideCategorySelector = false }) {
+export default function EconomiaView({ 
+  fixedCategoria = null, 
+  hideCategorySelector = false,
+  hideProjectSelector = false,
+  externalSelectedProyecto = null,
+  onSelectProyecto = null
+}) {
   const [loadingProjects, setLoadingProjects] = useState(true);
   const [loadingStats, setLoadingStats] = useState(false);
   const [proyectos, setProyectos] = useState([]);
@@ -22,7 +28,7 @@ export default function EconomiaView({ fixedCategoria = null, hideCategorySelect
   // Filtros
   const [categoriaUi, setCategoriaUi] = useState(fixedCategoria || 'Todas');
   const [fechaFilter, setFechaFilter] = useState('Todas');
-  const [selectedProyecto, setSelectedProyecto] = useState('');
+  const [selectedProyecto, setSelectedProyecto] = useState(externalSelectedProyecto || '');
   const [selectedAnio, setSelectedAnio] = useState('Todos');
 
   // Resultados
@@ -149,8 +155,16 @@ export default function EconomiaView({ fixedCategoria = null, hideCategorySelect
 
   const proyectosFiltrados = getProyectosFiltrados();
 
-  // Resetear el proyecto seleccionado al cambiar los filtros
+  // Sincronizar proyecto externo si es provisto
   useEffect(() => {
+    if (externalSelectedProyecto) {
+      setSelectedProyecto(externalSelectedProyecto);
+    }
+  }, [externalSelectedProyecto]);
+
+  // Resetear el proyecto seleccionado al cambiar los filtros si no hay selección externa
+  useEffect(() => {
+    if (externalSelectedProyecto) return;
     if (proyectosFiltrados.length > 0) {
       const index = proyectosFiltrados.findIndex(p => p.nombre === selectedProyecto);
       if (index === -1) {
@@ -159,7 +173,7 @@ export default function EconomiaView({ fixedCategoria = null, hideCategorySelect
     } else {
       setSelectedProyecto('');
     }
-  }, [proyectosFiltrados, selectedProyecto]);
+  }, [proyectosFiltrados, selectedProyecto, externalSelectedProyecto]);
 
   // Cargar estadísticas económicas del proyecto seleccionado
   const fetchEconomiaStats = useCallback(async (proyectoNombre) => {
@@ -490,63 +504,85 @@ export default function EconomiaView({ fixedCategoria = null, hideCategorySelect
   return (
     <div>
       {/* Fila de Filtros */}
-      <div className="filter-row">
-        {(!hideCategorySelector || !fixedCategoria) && (
+      {!hideProjectSelector ? (
+        <div className="filter-row">
+          {(!hideCategorySelector || !fixedCategoria) && (
+            <div className="filter-group">
+              <span className="filter-label">Categoría</span>
+              <select 
+                className="filter-select"
+                value={categoriaUi}
+                onChange={(e) => setCategoriaUi(e.target.value)}
+              >
+                <option value="Todas">Todas</option>
+                <option value="Corredores Vivos">Corredores Vivos</option>
+                <option value="Rehabilitación de Espacio Público">Rehabilitación de Espacio Público</option>
+              </select>
+            </div>
+          )}
+
           <div className="filter-group">
-            <span className="filter-label">Categoría</span>
+            <span className="filter-label">Fecha de Inauguración</span>
             <select 
               className="filter-select"
-              value={categoriaUi}
-              onChange={(e) => setCategoriaUi(e.target.value)}
+              value={fechaFilter}
+              onChange={(e) => setFechaFilter(e.target.value)}
             >
               <option value="Todas">Todas</option>
-              <option value="Corredores Vivos">Corredores Vivos</option>
-              <option value="Rehabilitación de Espacio Público">Rehabilitación de Espacio Público</option>
+              <option value="Con fecha de inauguración/entrega">Con fecha de inauguración/entrega</option>
+              <option value="Sin fecha de inauguración/entrega">Sin fecha de inauguración/entrega</option>
             </select>
           </div>
-        )}
 
-        <div className="filter-group">
-          <span className="filter-label">Fecha de Inauguración</span>
-          <select 
-            className="filter-select"
-            value={fechaFilter}
-            onChange={(e) => setFechaFilter(e.target.value)}
-          >
-            <option value="Todas">Todas</option>
-            <option value="Con fecha de inauguración/entrega">Con fecha de inauguración/entrega</option>
-            <option value="Sin fecha de inauguración/entrega">Sin fecha de inauguración/entrega</option>
-          </select>
-        </div>
+          <div className="filter-group">
+            <span className="filter-label">Año</span>
+            <select 
+              className="filter-select"
+              value={selectedAnio}
+              onChange={(e) => setSelectedAnio(e.target.value)}
+            >
+              <option value="Todos">Todos los años</option>
+              <option value="2023">2023</option>
+              <option value="2024">2024</option>
+              <option value="2025">2025</option>
+              <option value="2026">2026</option>
+            </select>
+          </div>
 
-        <div className="filter-group">
-          <span className="filter-label">Año</span>
-          <select 
-            className="filter-select"
-            value={selectedAnio}
-            onChange={(e) => setSelectedAnio(e.target.value)}
-          >
-            <option value="Todos">Todos los años</option>
-            <option value="2023">2023</option>
-            <option value="2024">2024</option>
-            <option value="2025">2025</option>
-            <option value="2026">2026</option>
-          </select>
+          <div className="filter-group" style={{ flexGrow: 1 }}>
+            <span className="filter-label">Sector / Proyecto</span>
+            <select 
+              className="filter-select"
+              value={selectedProyecto}
+              onChange={(e) => {
+                setSelectedProyecto(e.target.value);
+                if (onSelectProyecto) onSelectProyecto(e.target.value);
+              }}
+            >
+              {proyectosFiltrados.map(p => (
+                <option key={p.id} value={p.nombre}>{getProyectoDisplayName(p.nombre)}</option>
+              ))}
+            </select>
+          </div>
         </div>
-
-        <div className="filter-group" style={{ flexGrow: 1 }}>
-          <span className="filter-label">Sector / Proyecto</span>
-          <select 
-            className="filter-select"
-            value={selectedProyecto}
-            onChange={(e) => setSelectedProyecto(e.target.value)}
-          >
-            {proyectosFiltrados.map(p => (
-              <option key={p.id} value={p.nombre}>{getProyectoDisplayName(p.nombre)}</option>
-            ))}
-          </select>
+      ) : (
+        <div className="filter-row" style={{ marginTop: '0.5rem', marginBottom: '1.5rem' }}>
+          <div className="filter-group" style={{ maxWidth: '320px' }}>
+            <span className="filter-label">Filtrar por Periodo / Año</span>
+            <select 
+              className="filter-select"
+              value={selectedAnio}
+              onChange={(e) => setSelectedAnio(e.target.value)}
+            >
+              <option value="Todos">Todos los años (Acumulado)</option>
+              <option value="2023">2023</option>
+              <option value="2024">2024</option>
+              <option value="2025">2025</option>
+              <option value="2026">2026</option>
+            </select>
+          </div>
         </div>
-      </div>
+      )}
 
       {loadingStats ? (
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '200px', marginTop: '1.5rem' }}>
