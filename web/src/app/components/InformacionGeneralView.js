@@ -234,7 +234,7 @@ export default function InformacionGeneralView({
 
           {showEquipamiento && (
             <>
-              {activeEquipRecord && equipDataInfo.hasTabs && (
+              {activeEquipRecord && equipDataInfo?.hasTabs && (
                 <div className="equipamiento-tabs" style={{ marginBottom: '1.5rem', display: 'inline-flex' }}>
                   <button 
                     className={`equipamiento-tab-btn ${equipamientoTab === 'total' ? 'active' : ''}`}

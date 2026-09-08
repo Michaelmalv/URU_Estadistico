@@ -24,30 +24,10 @@ export default function AntesDespuesView({ projectName, onOpenModalImage = null 
 
   const containerRef = useRef(null);
 
-  // Buscar los datos de antes/después del proyecto
-  const projectData = antesDespuesData.find(
-    p => p.proyecto.toLowerCase().trim() === (projectName || '').toLowerCase().trim()
-  );
-
-  // Si no hay datos registrados para este proyecto, no renderizar o devolver null
-  if (!projectData || !projectData.antes || !projectData.despues) {
-    return null;
-  }
-
-  const handleOpenImage = (imgObj, tipo) => {
-    const payload = {
-      src: imgObj.imagen,
-      alt: `${projectData.titulo} — ${tipo}`,
-      title: `${projectData.titulo} (${tipo})`,
-      edicion: imgObj.fecha || tipo,
-      description: imgObj.descripcion || projectData.descripcion
-    };
-    if (onOpenModalImage) {
-      onOpenModalImage(payload);
-    } else {
-      setLocalModalImage(payload);
-    }
-  };
+  // Resetear el deslizador cuando cambia el proyecto
+  useEffect(() => {
+    setSliderPosition(50);
+  }, [projectName]);
 
   const handleMove = useCallback((clientX) => {
     if (!containerRef.current) return;
@@ -87,6 +67,31 @@ export default function AntesDespuesView({ projectName, onOpenModalImage = null 
       window.removeEventListener('touchend', handleMouseUp);
     };
   }, [isDragging, handleMouseMove, handleMouseUp, handleTouchMove]);
+
+  // Buscar los datos de antes/después del proyecto
+  const projectData = antesDespuesData.find(
+    p => p.proyecto.toLowerCase().trim() === (projectName || '').toLowerCase().trim()
+  );
+
+  // Si no hay datos registrados para este proyecto, no renderizar o devolver null
+  if (!projectData || !projectData.antes || !projectData.despues) {
+    return null;
+  }
+
+  const handleOpenImage = (imgObj, tipo) => {
+    const payload = {
+      src: imgObj.imagen,
+      alt: `${projectData.titulo} — ${tipo}`,
+      title: `${projectData.titulo} (${tipo})`,
+      edicion: imgObj.fecha || tipo,
+      description: imgObj.descripcion || projectData.descripcion
+    };
+    if (onOpenModalImage) {
+      onOpenModalImage(payload);
+    } else {
+      setLocalModalImage(payload);
+    }
+  };
 
   return (
     <div className="card antes-despues-card" style={{ transition: 'all 0.3s ease' }}>
