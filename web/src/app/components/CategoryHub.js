@@ -8,6 +8,8 @@ import SeguridadView from './SeguridadView';
 import EconomiaView from './EconomiaView';
 import ValorSueloView from './ValorSueloView';
 
+import soterramientoData from '@/lib/soterramiento.json';
+
 const getProyectoDisplayName = (nombre) => {
   if (!nombre) return '';
   if (nombre === 'El Labrador: Bulevar y Parque de la Resiliencia') {
@@ -54,6 +56,15 @@ export default function CategoryHub({
 
   // Filtrar proyectos según la categoría activa
   const availableProjects = useMemo(() => {
+    if (categoryKey === 'Soterramiento') {
+      return soterramientoData.map(s => ({
+        id: s.id,
+        nombre: s.nombre,
+        categoria: 'Soterramiento',
+        ...s
+      }));
+    }
+
     if (!proyectos || proyectos.length === 0) return [];
 
     if (categoryKey === 'Corredores Vivos') {
@@ -73,12 +84,6 @@ export default function CategoryHub({
           p.categoria === 'Recuperación de espacios público' ||
           p.categoria === 'Rehabilitación del Espacio Público'
       );
-    }
-    if (categoryKey === 'Soterramiento') {
-      const sot = proyectos.filter(p => p.categoria === 'Soterramiento');
-      if (sot.length > 0) return sot;
-      // Proyectos principales con obras de soterramiento
-      return proyectos.filter(p => ['Av. Colón', 'Av. Patria', 'Calle Rocafuerte'].includes(p.nombre));
     }
     return proyectos.filter(p => p.categoria === categoryKey);
   }, [proyectos, categoryKey]);

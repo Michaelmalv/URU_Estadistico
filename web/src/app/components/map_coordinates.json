@@ -7527,5 +7527,166 @@
         ]
       }
     }
+  },
+  "sendero seguro calderon": {
+    "center": [
+      -78.42241250000001,
+      -0.101497
+    ],
+    "zoom": 15,
+    "geojson": {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -78.425413,
+            -0.104659
+          ],
+          [
+            -78.419412,
+            -0.098335
+          ]
+        ]
+      }
+    }
+  },
+  "av 6 de diciembre": {
+    "center": [
+      -78.476973,
+      -0.1744235
+    ],
+    "zoom": 15,
+    "geojson": {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -78.476187,
+            -0.170516
+          ],
+          [
+            -78.477759,
+            -0.178331
+          ]
+        ]
+      }
+    }
+  },
+  "av rodrigo de chavez": {
+    "center": [
+      -78.522707,
+      -0.2404305
+    ],
+    "zoom": 15,
+    "geojson": {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -78.526808,
+            -0.236077
+          ],
+          [
+            -78.518606,
+            -0.244784
+          ]
+        ]
+      }
+    }
+  },
+  "av el inca": {
+    "center": [
+      -78.4714625,
+      -0.153665
+    ],
+    "zoom": 15,
+    "geojson": {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -78.477939,
+            -0.154961
+          ],
+          [
+            -78.464986,
+            -0.152369
+          ]
+        ]
+      }
+    }
+  },
+  "av la prensa": {
+    "center": [
+      -78.491996,
+      -0.11633199999999999
+    ],
+    "zoom": 15,
+    "geojson": {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -78.493978,
+            -0.121664
+          ],
+          [
+            -78.490014,
+            -0.111
+          ]
+        ]
+      }
+    }
+  },
+  "bicentenario": {
+    "center": [
+      -78.490915,
+      -0.1369015
+    ],
+    "zoom": 15,
+    "geojson": {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -78.491672,
+            -0.127511
+          ],
+          [
+            -78.490158,
+            -0.146292
+          ]
+        ]
+      }
+    }
+  },
+  "quitopia la y": {
+    "center": [
+      -78.4847665,
+      -0.16434300000000002
+    ],
+    "zoom": 15,
+    "geojson": {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -78.486347,
+            -0.166664
+          ],
+          [
+            -78.483186,
+            -0.162022
+          ]
+        ]
+      }
+    }
   }
 }

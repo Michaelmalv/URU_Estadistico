@@ -1,0 +1,254 @@
+[
+  {
+    "id": "sot_44",
+    "nro": 44,
+    "nombre": "Sendero Seguro Calderón",
+    "nombre_original": "PROYECTO SENDERO SEGURO CALDERÓN",
+    "ano": 2024,
+    "ejecutor": "EPMMOP",
+    "estado": "EJECUTADO",
+    "tipo_proyecto": "REGENERACIÓN URBANA",
+    "kilometros": 7.7,
+    "provincia": "PICHINCHA",
+    "canton": "QUITO",
+    "parroquia": "Calderón",
+    "via_principal": "Carapungo",
+    "coordenadas_inicial": {
+      "lat": -0.104659,
+      "lng": -78.425413
+    },
+    "coordenadas_final": {
+      "lat": -0.098335,
+      "lng": -78.419412
+    },
+    "fuente_financiamiento": "Inversión Pública",
+    "inversion_telecom": 16594.8,
+    "monto_total": null,
+    "inversion_obra_civil": null,
+    "observaciones": "En base a la Ordenanza Metropolitana 042, se establece que las empresas públicas están excentas de pago de la Tasa de la LMU 40-A que autoriza la la construcción de infraestructura físicas de redes de servicio.\n\nMediante el formulario para la Emisión de la LMU40-A, de fecha 28 de mayo de 2024, el ejecutor de obra de la EPMMOP declaró y suscribió que el costo estimado para la ejecución del proyecto de infraestructura de telecomunicaciones asciende a USD 16594.80."
+  },
+  {
+    "id": "sot_50",
+    "nro": 50,
+    "nombre": "Av. 6 de Diciembre",
+    "nombre_original": "PROYECTO AV. 6 DE DICIEMBRE",
+    "ano": 2025,
+    "ejecutor": "EPMMOP",
+    "estado": "EJECUTADO",
+    "tipo_proyecto": "REGENERACIÓN URBANA",
+    "kilometros": 2.8,
+    "provincia": "PICHINCHA",
+    "canton": "QUITO",
+    "parroquia": "Iñaquito",
+    "via_principal": "Av. 6 de Diciembre",
+    "coordenadas_inicial": {
+      "lat": -0.170516,
+      "lng": -78.476187
+    },
+    "coordenadas_final": {
+      "lat": -0.178331,
+      "lng": -78.477759
+    },
+    "fuente_financiamiento": "Inversión Pública",
+    "inversion_telecom": 314138.55,
+    "monto_total": null,
+    "inversion_obra_civil": null,
+    "observaciones": "En base a la Ordenanza Metropolitana 042, se establece que las empresas públicas están excentas de pago de la Tasa de la LMU 40-A que autoriza la la construcción de infraestructura físicas de redes de servicio.\n\nMediante el formulario para la Emisión de la LMU40-A, de fecha 19 de marzo de 2026, la EPMMOP declaró y suscribió que el costo estimado para la ejecución del proyecto de infraestructura de telecomunicaciones asciende a USD 314.138,55."
+  },
+  {
+    "id": "sot_52",
+    "nro": 52,
+    "nombre": "Av. Rodrigo de Chávez",
+    "nombre_original": "PROYECTO RODRIGO DE CHÁVEZ",
+    "ano": 2025,
+    "ejecutor": "EPMMOP",
+    "estado": "EJECUTADO",
+    "tipo_proyecto": "REGENERACIÓN URBANA",
+    "kilometros": 3.5,
+    "provincia": "PICHINCHA",
+    "canton": "QUITO",
+    "parroquia": "La Magdalena",
+    "via_principal": "Av. Rodrigo de Chávez",
+    "coordenadas_inicial": {
+      "lat": -0.236077,
+      "lng": -78.526808
+    },
+    "coordenadas_final": {
+      "lat": -0.244784,
+      "lng": -78.518606
+    },
+    "fuente_financiamiento": "Inversión Pública",
+    "inversion_telecom": 850000.0,
+    "monto_total": null,
+    "inversion_obra_civil": null,
+    "observaciones": "En base a la Ordenanza Metropolitana 042, se establece que las empresas públicas están excentas de pago de la Tasa de la LMU 40-A que autoriza la la construcción de infraestructura físicas de redes de servicio.\n\nMediante Oficio Nro.Oficio Nro. EPMMOP-GOP-2026-1897-O de 29 de julio de 2026, se emite mediante una matriz adjunta el valor aproximado del proyecto de soterramient."
+  },
+  {
+    "id": "sot_51",
+    "nro": 51,
+    "nombre": "Av. Patria",
+    "nombre_original": "AV. PATRIA",
+    "ano": 2025,
+    "ejecutor": "EPMMOP",
+    "estado": "EJECUTADO",
+    "tipo_proyecto": "REGENERACIÓN URBANA",
+    "kilometros": 2.6,
+    "provincia": "PICHINCHA",
+    "canton": "QUITO",
+    "parroquia": "Mariscal Sucre/Itchimbia",
+    "via_principal": "Av. Patria",
+    "coordenadas_inicial": {
+      "lat": -0.20661,
+      "lng": -78.499293
+    },
+    "coordenadas_final": {
+      "lat": -0.209419,
+      "lng": -78.492118
+    },
+    "fuente_financiamiento": "Inversión Pública",
+    "inversion_telecom": 743275.0,
+    "monto_total": null,
+    "inversion_obra_civil": null,
+    "observaciones": "En base a la Ordenanza Metropolitana 042, se establece que las empresas públicas están excentas de pago de la Tasa de la LMU 40-A que autoriza la la construcción de infraestructura físicas de redes de servicio.\n\nMediante Oficio Nro.Oficio Nro. EPMMOP-GOP-2026-1897-O de 29 de julio de 2026, se emite mediante una matriz adjunta el valor aproximado del proyecto de soterramient."
+  },
+  {
+    "id": "sot_58",
+    "nro": 58,
+    "nombre": "Av. El Inca",
+    "nombre_original": "AV. EL INCA",
+    "ano": 2026,
+    "ejecutor": "EPMMOP",
+    "estado": "EN EJECUCIÓN",
+    "tipo_proyecto": "REGENERACIÓN URBANA",
+    "kilometros": 7.09396,
+    "provincia": "PICHINCHA",
+    "canton": "QUITO",
+    "parroquia": "Kennedy",
+    "via_principal": "Av. El Inca",
+    "coordenadas_inicial": {
+      "lat": -0.154961,
+      "lng": -78.477939
+    },
+    "coordenadas_final": {
+      "lat": -0.152369,
+      "lng": -78.464986
+    },
+    "fuente_financiamiento": "Inversión Pública",
+    "inversion_telecom": 975000.0,
+    "monto_total": null,
+    "inversion_obra_civil": null,
+    "observaciones": "En base a la Ordenanza Metropolitana 042, se establece que las empresas públicas están excentas de pago de la Tasa de la LMU 40-A que autoriza la la construcción de infraestructura físicas de redes de servicio.\n\nMediante Oficio Nro.Oficio Nro. EPMMOP-GOP-2026-1897-O de 29 de julio de 2026, se emite mediante una matriz adjunta el valor aproximado del proyecto de soterramient."
+  },
+  {
+    "id": "sot_59",
+    "nro": 59,
+    "nombre": "Av. Ajaví",
+    "nombre_original": "AV. AJAVI",
+    "ano": 2026,
+    "ejecutor": "EPMMOP",
+    "estado": "EN EJECUCIÓN",
+    "tipo_proyecto": "REGENERACIÓN URBANA",
+    "kilometros": 3.43177,
+    "provincia": "PICHINCHA",
+    "canton": "QUITO",
+    "parroquia": "San Bartolo",
+    "via_principal": "Av. Ajaví",
+    "coordenadas_inicial": {
+      "lat": -0.256853,
+      "lng": -78.54275
+    },
+    "coordenadas_final": {
+      "lat": -0.268703,
+      "lng": -78.533272
+    },
+    "fuente_financiamiento": "Inversión Pública",
+    "inversion_telecom": 1274038.52,
+    "monto_total": null,
+    "inversion_obra_civil": null,
+    "observaciones": "En base a la Ordenanza Metropolitana 042, se establece que las empresas públicas están excentas de pago de la Tasa de la LMU 40-A que autoriza la la construcción de infraestructura físicas de redes de servicio.\n\nMediante Oficio Nro.Oficio Nro. EPMMOP-GOP-2026-1897-O de 29 de julio de 2026, se emite mediante una matriz adjunta el valor aproximado del proyecto de soterramient."
+  },
+  {
+    "id": "sot_61",
+    "nro": 61,
+    "nombre": "Av. La Prensa",
+    "nombre_original": "AV. PRENSA",
+    "ano": 2026,
+    "ejecutor": "EPMMOP",
+    "estado": "EN EJECUCIÓN",
+    "tipo_proyecto": "REGENERACIÓN URBANA",
+    "kilometros": 7.09396,
+    "provincia": "PICHINCHA",
+    "canton": "QUITO",
+    "parroquia": "Ponceano",
+    "via_principal": "Av. La Prensa",
+    "coordenadas_inicial": {
+      "lat": -0.121664,
+      "lng": -78.493978
+    },
+    "coordenadas_final": {
+      "lat": -0.111,
+      "lng": -78.490014
+    },
+    "fuente_financiamiento": "Inversión Pública",
+    "inversion_telecom": 1162787.34,
+    "monto_total": null,
+    "inversion_obra_civil": null,
+    "observaciones": "En base a la Ordenanza Metropolitana 042, se establece que las empresas públicas están excentas de pago de la Tasa de la LMU 40-A que autoriza la la construcción de infraestructura físicas de redes de servicio.\n\nMediante el formulario para la Emisión de la LMU40-A, de fecha 05 de enero de 2026, la EPMMOP declaró y suscribió que el costo estimado para la ejecución del proyecto de infraestructura de telecomunicaciones asciende a USD 1.162.787,34."
+  },
+  {
+    "id": "sot_62",
+    "nro": 62,
+    "nombre": "Bicentenario",
+    "nombre_original": "BICENTENARIO",
+    "ano": 2026,
+    "ejecutor": "EPMMOP",
+    "estado": "EN EJECUCIÓN",
+    "tipo_proyecto": "REGENERACIÓN URBANA",
+    "kilometros": 2.888586,
+    "provincia": "PICHINCHA",
+    "canton": "QUITO",
+    "parroquia": "La Concepción",
+    "via_principal": "Prolongación De La Av. Amazonas",
+    "coordenadas_inicial": {
+      "lat": -0.127511,
+      "lng": -78.491672
+    },
+    "coordenadas_final": {
+      "lat": -0.146292,
+      "lng": -78.490158
+    },
+    "fuente_financiamiento": "Inversión Pública",
+    "inversion_telecom": 1155000.0,
+    "monto_total": null,
+    "inversion_obra_civil": null,
+    "observaciones": "En base a la Ordenanza Metropolitana 042, se establece que las empresas públicas están excentas de pago de la Tasa de la LMU 40-A que autoriza la la construcción de infraestructura físicas de redes de servicio.\n\nMediante Oficio Nro.Oficio Nro. EPMMOP-GOP-2026-1897-O de 29 de julio de 2026, se emite mediante una matriz adjunta el valor aproximado del proyecto de soterramient."
+  },
+  {
+    "id": "sot_63",
+    "nro": 63,
+    "nombre": "Quitopia La Y",
+    "nombre_original": "QUITOPIA LA Y",
+    "ano": 2026,
+    "ejecutor": "EPMHV",
+    "estado": "EN EJECUCIÓN",
+    "tipo_proyecto": "REGENERACIÓN URBANA",
+    "kilometros": 1.459,
+    "provincia": "PICHINCHA",
+    "canton": "QUITO",
+    "parroquia": "Jipijapa",
+    "via_principal": "Proyecto Integral La Y",
+    "coordenadas_inicial": {
+      "lat": -0.166664,
+      "lng": -78.486347
+    },
+    "coordenadas_final": {
+      "lat": -0.162022,
+      "lng": -78.483186
+    },
+    "fuente_financiamiento": "Inversión Pública",
+    "inversion_telecom": 105514.26,
+    "monto_total": null,
+    "inversion_obra_civil": null,
+    "observaciones": "En base a la Ordenanza Metropolitana 042, se establece que las empresas públicas están excentas de pago de la Tasa de la LMU 40-A que autoriza la la construcción de infraestructura físicas de redes de servicio.\n\nMediante Oficio Nro.Oficio Nro. Oficio Nro. EPMHV-GG-2026-0932-O  de 07 de agosto de 2026, se emite mediante el formulario adjunto el valor aproximado del proyecto de soterramient."
+  }
+]

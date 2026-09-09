@@ -414,7 +414,17 @@ export default function SeguridadView({
 
   const chartColors = ['#3b82f6', '#f59e0b'];
 
-  if (availableProjectsForSelect.length === 0) {
+  if (hideProjectSelector && (!currentProjectObj || currentStats.length === 0)) {
+    return (
+      <div className="card" style={{ textAlign: 'center', padding: '3rem 1.5rem', marginTop: '1rem' }}>
+        <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem', margin: 0 }}>
+          No se registran estadísticas de seguridad para <strong>{getProyectoDisplayName(selectedProyecto) || 'este proyecto'}</strong>. La información técnica y de obra está disponible en la pestaña <strong>Información General</strong>.
+        </p>
+      </div>
+    );
+  }
+
+  if (availableProjectsForSelect.length === 0 && !externalSelectedProyecto) {
     return (
       <div className="card" style={{ textAlign: 'center', padding: '3rem 1.5rem', marginTop: '1rem' }}>
         <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem', margin: 0 }}>
