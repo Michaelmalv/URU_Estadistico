@@ -29,12 +29,27 @@ export default function CategoryHub({
   const [selectedProyecto, setSelectedProyecto] = useState('');
   const [loading, setLoading] = useState(true);
 
-  const subTabs = [
-    { id: 'info-general', label: 'Información General', icon: Info },
-    { id: 'seguridad', label: 'Seguridad', icon: Shield },
-    { id: 'economia', label: 'Economía', icon: TrendingUp },
-    { id: 'valor-suelo', label: 'Valor de Suelo', icon: Landmark },
-  ];
+  const isSoterramiento = categoryKey === 'Soterramiento';
+
+  const subTabs = useMemo(() => {
+    if (isSoterramiento) {
+      return [
+        { id: 'info-general', label: 'Información General', icon: Info },
+      ];
+    }
+    return [
+      { id: 'info-general', label: 'Información General', icon: Info },
+      { id: 'seguridad', label: 'Seguridad', icon: Shield },
+      { id: 'economia', label: 'Economía', icon: TrendingUp },
+      { id: 'valor-suelo', label: 'Valor de Suelo', icon: Landmark },
+    ];
+  }, [isSoterramiento]);
+
+  useEffect(() => {
+    if (isSoterramiento && activeSubTab !== 'info-general') {
+      setActiveSubTab('info-general');
+    }
+  }, [isSoterramiento, activeSubTab]);
 
   // Cargar proyectos disponibles desde la API
   useEffect(() => {
