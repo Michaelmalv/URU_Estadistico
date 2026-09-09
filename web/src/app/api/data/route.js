@@ -70,7 +70,9 @@ export async function GET() {
       'Calle Benalcazar'
     ];
 
-    const filteredProyectos = (proyectos || []).filter(p => ALLOWED_PROJECT_NAMES.includes(p.nombre));
+    const filteredProyectos = (proyectos || []).filter(p => 
+      p.categoria === 'Zonas Metro' || ALLOWED_PROJECT_NAMES.includes(p.nombre)
+    );
     const allowedIds = new Set(filteredProyectos.map(p => p.id));
 
     const filteredSeguridad = (seguridad || []).filter(s => allowedIds.has(s.proyecto_id));
@@ -84,7 +86,24 @@ export async function GET() {
       'AIVAS COLINAS DEL NORTE',
       'AIVAS TRIBUNA DE LOS SHYRIS',
       'AIVAS PARQUE NAVARRO',
-      'AIVAS BENALCAZAR'
+      'AIVAS BENALCAZAR',
+      // Zonas Metro:
+      'AIVAS QUITUMBE',
+      'AIVAS MORAN VALVERDE',
+      'AIVAS SOLANDA',
+      'AIVAS CARDENAL DE LA TORRE',
+      'AIVAS EL RECREO',
+      'AIVAS LA MAGDALENA',
+      'AIVAS SAN FRANCISCO',
+      'AIVAS ALAMEDA',
+      'AIVAS LA ALAMEDA',
+      'AIVAS EL EJIDO',
+      'AIVAS UNIVERSIDAD CENTRAL',
+      'AIVAS LA PRADERA',
+      'AIVAS LA CAROLINA',
+      'AIVAS IÑAQUITO',
+      'AIVAS JIPIJAPA',
+      'AIVAS EL LABRADOR'
     ];
 
     const normalizeAivas = (name) => {
