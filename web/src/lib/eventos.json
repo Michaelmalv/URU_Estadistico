@@ -58,20 +58,20 @@
     "titulo_override": "Encadenamiento económico: REVALORIZACIÓN EDILICIA",
     "eventos": [
       {
-        "titulo": "Remodelación de Fachadas (En Obra)",
-        "edicion": "Proyecto 50 Años - Fase Constructiva",
+        "titulo": "Fachada Original (Antes de la intervención)",
+        "edicion": "Estado Previo a la Remodelación",
         "fecha": "Año 2024",
         "lugar": "Av. Patria y 9 de Octubre",
-        "descripcion": "Remodelación integral de las fachadas de los edificios Matriz y Patria de Banco Internacional S.A. La intervención del corredor peatonal de la Av. Patria motivó a la institución privada a adecuar y modernizar sus edificaciones emblemáticas en sintonía con la nueva estética urbana de la zona.",
-        "imagen": "/imagenes_senderos/banco_internacional_obra.png"
+        "descripcion": "Edificaciones originales de Banco Internacional S.A. antes del proceso de remodelación integral, con revestimiento de ladrillo y carpintería tradicional.",
+        "imagen": "/imagenes_senderos/banco_internacional_antes.jpg"
       },
       {
-        "titulo": "Remodelación de Fachadas (Propuesta Final)",
-        "edicion": "Proyecto 50 Años - Finalizado",
+        "titulo": "Modernización de Fachadas (Proyecto 50 Años)",
+        "edicion": "Revalorización Edilicia Finalizada",
         "fecha": "Año 2025",
         "lugar": "Av. Patria y 9 de Octubre",
-        "descripcion": "Diseño final de la fachada modernizada del Banco Internacional S.A. Esta revalorización edilicia resalta el impacto positivo del Corredor Vivo Av. Patria al incentivar al sector corporativo privado a invertir en el mejoramiento estético e inmobiliario de su patrimonio arquitectónico.",
-        "imagen": "/imagenes_senderos/banco_internacional_final.png"
+        "descripcion": "Diseño final y culminación de la fachada modernizada del Banco Internacional S.A. Esta revalorización edilicia resalta el impacto positivo del Corredor Vivo Av. Patria al incentivar al sector corporativo privado a invertir en el mejoramiento estético e inmobiliario de su patrimonio arquitectónico.",
+        "imagen": "/imagenes_senderos/banco_internacional_despues.jpg"
       }
     ]
   },

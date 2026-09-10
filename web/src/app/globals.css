@@ -1525,20 +1525,20 @@ h1, h2, h3, h4, h5, h6 {
 .antes-despues-slider-container {
   position: relative;
   width: 100%;
-  height: 520px;
-  max-height: 70vh;
+  height: 620px;
+  max-height: 82vh;
   border-radius: 16px;
   overflow: hidden;
   user-select: none;
   cursor: ew-resize;
-  background: #000000;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #070c18;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 @media (max-width: 768px) {
   .antes-despues-slider-container {
-    height: 340px;
+    height: 420px;
   }
 }
 
@@ -1548,7 +1548,7 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
   display: block;
 }
@@ -1568,7 +1568,7 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
   display: block;
 }
@@ -1779,8 +1779,8 @@ h1, h2, h3, h4, h5, h6 {
 .card-item-image-wrapper {
   position: relative;
   width: 100%;
-  height: 300px;
-  background: #000000;
+  height: 480px;
+  background: #070c18;
   overflow: hidden;
   cursor: pointer;
 }
@@ -1788,7 +1788,7 @@ h1, h2, h3, h4, h5, h6 {
 .card-item-img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
   display: block;
   transition: transform 0.35s ease;
