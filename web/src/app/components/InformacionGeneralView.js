@@ -95,19 +95,24 @@ export default function InformacionGeneralView({
     }
   }, [externalSelectedProyecto]);
 
-  // Identificar si el proyecto seleccionado pertenece a la matriz de soterramiento
-  const currentSoterramientoRecord = soterramientoData.find(
-    s => s.nombre.toLowerCase().trim() === (selectedProyecto || '').toLowerCase().trim() ||
-         s.nombre_original.toLowerCase().trim() === (selectedProyecto || '').toLowerCase().trim() ||
-         normalizeText(s.nombre) === normalizeText(selectedProyecto)
-  );
+  // Identificar si estamos en la categoría de Soterramiento y el proyecto seleccionado
+  const isSoterramientoCategory = fixedCategoria === 'Soterramiento';
+  
+  const currentSoterramientoRecord = isSoterramientoCategory
+    ? soterramientoData.find(
+        s => s.nombre.toLowerCase().trim() === (selectedProyecto || '').toLowerCase().trim() ||
+             s.nombre_original.toLowerCase().trim() === (selectedProyecto || '').toLowerCase().trim() ||
+             normalizeText(s.nombre) === normalizeText(selectedProyecto)
+      )
+    : null;
 
-  const currentProjectObj = proyectos.find(p => p.nombre === selectedProyecto) || 
-    (currentSoterramientoRecord ? { 
-      id: currentSoterramientoRecord.id, 
-      nombre: currentSoterramientoRecord.nombre, 
-      categoria: 'Soterramiento' 
-    } : null);
+  const currentProjectObj = isSoterramientoCategory
+    ? (currentSoterramientoRecord ? { 
+        id: currentSoterramientoRecord.id, 
+        nombre: currentSoterramientoRecord.nombre, 
+        categoria: 'Soterramiento' 
+      } : null)
+    : (proyectos.find(p => p.nombre === selectedProyecto) || null);
 
   const currentFichas = fichas.filter(f => f.proyecto_id === currentProjectObj?.id);
   const projectEventData = eventosData.find(e => e.proyecto === selectedProyecto);
