@@ -1,20 +1,20 @@
 [
   {
     "proyecto": "Av. Patria",
-    "titulo": "Revalorización Edilicia: Banco Internacional — Av. Patria",
-    "subtitulo": "Modernización de fachadas y transformación arquitectónica (Proyecto 50 Años)",
-    "descripcion": "La regeneración integral del Corredor Vivo Av. Patria motivó a la institución financiera privada Banco Internacional S.A. a adecuar y modernizar sus edificaciones emblemáticas (Torres Matriz y Patria). La intervención reemplazó las fachadas de ladrillo y carpintería tradicional por un muro cortina continuo de vidrio reflectivo de alta eficiencia con detalles de identidad corporativa en el remate superior y basamento renovado, potenciando la estética urbana y el encadenamiento económico en la zona.",
+    "titulo": "Transformación Urbana — Av. Patria",
+    "subtitulo": "Comparativa de intervención vial, seguridad peatonal e iluminación",
+    "descripcion": "Evidencia de la regeneración integral en la intersección y corredor de la Av. Patria: modernización del perfil vial, incorporación de cruces cebras seguros y señalización táctica de colores, ampliación de áreas peatonales y repotenciación del alumbrado público.",
     "antes": {
-      "imagen": "/antes_despues/av_patria/banco_internacional_antes.jpg",
+      "imagen": "/antes_despues/av_patria/antes.jpg",
       "etiqueta": "ANTES",
-      "fecha": "Fachada Original (Ladrillo y Vidrio)",
-      "descripcion": "Estructura original de los edificios Matriz y Patria con muros de ladrillo visto, carpintería oscura y cerramientos convencionales de los años 80."
+      "fecha": "Pre-Intervención",
+      "descripcion": "Perfil vial convencional con asfalto desgastado, menor visibilidad nocturna y sin delimitación de cruces seguros."
     },
     "despues": {
-      "imagen": "/antes_despues/av_patria/banco_internacional_despues.jpg",
+      "imagen": "/antes_despues/av_patria/despues.jpg",
       "etiqueta": "DESPUÉS",
-      "fecha": "Fachada Renovada (Proyecto 50 Años)",
-      "descripcion": "Diseño contemporáneo con muro cortina de vidrio reflectivo, basamento arquitectónico renovado y remate con el isotipo corporativo en tonalidad naranja."
+      "fecha": "Inaugurado y Operativo",
+      "descripcion": "Corredor Vivo iluminado con señalética peatonal de alto impacto, ciclovía segregada, pintura mural y cruces tácticos."
     }
   }
 ]

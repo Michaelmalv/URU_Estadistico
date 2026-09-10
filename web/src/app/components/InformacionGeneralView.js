@@ -977,7 +977,20 @@ export default function InformacionGeneralView({
                         )}
                         <div className="evento-content">
                           <h4 className="evento-title">{evento.titulo}</h4>
-                          {evento.edicion && <span className="evento-edition">{evento.edicion}</span>}
+                          {evento.edicion && (
+                            <span 
+                              className="evento-edition"
+                              style={
+                                evento.edicion.toLowerCase().includes('previo') || evento.edicion.toLowerCase().includes('antes')
+                                  ? { background: 'rgba(239, 68, 68, 0.15)', color: '#f87171', border: '1px solid rgba(239, 68, 68, 0.3)' }
+                                  : evento.edicion.toLowerCase().includes('finalizad') || evento.edicion.toLowerCase().includes('después') || evento.edicion.toLowerCase().includes('despues')
+                                  ? { background: 'rgba(16, 185, 129, 0.15)', color: '#34d399', border: '1px solid rgba(16, 185, 129, 0.3)' }
+                                  : {}
+                              }
+                            >
+                              {evento.edicion}
+                            </span>
+                          )}
                           
                           <div className="evento-meta">
                             <div className="evento-meta-item">
