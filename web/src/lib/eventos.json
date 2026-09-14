@@ -100,6 +100,31 @@
   {
     "proyecto": "Isla Tortuga",
     "titulo_override": "Proyecto Especial: QUITOPIA",
+    "subtitulo": "Galería de Infraestructura y Masterplan Arquitectónico (10 Fotografías)",
+    "layout": "collage",
+    "descripcion_general": "El complejo QUITOPIA La Y (Isla Tortuga) constituye un proyecto emblemático de regeneración urbana, desarrollo social y sistema distrital de cuidados en el norte de Quito. Emplazado estratégicamente en la intersección de Isla Tortuga y la estación La Y, este campus ciudadano multifuncional transforma el sector con más de 12.000 m² de infraestructura comunitaria, cultural, deportiva y ambiental de libre acceso.",
+    "ejes": [
+      {
+        "titulo": "Bloque A — Capacitación y Empleo",
+        "detalle": "Aulas interactivas, coworking vecinal y talleres de formación laboral y emprendimiento."
+      },
+      {
+        "titulo": "Bloque B — Cultura y Teatro",
+        "detalle": "Auditorio con butacas tipo teatro y paneles acústicos de última generación para difusión artística."
+      },
+      {
+        "titulo": "Bloque C — Coliseo Polideportivo",
+        "detalle": "Canchas cubiertas con piso de resina azul para básquet y vóley con cubierta cenital translúcida."
+      },
+      {
+        "titulo": "Bloque D — Edificio de Cuidados",
+        "detalle": "Salas de estimulación temprana, psicomotricidad y bienestar para la primera infancia y cuidadores."
+      },
+      {
+        "titulo": "Parque Central y Tensoestructura",
+        "detalle": "Plaza con cubierta tensionada, juegos infantiles, skatepark y caminerías articuladas al Corredor Vivo."
+      }
+    ],
     "eventos": [
       {
         "titulo": "Centro de Capacitación y Desarrollo",

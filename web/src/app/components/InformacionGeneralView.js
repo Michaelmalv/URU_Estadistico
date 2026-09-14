@@ -470,58 +470,119 @@ export default function InformacionGeneralView({
 
               {showEventos && (
                 <div style={{ marginTop: '1.5rem' }}>
-                  <div className="eventos-grid">
-                    {projectEvents.map((evento, idx) => (
-                      <div key={idx} className="evento-card">
-                        {evento.imagen && (
+                  {projectEventData?.layout === 'collage' ? (
+                    <div className="collage-container">
+                      <div className="collage-grid">
+                        {projectEvents.map((evento, idx) => (
                           <div 
-                            className="evento-image-wrapper"
+                            key={idx} 
+                            className="collage-item"
                             onClick={() => setModalImage({
                               src: evento.imagen,
                               alt: evento.titulo,
-                              title: evento.titulo,
+                              title: `${idx + 1}. ${evento.titulo}`,
                               edicion: evento.edicion,
                               description: evento.descripcion
                             })}
-                            title="Haz clic para ver en pantalla completa"
+                            title={`Clic para ampliar: ${evento.titulo}`}
                           >
                             <img 
                               src={evento.imagen} 
                               alt={evento.titulo} 
-                              className="evento-image"
+                              className="collage-img"
+                              loading="lazy"
                             />
-                            <div className="evento-image-zoom-hint">
-                              <Maximize2 size={16} />
-                              <span>Ampliar</span>
-                            </div>
-                          </div>
-                        )}
-                        <div className="evento-content">
-                          <h4 className="evento-title">{evento.titulo}</h4>
-                          {evento.edicion && <span className="evento-edition">{evento.edicion}</span>}
-                          
-                          <div className="evento-meta">
-                            <div className="evento-meta-item">
-                              <Calendar size={16} />
-                              <span>{evento.fecha}</span>
-                            </div>
-                            {evento.hora && (
-                              <div className="evento-meta-item">
-                                <Clock size={16} />
-                                <span>{evento.hora}</span>
+                            <div className="collage-overlay">
+                              <span className="collage-item-badge">
+                                #{idx + 1} {evento.edicion ? `• ${evento.edicion}` : ''}
+                              </span>
+                              <div className="collage-item-footer">
+                                <h5 className="collage-item-title">{evento.titulo}</h5>
+                                <div className="collage-item-zoom">
+                                  <Maximize2 size={14} />
+                                </div>
                               </div>
-                            )}
-                            <div className="evento-meta-item">
-                              <MapPin size={16} />
-                              <span>{evento.lugar}</span>
                             </div>
                           </div>
-
-                          <p className="evento-description">{evento.descripcion}</p>
-                        </div>
+                        ))}
                       </div>
-                    ))}
-                  </div>
+
+                      {projectEventData?.descripcion_general && (
+                        <div className="collage-desc-box">
+                          <h4 className="collage-desc-title">
+                            <Building2 size={20} color="#3b82f6" /> Descripción General y Alcance del Proyecto
+                          </h4>
+                          <p className="collage-desc-text">
+                            {projectEventData.descripcion_general}
+                          </p>
+
+                          {projectEventData?.ejes && projectEventData.ejes.length > 0 && (
+                            <div className="collage-ejes-grid">
+                              {projectEventData.ejes.map((eje, eIdx) => (
+                                <div key={eIdx} className="collage-eje-card">
+                                  <h6 className="collage-eje-title">{eje.titulo}</h6>
+                                  <p className="collage-eje-detail">{eje.detalle}</p>
+                                </div>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      )}
+                    </div>
+                  ) : (
+                    <div className="eventos-grid">
+                      {projectEvents.map((evento, idx) => (
+                        <div key={idx} className="evento-card">
+                          {evento.imagen && (
+                            <div 
+                              className="evento-image-wrapper"
+                              onClick={() => setModalImage({
+                                src: evento.imagen,
+                                alt: evento.titulo,
+                                title: evento.titulo,
+                                edicion: evento.edicion,
+                                description: evento.descripcion
+                              })}
+                              title="Haz clic para ver en pantalla completa"
+                            >
+                              <img 
+                                src={evento.imagen} 
+                                alt={evento.titulo} 
+                                className="evento-image"
+                              />
+                              <div className="evento-image-zoom-hint">
+                                <Maximize2 size={16} />
+                                <span>Ampliar</span>
+                              </div>
+                            </div>
+                          )}
+                          <div className="evento-content">
+                            <h4 className="evento-title">{evento.titulo}</h4>
+                            {evento.edicion && <span className="evento-edition">{evento.edicion}</span>}
+                            
+                            <div className="evento-meta">
+                              <div className="evento-meta-item">
+                                <Calendar size={16} />
+                                <span>{evento.fecha}</span>
+                              </div>
+                              {evento.hora && (
+                                <div className="evento-meta-item">
+                                  <Clock size={16} />
+                                  <span>{evento.hora}</span>
+                                </div>
+                              )}
+                              <div className="evento-meta-item">
+                                <MapPin size={16} />
+                                <span>{evento.lugar}</span>
+                              </div>
+                            </div>
+
+                            <p className="evento-description">{evento.descripcion}</p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
               )}
             </div>
@@ -954,71 +1015,132 @@ export default function InformacionGeneralView({
 
               {showEventos && (
                 <div style={{ marginTop: '1.5rem' }}>
-                  <div className="eventos-grid">
-                    {projectEvents.map((evento, idx) => (
-                      <div key={idx} className="evento-card">
-                        {evento.imagen && (
+                  {projectEventData?.layout === 'collage' ? (
+                    <div className="collage-container">
+                      <div className="collage-grid">
+                        {projectEvents.map((evento, idx) => (
                           <div 
-                            className="evento-image-wrapper"
+                            key={idx} 
+                            className="collage-item"
                             onClick={() => setModalImage({
                               src: evento.imagen,
                               alt: evento.titulo,
-                              title: evento.titulo,
+                              title: `${idx + 1}. ${evento.titulo}`,
                               edicion: evento.edicion,
                               description: evento.descripcion
                             })}
-                            title="Haz clic para ver en pantalla completa"
+                            title={`Clic para ampliar: ${evento.titulo}`}
                           >
                             <img 
                               src={evento.imagen} 
                               alt={evento.titulo} 
-                              className="evento-image"
+                              className="collage-img"
+                              loading="lazy"
                             />
-                            <div className="evento-image-zoom-hint">
-                              <Maximize2 size={16} />
-                              <span>Ampliar</span>
-                            </div>
-                          </div>
-                        )}
-                        <div className="evento-content">
-                          <h4 className="evento-title">{evento.titulo}</h4>
-                          {evento.edicion && (
-                            <span 
-                              className="evento-edition"
-                              style={
-                                evento.edicion.toLowerCase().includes('previo') || evento.edicion.toLowerCase().includes('antes')
-                                  ? { background: 'rgba(239, 68, 68, 0.15)', color: '#f87171', border: '1px solid rgba(239, 68, 68, 0.3)' }
-                                  : evento.edicion.toLowerCase().includes('finalizad') || evento.edicion.toLowerCase().includes('después') || evento.edicion.toLowerCase().includes('despues')
-                                  ? { background: 'rgba(16, 185, 129, 0.15)', color: '#34d399', border: '1px solid rgba(16, 185, 129, 0.3)' }
-                                  : {}
-                              }
-                            >
-                              {evento.edicion}
-                            </span>
-                          )}
-                          
-                          <div className="evento-meta">
-                            <div className="evento-meta-item">
-                              <Calendar size={16} />
-                              <span>{evento.fecha}</span>
-                            </div>
-                            {evento.hora && (
-                              <div className="evento-meta-item">
-                                <Clock size={16} />
-                                <span>{evento.hora}</span>
+                            <div className="collage-overlay">
+                              <span className="collage-item-badge">
+                                #{idx + 1} {evento.edicion ? `• ${evento.edicion}` : ''}
+                              </span>
+                              <div className="collage-item-footer">
+                                <h5 className="collage-item-title">{evento.titulo}</h5>
+                                <div className="collage-item-zoom">
+                                  <Maximize2 size={14} />
+                                </div>
                               </div>
-                            )}
-                            <div className="evento-meta-item">
-                              <MapPin size={16} />
-                              <span>{evento.lugar}</span>
                             </div>
                           </div>
-
-                          <p className="evento-description">{evento.descripcion}</p>
-                        </div>
+                        ))}
                       </div>
-                    ))}
-                  </div>
+
+                      {projectEventData?.descripcion_general && (
+                        <div className="collage-desc-box">
+                          <h4 className="collage-desc-title">
+                            <Building2 size={20} color="#3b82f6" /> Descripción General y Alcance del Proyecto
+                          </h4>
+                          <p className="collage-desc-text">
+                            {projectEventData.descripcion_general}
+                          </p>
+
+                          {projectEventData?.ejes && projectEventData.ejes.length > 0 && (
+                            <div className="collage-ejes-grid">
+                              {projectEventData.ejes.map((eje, eIdx) => (
+                                <div key={eIdx} className="collage-eje-card">
+                                  <h6 className="collage-eje-title">{eje.titulo}</h6>
+                                  <p className="collage-eje-detail">{eje.detalle}</p>
+                                </div>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      )}
+                    </div>
+                  ) : (
+                    <div className="eventos-grid">
+                      {projectEvents.map((evento, idx) => (
+                        <div key={idx} className="evento-card">
+                          {evento.imagen && (
+                            <div 
+                              className="evento-image-wrapper"
+                              onClick={() => setModalImage({
+                                src: evento.imagen,
+                                alt: evento.titulo,
+                                title: evento.titulo,
+                                edicion: evento.edicion,
+                                description: evento.descripcion
+                              })}
+                              title="Haz clic para ver en pantalla completa"
+                            >
+                              <img 
+                                src={evento.imagen} 
+                                alt={evento.titulo} 
+                                className="evento-image"
+                              />
+                              <div className="evento-image-zoom-hint">
+                                <Maximize2 size={16} />
+                                <span>Ampliar</span>
+                              </div>
+                            </div>
+                          )}
+                          <div className="evento-content">
+                            <h4 className="evento-title">{evento.titulo}</h4>
+                            {evento.edicion && (
+                              <span 
+                                className="evento-edition"
+                                style={
+                                  evento.edicion.toLowerCase().includes('previo') || evento.edicion.toLowerCase().includes('antes')
+                                    ? { background: 'rgba(239, 68, 68, 0.15)', color: '#f87171', border: '1px solid rgba(239, 68, 68, 0.3)' }
+                                    : evento.edicion.toLowerCase().includes('finalizad') || evento.edicion.toLowerCase().includes('después') || evento.edicion.toLowerCase().includes('despues')
+                                    ? { background: 'rgba(16, 185, 129, 0.15)', color: '#34d399', border: '1px solid rgba(16, 185, 129, 0.3)' }
+                                    : {}
+                                }
+                              >
+                                {evento.edicion}
+                              </span>
+                            )}
+                            
+                            <div className="evento-meta">
+                              <div className="evento-meta-item">
+                                <Calendar size={16} />
+                                <span>{evento.fecha}</span>
+                              </div>
+                              {evento.hora && (
+                                <div className="evento-meta-item">
+                                  <Clock size={16} />
+                                  <span>{evento.hora}</span>
+                                </div>
+                              )}
+                              <div className="evento-meta-item">
+                                <MapPin size={16} />
+                                <span>{evento.lugar}</span>
+                              </div>
+                            </div>
+
+                            <p className="evento-description">{evento.descripcion}</p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
               )}
             </div>
