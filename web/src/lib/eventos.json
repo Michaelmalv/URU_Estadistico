@@ -20,7 +20,9 @@
         "hora": "11:00 AM - 8:00 PM",
         "lugar": "Parque Italia (Ruiz de Castilla)",
         "descripcion": "Registro de la masiva concurrencia al evento gastronómico y cultural en el Parque Italia. La remodelación urbana brindó el marco de seguridad y accesibilidad peatonal óptimo para el desarrollo exitoso del encuentro.",
-        "imagen": "/imagenes_senderos/manden_a_las_casas_gente.png"
+        "imagen": "/imagenes_senderos/manden_a_las_casas_gente.png",
+        "url": "https://revistamundodiners.com/reportaje/gastronomia/manden-casas-feria/",
+        "fuente": "Mundo Diners"
       }
     ]
   },
