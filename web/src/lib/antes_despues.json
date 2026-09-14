@@ -16,5 +16,23 @@
       "fecha": "Inaugurado y Operativo",
       "descripcion": "Corredor Vivo iluminado con señalética peatonal de alto impacto, ciclovía segregada, pintura mural y cruces tácticos."
     }
+  },
+  {
+    "proyecto": "La Roldós Oe13-Colinas del Norte",
+    "titulo": "Transformación Urbana — La Roldós Oe13-Colinas del Norte",
+    "subtitulo": "Regeneración peatonal, accesibilidad universal y equipamiento recreativo",
+    "descripcion": "Evidencia de la regeneración integral del Sendero Seguro en el sector Jaime Roldós / Colinas del Norte: pavimentación técnica con adoquín ornamental, incorporación de franja podotáctil para accesibilidad universal, nueva parada de transporte con cubierta, bancas y jardineras de hormigón, cruces peatonales protegidos con bolardos y renovación del complejo deportivo adyacente con césped sintético y cerramiento perimetral.",
+    "antes": {
+      "imagen": "/antes_despues/la_roldos/antes.jpg",
+      "etiqueta": "ANTES",
+      "fecha": "Fase de Obra / Pre-Intervención",
+      "descripcion": "Terreno de tierra y grava, acopio de adoquines en calzada, estructura básica de parada en proceso de montaje y cancha deportiva en suelo rústico sin adecuar."
+    },
+    "despues": {
+      "imagen": "/antes_despues/la_roldos/despues.jpg",
+      "etiqueta": "DESPUÉS",
+      "fecha": "Sendero Seguro Inaugurado",
+      "descripcion": "Acera renovada con diseño geométrico tricolor, guía podotáctil continua, parada de buses operativa, mobiliario urbano (bancas y jardineras), bolardos de seguridad y cancha de césped sintético de alta calidad."
+    }
   }
 ]

@@ -68,9 +68,16 @@ export default function AntesDespuesView({ projectName, onOpenModalImage = null 
     };
   }, [isDragging, handleMouseMove, handleMouseUp, handleTouchMove]);
 
+  // Función para normalizar nombres eliminando acentos y espacios extra
+  const normalize = (str) => (str || '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .trim();
+
   // Buscar los datos de antes/después del proyecto
   const projectData = antesDespuesData.find(
-    p => p.proyecto.toLowerCase().trim() === (projectName || '').toLowerCase().trim()
+    p => normalize(p.proyecto) === normalize(projectName)
   );
 
   // Si no hay datos registrados para este proyecto, no renderizar o devolver null
