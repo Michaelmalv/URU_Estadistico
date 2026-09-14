@@ -12,7 +12,7 @@ import {
   Coins, Footprints, Lightbulb, Wrench, Zap, TrafficCone, Paintbrush, 
   Sprout, Sofa, Fence, Construction, Video, Hammer, Info, Map as MapIcon, 
   Sparkles, ShieldCheck, FileText, CheckCircle2, ChevronDown, ChevronRight, 
-  Layers, Table
+  Layers, Table, ExternalLink
 } from 'lucide-react';
 
 const MapboxMap = dynamic(() => import('./MapboxMap'), { ssr: false });
@@ -541,7 +541,9 @@ export default function InformacionGeneralView({
                                 alt: evento.titulo,
                                 title: evento.titulo,
                                 edicion: evento.edicion,
-                                description: evento.descripcion
+                                description: evento.descripcion,
+                                url: evento.url,
+                                fuente: evento.fuente
                               })}
                               title="Haz clic para ver en pantalla completa"
                             >
@@ -578,6 +580,20 @@ export default function InformacionGeneralView({
                             </div>
 
                             <p className="evento-description">{evento.descripcion}</p>
+
+                            {evento.url && (
+                              <a
+                                href={evento.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="evento-link-btn"
+                                title={`Abrir cobertura en ${evento.fuente || 'nueva pestaña'}`}
+                                onClick={(e) => e.stopPropagation()}
+                              >
+                                <ExternalLink size={15} />
+                                <span>{evento.fuente ? `Ver noticia en ${evento.fuente}` : 'Ver Noticia Completa'}</span>
+                              </a>
+                            )}
                           </div>
                         </div>
                       ))}
@@ -1086,7 +1102,9 @@ export default function InformacionGeneralView({
                                 alt: evento.titulo,
                                 title: evento.titulo,
                                 edicion: evento.edicion,
-                                description: evento.descripcion
+                                description: evento.descripcion,
+                                url: evento.url,
+                                fuente: evento.fuente
                               })}
                               title="Haz clic para ver en pantalla completa"
                             >
@@ -1136,6 +1154,20 @@ export default function InformacionGeneralView({
                             </div>
 
                             <p className="evento-description">{evento.descripcion}</p>
+
+                            {evento.url && (
+                              <a
+                                href={evento.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="evento-link-btn"
+                                title={`Abrir cobertura en ${evento.fuente || 'nueva pestaña'}`}
+                                onClick={(e) => e.stopPropagation()}
+                              >
+                                <ExternalLink size={15} />
+                                <span>{evento.fuente ? `Ver noticia en ${evento.fuente}` : 'Ver Noticia Completa'}</span>
+                              </a>
+                            )}
                           </div>
                         </div>
                       ))}
@@ -1175,13 +1207,27 @@ export default function InformacionGeneralView({
               />
             </div>
 
-            {(modalImage.title || modalImage.description) && (
+            {(modalImage.title || modalImage.description || modalImage.url) && (
               <div className="lightbox-caption">
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '0.75rem', flexWrap: 'wrap' }}>
                   {modalImage.title && <h3 className="lightbox-title">{modalImage.title}</h3>}
                   {modalImage.edicion && <span className="lightbox-edition">{modalImage.edicion}</span>}
                 </div>
                 {modalImage.description && <p className="lightbox-desc">{modalImage.description}</p>}
+                {modalImage.url && (
+                  <div style={{ marginTop: '0.85rem' }}>
+                    <a
+                      href={modalImage.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="evento-link-btn"
+                      title={`Abrir cobertura en ${modalImage.fuente || 'nueva pestaña'}`}
+                    >
+                      <ExternalLink size={15} />
+                      <span>{modalImage.fuente ? `Ver noticia en ${modalImage.fuente}` : 'Ver Noticia Completa'}</span>
+                    </a>
+                  </div>
+                )}
               </div>
             )}
           </div>

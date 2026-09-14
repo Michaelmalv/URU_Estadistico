@@ -1139,6 +1139,32 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0;
 }
 
+.evento-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 0.95rem;
+  border-radius: 8px;
+  background: rgba(37, 99, 235, 0.12);
+  color: #3b82f6;
+  border: 1px solid rgba(59, 130, 246, 0.35);
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  margin-top: 0.35rem;
+  align-self: flex-start;
+  cursor: pointer;
+}
+
+.evento-link-btn:hover {
+  background: #2563eb;
+  color: #ffffff;
+  border-color: #2563eb;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+}
+
 /* Lightbox / Modal de Imagen Ampliada */
 .lightbox-overlay {
   position: fixed;
