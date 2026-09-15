@@ -44,8 +44,10 @@
         "edicion": "Repercusión en Medios",
         "fecha": "Mayo 2024",
         "lugar": "Av. Colón",
-        "descripcion": "La prensa destacó la apertura del nuevo local comercial, resaltando la la incorporación de desayunos, área infantil, drive-thru y horario extendido, dinamizando el sector y la oferta comercial del corredor.",
-        "imagen": "/imagenes_senderos/carls_jr_prensa.jpg"
+        "descripcion": "La prensa destacó la apertura del nuevo local comercial, resaltando la incorporación de desayunos, área infantil, drive-thru y horario extendido, dinamizando el sector y la oferta comercial del corredor.",
+        "imagen": "/imagenes_senderos/carls_jr_prensa.jpg",
+        "url": "https://www.metroecuador.com.ec/comercial/2026/05/29/el-primer-freestanding-de-carls-jr-en-quito-llega-con-desayunos-juegos-infantiles-y-atencion-extendida/",
+        "fuente": "Metro Ecuador"
       }
     ]
   },
