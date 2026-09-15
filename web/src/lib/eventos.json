@@ -37,7 +37,9 @@
         "hora": "Horario Extendido",
         "lugar": "Av. Colón, entre Diego de Almagro y Santa María",
         "descripcion": "Gran apertura del primer restaurante formato 'freestanding' de Carl's Jr. en Quito. La completa renovación del Corredor Vivo Av. Colón (nuevas aceras amplias, iluminación LED y soterramiento de cables) incrementó el valor urbano de la zona, atrayendo importantes inversiones de franquicias internacionales.",
-        "imagen": "/imagenes_senderos/carls_jr_apertura.png"
+        "imagen": "/imagenes_senderos/carls_jr_apertura.png",
+        "url": "https://www.elcomercio.com/empresariales/carls-jr-abre-primer-local-hamburguesas-quito/",
+        "fuente": "El Comercio"
       },
       {
         "titulo": "Cobertura de Prensa: Primer Freestanding de la Ciudad",
