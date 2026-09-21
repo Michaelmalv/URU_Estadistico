@@ -38,8 +38,8 @@
   {
     "proyecto": "Bulevar Tribuna de los Shyris",
     "titulo": "Transformación Urbana — Bulevar Tribuna de los Shyris",
-    "subtitulo": "Derrocamiento de estructura histórica y nuevo bulevar peatonal con fuente decorativa",
-    "descripcion": "Evidencia de la transformación integral en la Av. de los Shyris: desmantelamiento de la estructura de hormigón de la histórica Tribuna de los Shyris para recuperar el espacio público, habilitando un bulevar peatonal de alta calidad con senderos adoquinados, arborización, iluminación LED, áreas de descanso y una fuente lineal decorativa integrada al Parque La Carolina.",
+    "subtitulo": "Demolición de la antigua tribuna y nuevo bulevar peatonal con pórticos y ciclovía",
+    "descripcion": "Evidencia de la transformación integral en la Av. de los Shyris: desmantelamiento de la estructura de hormigón de la histórica Tribuna de los Shyris para recuperar el espacio público, habilitando un bulevar peatonal vanguardista con senderos adoquinados continuos, pórticos metálicos, ciclovía segregada, arborización y áreas verdes integradas al Parque La Carolina.",
     "antes": {
       "imagen": "/antes_despues/tribuna_de_los_shyris/antes.jpg",
       "etiqueta": "ANTES",
@@ -50,7 +50,7 @@
       "imagen": "/antes_despues/tribuna_de_los_shyris/despues.jpg",
       "etiqueta": "DESPUÉS",
       "fecha": "Año 2024",
-      "descripcion": "Nuevo bulevar peatonalizado con senderos continuos, áreas verdes, pérgolas metálicas, iluminación ornamental y una fuente de agua lineal con diseño geométrico para el disfrute ciudadano."
+      "descripcion": "Nuevo bulevar peatonalizado desde la misma perspectiva aérea: amplios senderos caminables, pórticos de diseño contemporáneo, ciclovía, jardinería paisajística y conexión fluida con el parque."
     }
   }
 ]
