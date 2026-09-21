@@ -52,5 +52,23 @@
       "fecha": "Año 2024",
       "descripcion": "Nuevo bulevar peatonalizado desde la misma perspectiva aérea: amplios senderos caminables, pórticos de diseño contemporáneo, ciclovía, jardinería paisajística y conexión fluida con el parque."
     }
+  },
+  {
+    "proyecto": "Calle Benalcazar",
+    "titulo": "Transformación Urbana — Calle Benalcázar",
+    "subtitulo": "Recuperación patrimonial, repavimentación y arborización en el Centro Histórico",
+    "descripcion": "Evidencia de la intervención integral en el eje patrimonial de la Calle Benalcázar: renovación de la calzada vial, retiro de bolardos plásticos deteriorados, incorporación de jardineras urbanas con arbolado ornamental, restauración de fachadas y balcones coloniales y priorización de la caminabilidad y el turismo seguro en el Centro Histórico de Quito.",
+    "antes": {
+      "imagen": "/antes_despues/calle_benalcazar/antes.jpg",
+      "etiqueta": "ANTES",
+      "fecha": "Pre-Intervención",
+      "descripcion": "Calzada con asfalto agrietado y baches, aceras angostas con bolardos plásticos desgastados y entorno urbano sin vegetación ni áreas verdes."
+    },
+    "despues": {
+      "imagen": "/antes_despues/calle_benalcazar/despues.jpg",
+      "etiqueta": "DESPUÉS",
+      "fecha": "Centro Histórico Regenerado",
+      "descripcion": "Calle Benalcázar completamente rehabilitada con nueva capa asfáltica homogénea, jardineras cuadradas con árboles ornamentales, fachadas patrimoniales remozadas y revitalización del flujo peatonal y comercial."
+    }
   }
 ]

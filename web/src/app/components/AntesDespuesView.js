@@ -81,6 +81,7 @@ export default function AntesDespuesView({ projectName, onOpenModalImage = null 
       const pNorm = normalize(p.proyecto);
       const targetNorm = normalize(projectName);
       return pNorm === targetNorm || 
+             (pNorm.includes('benalcazar') && targetNorm.includes('benalcazar')) ||
              (pNorm.includes('shyris') && targetNorm.includes('shyris')) ||
              (pNorm.includes('patria') && targetNorm.includes('patria')) ||
              (pNorm.includes('roldos') && targetNorm.includes('roldos')) ||
