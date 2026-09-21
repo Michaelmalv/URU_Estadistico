@@ -88,5 +88,23 @@
       "fecha": "Plaza Gastronómica Inaugurada",
       "descripcion": "Parque Navarro completamente transformado con pabellón gastronómico cubierto con iluminación moderna, amplias plazas peatonales adoquinadas, carpas para ferias y activación social y cultural."
     }
+  },
+  {
+    "proyecto": "Calle Rocafuerte",
+    "titulo": "Transformación Urbana — Calle Rocafuerte",
+    "subtitulo": "Recuperación de espacio público, pacificación vial y conectividad patrimonial",
+    "descripcion": "Evidencia de la regeneración integral del eje histórico de la Calle Rocafuerte (entre San Roque, el Arco de Santo Domingo y La Loma Grande): ensanchamiento geométrico de aceras peatonales en adoquín color terracota, pacificación de la calzada vehicular a 30 km/h, arborización con arbolado ornamental, señalética de cruce seguro y revitalización del patrimonio arquitectónico colonial.",
+    "antes": {
+      "imagen": "/antes_despues/calle_rocafuerte/antes.jpg",
+      "etiqueta": "ANTES",
+      "fecha": "Pre-Intervención",
+      "descripcion": "Vía con doble estacionamiento lateral de vehículos, aceras estrechas e inseguras para peatones, congestión y deterioro del entorno patrimonial."
+    },
+    "despues": {
+      "imagen": "/antes_despues/calle_rocafuerte/despues.jpg",
+      "etiqueta": "DESPUÉS",
+      "fecha": "Eje Patrimonial Regenerado",
+      "descripcion": "Ampliación de 2.830 m² para uso exclusivo del peatón, nuevo diseño de aceras rojizas con arbolado y jardineras, señalización de zona 30 y cruces protegidos con vista al emblemático Arco de Santo Domingo."
+    }
   }
 ]
