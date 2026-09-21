@@ -70,5 +70,23 @@
       "fecha": "Centro Histórico Regenerado",
       "descripcion": "Calle Benalcázar completamente rehabilitada con nueva capa asfáltica homogénea, jardineras cuadradas con árboles ornamentales, fachadas patrimoniales remozadas y revitalización del flujo peatonal y comercial."
     }
+  },
+  {
+    "proyecto": "Parque Navarro - Plaza de las tripas",
+    "titulo": "Transformación Urbana — Parque Navarro (Plaza de las Tripas)",
+    "subtitulo": "Modernización de la plaza gastronómica tradicional, infraestructura techada y espacio público",
+    "descripcion": "Evidencia de la regeneración integral del emblemático Parque Navarro / Plaza de las Tripas en el sector de La Floresta: construcción de una moderna estructura y cubierta metálica para los puestos gastronómicos tradicionales de 'las tripas mishqui', ordenamiento del espacio público con nuevas caminerías, iluminación, mobiliario urbano y áreas verdes para la convivencia comunitaria.",
+    "antes": {
+      "imagen": "/antes_despues/parque_navarro/antes.jpg",
+      "etiqueta": "ANTES",
+      "fecha": "Fase Previa e Inicio de Obra",
+      "descripcion": "Espacio público con cerramiento provisional de obra, puestos gastronómicos informales a la intemperie, pavimento desgastado y falta de infraestructura higiénica y de servicios."
+    },
+    "despues": {
+      "imagen": "/antes_despues/parque_navarro/despues.jpg",
+      "etiqueta": "DESPUÉS",
+      "fecha": "Plaza Gastronómica Inaugurada",
+      "descripcion": "Parque Navarro completamente transformado con pabellón gastronómico cubierto con iluminación moderna, amplias plazas peatonales adoquinadas, carpas para ferias y activación social y cultural."
+    }
   }
 ]
