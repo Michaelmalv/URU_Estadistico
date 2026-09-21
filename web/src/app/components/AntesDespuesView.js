@@ -77,7 +77,16 @@ export default function AntesDespuesView({ projectName, onOpenModalImage = null 
 
   // Buscar los datos de antes/después del proyecto
   const projectData = antesDespuesData.find(
-    p => normalize(p.proyecto) === normalize(projectName)
+    p => {
+      const pNorm = normalize(p.proyecto);
+      const targetNorm = normalize(projectName);
+      return pNorm === targetNorm || 
+             (pNorm.includes('shyris') && targetNorm.includes('shyris')) ||
+             (pNorm.includes('patria') && targetNorm.includes('patria')) ||
+             (pNorm.includes('roldos') && targetNorm.includes('roldos')) ||
+             pNorm.includes(targetNorm) || 
+             targetNorm.includes(pNorm);
+    }
   );
 
   // Si no hay datos registrados para este proyecto, no renderizar o devolver null

@@ -34,5 +34,23 @@
       "fecha": "Sendero Seguro Inaugurado",
       "descripcion": "Acera renovada con diseño geométrico tricolor, guía podotáctil continua, parada de buses operativa, mobiliario urbano (bancas y jardineras), bolardos de seguridad y cancha de césped sintético de alta calidad."
     }
+  },
+  {
+    "proyecto": "Bulevar Tribuna de los Shyris",
+    "titulo": "Transformación Urbana — Bulevar Tribuna de los Shyris",
+    "subtitulo": "Derrocamiento de estructura histórica y nuevo bulevar peatonal con fuente decorativa",
+    "descripcion": "Evidencia de la transformación integral en la Av. de los Shyris: desmantelamiento de la estructura de hormigón de la histórica Tribuna de los Shyris para recuperar el espacio público, habilitando un bulevar peatonal de alta calidad con senderos adoquinados, arborización, iluminación LED, áreas de descanso y una fuente lineal decorativa integrada al Parque La Carolina.",
+    "antes": {
+      "imagen": "/antes_despues/tribuna_de_los_shyris/antes.jpg",
+      "etiqueta": "ANTES",
+      "fecha": "Diciembre 2023",
+      "descripcion": "Antigua estructura de hormigón de la Tribuna de los Shyris (años 70), que generaba contaminación visual, barrera urbana y problemas de inseguridad vial en los estacionamientos adyacentes."
+    },
+    "despues": {
+      "imagen": "/antes_despues/tribuna_de_los_shyris/despues.jpg",
+      "etiqueta": "DESPUÉS",
+      "fecha": "Año 2024",
+      "descripcion": "Nuevo bulevar peatonalizado con senderos continuos, áreas verdes, pérgolas metálicas, iluminación ornamental y una fuente de agua lineal con diseño geométrico para el disfrute ciudadano."
+    }
   }
 ]
