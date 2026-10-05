@@ -77,31 +77,112 @@
   },
   {
     "proyecto": "Isla Tortuga",
-    "titulo_override": "Imágenes del Proyecto",
+    "titulo_override": "Proyecto Especial: QUITOPIA",
+    "subtitulo": "Galería de Infraestructura y Masterplan Arquitectónico (10 Fotografías)",
+    "layout": "collage",
+    "descripcion_general": "El complejo QUITOPIA La Y (Isla Tortuga) constituye un proyecto emblemático de regeneración urbana, desarrollo social y sistema distrital de cuidados en el norte de Quito. Emplazado estratégicamente en la intersección de Isla Tortuga y la estación La Y, este campus ciudadano multifuncional transforma el sector con más de 12.000 m² de infraestructura comunitaria, cultural, deportiva y ambiental de libre acceso.",
+    "ejes": [
+      {
+        "titulo": "Bloque A — Capacitación y Empleo",
+        "detalle": "Aulas interactivas, coworking vecinal y talleres de formación laboral y emprendimiento."
+      },
+      {
+        "titulo": "Bloque B — Cultura y Teatro",
+        "detalle": "Auditorio con butacas tipo teatro y paneles acústicos de última generación para difusión artística."
+      },
+      {
+        "titulo": "Bloque C — Coliseo Polideportivo",
+        "detalle": "Canchas cubiertas con piso de resina azul para básquet y vóley con cubierta cenital translúcida."
+      },
+      {
+        "titulo": "Bloque D — Edificio de Cuidados",
+        "detalle": "Salas de estimulación temprana, psicomotricidad y bienestar para la primera infancia y cuidadores."
+      },
+      {
+        "titulo": "Parque Central y Tensoestructura",
+        "detalle": "Plaza con cubierta tensionada, juegos infantiles, skatepark y caminerías articuladas al Corredor Vivo."
+      }
+    ],
     "eventos": [
       {
-        "titulo": "Vista Aérea del Corredor Vial y Ciclovía",
-        "edicion": "Corredor La Y",
+        "titulo": "Centro de Capacitación y Desarrollo",
+        "edicion": "Talleres y Aulas Interactivas",
         "fecha": "Año 2024",
-        "lugar": "Av. 10 de Agosto e Isla Tortuga",
-        "descripcion": "Perspectiva aérea de la intervención vial y de movilidad en el sector de La Y. Se aprecia la ciclovía bidireccional, parterre arbolado y carril exclusivo de transporte.",
-        "imagen": "/imagenes_senderos/isla_tortuga/aerea_corredor.jpg"
+        "lugar": "Quitopia La Y (Isla Tortuga)",
+        "descripcion": "Instalaciones completamente equipadas del centro de capacitación comunitaria de Quitopia. Se aprecian las aulas equipadas con mobiliario moderno y sistemas de iluminación natural e inteligente para el aprendizaje de los vecinos.",
+        "imagen": "/imagenes_senderos/quitopia_1.jpg"
       },
       {
-        "titulo": "Vista Aérea Cenital del Sendero Seguro y Plaza Isla Tortuga",
-        "edicion": "Plaza y Sendero Seguro",
+        "titulo": "Salón de Reuniones y Eventos",
+        "edicion": "Área de Convivencia y Diálogo",
         "fecha": "Año 2024",
-        "lugar": "Plaza y Sendero Isla Tortuga",
-        "descripcion": "Vista aérea cenital del nuevo Sendero Seguro y Plaza Isla Tortuga frente al área comercial con diseño geométrico de adoquines, caminerías y áreas verdes.",
-        "imagen": "/imagenes_senderos/isla_tortuga/aerea_plaza_sendero.jpg"
+        "lugar": "Quitopia La Y",
+        "descripcion": "Vista del área de conferencias y reuniones comunitarias del complejo social, diseñada para el encuentro vecinal, socialización de proyectos y talleres de debate del barrio.",
+        "imagen": "/imagenes_senderos/quitopia_2.jpg"
       },
       {
-        "titulo": "Vista Aérea de la Plaza y Estación La Y del Metro de Quito",
-        "edicion": "Plaza de Acceso al Metro",
+        "titulo": "Fachada y Entorno Exterior",
+        "edicion": "Diseño Arquitectónico Moderno",
         "fecha": "Año 2024",
-        "lugar": "Estación La Y — Metro de Quito",
-        "descripcion": "Registro aéreo de la plaza peatonal de conexión a la estación multimodal del Metro de Quito, cruces protegidos y entorno cívico.",
-        "imagen": "/imagenes_senderos/isla_tortuga/aerea_metro_plaza.jpg"
+        "lugar": "Quitopia La Y",
+        "descripcion": "El exterior del complejo Quitopia resalta por su diseño arquitectónico de vanguardia e integrador. Cuenta con amplias caminerías exteriores, áreas verdes de recreación y pistas para actividades al aire libre.",
+        "imagen": "/imagenes_senderos/quitopia_3.jpg"
+      },
+      {
+        "titulo": "Instalaciones Internas y Ventanal Central",
+        "edicion": "Iluminación e Infraestructura",
+        "fecha": "Año 2024",
+        "lugar": "Quitopia La Y",
+        "descripcion": "Vista del imponente ventanal en arco que conecta el vestíbulo principal del polideportivo y centro de cuidados con el entorno natural circundante, optimizando la iluminación natural del edificio.",
+        "imagen": "/imagenes_senderos/quitopia_4.jpg"
+      },
+      {
+        "titulo": "Planos y Distribución de Bloques",
+        "edicion": "Mapa de Servicios Quitopia La Y",
+        "fecha": "Año 2024",
+        "lugar": "Esquema Arquitectónico",
+        "descripcion": "Diseño en planta detallado del complejo Quitopia La Y, mostrando la distribución estratégica de sus bloques (Bloque A de Capacitación, Bloque B Teatro, Bloque C Polideportivo, Bloque D Cuidados, áreas de skatepark y ciclovía).",
+        "imagen": "/imagenes_senderos/quitopia_5.jpg"
+      },
+      {
+        "titulo": "Patio y Cubierta Tensionada",
+        "edicion": "Área Recreativa Exterior",
+        "fecha": "Año 2024",
+        "lugar": "Quitopia La Y",
+        "descripcion": "Fotografía del patio central de Quitopia, coronado por una gran cubierta de membrana tensionada (tensoestructura) blanca, ofreciendo sombra y protección climática para actividades culturales comunitarias.",
+        "imagen": "/imagenes_senderos/quitopia_6.jpg"
+      },
+      {
+        "titulo": "Polideportivo y Canchas Cubiertas",
+        "edicion": "Infraestructura Deportiva",
+        "fecha": "Año 2024",
+        "lugar": "Quitopia La Y",
+        "descripcion": "Vista del coliseo polideportivo interior, equipado con piso de resina azul para básquet y vóley, paneles acústicos e iluminación cenital mediante una cubierta translúcida de alta tecnología.",
+        "imagen": "/imagenes_senderos/quitopia_7.jpg"
+      },
+      {
+        "titulo": "Juegos Infantiles y Parques",
+        "edicion": "Espacio Lúdico Infantil",
+        "fecha": "Año 2024",
+        "lugar": "Quitopia La Y",
+        "descripcion": "Detalle del parque de juegos infantiles con caminerías de colores y áreas lúdicas diseñadas con materiales blandos de seguridad, ideales para el sano esparcimiento de los niños del sector.",
+        "imagen": "/imagenes_senderos/quitopia_8.jpg"
+      },
+      {
+        "titulo": "Aula Multiuso y Estimulación",
+        "edicion": "Edificio de los Cuidados",
+        "fecha": "Año 2024",
+        "lugar": "Quitopia La Y",
+        "descripcion": "Interior de las salas de estimulación temprana y psicomotricidad infantil, con ventanales de madera, iluminación cálida y pisos idóneos para el cuidado seguro de la primera infancia.",
+        "imagen": "/imagenes_senderos/quitopia_9.jpg"
+      },
+      {
+        "titulo": "Auditorio y Teatro Quitopia",
+        "edicion": "Fomento de Cultura y Arte",
+        "fecha": "Año 2024",
+        "lugar": "Teatro La Y",
+        "descripcion": "Vista del moderno auditorio con butacas tipo teatro y paneles acústicos de última generación, configurándose como un polo de difusión artística y eventos culturales en el norte de Quito.",
+        "imagen": "/imagenes_senderos/quitopia_10.jpg"
       }
     ]
   }

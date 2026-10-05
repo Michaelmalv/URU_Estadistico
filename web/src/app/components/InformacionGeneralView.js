@@ -7,6 +7,7 @@ import equipamientoData from '@/lib/equipamiento.json';
 import eventosData from '@/lib/eventos.json';
 import soterramientoData from '@/lib/soterramiento.json';
 import AntesDespuesView from './AntesDespuesView';
+import GaleriaProyectoView from './GaleriaProyectoView';
 import { 
   Building2, Calendar, Users, Route, Clock, MapPin, X, Maximize2,
   Coins, Footprints, Lightbulb, Wrench, Zap, TrafficCone, Paintbrush, 
@@ -120,7 +121,11 @@ export default function InformacionGeneralView({
     : (proyectos.find(p => p.nombre === selectedProyecto) || null);
 
   const currentFichas = fichas.filter(f => f.proyecto_id === currentProjectObj?.id);
-  const projectEventData = eventosData.find(e => e.proyecto === selectedProyecto);
+  const projectEventData = eventosData.find(e => {
+    const epNorm = normalizeText(e.proyecto);
+    const selNorm = normalizeText(selectedProyecto || currentProjectObj?.nombre || '');
+    return epNorm === selNorm || (selNorm && (selNorm.includes(epNorm) || epNorm.includes(selNorm)));
+  });
   const projectEvents = projectEventData ? projectEventData.eventos : [];
 
   const formatMoney = (value) => {
@@ -423,6 +428,12 @@ export default function InformacionGeneralView({
 
           {/* 2. Transformación Urbana: Antes y Después (si está disponible para el proyecto) */}
           <AntesDespuesView 
+            projectName={currentSoterramientoRecord.nombre} 
+            onOpenModalImage={setModalImage} 
+          />
+
+          {/* 2.5 Galería de Imágenes del Proyecto (antes del mapa) */}
+          <GaleriaProyectoView 
             projectName={currentSoterramientoRecord.nombre} 
             onOpenModalImage={setModalImage} 
           />
@@ -1082,6 +1093,12 @@ export default function InformacionGeneralView({
 
           {/* 2. Transformación Urbana: Antes y Después */}
           <AntesDespuesView 
+            projectName={currentProjectObj.nombre} 
+            onOpenModalImage={setModalImage} 
+          />
+
+          {/* 2.5 Galería de Imágenes del Proyecto (antes del mapa) */}
+          <GaleriaProyectoView 
             projectName={currentProjectObj.nombre} 
             onOpenModalImage={setModalImage} 
           />

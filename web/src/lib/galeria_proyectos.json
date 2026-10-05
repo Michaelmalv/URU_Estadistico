@@ -1,0 +1,33 @@
+[
+  {
+    "proyecto": "Isla Tortuga",
+    "titulo": "Imágenes del Proyecto — Isla Tortuga",
+    "subtitulo": "Registro fotográfico aéreo de la intervención urbana y conectividad",
+    "imagenes": [
+      {
+        "id": 1,
+        "src": "/imagenes_senderos/isla_tortuga/aerea_corredor.jpg",
+        "alt": "Vista Aérea del Corredor Vial y Ciclovía",
+        "titulo": "Vista Aérea del Corredor Vial y Ciclovía",
+        "etiqueta": "Corredor y Ciclovía",
+        "descripcion": "Perspectiva aérea de la Av. 10 de Agosto e intersección Isla Tortuga con ciclovía segregada, señalización vial y parterre arbolado."
+      },
+      {
+        "id": 2,
+        "src": "/imagenes_senderos/isla_tortuga/aerea_plaza_sendero.jpg",
+        "alt": "Vista Aérea Cenital del Sendero Seguro y Plaza Isla Tortuga",
+        "titulo": "Vista Aérea Cenital del Sendero Seguro y Plaza Isla Tortuga",
+        "etiqueta": "Plaza y Sendero",
+        "descripcion": "Diseño geométrico de adoquines ornamentales, caminerías peatonales continuas y áreas verdes recuperadas."
+      },
+      {
+        "id": 3,
+        "src": "/imagenes_senderos/isla_tortuga/aerea_metro_plaza.jpg",
+        "alt": "Vista Aérea de la Plaza y Estación La Y del Metro de Quito",
+        "titulo": "Vista Aérea de la Plaza y Estación La Y del Metro de Quito",
+        "etiqueta": "Acceso Metro La Y",
+        "descripcion": "Plaza de acceso intermodal a la Estación La Y del Metro de Quito con iluminación repotenciada y cruces peatonales seguros."
+      }
+    ]
+  }
+]
