@@ -77,10 +77,10 @@
   },
   {
     "proyecto": "Isla Tortuga",
-    "titulo_override": "Proyecto Especial: QUITOPIA",
-    "subtitulo": "Galería de Infraestructura y Masterplan Arquitectónico (10 Fotografías)",
+    "titulo_override": "Proyecto Especial: QUITOPIA Y SENDERO SEGURO ISLA TORTUGA",
+    "subtitulo": "Galería de Infraestructura y Vistas Aéreas (13 Fotografías)",
     "layout": "collage",
-    "descripcion_general": "El complejo QUITOPIA La Y (Isla Tortuga) constituye un proyecto emblemático de regeneración urbana, desarrollo social y sistema distrital de cuidados en el norte de Quito. Emplazado estratégicamente en la intersección de Isla Tortuga y la estación La Y, este campus ciudadano multifuncional transforma el sector con más de 12.000 m² de infraestructura comunitaria, cultural, deportiva y ambiental de libre acceso.",
+    "descripcion_general": "El proyecto Sendero Seguro y complejo QUITOPIA La Y (Isla Tortuga) constituye una intervención emblemática de regeneración urbana, movilidad peatonal, ciclovía y sistema distrital de cuidados en el norte de Quito. Conecta la estación multimodal del Metro de Quito con plazas cívicas, senderos seguros adoquinados y más de 12.000 m² de infraestructura comunitaria, cultural, deportiva y ambiental de libre acceso.",
     "ejes": [
       {
         "titulo": "Bloque A — Capacitación y Empleo",
@@ -104,6 +104,30 @@
       }
     ],
     "eventos": [
+      {
+        "titulo": "Vista Aérea del Corredor Vial y Ciclovía — La Y / Isla Tortuga",
+        "edicion": "Perspectiva Aérea del Corredor",
+        "fecha": "Año 2024",
+        "lugar": "Av. 10 de Agosto e Isla Tortuga",
+        "descripcion": "Perspectiva aérea de la intervención vial y de movilidad en el sector de La Y. Se aprecia la implementación de la ciclovía bidireccional segregada, carril exclusivo de transporte público, parterre central con arbolado ornamental y ordenamiento de accesos vehiculares y peatonales.",
+        "imagen": "/imagenes_senderos/isla_tortuga_aerea_1.jpg"
+      },
+      {
+        "titulo": "Vista Aérea Cenital del Sendero Seguro y Plaza Isla Tortuga",
+        "edicion": "Transformación Integral del Espacio Público",
+        "fecha": "Año 2024",
+        "lugar": "Plaza y Sendero Isla Tortuga",
+        "descripcion": "Vista aérea cenital del nuevo Sendero Seguro y Plaza Isla Tortuga frente al área comercial. Destaca la pavimentación en adoquín con franjas y círculos de diseño geométrico, aceras peatonales ensanchadas, ciclo-ruta integrada, áreas verdes recuperadas y cruces cebras seguros.",
+        "imagen": "/imagenes_senderos/isla_tortuga_aerea_2.jpg"
+      },
+      {
+        "titulo": "Vista Aérea de la Plaza y Estación La Y del Metro de Quito",
+        "edicion": "Conectividad Multimodal y Espacio Cívico",
+        "fecha": "Año 2024",
+        "lugar": "Estación La Y — Metro de Quito",
+        "descripcion": "Registro aéreo de la gran plaza peatonal que conecta la estación multimodal del Metro de Quito con los senderos peatonales de Isla Tortuga, mostrando los cruces protegidos, áreas de estancia arboladas y la articulación con el entorno residencial y comercial.",
+        "imagen": "/imagenes_senderos/isla_tortuga_aerea_3.jpg"
+      },
       {
         "titulo": "Centro de Capacitación y Desarrollo",
         "edicion": "Talleres y Aulas Interactivas",
