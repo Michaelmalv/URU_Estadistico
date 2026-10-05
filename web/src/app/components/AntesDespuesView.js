@@ -15,13 +15,40 @@ const getProyectoDisplayName = (nombre) => {
   return nombre;
 };
 
+// Función para normalizar nombres eliminando acentos y espacios extra
+const normalize = (str) => (str || '')
+  .normalize('NFD')
+  .replace(/[\u0300-\u036f]/g, '')
+  .toLowerCase()
+  .trim();
+
 export default function AntesDespuesView({ projectName, onOpenModalImage = null }) {
+  // Buscar los datos de antes/después del proyecto de forma sincrónica e inmediata
+  const projectData = antesDespuesData.find(
+    p => {
+      const pNorm = normalize(p.proyecto);
+      const targetNorm = normalize(projectName);
+      return pNorm === targetNorm || 
+             (pNorm.includes('rocafuerte') && targetNorm.includes('rocafuerte')) ||
+             (pNorm.includes('navarro') && targetNorm.includes('navarro')) ||
+             (pNorm.includes('tripas') && targetNorm.includes('tripas')) ||
+             (pNorm.includes('benalcazar') && targetNorm.includes('benalcazar')) ||
+             (pNorm.includes('shyris') && targetNorm.includes('shyris')) ||
+             (pNorm.includes('patria') && targetNorm.includes('patria')) ||
+             (pNorm.includes('roldos') && targetNorm.includes('roldos')) ||
+             (pNorm.includes('castilla') && targetNorm.includes('castilla')) ||
+             (pNorm.includes('tortuga') && targetNorm.includes('tortuga')) ||
+             pNorm.includes(targetNorm) || 
+             targetNorm.includes(pNorm);
+    }
+  );
+
   const [viewMode, setViewMode] = useState('slider'); // 'slider' | 'side-by-side'
   const [sliderPosition, setSliderPosition] = useState(50);
   const [isDragging, setIsDragging] = useState(false);
   const [showSection, setShowSection] = useState(true);
   const [localModalImage, setLocalModalImage] = useState(null);
-  const [aspectRatio, setAspectRatio] = useState(null);
+  const [aspectRatio, setAspectRatio] = useState(projectData?.aspectRatio || null);
 
   const containerRef = useRef(null);
   const baseImgRef = useRef(null);
@@ -40,14 +67,14 @@ export default function AntesDespuesView({ projectName, onOpenModalImage = null 
   useEffect(() => {
     if (baseImgRef.current && baseImgRef.current.complete) {
       const { naturalWidth, naturalHeight } = baseImgRef.current;
-      if (naturalWidth && naturalHeight) {
+      if (naturalWidth && naturalHeight && !projectData?.aspectRatio) {
         setAspectRatio(naturalWidth / naturalHeight);
       }
     }
   }, [projectName, projectData]);
 
   const handleImageLoad = (e) => {
-    if (e.target.naturalWidth && e.target.naturalHeight) {
+    if (e.target.naturalWidth && e.target.naturalHeight && !projectData?.aspectRatio) {
       const ratio = e.target.naturalWidth / e.target.naturalHeight;
       setAspectRatio(ratio);
     }
@@ -91,33 +118,6 @@ export default function AntesDespuesView({ projectName, onOpenModalImage = null 
       window.removeEventListener('touchend', handleMouseUp);
     };
   }, [isDragging, handleMouseMove, handleMouseUp, handleTouchMove]);
-
-  // Función para normalizar nombres eliminando acentos y espacios extra
-  const normalize = (str) => (str || '')
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .toLowerCase()
-    .trim();
-
-  // Buscar los datos de antes/después del proyecto
-  const projectData = antesDespuesData.find(
-    p => {
-      const pNorm = normalize(p.proyecto);
-      const targetNorm = normalize(projectName);
-      return pNorm === targetNorm || 
-             (pNorm.includes('rocafuerte') && targetNorm.includes('rocafuerte')) ||
-             (pNorm.includes('navarro') && targetNorm.includes('navarro')) ||
-             (pNorm.includes('tripas') && targetNorm.includes('tripas')) ||
-             (pNorm.includes('benalcazar') && targetNorm.includes('benalcazar')) ||
-             (pNorm.includes('shyris') && targetNorm.includes('shyris')) ||
-             (pNorm.includes('patria') && targetNorm.includes('patria')) ||
-             (pNorm.includes('roldos') && targetNorm.includes('roldos')) ||
-             (pNorm.includes('castilla') && targetNorm.includes('castilla')) ||
-             (pNorm.includes('tortuga') && targetNorm.includes('tortuga')) ||
-             pNorm.includes(targetNorm) || 
-             targetNorm.includes(pNorm);
-    }
-  );
 
   // Si no hay datos registrados para este proyecto, no renderizar o devolver null
   if (!projectData || !projectData.antes || !projectData.despues) {
