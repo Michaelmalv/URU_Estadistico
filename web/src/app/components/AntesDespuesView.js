@@ -24,12 +24,27 @@ export default function AntesDespuesView({ projectName, onOpenModalImage = null 
   const [aspectRatio, setAspectRatio] = useState(null);
 
   const containerRef = useRef(null);
+  const baseImgRef = useRef(null);
 
   // Resetear el deslizador y aspect ratio cuando cambia el proyecto
   useEffect(() => {
     setSliderPosition(50);
-    setAspectRatio(null);
-  }, [projectName]);
+    if (projectData && projectData.aspectRatio) {
+      setAspectRatio(projectData.aspectRatio);
+    } else {
+      setAspectRatio(null);
+    }
+  }, [projectName, projectData]);
+
+  // Verificar si la imagen ya está en caché del navegador
+  useEffect(() => {
+    if (baseImgRef.current && baseImgRef.current.complete) {
+      const { naturalWidth, naturalHeight } = baseImgRef.current;
+      if (naturalWidth && naturalHeight) {
+        setAspectRatio(naturalWidth / naturalHeight);
+      }
+    }
+  }, [projectName, projectData]);
 
   const handleImageLoad = (e) => {
     if (e.target.naturalWidth && e.target.naturalHeight) {
@@ -197,11 +212,16 @@ export default function AntesDespuesView({ projectName, onOpenModalImage = null 
 
           {/* MODO 1: DESLIZADOR INTERACTIVO (SLIDER) */}
           {viewMode === 'slider' && (() => {
-            const isSquareOrPortrait = aspectRatio && aspectRatio <= 1.25;
+            const explicitAspect = projectData.aspectRatio;
+            const explicitMaxW = projectData.maxWidth;
+
+            const computedRatio = explicitAspect || (aspectRatio ? `${aspectRatio}` : '16 / 9');
+            const isNarrow = explicitMaxW || (aspectRatio && aspectRatio <= 1.45);
+            const computedMaxW = explicitMaxW || (isNarrow ? '640px' : '100%');
+
             const sliderContainerStyle = {
-              aspectRatio: aspectRatio ? `${aspectRatio}` : '16 / 9',
-              maxWidth: isSquareOrPortrait ? '620px' : '100%',
-              maxHeight: isSquareOrPortrait ? '620px' : '560px',
+              aspectRatio: computedRatio,
+              maxWidth: computedMaxW,
               margin: '0 auto',
               width: '100%'
             };
@@ -223,6 +243,7 @@ export default function AntesDespuesView({ projectName, onOpenModalImage = null 
                 >
                   {/* Imagen DESPUÉS (Fondo base) */}
                   <img 
+                    ref={baseImgRef}
                     src={projectData.despues.imagen} 
                     alt={projectData.despues.etiqueta}
                     className="antes-despues-img-base"
