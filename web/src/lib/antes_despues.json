@@ -138,25 +138,5 @@
       "fecha": "Corredor Vivo Inaugurado",
       "descripcion": "Despeje visual completo por retiro y soterramiento de redes, calzada asfaltada con cruce cebra y mural de urbanismo táctico azul/rojo, nuevo poste de alumbrado público y aceras renovadas frente al comercio vecinal."
     }
-  },
-  {
-    "proyecto": "Isla Tortuga",
-    "titulo": "Transformación Urbana — Isla Tortuga",
-    "subtitulo": "Recuperación de áreas verdes, ciclovía, pavimentación técnica y senderos seguros",
-    "aspectRatio": "16 / 9",
-    "maxWidth": "960px",
-    "descripcion": "Evidencia de la regeneración integral en el Sendero Seguro Isla Tortuga: transformación del antiguo espacio en una moderna plaza cívica con trazado geométrico en adoquines, caminerías de asfalto con señalización, ciclo-ruta, mobiliario urbano de hormigón y articulación directa con la Estación La Y del Metro de Quito.",
-    "antes": {
-      "imagen": "/antes_despues/isla_tortuga/antes.jpg",
-      "etiqueta": "ANTES",
-      "fecha": "Pre-Intervención",
-      "descripcion": "Área verde con cerramiento rústico de malla, caminerías deterioradas, mobiliario precario y falta de iluminación y accesibilidad peatonal."
-    },
-    "despues": {
-      "imagen": "/antes_despues/isla_tortuga/despues.jpg",
-      "etiqueta": "DESPUÉS",
-      "fecha": "Sendero Seguro Inaugurado",
-      "descripcion": "Plaza y corredor peatonal totalmente revitalizados con nueva pista de asfalto, diseño geométrico de adoquines, bancas escultóricas, iluminación moderna y conexión directa a la estación del Metro."
-    }
   }
 ]
