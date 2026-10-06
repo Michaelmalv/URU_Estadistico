@@ -1,0 +1,578 @@
+[
+  {
+    "id": "av-colon",
+    "nombre": "Av. Colón",
+    "nombre_completo": "Corredor Vivo Av. Colón",
+    "categoria": "Corredores Vivos",
+    "coordenadas": [
+      -78.4905,
+      -0.1985
+    ],
+    "zoom": 15.5,
+    "administracion_zonal": "Eugenio Espejo / La Mariscal",
+    "parroquia": "La Mariscal - Iñaquito",
+    "estacion_metro_cercana": "Estación Colón (Línea 1 Metro)",
+    "distancia_metro": "350 m (4 min a pie)",
+    "score_atractivo": 95,
+    "badge": "Inaugurado y Operativo",
+    "descripcion_corta": "Eje estructurante norte-centro con ciclovía segregada, soterramiento de cables y amplia oferta comercial.",
+    "valor_suelo": {
+      "aiva": "AIVAS AV. COLÓN",
+      "valor_m2": 1285.5,
+      "rango": "Alto / Comercial y Corporativo",
+      "tendencia": "+9.2% de plusvalía anual",
+      "descripcion": "Zona de altísima plusvalía y demanda inmobiliaria potenciada por la renovación integral del perfil vial y soterrado."
+    },
+    "seguridad": {
+      "nivel": "Alto (Sendero Seguro)",
+      "camaras": 12,
+      "luminarias_led": 142,
+      "cruces_seguros": 8,
+      "bolardos": 180,
+      "descripcion": "Alumbrado LED repotenciado, señalización táctica tricolor, cámaras de vigilancia y aceras anchas con accesibilidad universal."
+    },
+    "economia": {
+      "inversiones_privadas": [
+        {
+          "titulo": "Carl's Jr. Freestanding Colón",
+          "tipo": "Franquicia Internacional",
+          "impacto": "Apertura del primer freestanding de la cadena en Quito con área infantil, drive-thru y horario extendido."
+        }
+      ],
+      "negocios_activos": "+120 comercios, hoteles y servicios corporativos",
+      "atractivo_comercial": "Polo de atracción gastronómica, turística y financiera con alta afluencia peatonal."
+    },
+    "proyectos_cercanos": [
+      "Soterramiento de Cables Av. Colón (Fase 1 y 2)",
+      "Estación La Colón del Metro de Quito",
+      "Corredor Turístico La Mariscal",
+      "Ciclovía Conectora Av. 10 de Agosto"
+    ],
+    "galeria_id": "Av. Colón",
+    "antes_despues_id": null,
+    "imagen_destacada": "/imagenes_senderos/av_colon/cruce_peatonal.jpg"
+  },
+  {
+    "id": "av-patria",
+    "nombre": "Av. Patria",
+    "nombre_completo": "Corredor Vivo Av. Patria",
+    "categoria": "Corredores Vivos",
+    "coordenadas": [
+      -78.4985,
+      -0.2105
+    ],
+    "zoom": 15.5,
+    "administracion_zonal": "Manuela Sáenz / Eugenio Espejo",
+    "parroquia": "La Mariscal - San Juan",
+    "estacion_metro_cercana": "Estación El Ejido (Línea 1 Metro)",
+    "distancia_metro": "180 m (2 min a pie)",
+    "score_atractivo": 96,
+    "badge": "Inaugurado y Operativo",
+    "descripcion_corta": "Conector icónico entre el Parque El Ejido y La Mariscal con cruces tácticos de colores e inversión corporativa.",
+    "valor_suelo": {
+      "aiva": "AIVAS PATRIA",
+      "valor_m2": 1340,
+      "rango": "Muy Alto / Corporativo y Cultural",
+      "tendencia": "+10.4% de plusvalía anual",
+      "descripcion": "Consolidación como distrito financiero, cultural y universitario de primer orden con alta valorización por metro cuadrado."
+    },
+    "seguridad": {
+      "nivel": "Muy Alto (Iluminación & Monitoreo)",
+      "camaras": 16,
+      "luminarias_led": 168,
+      "cruces_seguros": 10,
+      "bolardos": 220,
+      "descripcion": "168 luminarias LED de última generación, cruces peatonales tácticos multicolor y conexión visual diáfana con parques."
+    },
+    "economia": {
+      "inversiones_privadas": [
+        {
+          "titulo": "Banco Internacional S.A. (Proyecto 50 Años)",
+          "tipo": "Revalorización Edilicia Corporativa",
+          "impacto": "Inversión privada millonaria en la modernización de fachadas y áreas peatonales sobre la Av. Patria."
+        }
+      ],
+      "negocios_activos": "+150 empresas, entidades bancarias y centros culturales",
+      "atractivo_comercial": "Cercanía a Casa de la Cultura, Pontificia Universidad Católica (PUCE), EPN y hoteles de lujo."
+    },
+    "proyectos_cercanos": [
+      "Soterramiento de Cables Av. Patria",
+      "Estación El Ejido del Metro de Quito",
+      "Parque El Ejido y Parque El Arbolito",
+      "Casa de la Cultura Ecuatoriana"
+    ],
+    "galeria_id": null,
+    "antes_despues_id": "Av. Patria",
+    "imagen_destacada": "/antes_despues/av_patria/despues.jpg"
+  },
+  {
+    "id": "tribuna-shyris",
+    "nombre": "Bulevar Tribuna de los Shyris",
+    "nombre_completo": "Bulevar Peatonal y Parque Tribuna de los Shyris",
+    "categoria": "Rehabilitación del Espacio Público",
+    "coordenadas": [
+      -78.4823,
+      -0.183
+    ],
+    "zoom": 15.5,
+    "administracion_zonal": "Eugenio Espejo",
+    "parroquia": "Iñaquito",
+    "estacion_metro_cercana": "Estación La Carolina (Línea 1 Metro)",
+    "distancia_metro": "280 m (3 min a pie)",
+    "score_atractivo": 98,
+    "badge": "Inaugurado y Operativo",
+    "descripcion_corta": "Emblemática recuperación del espacio público con demolición de la antigua tribuna, pórticos y caminerías fluidas.",
+    "valor_suelo": {
+      "aiva": "AIVAS TRIBUNA DE LOS SHYRIS",
+      "valor_m2": 1750,
+      "rango": "Premium / Alta Densidad y Mixto",
+      "tendencia": "+12.8% de plusvalía anual",
+      "descripcion": "Epicentro financiero y residencial de lujo de Quito con la mayor valorización inmobiliaria por m² de la ciudad."
+    },
+    "seguridad": {
+      "nivel": "Máximo (Entorno Pacificado)",
+      "camaras": 24,
+      "luminarias_led": 210,
+      "cruces_seguros": 12,
+      "bolardos": 340,
+      "descripcion": "Eliminación de puntos ciegos, iluminación peatonal continua, ciclovía segregada y control de estacionamientos."
+    },
+    "economia": {
+      "inversiones_privadas": [
+        {
+          "titulo": "Ecosistema Inmobiliario y Corporativo Shyris",
+          "tipo": "Desarrollos Residenciales y Comerciales de Lujo",
+          "impacto": "Atracción masiva de proyectos inmobiliarios sustentables certificados y locales gastronómicos premium."
+        }
+      ],
+      "negocios_activos": "+300 corporaciones, restaurantes gourmet y centros comerciales",
+      "atractivo_comercial": "Acceso inmediato al Parque La Carolina, Quicentro Shopping y centros de negocios internacionales."
+    },
+    "proyectos_cercanos": [
+      "Parque La Carolina",
+      "Estación La Carolina del Metro de Quito",
+      "Estación Iñaquito del Metro de Quito",
+      "Soterramiento Sector Financiero"
+    ],
+    "galeria_id": null,
+    "antes_despues_id": "Bulevar Tribuna de los Shyris",
+    "imagen_destacada": "/antes_despues/tribuna_de_los_shyris/despues.jpg"
+  },
+  {
+    "id": "isla-tortuga",
+    "nombre": "Isla Tortuga / QUITOPIA La Y",
+    "nombre_completo": "Sendero Seguro Isla Tortuga y Campus QUITOPIA La Y",
+    "categoria": "Corredores Vivos",
+    "coordenadas": [
+      -78.4872,
+      -0.1652
+    ],
+    "zoom": 15.5,
+    "administracion_zonal": "Eugenio Espejo",
+    "parroquia": "Iñaquito / Concepción",
+    "estacion_metro_cercana": "Estación La Y (Línea 1 Metro)",
+    "distancia_metro": "120 m (1.5 min a pie)",
+    "score_atractivo": 96,
+    "badge": "Inaugurado y Operativo",
+    "descripcion_corta": "Mega complejo ciudadano multifuncional con 12.000 m² de equipamiento social, teatro, polideportivo y ciclovía.",
+    "valor_suelo": {
+      "aiva": "AIVAS ISLA TORTUGA",
+      "valor_m2": 1210,
+      "rango": "Medio-Alto / Equipamiento y Residencial",
+      "tendencia": "+8.9% de plusvalía anual",
+      "descripcion": "Revalorización barrial integral impulsada por la intermodalidad del Metro y el equipamiento social de cuidados QUITOPIA."
+    },
+    "seguridad": {
+      "nivel": "Muy Alto (Entorno Comunitario)",
+      "camaras": 18,
+      "luminarias_led": 135,
+      "cruces_seguros": 6,
+      "bolardos": 150,
+      "descripcion": "Monitoreo 24/7, parque infantil iluminado, pistas de skatepark seguras y caminerías accesibles."
+    },
+    "economia": {
+      "inversiones_privadas": [
+        {
+          "titulo": "Polo de Emprendimiento y Coworking Comunitario",
+          "tipo": "Desarrollo Local y Empleo",
+          "impacto": "Aulas interactivas de formación laboral, coworking vecinal y fomento de microempresas locales."
+        }
+      ],
+      "negocios_activos": "+90 comercios locales y servicios comunitarios",
+      "atractivo_comercial": "Flujo intermodal masivo por conexión con estación La Y del Metro y Trolebús."
+    },
+    "proyectos_cercanos": [
+      "Campus QUITOPIA La Y (10 Bloques de Infraestructura)",
+      "Estación La Y del Metro de Quito",
+      "Ciclovía Av. 10 de Agosto",
+      "Parque Bicentenario (Acceso Sur)"
+    ],
+    "galeria_id": "Isla Tortuga",
+    "antes_despues_id": null,
+    "imagen_destacada": "/imagenes_senderos/isla_tortuga/aerea_plaza_sendero.jpg"
+  },
+  {
+    "id": "ruiz-castilla",
+    "nombre": "Ruiz de Castilla",
+    "nombre_completo": "Corredor Vivo Ruiz de Castilla y Parque Italia",
+    "categoria": "Corredores Vivos",
+    "coordenadas": [
+      -78.5012,
+      -0.1915
+    ],
+    "zoom": 15.5,
+    "administracion_zonal": "Eugenio Espejo",
+    "parroquia": "Belisario Quevedo - Las Casas",
+    "estacion_metro_cercana": "Estación Universidad Central (Metro)",
+    "distancia_metro": "600 m (7 min a pie)",
+    "score_atractivo": 91,
+    "badge": "Inaugurado y Operativo",
+    "descripcion_corta": "Sendero seguro adoquinado con reactivación comunitaria, áreas verdes y enlace directo al Parque Italia.",
+    "valor_suelo": {
+      "aiva": "AIVAS CALLE RUIZ DE CASTILLA",
+      "valor_m2": 980,
+      "rango": "Medio / Residencial y Estudiantil",
+      "tendencia": "+7.8% de plusvalía anual",
+      "descripcion": "Dinamización urbana en un barrio residencial tradicional con alta demanda de arriendo estudiantil y comercial."
+    },
+    "seguridad": {
+      "nivel": "Alto (Sendero Seguro)",
+      "camaras": 10,
+      "luminarias_led": 98,
+      "cruces_seguros": 5,
+      "bolardos": 110,
+      "descripcion": "Nuevas aceras adoquinadas, iluminación LED, soterramiento parcial y espacios públicos reactivados."
+    },
+    "economia": {
+      "inversiones_privadas": [
+        {
+          "titulo": "Feria Gastronómica MANDEN A LAS CASAS",
+          "tipo": "Activación Comercial y Emprendimiento",
+          "impacto": "Evento cultural y gastronómico de entrada libre con más de 10 restaurantes y gran afluencia ciudadana."
+        }
+      ],
+      "negocios_activos": "+65 emprendimientos, cafeterías y servicios de barrio",
+      "atractivo_comercial": "Cercanía a facultades universitarias y centros médicos especializados."
+    },
+    "proyectos_cercanos": [
+      "Parque Italia Renovado",
+      "Facultades Universidad Central",
+      "Corredor Av. América"
+    ],
+    "galeria_id": null,
+    "antes_despues_id": "Ruiz de Castilla",
+    "imagen_destacada": "/antes_despues/ruiz_de_castilla/despues.jpg"
+  },
+  {
+    "id": "la-roldos",
+    "nombre": "La Roldós Oe13",
+    "nombre_completo": "Sendero Seguro La Roldós Oe13 - Colinas del Norte",
+    "categoria": "Corredores Vivos",
+    "coordenadas": [
+      -78.5085,
+      -0.1082
+    ],
+    "zoom": 15.5,
+    "administracion_zonal": "La Delicia",
+    "parroquia": "El Condado - Colinas del Norte",
+    "estacion_metro_cercana": "Estación El Labrador (Conexión Alimentador)",
+    "distancia_metro": "Conexión directa vía alimentador (12 min)",
+    "score_atractivo": 88,
+    "badge": "Inaugurado y Operativo",
+    "descripcion_corta": "Transformación urbana en el noroccidente con adoquín ornamental, canchas de césped sintético y parada moderna.",
+    "valor_suelo": {
+      "aiva": "AIVAS COLINAS DEL NORTE",
+      "valor_m2": 520,
+      "rango": "Medio / Residencial Social",
+      "tendencia": "+9.5% de plusvalía anual",
+      "descripcion": "Mayor incremento porcentual de revalorización barrial por dotación de infraestructura deportiva y vial de primer nivel."
+    },
+    "seguridad": {
+      "nivel": "Muy Alto (Infraestructura Comunitaria)",
+      "camaras": 14,
+      "luminarias_led": 120,
+      "cruces_seguros": 6,
+      "bolardos": 140,
+      "descripcion": "Guía podotáctil continua, parada de transporte cubierta, iluminación LED potente y cerramiento de seguridad en canchas."
+    },
+    "economia": {
+      "inversiones_privadas": [
+        {
+          "titulo": "Dinamización Comercial Barrial",
+          "tipo": "Microempresas y Comercio Vecinal",
+          "impacto": "Apertura de nuevos locales de abarrotes, farmacias y servicios vecinales en el frente de la acera renovada."
+        }
+      ],
+      "negocios_activos": "+80 comercios barriales activos",
+      "atractivo_comercial": "Punto neurálgico de encuentro vecinal y transporte para más de 30.000 habitantes."
+    },
+    "proyectos_cercanos": [
+      "Complejo Deportivo La Roldós",
+      "Parada Multimodal de Transporte",
+      "Sendero Seguro Pisulí - Roldós"
+    ],
+    "galeria_id": null,
+    "antes_despues_id": "La Roldós Oe13-Colinas del Norte",
+    "imagen_destacada": "/antes_despues/la_roldos/despues.jpg"
+  },
+  {
+    "id": "calle-benalcazar",
+    "nombre": "Calle Benalcázar",
+    "nombre_completo": "Rehabilitación Peatonal Calle Benalcázar",
+    "categoria": "Plan de Rehabilitación Centro Histórico",
+    "coordenadas": [
+      -78.5142,
+      -0.2205
+    ],
+    "zoom": 16,
+    "administracion_zonal": "Manuela Sáenz",
+    "parroquia": "Centro Histórico",
+    "estacion_metro_cercana": "Estación San Francisco (Línea 1 Metro)",
+    "distancia_metro": "150 m (2 min a pie)",
+    "score_atractivo": 97,
+    "badge": "Inaugurado y Operativo",
+    "descripcion_corta": "Restauración patrimonial integral con adoquín de piedra, soterramiento de cables y acceso a la Plaza San Francisco.",
+    "valor_suelo": {
+      "aiva": "AIVAS BENALCAZAR",
+      "valor_m2": 1420,
+      "rango": "Alto / Turístico y Patrimonial",
+      "tendencia": "+11.2% de plusvalía anual",
+      "descripcion": "Revalorización patrimonial UNESCO con alta rentabilidad turística, hotelera y gastronómica."
+    },
+    "seguridad": {
+      "nivel": "Máximo (Patrimonial)",
+      "camaras": 20,
+      "luminarias_led": 85,
+      "cruces_seguros": 8,
+      "bolardos": 260,
+      "descripcion": "Faroles ornamentales LED, soterramiento total de cables, bolardos de piedra y patrullaje turístico constante."
+    },
+    "economia": {
+      "inversiones_privadas": [
+        {
+          "titulo": "Hotelería Boutique y Gastronomía Patrimonial",
+          "tipo": "Turismo Internacional",
+          "impacto": "Restauración de casonas coloniales para hoteles boutique, cafeterías de especialidad y chocolaterías."
+        }
+      ],
+      "negocios_activos": "+200 locales turísticos, joyerías y museos",
+      "atractivo_comercial": "Flujo turístico de más de 1.5 millones de visitantes al año."
+    },
+    "proyectos_cercanos": [
+      "Plaza y Convento de San Francisco",
+      "Estación San Francisco del Metro de Quito",
+      "Calle García Moreno (Calle de las Siete Cruces)"
+    ],
+    "galeria_id": null,
+    "antes_despues_id": "Calle Benalcázar",
+    "imagen_destacada": "/antes_despues/benalcazar/despues.jpg"
+  },
+  {
+    "id": "parque-navarro",
+    "nombre": "Parque Navarro",
+    "nombre_completo": "Plaza Gastronómica Parque Navarro (Plaza de las Tripas)",
+    "categoria": "Rehabilitación del Espacio Público",
+    "coordenadas": [
+      -78.4848,
+      -0.2128
+    ],
+    "zoom": 16,
+    "administracion_zonal": "Eugenio Espejo",
+    "parroquia": "La Floresta",
+    "estacion_metro_cercana": "Estación La Pradera (Línea 1 Metro)",
+    "distancia_metro": "750 m (9 min a pie)",
+    "score_atractivo": 94,
+    "badge": "Inaugurado y Operativo",
+    "descripcion_corta": "Espacio gastronómico tradicional totalmente higienizado y modernizado en el corazón cultural de La Floresta.",
+    "valor_suelo": {
+      "aiva": "AIVAS PARQUE NAVARRO",
+      "valor_m2": 1390,
+      "rango": "Alto / Cultural y Gastronómico",
+      "tendencia": "+9.8% de plusvalía anual",
+      "descripcion": "Barrio bohemio y cultural con altísima demanda inmobiliaria para vivienda moderna y centros de diseño."
+    },
+    "seguridad": {
+      "nivel": "Alto (Plaza Iluminada)",
+      "camaras": 8,
+      "luminarias_led": 64,
+      "cruces_seguros": 4,
+      "bolardos": 90,
+      "descripcion": "Puestos gastronómicos en acero inoxidable con normas sanitarias, iluminación cálida y jardinería paisajística."
+    },
+    "economia": {
+      "inversiones_privadas": [
+        {
+          "titulo": "Asociación Gastronómica La Floresta",
+          "tipo": "Economía Popular y Solidaria",
+          "impacto": "Formalización de decenas de familias de cocineras tradicionales con récord de ventas semanales."
+        }
+      ],
+      "negocios_activos": "+110 galerías de arte, cines independientes y restaurantes",
+      "atractivo_comercial": "Epicentro gastronómico tradicional y nocturno de Quito."
+    },
+    "proyectos_cercanos": [
+      "Circuito Cultural La Floresta",
+      "Ochoymedio Cine",
+      "Corredor Av. 12 de Octubre"
+    ],
+    "galeria_id": null,
+    "antes_despues_id": "Parque Navarro - Plaza de las tripas",
+    "imagen_destacada": "/antes_despues/parque_navarro/despues.jpg"
+  },
+  {
+    "id": "calle-rocafuerte",
+    "nombre": "Calle Rocafuerte",
+    "nombre_completo": "Sendero Seguro Calle Rocafuerte y Escalinatas",
+    "categoria": "Plan de Rehabilitación Centro Histórico",
+    "coordenadas": [
+      -78.5175,
+      -0.2245
+    ],
+    "zoom": 16,
+    "administracion_zonal": "Manuela Sáenz",
+    "parroquia": "Centro Histórico - San Roque",
+    "estacion_metro_cercana": "Estación San Francisco (Línea 1 Metro)",
+    "distancia_metro": "400 m (5 min a pie)",
+    "score_atractivo": 90,
+    "badge": "Inaugurado y Operativo",
+    "descripcion_corta": "Restauración de escalinatas patrimoniales, iluminación artística y recuperación del paso hacia San Roque.",
+    "valor_suelo": {
+      "aiva": "AIVAS ROCAFUERTE",
+      "valor_m2": 890,
+      "rango": "Medio / Comercial y Patrimonial",
+      "tendencia": "+8.5% de plusvalía anual",
+      "descripcion": "Recuperación de la plusvalía histórica en el eje de conexión entre el Centro Histórico y los mercados tradicionales."
+    },
+    "seguridad": {
+      "nivel": "Alto (Escalinatas Iluminadas)",
+      "camaras": 12,
+      "luminarias_led": 75,
+      "cruces_seguros": 5,
+      "bolardos": 130,
+      "descripcion": "Iluminación de seguridad en escalinatas, pasamanos metálicos reforzados y monitoreo permanente."
+    },
+    "economia": {
+      "inversiones_privadas": [
+        {
+          "titulo": "Comercio Tradicional y Talleres Artesanales",
+          "tipo": "Reactivación Comercial de Oficios",
+          "impacto": "Reapertura de talleres artesanales históricos, carpinterías y dulcerías tradicionales."
+        }
+      ],
+      "negocios_activos": "+130 locales comerciales y talleres de oficios",
+      "atractivo_comercial": "Conector peatonal directo entre San Francisco y el Mercado San Roque."
+    },
+    "proyectos_cercanos": [
+      "Escalinatas Rocafuerte Restauradas",
+      "Mercado San Roque",
+      "Museo de la Ciudad"
+    ],
+    "galeria_id": null,
+    "antes_despues_id": "Calle Rocafuerte",
+    "imagen_destacada": "/antes_despues/rocafuerte/despues.jpg"
+  },
+  {
+    "id": "av-ajavi",
+    "nombre": "Av. Ajaví",
+    "nombre_completo": "Corredor Vivo y Soterramiento Av. Ajaví",
+    "categoria": "Corredores Vivos",
+    "coordenadas": [
+      -78.5355,
+      -0.2785
+    ],
+    "zoom": 15.5,
+    "administracion_zonal": "Eloy Alfaro",
+    "parroquia": "Solanda - San Bartolo",
+    "estacion_metro_cercana": "Estación Solanda / Cardenal de la Torre",
+    "distancia_metro": "450 m (5 min a pie)",
+    "score_atractivo": 92,
+    "badge": "Ejecutado e Inaugurado",
+    "descripcion_corta": "Gran eje comercial y peatonal del sur de Quito con soterramiento integral de cables y nuevas aceras.",
+    "valor_suelo": {
+      "aiva": "AIVAS AV. AJAVÍ",
+      "valor_m2": 780,
+      "rango": "Medio / Altísima Densidad Comercial",
+      "tendencia": "+10.1% de plusvalía anual",
+      "descripcion": "Uno de los sectores con mayor dinámica comercial per cápita del sur, con fuerte revalorización por soterramiento."
+    },
+    "seguridad": {
+      "nivel": "Muy Alto (Soterrado & LED)",
+      "camaras": 16,
+      "luminarias_led": 110,
+      "cruces_seguros": 8,
+      "bolardos": 210,
+      "descripcion": "100% de cables soterrados, aceras ensanchadas sin obstáculos visuales y alumbrado blanco de alta eficiencia."
+    },
+    "economia": {
+      "inversiones_privadas": [
+        {
+          "titulo": "Corredor Comercial Minorista del Sur",
+          "tipo": "Comercio, Ropa y Gastronomía",
+          "impacto": "Atracción de franquicias nacionales de farmacias, cooperativas de crédito y tiendas de retail."
+        }
+      ],
+      "negocios_activos": "+250 locales comerciales de alta rotación",
+      "atractivo_comercial": "Principal bulevar de compras y servicios de Solanda y el sur de Quito."
+    },
+    "proyectos_cercanos": [
+      "Soterramiento Redes Eléctricas Av. Ajaví (Ejecutado)",
+      "Estación Solanda del Metro de Quito",
+      "Parque Ecológico Solanda"
+    ],
+    "galeria_id": null,
+    "antes_despues_id": null,
+    "imagen_destacada": "/soterramiento/soterramiento_portada.png"
+  },
+  {
+    "id": "av-michelena",
+    "nombre": "Av. Michelena",
+    "nombre_completo": "Corredor Comercial Av. Michelena",
+    "categoria": "Corredores Vivos",
+    "coordenadas": [
+      -78.5285,
+      -0.252
+    ],
+    "zoom": 15.5,
+    "administracion_zonal": "Eloy Alfaro",
+    "parroquia": "La Magdalena",
+    "estacion_metro_cercana": "Estación La Magdalena / El Recreo",
+    "distancia_metro": "500 m (6 min a pie)",
+    "score_atractivo": 91,
+    "badge": "Operativo",
+    "descripcion_corta": "El corredor comercial insignia del sur con amplias veredas, soterramiento y proximidad al nodo intermodal.",
+    "valor_suelo": {
+      "aiva": "AIVAS AV. MICHELENA",
+      "valor_m2": 840,
+      "rango": "Medio / Comercial Intensivo",
+      "tendencia": "+9.0% de plusvalía anual",
+      "descripcion": "Consolidación de valor inmobiliario por alta concentración de servicios financieros y comercio formal."
+    },
+    "seguridad": {
+      "nivel": "Alto",
+      "camaras": 14,
+      "luminarias_led": 95,
+      "cruces_seguros": 6,
+      "bolardos": 160,
+      "descripcion": "Sistema de videovigilancia y mejoramiento integral de iluminación peatonal."
+    },
+    "economia": {
+      "inversiones_privadas": [
+        {
+          "titulo": "Sector Retail y Servicios Financieros",
+          "tipo": "Banca y Comercio",
+          "impacto": "Mayor densidad de agencias bancarias y tiendas de calzado/ropa en el sur."
+        }
+      ],
+      "negocios_activos": "+320 establecimientos comerciales",
+      "atractivo_comercial": "Tránsito peatonal de más de 40.000 personas diarias."
+    },
+    "proyectos_cercanos": [
+      "Centro Comercial La Magdalena",
+      "Estación La Magdalena del Metro de Quito",
+      "Soterramiento Eloy Alfaro"
+    ],
+    "galeria_id": null,
+    "antes_despues_id": null,
+    "imagen_destacada": "/soterramiento/soterramiento_portada.png"
+  }
+]
