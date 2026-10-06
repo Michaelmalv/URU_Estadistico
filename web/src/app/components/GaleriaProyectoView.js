@@ -86,15 +86,17 @@ export default function GaleriaProyectoView({ projectName, onOpenModalImage }) {
 
       {/* Visor Principal con Carrusel */}
       <div className="gallery-viewport-container">
-        {/* Flecha Izquierda */}
-        <button 
-          className="gallery-nav-arrow left" 
-          onClick={handlePrev}
-          title="Imagen anterior (Flecha Izquierda)"
-          aria-label="Imagen anterior"
-        >
-          <ChevronLeft size={28} />
-        </button>
+        {/* Flecha Izquierda (si hay más de 1 imagen) */}
+        {images.length > 1 && (
+          <button 
+            className="gallery-nav-arrow left" 
+            onClick={handlePrev}
+            title="Imagen anterior (Flecha Izquierda)"
+            aria-label="Imagen anterior"
+          >
+            <ChevronLeft size={28} />
+          </button>
+        )}
 
         {/* Contenedor de la Imagen */}
         <div 
@@ -125,15 +127,17 @@ export default function GaleriaProyectoView({ projectName, onOpenModalImage }) {
           </div>
         </div>
 
-        {/* Flecha Derecha */}
-        <button 
-          className="gallery-nav-arrow right" 
-          onClick={handleNext}
-          title="Imagen siguiente (Flecha Derecha)"
-          aria-label="Imagen siguiente"
-        >
-          <ChevronRight size={28} />
-        </button>
+        {/* Flecha Derecha (si hay más de 1 imagen) */}
+        {images.length > 1 && (
+          <button 
+            className="gallery-nav-arrow right" 
+            onClick={handleNext}
+            title="Imagen siguiente (Flecha Derecha)"
+            aria-label="Imagen siguiente"
+          >
+            <ChevronRight size={28} />
+          </button>
+        )}
       </div>
 
       {/* Descripción y Detalles de la Imagen Actual */}
@@ -143,7 +147,7 @@ export default function GaleriaProyectoView({ projectName, onOpenModalImage }) {
             <span style={{ color: 'var(--color-primary)' }}>#{currentIndex + 1}</span> {currentImage.titulo}
           </h4>
           <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)', background: 'var(--bg-card-alt, rgba(0,0,0,0.05))', padding: '0.2rem 0.6rem', borderRadius: '6px' }}>
-            Vista Aérea Alta Definición
+            {currentImage.tipo || 'Fotografía en Alta Definición'}
           </span>
         </div>
         <p style={{ margin: 0, fontSize: '0.92rem', color: 'var(--text-muted)', lineHeight: 1.55 }}>
@@ -152,7 +156,10 @@ export default function GaleriaProyectoView({ projectName, onOpenModalImage }) {
       </div>
 
       {/* Selector de Miniaturas / Botones Directos */}
-      <div className="gallery-thumbnails-row">
+      <div 
+        className="gallery-thumbnails-row"
+        style={images.length === 1 ? { gridTemplateColumns: '1fr' } : {}}
+      >
         {images.map((img, idx) => {
           const isActive = idx === currentIndex;
           return (
@@ -169,7 +176,7 @@ export default function GaleriaProyectoView({ projectName, onOpenModalImage }) {
               <div className="gallery-thumb-info">
                 <span className="gallery-thumb-label">{img.etiqueta || `Foto ${idx + 1}`}</span>
                 <span className="gallery-thumb-sub">
-                  {idx === 0 ? 'Corredor y Ciclovía' : idx === 1 ? 'Sendero y Plaza' : 'Estación Metro La Y'}
+                  {img.subtitulo || img.titulo}
                 </span>
               </div>
             </button>

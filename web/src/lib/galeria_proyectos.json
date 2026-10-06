@@ -10,6 +10,7 @@
         "alt": "Vista Aérea del Corredor Vial y Ciclovía",
         "titulo": "Vista Aérea del Corredor Vial y Ciclovía",
         "etiqueta": "Corredor y Ciclovía",
+        "subtitulo": "Av. 10 de Agosto e Isla Tortuga",
         "descripcion": "Perspectiva aérea de la Av. 10 de Agosto e intersección Isla Tortuga con ciclovía segregada, señalización vial y parterre arbolado."
       },
       {
@@ -18,6 +19,7 @@
         "alt": "Vista Aérea Cenital del Sendero Seguro y Plaza Isla Tortuga",
         "titulo": "Vista Aérea Cenital del Sendero Seguro y Plaza Isla Tortuga",
         "etiqueta": "Plaza y Sendero",
+        "subtitulo": "Adoquines ornamentales y áreas verdes",
         "descripcion": "Diseño geométrico de adoquines ornamentales, caminerías peatonales continuas y áreas verdes recuperadas."
       },
       {
@@ -26,7 +28,24 @@
         "alt": "Vista Aérea de la Plaza y Estación La Y del Metro de Quito",
         "titulo": "Vista Aérea de la Plaza y Estación La Y del Metro de Quito",
         "etiqueta": "Acceso Metro La Y",
+        "subtitulo": "Intermodalidad y espacio público",
         "descripcion": "Plaza de acceso intermodal a la Estación La Y del Metro de Quito con iluminación repotenciada y cruces peatonales seguros."
+      }
+    ]
+  },
+  {
+    "proyecto": "Av. Colón",
+    "titulo": "Imágenes del Proyecto — Av. Colón",
+    "subtitulo": "Registro fotográfico de la regeneración peatonal, ciclovía y urbanismo táctico",
+    "imagenes": [
+      {
+        "id": 1,
+        "src": "/imagenes_senderos/av_colon/cruce_peatonal.jpg",
+        "alt": "Paso Peatonal Seguro y Cruce Táctico en Av. Colón",
+        "titulo": "Paso Peatonal Seguro y Cruce Táctico",
+        "etiqueta": "Caminabilidad y Cruces Seguros",
+        "subtitulo": "Urbanismo Táctico y Ciclovía",
+        "descripcion": "Cruce peatonal a nivel con diseño de urbanismo táctico en tonalidades verde y naranja, ciclovía segregada, aceras ampliadas y reactivación comercial a lo largo del Corredor Vivo Av. Colón."
       }
     ]
   }
