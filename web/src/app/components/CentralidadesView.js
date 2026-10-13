@@ -7,12 +7,10 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import { 
   Building2, Shield, DollarSign, Info, Sparkles, MapPin, 
   Layers, Search, Compass, CheckCircle2, TrendingUp, Maximize2, 
-  X, ChevronRight, Award, Eye, FileText, ArrowUpRight
+  X, ChevronRight, Award, Eye, FileText, ArrowUpRight, ChevronDown
 } from 'lucide-react';
 import centralidadesData from '@/lib/centralidades_data.json';
 import centralidadesGeoJson from '@/lib/centralidades.json';
-import AntesDespuesView from './AntesDespuesView';
-import GaleriaProyectoView from './GaleriaProyectoView';
 
 const getFallbackToken = () => {
   if (process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN) {
@@ -33,19 +31,19 @@ const HIERARCHY_COLORS = {
   'Metropolitana': {
     fill: '#2563eb',
     stroke: '#60a5fa',
-    badgeBg: 'rgba(37, 99, 235, 0.2)',
+    badgeBg: 'rgba(37, 99, 235, 0.22)',
     badgeText: '#60a5fa'
   },
   'Zonal': {
     fill: '#059669',
     stroke: '#34d399',
-    badgeBg: 'rgba(5, 150, 105, 0.2)',
+    badgeBg: 'rgba(5, 150, 105, 0.22)',
     badgeText: '#34d399'
   },
   'Sectorial': {
     fill: '#d97706',
     stroke: '#fbbf24',
-    badgeBg: 'rgba(217, 119, 6, 0.2)',
+    badgeBg: 'rgba(217, 119, 6, 0.22)',
     badgeText: '#fbbf24'
   }
 };
@@ -62,7 +60,6 @@ export default function CentralidadesView() {
   const [searchQuery, setSearchQuery] = useState('');
   const [mapStyle, setMapStyle] = useState('mapbox://styles/mapbox/streets-v12');
   const [modalImage, setModalImage] = useState(null);
-  const [drawerOpen, setDrawerOpen] = useState(true);
 
   // Inicializar mapa
   useEffect(() => {
@@ -73,7 +70,7 @@ export default function CentralidadesView() {
     const map = new mapboxgl.Map({
       container: mapContainerRef.current,
       style: mapStyle,
-      center: [-78.4900, -0.1950], // Panorámica de Quito
+      center: [-78.4900, -0.1950],
       zoom: 11.5,
       pitch: 35,
       bearing: -10
@@ -109,7 +106,7 @@ export default function CentralidadesView() {
         }
       });
 
-      // Capa de Línea / Contorno
+      // Capa de Contorno
       map.addLayer({
         id: 'centralidades-line',
         type: 'line',
@@ -124,7 +121,7 @@ export default function CentralidadesView() {
             '#ffffff'
           ],
           'line-width': 2.5,
-          'line-opacity': 0.9
+          'line-opacity': 0.95
         }
       });
 
@@ -157,11 +154,11 @@ export default function CentralidadesView() {
         paint: {
           'text-color': '#ffffff',
           'text-halo-color': '#0f172a',
-          'text-halo-width': 2
+          'text-halo-width': 2.5
         }
       });
 
-      // Interacción Hover
+      // Hover Popup
       const popup = new mapboxgl.Popup({
         closeButton: false,
         closeOnClick: false,
@@ -193,7 +190,7 @@ export default function CentralidadesView() {
         popup.remove();
       });
 
-      // Interacción Clic en un polígono
+      // Clic en polígono
       map.on('click', 'centralidades-fill', (e) => {
         if (e.features.length > 0) {
           const clickedId = e.features[0].properties.id;
@@ -204,7 +201,6 @@ export default function CentralidadesView() {
         }
       });
 
-      // Enfocar la centralidad inicial
       if (selectedCentralidad) {
         focusCentralidad(selectedCentralidad);
       }
@@ -231,7 +227,7 @@ export default function CentralidadesView() {
     }
   }, [hierarchyFilter]);
 
-  // Actualizar resalte cuando cambia la centralidad seleccionada
+  // Actualizar resalte
   useEffect(() => {
     if (!mapRef.current || !mapRef.current.isStyleLoaded()) return;
     mapRef.current.setFilter('centralidades-highlight', ['==', ['get', 'id'], selectedCentralidad.id]);
@@ -244,7 +240,7 @@ export default function CentralidadesView() {
       mapRef.current.fitBounds(
         [[centralidad.bbox[0], centralidad.bbox[1]], [centralidad.bbox[2], centralidad.bbox[3]]],
         {
-          padding: { top: 70, bottom: 70, left: 70, right: 460 },
+          padding: { top: 60, bottom: 60, left: 60, right: 60 },
           pitch: 40,
           bearing: -10,
           duration: 1800,
@@ -266,11 +262,10 @@ export default function CentralidadesView() {
     setSelectedCentralidad(centralidad);
     setSelectedProjectIndex(0);
     setActiveProjectTab('info');
-    setDrawerOpen(true);
     focusCentralidad(centralidad);
   };
 
-  // Filtrado de la lista para el buscador y pestañas
+  // Filtrado de la lista
   const filteredCentralidades = centralidadesData.filter(c => {
     const matchesHierarchy = hierarchyFilter === 'Todas' || c.jerarquia === hierarchyFilter;
     const matchesSearch = 
@@ -284,375 +279,373 @@ export default function CentralidadesView() {
   const hierarchyStyle = HIERARCHY_COLORS[selectedCentralidad.jerarquia] || HIERARCHY_COLORS['Zonal'];
 
   return (
-    <div className="centralidades-container">
-      {/* 1. Header Institucional - Secretaría de Territorio, Hábitat y Vivienda */}
-      <div className="centralidades-hero-header">
-        <div className="header-info-group">
-          <div className="header-badge">
-            <Compass size={15} />
-            <span>SECRETARÍA DE TERRITORIO, HÁBITAT Y VIVIENDA • STHV</span>
+    <div className="centralidades-dashboard-layout">
+      {/* ============================================================== */}
+      {/* 1. BARRA LATERAL PERMANENTE DE INFORMACIÓN TERRITORIAL (SIDEBAR) */}
+      {/* ============================================================== */}
+      <aside className="centralidades-sidebar">
+        {/* Cabecera Institucional del Sidebar */}
+        <div className="sidebar-top-header">
+          <div className="sidebar-badge">
+            <Compass size={14} />
+            <span>STHV • SECRETARÍA DE TERRITORIO</span>
           </div>
-          <h1 className="header-title">
-            Plataforma Estratégica de <span className="highlight-gradient">Centralidades Urbanas</span>
-          </h1>
-          <p className="header-description">
-            Plan Metropolitano de Desarrollo y Ordenamiento Territorial (PMDOT / PUGS). Evalúa los 22 polígonos de centralidades del DMQ articulados a la infraestructura, seguridad, economía y plusvalía del suelo.
+          <h2 className="sidebar-title">Centralidades Urbanas</h2>
+          <p className="sidebar-subtitle">
+            Plan Metropolitano de Ordenamiento Territorial (PMDOT / PUGS)
           </p>
-        </div>
 
-        {/* KPIs de Centralidades */}
-        <div className="centralidades-kpis-grid">
-          <div className="centralidad-kpi-card">
-            <span className="kpi-num">22</span>
-            <span className="kpi-txt">Centralidades Oficiales</span>
-          </div>
-          <div className="centralidad-kpi-card">
-            <span className="kpi-num">5</span>
-            <span className="kpi-txt">Metropolitanas</span>
-          </div>
-          <div className="centralidad-kpi-card">
-            <span className="kpi-num">11</span>
-            <span className="kpi-txt">Zonales</span>
-          </div>
-          <div className="centralidad-kpi-card">
-            <span className="kpi-num">6</span>
-            <span className="kpi-txt">Sectoriales</span>
-          </div>
-        </div>
-      </div>
-
-      {/* 2. Barra de Control: Filtros por Jerarquía y Buscador */}
-      <div className="centralidades-controls-bar">
-        <div className="hierarchy-filter-pills">
-          {['Todas', 'Metropolitana', 'Zonal', 'Sectorial'].map((jer) => {
-            const count = jer === 'Todas' 
-              ? centralidadesData.length 
-              : centralidadesData.filter(c => c.jerarquia === jer).length;
-            return (
-              <button
-                key={jer}
-                className={`hierarchy-pill-btn ${hierarchyFilter === jer ? 'active' : ''}`}
-                onClick={() => setHierarchyFilter(jer)}
-              >
-                <span>{jer === 'Todas' ? 'Todas las Centralidades' : `${jer}es`}</span>
-                <span className="pill-counter">{count}</span>
-              </button>
-            );
-          })}
-        </div>
-
-        {/* Buscador de Centralidades y Proyectos */}
-        <div className="centralidad-search-box">
-          <Search size={16} className="search-icon" />
-          <input
-            type="text"
-            placeholder="Buscar centralidad o proyecto (ej. Mariscal, Colón, Shyris, Solanda...)"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="search-input"
-          />
-        </div>
-      </div>
-
-      {/* 3. Escenario Cartográfico + Panel Lateral 360° */}
-      <div className="centralidades-stage">
-        {/* Mapa Mapbox */}
-        <div className="centralidades-map-wrapper">
-          <div ref={mapContainerRef} className="map-canvas" />
-
-          {/* Selector de Capas de Mapa */}
-          <div className="map-style-picker">
-            <button 
-              className={`style-btn ${mapStyle.includes('streets') ? 'active' : ''}`}
-              onClick={() => setMapStyle('mapbox://styles/mapbox/streets-v12')}
-            >
-              Vial
-            </button>
-            <button 
-              className={`style-btn ${mapStyle.includes('satellite') ? 'active' : ''}`}
-              onClick={() => setMapStyle('mapbox://styles/mapbox/satellite-streets-v12')}
-            >
-              Satélite HD
-            </button>
-            <button 
-              className={`style-btn ${mapStyle.includes('dark') ? 'active' : ''}`}
-              onClick={() => setMapStyle('mapbox://styles/mapbox/dark-v11')}
-            >
-              Noche
-            </button>
-          </div>
-
-          {/* Botón flotante para reabrir el panel si se cerró */}
-          {!drawerOpen && (
-            <button 
-              className="open-drawer-btn"
-              onClick={() => setDrawerOpen(true)}
-            >
-              <FileText size={18} />
-              <span>Ver Centralidad: {selectedCentralidad.nombre}</span>
-            </button>
-          )}
-        </div>
-
-        {/* Panel Inteligente de la Centralidad y sus Proyectos */}
-        {drawerOpen && (
-          <aside className="centralidad-drawer">
-            {/* Cabecera de la Centralidad */}
-            <div className="drawer-header">
-              <div className="drawer-header-left">
-                <span 
-                  className="hierarchy-badge"
-                  style={{ backgroundColor: hierarchyStyle.badgeBg, color: hierarchyStyle.badgeText }}
+          {/* Filtros de Jerarquía Urbana */}
+          <div className="sidebar-hierarchy-pills">
+            {['Todas', 'Metropolitana', 'Zonal', 'Sectorial'].map((jer) => {
+              const count = jer === 'Todas' 
+                ? centralidadesData.length 
+                : centralidadesData.filter(c => c.jerarquia === jer).length;
+              return (
+                <button
+                  key={jer}
+                  className={`hierarchy-pill ${hierarchyFilter === jer ? 'active' : ''}`}
+                  onClick={() => setHierarchyFilter(jer)}
                 >
-                  Centralidad {selectedCentralidad.jerarquia}
-                </span>
-                <h2 className="centralidad-title">{selectedCentralidad.nombre}</h2>
-                <div className="centralidad-meta-row">
-                  <span>📐 {selectedCentralidad.superficie_ha.toFixed(1)} hectáreas</span>
-                  <span>•</span>
-                  <span>🏛️ Zonal {selectedCentralidad.admin_zonal}</span>
-                </div>
-              </div>
-              <button 
-                className="drawer-close-btn"
-                onClick={() => setDrawerOpen(false)}
-                title="Cerrar panel"
+                  <span>{jer === 'Todas' ? 'Todas' : jer}</span>
+                  <span className="pill-count">{count}</span>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Buscador de Centralidades y Proyectos */}
+          <div className="sidebar-search-box">
+            <Search size={15} className="search-icon" />
+            <input
+              type="text"
+              placeholder="Buscar centralidad o proyecto..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="search-input"
+            />
+          </div>
+
+          {/* Selector Rápido de Centralidad Dropdown */}
+          <div className="centralidad-select-wrapper">
+            <label className="select-label">Centralidad Activa:</label>
+            <div className="custom-select-box">
+              <select
+                value={selectedCentralidad.id}
+                onChange={(e) => {
+                  const found = centralidadesData.find(c => c.id === e.target.value);
+                  if (found) handleSelectCentralidad(found);
+                }}
+                className="centralidad-native-select"
               >
-                <X size={18} />
-              </button>
-            </div>
-
-            {/* Diagnóstico Territorial de la Centralidad */}
-            <div className="centralidad-summary-box">
-              <p className="summary-text">{selectedCentralidad.descripcion_territorial}</p>
-              {selectedCentralidad.equipamientos_clave?.length > 0 && (
-                <div className="key-equipments-row">
-                  {selectedCentralidad.equipamientos_clave.map((eq, i) => (
-                    <span key={i} className="equipment-chip">{eq}</span>
-                  ))}
-                </div>
-              )}
-            </div>
-
-            {/* Selector de Proyectos en esta Centralidad */}
-            <div className="projects-selector-section">
-              <div className="section-label-row">
-                <span className="section-label">
-                  PROYECTOS EN ESTA CENTRALIDAD ({selectedCentralidad.proyectos.length})
-                </span>
-              </div>
-              <div className="projects-pill-list">
-                {selectedCentralidad.proyectos.map((proj, pIdx) => (
-                  <button
-                    key={proj.id}
-                    className={`project-pill-btn ${selectedProjectIndex === pIdx ? 'active' : ''}`}
-                    onClick={() => {
-                      setSelectedProjectIndex(pIdx);
-                      setActiveProjectTab('info');
-                    }}
-                  >
-                    <span className="proj-dot" />
-                    <span className="proj-name">{proj.nombre}</span>
-                    <span className="proj-type-tag">{proj.tipo.split('/')[0]}</span>
-                  </button>
+                {filteredCentralidades.map((c) => (
+                  <option key={c.id} value={c.id}>
+                    [{c.jerarquia}] {c.nombre} ({c.superficie_ha.toFixed(0)} ha)
+                  </option>
                 ))}
+              </select>
+              <ChevronDown size={16} className="select-arrow" />
+            </div>
+          </div>
+        </div>
+
+        {/* ============================================================== */}
+        {/* CUERPO DEL SIDEBAR: FICHA DE CENTRALIDAD Y PROYECTOS            */}
+        {/* ============================================================== */}
+        <div className="sidebar-content-scroll">
+          {/* Ficha Territorial de la Centralidad */}
+          <div className="centralidad-info-card">
+            <div className="centralidad-card-header">
+              <span 
+                className="hierarchy-tag"
+                style={{ backgroundColor: hierarchyStyle.badgeBg, color: hierarchyStyle.badgeText }}
+              >
+                Centralidad {selectedCentralidad.jerarquia}
+              </span>
+              <h3 className="centralidad-card-name">{selectedCentralidad.nombre}</h3>
+              <div className="centralidad-quick-stats">
+                <span>📐 {selectedCentralidad.superficie_ha.toFixed(1)} ha</span>
+                <span>•</span>
+                <span>🏛️ Zonal {selectedCentralidad.admin_zonal}</span>
               </div>
             </div>
 
-            {/* Detalle Técnico del Proyecto Seleccionado */}
-            {activeProject && (
-              <div className="active-project-card">
-                {/* Cabecera del Proyecto */}
-                <div className="project-detail-header">
-                  <div>
-                    <span className="project-type-badge">{activeProject.tipo}</span>
-                    <h3 className="project-detail-title">{activeProject.nombre}</h3>
-                    <span className="project-badge-status">{activeProject.badge}</span>
-                  </div>
-                </div>
+            <p className="centralidad-desc">{selectedCentralidad.descripcion_territorial}</p>
 
-                {/* 4 Pestañas Temáticas del Proyecto */}
-                <div className="project-tabs-nav">
-                  <button
-                    className={`proj-tab-btn ${activeProjectTab === 'info' ? 'active' : ''}`}
-                    onClick={() => setActiveProjectTab('info')}
-                  >
-                    <Info size={14} />
-                    <span>Información</span>
-                  </button>
-                  <button
-                    className={`proj-tab-btn ${activeProjectTab === 'seguridad' ? 'active' : ''}`}
-                    onClick={() => setActiveProjectTab('seguridad')}
-                  >
-                    <Shield size={14} />
-                    <span>Seguridad</span>
-                  </button>
-                  <button
-                    className={`proj-tab-btn ${activeProjectTab === 'economia' ? 'active' : ''}`}
-                    onClick={() => setActiveProjectTab('economia')}
-                  >
-                    <TrendingUp size={14} />
-                    <span>Economía</span>
-                  </button>
-                  <button
-                    className={`proj-tab-btn ${activeProjectTab === 'suelo' ? 'active' : ''}`}
-                    onClick={() => setActiveProjectTab('suelo')}
-                  >
-                    <DollarSign size={14} />
-                    <span>Suelo</span>
-                  </button>
-                </div>
-
-                {/* Contenido de la Pestaña Activa */}
-                <div className="project-tab-pane">
-                  {/* TAB 1: INFORMACIÓN GENERAL */}
-                  {activeProjectTab === 'info' && (
-                    <div className="tab-pane-fade">
-                      <div className="kpi-metrics-row">
-                        <div className="metric-cell">
-                          <span className="metric-lbl">Longitud / Alcance</span>
-                          <strong className="metric-val">{activeProject.longitud_km}</strong>
-                        </div>
-                        <div className="metric-cell">
-                          <span className="metric-lbl">Presupuesto</span>
-                          <strong className="metric-val">{activeProject.presupuesto}</strong>
-                        </div>
-                        <div className="metric-cell">
-                          <span className="metric-lbl">Financiamiento</span>
-                          <strong className="metric-val" style={{ fontSize: '0.8rem' }}>{activeProject.financiamiento}</strong>
-                        </div>
-                      </div>
-
-                      <p className="project-description-text">{activeProject.resumen}</p>
-
-                      {/* Imagen con ampliación */}
-                      {activeProject.imagen_destacada && (
-                        <div 
-                          className="project-image-preview"
-                          onClick={() => setModalImage({
-                            src: activeProject.imagen_destacada,
-                            title: activeProject.nombre,
-                            description: activeProject.resumen
-                          })}
-                        >
-                          <img src={activeProject.imagen_destacada} alt={activeProject.nombre} />
-                          <div className="zoom-hint">
-                            <Maximize2 size={16} />
-                            <span>Ampliar Fotografía</span>
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                  )}
-
-                  {/* TAB 2: SEGURIDAD */}
-                  {activeProjectTab === 'seguridad' && (
-                    <div className="tab-pane-fade">
-                      <div className="security-kpis-grid">
-                        <div className="sec-kpi-box">
-                          <Shield size={20} color="#10b981" />
-                          <span className="sec-val">{activeProject.seguridad.camaras}</span>
-                          <span className="sec-lbl">Cámaras 24/7</span>
-                        </div>
-                        <div className="sec-kpi-box">
-                          <Sparkles size={20} color="#3b82f6" />
-                          <span className="sec-val">{activeProject.seguridad.luminarias_led}</span>
-                          <span className="sec-lbl">Luces LED</span>
-                        </div>
-                        <div className="sec-kpi-box">
-                          <CheckCircle2 size={20} color="#f59e0b" />
-                          <span className="sec-val">{activeProject.seguridad.cruces_seguros}</span>
-                          <span className="sec-lbl">Cruces Tácticos</span>
-                        </div>
-                      </div>
-
-                      <div className="info-row-card">
-                        <span className="info-row-lbl">Nivel de Seguridad Urbana:</span>
-                        <strong className="info-row-val" style={{ color: '#10b981' }}>
-                          {activeProject.seguridad.nivel}
-                        </strong>
-                      </div>
-
-                      <p className="project-description-text">{activeProject.seguridad.descripcion}</p>
-                    </div>
-                  )}
-
-                  {/* TAB 3: ECONOMÍA */}
-                  {activeProjectTab === 'economia' && (
-                    <div className="tab-pane-fade">
-                      <div className="economic-summary-box">
-                        <span className="eco-title">Dinamismo Comercial</span>
-                        <strong className="eco-val">{activeProject.economia.negocios_activos}</strong>
-                        <p className="eco-sub">{activeProject.economia.atractivo_comercial}</p>
-                      </div>
-
-                      {activeProject.economia.inversiones_privadas?.length > 0 && (
-                        <div className="inversiones-list">
-                          <span className="section-label">INVERSIÓN PRIVADA ATRAÍDA:</span>
-                          {activeProject.economia.inversiones_privadas.map((inv, idx) => (
-                            <div key={idx} className="inversion-card">
-                              <strong className="inv-title">{inv.titulo}</strong>
-                              <span className="inv-badge">{inv.tipo}</span>
-                              <p className="inv-desc">{inv.impacto}</p>
-                            </div>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  )}
-
-                  {/* TAB 4: VALOR DEL SUELO */}
-                  {activeProjectTab === 'suelo' && (
-                    <div className="tab-pane-fade">
-                      <div className="land-value-box">
-                        <span className="land-title">Avalúo Homologado de Suelo (AIVA)</span>
-                        <div className="land-num-row">
-                          <span className="land-number">${activeProject.valor_suelo.valor_m2.toFixed(2)}</span>
-                          <span className="land-unit">USD / m²</span>
-                        </div>
-                        <span className="land-trend">
-                          <TrendingUp size={15} /> {activeProject.valor_suelo.tendencia}
-                        </span>
-                      </div>
-
-                      <div className="info-row-card">
-                        <span className="info-row-lbl">Zona Homologada:</span>
-                        <strong className="info-row-val">{activeProject.valor_suelo.aiva}</strong>
-                      </div>
-
-                      <div className="info-row-card">
-                        <span className="info-row-lbl">Rango Comercial:</span>
-                        <strong className="info-row-val">{activeProject.valor_suelo.rango}</strong>
-                      </div>
-
-                      <p className="project-description-text">{activeProject.valor_suelo.descripcion}</p>
-                    </div>
-                  )}
-                </div>
+            {selectedCentralidad.equipamientos_clave?.length > 0 && (
+              <div className="equipments-tags-row">
+                {selectedCentralidad.equipamientos_clave.map((eq, i) => (
+                  <span key={i} className="eq-tag">{eq}</span>
+                ))}
               </div>
             )}
+          </div>
 
-            {/* Carrusel Inferior de Acceso Rápido a Centralidades */}
-            <div className="drawer-footer">
-              <span className="footer-title">EXPLORAR OTRAS CENTRALIDADES:</span>
-              <div className="centralidades-chips-scroll">
-                {filteredCentralidades.map((c) => (
-                  <button
-                    key={c.id}
-                    className={`chip-btn ${selectedCentralidad.id === c.id ? 'active' : ''}`}
-                    onClick={() => handleSelectCentralidad(c)}
-                  >
-                    <span>{c.nombre}</span>
-                    <small>({c.proyectos.length} proj)</small>
-                  </button>
-                ))}
+          {/* Sección de Proyectos en esta Centralidad */}
+          <div className="centralidad-projects-section">
+            <div className="projects-header-row">
+              <span className="section-title">
+                PROYECTOS EN ESTA CENTRALIDAD ({selectedCentralidad.proyectos.length})
+              </span>
+            </div>
+
+            <div className="projects-cards-list">
+              {selectedCentralidad.proyectos.map((proj, pIdx) => (
+                <button
+                  key={proj.id}
+                  className={`project-select-card ${selectedProjectIndex === pIdx ? 'active' : ''}`}
+                  onClick={() => {
+                    setSelectedProjectIndex(pIdx);
+                    setActiveProjectTab('info');
+                  }}
+                >
+                  <div className="proj-card-left">
+                    <span className="proj-indicator" />
+                    <div>
+                      <strong className="proj-title">{proj.nombre}</strong>
+                      <span className="proj-category">{proj.tipo}</span>
+                    </div>
+                  </div>
+                  <span className="proj-status-chip">{proj.badge}</span>
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Detalle Técnico del Proyecto Seleccionado: Las 4 Pestañas */}
+          {activeProject && (
+            <div className="project-detail-box">
+              <div className="detail-box-top">
+                <span className="detail-subtitle">{activeProject.tipo}</span>
+                <h4 className="detail-project-title">{activeProject.nombre}</h4>
+              </div>
+
+              {/* Pestañas de las 4 Dimensiones Técnicas */}
+              <div className="project-tabs-navigation">
+                <button
+                  className={`tab-btn ${activeProjectTab === 'info' ? 'active' : ''}`}
+                  onClick={() => setActiveProjectTab('info')}
+                >
+                  <Info size={14} />
+                  <span>Información</span>
+                </button>
+                <button
+                  className={`tab-btn ${activeProjectTab === 'seguridad' ? 'active' : ''}`}
+                  onClick={() => setActiveProjectTab('seguridad')}
+                >
+                  <Shield size={14} />
+                  <span>Seguridad</span>
+                </button>
+                <button
+                  className={`tab-btn ${activeProjectTab === 'economia' ? 'active' : ''}`}
+                  onClick={() => setActiveProjectTab('economia')}
+                >
+                  <TrendingUp size={14} />
+                  <span>Economía</span>
+                </button>
+                <button
+                  className={`tab-btn ${activeProjectTab === 'suelo' ? 'active' : ''}`}
+                  onClick={() => setActiveProjectTab('suelo')}
+                >
+                  <DollarSign size={14} />
+                  <span>Suelo</span>
+                </button>
+              </div>
+
+              {/* Contenido de la Pestaña Activa */}
+              <div className="project-tab-body">
+                {/* 1. INFORMACIÓN GENERAL */}
+                {activeProjectTab === 'info' && (
+                  <div className="tab-pane-content">
+                    <div className="project-kpi-row">
+                      <div className="kpi-box">
+                        <span className="kpi-lbl">Longitud</span>
+                        <strong className="kpi-val">{activeProject.longitud_km}</strong>
+                      </div>
+                      <div className="kpi-box">
+                        <span className="kpi-lbl">Presupuesto</span>
+                        <strong className="kpi-val">{activeProject.presupuesto}</strong>
+                      </div>
+                      <div className="kpi-box">
+                        <span className="kpi-lbl">Financiamiento</span>
+                        <strong className="kpi-val" style={{ fontSize: '0.78rem' }}>{activeProject.financiamiento}</strong>
+                      </div>
+                    </div>
+
+                    <p className="project-summary-text">{activeProject.resumen}</p>
+
+                    {activeProject.imagen_destacada && (
+                      <div 
+                        className="project-photo-card"
+                        onClick={() => setModalImage({
+                          src: activeProject.imagen_destacada,
+                          title: activeProject.nombre,
+                          description: activeProject.resumen
+                        })}
+                        title="Haz clic para ampliar"
+                      >
+                        <img src={activeProject.imagen_destacada} alt={activeProject.nombre} />
+                        <div className="photo-zoom-overlay">
+                          <Maximize2 size={16} />
+                          <span>Ampliar Fotografía</span>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                )}
+
+                {/* 2. SEGURIDAD */}
+                {activeProjectTab === 'seguridad' && (
+                  <div className="tab-pane-content">
+                    <div className="security-stats-grid">
+                      <div className="sec-stat-card">
+                        <Shield size={18} color="#10b981" />
+                        <span className="sec-number">{activeProject.seguridad.camaras}</span>
+                        <span className="sec-label">Cámaras 24/7</span>
+                      </div>
+                      <div className="sec-stat-card">
+                        <Sparkles size={18} color="#3b82f6" />
+                        <span className="sec-number">{activeProject.seguridad.luminarias_led}</span>
+                        <span className="sec-label">Luces LED</span>
+                      </div>
+                      <div className="sec-stat-card">
+                        <CheckCircle2 size={18} color="#f59e0b" />
+                        <span className="sec-number">{activeProject.seguridad.cruces_seguros}</span>
+                        <span className="sec-label">Cruces Cebras</span>
+                      </div>
+                    </div>
+
+                    <div className="info-badge-card">
+                      <span className="info-badge-lbl">Nivel de Seguridad Urbana:</span>
+                      <strong className="info-badge-val" style={{ color: '#10b981' }}>
+                        {activeProject.seguridad.nivel}
+                      </strong>
+                    </div>
+
+                    <p className="project-summary-text">{activeProject.seguridad.descripcion}</p>
+                  </div>
+                )}
+
+                {/* 3. ECONOMÍA */}
+                {activeProjectTab === 'economia' && (
+                  <div className="tab-pane-content">
+                    <div className="economic-highlight-card">
+                      <span className="eco-header-title">Dinamismo Comercial</span>
+                      <strong className="eco-header-val">{activeProject.economia.negocios_activos}</strong>
+                      <p className="eco-header-sub">{activeProject.economia.atractivo_comercial}</p>
+                    </div>
+
+                    {activeProject.economia.inversiones_privadas?.length > 0 && (
+                      <div className="inversiones-container">
+                        <span className="section-title">INVERSIÓN PRIVADA ATRAÍDA:</span>
+                        {activeProject.economia.inversiones_privadas.map((inv, idx) => (
+                          <div key={idx} className="inversion-item">
+                            <strong className="inv-name">{inv.titulo}</strong>
+                            <span className="inv-tag">{inv.tipo}</span>
+                            <p className="inv-text">{inv.impacto}</p>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                )}
+
+                {/* 4. VALOR DEL SUELO */}
+                {activeProjectTab === 'suelo' && (
+                  <div className="tab-pane-content">
+                    <div className="land-val-card">
+                      <span className="land-card-title">Avalúo Homologado de Suelo (AIVA)</span>
+                      <div className="land-number-row">
+                        <span className="land-val-big">${activeProject.valor_suelo.valor_m2.toFixed(2)}</span>
+                        <span className="land-val-unit">USD / m²</span>
+                      </div>
+                      <span className="land-trend-pill">
+                        <TrendingUp size={14} /> {activeProject.valor_suelo.tendencia}
+                      </span>
+                    </div>
+
+                    <div className="info-badge-card">
+                      <span className="info-badge-lbl">Zona Homologada AIVA:</span>
+                      <strong className="info-badge-val">{activeProject.valor_suelo.aiva}</strong>
+                    </div>
+
+                    <div className="info-badge-card">
+                      <span className="info-badge-lbl">Rango Comercial:</span>
+                      <strong className="info-badge-val">{activeProject.valor_suelo.rango}</strong>
+                    </div>
+
+                    <p className="project-summary-text">{activeProject.valor_suelo.descripcion}</p>
+                  </div>
+                )}
               </div>
             </div>
-          </aside>
-        )}
-      </div>
+          )}
 
-      {/* Modal / Lightbox para ampliación de fotos */}
+          {/* Carrusel Rápido de Centralidades */}
+          <div className="sidebar-bottom-chips">
+            <span className="section-title">TODAS LAS CENTRALIDADES:</span>
+            <div className="chips-row">
+              {filteredCentralidades.map((c) => (
+                <button
+                  key={c.id}
+                  className={`chip-item ${selectedCentralidad.id === c.id ? 'active' : ''}`}
+                  onClick={() => handleSelectCentralidad(c)}
+                >
+                  <span>{c.nombre}</span>
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      {/* ============================================================== */}
+      {/* 2. ESCENARIO CARTOGRÁFICO MAPBOX 3D (CANVAS PRINCIPAL)          */}
+      {/* ============================================================== */}
+      <main className="centralidades-map-stage">
+        <div ref={mapContainerRef} className="map-fullscreen-canvas" />
+
+        {/* Selector Flotante de Estilo de Mapa */}
+        <div className="map-floating-styles">
+          <button 
+            className={`map-style-btn ${mapStyle.includes('streets') ? 'active' : ''}`}
+            onClick={() => setMapStyle('mapbox://styles/mapbox/streets-v12')}
+          >
+            Vial
+          </button>
+          <button 
+            className={`map-style-btn ${mapStyle.includes('satellite') ? 'active' : ''}`}
+            onClick={() => setMapStyle('mapbox://styles/mapbox/satellite-streets-v12')}
+          >
+            Satélite HD
+          </button>
+          <button 
+            className={`map-style-btn ${mapStyle.includes('dark') ? 'active' : ''}`}
+            onClick={() => setMapStyle('mapbox://styles/mapbox/dark-v11')}
+          >
+            Noche
+          </button>
+        </div>
+
+        {/* Leyenda Cartográfica Flotante */}
+        <div className="map-floating-legend">
+          <span className="legend-title">JERARQUÍA DE CENTRALIDADES</span>
+          <div className="legend-item">
+            <span className="legend-color-dot" style={{ backgroundColor: '#2563eb' }} />
+            <span>Metropolitana (5)</span>
+          </div>
+          <div className="legend-item">
+            <span className="legend-color-dot" style={{ backgroundColor: '#059669' }} />
+            <span>Zonal (11)</span>
+          </div>
+          <div className="legend-item">
+            <span className="legend-color-dot" style={{ backgroundColor: '#d97706' }} />
+            <span>Sectorial (6)</span>
+          </div>
+        </div>
+      </main>
+
+      {/* Lightbox / Modal de Fotografía HD */}
       {modalImage && (
         <div className="lightbox-overlay" onClick={() => setModalImage(null)}>
           <div className="lightbox-container" onClick={(e) => e.stopPropagation()}>
