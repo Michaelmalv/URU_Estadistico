@@ -1,0 +1,1648 @@
+[
+  {
+    "id": "comite-del-pueblo-san-isidro-del-inca",
+    "nombre": "Comité del Pueblo - San Isidro del Inca",
+    "jerarquia": "Sectorial",
+    "superficie_ha": 117.197567152,
+    "descripcion_territorial": "Sistema que se define como el núcleo urbano multifuncional, denso y diverso, donde se concentran gran variedad de actividades, servicios, personas y flujos socioeconómicos",
+    "admin_zonal": "DMQ",
+    "equipamientos_clave": [
+      "Equipamiento Educativo",
+      "Parque Barrial",
+      "Comercio Local"
+    ],
+    "centroid": [
+      -78.465681,
+      -0.121216
+    ],
+    "bbox": [
+      -78.471265,
+      -0.130282,
+      -78.461109,
+      -0.115708
+    ],
+    "proyectos": [
+      {
+        "id": "diagnostico-comite-del-pueblo-san-isidro-del-inca",
+        "nombre": "Plan de Intervención Integral Comité del Pueblo - San Isidro del Inca",
+        "tipo": "Diagnóstico Territorial & PMO",
+        "badge": "Planificado en PUGS",
+        "longitud_km": "11.7 km de red vial",
+        "presupuesto": "$996K est.",
+        "financiamiento": "Municipio del Distrito Metropolitano de Quito",
+        "estado": "Fase de Priorización",
+        "resumen": "Centralidad sectorial de 117.2 hectáreas con proyección de soterramiento de cables, iluminación LED y cruces peatonales seguros.",
+        "seguridad": {
+          "nivel": "En Proceso de Repotenciación",
+          "camaras": 9,
+          "luminarias_led": 105,
+          "cruces_seguros": 6,
+          "bolardos": 94,
+          "descripcion": "Equipamiento urbano y plan de seguridad preventiva para la centralidad Comité del Pueblo - San Isidro del Inca."
+        },
+        "economia": {
+          "negocios_activos": "+129 unidades productivas y de comercio",
+          "atractivo_comercial": "Centralidad sectorial que abastece al tejido barrial circundante.",
+          "inversiones_privadas": [
+            {
+              "titulo": "Dinamización Comercial de Comité del Pueblo - San Isidro del Inca",
+              "tipo": "Comercio y Servicios",
+              "impacto": "Atracción de inversión de proximidad y formalización de patentes municipales."
+            }
+          ]
+        },
+        "valor_suelo": {
+          "aiva": "AIVAS COMITÉ DEL PUEBLO - SAN ISIDRO DEL INCA",
+          "valor_m2": 510,
+          "rango": "Sectorial / Planificado",
+          "tendencia": "+6.2% promedio anual",
+          "descripcion": "Suelo urbano con potencial de densificación y desarrollo según la normativa PUGS de la STHV."
+        },
+        "imagen_destacada": "/zonas_metro/Zonas metro.jpg",
+        "galeria_id": null,
+        "antes_despues_id": null
+      }
+    ]
+  },
+  {
+    "id": "cotocollao-ofelia",
+    "nombre": "Cotocollao - Ofelia",
+    "jerarquia": "Zonal",
+    "superficie_ha": 136.199281597,
+    "descripcion_territorial": "Centralidad zonal del norte tradicional y nodo intermodal con la terminal de transporte La Ofelia y los senderos de Colinas del Norte y La Roldós.",
+    "admin_zonal": "La Delicia",
+    "equipamientos_clave": [
+      "Terminal La Ofelia",
+      "Parque Central de Cotocollao",
+      "Mercado de Cotocollao",
+      "Complejo Deportivo Roldós"
+    ],
+    "centroid": [
+      -78.491521,
+      -0.109513
+    ],
+    "bbox": [
+      -78.499634,
+      -0.118874,
+      -78.486368,
+      -0.10208
+    ],
+    "proyectos": [
+      {
+        "id": "sendero-la-roldos",
+        "nombre": "Sendero Seguro La Roldós Oe13 — Colinas del Norte",
+        "tipo": "Sendero Seguro / Equipamiento Barrial",
+        "badge": "Inaugurado",
+        "longitud_km": "1.2 km",
+        "presupuesto": "$1.42M",
+        "financiamiento": "Municipio de Quito",
+        "estado": "Completado",
+        "resumen": "Pavimentación con adoquín ornamental, accesibilidad universal con franja podotáctil, parada de buses con cubierta, luminarias LED y cancha de césped sintético.",
+        "seguridad": {
+          "nivel": "Alto (Transformación Barrial)",
+          "camaras": 10,
+          "luminarias_led": 92,
+          "cruces_seguros": 7,
+          "bolardos": 130,
+          "descripcion": "Recuperación de un entorno antes oscuro en un sendero vibrante y vigilado."
+        },
+        "economia": {
+          "negocios_activos": "+80 bazares, tiendas de abarrotes, farmacias y ferreterías",
+          "atractivo_comercial": "Comercio barrial reactivado con mayor horario de atención nocturna.",
+          "inversiones_privadas": [
+            {
+              "titulo": "Ampliación de Microempresas Barriales",
+              "tipo": "Economía Barrial",
+              "impacto": "Locatarios extendieron su atención hasta las 22h00 gracias a la iluminación LED."
+            }
+          ]
+        },
+        "valor_suelo": {
+          "aiva": "AIVAS LA ROLDÓS",
+          "valor_m2": 480,
+          "rango": "Medio-Bajo / Residencial y Comercial",
+          "tendencia": "+5.9% de plusvalía anual",
+          "descripcion": "Crecimiento de plusvalía y titulación predial en el noroccidente de Quito."
+        },
+        "imagen_destacada": "/antes_despues/la_roldos/despues.jpg",
+        "galeria_id": null,
+        "antes_despues_id": "La Roldós Oe13-Colinas del Norte"
+      }
+    ]
+  },
+  {
+    "id": "guamani-turubamba",
+    "nombre": "Guamaní - Turubamba",
+    "jerarquia": "Sectorial",
+    "superficie_ha": 94.591769621,
+    "descripcion_territorial": "Sistema que se define como el núcleo urbano multifuncional, denso y diverso, donde se concentran gran variedad de actividades, servicios, personas y flujos socioeconómicos",
+    "admin_zonal": "DMQ",
+    "equipamientos_clave": [
+      "Equipamiento Educativo",
+      "Parque Barrial",
+      "Comercio Local"
+    ],
+    "centroid": [
+      -78.553586,
+      -0.318355
+    ],
+    "bbox": [
+      -78.557292,
+      -0.325075,
+      -78.548109,
+      -0.313088
+    ],
+    "proyectos": [
+      {
+        "id": "diagnostico-guamani-turubamba",
+        "nombre": "Plan de Intervención Integral Guamaní - Turubamba",
+        "tipo": "Diagnóstico Territorial & PMO",
+        "badge": "Planificado en PUGS",
+        "longitud_km": "9.5 km de red vial",
+        "presupuesto": "$804K est.",
+        "financiamiento": "Municipio del Distrito Metropolitano de Quito",
+        "estado": "Fase de Priorización",
+        "resumen": "Centralidad sectorial de 94.6 hectáreas con proyección de soterramiento de cables, iluminación LED y cruces peatonales seguros.",
+        "seguridad": {
+          "nivel": "En Proceso de Repotenciación",
+          "camaras": 8,
+          "luminarias_led": 85,
+          "cruces_seguros": 5,
+          "bolardos": 76,
+          "descripcion": "Equipamiento urbano y plan de seguridad preventiva para la centralidad Guamaní - Turubamba."
+        },
+        "economia": {
+          "negocios_activos": "+104 unidades productivas y de comercio",
+          "atractivo_comercial": "Centralidad sectorial que abastece al tejido barrial circundante.",
+          "inversiones_privadas": [
+            {
+              "titulo": "Dinamización Comercial de Guamaní - Turubamba",
+              "tipo": "Comercio y Servicios",
+              "impacto": "Atracción de inversión de proximidad y formalización de patentes municipales."
+            }
+          ]
+        },
+        "valor_suelo": {
+          "aiva": "AIVAS GUAMANÍ - TURUBAMBA",
+          "valor_m2": 510,
+          "rango": "Sectorial / Planificado",
+          "tendencia": "+6.2% promedio anual",
+          "descripcion": "Suelo urbano con potencial de densificación y desarrollo según la normativa PUGS de la STHV."
+        },
+        "imagen_destacada": "/zonas_metro/Zonas metro.jpg",
+        "galeria_id": null,
+        "antes_despues_id": null
+      }
+    ]
+  },
+  {
+    "id": "quitumbe",
+    "nombre": "Quitumbe",
+    "jerarquia": "Metropolitana",
+    "superficie_ha": 462.98969974,
+    "descripcion_territorial": "Centralidad metropolitana del extremo sur de Quito. Diseñada como la nueva ciudad gubernamental y de transporte del sur, articulada por la Terminal Terrestre y Talleres del Metro.",
+    "admin_zonal": "Quitumbe",
+    "equipamientos_clave": [
+      "Terminal Terrestre Quitumbe",
+      "Estación Metro Quitumbe",
+      "Plataforma Gubernamental del Sur",
+      "Parque Las Cuadras"
+    ],
+    "centroid": [
+      -78.550035,
+      -0.295732
+    ],
+    "bbox": [
+      -78.55934,
+      -0.306031,
+      -78.537822,
+      -0.27891
+    ],
+    "proyectos": [
+      {
+        "id": "arena-del-sur-quitumbe",
+        "nombre": "Arena del Sur y Espacio Público Quitumbe",
+        "tipo": "Espacio Público / Equipamiento Deportivo",
+        "badge": "Operativo",
+        "longitud_km": "2.2 km de entorno",
+        "presupuesto": "$3.80M",
+        "financiamiento": "Municipio de Quito",
+        "estado": "Completado",
+        "resumen": "Centro cultural y deportivo con caminerías iluminadas, conexión con la Estación Quitumbe y ciclovías periurbanas.",
+        "seguridad": {
+          "nivel": "Muy Alto (Área Protegida)",
+          "camaras": 18,
+          "luminarias_led": 180,
+          "cruces_seguros": 10,
+          "bolardos": 160,
+          "descripcion": "Perímetro vigilado y alumbrado de alta eficiencia para usuarios interprovinciales."
+        },
+        "economia": {
+          "negocios_activos": "+160 negocios de hotelería, encomiendas y gastronomía",
+          "atractivo_comercial": "Punto de entrada de cientos de miles de viajeros al DMQ cada mes.",
+          "inversiones_privadas": [
+            {
+              "titulo": "Hoteles de Tránsito y Terminales Logísticas",
+              "tipo": "Logística y Hospedaje",
+              "impacto": "Inversión privada orientada al pasajero de conexión del Metro y buses interprovinciales."
+            }
+          ]
+        },
+        "valor_suelo": {
+          "aiva": "AIVAS QUITUMBE",
+          "valor_m2": 590,
+          "rango": "Medio / Institucional y Transporte",
+          "tendencia": "+7.5% de plusvalía anual",
+          "descripcion": "Potencial de consolidación de nuevas manzanas residenciales e institucionales."
+        },
+        "imagen_destacada": "/arena_del_sur/Arena del Sur.png",
+        "galeria_id": null,
+        "antes_despues_id": null
+      }
+    ]
+  },
+  {
+    "id": "chimbacalle-la-villaflora-la-magdalena",
+    "nombre": "Chimbacalle - La Villaflora - La Magdalena",
+    "jerarquia": "Zonal",
+    "superficie_ha": 215.471189916,
+    "descripcion_territorial": "Centralidad zonal histórica y comercial del sur centro. Nodo tradicional con la icónica estación ferroviaria de Chimbacalle y el Bulevar de la Michelena.",
+    "admin_zonal": "Eloy Alfaro",
+    "equipamientos_clave": [
+      "Estación Metro Cardenal de la Torre",
+      "Estación Ferrocarril Chimbacalle",
+      "Bulevar Michelena",
+      "Parque de las Diversidades"
+    ],
+    "centroid": [
+      -78.520295,
+      -0.24169
+    ],
+    "bbox": [
+      -78.529265,
+      -0.254307,
+      -78.509706,
+      -0.233655
+    ],
+    "proyectos": [
+      {
+        "id": "bulevar-av-michelena",
+        "nombre": "Bulevar Comercial Av. Michelena (El Pintado)",
+        "tipo": "Espacio Público / Bulevar Peatonal",
+        "badge": "Operativo",
+        "longitud_km": "1.3 km",
+        "presupuesto": "$1.65M",
+        "financiamiento": "Municipio de Quito",
+        "estado": "Completado",
+        "resumen": "Bulevar peatonal y comercial con soterramiento de cables, iluminación escénica y aceras amplias con arbolado urbano.",
+        "seguridad": {
+          "nivel": "Alto (Bulevar Seguro)",
+          "camaras": 12,
+          "luminarias_led": 120,
+          "cruces_seguros": 7,
+          "bolardos": 150,
+          "descripcion": "Monitoreo integrado con UPC local y cruces cebras con semaforización inclusiva."
+        },
+        "economia": {
+          "negocios_activos": "+230 locales de ropa, calzado, tecnología y gastronomía",
+          "atractivo_comercial": "El corazón del comercio minorista popular del sur de Quito.",
+          "inversiones_privadas": [
+            {
+              "titulo": "Cadenas Nacionales de Calzado y Retail",
+              "tipo": "Comercio Retail",
+              "impacto": "Establecimiento de tiendas ancla sobre la Av. Michelena."
+            }
+          ]
+        },
+        "valor_suelo": {
+          "aiva": "AIVAS MICHELENA - VILLAFLORA",
+          "valor_m2": 710,
+          "rango": "Medio / Comercial",
+          "tendencia": "+7.1% de plusvalía anual",
+          "descripcion": "Revalorización de locales comerciales sobre acera frentista."
+        },
+        "imagen_destacada": "/imagenes_senderos/av_michelena/Michelena_final.png",
+        "galeria_id": null,
+        "antes_despues_id": null
+      }
+    ]
+  },
+  {
+    "id": "solanda-san-bartolo",
+    "nombre": "Solanda - San Bartolo",
+    "jerarquia": "Zonal",
+    "superficie_ha": 168.582789865,
+    "descripcion_territorial": "Centralidad zonal del sur de Quito con la mayor densidad demográfica y comercial del sur. Eje articulado por la Av. Ajaví y la Estación Metro Solanda.",
+    "admin_zonal": "Eloy Alfaro",
+    "equipamientos_clave": [
+      "Estación Metro Solanda",
+      "Mercado Mayorista de Quito",
+      "Parque Ecológico Solanda",
+      "Corredor Comercial Calle J"
+    ],
+    "centroid": [
+      -78.534364,
+      -0.268412
+    ],
+    "bbox": [
+      -78.54095,
+      -0.283449,
+      -78.526023,
+      -0.261788
+    ],
+    "proyectos": [
+      {
+        "id": "sendero-av-ajavi",
+        "nombre": "Sendero Seguro y Soterramiento Av. Ajaví",
+        "tipo": "Sendero Seguro / Soterramiento",
+        "badge": "Inaugurado",
+        "longitud_km": "1.7 km",
+        "presupuesto": "$2.10M",
+        "financiamiento": "Municipio de Quito",
+        "estado": "Completado",
+        "resumen": "Regeneración vial completa de la Av. Ajaví entre Av. Mariscal Sucre y Av. Pedro Vicente Maldonado con soterramiento de cables y parterres verdes.",
+        "seguridad": {
+          "nivel": "Alto (Sendero Seguro del Sur)",
+          "camaras": 14,
+          "luminarias_led": 135,
+          "cruces_seguros": 8,
+          "bolardos": 175,
+          "descripcion": "Iluminación LED de alta potencia que redujo sustancialmente la incidencia delictiva nocturna."
+        },
+        "economia": {
+          "negocios_activos": "+190 locales comerciales, bancos y ferreterías",
+          "atractivo_comercial": "Corredor comercial más dinámico de la parroquia Solanda.",
+          "inversiones_privadas": [
+            {
+              "titulo": "Comercios de Servicios y Cooperativas de Ahorro",
+              "tipo": "Financiero y Comercio",
+              "impacto": "Apertura de agencias bancarias y cooperativas sobre la renovada Av. Ajaví."
+            }
+          ]
+        },
+        "valor_suelo": {
+          "aiva": "AIVAS SOLANDA - AJAVÍ",
+          "valor_m2": 620,
+          "rango": "Medio / Comercial Popular",
+          "tendencia": "+6.8% de plusvalía anual",
+          "descripcion": "Incremento sostenido de la plusvalía por la cercanía a la Estación Metro Solanda."
+        },
+        "imagen_destacada": "/imagenes_senderos/av_ajavi/inicio_av_ajavi.png",
+        "galeria_id": null,
+        "antes_despues_id": null
+      }
+    ]
+  },
+  {
+    "id": "el-ejido-alameda",
+    "nombre": "El Ejido - Alameda",
+    "jerarquia": "Zonal",
+    "superficie_ha": 149.101512432,
+    "descripcion_territorial": "Centralidad zonal de articulación entre el Hipercentro y el Centro Histórico. Nodo cívico, cultural y universitario en torno a los Parques El Ejido y La Alameda.",
+    "admin_zonal": "Manuela Sáenz / Eugenio Espejo",
+    "equipamientos_clave": [
+      "Estación Metro El Ejido",
+      "Casa de la Cultura Ecuatoriana",
+      "Parque El Ejido",
+      "Parque La Alameda",
+      "Observatorio Astronómico"
+    ],
+    "centroid": [
+      -78.49824,
+      -0.205068
+    ],
+    "bbox": [
+      -78.506105,
+      -0.216816,
+      -78.490764,
+      -0.187522
+    ],
+    "proyectos": [
+      {
+        "id": "corredor-av-patria",
+        "nombre": "Corredor Vivo Av. Patria",
+        "tipo": "Corredor Vivo / Eje Cultural",
+        "badge": "Inaugurado y Operativo",
+        "longitud_km": "1.8 km",
+        "presupuesto": "$2.40M",
+        "financiamiento": "Municipio de Quito / EPMMOP",
+        "estado": "Completado",
+        "resumen": "Conector icónico entre el Parque El Ejido y La Mariscal con cruces tácticos de colores, ciclovía segregada e iluminación monumental.",
+        "seguridad": {
+          "nivel": "Muy Alto (Iluminación & Monitoreo)",
+          "camaras": 16,
+          "luminarias_led": 168,
+          "cruces_seguros": 10,
+          "bolardos": 220,
+          "descripcion": "168 luminarias LED de última generación, cruces peatonales tácticos multicolor y conexión visual diáfana con parques."
+        },
+        "economia": {
+          "negocios_activos": "+150 empresas, entidades bancarias y centros culturales",
+          "atractivo_comercial": "Cercanía a Casa de la Cultura, Pontificia Universidad Católica (PUCE), EPN y hoteles de lujo.",
+          "inversiones_privadas": [
+            {
+              "titulo": "Banco Internacional S.A. (Proyecto 50 Años)",
+              "tipo": "Revalorización Edilicia Corporativa",
+              "impacto": "Inversión privada en la modernización de fachadas y áreas peatonales sobre la Av. Patria."
+            }
+          ]
+        },
+        "valor_suelo": {
+          "aiva": "AIVAS PATRIA",
+          "valor_m2": 1340,
+          "rango": "Muy Alto / Corporativo y Cultural",
+          "tendencia": "+10.4% de plusvalía anual",
+          "descripcion": "Consolidación como distrito financiero y cultural de primer orden con alta valorización por metro cuadrado."
+        },
+        "imagen_destacada": "/antes_despues/av_patria/despues.jpg",
+        "galeria_id": null,
+        "antes_despues_id": "Av. Patria"
+      },
+      {
+        "id": "soterramiento-av-patria",
+        "nombre": "Soterramiento de Cables Av. Patria",
+        "tipo": "Soterramiento de Redes Aéreas",
+        "badge": "Ejecutado",
+        "longitud_km": "1.8 km soterrados",
+        "presupuesto": "$1.20M",
+        "financiamiento": "Municipio de Quito",
+        "estado": "Completado",
+        "resumen": "Eliminación completa de redes aéreas que distorsionaban la perspectiva visual del Parque El Ejido y la Casa de la Cultura.",
+        "seguridad": {
+          "nivel": "Muy Alto",
+          "camaras": 16,
+          "luminarias_led": 168,
+          "cruces_seguros": 10,
+          "bolardos": 220,
+          "descripcion": "Optimización de luminarias y despeje de ramas y cables sobre las aceras peatonales."
+        },
+        "economia": {
+          "negocios_activos": "+150 comercios",
+          "atractivo_comercial": "Incremento del flujo peatonal en eventos culturales de la CCE.",
+          "inversiones_privadas": [
+            {
+              "titulo": "Renovación de Oficinas Corporativas Patria",
+              "tipo": "Inversión Inmobiliaria Privada",
+              "impacto": "Rehabilitación de lobbies y plantas bajas abiertas al espacio público."
+            }
+          ]
+        },
+        "valor_suelo": {
+          "aiva": "AIVAS PATRIA",
+          "valor_m2": 1340,
+          "rango": "Muy Alto",
+          "tendencia": "+10.4% anual",
+          "descripcion": "Mejora estética radical del frente del Parque El Ejido."
+        },
+        "imagen_destacada": "/antes_despues/av_patria/despues.jpg",
+        "galeria_id": null,
+        "antes_despues_id": "Av. Patria"
+      }
+    ]
+  },
+  {
+    "id": "rio-coca-granados",
+    "nombre": "Río Coca - Granados",
+    "jerarquia": "Zonal",
+    "superficie_ha": 160.10643476,
+    "descripcion_territorial": "Sistema que se define como el núcleo urbano multifuncional, denso y diverso, donde se concentran gran variedad de actividades, servicios, personas y flujos socioeconómicos",
+    "admin_zonal": "DMQ",
+    "equipamientos_clave": [
+      "Equipamiento Educativo",
+      "Parque Barrial",
+      "Comercio Local"
+    ],
+    "centroid": [
+      -78.46992,
+      -0.163466
+    ],
+    "bbox": [
+      -78.478535,
+      -0.171597,
+      -78.461975,
+      -0.157541
+    ],
+    "proyectos": [
+      {
+        "id": "diagnostico-rio-coca-granados",
+        "nombre": "Plan de Intervención Integral Río Coca - Granados",
+        "tipo": "Diagnóstico Territorial & PMO",
+        "badge": "Planificado en PUGS",
+        "longitud_km": "16.0 km de red vial",
+        "presupuesto": "$1361K est.",
+        "financiamiento": "Municipio del Distrito Metropolitano de Quito",
+        "estado": "Fase de Priorización",
+        "resumen": "Centralidad zonal de 160.1 hectáreas con proyección de soterramiento de cables, iluminación LED y cruces peatonales seguros.",
+        "seguridad": {
+          "nivel": "En Proceso de Repotenciación",
+          "camaras": 13,
+          "luminarias_led": 144,
+          "cruces_seguros": 8,
+          "bolardos": 128,
+          "descripcion": "Equipamiento urbano y plan de seguridad preventiva para la centralidad Río Coca - Granados."
+        },
+        "economia": {
+          "negocios_activos": "+176 unidades productivas y de comercio",
+          "atractivo_comercial": "Centralidad zonal que abastece al tejido barrial circundante.",
+          "inversiones_privadas": [
+            {
+              "titulo": "Dinamización Comercial de Río Coca - Granados",
+              "tipo": "Comercio y Servicios",
+              "impacto": "Atracción de inversión de proximidad y formalización de patentes municipales."
+            }
+          ]
+        },
+        "valor_suelo": {
+          "aiva": "AIVAS RÍO COCA - GRANADOS",
+          "valor_m2": 680,
+          "rango": "Zonal / Planificado",
+          "tendencia": "+6.2% promedio anual",
+          "descripcion": "Suelo urbano con potencial de densificación y desarrollo según la normativa PUGS de la STHV."
+        },
+        "imagen_destacada": "/zonas_metro/Zonas metro.jpg",
+        "galeria_id": null,
+        "antes_despues_id": null
+      }
+    ]
+  },
+  {
+    "id": "la-floresta",
+    "nombre": "La Floresta",
+    "jerarquia": "Sectorial",
+    "superficie_ha": 109.94623694,
+    "descripcion_territorial": "Centralidad sectorial artística, residencial y gastronómica. Famosa por sus casonas de estilo neocolonial, galerías de arte y el emblemático Parque Navarro.",
+    "admin_zonal": "Eugenio Espejo",
+    "equipamientos_clave": [
+      "Parque Navarro (Las Vicuñas)",
+      "Plaza Brasilia",
+      "Cine Ocho y Medio",
+      "Universidad Andina Simón Bolívar"
+    ],
+    "centroid": [
+      -78.485225,
+      -0.207944
+    ],
+    "bbox": [
+      -78.493739,
+      -0.212941,
+      -78.479115,
+      -0.200714
+    ],
+    "proyectos": [
+      {
+        "id": "parque-navarro-floresta",
+        "nombre": "Parque Navarro — Corredor Gastronómico La Floresta",
+        "tipo": "Espacio Público / Corredor Gastronómico",
+        "badge": "Inaugurado y Operativo",
+        "longitud_km": "0.6 km",
+        "presupuesto": "$890K",
+        "financiamiento": "Municipio de Quito",
+        "estado": "Completado",
+        "resumen": "Readecuación integral de la plaza gastronómica tradicional con quioscos de acero inoxidable homologados, bancas ecológicas y soterramiento perimetral.",
+        "seguridad": {
+          "nivel": "Muy Alto (Espacio Convivencial)",
+          "camaras": 8,
+          "luminarias_led": 64,
+          "cruces_seguros": 5,
+          "bolardos": 90,
+          "descripcion": "Plaza iluminada 24/7 con control sanitario y patrullaje preventivo de policía comunitaria."
+        },
+        "economia": {
+          "negocios_activos": "+95 restaurantes, cafeterías de especialidad y galerías",
+          "atractivo_comercial": "Uno de los polos gastronómicos y culturales nocturnos más frecuentados de Quito.",
+          "inversiones_privadas": [
+            {
+              "titulo": "Asociación de Emprendimientos Gastronómicos Navarro",
+              "tipo": "Economía Popular y Solidaria",
+              "impacto": "Formalización de 25 módulos gastronómicos tradicionales con estándares sanitarios de excelencia."
+            }
+          ]
+        },
+        "valor_suelo": {
+          "aiva": "AIVAS LA FLORESTA",
+          "valor_m2": 1180,
+          "rango": "Alto / Residencial y Bohemio",
+          "tendencia": "+8.9% de plusvalía anual",
+          "descripcion": "Alta demanda para proyectos de vivienda vertical boutique y estudios de diseño."
+        },
+        "imagen_destacada": "/imagenes_senderos/parque_navarro/parque_navarro_1.png",
+        "galeria_id": null,
+        "antes_despues_id": null
+      }
+    ]
+  },
+  {
+    "id": "la-y",
+    "nombre": "La \"Y\"",
+    "jerarquia": "Sectorial",
+    "superficie_ha": 39.711436851,
+    "descripcion_territorial": "Centralidad sectorial de alta conectividad y nodo de transferencia de transporte (Trolebús, Metro La Y y Av. 10 de Agosto). Enfoque en deporte y espacio verde.",
+    "admin_zonal": "Eugenio Espejo",
+    "equipamientos_clave": [
+      "Estación Metro Iñaquito / La Y",
+      "Terminal Trolebús La Y",
+      "Parque Isla Tortuga",
+      "Polideportivo La Y",
+      "QUITOPIA La Y"
+    ],
+    "centroid": [
+      -78.485659,
+      -0.16415
+    ],
+    "bbox": [
+      -78.487419,
+      -0.16931,
+      -78.482893,
+      -0.158936
+    ],
+    "proyectos": [
+      {
+        "id": "sendero-isla-tortuga",
+        "nombre": "Sendero Seguro Isla Tortuga / QUITOPIA La Y",
+        "tipo": "Sendero Seguro / Equipamiento Recreativo",
+        "badge": "Inaugurado y Operativo",
+        "longitud_km": "0.9 km",
+        "presupuesto": "$1.15M",
+        "financiamiento": "Municipio de Quito",
+        "estado": "Completado",
+        "resumen": "Recuperación de áreas verdes, adoquín geométrico ornamental, nuevo complejo de juegos infantiles y conexión peatonal directa con el Metro.",
+        "seguridad": {
+          "nivel": "Muy Alto (Parque Familiar Seguro)",
+          "camaras": 8,
+          "luminarias_led": 85,
+          "cruces_seguros": 6,
+          "bolardos": 120,
+          "descripcion": "Aceras con guía podotáctil, postes de iluminación ornamental cálida y vigilancia metropolitana."
+        },
+        "economia": {
+          "negocios_activos": "+65 comercios de cercanía, farmacias y cafeterías",
+          "atractivo_comercial": "Afluencia continua de usuarios del transporte público intermodal.",
+          "inversiones_privadas": [
+            {
+              "titulo": "Comercios de Servicios en Eje La Y",
+              "tipo": "Comercio Minorista y Salud",
+              "impacto": "Apertura de nuevos locales comerciales y centros médicos de atención ambulatoria."
+            }
+          ]
+        },
+        "valor_suelo": {
+          "aiva": "AIVAS LA Y",
+          "valor_m2": 980,
+          "rango": "Medio-Alto / Residencial y Servicios",
+          "tendencia": "+7.8% de plusvalía anual",
+          "descripcion": "Revalorización de condominios residenciales del entorno por acceso directo al Metro."
+        },
+        "imagen_destacada": "/imagenes_senderos/isla_tortuga/aerea_plaza_sendero.jpg",
+        "galeria_id": "Isla Tortuga",
+        "antes_despues_id": null
+      }
+    ]
+  },
+  {
+    "id": "centro-historico",
+    "nombre": "Centro Histórico",
+    "jerarquia": "Metropolitana",
+    "superficie_ha": 346.268770694,
+    "descripcion_territorial": "Centralidad metropolitana patrimonial, cívica y turística declarada Primer Patrimonio Cultural de la Humanidad por la UNESCO. Sede de los poderes del Estado y Alcaldía.",
+    "admin_zonal": "Manuela Sáenz",
+    "equipamientos_clave": [
+      "Estación Metro San Francisco",
+      "Plaza Grande",
+      "Plaza San Francisco",
+      "Plaza del Teatro",
+      "Basílica del Voto Nacional"
+    ],
+    "centroid": [
+      -78.510712,
+      -0.223767
+    ],
+    "bbox": [
+      -78.523838,
+      -0.233636,
+      -78.499216,
+      -0.21247
+    ],
+    "proyectos": [
+      {
+        "id": "peatonalizacion-calle-benalcazar",
+        "nombre": "Sendero Seguro Calle Benalcázar",
+        "tipo": "Sendero Seguro / Peatonalización Patrimonial",
+        "badge": "Inaugurado",
+        "longitud_km": "1.2 km",
+        "presupuesto": "$1.80M",
+        "financiamiento": "IMP / Municipio de Quito",
+        "estado": "Completado",
+        "resumen": "Peatonalización integral con piedra andesita pulida, soterramiento de acometidas patrimoniales y mobiliario urbano de bronce y madera.",
+        "seguridad": {
+          "nivel": "Alto (Control Patrimonial)",
+          "camaras": 18,
+          "luminarias_led": 110,
+          "cruces_seguros": 8,
+          "bolardos": 160,
+          "descripcion": "Iluminación patrimonial LED cálida, postes estilo colonial repotenciados y cámaras del ECU-911."
+        },
+        "economia": {
+          "negocios_activos": "+210 comercios tradicionales, artesanías y restaurantes",
+          "atractivo_comercial": "Alta afluencia de turismo nacional y extranjero.",
+          "inversiones_privadas": [
+            {
+              "titulo": "Restauración de Hoteles Boutique y Cafeterías",
+              "tipo": "Turismo y Hospitalidad",
+              "impacto": "Inversión privada en casonas patrimoniales convertidas en hoteles boutique."
+            }
+          ]
+        },
+        "valor_suelo": {
+          "aiva": "AIVAS CENTRO HISTÓRICO",
+          "valor_m2": 1150,
+          "rango": "Alto / Patrimonial",
+          "tendencia": "+8.1% de plusvalía anual",
+          "descripcion": "Incentivos de conservación y plusvalía potenciada por la parada San Francisco del Metro."
+        },
+        "imagen_destacada": "/imagenes_senderos/calle_benalcazar/Benalcazar_inicio.png",
+        "galeria_id": null,
+        "antes_despues_id": null
+      },
+      {
+        "id": "sendero-calle-rocafuerte",
+        "nombre": "Sendero Seguro Calle Rocafuerte",
+        "tipo": "Sendero Seguro / Conector Patrimonial",
+        "badge": "Inaugurado",
+        "longitud_km": "1.1 km",
+        "presupuesto": "$1.35M",
+        "financiamiento": "Municipio de Quito / IMP",
+        "estado": "Completado",
+        "resumen": "Recuperación del eje tradicional entre el Convento de San Francisco y el Mercado de San Roque, con ensanchamiento de veredas y accesibilidad universal.",
+        "seguridad": {
+          "nivel": "Medio-Alto (Sendero Recuperado)",
+          "camaras": 14,
+          "luminarias_led": 95,
+          "cruces_seguros": 6,
+          "bolardos": 140,
+          "descripcion": "Recuperación de la percepción de seguridad con iluminación dirigida y agentes de control."
+        },
+        "economia": {
+          "negocios_activos": "+180 comercios y talleres artesanales",
+          "atractivo_comercial": "Ruta gastronómica y comercial tradicional.",
+          "inversiones_privadas": [
+            {
+              "titulo": "Reapertura de Comercios Tradicionales",
+              "tipo": "Comercio Minorista",
+              "impacto": "Regularización LUAE con incremento de aperturas de negocios en la calle Rocafuerte."
+            }
+          ]
+        },
+        "valor_suelo": {
+          "aiva": "AIVAS ROCAFUERTE",
+          "valor_m2": 1080,
+          "rango": "Medio-Alto / Comercial",
+          "tendencia": "+7.4% anual",
+          "descripcion": "Consolidación del comercio formal en el centro sur patrimonial."
+        },
+        "imagen_destacada": "/imagenes_senderos/calle_rocafuerte/Rocafuerte_inicio.png",
+        "galeria_id": null,
+        "antes_despues_id": null
+      }
+    ]
+  },
+  {
+    "id": "mariscal",
+    "nombre": "Mariscal",
+    "jerarquia": "Metropolitana",
+    "superficie_ha": 180.76178191,
+    "descripcion_territorial": "Centralidad metropolitana financiera, turística y universitaria de alta densidad. Articulada por la Av. Colón, Av. 12 de Octubre, Av. Patria y la Estación Colón del Metro.",
+    "admin_zonal": "La Mariscal / Eugenio Espejo",
+    "equipamientos_clave": [
+      "Estación Metro Colón",
+      "Plaza Foch",
+      "PUCE",
+      "EPN",
+      "Hospital de Niños Baca Ortiz"
+    ],
+    "centroid": [
+      -78.491372,
+      -0.202792
+    ],
+    "bbox": [
+      -78.499411,
+      -0.210253,
+      -78.482715,
+      -0.195818
+    ],
+    "proyectos": [
+      {
+        "id": "corredor-av-colon",
+        "nombre": "Corredor Vivo Av. Colón",
+        "tipo": "Corredor Vivo / Regeneración Peatonal",
+        "badge": "Inaugurado y Operativo",
+        "longitud_km": "2.1 km",
+        "presupuesto": "$2.85M",
+        "financiamiento": "Municipio de Quito / EPMMOP",
+        "estado": "Completado",
+        "resumen": "Eje estructurante norte-centro con ciclovía segregada, señalización táctica, soterramiento de cables y amplia oferta comercial y gastronómica.",
+        "seguridad": {
+          "nivel": "Alto (Sendero Seguro)",
+          "camaras": 12,
+          "luminarias_led": 142,
+          "cruces_seguros": 8,
+          "bolardos": 180,
+          "descripcion": "Alumbrado LED repotenciado, señalización táctica tricolor, cámaras de vigilancia y aceras anchas con accesibilidad universal."
+        },
+        "economia": {
+          "negocios_activos": "+120 comercios, hoteles y servicios corporativos",
+          "atractivo_comercial": "Polo gastronómico, bancario y de entretenimiento nocturno seguro.",
+          "inversiones_privadas": [
+            {
+              "titulo": "Carl's Jr. Freestanding Colón",
+              "tipo": "Franquicia Internacional",
+              "impacto": "Apertura del primer freestanding de la cadena en Quito con área infantil, drive-thru y horario extendido."
+            }
+          ]
+        },
+        "valor_suelo": {
+          "aiva": "AIVAS AV. COLÓN",
+          "valor_m2": 1285.5,
+          "rango": "Alto / Comercial y Corporativo",
+          "tendencia": "+9.2% de plusvalía anual",
+          "descripcion": "Demanda inmobiliaria potenciada por la renovación integral del perfil vial y soterrado de redes."
+        },
+        "imagen_destacada": "/imagenes_senderos/av_colon/cruce_peatonal.jpg",
+        "galeria_id": "Av. Colón",
+        "antes_despues_id": null
+      },
+      {
+        "id": "soterramiento-av-colon",
+        "nombre": "Soterramiento de Cables Av. Colón (Fases 1 y 2)",
+        "tipo": "Soterramiento de Redes Aéreas",
+        "badge": "Ejecutado",
+        "longitud_km": "2.1 km soterrados",
+        "presupuesto": "$1.45M",
+        "financiamiento": "Fondo Municipal de Soterramiento",
+        "estado": "Operativo",
+        "resumen": "Retiro del 100% del tallarín de cables aéreos de media y baja tensión y telecomunicaciones, canalizados bajo aceras con cajas subterráneas.",
+        "seguridad": {
+          "nivel": "Muy Alto (Despeje Aéreo)",
+          "camaras": 12,
+          "luminarias_led": 142,
+          "cruces_seguros": 8,
+          "bolardos": 180,
+          "descripcion": "Eliminación del riesgo de colapso de postes y cables de media tensión, mayor visibilidad y campo visual despejado."
+        },
+        "economia": {
+          "negocios_activos": "+120 establecimientos",
+          "atractivo_comercial": "Despeje estético total de fachadas corporativas y hoteleras.",
+          "inversiones_privadas": [
+            {
+              "titulo": "Inversión en Redes de Fibra Subterránea",
+              "tipo": "Telecomunicaciones Privadas",
+              "impacto": "Modernización del tendido subterráneo de telecomunicaciones de alta velocidad para edificios corporativos."
+            }
+          ]
+        },
+        "valor_suelo": {
+          "aiva": "AIVAS AV. COLÓN",
+          "valor_m2": 1285.5,
+          "rango": "Alto / Comercial",
+          "tendencia": "+9.2% anual",
+          "descripcion": "Valorización inmediata de predios frentistas por descontaminación visual del entorno."
+        },
+        "imagen_destacada": "/imagenes_senderos/av_colon/cruce_peatonal.jpg",
+        "galeria_id": "Av. Colón",
+        "antes_despues_id": null
+      }
+    ]
+  },
+  {
+    "id": "bicentenario",
+    "nombre": "Bicentenario",
+    "jerarquia": "Metropolitana",
+    "superficie_ha": 382.149442857,
+    "descripcion_territorial": "Centralidad metropolitana del norte con el parque urbano más extenso de Quito (antiguo aeropuerto). Polo de eventos masivos, convenciones y proyectos de regeneración urbana.",
+    "admin_zonal": "Eugenio Espejo",
+    "equipamientos_clave": [
+      "Parque Bicentenario (125 ha)",
+      "Centro de Convenciones Metropolitano",
+      "Estación Metro El Labrador",
+      "Colegio Benalcázar"
+    ],
+    "centroid": [
+      -78.486516,
+      -0.145008
+    ],
+    "bbox": [
+      -78.497144,
+      -0.161469,
+      -78.475735,
+      -0.123037
+    ],
+    "proyectos": [
+      {
+        "id": "repotenciacion-parque-bicentenario",
+        "nombre": "Repotenciación Integral Parque Bicentenario",
+        "tipo": "Espacio Público / Parque Metropolitano",
+        "badge": "En Ejecución / Operativo",
+        "longitud_km": "125 hectáreas",
+        "presupuesto": "$4.50M",
+        "financiamiento": "Municipio de Quito / Cooperación Internacional",
+        "estado": "Fase 2",
+        "resumen": "Desarrollo del humedal artificial, pistas atléticas reglamentarias, áreas de juegos infantiles y arborización con especies nativas.",
+        "seguridad": {
+          "nivel": "Excelente (Parque Seguro)",
+          "camaras": 24,
+          "luminarias_led": 310,
+          "cruces_seguros": 14,
+          "bolardos": 200,
+          "descripcion": "Cámaras de vigilancia 360°, torres de salvamento y patrullaje de agentes metropolitanos en bicicleta."
+        },
+        "economia": {
+          "negocios_activos": "Ferias masivas, Centro de Convenciones y concesiones gastronómicas",
+          "atractivo_comercial": "Epicentro de ferias internacionales, conciertos y eventos culturales.",
+          "inversiones_privadas": [
+            {
+              "titulo": "Centro de Convenciones y Eventos Privados",
+              "tipo": "Turismo MICE",
+              "impacto": "Generación de millones de dólares en congresos y exhibiciones empresariales."
+            }
+          ]
+        },
+        "valor_suelo": {
+          "aiva": "AIVAS BICENTENARIO",
+          "valor_m2": 1050,
+          "rango": "Alto / Residencial y Servicios",
+          "tendencia": "+9.5% de plusvalía anual",
+          "descripcion": "Atracción de desarrollos inmobiliarios verticales con vista panorámica al parque."
+        },
+        "imagen_destacada": "/repotenciacion_parque_bicentenario/Repotenciación del Bicentenario.png",
+        "galeria_id": null,
+        "antes_despues_id": null
+      },
+      {
+        "id": "recuperacion-av-10-agosto",
+        "nombre": "Recuperación Urbana Av. 10 de Agosto (Tramo Bicentenario)",
+        "tipo": "Corredor Vivo / Regeneración Vial",
+        "badge": "Ejecutado",
+        "longitud_km": "2.5 km",
+        "presupuesto": "$2.15M",
+        "financiamiento": "EPMMOP",
+        "estado": "Completado",
+        "resumen": "Repavimentación rígida, ciclovía interconectada con El Labrador y arborización en parterres.",
+        "seguridad": {
+          "nivel": "Alto",
+          "camaras": 16,
+          "luminarias_led": 160,
+          "cruces_seguros": 9,
+          "bolardos": 150,
+          "descripcion": "Pasos peatonales con semáforos sonoros y señalética reflectiva."
+        },
+        "economia": {
+          "negocios_activos": "+140 comercios",
+          "atractivo_comercial": "Eje automotriz y de servicios logísticos.",
+          "inversiones_privadas": [
+            {
+              "titulo": "Concesionarios y Edificios Corporativos",
+              "tipo": "Automotriz y Servicios",
+              "impacto": "Modernización de vitrinas comerciales y puntos de venta."
+            }
+          ]
+        },
+        "valor_suelo": {
+          "aiva": "AIVAS 10 DE AGOSTO NORTE",
+          "valor_m2": 980,
+          "rango": "Medio-Alto",
+          "tendencia": "+8.2% anual",
+          "descripcion": "Plusvalía empujada por la intermodalidad del Metro El Labrador."
+        },
+        "imagen_destacada": "/recuperacion_urbana_av_10_de_agosto/recuperación_urbana_av10deAgosto.png",
+        "galeria_id": null,
+        "antes_despues_id": null
+      }
+    ]
+  },
+  {
+    "id": "la-carolina",
+    "nombre": "La Carolina",
+    "jerarquia": "Metropolitana",
+    "superficie_ha": 340.911300002,
+    "descripcion_territorial": "Principal centralidad metropolitana de negocios y servicios corporativos del Ecuador. Concentra sedes bancarias, centros comerciales y el Parque La Carolina.",
+    "admin_zonal": "Eugenio Espejo",
+    "equipamientos_clave": [
+      "Estación Metro La Carolina",
+      "Estación Metro Iñaquito",
+      "Parque La Carolina",
+      "Centro Comercial CCI",
+      "Mall El Jardín"
+    ],
+    "centroid": [
+      -78.483661,
+      -0.184263
+    ],
+    "bbox": [
+      -78.492704,
+      -0.197055,
+      -78.473506,
+      -0.168904
+    ],
+    "proyectos": [
+      {
+        "id": "bulevar-tribuna-shyris",
+        "nombre": "Bulevar Tribuna de los Shyris",
+        "tipo": "Espacio Público / Bulevar Peatonal",
+        "badge": "Inaugurado y Operativo",
+        "longitud_km": "1.4 km",
+        "presupuesto": "$3.10M",
+        "financiamiento": "Municipio de Quito / EPMMOP",
+        "estado": "Completado",
+        "resumen": "Demolición de la antigua tribuna de cemento y construcción de un bulevar contemporáneo con pórticos escultóricos, ciclovía y jardines.",
+        "seguridad": {
+          "nivel": "Excelente (Sendero Modelo)",
+          "camaras": 20,
+          "luminarias_led": 195,
+          "cruces_seguros": 12,
+          "bolardos": 280,
+          "descripcion": "Visibilidad total 360°, eliminación de zonas oscuras, pórticos iluminados y patrullaje metropolitano continuo."
+        },
+        "economia": {
+          "negocios_activos": "+280 sedes corporativas, cafeterías gourmet y bancos",
+          "atractivo_comercial": "El epicentro financiero y de ocio familiar más cotizado del DMQ.",
+          "inversiones_privadas": [
+            {
+              "titulo": "Torres Corporativas y Nuevas Cafeterías Shyris",
+              "tipo": "Desarrollo Mixto y Gastronomía",
+              "impacto": "Atracción masiva de terrazas gastronómicas y dinamización del comercio diurno y nocturno."
+            }
+          ]
+        },
+        "valor_suelo": {
+          "aiva": "AIVAS LA CAROLINA",
+          "valor_m2": 1420,
+          "rango": "Máximo DMQ / Financiero",
+          "tendencia": "+11.8% de plusvalía anual",
+          "descripcion": "El suelo urbano de mayor valorización por metro cuadrado del Distrito Metropolitano."
+        },
+        "imagen_destacada": "/antes_despues/tribuna_de_los_shyris/despues.jpg",
+        "galeria_id": null,
+        "antes_despues_id": "Bulevar Tribuna de los Shyris"
+      },
+      {
+        "id": "soterramiento-shyris",
+        "nombre": "Soterramiento de Redes Bulevar Shyris",
+        "tipo": "Soterramiento de Redes Aéreas",
+        "badge": "Ejecutado",
+        "longitud_km": "1.4 km",
+        "presupuesto": "$1.60M",
+        "financiamiento": "Municipio de Quito",
+        "estado": "Completado",
+        "resumen": "Infraestructura subterránea de ductos para energía y telecomunicaciones que liberó visualmente el frente del Parque La Carolina.",
+        "seguridad": {
+          "nivel": "Excelente",
+          "camaras": 20,
+          "luminarias_led": 195,
+          "cruces_seguros": 12,
+          "bolardos": 280,
+          "descripcion": "Aceras totalmente transitables sin obstáculos de postes ni cables."
+        },
+        "economia": {
+          "negocios_activos": "+280 establecimientos",
+          "atractivo_comercial": "Revalorización de plantas bajas comerciales.",
+          "inversiones_privadas": [
+            {
+              "titulo": "Inversión en Terrazas de Restaurantes Shyris",
+              "tipo": "Comercio Exterior y Terrazas",
+              "impacto": "Ampliación de áreas de servicio al aire libre sin interferencias."
+            }
+          ]
+        },
+        "valor_suelo": {
+          "aiva": "AIVAS LA CAROLINA",
+          "valor_m2": 1420,
+          "rango": "Máximo DMQ",
+          "tendencia": "+11.8% anual",
+          "descripcion": "Consolidación del skyline corporativo de Quito."
+        },
+        "imagen_destacada": "/antes_despues/tribuna_de_los_shyris/despues.jpg",
+        "galeria_id": null,
+        "antes_despues_id": "Bulevar Tribuna de los Shyris"
+      }
+    ]
+  },
+  {
+    "id": "calderon",
+    "nombre": "Calderón",
+    "jerarquia": "Zonal",
+    "superficie_ha": 82.77449474,
+    "descripcion_territorial": "Sistema que se define como el núcleo urbano multifuncional, denso y diverso, donde se concentran gran variedad de actividades, servicios, personas y flujos socioeconómicos",
+    "admin_zonal": "DMQ",
+    "equipamientos_clave": [
+      "Equipamiento Educativo",
+      "Parque Barrial",
+      "Comercio Local"
+    ],
+    "centroid": [
+      -78.429033,
+      -0.087919
+    ],
+    "bbox": [
+      -78.439044,
+      -0.093772,
+      -78.419693,
+      -0.082768
+    ],
+    "proyectos": [
+      {
+        "id": "diagnostico-calderon",
+        "nombre": "Plan de Intervención Integral Calderón",
+        "tipo": "Diagnóstico Territorial & PMO",
+        "badge": "Planificado en PUGS",
+        "longitud_km": "8.3 km de red vial",
+        "presupuesto": "$704K est.",
+        "financiamiento": "Municipio del Distrito Metropolitano de Quito",
+        "estado": "Fase de Priorización",
+        "resumen": "Centralidad zonal de 82.8 hectáreas con proyección de soterramiento de cables, iluminación LED y cruces peatonales seguros.",
+        "seguridad": {
+          "nivel": "En Proceso de Repotenciación",
+          "camaras": 7,
+          "luminarias_led": 74,
+          "cruces_seguros": 4,
+          "bolardos": 66,
+          "descripcion": "Equipamiento urbano y plan de seguridad preventiva para la centralidad Calderón."
+        },
+        "economia": {
+          "negocios_activos": "+91 unidades productivas y de comercio",
+          "atractivo_comercial": "Centralidad zonal que abastece al tejido barrial circundante.",
+          "inversiones_privadas": [
+            {
+              "titulo": "Dinamización Comercial de Calderón",
+              "tipo": "Comercio y Servicios",
+              "impacto": "Atracción de inversión de proximidad y formalización de patentes municipales."
+            }
+          ]
+        },
+        "valor_suelo": {
+          "aiva": "AIVAS CALDERÓN",
+          "valor_m2": 680,
+          "rango": "Zonal / Planificado",
+          "tendencia": "+6.2% promedio anual",
+          "descripcion": "Suelo urbano con potencial de densificación y desarrollo según la normativa PUGS de la STHV."
+        },
+        "imagen_destacada": "/zonas_metro/Zonas metro.jpg",
+        "galeria_id": null,
+        "antes_despues_id": null
+      }
+    ]
+  },
+  {
+    "id": "calderon-historico",
+    "nombre": "Calderón Histórico",
+    "jerarquia": "Sectorial",
+    "superficie_ha": 37.1628719856,
+    "descripcion_territorial": "Sistema que se define como el núcleo urbano multifuncional, denso y diverso, donde se concentran gran variedad de actividades, servicios, personas y flujos socioeconómicos",
+    "admin_zonal": "DMQ",
+    "equipamientos_clave": [
+      "Equipamiento Educativo",
+      "Parque Barrial",
+      "Comercio Local"
+    ],
+    "centroid": [
+      -78.42234,
+      -0.101206
+    ],
+    "bbox": [
+      -78.427218,
+      -0.104911,
+      -78.418311,
+      -0.096296
+    ],
+    "proyectos": [
+      {
+        "id": "diagnostico-calderon-historico",
+        "nombre": "Plan de Intervención Integral Calderón Histórico",
+        "tipo": "Diagnóstico Territorial & PMO",
+        "badge": "Planificado en PUGS",
+        "longitud_km": "3.7 km de red vial",
+        "presupuesto": "$316K est.",
+        "financiamiento": "Municipio del Distrito Metropolitano de Quito",
+        "estado": "Fase de Priorización",
+        "resumen": "Centralidad sectorial de 37.2 hectáreas con proyección de soterramiento de cables, iluminación LED y cruces peatonales seguros.",
+        "seguridad": {
+          "nivel": "En Proceso de Repotenciación",
+          "camaras": 3,
+          "luminarias_led": 33,
+          "cruces_seguros": 3,
+          "bolardos": 30,
+          "descripcion": "Equipamiento urbano y plan de seguridad preventiva para la centralidad Calderón Histórico."
+        },
+        "economia": {
+          "negocios_activos": "+41 unidades productivas y de comercio",
+          "atractivo_comercial": "Centralidad sectorial que abastece al tejido barrial circundante.",
+          "inversiones_privadas": [
+            {
+              "titulo": "Dinamización Comercial de Calderón Histórico",
+              "tipo": "Comercio y Servicios",
+              "impacto": "Atracción de inversión de proximidad y formalización de patentes municipales."
+            }
+          ]
+        },
+        "valor_suelo": {
+          "aiva": "AIVAS CALDERÓN HISTÓRICO",
+          "valor_m2": 510,
+          "rango": "Sectorial / Planificado",
+          "tendencia": "+6.2% promedio anual",
+          "descripcion": "Suelo urbano con potencial de densificación y desarrollo según la normativa PUGS de la STHV."
+        },
+        "imagen_destacada": "/zonas_metro/Zonas metro.jpg",
+        "galeria_id": null,
+        "antes_despues_id": null
+      }
+    ]
+  },
+  {
+    "id": "conocoto",
+    "nombre": "Conocoto",
+    "jerarquia": "Zonal",
+    "superficie_ha": 90.2770035657,
+    "descripcion_territorial": "Sistema que se define como el núcleo urbano multifuncional, denso y diverso, donde se concentran gran variedad de actividades, servicios, personas y flujos socioeconómicos",
+    "admin_zonal": "DMQ",
+    "equipamientos_clave": [
+      "Equipamiento Educativo",
+      "Parque Barrial",
+      "Comercio Local"
+    ],
+    "centroid": [
+      -78.479341,
+      -0.292986
+    ],
+    "bbox": [
+      -78.485467,
+      -0.300355,
+      -78.472829,
+      -0.288302
+    ],
+    "proyectos": [
+      {
+        "id": "diagnostico-conocoto",
+        "nombre": "Plan de Intervención Integral Conocoto",
+        "tipo": "Diagnóstico Territorial & PMO",
+        "badge": "Planificado en PUGS",
+        "longitud_km": "9.0 km de red vial",
+        "presupuesto": "$767K est.",
+        "financiamiento": "Municipio del Distrito Metropolitano de Quito",
+        "estado": "Fase de Priorización",
+        "resumen": "Centralidad zonal de 90.3 hectáreas con proyección de soterramiento de cables, iluminación LED y cruces peatonales seguros.",
+        "seguridad": {
+          "nivel": "En Proceso de Repotenciación",
+          "camaras": 7,
+          "luminarias_led": 81,
+          "cruces_seguros": 5,
+          "bolardos": 72,
+          "descripcion": "Equipamiento urbano y plan de seguridad preventiva para la centralidad Conocoto."
+        },
+        "economia": {
+          "negocios_activos": "+99 unidades productivas y de comercio",
+          "atractivo_comercial": "Centralidad zonal que abastece al tejido barrial circundante.",
+          "inversiones_privadas": [
+            {
+              "titulo": "Dinamización Comercial de Conocoto",
+              "tipo": "Comercio y Servicios",
+              "impacto": "Atracción de inversión de proximidad y formalización de patentes municipales."
+            }
+          ]
+        },
+        "valor_suelo": {
+          "aiva": "AIVAS CONOCOTO",
+          "valor_m2": 680,
+          "rango": "Zonal / Planificado",
+          "tendencia": "+6.2% promedio anual",
+          "descripcion": "Suelo urbano con potencial de densificación y desarrollo según la normativa PUGS de la STHV."
+        },
+        "imagen_destacada": "/zonas_metro/Zonas metro.jpg",
+        "galeria_id": null,
+        "antes_despues_id": null
+      }
+    ]
+  },
+  {
+    "id": "cumbaya",
+    "nombre": "Cumbayá",
+    "jerarquia": "Zonal",
+    "superficie_ha": 102.646557453,
+    "descripcion_territorial": "Sistema que se define como el núcleo urbano multifuncional, denso y diverso, donde se concentran gran variedad de actividades, servicios, personas y flujos socioeconómicos",
+    "admin_zonal": "DMQ",
+    "equipamientos_clave": [
+      "Equipamiento Educativo",
+      "Parque Barrial",
+      "Comercio Local"
+    ],
+    "centroid": [
+      -78.434206,
+      -0.199093
+    ],
+    "bbox": [
+      -78.44383,
+      -0.204256,
+      -78.427054,
+      -0.193674
+    ],
+    "proyectos": [
+      {
+        "id": "diagnostico-cumbaya",
+        "nombre": "Plan de Intervención Integral Cumbayá",
+        "tipo": "Diagnóstico Territorial & PMO",
+        "badge": "Planificado en PUGS",
+        "longitud_km": "10.3 km de red vial",
+        "presupuesto": "$872K est.",
+        "financiamiento": "Municipio del Distrito Metropolitano de Quito",
+        "estado": "Fase de Priorización",
+        "resumen": "Centralidad zonal de 102.6 hectáreas con proyección de soterramiento de cables, iluminación LED y cruces peatonales seguros.",
+        "seguridad": {
+          "nivel": "En Proceso de Repotenciación",
+          "camaras": 8,
+          "luminarias_led": 92,
+          "cruces_seguros": 5,
+          "bolardos": 82,
+          "descripcion": "Equipamiento urbano y plan de seguridad preventiva para la centralidad Cumbayá."
+        },
+        "economia": {
+          "negocios_activos": "+113 unidades productivas y de comercio",
+          "atractivo_comercial": "Centralidad zonal que abastece al tejido barrial circundante.",
+          "inversiones_privadas": [
+            {
+              "titulo": "Dinamización Comercial de Cumbayá",
+              "tipo": "Comercio y Servicios",
+              "impacto": "Atracción de inversión de proximidad y formalización de patentes municipales."
+            }
+          ]
+        },
+        "valor_suelo": {
+          "aiva": "AIVAS CUMBAYÁ",
+          "valor_m2": 680,
+          "rango": "Zonal / Planificado",
+          "tendencia": "+6.2% promedio anual",
+          "descripcion": "Suelo urbano con potencial de densificación y desarrollo según la normativa PUGS de la STHV."
+        },
+        "imagen_destacada": "/zonas_metro/Zonas metro.jpg",
+        "galeria_id": null,
+        "antes_despues_id": null
+      }
+    ]
+  },
+  {
+    "id": "san-patricio",
+    "nombre": "San Patricio",
+    "jerarquia": "Sectorial",
+    "superficie_ha": 70.1908053765,
+    "descripcion_territorial": "Sistema que se define como el núcleo urbano multifuncional, denso y diverso, donde se concentran gran variedad de actividades, servicios, personas y flujos socioeconómicos",
+    "admin_zonal": "DMQ",
+    "equipamientos_clave": [
+      "Equipamiento Educativo",
+      "Parque Barrial",
+      "Comercio Local"
+    ],
+    "centroid": [
+      -78.443618,
+      -0.217362
+    ],
+    "bbox": [
+      -78.449495,
+      -0.224433,
+      -78.438201,
+      -0.212427
+    ],
+    "proyectos": [
+      {
+        "id": "diagnostico-san-patricio",
+        "nombre": "Plan de Intervención Integral San Patricio",
+        "tipo": "Diagnóstico Territorial & PMO",
+        "badge": "Planificado en PUGS",
+        "longitud_km": "7.0 km de red vial",
+        "presupuesto": "$597K est.",
+        "financiamiento": "Municipio del Distrito Metropolitano de Quito",
+        "estado": "Fase de Priorización",
+        "resumen": "Centralidad sectorial de 70.2 hectáreas con proyección de soterramiento de cables, iluminación LED y cruces peatonales seguros.",
+        "seguridad": {
+          "nivel": "En Proceso de Repotenciación",
+          "camaras": 6,
+          "luminarias_led": 63,
+          "cruces_seguros": 4,
+          "bolardos": 56,
+          "descripcion": "Equipamiento urbano y plan de seguridad preventiva para la centralidad San Patricio."
+        },
+        "economia": {
+          "negocios_activos": "+77 unidades productivas y de comercio",
+          "atractivo_comercial": "Centralidad sectorial que abastece al tejido barrial circundante.",
+          "inversiones_privadas": [
+            {
+              "titulo": "Dinamización Comercial de San Patricio",
+              "tipo": "Comercio y Servicios",
+              "impacto": "Atracción de inversión de proximidad y formalización de patentes municipales."
+            }
+          ]
+        },
+        "valor_suelo": {
+          "aiva": "AIVAS SAN PATRICIO",
+          "valor_m2": 510,
+          "rango": "Sectorial / Planificado",
+          "tendencia": "+6.2% promedio anual",
+          "descripcion": "Suelo urbano con potencial de densificación y desarrollo según la normativa PUGS de la STHV."
+        },
+        "imagen_destacada": "/zonas_metro/Zonas metro.jpg",
+        "galeria_id": null,
+        "antes_despues_id": null
+      }
+    ]
+  },
+  {
+    "id": "mitad-del-mundo",
+    "nombre": "Mitad del Mundo",
+    "jerarquia": "Zonal",
+    "superficie_ha": 96.7180711718,
+    "descripcion_territorial": "Sistema que se define como el núcleo urbano multifuncional, denso y diverso, donde se concentran gran variedad de actividades, servicios, personas y flujos socioeconómicos",
+    "admin_zonal": "DMQ",
+    "equipamientos_clave": [
+      "Equipamiento Educativo",
+      "Parque Barrial",
+      "Comercio Local"
+    ],
+    "centroid": [
+      -78.450224,
+      -0.006921
+    ],
+    "bbox": [
+      -78.45818,
+      -0.014809,
+      -78.443069,
+      -0.000799
+    ],
+    "proyectos": [
+      {
+        "id": "diagnostico-mitad-del-mundo",
+        "nombre": "Plan de Intervención Integral Mitad del Mundo",
+        "tipo": "Diagnóstico Territorial & PMO",
+        "badge": "Planificado en PUGS",
+        "longitud_km": "9.7 km de red vial",
+        "presupuesto": "$822K est.",
+        "financiamiento": "Municipio del Distrito Metropolitano de Quito",
+        "estado": "Fase de Priorización",
+        "resumen": "Centralidad zonal de 96.7 hectáreas con proyección de soterramiento de cables, iluminación LED y cruces peatonales seguros.",
+        "seguridad": {
+          "nivel": "En Proceso de Repotenciación",
+          "camaras": 8,
+          "luminarias_led": 87,
+          "cruces_seguros": 5,
+          "bolardos": 77,
+          "descripcion": "Equipamiento urbano y plan de seguridad preventiva para la centralidad Mitad del Mundo."
+        },
+        "economia": {
+          "negocios_activos": "+106 unidades productivas y de comercio",
+          "atractivo_comercial": "Centralidad zonal que abastece al tejido barrial circundante.",
+          "inversiones_privadas": [
+            {
+              "titulo": "Dinamización Comercial de Mitad del Mundo",
+              "tipo": "Comercio y Servicios",
+              "impacto": "Atracción de inversión de proximidad y formalización de patentes municipales."
+            }
+          ]
+        },
+        "valor_suelo": {
+          "aiva": "AIVAS MITAD DEL MUNDO",
+          "valor_m2": 680,
+          "rango": "Zonal / Planificado",
+          "tendencia": "+6.2% promedio anual",
+          "descripcion": "Suelo urbano con potencial de densificación y desarrollo según la normativa PUGS de la STHV."
+        },
+        "imagen_destacada": "/zonas_metro/Zonas metro.jpg",
+        "galeria_id": null,
+        "antes_despues_id": null
+      }
+    ]
+  },
+  {
+    "id": "tumbaco",
+    "nombre": "Tumbaco",
+    "jerarquia": "Zonal",
+    "superficie_ha": 117.376152965,
+    "descripcion_territorial": "Sistema que se define como el núcleo urbano multifuncional, denso y diverso, donde se concentran gran variedad de actividades, servicios, personas y flujos socioeconómicos",
+    "admin_zonal": "DMQ",
+    "equipamientos_clave": [
+      "Equipamiento Educativo",
+      "Parque Barrial",
+      "Comercio Local"
+    ],
+    "centroid": [
+      -78.407824,
+      -0.214834
+    ],
+    "bbox": [
+      -78.417165,
+      -0.222598,
+      -78.402071,
+      -0.20818
+    ],
+    "proyectos": [
+      {
+        "id": "diagnostico-tumbaco",
+        "nombre": "Plan de Intervención Integral Tumbaco",
+        "tipo": "Diagnóstico Territorial & PMO",
+        "badge": "Planificado en PUGS",
+        "longitud_km": "11.7 km de red vial",
+        "presupuesto": "$998K est.",
+        "financiamiento": "Municipio del Distrito Metropolitano de Quito",
+        "estado": "Fase de Priorización",
+        "resumen": "Centralidad zonal de 117.4 hectáreas con proyección de soterramiento de cables, iluminación LED y cruces peatonales seguros.",
+        "seguridad": {
+          "nivel": "En Proceso de Repotenciación",
+          "camaras": 9,
+          "luminarias_led": 106,
+          "cruces_seguros": 6,
+          "bolardos": 94,
+          "descripcion": "Equipamiento urbano y plan de seguridad preventiva para la centralidad Tumbaco."
+        },
+        "economia": {
+          "negocios_activos": "+129 unidades productivas y de comercio",
+          "atractivo_comercial": "Centralidad zonal que abastece al tejido barrial circundante.",
+          "inversiones_privadas": [
+            {
+              "titulo": "Dinamización Comercial de Tumbaco",
+              "tipo": "Comercio y Servicios",
+              "impacto": "Atracción de inversión de proximidad y formalización de patentes municipales."
+            }
+          ]
+        },
+        "valor_suelo": {
+          "aiva": "AIVAS TUMBACO",
+          "valor_m2": 680,
+          "rango": "Zonal / Planificado",
+          "tendencia": "+6.2% promedio anual",
+          "descripcion": "Suelo urbano con potencial de densificación y desarrollo según la normativa PUGS de la STHV."
+        },
+        "imagen_destacada": "/zonas_metro/Zonas metro.jpg",
+        "galeria_id": null,
+        "antes_despues_id": null
+      }
+    ]
+  },
+  {
+    "id": "carapungo",
+    "nombre": "Carapungo",
+    "jerarquia": "Zonal",
+    "superficie_ha": 137.548623394,
+    "descripcion_territorial": "Sistema que se define como el núcleo urbano multifuncional, denso y diverso, donde se concentran gran variedad de actividades, servicios, personas y flujos socioeconómicos",
+    "admin_zonal": "DMQ",
+    "equipamientos_clave": [
+      "Equipamiento Educativo",
+      "Parque Barrial",
+      "Comercio Local"
+    ],
+    "centroid": [
+      -78.457029,
+      -0.102612
+    ],
+    "bbox": [
+      -78.461438,
+      -0.109397,
+      -78.447621,
+      -0.088853
+    ],
+    "proyectos": [
+      {
+        "id": "diagnostico-carapungo",
+        "nombre": "Plan de Intervención Integral Carapungo",
+        "tipo": "Diagnóstico Territorial & PMO",
+        "badge": "Planificado en PUGS",
+        "longitud_km": "13.8 km de red vial",
+        "presupuesto": "$1169K est.",
+        "financiamiento": "Municipio del Distrito Metropolitano de Quito",
+        "estado": "Fase de Priorización",
+        "resumen": "Centralidad zonal de 137.5 hectáreas con proyección de soterramiento de cables, iluminación LED y cruces peatonales seguros.",
+        "seguridad": {
+          "nivel": "En Proceso de Repotenciación",
+          "camaras": 11,
+          "luminarias_led": 124,
+          "cruces_seguros": 7,
+          "bolardos": 110,
+          "descripcion": "Equipamiento urbano y plan de seguridad preventiva para la centralidad Carapungo."
+        },
+        "economia": {
+          "negocios_activos": "+151 unidades productivas y de comercio",
+          "atractivo_comercial": "Centralidad zonal que abastece al tejido barrial circundante.",
+          "inversiones_privadas": [
+            {
+              "titulo": "Dinamización Comercial de Carapungo",
+              "tipo": "Comercio y Servicios",
+              "impacto": "Atracción de inversión de proximidad y formalización de patentes municipales."
+            }
+          ]
+        },
+        "valor_suelo": {
+          "aiva": "AIVAS CARAPUNGO",
+          "valor_m2": 680,
+          "rango": "Zonal / Planificado",
+          "tendencia": "+6.2% promedio anual",
+          "descripcion": "Suelo urbano con potencial de densificación y desarrollo según la normativa PUGS de la STHV."
+        },
+        "imagen_destacada": "/zonas_metro/Zonas metro.jpg",
+        "galeria_id": null,
+        "antes_despues_id": null
+      }
+    ]
+  }
+]

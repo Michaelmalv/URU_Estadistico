@@ -3,11 +3,12 @@
 
 import { useState } from 'react';
 import { CATEGORIAS_INFO } from './components/categorias_info';
+import CentralidadesView from './components/CentralidadesView';
 import VisorTerritorialView from './components/VisorTerritorialView';
-import { Compass, LayoutGrid, Layers } from 'lucide-react';
+import { Building2, Compass, LayoutGrid } from 'lucide-react';
 
 export default function Home() {
-  const [homeView, setHomeView] = useState('visor'); // 'visor' | 'ejes'
+  const [homeView, setHomeView] = useState('centralidades'); // 'centralidades' | 'visor' | 'ejes'
   const [activeCategory, setActiveCategory] = useState(null);
 
   if (activeCategory) {
@@ -31,6 +32,13 @@ export default function Home() {
       {/* Selector de Vista Principal */}
       <div className="home-view-switcher">
         <button
+          className={`home-switch-btn ${homeView === 'centralidades' ? 'active' : ''}`}
+          onClick={() => setHomeView('centralidades')}
+        >
+          <Building2 size={18} />
+          <span>Centralidades Urbanas (STHV)</span>
+        </button>
+        <button
           className={`home-switch-btn ${homeView === 'visor' ? 'active' : ''}`}
           onClick={() => setHomeView('visor')}
         >
@@ -46,7 +54,9 @@ export default function Home() {
         </button>
       </div>
 
-      {homeView === 'visor' ? (
+      {homeView === 'centralidades' ? (
+        <CentralidadesView />
+      ) : homeView === 'visor' ? (
         <VisorTerritorialView />
       ) : (
         <div>
@@ -81,4 +91,5 @@ export default function Home() {
     </div>
   );
 }
+
 

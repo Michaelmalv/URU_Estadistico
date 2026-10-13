@@ -8,7 +8,7 @@ export default function Navbar() {
   const pathname = usePathname();
 
   const tabs = [
-    { name: 'VISOR TERRITORIAL 360°', path: '/' },
+    { name: 'CENTRALIDADES URBANAS', path: '/' },
     { name: 'CORREDORES VIVOS', path: '/corredores-vivos' },
     { name: 'ZONAS METRO', path: '/zonas-metro' },
     { name: 'REHABILITACIÓN DEL ESPACIO PÚBLICO', path: '/rehabilitacion-espacio-publico' },
