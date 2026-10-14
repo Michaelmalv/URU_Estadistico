@@ -75,6 +75,22 @@ export default function CentralidadesView() {
   const [searchQuery, setSearchQuery] = useState('');
   const [mapStyle, setMapStyle] = useState('mapbox://styles/mapbox/streets-v12');
   const [modalImage, setModalImage] = useState(null);
+  const [floatingProject, setFloatingProject] = useState(null);
+
+  // Escuchar tecla Escape para cerrar modal flotante
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        if (modalImage) {
+          setModalImage(null);
+        } else if (floatingProject) {
+          setFloatingProject(null);
+        }
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [modalImage, floatingProject]);
 
   // Inicializar mapa
   useEffect(() => {
@@ -432,14 +448,21 @@ export default function CentralidadesView() {
                     onClick={() => {
                       setSelectedProjectIndex(pIdx);
                       setActiveProjectTab('info');
+                      setFloatingProject(proj);
                     }}
+                    title="Haz clic para abrir la pantalla flotante con información, seguridad, economía y suelo"
                   >
                     <div className="project-tab-main-info">
                       <div className="title-row">
                         <span className="status-bullet" style={{ backgroundColor: bStyle.bullet }} />
                         <strong className="proj-tab-title">{proj.nombre}</strong>
                       </div>
-                      <span className="proj-tab-type">{proj.tipo}</span>
+                      <div className="type-and-cue-row">
+                        <span className="proj-tab-type">{proj.tipo}</span>
+                        <span className="open-cue-text">
+                          <Maximize2 size={11} /> Ver ficha flotante
+                        </span>
+                      </div>
                     </div>
                     <span 
                       className="proj-tab-badge"
@@ -457,176 +480,89 @@ export default function CentralidadesView() {
             </div>
           </div>
 
-          {/* DETALLE TÉCNICO EN 4 DIMENSIONES */}
+          {/* FICHA RESUMEN DEL PROYECTO SELECCIONADO Y ACCESO DIRECTO A LA PANTALLA FLOTANTE */}
           {activeProject && (
-            <div className="project-technical-panel">
-              {/* Barra de Pestañas de las 4 Dimensiones */}
-              <div className="technical-tabs-nav">
-                <button
-                  className={`tech-tab-btn ${activeProjectTab === 'info' ? 'active' : ''}`}
-                  onClick={() => setActiveProjectTab('info')}
+            <div className="sidebar-active-project-card">
+              <div className="active-proj-header">
+                <div className="proj-lead-badge">
+                  <Sparkles size={13} />
+                  <span>PROYECTO SELECCIONADO</span>
+                </div>
+                <span 
+                  className="proj-tab-badge"
+                  style={{
+                    backgroundColor: getBadgeStyle(activeProject.badge).bg,
+                    borderColor: getBadgeStyle(activeProject.badge).border,
+                    color: getBadgeStyle(activeProject.badge).text
+                  }}
                 >
-                  <Info size={14} />
-                  <span>Información</span>
-                </button>
-                <button
-                  className={`tech-tab-btn ${activeProjectTab === 'seguridad' ? 'active' : ''}`}
-                  onClick={() => setActiveProjectTab('seguridad')}
-                >
-                  <Shield size={14} />
-                  <span>Seguridad</span>
-                </button>
-                <button
-                  className={`tech-tab-btn ${activeProjectTab === 'economia' ? 'active' : ''}`}
-                  onClick={() => setActiveProjectTab('economia')}
-                >
-                  <TrendingUp size={14} />
-                  <span>Economía</span>
-                </button>
-                <button
-                  className={`tech-tab-btn ${activeProjectTab === 'suelo' ? 'active' : ''}`}
-                  onClick={() => setActiveProjectTab('suelo')}
-                >
-                  <DollarSign size={14} />
-                  <span>Suelo</span>
-                </button>
+                  {activeProject.badge}
+                </span>
               </div>
 
-              {/* Contenido de la Dimensión Activa */}
-              <div className="technical-tab-content">
-                {/* 1. INFORMACIÓN GENERAL */}
-                {activeProjectTab === 'info' && (
-                  <div className="tab-pane-light">
-                    <div className="kpi-cards-grid-3">
-                      <div className="kpi-item-light">
-                        <span className="kpi-lbl-light">Longitud</span>
-                        <strong className="kpi-val-light">{activeProject.longitud_km}</strong>
-                      </div>
-                      <div className="kpi-item-light">
-                        <span className="kpi-lbl-light">Presupuesto</span>
-                        <strong className="kpi-val-light">{activeProject.presupuesto}</strong>
-                      </div>
-                      <div className="kpi-item-light">
-                        <span className="kpi-lbl-light">Financiamiento</span>
-                        <strong className="kpi-val-light" style={{ fontSize: '0.78rem' }}>
-                          {activeProject.financiamiento}
-                        </strong>
-                      </div>
-                    </div>
+              <h4 className="active-proj-name">{activeProject.nombre}</h4>
+              <p className="active-proj-summary-snippet">{activeProject.resumen}</p>
 
-                    <p className="tab-narrative-light">{activeProject.resumen}</p>
+              {/* Botón Principal para Abrir la Pantalla Flotante */}
+              <button 
+                className="btn-trigger-floating-modal"
+                onClick={() => {
+                  setActiveProjectTab('info');
+                  setFloatingProject(activeProject);
+                }}
+                title="Abrir pantalla flotante con información, seguridad, economía y valor del suelo"
+              >
+                <Maximize2 size={15} />
+                <span>Abrir Pantalla Flotante (4 Dimensiones)</span>
+                <ArrowUpRight size={15} />
+              </button>
 
-                    {activeProject.imagen_destacada && (
-                      <div 
-                        className="photo-card-light"
-                        onClick={() => setModalImage({
-                          src: activeProject.imagen_destacada,
-                          title: activeProject.nombre,
-                          description: activeProject.resumen
-                        })}
-                        title="Haz clic para ampliar la fotografía"
-                      >
-                        <img src={activeProject.imagen_destacada} alt={activeProject.nombre} />
-                        <div className="photo-zoom-hint-light">
-                          <Maximize2 size={16} />
-                          <span>Ver en Pantalla Completa</span>
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                )}
-
-                {/* 2. SEGURIDAD */}
-                {activeProjectTab === 'seguridad' && (
-                  <div className="tab-pane-light">
-                    <div className="kpi-cards-grid-3">
-                      <div className="kpi-item-light">
-                        <Shield size={18} color="#059669" />
-                        <strong className="kpi-val-light" style={{ marginTop: '4px' }}>
-                          {activeProject.seguridad.camaras}
-                        </strong>
-                        <span className="kpi-lbl-light">Cámaras 24/7</span>
-                      </div>
-                      <div className="kpi-item-light">
-                        <Sparkles size={18} color="#2563eb" />
-                        <strong className="kpi-val-light" style={{ marginTop: '4px' }}>
-                          {activeProject.seguridad.luminarias_led}
-                        </strong>
-                        <span className="kpi-lbl-light">Luces LED</span>
-                      </div>
-                      <div className="kpi-item-light">
-                        <CheckCircle2 size={18} color="#d97706" />
-                        <strong className="kpi-val-light" style={{ marginTop: '4px' }}>
-                          {activeProject.seguridad.cruces_seguros}
-                        </strong>
-                        <span className="kpi-lbl-light">Cruces Cebras</span>
-                      </div>
-                    </div>
-
-                    <div className="detail-row-card-light">
-                      <span className="row-label">Nivel de Seguridad Urbana:</span>
-                      <strong className="row-value" style={{ color: '#059669' }}>
-                        {activeProject.seguridad.nivel}
-                      </strong>
-                    </div>
-
-                    <p className="tab-narrative-light">{activeProject.seguridad.descripcion}</p>
-                  </div>
-                )}
-
-                {/* 3. ECONOMÍA */}
-                {activeProjectTab === 'economia' && (
-                  <div className="tab-pane-light">
-                    <div className="eco-highlight-light">
-                      <span className="eco-lbl">Dinamismo Comercial</span>
-                      <strong className="eco-val">{activeProject.economia.negocios_activos}</strong>
-                      <p className="eco-sub">{activeProject.economia.atractivo_comercial}</p>
-                    </div>
-
-                    {activeProject.economia.inversiones_privadas?.length > 0 && (
-                      <div className="investments-block-light">
-                        <span className="mini-section-label">Inversión privada dinamizada:</span>
-                        {activeProject.economia.inversiones_privadas.map((inv, idx) => (
-                          <div key={idx} className="investment-card-light">
-                            <div className="inv-top-row">
-                              <strong className="inv-title">{inv.titulo}</strong>
-                              <span className="inv-badge">{inv.tipo}</span>
-                            </div>
-                            <p className="inv-desc">{inv.impacto}</p>
-                          </div>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                )}
-
-                {/* 4. VALOR DEL SUELO */}
-                {activeProjectTab === 'suelo' && (
-                  <div className="tab-pane-light">
-                    <div className="land-highlight-light">
-                      <span className="land-lbl">Avalúo Homologado de Suelo (AIVA)</span>
-                      <div className="land-price-row">
-                        <strong className="land-val">${activeProject.valor_suelo.valor_m2.toFixed(2)}</strong>
-                        <span className="land-unit">USD / m²</span>
-                      </div>
-                      <span className="land-trend-badge">
-                        <TrendingUp size={13} /> {activeProject.valor_suelo.tendencia}
-                      </span>
-                    </div>
-
-                    <div className="detail-row-card-light">
-                      <span className="row-label">Zona Homologada AIVA:</span>
-                      <strong className="row-value">{activeProject.valor_suelo.aiva}</strong>
-                    </div>
-
-                    <div className="detail-row-card-light">
-                      <span className="row-label">Rango Comercial:</span>
-                      <strong className="row-value">{activeProject.valor_suelo.rango}</strong>
-                    </div>
-
-                    <p className="tab-narrative-light">{activeProject.valor_suelo.descripcion}</p>
-                  </div>
-                )}
+              {/* Botones de Acceso Rápido Directo a Cada Dimensión */}
+              <div className="mini-dimensions-grid">
+                <button 
+                  className="mini-dimension-btn"
+                  onClick={() => {
+                    setActiveProjectTab('info');
+                    setFloatingProject(activeProject);
+                  }}
+                  title="Ver Información General"
+                >
+                  <Info size={13} />
+                  <span>Información</span>
+                </button>
+                <button 
+                  className="mini-dimension-btn"
+                  onClick={() => {
+                    setActiveProjectTab('seguridad');
+                    setFloatingProject(activeProject);
+                  }}
+                  title="Ver Seguridad"
+                >
+                  <Shield size={13} color="#059669" />
+                  <span>Seguridad</span>
+                </button>
+                <button 
+                  className="mini-dimension-btn"
+                  onClick={() => {
+                    setActiveProjectTab('economia');
+                    setFloatingProject(activeProject);
+                  }}
+                  title="Ver Economía"
+                >
+                  <TrendingUp size={13} color="#2563eb" />
+                  <span>Economía</span>
+                </button>
+                <button 
+                  className="mini-dimension-btn"
+                  onClick={() => {
+                    setActiveProjectTab('suelo');
+                    setFloatingProject(activeProject);
+                  }}
+                  title="Ver Valor del Suelo"
+                >
+                  <DollarSign size={13} color="#d97706" />
+                  <span>Suelo</span>
+                </button>
               </div>
             </div>
           )}
@@ -694,6 +630,261 @@ export default function CentralidadesView() {
           </div>
         </div>
       </main>
+
+      {/* ============================================================== */}
+      {/* PANTALLA FLOTANTE DE DETALLE DEL PROYECTO (4 DIMENSIONES)      */}
+      {/* ============================================================== */}
+      {floatingProject && (
+        <div 
+          className="project-floating-backdrop" 
+          onClick={() => setFloatingProject(null)}
+        >
+          <div 
+            className="project-floating-modal" 
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Cabecera de la Pantalla Flotante */}
+            <div className="floating-modal-header">
+              <div className="floating-modal-top-row">
+                <div className="floating-modal-badges">
+                  <span 
+                    className="hierarchy-badge-light"
+                    style={{ 
+                      backgroundColor: currentTheme.bg, 
+                      color: currentTheme.text,
+                      borderColor: currentTheme.border 
+                    }}
+                  >
+                    Centralidad {selectedCentralidad.jerarquia}: {selectedCentralidad.nombre}
+                  </span>
+                  <span 
+                    className="proj-tab-badge"
+                    style={{
+                      backgroundColor: getBadgeStyle(floatingProject.badge).bg,
+                      borderColor: getBadgeStyle(floatingProject.badge).border,
+                      color: getBadgeStyle(floatingProject.badge).text
+                    }}
+                  >
+                    {floatingProject.badge}
+                  </span>
+                </div>
+                <button 
+                  className="floating-modal-close-btn" 
+                  onClick={() => setFloatingProject(null)}
+                  title="Cerrar pantalla flotante (Esc)"
+                  aria-label="Cerrar ventana"
+                >
+                  <X size={20} />
+                </button>
+              </div>
+
+              <h2 className="floating-modal-title">{floatingProject.nombre}</h2>
+              <div className="floating-modal-subtitle">
+                <MapPin size={15} color="#2563eb" />
+                <span>{floatingProject.tipo} • Administración Zonal {selectedCentralidad.admin_zonal}</span>
+              </div>
+            </div>
+
+            {/* Selector de las 4 Dimensiones en el Modal */}
+            <div className="floating-modal-tabs">
+              <button
+                className={`floating-tab-btn ${activeProjectTab === 'info' ? 'active' : ''}`}
+                onClick={() => setActiveProjectTab('info')}
+              >
+                <Info size={16} />
+                <span>Información General</span>
+              </button>
+              <button
+                className={`floating-tab-btn ${activeProjectTab === 'seguridad' ? 'active' : ''}`}
+                onClick={() => setActiveProjectTab('seguridad')}
+              >
+                <Shield size={16} />
+                <span>Seguridad</span>
+              </button>
+              <button
+                className={`floating-tab-btn ${activeProjectTab === 'economia' ? 'active' : ''}`}
+                onClick={() => setActiveProjectTab('economia')}
+              >
+                <TrendingUp size={16} />
+                <span>Economía</span>
+              </button>
+              <button
+                className={`floating-tab-btn ${activeProjectTab === 'suelo' ? 'active' : ''}`}
+                onClick={() => setActiveProjectTab('suelo')}
+              >
+                <DollarSign size={16} />
+                <span>Valor del Suelo</span>
+              </button>
+            </div>
+
+            {/* Contenido Espacioso de la Dimensión Activa */}
+            <div className="floating-modal-body">
+              {/* 1. INFORMACIÓN GENERAL */}
+              {activeProjectTab === 'info' && (
+                <div className="floating-tab-pane">
+                  <div className="kpi-cards-grid-3">
+                    <div className="kpi-item-light">
+                      <span className="kpi-lbl-light">Longitud de Intervención</span>
+                      <strong className="kpi-val-light">{floatingProject.longitud_km}</strong>
+                    </div>
+                    <div className="kpi-item-light">
+                      <span className="kpi-lbl-light">Presupuesto Referencial</span>
+                      <strong className="kpi-val-light">{floatingProject.presupuesto}</strong>
+                    </div>
+                    <div className="kpi-item-light">
+                      <span className="kpi-lbl-light">Fuente de Financiamiento</span>
+                      <strong className="kpi-val-light" style={{ fontSize: '0.85rem' }}>
+                        {floatingProject.financiamiento}
+                      </strong>
+                    </div>
+                  </div>
+
+                  <div className="floating-narrative-card">
+                    <h4 className="card-subhead">Resumen Ejecutivo del Proyecto</h4>
+                    <p className="tab-narrative-light">{floatingProject.resumen}</p>
+                  </div>
+
+                  {floatingProject.imagen_destacada && (
+                    <div 
+                      className="photo-card-light floating-photo-card"
+                      onClick={() => setModalImage({
+                        src: floatingProject.imagen_destacada,
+                        title: floatingProject.nombre,
+                        description: floatingProject.resumen
+                      })}
+                      title="Haz clic para ver la fotografía en pantalla completa"
+                    >
+                      <img src={floatingProject.imagen_destacada} alt={floatingProject.nombre} />
+                      <div className="photo-zoom-hint-light">
+                        <Maximize2 size={16} />
+                        <span>Ver Fotografía en Pantalla Completa</span>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {/* 2. SEGURIDAD */}
+              {activeProjectTab === 'seguridad' && (
+                <div className="floating-tab-pane">
+                  <div className="kpi-cards-grid-3">
+                    <div className="kpi-item-light">
+                      <Shield size={24} color="#059669" />
+                      <strong className="kpi-val-light" style={{ marginTop: '6px' }}>
+                        {floatingProject.seguridad.camaras}
+                      </strong>
+                      <span className="kpi-lbl-light">Cámaras 24/7 Conectadas</span>
+                    </div>
+                    <div className="kpi-item-light">
+                      <Sparkles size={24} color="#2563eb" />
+                      <strong className="kpi-val-light" style={{ marginTop: '6px' }}>
+                        {floatingProject.seguridad.luminarias_led}
+                      </strong>
+                      <span className="kpi-lbl-light">Luminarias LED Nuevas</span>
+                    </div>
+                    <div className="kpi-item-light">
+                      <CheckCircle2 size={24} color="#d97706" />
+                      <strong className="kpi-val-light" style={{ marginTop: '6px' }}>
+                        {floatingProject.seguridad.cruces_seguros}
+                      </strong>
+                      <span className="kpi-lbl-light">Cruces Peatonales Seguros</span>
+                    </div>
+                  </div>
+
+                  <div className="detail-row-card-light">
+                    <span className="row-label">Nivel de Seguridad Urbana:</span>
+                    <strong className="row-value" style={{ color: '#059669', fontSize: '1.05rem' }}>
+                      {floatingProject.seguridad.nivel}
+                    </strong>
+                  </div>
+
+                  <div className="floating-narrative-card">
+                    <h4 className="card-subhead">Intervención en Seguridad y Convivencia Ciudadana</h4>
+                    <p className="tab-narrative-light">{floatingProject.seguridad.descripcion}</p>
+                  </div>
+                </div>
+              )}
+
+              {/* 3. ECONOMÍA */}
+              {activeProjectTab === 'economia' && (
+                <div className="floating-tab-pane">
+                  <div className="eco-highlight-light">
+                    <span className="eco-lbl">Dinamismo Comercial</span>
+                    <strong className="eco-val">{floatingProject.economia.negocios_activos}</strong>
+                    <p className="eco-sub">{floatingProject.economia.atractivo_comercial}</p>
+                  </div>
+
+                  {floatingProject.economia.inversiones_privadas?.length > 0 && (
+                    <div className="investments-block-light">
+                      <span className="mini-section-label">Inversión privada dinamizada en el entorno:</span>
+                      {floatingProject.economia.inversiones_privadas.map((inv, idx) => (
+                        <div key={idx} className="investment-card-light">
+                          <div className="inv-top-row">
+                            <strong className="inv-title">{inv.titulo}</strong>
+                            <span className="inv-badge">{inv.tipo}</span>
+                          </div>
+                          <p className="inv-desc">{inv.impacto}</p>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {/* 4. VALOR DEL SUELO */}
+              {activeProjectTab === 'suelo' && (
+                <div className="floating-tab-pane">
+                  <div className="land-highlight-light">
+                    <span className="land-lbl">Avalúo Homologado de Suelo (AIVA)</span>
+                    <div className="land-price-row">
+                      <strong className="land-val">${floatingProject.valor_suelo.valor_m2.toFixed(2)}</strong>
+                      <span className="land-unit">USD / m²</span>
+                    </div>
+                    <span className="land-trend-badge">
+                      <TrendingUp size={14} /> {floatingProject.valor_suelo.tendencia}
+                    </span>
+                  </div>
+
+                  <div className="detail-row-card-light">
+                    <span className="row-label">Zona Homologada AIVA:</span>
+                    <strong className="row-value">{floatingProject.valor_suelo.aiva}</strong>
+                  </div>
+
+                  <div className="detail-row-card-light">
+                    <span className="row-label">Rango Comercial Estimado:</span>
+                    <strong className="row-value">{floatingProject.valor_suelo.rango}</strong>
+                  </div>
+
+                  <div className="floating-narrative-card">
+                    <h4 className="card-subhead">Plusvalía e Impacto Normativo PUGS</h4>
+                    <p className="tab-narrative-light">{floatingProject.valor_suelo.descripcion}</p>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Pie de Acciones del Modal */}
+            <div className="floating-modal-footer">
+              <button 
+                className="modal-action-btn-secondary"
+                onClick={() => {
+                  focusCentralidad(selectedCentralidad);
+                  setFloatingProject(null);
+                }}
+              >
+                <Compass size={16} />
+                <span>Centrar en el Mapa</span>
+              </button>
+              <button 
+                className="modal-action-btn-primary"
+                onClick={() => setFloatingProject(null)}
+              >
+                <span>Cerrar Ficha</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Modal / Lightbox de Ampliación de Fotos */}
       {modalImage && (
