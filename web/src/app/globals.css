@@ -4384,6 +4384,30 @@ h1, h2, h3, h4, h5, h6 {
   flex-shrink: 0;
 }
 
+.legend-divider-light {
+  height: 1px;
+  background: #e2e8f0;
+  margin: 0.2rem 0;
+}
+
+.legend-circle-project-pulse {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #2563eb;
+  border: 2.5px solid #ffffff;
+  box-shadow: 0 0 0 2px #2563eb;
+  position: relative;
+  flex-shrink: 0;
+  animation: legendProjectPulse 2s infinite;
+}
+
+@keyframes legendProjectPulse {
+  0% { box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.7); }
+  50% { box-shadow: 0 0 0 5px rgba(37, 99, 235, 0); }
+  100% { box-shadow: 0 0 0 1px rgba(37, 99, 235, 0); }
+}
+
 /* Estilo para los Popups en el mapa */
 .centralidad-light-popup .mapboxgl-popup-content {
   background: #ffffff !important;

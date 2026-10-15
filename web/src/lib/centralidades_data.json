@@ -60,7 +60,11 @@
         },
         "imagen_destacada": "/zonas_metro/Zonas metro.jpg",
         "galeria_id": null,
-        "antes_despues_id": null
+        "antes_despues_id": null,
+        "coordenadas": [
+          -78.464833,
+          -0.119278
+        ]
       }
     ]
   },
@@ -126,7 +130,11 @@
         },
         "imagen_destacada": "/antes_despues/la_roldos/despues.jpg",
         "galeria_id": null,
-        "antes_despues_id": "La Roldós Oe13-Colinas del Norte"
+        "antes_despues_id": "La Roldós Oe13-Colinas del Norte",
+        "coordenadas": [
+          -78.494392,
+          -0.114164
+        ]
       }
     ]
   },
@@ -191,7 +199,11 @@
         },
         "imagen_destacada": "/zonas_metro/Zonas metro.jpg",
         "galeria_id": null,
-        "antes_despues_id": null
+        "antes_despues_id": null,
+        "coordenadas": [
+          -78.553586,
+          -0.318355
+        ]
       }
     ]
   },
@@ -257,7 +269,11 @@
         },
         "imagen_destacada": "/arena_del_sur/Arena del Sur.png",
         "galeria_id": null,
-        "antes_despues_id": null
+        "antes_despues_id": null,
+        "coordenadas": [
+          -78.555559,
+          -0.294331
+        ]
       }
     ]
   },
@@ -323,7 +339,11 @@
         },
         "imagen_destacada": "/imagenes_senderos/av_michelena/Michelena_final.png",
         "galeria_id": null,
-        "antes_despues_id": null
+        "antes_despues_id": null,
+        "coordenadas": [
+          -78.526808,
+          -0.236077
+        ]
       }
     ]
   },
@@ -341,8 +361,8 @@
       "Corredor Comercial Calle J"
     ],
     "centroid": [
-      -78.534364,
-      -0.268412
+      -78.53796,
+      -0.27911
     ],
     "bbox": [
       -78.54095,
@@ -389,7 +409,11 @@
         },
         "imagen_destacada": "/imagenes_senderos/av_ajavi/inicio_av_ajavi.png",
         "galeria_id": null,
-        "antes_despues_id": null
+        "antes_despues_id": null,
+        "coordenadas": [
+          -78.53796,
+          -0.27911
+        ]
       }
     ]
   },
@@ -456,7 +480,11 @@
         },
         "imagen_destacada": "/antes_despues/av_patria/despues.jpg",
         "galeria_id": null,
-        "antes_despues_id": "Av. Patria"
+        "antes_despues_id": "Av. Patria",
+        "coordenadas": [
+          -78.499293,
+          -0.20661
+        ]
       },
       {
         "id": "soterramiento-av-patria",
@@ -496,7 +524,11 @@
         },
         "imagen_destacada": "/antes_despues/av_patria/despues.jpg",
         "galeria_id": null,
-        "antes_despues_id": "Av. Patria"
+        "antes_despues_id": "Av. Patria",
+        "coordenadas": [
+          -78.497218,
+          -0.208731
+        ]
       }
     ]
   },
@@ -561,7 +593,11 @@
         },
         "imagen_destacada": "/zonas_metro/Zonas metro.jpg",
         "galeria_id": null,
-        "antes_despues_id": null
+        "antes_despues_id": null,
+        "coordenadas": [
+          -78.476187,
+          -0.170516
+        ]
       }
     ]
   },
@@ -627,7 +663,11 @@
         },
         "imagen_destacada": "/imagenes_senderos/parque_navarro/parque_navarro_1.png",
         "galeria_id": null,
-        "antes_despues_id": null
+        "antes_despues_id": null,
+        "coordenadas": [
+          -78.4862,
+          -0.2085
+        ]
       }
     ]
   },
@@ -694,7 +734,11 @@
         },
         "imagen_destacada": "/imagenes_senderos/isla_tortuga/aerea_plaza_sendero.jpg",
         "galeria_id": "Isla Tortuga",
-        "antes_despues_id": null
+        "antes_despues_id": null,
+        "coordenadas": [
+          -78.484766,
+          -0.164343
+        ]
       }
     ]
   },
@@ -761,7 +805,11 @@
         },
         "imagen_destacada": "/imagenes_senderos/calle_benalcazar/Benalcazar_inicio.png",
         "galeria_id": null,
-        "antes_despues_id": null
+        "antes_despues_id": null,
+        "coordenadas": [
+          -78.513154,
+          -0.219301
+        ]
       },
       {
         "id": "sendero-calle-rocafuerte",
@@ -801,7 +849,11 @@
         },
         "imagen_destacada": "/imagenes_senderos/calle_rocafuerte/Rocafuerte_inicio.png",
         "galeria_id": null,
-        "antes_despues_id": null
+        "antes_despues_id": null,
+        "coordenadas": [
+          -78.509404,
+          -0.227928
+        ]
       }
     ]
   },
@@ -868,7 +920,11 @@
         },
         "imagen_destacada": "/imagenes_senderos/av_colon/cruce_peatonal.jpg",
         "galeria_id": "Av. Colón",
-        "antes_despues_id": null
+        "antes_despues_id": null,
+        "coordenadas": [
+          -78.4905,
+          -0.1985
+        ]
       },
       {
         "id": "soterramiento-av-colon",
@@ -908,7 +964,11 @@
         },
         "imagen_destacada": "/imagenes_senderos/av_colon/cruce_peatonal.jpg",
         "galeria_id": "Av. Colón",
-        "antes_despues_id": null
+        "antes_despues_id": null,
+        "coordenadas": [
+          -78.48663,
+          -0.202062
+        ]
       }
     ]
   },
@@ -974,7 +1034,11 @@
         },
         "imagen_destacada": "/repotenciacion_parque_bicentenario/Repotenciación del Bicentenario.png",
         "galeria_id": null,
-        "antes_despues_id": null
+        "antes_despues_id": null,
+        "coordenadas": [
+          -78.490915,
+          -0.1369015
+        ]
       },
       {
         "id": "recuperacion-av-10-agosto",
@@ -1014,7 +1078,11 @@
         },
         "imagen_destacada": "/recuperacion_urbana_av_10_de_agosto/recuperación_urbana_av10deAgosto.png",
         "galeria_id": null,
-        "antes_despues_id": null
+        "antes_despues_id": null,
+        "coordenadas": [
+          -78.4889,
+          -0.145
+        ]
       }
     ]
   },
@@ -1081,7 +1149,11 @@
         },
         "imagen_destacada": "/antes_despues/tribuna_de_los_shyris/despues.jpg",
         "galeria_id": null,
-        "antes_despues_id": "Bulevar Tribuna de los Shyris"
+        "antes_despues_id": "Bulevar Tribuna de los Shyris",
+        "coordenadas": [
+          -78.482325,
+          -0.182979
+        ]
       },
       {
         "id": "soterramiento-shyris",
@@ -1121,7 +1193,11 @@
         },
         "imagen_destacada": "/antes_despues/tribuna_de_los_shyris/despues.jpg",
         "galeria_id": null,
-        "antes_despues_id": "Bulevar Tribuna de los Shyris"
+        "antes_despues_id": "Bulevar Tribuna de los Shyris",
+        "coordenadas": [
+          -78.4842,
+          -0.1785
+        ]
       }
     ]
   },
@@ -1186,7 +1262,11 @@
         },
         "imagen_destacada": "/zonas_metro/Zonas metro.jpg",
         "galeria_id": null,
-        "antes_despues_id": null
+        "antes_despues_id": null,
+        "coordenadas": [
+          -78.429033,
+          -0.087919
+        ]
       }
     ]
   },
@@ -1251,7 +1331,11 @@
         },
         "imagen_destacada": "/zonas_metro/Zonas metro.jpg",
         "galeria_id": null,
-        "antes_despues_id": null
+        "antes_despues_id": null,
+        "coordenadas": [
+          -78.422412,
+          -0.101497
+        ]
       }
     ]
   },
@@ -1316,7 +1400,11 @@
         },
         "imagen_destacada": "/zonas_metro/Zonas metro.jpg",
         "galeria_id": null,
-        "antes_despues_id": null
+        "antes_despues_id": null,
+        "coordenadas": [
+          -78.476704,
+          -0.292484
+        ]
       }
     ]
   },
@@ -1381,7 +1469,11 @@
         },
         "imagen_destacada": "/zonas_metro/Zonas metro.jpg",
         "galeria_id": null,
-        "antes_despues_id": null
+        "antes_despues_id": null,
+        "coordenadas": [
+          -78.441261,
+          -0.195915
+        ]
       }
     ]
   },
@@ -1446,7 +1538,11 @@
         },
         "imagen_destacada": "/zonas_metro/Zonas metro.jpg",
         "galeria_id": null,
-        "antes_despues_id": null
+        "antes_despues_id": null,
+        "coordenadas": [
+          -78.443533,
+          -0.213022
+        ]
       }
     ]
   },
@@ -1511,7 +1607,11 @@
         },
         "imagen_destacada": "/zonas_metro/Zonas metro.jpg",
         "galeria_id": null,
-        "antes_despues_id": null
+        "antes_despues_id": null,
+        "coordenadas": [
+          -78.450224,
+          -0.006921
+        ]
       }
     ]
   },
@@ -1576,7 +1676,11 @@
         },
         "imagen_destacada": "/zonas_metro/Zonas metro.jpg",
         "galeria_id": null,
-        "antes_despues_id": null
+        "antes_despues_id": null,
+        "coordenadas": [
+          -78.405404,
+          -0.213026
+        ]
       }
     ]
   },
@@ -1593,8 +1697,8 @@
       "Comercio Local"
     ],
     "centroid": [
-      -78.457029,
-      -0.102612
+      -78.45729,
+      -0.10528
     ],
     "bbox": [
       -78.461438,
@@ -1641,7 +1745,11 @@
         },
         "imagen_destacada": "/zonas_metro/Zonas metro.jpg",
         "galeria_id": null,
-        "antes_despues_id": null
+        "antes_despues_id": null,
+        "coordenadas": [
+          -78.45729,
+          -0.10528
+        ]
       }
     ]
   }

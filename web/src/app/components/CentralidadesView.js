@@ -59,6 +59,33 @@ const getBadgeStyle = (badge) => {
   return { bg: '#fffbeb', border: '#fde68a', text: '#b45309', bullet: '#d97706' };
 };
 
+// Construcción del GeoJSON consolidado de todos los Proyectos Estratégicos
+const proyectosGeoJson = {
+  type: 'FeatureCollection',
+  features: centralidadesData.flatMap(c => 
+    (c.proyectos || []).map(p => ({
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: p.coordenadas || c.centroid
+      },
+      properties: {
+        id: p.id,
+        nombre: p.nombre,
+        tipo: p.tipo,
+        badge: p.badge,
+        centralidad_id: c.id,
+        centralidad_nombre: c.nombre,
+        centralidad_jerarquia: c.jerarquia,
+        color: c.color || (HIERARCHY_THEME[c.jerarquia] ? HIERARCHY_THEME[c.jerarquia].color : '#2563eb'),
+        presupuesto: p.presupuesto,
+        longitud_km: p.longitud_km,
+        beneficiarios: p.beneficiarios
+      }
+    }))
+  )
+};
+
 export default function CentralidadesView() {
   const mapContainerRef = useRef(null);
   const mapRef = useRef(null);
@@ -113,6 +140,7 @@ export default function CentralidadesView() {
     map.addControl(new mapboxgl.FullscreenControl(), 'top-right');
 
     map.on('load', () => {
+      // 1. FUENTE Y CAPAS DE CENTRALIDADES (POLÍGONOS)
       map.addSource('centralidades-source', {
         type: 'geojson',
         data: centralidadesGeoJson
@@ -136,7 +164,7 @@ export default function CentralidadesView() {
         }
       });
 
-      // Capa de Contorno
+      // Capa de Contorno de Centralidades
       map.addLayer({
         id: 'centralidades-line',
         type: 'line',
@@ -155,7 +183,7 @@ export default function CentralidadesView() {
         }
       });
 
-      // Capa de Resalte para la seleccionada
+      // Capa de Resalte para la Centralidad seleccionada
       map.addLayer({
         id: 'centralidades-highlight',
         type: 'line',
@@ -188,22 +216,134 @@ export default function CentralidadesView() {
         }
       });
 
-      // Hover Popup
-      const popup = new mapboxgl.Popup({
+      // 2. FUENTE Y CAPAS DE PROYECTOS ESTRATÉGICOS GEORREFERENCIADOS
+      map.addSource('proyectos-source', {
+        type: 'geojson',
+        data: proyectosGeoJson
+      });
+
+      // Halo exterior / Resplandor de proyectos (indica presencia visual dentro de la centralidad)
+      map.addLayer({
+        id: 'proyectos-glow',
+        type: 'circle',
+        source: 'proyectos-source',
+        paint: {
+          'circle-radius': [
+            'interpolate', ['linear'], ['zoom'],
+            10, 8,
+            13, 15,
+            16, 24
+          ],
+          'circle-color': [
+            'match',
+            ['get', 'centralidad_jerarquia'],
+            'Metropolitana', '#2563eb',
+            'Zonal', '#059669',
+            'Sectorial', '#d97706',
+            '#2563eb'
+          ],
+          'circle-opacity': 0.35
+        }
+      });
+
+      // Anillo de resalte activo para el proyecto seleccionado
+      map.addLayer({
+        id: 'proyectos-selected-ring',
+        type: 'circle',
+        source: 'proyectos-source',
+        paint: {
+          'circle-radius': [
+            'interpolate', ['linear'], ['zoom'],
+            10, 11,
+            13, 19,
+            16, 29
+          ],
+          'circle-color': 'rgba(15, 23, 42, 0.08)',
+          'circle-stroke-width': 3,
+          'circle-stroke-color': '#0f172a'
+        },
+        filter: ['==', ['get', 'id'], '']
+      });
+
+      // Marcador central (Pin sólido con borde blanco contrastante)
+      map.addLayer({
+        id: 'proyectos-circle',
+        type: 'circle',
+        source: 'proyectos-source',
+        paint: {
+          'circle-radius': [
+            'interpolate', ['linear'], ['zoom'],
+            10, 5.5,
+            13, 8.5,
+            16, 12
+          ],
+          'circle-color': [
+            'match',
+            ['get', 'centralidad_jerarquia'],
+            'Metropolitana', '#2563eb',
+            'Zonal', '#059669',
+            'Sectorial', '#d97706',
+            '#2563eb'
+          ],
+          'circle-stroke-width': 2.5,
+          'circle-stroke-color': '#ffffff'
+        }
+      });
+
+      // Etiquetas con nombres de proyectos (visibles con zoom >= 12)
+      map.addLayer({
+        id: 'proyectos-labels',
+        type: 'symbol',
+        source: 'proyectos-source',
+        minzoom: 12,
+        layout: {
+          'text-field': ['get', 'nombre'],
+          'text-size': [
+            'interpolate', ['linear'], ['zoom'],
+            12, 10,
+            14, 11.5,
+            16, 13
+          ],
+          'text-font': ['Open Sans Bold', 'Arial Unicode MS Bold'],
+          'text-offset': [0, 1.4],
+          'text-anchor': 'top',
+          'text-max-width': 12
+        },
+        paint: {
+          'text-color': '#0f172a',
+          'text-halo-color': '#ffffff',
+          'text-halo-width': 2.5
+        }
+      });
+
+      // Popups interactivos
+      const centralidadPopup = new mapboxgl.Popup({
         closeButton: false,
         closeOnClick: false,
         className: 'centralidad-light-popup'
       });
 
+      const projectPopup = new mapboxgl.Popup({
+        closeButton: false,
+        closeOnClick: false,
+        className: 'centralidad-light-popup',
+        offset: 14
+      });
+
+      // Hover en Polígonos de Centralidades
       map.on('mousemove', 'centralidades-fill', (e) => {
+        // Solo mostrar popup de centralidad si no se está sobre un proyecto
+        const featsUnder = map.queryRenderedFeatures(e.point, { layers: ['proyectos-circle'] });
+        if (featsUnder && featsUnder.length > 0) return;
+
         map.getCanvas().style.cursor = 'pointer';
-        if (e.features.length > 0) {
+        if (e.features && e.features.length > 0) {
           const feat = e.features[0];
           const name = feat.properties.nombre;
           const jer = feat.properties.jerarquia;
           const sup = parseFloat(feat.properties.superficie_ha).toFixed(1);
 
-          popup.setLngLat(e.lngLat)
+          centralidadPopup.setLngLat(e.lngLat)
             .setHTML(`
               <div style="font-family: inherit; font-size: 12px; padding: 4px 6px;">
                 <span style="font-weight: 800; color: #2563eb; text-transform: uppercase; font-size: 11px;">[${jer}]</span>
@@ -217,16 +357,78 @@ export default function CentralidadesView() {
 
       map.on('mouseleave', 'centralidades-fill', () => {
         map.getCanvas().style.cursor = '';
-        popup.remove();
+        centralidadPopup.remove();
       });
 
-      // Clic en polígono
+      // Clic en Polígono de Centralidad
       map.on('click', 'centralidades-fill', (e) => {
-        if (e.features.length > 0) {
+        // Evitar que el clic en proyecto sea sobreescrito por la centralidad
+        const featsUnder = map.queryRenderedFeatures(e.point, { layers: ['proyectos-circle'] });
+        if (featsUnder && featsUnder.length > 0) return;
+
+        if (e.features && e.features.length > 0) {
           const clickedId = e.features[0].properties.id;
           const found = centralidadesData.find(c => c.id === clickedId);
           if (found) {
             handleSelectCentralidad(found);
+          }
+        }
+      });
+
+      // Hover en Proyectos Estratégicos
+      map.on('mousemove', 'proyectos-circle', (e) => {
+        centralidadPopup.remove();
+        map.getCanvas().style.cursor = 'pointer';
+        if (e.features && e.features.length > 0) {
+          const p = e.features[0].properties;
+          const coords = e.features[0].geometry.coordinates;
+
+          projectPopup.setLngLat(coords)
+            .setHTML(`
+              <div style="font-family: inherit; font-size: 12px; padding: 5px 8px; max-width: 260px;">
+                <div style="display: flex; align-items: center; justify-content: space-between; gap: 6px; margin-bottom: 3px;">
+                  <span style="font-weight: 800; color: ${p.color}; text-transform: uppercase; font-size: 9.5px; letter-spacing: 0.04em;">
+                    ● PROYECTO ESTRATÉGICO
+                  </span>
+                  <span style="font-size: 9.5px; background: #f1f5f9; color: #475569; padding: 1px 5px; border-radius: 4px; font-weight: 600;">
+                    ${p.badge}
+                  </span>
+                </div>
+                <strong style="display: block; color: #0f172a; font-size: 12.5px; line-height: 1.3; margin: 3px 0 5px 0;">
+                  ${p.nombre}
+                </strong>
+                <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 5px 7px; margin-bottom: 4px; font-size: 11px; color: #334155;">
+                  📍 <strong>Centralidad:</strong> ${p.centralidad_nombre} 
+                  <span style="color: ${p.color}; font-weight: 700;">(${p.centralidad_jerarquia})</span>
+                </div>
+                <div style="font-size: 10px; color: #2563eb; font-weight: 700;">
+                  👉 Clic para abrir las 4 Dimensiones
+                </div>
+              </div>
+            `)
+            .addTo(map);
+        }
+      });
+
+      map.on('mouseleave', 'proyectos-circle', () => {
+        map.getCanvas().style.cursor = '';
+        projectPopup.remove();
+      });
+
+      // Clic en Proyecto Estratégico en el mapa: abre pantalla flotante y resalta centralidad
+      map.on('click', 'proyectos-circle', (e) => {
+        if (e.features && e.features.length > 0) {
+          const pProps = e.features[0].properties;
+          const cent = centralidadesData.find(c => c.id === pProps.centralidad_id);
+          if (cent) {
+            setSelectedCentralidad(cent);
+            const pIdx = cent.proyectos.findIndex(p => p.id === pProps.id);
+            const proj = cent.proyectos[pIdx >= 0 ? pIdx : 0];
+            if (proj) {
+              setSelectedProjectIndex(pIdx >= 0 ? pIdx : 0);
+              setActiveProjectTab('info');
+              setFloatingProject(proj);
+            }
           }
         }
       });
@@ -241,7 +443,7 @@ export default function CentralidadesView() {
     };
   }, [mapStyle]);
 
-  // Actualizar filtro de jerarquía en el mapa
+  // Actualizar filtro de jerarquía en el mapa (tanto polígonos como proyectos)
   useEffect(() => {
     if (!mapRef.current || !mapRef.current.isStyleLoaded()) return;
 
@@ -249,19 +451,40 @@ export default function CentralidadesView() {
       mapRef.current.setFilter('centralidades-fill', null);
       mapRef.current.setFilter('centralidades-line', null);
       mapRef.current.setFilter('centralidades-labels', null);
+      if (mapRef.current.getLayer('proyectos-circle')) {
+        mapRef.current.setFilter('proyectos-circle', null);
+        mapRef.current.setFilter('proyectos-glow', null);
+        mapRef.current.setFilter('proyectos-labels', null);
+      }
     } else {
       const f = ['==', ['get', 'jerarquia'], hierarchyFilter];
       mapRef.current.setFilter('centralidades-fill', f);
       mapRef.current.setFilter('centralidades-line', f);
       mapRef.current.setFilter('centralidades-labels', f);
+
+      const fProj = ['==', ['get', 'centralidad_jerarquia'], hierarchyFilter];
+      if (mapRef.current.getLayer('proyectos-circle')) {
+        mapRef.current.setFilter('proyectos-circle', fProj);
+        mapRef.current.setFilter('proyectos-glow', fProj);
+        mapRef.current.setFilter('proyectos-labels', fProj);
+      }
     }
   }, [hierarchyFilter]);
 
-  // Actualizar resalte
+  // Actualizar resalte de la centralidad seleccionada
   useEffect(() => {
     if (!mapRef.current || !mapRef.current.isStyleLoaded()) return;
     mapRef.current.setFilter('centralidades-highlight', ['==', ['get', 'id'], selectedCentralidad.id]);
   }, [selectedCentralidad]);
+
+  // Actualizar anillo de resalte para el proyecto activo/flotante
+  useEffect(() => {
+    if (!mapRef.current || !mapRef.current.isStyleLoaded()) return;
+    const currentProj = floatingProject || (selectedCentralidad.proyectos && selectedCentralidad.proyectos[selectedProjectIndex]);
+    if (mapRef.current.getLayer('proyectos-selected-ring')) {
+      mapRef.current.setFilter('proyectos-selected-ring', ['==', ['get', 'id'], currentProj ? currentProj.id : '']);
+    }
+  }, [floatingProject, selectedProjectIndex, selectedCentralidad]);
 
   const focusCentralidad = (centralidad) => {
     if (!mapRef.current) return;
@@ -284,6 +507,19 @@ export default function CentralidadesView() {
         pitch: 38,
         bearing: -8,
         duration: 1700
+      });
+    }
+  };
+
+  const focusProject = (proj) => {
+    if (!mapRef.current || !proj) return;
+    if (proj.coordenadas) {
+      mapRef.current.flyTo({
+        center: proj.coordenadas,
+        zoom: 15.2,
+        pitch: 42,
+        bearing: -8,
+        duration: 1600
       });
     }
   };
@@ -449,6 +685,7 @@ export default function CentralidadesView() {
                       setSelectedProjectIndex(pIdx);
                       setActiveProjectTab('info');
                       setFloatingProject(proj);
+                      focusProject(proj);
                     }}
                     title="Haz clic para abrir la pantalla flotante con información, seguridad, economía y suelo"
                   >
@@ -615,7 +852,7 @@ export default function CentralidadesView() {
 
         {/* Leyenda Cartográfica Flotante */}
         <div className="floating-hierarchy-legend">
-          <span className="legend-head">JERARQUÍA DE CENTRALIDADES</span>
+          <span className="legend-head">MODELO TERRITORIAL DMQ</span>
           <div className="legend-row">
             <span className="legend-circle" style={{ backgroundColor: '#2563eb' }} />
             <span>Metropolitana (5)</span>
@@ -627,6 +864,11 @@ export default function CentralidadesView() {
           <div className="legend-row">
             <span className="legend-circle" style={{ backgroundColor: '#d97706' }} />
             <span>Sectorial (6)</span>
+          </div>
+          <div className="legend-divider-light" />
+          <div className="legend-row">
+            <span className="legend-circle-project-pulse" />
+            <span>Proyectos Estratégicos (27)</span>
           </div>
         </div>
       </main>
@@ -868,7 +1110,7 @@ export default function CentralidadesView() {
               <button 
                 className="modal-action-btn-secondary"
                 onClick={() => {
-                  focusCentralidad(selectedCentralidad);
+                  focusProject(floatingProject);
                   setFloatingProject(null);
                 }}
               >
