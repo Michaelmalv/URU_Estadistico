@@ -46,6 +46,12 @@ const HIERARCHY_THEME = {
     bg: '#fffbeb',
     border: '#fde68a',
     text: '#b45309'
+  },
+  'Zonas Metro': {
+    color: '#0284c7',
+    bg: '#f0f9ff',
+    border: '#bae6fd',
+    text: '#0369a1'
   }
 };
 
@@ -132,6 +138,7 @@ export default function CentralidadesView() {
             'Metropolitana', '#2563eb',
             'Zonal', '#059669',
             'Sectorial', '#d97706',
+            'Zonas Metro', '#0284c7',
             '#3b82f6'
           ],
           'fill-opacity': 0.32
@@ -150,6 +157,7 @@ export default function CentralidadesView() {
             'Metropolitana', '#2563eb',
             'Zonal', '#059669',
             'Sectorial', '#d97706',
+            'Zonas Metro', '#0284c7',
             '#1e293b'
           ],
           'line-width': 2.5,
@@ -190,30 +198,59 @@ export default function CentralidadesView() {
         }
       });
 
-      // 2. FUENTE Y CAPAS DE TRAZADOS Y CONTORNOS DE PROYECTOS (LÍNEAS Y POLÍGONOS AMARILLOS)
+      // 2. FUENTE Y CAPAS DE TRAZADOS Y CONTORNOS DE PROYECTOS
       map.addSource('proyectos-geometrias-source', {
         type: 'geojson',
         data: proyectosGeometriasGeoJson
       });
 
-      // Relleno suave amarillo para proyectos tipo Polígono (parques, bulevares zonales, arenas)
+      // Relleno cyan / azul distintivo para Polígonos de Zonas Metro
+      map.addLayer({
+        id: 'proyectos-geom-metro-fill',
+        type: 'fill',
+        source: 'proyectos-geometrias-source',
+        filter: ['all', ['==', ['get', 'geom_tipo'], 'Polygon'], ['==', ['get', 'is_metro'], true]],
+        paint: {
+          'fill-color': '#0284c7',
+          'fill-opacity': 0.38
+        }
+      });
+
+      // Contorno cyan / azul para Polígonos de Zonas Metro
+      map.addLayer({
+        id: 'proyectos-geom-metro-outline',
+        type: 'line',
+        source: 'proyectos-geometrias-source',
+        filter: ['all', ['==', ['get', 'geom_tipo'], 'Polygon'], ['==', ['get', 'is_metro'], true]],
+        layout: {
+          'line-join': 'round',
+          'line-cap': 'round'
+        },
+        paint: {
+          'line-color': '#0284c7',
+          'line-width': 3,
+          'line-opacity': 0.95
+        }
+      });
+
+      // Relleno suave amarillo para proyectos tipo Polígono convencionales (parques, bulevares zonales)
       map.addLayer({
         id: 'proyectos-geom-fill',
         type: 'fill',
         source: 'proyectos-geometrias-source',
-        filter: ['==', ['get', 'geom_tipo'], 'Polygon'],
+        filter: ['all', ['==', ['get', 'geom_tipo'], 'Polygon'], ['!=', ['get', 'is_metro'], true]],
         paint: {
           'fill-color': '#f2b705',
           'fill-opacity': 0.35
         }
       });
 
-      // Contorno exterior amarillo para Polígonos de proyectos
+      // Contorno exterior amarillo para Polígonos de proyectos convencionales
       map.addLayer({
         id: 'proyectos-geom-polygon-outline',
         type: 'line',
         source: 'proyectos-geometrias-source',
-        filter: ['==', ['get', 'geom_tipo'], 'Polygon'],
+        filter: ['all', ['==', ['get', 'geom_tipo'], 'Polygon'], ['!=', ['get', 'is_metro'], true]],
         layout: {
           'line-join': 'round',
           'line-cap': 'round'
@@ -366,7 +403,9 @@ export default function CentralidadesView() {
       const projectInteractiveLayers = [
         'proyectos-geom-line-main',
         'proyectos-geom-fill',
-        'proyectos-geom-polygon-outline'
+        'proyectos-geom-polygon-outline',
+        'proyectos-geom-metro-fill',
+        'proyectos-geom-metro-outline'
       ];
 
       // Hover en Polígonos de Centralidades
@@ -421,22 +460,23 @@ export default function CentralidadesView() {
           map.getCanvas().style.cursor = 'pointer';
           if (e.features && e.features.length > 0) {
             const p = e.features[0].properties;
+            const isMetro = p.is_metro === true || p.is_metro === 'true';
 
             projectPopup.setLngLat(e.lngLat)
               .setHTML(`
-                <div style="font-family: inherit; font-size: 12px; padding: 5px 8px; max-width: 260px;">
+                <div style="font-family: inherit; font-size: 12px; padding: 5px 8px; max-width: 270px;">
                   <div style="display: flex; align-items: center; justify-content: space-between; gap: 6px; margin-bottom: 3px;">
-                    <span style="font-weight: 800; color: #b45309; text-transform: uppercase; font-size: 9.5px; letter-spacing: 0.04em;">
-                      ━━ TRAZADO DE PROYECTO
+                    <span style="font-weight: 800; color: ${isMetro ? '#0284c7' : '#b45309'}; text-transform: uppercase; font-size: 9.5px; letter-spacing: 0.04em;">
+                      ${isMetro ? '🚇 POLÍGONO ZONA METRO (LÍNEA 1)' : '━━ TRAZADO DE PROYECTO'}
                     </span>
-                    <span style="font-size: 9.5px; background: #fef3c7; color: #b45309; padding: 1px 5px; border-radius: 4px; font-weight: 700;">
+                    <span style="font-size: 9.5px; background: ${isMetro ? '#e0f2fe' : '#fef3c7'}; color: ${isMetro ? '#0369a1' : '#b45309'}; padding: 1px 5px; border-radius: 4px; font-weight: 700;">
                       ${p.badge}
                     </span>
                   </div>
-                  <strong style="display: block; color: #0f172a; font-size: 12.5px; line-height: 1.3; margin: 3px 0 5px 0;">
+                  <strong style="display: block; color: #0f172a; font-size: 13px; line-height: 1.3; margin: 3px 0 5px 0;">
                     ${p.nombre}
                   </strong>
-                  <div style="background: #fffbeb; border: 1px solid #fde68a; border-radius: 6px; padding: 5px 7px; margin-bottom: 4px; font-size: 11px; color: #92400e;">
+                  <div style="background: ${isMetro ? '#f0f9ff' : '#fffbeb'}; border: 1px solid ${isMetro ? '#bae6fd' : '#fde68a'}; border-radius: 6px; padding: 5px 7px; margin-bottom: 4px; font-size: 11px; color: ${isMetro ? '#0369a1' : '#92400e'};">
                     📍 <strong>Centralidad:</strong> ${p.centralidad_nombre} 
                     <span style="font-weight: 700;">(${p.centralidad_jerarquia})</span>
                   </div>
@@ -500,14 +540,53 @@ export default function CentralidadesView() {
         mapRef.current.setFilter('proyectos-geom-line-casing', ['==', ['get', 'geom_tipo'], 'LineString']);
       }
       if (mapRef.current.getLayer('proyectos-geom-fill')) {
-        mapRef.current.setFilter('proyectos-geom-fill', ['==', ['get', 'geom_tipo'], 'Polygon']);
+        mapRef.current.setFilter('proyectos-geom-fill', ['all', ['==', ['get', 'geom_tipo'], 'Polygon'], ['!=', ['get', 'is_metro'], true]]);
       }
       if (mapRef.current.getLayer('proyectos-geom-polygon-outline')) {
-        mapRef.current.setFilter('proyectos-geom-polygon-outline', ['==', ['get', 'geom_tipo'], 'Polygon']);
+        mapRef.current.setFilter('proyectos-geom-polygon-outline', ['all', ['==', ['get', 'geom_tipo'], 'Polygon'], ['!=', ['get', 'is_metro'], true]]);
+      }
+      if (mapRef.current.getLayer('proyectos-geom-metro-fill')) {
+        mapRef.current.setFilter('proyectos-geom-metro-fill', ['==', ['get', 'is_metro'], true]);
+      }
+      if (mapRef.current.getLayer('proyectos-geom-metro-outline')) {
+        mapRef.current.setFilter('proyectos-geom-metro-outline', ['==', ['get', 'is_metro'], true]);
       }
       if (mapRef.current.getLayer('proyectos-geom-labels')) {
         mapRef.current.setFilter('proyectos-geom-labels', null);
       }
+    } else if (hierarchyFilter === 'Zonas Metro') {
+      // Enfocar únicamente en la red de 15 estaciones del Metro de Quito
+      mapRef.current.setFilter('centralidades-fill', ['==', ['get', 'id'], 'none']);
+      mapRef.current.setFilter('centralidades-line', ['==', ['get', 'id'], 'none']);
+      mapRef.current.setFilter('centralidades-labels', ['==', ['get', 'id'], 'none']);
+
+      if (mapRef.current.getLayer('proyectos-geom-line-main')) {
+        mapRef.current.setFilter('proyectos-geom-line-main', ['==', ['get', 'id'], 'none']);
+      }
+      if (mapRef.current.getLayer('proyectos-geom-line-casing')) {
+        mapRef.current.setFilter('proyectos-geom-line-casing', ['==', ['get', 'id'], 'none']);
+      }
+      if (mapRef.current.getLayer('proyectos-geom-fill')) {
+        mapRef.current.setFilter('proyectos-geom-fill', ['==', ['get', 'id'], 'none']);
+      }
+      if (mapRef.current.getLayer('proyectos-geom-polygon-outline')) {
+        mapRef.current.setFilter('proyectos-geom-polygon-outline', ['==', ['get', 'id'], 'none']);
+      }
+      if (mapRef.current.getLayer('proyectos-geom-metro-fill')) {
+        mapRef.current.setFilter('proyectos-geom-metro-fill', ['==', ['get', 'is_metro'], true]);
+      }
+      if (mapRef.current.getLayer('proyectos-geom-metro-outline')) {
+        mapRef.current.setFilter('proyectos-geom-metro-outline', ['==', ['get', 'is_metro'], true]);
+      }
+      if (mapRef.current.getLayer('proyectos-geom-labels')) {
+        mapRef.current.setFilter('proyectos-geom-labels', ['==', ['get', 'is_metro'], true]);
+      }
+
+      // Encuadre completo al eje del Metro
+      mapRef.current.fitBounds(
+        [[-78.56, -0.32], [-78.46, -0.12]],
+        { padding: { top: 70, bottom: 70, left: 70, right: 70 }, pitch: 35, bearing: -8, duration: 1800 }
+      );
     } else {
       const f = ['==', ['get', 'jerarquia'], hierarchyFilter];
       mapRef.current.setFilter('centralidades-fill', f);
@@ -521,10 +600,16 @@ export default function CentralidadesView() {
         mapRef.current.setFilter('proyectos-geom-line-casing', ['all', ['==', ['get', 'geom_tipo'], 'LineString'], ['==', ['get', 'centralidad_jerarquia'], hierarchyFilter]]);
       }
       if (mapRef.current.getLayer('proyectos-geom-fill')) {
-        mapRef.current.setFilter('proyectos-geom-fill', ['all', ['==', ['get', 'geom_tipo'], 'Polygon'], ['==', ['get', 'centralidad_jerarquia'], hierarchyFilter]]);
+        mapRef.current.setFilter('proyectos-geom-fill', ['all', ['==', ['get', 'geom_tipo'], 'Polygon'], ['!=', ['get', 'is_metro'], true], ['==', ['get', 'centralidad_jerarquia'], hierarchyFilter]]);
       }
       if (mapRef.current.getLayer('proyectos-geom-polygon-outline')) {
-        mapRef.current.setFilter('proyectos-geom-polygon-outline', ['all', ['==', ['get', 'geom_tipo'], 'Polygon'], ['==', ['get', 'centralidad_jerarquia'], hierarchyFilter]]);
+        mapRef.current.setFilter('proyectos-geom-polygon-outline', ['all', ['==', ['get', 'geom_tipo'], 'Polygon'], ['!=', ['get', 'is_metro'], true], ['==', ['get', 'centralidad_jerarquia'], hierarchyFilter]]);
+      }
+      if (mapRef.current.getLayer('proyectos-geom-metro-fill')) {
+        mapRef.current.setFilter('proyectos-geom-metro-fill', ['all', ['==', ['get', 'is_metro'], true], ['==', ['get', 'centralidad_jerarquia'], hierarchyFilter]]);
+      }
+      if (mapRef.current.getLayer('proyectos-geom-metro-outline')) {
+        mapRef.current.setFilter('proyectos-geom-metro-outline', ['all', ['==', ['get', 'is_metro'], true], ['==', ['get', 'centralidad_jerarquia'], hierarchyFilter]]);
       }
       if (mapRef.current.getLayer('proyectos-geom-labels')) {
         mapRef.current.setFilter('proyectos-geom-labels', ['==', ['get', 'centralidad_jerarquia'], hierarchyFilter]);
@@ -666,7 +751,7 @@ export default function CentralidadesView() {
 
           {/* Filtros de Jerarquía Urbana */}
           <div className="hierarchy-pills-row">
-            {['Todas', 'Metropolitana', 'Zonal', 'Sectorial'].map((jer) => {
+            {['Todas', 'Metropolitana', 'Zonal', 'Sectorial', 'Zonas Metro'].map((jer) => {
               const count = jer === 'Todas' 
                 ? centralidadesData.length 
                 : centralidadesData.filter(c => c.jerarquia === jer).length;
@@ -1158,14 +1243,20 @@ export default function CentralidadesView() {
                           <span className="card-subhead">Evolución de Delitos Registrados por Año</span>
                           <span className="subhead-tag">Fuente: Reporte de Seguridad DMQ</span>
                         </div>
-                        <div className="year-metric-cards-4">
-                          {['2023', '2024', '2025', '2026_proy'].map(yr => (
-                            <div key={yr} className={`year-stat-box ${yr === '2026_proy' ? 'projected' : ''}`}>
-                              <span className="year-stat-tag">{yr === '2026_proy' ? '2026 (Proy)' : yr}</span>
+                        <div className="year-metric-cards-5">
+                          {[
+                            { key: '2023', label: '2023', sub: 'Delitos Totales' },
+                            { key: '2024', label: '2024', sub: 'Delitos Totales' },
+                            { key: '2025', label: '2025', sub: 'Delitos Totales' },
+                            { key: '2026_real', label: '2026 (Real)', sub: 'Corte Ene-Abr', isReal: true },
+                            { key: '2026_proy', label: '2026 (Proy)', sub: 'Proy. Anual', isProy: true }
+                          ].map(item => (
+                            <div key={item.key} className={`year-stat-box ${item.isProy ? 'projected' : ''} ${item.isReal ? 'real-cut' : ''}`}>
+                              <span className="year-stat-tag">{item.label}</span>
                               <strong className="year-stat-num">
-                                {floatingProject.seguridad.delitos_por_ano?.[yr] ?? '—'}
+                                {floatingProject.seguridad.delitos_por_ano?.[item.key] ?? '—'}
                               </strong>
-                              <span className="year-stat-lbl">Delitos Totales</span>
+                              <span className="year-stat-lbl">{item.sub}</span>
                             </div>
                           ))}
                         </div>
@@ -1177,14 +1268,20 @@ export default function CentralidadesView() {
                           <span className="card-subhead">Incidentes de Espacio Público y Convivencia</span>
                           <span className="subhead-tag">Libadores, Escándalos y Daño a Propiedad</span>
                         </div>
-                        <div className="year-metric-cards-4">
-                          {['2023', '2024', '2025', '2026_proy'].map(yr => (
-                            <div key={yr} className={`year-stat-box incident-box ${yr === '2026_proy' ? 'projected' : ''}`}>
-                              <span className="year-stat-tag">{yr === '2026_proy' ? '2026 (Proy)' : yr}</span>
+                        <div className="year-metric-cards-5">
+                          {[
+                            { key: '2023', label: '2023', sub: 'Incidentes Atendidos' },
+                            { key: '2024', label: '2024', sub: 'Incidentes Atendidos' },
+                            { key: '2025', label: '2025', sub: 'Incidentes Atendidos' },
+                            { key: '2026_real', label: '2026 (Real)', sub: 'Corte Ene-Abr', isReal: true },
+                            { key: '2026_proy', label: '2026 (Proy)', sub: 'Proy. Anual', isProy: true }
+                          ].map(item => (
+                            <div key={item.key} className={`year-stat-box incident-box ${item.isProy ? 'projected' : ''} ${item.isReal ? 'real-cut' : ''}`}>
+                              <span className="year-stat-tag">{item.label}</span>
                               <strong className="year-stat-num">
-                                {floatingProject.seguridad.incidentes_por_ano?.[yr] ?? '—'}
+                                {floatingProject.seguridad.incidentes_por_ano?.[item.key] ?? '—'}
                               </strong>
-                              <span className="year-stat-lbl">Incidentes Atendidos</span>
+                              <span className="year-stat-lbl">{item.sub}</span>
                             </div>
                           ))}
                         </div>
@@ -1193,7 +1290,10 @@ export default function CentralidadesView() {
                       {/* Desglose de Delitos Principales si existen en el dataset */}
                       {floatingProject.seguridad.top_delitos?.length > 0 && (
                         <div className="dimension-subcard">
-                          <span className="card-subhead">Desglose Comparativo de Delitos por Variable</span>
+                          <div className="subcard-header">
+                            <span className="card-subhead">Desglose Comparativo de Delitos por Variable</span>
+                            <span className="subhead-tag">Observado Real (Ene-Abr) vs Proyección Anual</span>
+                          </div>
                           <div className="table-responsive-clean">
                             <table className="clean-metric-table">
                               <thead>
@@ -1202,7 +1302,8 @@ export default function CentralidadesView() {
                                   <th>2023</th>
                                   <th>2024</th>
                                   <th>2025</th>
-                                  <th>2026 (Proy)</th>
+                                  <th style={{ backgroundColor: '#f1f5f9', color: '#0f172a' }}>2026 (Real Ene-Abr)</th>
+                                  <th style={{ backgroundColor: '#ecfdf5', color: '#047857' }}>2026 (Proy Anual)</th>
                                 </tr>
                               </thead>
                               <tbody>
@@ -1212,7 +1313,60 @@ export default function CentralidadesView() {
                                     <td>{td.valores?.['2023'] ?? '0'}</td>
                                     <td>{td.valores?.['2024'] ?? '0'}</td>
                                     <td>{td.valores?.['2025'] ?? '0'}</td>
-                                    <td><span className="table-highlight-green">{td.valores?.['2026_proy'] ?? '0'}</span></td>
+                                    <td>
+                                      <span className="table-highlight-real">
+                                        {td.valores?.['2026_real'] ?? '0'}
+                                      </span>
+                                    </td>
+                                    <td>
+                                      <span className="table-highlight-green">
+                                        {td.valores?.['2026_proy'] ?? '0'}
+                                      </span>
+                                    </td>
+                                  </tr>
+                                ))}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      )}
+
+                      {/* Desglose de Incidentes si existen en el dataset */}
+                      {floatingProject.seguridad.top_incidentes?.length > 0 && (
+                        <div className="dimension-subcard">
+                          <div className="subcard-header">
+                            <span className="card-subhead">Desglose Comparativo de Incidentes por Variable</span>
+                            <span className="subhead-tag">Observado Real (Ene-Abr) vs Proyección Anual</span>
+                          </div>
+                          <div className="table-responsive-clean">
+                            <table className="clean-metric-table">
+                              <thead>
+                                <tr>
+                                  <th>Tipo de Incidente</th>
+                                  <th>2023</th>
+                                  <th>2024</th>
+                                  <th>2025</th>
+                                  <th style={{ backgroundColor: '#f1f5f9', color: '#0f172a' }}>2026 (Real Ene-Abr)</th>
+                                  <th style={{ backgroundColor: '#eff6ff', color: '#1d4ed8' }}>2026 (Proy Anual)</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                {floatingProject.seguridad.top_incidentes.map((ti, i) => (
+                                  <tr key={i}>
+                                    <td><strong>{ti.label}</strong></td>
+                                    <td>{ti.valores?.['2023'] ?? '0'}</td>
+                                    <td>{ti.valores?.['2024'] ?? '0'}</td>
+                                    <td>{ti.valores?.['2025'] ?? '0'}</td>
+                                    <td>
+                                      <span className="table-highlight-real">
+                                        {ti.valores?.['2026_real'] ?? '0'}
+                                      </span>
+                                    </td>
+                                    <td>
+                                      <span className="table-highlight-blue">
+                                        {ti.valores?.['2026_proy'] ?? '0'}
+                                      </span>
+                                    </td>
                                   </tr>
                                 ))}
                               </tbody>

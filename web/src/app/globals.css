@@ -4857,6 +4857,12 @@ h1, h2, h3, h4, h5, h6 {
   border: 1px solid #e2e8f0;
 }
 
+.year-metric-cards-5 {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.75rem;
+}
+
 .year-metric-cards-4 {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -4869,7 +4875,16 @@ h1, h2, h3, h4, h5, h6 {
   gap: 0.85rem;
 }
 
+@media (max-width: 820px) {
+  .year-metric-cards-5 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 @media (max-width: 640px) {
+  .year-metric-cards-5 {
+    grid-template-columns: repeat(2, 1fr);
+  }
   .year-metric-cards-4 {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -5057,6 +5072,27 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 5px;
   font-weight: 800;
   border: 1px solid #a7f3d0;
+  display: inline-block;
+}
+
+.table-highlight-real {
+  background: #f1f5f9;
+  color: #0f172a;
+  padding: 2px 7px;
+  border-radius: 5px;
+  font-weight: 700;
+  border: 1px solid #cbd5e1;
+  display: inline-block;
+}
+
+.table-highlight-blue {
+  background: #eff6ff;
+  color: #1d4ed8;
+  padding: 2px 7px;
+  border-radius: 5px;
+  font-weight: 800;
+  border: 1px solid #bfdbfe;
+  display: inline-block;
 }
 
 /* ==========================================================================
