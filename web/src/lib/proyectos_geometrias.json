@@ -47,7 +47,8 @@
           -0.119278
         ],
         "presupuesto": "$996K est.",
-        "longitud_km": "11.7 km de red vial"
+        "longitud_km": "11.7 km de red vial",
+        "geom_tipo": "LineString"
       }
     },
     {
@@ -136,7 +137,8 @@
           -0.114164
         ],
         "presupuesto": "$1.42M",
-        "longitud_km": "1.2 km"
+        "longitud_km": "1.2 km",
+        "geom_tipo": "LineString"
       }
     },
     {
@@ -173,7 +175,8 @@
           -0.318355
         ],
         "presupuesto": "$804K est.",
-        "longitud_km": "9.5 km de red vial"
+        "longitud_km": "9.5 km de red vial",
+        "geom_tipo": "LineString"
       }
     },
     {
@@ -416,7 +419,8 @@
           -0.294331
         ],
         "presupuesto": "$3.80M",
-        "longitud_km": "2.2 km de entorno"
+        "longitud_km": "2.2 km de entorno",
+        "geom_tipo": "Polygon"
       }
     },
     {
@@ -453,7 +457,8 @@
           -0.236077
         ],
         "presupuesto": "$1.65M",
-        "longitud_km": "1.3 km"
+        "longitud_km": "1.3 km",
+        "geom_tipo": "LineString"
       }
     },
     {
@@ -514,7 +519,8 @@
           -0.27911
         ],
         "presupuesto": "$2.10M",
-        "longitud_km": "1.7 km"
+        "longitud_km": "1.7 km",
+        "geom_tipo": "LineString"
       }
     },
     {
@@ -559,7 +565,8 @@
           -0.20661
         ],
         "presupuesto": "$2.40M",
-        "longitud_km": "1.8 km"
+        "longitud_km": "1.8 km",
+        "geom_tipo": "LineString"
       }
     },
     {
@@ -604,7 +611,8 @@
           -0.208731
         ],
         "presupuesto": "$1.20M",
-        "longitud_km": "1.8 km soterrados"
+        "longitud_km": "1.8 km soterrados",
+        "geom_tipo": "LineString"
       }
     },
     {
@@ -637,7 +645,8 @@
           -0.170516
         ],
         "presupuesto": "$1361K est.",
-        "longitud_km": "16.0 km de red vial"
+        "longitud_km": "16.0 km de red vial",
+        "geom_tipo": "LineString"
       }
     },
     {
@@ -712,7 +721,8 @@
           -0.2085
         ],
         "presupuesto": "$890K",
-        "longitud_km": "0.6 km"
+        "longitud_km": "0.6 km",
+        "geom_tipo": "Polygon"
       }
     },
     {
@@ -749,7 +759,8 @@
           -0.164343
         ],
         "presupuesto": "$1.15M",
-        "longitud_km": "0.9 km"
+        "longitud_km": "0.9 km",
+        "geom_tipo": "LineString"
       }
     },
     {
@@ -802,7 +813,8 @@
           -0.219301
         ],
         "presupuesto": "$1.80M",
-        "longitud_km": "1.2 km"
+        "longitud_km": "1.2 km",
+        "geom_tipo": "LineString"
       }
     },
     {
@@ -871,7 +883,8 @@
           -0.227928
         ],
         "presupuesto": "$1.35M",
-        "longitud_km": "1.1 km"
+        "longitud_km": "1.1 km",
+        "geom_tipo": "LineString"
       }
     },
     {
@@ -920,7 +933,8 @@
           -0.1985
         ],
         "presupuesto": "$2.85M",
-        "longitud_km": "2.1 km"
+        "longitud_km": "2.1 km",
+        "geom_tipo": "LineString"
       }
     },
     {
@@ -969,7 +983,8 @@
           -0.202062
         ],
         "presupuesto": "$1.45M",
-        "longitud_km": "2.1 km soterrados"
+        "longitud_km": "2.1 km soterrados",
+        "geom_tipo": "LineString"
       }
     },
     {
@@ -1002,7 +1017,8 @@
           -0.1369015
         ],
         "presupuesto": "$4.50M",
-        "longitud_km": "125 hectáreas"
+        "longitud_km": "125 hectáreas",
+        "geom_tipo": "LineString"
       }
     },
     {
@@ -1035,7 +1051,8 @@
           -0.145
         ],
         "presupuesto": "$2.15M",
-        "longitud_km": "2.5 km"
+        "longitud_km": "2.5 km",
+        "geom_tipo": "LineString"
       }
     },
     {
@@ -1082,7 +1099,8 @@
           -0.182979
         ],
         "presupuesto": "$3.10M",
-        "longitud_km": "1.4 km"
+        "longitud_km": "1.4 km",
+        "geom_tipo": "Polygon"
       }
     },
     {
@@ -1129,7 +1147,8 @@
           -0.1785
         ],
         "presupuesto": "$1.60M",
-        "longitud_km": "1.4 km"
+        "longitud_km": "1.4 km",
+        "geom_tipo": "Polygon"
       }
     },
     {
@@ -1162,7 +1181,8 @@
           -0.087919
         ],
         "presupuesto": "$704K est.",
-        "longitud_km": "8.3 km de red vial"
+        "longitud_km": "8.3 km de red vial",
+        "geom_tipo": "LineString"
       }
     },
     {
@@ -1195,7 +1215,8 @@
           -0.101497
         ],
         "presupuesto": "$316K est.",
-        "longitud_km": "3.7 km de red vial"
+        "longitud_km": "3.7 km de red vial",
+        "geom_tipo": "LineString"
       }
     },
     {
@@ -1244,7 +1265,8 @@
           -0.292484
         ],
         "presupuesto": "$767K est.",
-        "longitud_km": "9.0 km de red vial"
+        "longitud_km": "9.0 km de red vial",
+        "geom_tipo": "LineString"
       }
     },
     {
@@ -1281,7 +1303,8 @@
           -0.195915
         ],
         "presupuesto": "$872K est.",
-        "longitud_km": "10.3 km de red vial"
+        "longitud_km": "10.3 km de red vial",
+        "geom_tipo": "LineString"
       }
     },
     {
@@ -1318,7 +1341,8 @@
           -0.213022
         ],
         "presupuesto": "$597K est.",
-        "longitud_km": "7.0 km de red vial"
+        "longitud_km": "7.0 km de red vial",
+        "geom_tipo": "LineString"
       }
     },
     {
@@ -1355,7 +1379,8 @@
           -0.006921
         ],
         "presupuesto": "$822K est.",
-        "longitud_km": "9.7 km de red vial"
+        "longitud_km": "9.7 km de red vial",
+        "geom_tipo": "LineString"
       }
     },
     {
@@ -1400,7 +1425,8 @@
           -0.213026
         ],
         "presupuesto": "$998K est.",
-        "longitud_km": "11.7 km de red vial"
+        "longitud_km": "11.7 km de red vial",
+        "geom_tipo": "LineString"
       }
     },
     {
@@ -1437,7 +1463,8 @@
           -0.10528
         ],
         "presupuesto": "$1169K est.",
-        "longitud_km": "13.8 km de red vial"
+        "longitud_km": "13.8 km de red vial",
+        "geom_tipo": "LineString"
       }
     }
   ]

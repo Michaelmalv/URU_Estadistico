@@ -4768,3 +4768,294 @@ h1, h2, h3, h4, h5, h6 {
     height: 520px;
   }
 }
+
+/* ==========================================================================
+   ESTILOS HISTÓRICOS Y COMPARATIVOS EN PANTALLA FLOTANTE DE CENTRALIDADES
+   ========================================================================== */
+
+.security-banner-stat {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1.25rem 1.5rem;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+  border: 1px solid #a7f3d0;
+}
+
+.sec-banner-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(5, 150, 105, 0.12);
+  flex-shrink: 0;
+}
+
+.sec-banner-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.sec-banner-label {
+  font-size: 0.76rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #047857;
+  letter-spacing: 0.05em;
+}
+
+.sec-banner-metrics {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.sec-banner-pct {
+  font-size: 1.85rem;
+  font-weight: 900;
+  color: #065f46;
+  line-height: 1;
+}
+
+.sec-banner-sub {
+  font-size: 0.85rem;
+  color: #047857;
+  font-weight: 600;
+}
+
+.dimension-subcard {
+  padding: 1.35rem 1.5rem;
+  border-radius: 14px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.subcard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.subhead-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #64748b;
+  background: #ffffff;
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+}
+
+.year-metric-cards-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.85rem;
+}
+
+.year-metric-cards-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.85rem;
+}
+
+@media (max-width: 640px) {
+  .year-metric-cards-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .year-metric-cards-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.year-stat-box {
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1rem 0.85rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.35rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+  transition: all 0.2s ease;
+}
+
+.year-stat-box:hover {
+  border-color: #cbd5e1;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.year-stat-box.projected {
+  border-style: dashed;
+  border-color: #93c5fd;
+  background: #f0f7ff;
+}
+
+.year-stat-tag {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.year-stat-num {
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: #0f172a;
+  line-height: 1.1;
+}
+
+.year-stat-lbl {
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: #64748b;
+}
+
+.incident-box .year-stat-num {
+  color: #b45309;
+}
+
+.eco-box {
+  align-items: stretch;
+  text-align: left;
+}
+
+.dual-stat-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.35rem 0;
+  border-top: 1px solid #f1f5f9;
+  border-bottom: 1px solid #f1f5f9;
+  margin: 0.2rem 0;
+}
+
+.mini-stat-lbl {
+  display: block;
+  font-size: 0.68rem;
+  color: #64748b;
+  font-weight: 700;
+}
+
+.mini-stat-val {
+  display: block;
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+
+.text-blue { color: #2563eb !important; }
+.text-green { color: #059669 !important; }
+
+.year-stat-total {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #334155;
+  text-align: right;
+  display: block;
+}
+
+.soil-box {
+  background: #ffffff;
+}
+
+.highlighted-soil {
+  background: #fefce8 !important;
+  border-color: #fde047 !important;
+}
+
+.highlighted-soil .year-stat-num {
+  color: #854d0e !important;
+}
+
+.plusvalia-progress-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 0.85rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.plusvalia-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #334155;
+}
+
+.plusvalia-bar-bg {
+  width: 100%;
+  height: 8px;
+  border-radius: 999px;
+  background: #f1f5f9;
+  overflow: hidden;
+}
+
+.plusvalia-bar-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #10b981 0%, #059669 100%);
+  transition: width 0.8s ease-out;
+}
+
+.table-responsive-clean {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
+}
+
+.clean-metric-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+  text-align: left;
+}
+
+.clean-metric-table th {
+  background: #f8fafc;
+  padding: 0.65rem 0.9rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #475569;
+  text-transform: uppercase;
+  border-bottom: 1.5px solid #e2e8f0;
+}
+
+.clean-metric-table td {
+  padding: 0.65rem 0.9rem;
+  border-bottom: 1px solid #f1f5f9;
+  color: #334155;
+}
+
+.clean-metric-table tr:last-child td {
+  border-bottom: none;
+}
+
+.table-highlight-green {
+  background: #ecfdf5;
+  color: #047857;
+  padding: 2px 7px;
+  border-radius: 5px;
+  font-weight: 800;
+  border: 1px solid #a7f3d0;
+}
+
