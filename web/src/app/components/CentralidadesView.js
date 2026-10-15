@@ -11,6 +11,7 @@ import {
 } from 'lucide-react';
 import centralidadesData from '@/lib/centralidades_data.json';
 import centralidadesGeoJson from '@/lib/centralidades.json';
+import proyectosGeometriasGeoJson from '@/lib/proyectos_geometrias.json';
 
 const getFallbackToken = () => {
   if (process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN) {
@@ -57,33 +58,6 @@ const getBadgeStyle = (badge) => {
     return { bg: '#eff6ff', border: '#bfdbfe', text: '#1d4ed8', bullet: '#2563eb' };
   }
   return { bg: '#fffbeb', border: '#fde68a', text: '#b45309', bullet: '#d97706' };
-};
-
-// Construcción del GeoJSON consolidado de todos los Proyectos Estratégicos
-const proyectosGeoJson = {
-  type: 'FeatureCollection',
-  features: centralidadesData.flatMap(c => 
-    (c.proyectos || []).map(p => ({
-      type: 'Feature',
-      geometry: {
-        type: 'Point',
-        coordinates: p.coordenadas || c.centroid
-      },
-      properties: {
-        id: p.id,
-        nombre: p.nombre,
-        tipo: p.tipo,
-        badge: p.badge,
-        centralidad_id: c.id,
-        centralidad_nombre: c.nombre,
-        centralidad_jerarquia: c.jerarquia,
-        color: c.color || (HIERARCHY_THEME[c.jerarquia] ? HIERARCHY_THEME[c.jerarquia].color : '#2563eb'),
-        presupuesto: p.presupuesto,
-        longitud_km: p.longitud_km,
-        beneficiarios: p.beneficiarios
-      }
-    }))
-  )
 };
 
 export default function CentralidadesView() {
@@ -223,91 +197,157 @@ export default function CentralidadesView() {
       });
 
       // Halo exterior / Resplandor de proyectos (indica presencia visual dentro de la centralidad)
+      // 2. FUENTE Y CAPAS DE TRAZADOS Y CONTORNOS DE PROYECTOS (LÍNEAS Y POLÍGONOS AMARILLOS)
+      map.addSource('proyectos-geometrias-source', {
+        type: 'geojson',
+        data: proyectosGeometriasGeoJson
+      });
+
+      // Relleno suave amarillo para proyectos tipo Polígono (parques, bulevares zonales, arenas)
       map.addLayer({
-        id: 'proyectos-glow',
-        type: 'circle',
-        source: 'proyectos-source',
+        id: 'proyectos-geom-fill',
+        type: 'fill',
+        source: 'proyectos-geometrias-source',
+        filter: ['==', ['geometry-type'], 'Polygon'],
         paint: {
-          'circle-radius': [
-            'interpolate', ['linear'], ['zoom'],
-            10, 8,
-            13, 15,
-            16, 24
-          ],
-          'circle-color': [
-            'match',
-            ['get', 'centralidad_jerarquia'],
-            'Metropolitana', '#2563eb',
-            'Zonal', '#059669',
-            'Sectorial', '#d97706',
-            '#2563eb'
-          ],
-          'circle-opacity': 0.35
+          'fill-color': '#f2b705',
+          'fill-opacity': 0.28
         }
       });
 
-      // Anillo de resalte activo para el proyecto seleccionado
+      // Contorno exterior amarillo para Polígonos de proyectos
       map.addLayer({
-        id: 'proyectos-selected-ring',
-        type: 'circle',
-        source: 'proyectos-source',
+        id: 'proyectos-geom-polygon-outline',
+        type: 'line',
+        source: 'proyectos-geometrias-source',
+        filter: ['==', ['geometry-type'], 'Polygon'],
+        layout: {
+          'line-join': 'round',
+          'line-cap': 'round'
+        },
         paint: {
-          'circle-radius': [
+          'line-color': '#f2b705',
+          'line-width': 3.5,
+          'line-opacity': 0.95
+        }
+      });
+
+      // Sombra / Casing oscuro de contraste para Líneas y Senderos
+      map.addLayer({
+        id: 'proyectos-geom-line-casing',
+        type: 'line',
+        source: 'proyectos-geometrias-source',
+        filter: ['==', ['geometry-type'], 'LineString'],
+        layout: {
+          'line-join': 'round',
+          'line-cap': 'round'
+        },
+        paint: {
+          'line-color': '#0f172a',
+          'line-width': [
             'interpolate', ['linear'], ['zoom'],
-            10, 11,
-            13, 19,
-            16, 29
+            10, 4.5,
+            13, 7.5,
+            16, 11
           ],
-          'circle-color': 'rgba(15, 23, 42, 0.08)',
-          'circle-stroke-width': 3,
-          'circle-stroke-color': '#0f172a'
+          'line-opacity': 0.4
+        }
+      });
+
+      // LÍNEA AMARILLA PRINCIPAL DEL PROYECTO (Exacto como el diseño interactivo previo)
+      map.addLayer({
+        id: 'proyectos-geom-line-main',
+        type: 'line',
+        source: 'proyectos-geometrias-source',
+        filter: ['==', ['geometry-type'], 'LineString'],
+        layout: {
+          'line-join': 'round',
+          'line-cap': 'round'
+        },
+        paint: {
+          'line-color': '#f2b705',
+          'line-width': [
+            'interpolate', ['linear'], ['zoom'],
+            10, 3,
+            13, 5.5,
+            16, 8.5
+          ],
+          'line-opacity': 0.95
+        }
+      });
+
+      // RESALTE BLANCO / GLOW CUANDO UN PROYECTO ESTÁ ACTIVO/SELECCIONADO
+      map.addLayer({
+        id: 'proyectos-geom-selected-glow',
+        type: 'line',
+        source: 'proyectos-geometrias-source',
+        layout: {
+          'line-join': 'round',
+          'line-cap': 'round'
+        },
+        paint: {
+          'line-color': '#ffffff',
+          'line-width': [
+            'interpolate', ['linear'], ['zoom'],
+            10, 8,
+            13, 12,
+            16, 17
+          ],
+          'line-opacity': 0.9
         },
         filter: ['==', ['get', 'id'], '']
       });
 
-      // Marcador central (Pin sólido con borde blanco contrastante)
       map.addLayer({
-        id: 'proyectos-circle',
-        type: 'circle',
-        source: 'proyectos-source',
+        id: 'proyectos-geom-selected-core',
+        type: 'line',
+        source: 'proyectos-geometrias-source',
+        layout: {
+          'line-join': 'round',
+          'line-cap': 'round'
+        },
         paint: {
-          'circle-radius': [
+          'line-color': '#f59e0b',
+          'line-width': [
             'interpolate', ['linear'], ['zoom'],
-            10, 5.5,
-            13, 8.5,
+            10, 4.5,
+            13, 7.5,
             16, 12
           ],
-          'circle-color': [
-            'match',
-            ['get', 'centralidad_jerarquia'],
-            'Metropolitana', '#2563eb',
-            'Zonal', '#059669',
-            'Sectorial', '#d97706',
-            '#2563eb'
-          ],
-          'circle-stroke-width': 2.5,
-          'circle-stroke-color': '#ffffff'
-        }
+          'line-opacity': 1
+        },
+        filter: ['==', ['get', 'id'], '']
       });
 
-      // Etiquetas con nombres de proyectos (visibles con zoom >= 12)
       map.addLayer({
-        id: 'proyectos-labels',
+        id: 'proyectos-geom-selected-polygon-fill',
+        type: 'fill',
+        source: 'proyectos-geometrias-source',
+        paint: {
+          'fill-color': '#facc15',
+          'fill-opacity': 0.55
+        },
+        filter: ['all', ['==', ['geometry-type'], 'Polygon'], ['==', ['get', 'id'], '']]
+      });
+
+      // Etiquetas con nombres de proyectos (visibles con zoom >= 12.5)
+      map.addLayer({
+        id: 'proyectos-geom-labels',
         type: 'symbol',
-        source: 'proyectos-source',
-        minzoom: 12,
+        source: 'proyectos-geometrias-source',
+        minzoom: 12.5,
         layout: {
           'text-field': ['get', 'nombre'],
           'text-size': [
             'interpolate', ['linear'], ['zoom'],
-            12, 10,
-            14, 11.5,
-            16, 13
+            12.5, 9.5,
+            14.5, 11,
+            16.5, 12.5
           ],
           'text-font': ['Open Sans Bold', 'Arial Unicode MS Bold'],
-          'text-offset': [0, 1.4],
-          'text-anchor': 'top',
-          'text-max-width': 12
+          'symbol-placement': 'line-center',
+          'text-max-angle': 30,
+          'text-offset': [0, 1.3]
         },
         paint: {
           'text-color': '#0f172a',
@@ -330,10 +370,16 @@ export default function CentralidadesView() {
         offset: 14
       });
 
+      const projectInteractiveLayers = [
+        'proyectos-geom-line-main',
+        'proyectos-geom-fill',
+        'proyectos-geom-polygon-outline'
+      ];
+
       // Hover en Polígonos de Centralidades
       map.on('mousemove', 'centralidades-fill', (e) => {
-        // Solo mostrar popup de centralidad si no se está sobre un proyecto
-        const featsUnder = map.queryRenderedFeatures(e.point, { layers: ['proyectos-circle'] });
+        // Solo mostrar popup de centralidad si no se está sobre el trazado de un proyecto
+        const featsUnder = map.queryRenderedFeatures(e.point, { layers: projectInteractiveLayers });
         if (featsUnder && featsUnder.length > 0) return;
 
         map.getCanvas().style.cursor = 'pointer';
@@ -363,7 +409,7 @@ export default function CentralidadesView() {
       // Clic en Polígono de Centralidad
       map.on('click', 'centralidades-fill', (e) => {
         // Evitar que el clic en proyecto sea sobreescrito por la centralidad
-        const featsUnder = map.queryRenderedFeatures(e.point, { layers: ['proyectos-circle'] });
+        const featsUnder = map.queryRenderedFeatures(e.point, { layers: projectInteractiveLayers });
         if (featsUnder && featsUnder.length > 0) return;
 
         if (e.features && e.features.length > 0) {
@@ -375,62 +421,64 @@ export default function CentralidadesView() {
         }
       });
 
-      // Hover en Proyectos Estratégicos
-      map.on('mousemove', 'proyectos-circle', (e) => {
-        centralidadPopup.remove();
-        map.getCanvas().style.cursor = 'pointer';
-        if (e.features && e.features.length > 0) {
-          const p = e.features[0].properties;
-          const coords = e.features[0].geometry.coordinates;
+      // Hover en Trazados / Contornos de Proyectos Estratégicos
+      projectInteractiveLayers.forEach((layerId) => {
+        map.on('mousemove', layerId, (e) => {
+          centralidadPopup.remove();
+          map.getCanvas().style.cursor = 'pointer';
+          if (e.features && e.features.length > 0) {
+            const p = e.features[0].properties;
 
-          projectPopup.setLngLat(coords)
-            .setHTML(`
-              <div style="font-family: inherit; font-size: 12px; padding: 5px 8px; max-width: 260px;">
-                <div style="display: flex; align-items: center; justify-content: space-between; gap: 6px; margin-bottom: 3px;">
-                  <span style="font-weight: 800; color: ${p.color}; text-transform: uppercase; font-size: 9.5px; letter-spacing: 0.04em;">
-                    ● PROYECTO ESTRATÉGICO
-                  </span>
-                  <span style="font-size: 9.5px; background: #f1f5f9; color: #475569; padding: 1px 5px; border-radius: 4px; font-weight: 600;">
-                    ${p.badge}
-                  </span>
+            projectPopup.setLngLat(e.lngLat)
+              .setHTML(`
+                <div style="font-family: inherit; font-size: 12px; padding: 5px 8px; max-width: 260px;">
+                  <div style="display: flex; align-items: center; justify-content: space-between; gap: 6px; margin-bottom: 3px;">
+                    <span style="font-weight: 800; color: #b45309; text-transform: uppercase; font-size: 9.5px; letter-spacing: 0.04em;">
+                      ━━ TRAZADO DE PROYECTO
+                    </span>
+                    <span style="font-size: 9.5px; background: #fef3c7; color: #b45309; padding: 1px 5px; border-radius: 4px; font-weight: 700;">
+                      ${p.badge}
+                    </span>
+                  </div>
+                  <strong style="display: block; color: #0f172a; font-size: 12.5px; line-height: 1.3; margin: 3px 0 5px 0;">
+                    ${p.nombre}
+                  </strong>
+                  <div style="background: #fffbeb; border: 1px solid #fde68a; border-radius: 6px; padding: 5px 7px; margin-bottom: 4px; font-size: 11px; color: #92400e;">
+                    📍 <strong>Centralidad:</strong> ${p.centralidad_nombre} 
+                    <span style="font-weight: 700;">(${p.centralidad_jerarquia})</span>
+                  </div>
+                  <div style="font-size: 10px; color: #2563eb; font-weight: 700;">
+                    👉 Clic para abrir las 4 Dimensiones
+                  </div>
                 </div>
-                <strong style="display: block; color: #0f172a; font-size: 12.5px; line-height: 1.3; margin: 3px 0 5px 0;">
-                  ${p.nombre}
-                </strong>
-                <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 5px 7px; margin-bottom: 4px; font-size: 11px; color: #334155;">
-                  📍 <strong>Centralidad:</strong> ${p.centralidad_nombre} 
-                  <span style="color: ${p.color}; font-weight: 700;">(${p.centralidad_jerarquia})</span>
-                </div>
-                <div style="font-size: 10px; color: #2563eb; font-weight: 700;">
-                  👉 Clic para abrir las 4 Dimensiones
-                </div>
-              </div>
-            `)
-            .addTo(map);
-        }
-      });
+              `)
+              .addTo(map);
+          }
+        });
 
-      map.on('mouseleave', 'proyectos-circle', () => {
-        map.getCanvas().style.cursor = '';
-        projectPopup.remove();
-      });
+        map.on('mouseleave', layerId, () => {
+          map.getCanvas().style.cursor = '';
+          projectPopup.remove();
+        });
 
-      // Clic en Proyecto Estratégico en el mapa: abre pantalla flotante y resalta centralidad
-      map.on('click', 'proyectos-circle', (e) => {
-        if (e.features && e.features.length > 0) {
-          const pProps = e.features[0].properties;
-          const cent = centralidadesData.find(c => c.id === pProps.centralidad_id);
-          if (cent) {
-            setSelectedCentralidad(cent);
-            const pIdx = cent.proyectos.findIndex(p => p.id === pProps.id);
-            const proj = cent.proyectos[pIdx >= 0 ? pIdx : 0];
-            if (proj) {
-              setSelectedProjectIndex(pIdx >= 0 ? pIdx : 0);
-              setActiveProjectTab('info');
-              setFloatingProject(proj);
+        // Clic en Trazado de Proyecto: abre pantalla flotante y resalta centralidad
+        map.on('click', layerId, (e) => {
+          if (e.features && e.features.length > 0) {
+            const pProps = e.features[0].properties;
+            const cent = centralidadesData.find(c => c.id === pProps.centralidad_id);
+            if (cent) {
+              setSelectedCentralidad(cent);
+              const pIdx = cent.proyectos.findIndex(p => p.id === pProps.id);
+              const proj = cent.proyectos[pIdx >= 0 ? pIdx : 0];
+              if (proj) {
+                setSelectedProjectIndex(pIdx >= 0 ? pIdx : 0);
+                setActiveProjectTab('info');
+                setFloatingProject(proj);
+                focusProject(proj);
+              }
             }
           }
-        }
+        });
       });
 
       if (selectedCentralidad) {
@@ -443,7 +491,7 @@ export default function CentralidadesView() {
     };
   }, [mapStyle]);
 
-  // Actualizar filtro de jerarquía en el mapa (tanto polígonos como proyectos)
+  // Actualizar filtro de jerarquía en el mapa (tanto polígonos de centralidades como líneas de proyectos)
   useEffect(() => {
     if (!mapRef.current || !mapRef.current.isStyleLoaded()) return;
 
@@ -451,11 +499,19 @@ export default function CentralidadesView() {
       mapRef.current.setFilter('centralidades-fill', null);
       mapRef.current.setFilter('centralidades-line', null);
       mapRef.current.setFilter('centralidades-labels', null);
-      if (mapRef.current.getLayer('proyectos-circle')) {
-        mapRef.current.setFilter('proyectos-circle', null);
-        mapRef.current.setFilter('proyectos-glow', null);
-        mapRef.current.setFilter('proyectos-labels', null);
-      }
+      
+      const geomLayers = [
+        'proyectos-geom-line-main',
+        'proyectos-geom-line-casing',
+        'proyectos-geom-fill',
+        'proyectos-geom-polygon-outline',
+        'proyectos-geom-labels'
+      ];
+      geomLayers.forEach(lyr => {
+        if (mapRef.current.getLayer(lyr)) {
+          mapRef.current.setFilter(lyr, null);
+        }
+      });
     } else {
       const f = ['==', ['get', 'jerarquia'], hierarchyFilter];
       mapRef.current.setFilter('centralidades-fill', f);
@@ -463,11 +519,18 @@ export default function CentralidadesView() {
       mapRef.current.setFilter('centralidades-labels', f);
 
       const fProj = ['==', ['get', 'centralidad_jerarquia'], hierarchyFilter];
-      if (mapRef.current.getLayer('proyectos-circle')) {
-        mapRef.current.setFilter('proyectos-circle', fProj);
-        mapRef.current.setFilter('proyectos-glow', fProj);
-        mapRef.current.setFilter('proyectos-labels', fProj);
-      }
+      const geomLayers = [
+        'proyectos-geom-line-main',
+        'proyectos-geom-line-casing',
+        'proyectos-geom-fill',
+        'proyectos-geom-polygon-outline',
+        'proyectos-geom-labels'
+      ];
+      geomLayers.forEach(lyr => {
+        if (mapRef.current.getLayer(lyr)) {
+          mapRef.current.setFilter(lyr, fProj);
+        }
+      });
     }
   }, [hierarchyFilter]);
 
@@ -477,12 +540,20 @@ export default function CentralidadesView() {
     mapRef.current.setFilter('centralidades-highlight', ['==', ['get', 'id'], selectedCentralidad.id]);
   }, [selectedCentralidad]);
 
-  // Actualizar anillo de resalte para el proyecto activo/flotante
+  // Actualizar resalte para la línea/contorno del proyecto seleccionado
   useEffect(() => {
     if (!mapRef.current || !mapRef.current.isStyleLoaded()) return;
     const currentProj = floatingProject || (selectedCentralidad.proyectos && selectedCentralidad.proyectos[selectedProjectIndex]);
-    if (mapRef.current.getLayer('proyectos-selected-ring')) {
-      mapRef.current.setFilter('proyectos-selected-ring', ['==', ['get', 'id'], currentProj ? currentProj.id : '']);
+    const targetId = currentProj ? currentProj.id : '';
+    
+    if (mapRef.current.getLayer('proyectos-geom-selected-glow')) {
+      mapRef.current.setFilter('proyectos-geom-selected-glow', ['==', ['get', 'id'], targetId]);
+    }
+    if (mapRef.current.getLayer('proyectos-geom-selected-core')) {
+      mapRef.current.setFilter('proyectos-geom-selected-core', ['==', ['get', 'id'], targetId]);
+    }
+    if (mapRef.current.getLayer('proyectos-geom-selected-polygon-fill')) {
+      mapRef.current.setFilter('proyectos-geom-selected-polygon-fill', ['all', ['==', ['geometry-type'], 'Polygon'], ['==', ['get', 'id'], targetId]]);
     }
   }, [floatingProject, selectedProjectIndex, selectedCentralidad]);
 
@@ -513,11 +584,42 @@ export default function CentralidadesView() {
 
   const focusProject = (proj) => {
     if (!mapRef.current || !proj) return;
-    if (proj.coordenadas) {
+    const feat = proyectosGeometriasGeoJson.features.find(f => f.properties.id === proj.id);
+    if (feat && feat.geometry) {
+      let minX = 999, maxX = -999, minY = 999, maxY = -999;
+      const coords = feat.geometry.type === 'Polygon' 
+        ? feat.geometry.coordinates[0] 
+        : feat.geometry.coordinates;
+      
+      coords.forEach(pt => {
+        if (pt[0] < minX) minX = pt[0];
+        if (pt[0] > maxX) maxX = pt[0];
+        if (pt[1] < minY) minY = pt[1];
+        if (pt[1] > maxY) maxY = pt[1];
+      });
+
+      if (maxX - minX < 0.001 && maxY - minY < 0.001) {
+        mapRef.current.flyTo({
+          center: [(minX + maxX)/2, (minY + maxY)/2],
+          zoom: 15.5,
+          pitch: 40,
+          bearing: -8,
+          duration: 1600
+        });
+      } else {
+        mapRef.current.fitBounds([[minX, minY], [maxX, maxY]], {
+          padding: { top: 90, bottom: 90, left: 90, right: 90 },
+          pitch: 38,
+          bearing: -8,
+          duration: 1600,
+          maxZoom: 16
+        });
+      }
+    } else if (proj.coordenadas) {
       mapRef.current.flyTo({
         center: proj.coordenadas,
         zoom: 15.2,
-        pitch: 42,
+        pitch: 40,
         bearing: -8,
         duration: 1600
       });
@@ -867,8 +969,8 @@ export default function CentralidadesView() {
           </div>
           <div className="legend-divider-light" />
           <div className="legend-row">
-            <span className="legend-circle-project-pulse" />
-            <span>Proyectos Estratégicos (27)</span>
+            <span className="legend-line-project-yellow" />
+            <span>Trazados / Contornos de Proyectos (27)</span>
           </div>
         </div>
       </main>

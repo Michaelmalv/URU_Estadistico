@@ -4390,22 +4390,21 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0.2rem 0;
 }
 
-.legend-circle-project-pulse {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: #2563eb;
-  border: 2.5px solid #ffffff;
-  box-shadow: 0 0 0 2px #2563eb;
-  position: relative;
+.legend-line-project-yellow {
+  width: 18px;
+  height: 6px;
+  border-radius: 3px;
+  background: #f2b705;
+  border: 1px solid #0f172a;
+  box-shadow: 0 0 8px rgba(242, 183, 5, 0.7);
   flex-shrink: 0;
-  animation: legendProjectPulse 2s infinite;
+  display: inline-block;
+  animation: yellowLineGlow 2.5s infinite alternate;
 }
 
-@keyframes legendProjectPulse {
-  0% { box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.7); }
-  50% { box-shadow: 0 0 0 5px rgba(37, 99, 235, 0); }
-  100% { box-shadow: 0 0 0 1px rgba(37, 99, 235, 0); }
+@keyframes yellowLineGlow {
+  0% { box-shadow: 0 0 3px rgba(242, 183, 5, 0.4); }
+  100% { box-shadow: 0 0 10px rgba(242, 183, 5, 0.9); }
 }
 
 /* Estilo para los Popups en el mapa */

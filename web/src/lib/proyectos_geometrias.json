@@ -1,0 +1,1444 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "diagnostico-comite-del-pueblo-san-isidro-del-inca",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -78.47102660819014,
+            -0.1286145039986232
+          ],
+          [
+            -78.47039105603129,
+            -0.1285195366737424
+          ],
+          [
+            -78.46976280906965,
+            -0.1282930761283712
+          ],
+          [
+            -78.46949982196942,
+            -0.1274602857185058
+          ],
+          [
+            -78.46897384776898,
+            -0.126978143889949
+          ],
+          [
+            -78.46487563212382,
+            -0.1193661459728485
+          ]
+        ]
+      },
+      "properties": {
+        "id": "diagnostico-comite-del-pueblo-san-isidro-del-inca",
+        "nombre": "Plan de Intervención Integral Comité del Pueblo - San Isidro del Inca",
+        "tipo": "Diagnóstico Territorial & PMO",
+        "badge": "Planificado en PUGS",
+        "centralidad_id": "comite-del-pueblo-san-isidro-del-inca",
+        "centralidad_nombre": "Comité del Pueblo - San Isidro del Inca",
+        "centralidad_jerarquia": "Sectorial",
+        "color": "#f2b705",
+        "center": [
+          -78.464833,
+          -0.119278
+        ],
+        "presupuesto": "$996K est.",
+        "longitud_km": "11.7 km de red vial"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "sendero-la-roldos",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -78.51595844630658,
+            -0.08530426847011992
+          ],
+          [
+            -78.51282927399826,
+            -0.08529474709450673
+          ],
+          [
+            -78.51277444501893,
+            -0.0852362995397934
+          ],
+          [
+            -78.51272559151246,
+            -0.08520433933727194
+          ],
+          [
+            -78.51266395391086,
+            -0.08518653293872175
+          ],
+          [
+            -78.51263245024782,
+            -0.0851851632157455
+          ],
+          [
+            -78.51221925002957,
+            -0.08531848291758956
+          ],
+          [
+            -78.51208319073119,
+            -0.08532715782968568
+          ],
+          [
+            -78.51197087332379,
+            -0.08529885022180674
+          ],
+          [
+            -78.51168919120948,
+            -0.0852279104389575
+          ],
+          [
+            -78.51149003641048,
+            -0.08520857236816287
+          ],
+          [
+            -78.51139885561633,
+            -0.08522306026622559
+          ],
+          [
+            -78.51117369367624,
+            -0.08529245818131435
+          ],
+          [
+            -78.51108785760883,
+            -0.0853773810049063
+          ],
+          [
+            -78.51101297933722,
+            -0.08547234846331406
+          ],
+          [
+            -78.51072807664528,
+            -0.08595175149500626
+          ]
+        ]
+      },
+      "properties": {
+        "id": "sendero-la-roldos",
+        "nombre": "Sendero Seguro La Roldós Oe13 — Colinas del Norte",
+        "tipo": "Sendero Seguro / Equipamiento Barrial",
+        "badge": "Inaugurado",
+        "centralidad_id": "cotocollao-ofelia",
+        "centralidad_nombre": "Cotocollao - Ofelia",
+        "centralidad_jerarquia": "Zonal",
+        "color": "#f2b705",
+        "center": [
+          -78.494392,
+          -0.114164
+        ],
+        "presupuesto": "$1.42M",
+        "longitud_km": "1.2 km"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "diagnostico-guamani-turubamba",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -78.557086,
+            -0.319755
+          ],
+          [
+            -78.553586,
+            -0.318355
+          ],
+          [
+            -78.550086,
+            -0.316955
+          ]
+        ]
+      },
+      "properties": {
+        "id": "diagnostico-guamani-turubamba",
+        "nombre": "Plan de Intervención Integral Guamaní - Turubamba",
+        "tipo": "Diagnóstico Territorial & PMO",
+        "badge": "Planificado en PUGS",
+        "centralidad_id": "guamani-turubamba",
+        "centralidad_nombre": "Guamaní - Turubamba",
+        "centralidad_jerarquia": "Sectorial",
+        "color": "#f2b705",
+        "center": [
+          -78.553586,
+          -0.318355
+        ],
+        "presupuesto": "$804K est.",
+        "longitud_km": "9.5 km de red vial"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "arena-del-sur-quitumbe",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -78.55825799261366,
+              -0.2920930943124354
+            ],
+            [
+              -78.5580926762959,
+              -0.2921115497147085
+            ],
+            [
+              -78.5582457445935,
+              -0.2921054193556976
+            ],
+            [
+              -78.55834369414956,
+              -0.2921670794163895
+            ],
+            [
+              -78.558607002664,
+              -0.2920130404627254
+            ],
+            [
+              -78.55856416119433,
+              -0.2919329008667492
+            ],
+            [
+              -78.55870500811616,
+              -0.291815818253552
+            ],
+            [
+              -78.55862545712607,
+              -0.2916123933623823
+            ],
+            [
+              -78.55854585298077,
+              -0.2916555230147391
+            ],
+            [
+              -78.55842953933687,
+              -0.2915753673838521
+            ],
+            [
+              -78.55808051873724,
+              -0.2917047322186547
+            ],
+            [
+              -78.5579457905733,
+              -0.2918403077004933
+            ],
+            [
+              -78.55749266460768,
+              -0.2920621074993289
+            ],
+            [
+              -78.55712527482683,
+              -0.2921976319198675
+            ],
+            [
+              -78.55669665040482,
+              -0.2923701259612012
+            ],
+            [
+              -78.55622513670149,
+              -0.2926843790752306
+            ],
+            [
+              -78.55614552196708,
+              -0.2927768193839727
+            ],
+            [
+              -78.5558454136211,
+              -0.2932267145976774
+            ],
+            [
+              -78.55571675594246,
+              -0.2936026811647078
+            ],
+            [
+              -78.55567999046211,
+              -0.2937382777689946
+            ],
+            [
+              -78.55551457785278,
+              -0.2942005300187708
+            ],
+            [
+              -78.5553308011239,
+              -0.2946442865465793
+            ],
+            [
+              -78.55517766855127,
+              -0.2949462812356876
+            ],
+            [
+              -78.55488980493469,
+              -0.2953961783205578
+            ],
+            [
+              -78.5544549891699,
+              -0.2958830256452855
+            ],
+            [
+              -78.55421617423912,
+              -0.296024741010977
+            ],
+            [
+              -78.55371406732687,
+              -0.2962465277208694
+            ],
+            [
+              -78.55290580600284,
+              -0.2965668674836658
+            ],
+            [
+              -78.55280784349577,
+              -0.2965668456676491
+            ],
+            [
+              -78.55270376782055,
+              -0.2965236756356592
+            ],
+            [
+              -78.55244046248089,
+              -0.2966653852052292
+            ],
+            [
+              -78.5524404516394,
+              -0.2967146958829309
+            ],
+            [
+              -78.55240370757835,
+              -0.2967516707036504
+            ],
+            [
+              -78.55233022759019,
+              -0.2967886373333636
+            ],
+            [
+              -78.55245874502073,
+              -0.2970537108898689
+            ],
+            [
+              -78.55263018480214,
+              -0.2970290937930956
+            ],
+            [
+              -78.5527342577463,
+              -0.2970845915350136
+            ],
+            [
+              -78.55297307256428,
+              -0.2969428765494624
+            ],
+            [
+              -78.55298533414964,
+              -0.2968689132330046
+            ],
+            [
+              -78.55302820224152,
+              -0.2968257759246422
+            ],
+            [
+              -78.5540262784061,
+              -0.2964500039433917
+            ],
+            [
+              -78.55433244130157,
+              -0.2963144674984216
+            ],
+            [
+              -78.55464473907455,
+              -0.2961234577390646
+            ],
+            [
+              -78.55465087930473,
+              -0.2960433291152206
+            ],
+            [
+              -78.55497544942652,
+              -0.295729045026621
+            ],
+            [
+              -78.55522041003576,
+              -0.2954825454593543
+            ],
+            [
+              -78.55548990977512,
+              -0.2950141526615212
+            ],
+            [
+              -78.55564918522242,
+              -0.2946197015149232
+            ],
+            [
+              -78.5558452341433,
+              -0.2940526705643393
+            ],
+            [
+              -78.55611477896207,
+              -0.2933747062823043
+            ],
+            [
+              -78.55653124621071,
+              -0.292795395627227
+            ],
+            [
+              -78.55705784943736,
+              -0.292548956966481
+            ],
+            [
+              -78.55787224125382,
+              -0.2921977955056162
+            ],
+            [
+              -78.55825799261366,
+              -0.2920930943124354
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "id": "arena-del-sur-quitumbe",
+        "nombre": "Arena del Sur y Espacio Público Quitumbe",
+        "tipo": "Espacio Público / Equipamiento Deportivo",
+        "badge": "Operativo",
+        "centralidad_id": "quitumbe",
+        "centralidad_nombre": "Quitumbe",
+        "centralidad_jerarquia": "Metropolitana",
+        "color": "#f2b705",
+        "center": [
+          -78.555559,
+          -0.294331
+        ],
+        "presupuesto": "$3.80M",
+        "longitud_km": "2.2 km de entorno"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "bulevar-av-michelena",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -78.53482777808561,
+            -0.2472721106345104
+          ],
+          [
+            -78.53209623511316,
+            -0.2489326901867763
+          ],
+          [
+            -78.53157756610995,
+            -0.2492038930714111
+          ]
+        ]
+      },
+      "properties": {
+        "id": "bulevar-av-michelena",
+        "nombre": "Bulevar Comercial Av. Michelena (El Pintado)",
+        "tipo": "Espacio Público / Bulevar Peatonal",
+        "badge": "Operativo",
+        "centralidad_id": "chimbacalle-la-villaflora-la-magdalena",
+        "centralidad_nombre": "Chimbacalle - La Villaflora - La Magdalena",
+        "centralidad_jerarquia": "Zonal",
+        "color": "#f2b705",
+        "center": [
+          -78.526808,
+          -0.236077
+        ],
+        "presupuesto": "$1.65M",
+        "longitud_km": "1.3 km"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "sendero-av-ajavi",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -78.54278447827802,
+            -0.2567992537144138
+          ],
+          [
+            -78.54145375952753,
+            -0.258077321365377
+          ],
+          [
+            -78.53930326236284,
+            -0.2600405661068149
+          ],
+          [
+            -78.53892661748199,
+            -0.2604625689739134
+          ],
+          [
+            -78.5386956819346,
+            -0.2607897242813618
+          ],
+          [
+            -78.53860083340619,
+            -0.2610646447012068
+          ],
+          [
+            -78.53823243622347,
+            -0.262294913506298
+          ],
+          [
+            -78.53811146998436,
+            -0.2625877037180826
+          ],
+          [
+            -78.53807118753143,
+            -0.2626652459928822
+          ]
+        ]
+      },
+      "properties": {
+        "id": "sendero-av-ajavi",
+        "nombre": "Sendero Seguro y Soterramiento Av. Ajaví",
+        "tipo": "Sendero Seguro / Soterramiento",
+        "badge": "Inaugurado",
+        "centralidad_id": "solanda-san-bartolo",
+        "centralidad_nombre": "Solanda - San Bartolo",
+        "centralidad_jerarquia": "Zonal",
+        "color": "#f2b705",
+        "center": [
+          -78.53796,
+          -0.27911
+        ],
+        "presupuesto": "$2.10M",
+        "longitud_km": "1.7 km"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "corredor-av-patria",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -78.49941450778209,
+            -0.2063766608038008
+          ],
+          [
+            -78.49911174809682,
+            -0.2066638756039034
+          ],
+          [
+            -78.49861151432876,
+            -0.2069267081404167
+          ],
+          [
+            -78.49557473897428,
+            -0.2086828438467792
+          ],
+          [
+            -78.49388440428415,
+            -0.2101620985315631
+          ]
+        ]
+      },
+      "properties": {
+        "id": "corredor-av-patria",
+        "nombre": "Corredor Vivo Av. Patria",
+        "tipo": "Corredor Vivo / Eje Cultural",
+        "badge": "Inaugurado y Operativo",
+        "centralidad_id": "el-ejido-alameda",
+        "centralidad_nombre": "El Ejido - Alameda",
+        "centralidad_jerarquia": "Zonal",
+        "color": "#f2b705",
+        "center": [
+          -78.499293,
+          -0.20661
+        ],
+        "presupuesto": "$2.40M",
+        "longitud_km": "1.8 km"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "soterramiento-av-patria",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -78.49941450778209,
+            -0.2063766608038008
+          ],
+          [
+            -78.49911174809682,
+            -0.2066638756039034
+          ],
+          [
+            -78.49861151432876,
+            -0.2069267081404167
+          ],
+          [
+            -78.49557473897428,
+            -0.2086828438467792
+          ],
+          [
+            -78.49388440428415,
+            -0.2101620985315631
+          ]
+        ]
+      },
+      "properties": {
+        "id": "soterramiento-av-patria",
+        "nombre": "Soterramiento de Cables Av. Patria",
+        "tipo": "Soterramiento de Redes Aéreas",
+        "badge": "Ejecutado",
+        "centralidad_id": "el-ejido-alameda",
+        "centralidad_nombre": "El Ejido - Alameda",
+        "centralidad_jerarquia": "Zonal",
+        "color": "#f2b705",
+        "center": [
+          -78.497218,
+          -0.208731
+        ],
+        "presupuesto": "$1.20M",
+        "longitud_km": "1.8 km soterrados"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "diagnostico-rio-coca-granados",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -78.476187,
+            -0.170516
+          ],
+          [
+            -78.477759,
+            -0.178331
+          ]
+        ]
+      },
+      "properties": {
+        "id": "diagnostico-rio-coca-granados",
+        "nombre": "Plan de Intervención Integral Río Coca - Granados",
+        "tipo": "Diagnóstico Territorial & PMO",
+        "badge": "Planificado en PUGS",
+        "centralidad_id": "rio-coca-granados",
+        "centralidad_nombre": "Río Coca - Granados",
+        "centralidad_jerarquia": "Zonal",
+        "color": "#f2b705",
+        "center": [
+          -78.476187,
+          -0.170516
+        ],
+        "presupuesto": "$1361K est.",
+        "longitud_km": "16.0 km de red vial"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "parque-navarro-floresta",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -78.48466440432847,
+              -0.2132883843726878
+            ],
+            [
+              -78.48425050409732,
+              -0.2128632303806473
+            ],
+            [
+              -78.4846436227269,
+              -0.2125857113224927
+            ],
+            [
+              -78.48465661122788,
+              -0.2125675275462771
+            ],
+            [
+              -78.48467652692939,
+              -0.2125289952585117
+            ],
+            [
+              -78.48499777585357,
+              -0.2125904737400695
+            ],
+            [
+              -78.48505752295807,
+              -0.212654549903686
+            ],
+            [
+              -78.48507830455964,
+              -0.2126831244089969
+            ],
+            [
+              -78.48508956126047,
+              -0.2127164613317926
+            ],
+            [
+              -78.48509432371083,
+              -0.2127502312015642
+            ],
+            [
+              -78.48509475666089,
+              -0.2128106273146254
+            ],
+            [
+              -78.48466440432847,
+              -0.2132883843726878
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "id": "parque-navarro-floresta",
+        "nombre": "Parque Navarro — Corredor Gastronómico La Floresta",
+        "tipo": "Espacio Público / Corredor Gastronómico",
+        "badge": "Inaugurado y Operativo",
+        "centralidad_id": "la-floresta",
+        "centralidad_nombre": "La Floresta",
+        "centralidad_jerarquia": "Sectorial",
+        "color": "#f2b705",
+        "center": [
+          -78.4862,
+          -0.2085
+        ],
+        "presupuesto": "$890K",
+        "longitud_km": "0.6 km"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "sendero-isla-tortuga",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -78.48463523834597,
+            -0.1652876203668965
+          ],
+          [
+            -78.484254053788,
+            -0.1656376560889247
+          ],
+          [
+            -78.47929420490907,
+            -0.1665157117711971
+          ]
+        ]
+      },
+      "properties": {
+        "id": "sendero-isla-tortuga",
+        "nombre": "Sendero Seguro Isla Tortuga / QUITOPIA La Y",
+        "tipo": "Sendero Seguro / Equipamiento Recreativo",
+        "badge": "Inaugurado y Operativo",
+        "centralidad_id": "la-y",
+        "centralidad_nombre": "La \"Y\"",
+        "centralidad_jerarquia": "Sectorial",
+        "color": "#f2b705",
+        "center": [
+          -78.484766,
+          -0.164343
+        ],
+        "presupuesto": "$1.15M",
+        "longitud_km": "0.9 km"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "peatonalizacion-calle-benalcazar",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -78.51498695991727,
+            -0.2213708056421454
+          ],
+          [
+            -78.51430795717695,
+            -0.2205761544989131
+          ],
+          [
+            -78.51353941561379,
+            -0.2197479265016576
+          ],
+          [
+            -78.51337153032088,
+            -0.2195912347132224
+          ],
+          [
+            -78.51289678802029,
+            -0.2190549384010959
+          ],
+          [
+            -78.51177009116554,
+            -0.2177174619496014
+          ],
+          [
+            -78.51120394464995,
+            -0.2170468583005603
+          ]
+        ]
+      },
+      "properties": {
+        "id": "peatonalizacion-calle-benalcazar",
+        "nombre": "Sendero Seguro Calle Benalcázar",
+        "tipo": "Sendero Seguro / Peatonalización Patrimonial",
+        "badge": "Inaugurado",
+        "centralidad_id": "centro-historico",
+        "centralidad_nombre": "Centro Histórico",
+        "centralidad_jerarquia": "Metropolitana",
+        "color": "#f2b705",
+        "center": [
+          -78.513154,
+          -0.219301
+        ],
+        "presupuesto": "$1.80M",
+        "longitud_km": "1.2 km"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "sendero-calle-rocafuerte",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -78.51268106744475,
+            -0.2243826497855649
+          ],
+          [
+            -78.51206111546935,
+            -0.2251215003910738
+          ],
+          [
+            -78.51124046950632,
+            -0.2260706656255993
+          ],
+          [
+            -78.51091468543052,
+            -0.2264624282314684
+          ],
+          [
+            -78.5095565644733,
+            -0.2280734659238178
+          ],
+          [
+            -78.50888712630916,
+            -0.228782762325121
+          ],
+          [
+            -78.5083104747489,
+            -0.2292336328875711
+          ],
+          [
+            -78.50803005301279,
+            -0.2294487586234913
+          ],
+          [
+            -78.50760323463504,
+            -0.2297257415950124
+          ],
+          [
+            -78.5072493843235,
+            -0.2298830168803875
+          ],
+          [
+            -78.50691242630262,
+            -0.2300223387234702
+          ]
+        ]
+      },
+      "properties": {
+        "id": "sendero-calle-rocafuerte",
+        "nombre": "Sendero Seguro Calle Rocafuerte",
+        "tipo": "Sendero Seguro / Conector Patrimonial",
+        "badge": "Inaugurado",
+        "centralidad_id": "centro-historico",
+        "centralidad_nombre": "Centro Histórico",
+        "centralidad_jerarquia": "Metropolitana",
+        "color": "#f2b705",
+        "center": [
+          -78.509404,
+          -0.227928
+        ],
+        "presupuesto": "$1.35M",
+        "longitud_km": "1.1 km"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "corredor-av-colon",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -78.48311001966442,
+            -0.2034606528866073
+          ],
+          [
+            -78.4865239003325,
+            -0.2020728144628988
+          ],
+          [
+            -78.49098989030885,
+            -0.2002055741238089
+          ],
+          [
+            -78.49599760300893,
+            -0.1981373026551334
+          ],
+          [
+            -78.4982980687605,
+            -0.1968981896300826
+          ],
+          [
+            -78.49949849994466,
+            -0.1962127471397172
+          ]
+        ]
+      },
+      "properties": {
+        "id": "corredor-av-colon",
+        "nombre": "Corredor Vivo Av. Colón",
+        "tipo": "Corredor Vivo / Regeneración Peatonal",
+        "badge": "Inaugurado y Operativo",
+        "centralidad_id": "mariscal",
+        "centralidad_nombre": "Mariscal",
+        "centralidad_jerarquia": "Metropolitana",
+        "color": "#f2b705",
+        "center": [
+          -78.4905,
+          -0.1985
+        ],
+        "presupuesto": "$2.85M",
+        "longitud_km": "2.1 km"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "soterramiento-av-colon",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -78.48311001966442,
+            -0.2034606528866073
+          ],
+          [
+            -78.4865239003325,
+            -0.2020728144628988
+          ],
+          [
+            -78.49098989030885,
+            -0.2002055741238089
+          ],
+          [
+            -78.49599760300893,
+            -0.1981373026551334
+          ],
+          [
+            -78.4982980687605,
+            -0.1968981896300826
+          ],
+          [
+            -78.49949849994466,
+            -0.1962127471397172
+          ]
+        ]
+      },
+      "properties": {
+        "id": "soterramiento-av-colon",
+        "nombre": "Soterramiento de Cables Av. Colón (Fases 1 y 2)",
+        "tipo": "Soterramiento de Redes Aéreas",
+        "badge": "Ejecutado",
+        "centralidad_id": "mariscal",
+        "centralidad_nombre": "Mariscal",
+        "centralidad_jerarquia": "Metropolitana",
+        "color": "#f2b705",
+        "center": [
+          -78.48663,
+          -0.202062
+        ],
+        "presupuesto": "$1.45M",
+        "longitud_km": "2.1 km soterrados"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "repotenciacion-parque-bicentenario",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -78.491672,
+            -0.127511
+          ],
+          [
+            -78.490158,
+            -0.146292
+          ]
+        ]
+      },
+      "properties": {
+        "id": "repotenciacion-parque-bicentenario",
+        "nombre": "Repotenciación Integral Parque Bicentenario",
+        "tipo": "Espacio Público / Parque Metropolitano",
+        "badge": "En Ejecución / Operativo",
+        "centralidad_id": "bicentenario",
+        "centralidad_nombre": "Bicentenario",
+        "centralidad_jerarquia": "Metropolitana",
+        "color": "#f2b705",
+        "center": [
+          -78.490915,
+          -0.1369015
+        ],
+        "presupuesto": "$4.50M",
+        "longitud_km": "125 hectáreas"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "recuperacion-av-10-agosto",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -78.491672,
+            -0.127511
+          ],
+          [
+            -78.490158,
+            -0.146292
+          ]
+        ]
+      },
+      "properties": {
+        "id": "recuperacion-av-10-agosto",
+        "nombre": "Recuperación Urbana Av. 10 de Agosto (Tramo Bicentenario)",
+        "tipo": "Corredor Vivo / Regeneración Vial",
+        "badge": "Ejecutado",
+        "centralidad_id": "bicentenario",
+        "centralidad_nombre": "Bicentenario",
+        "centralidad_jerarquia": "Metropolitana",
+        "color": "#f2b705",
+        "center": [
+          -78.4889,
+          -0.145
+        ],
+        "presupuesto": "$2.15M",
+        "longitud_km": "2.5 km"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "bulevar-tribuna-shyris",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -78.48235418295455,
+              -0.1835425146055157
+            ],
+            [
+              -78.48250138596562,
+              -0.1833779944365239
+            ],
+            [
+              -78.48230439370077,
+              -0.1822882647527488
+            ],
+            [
+              -78.48211259683632,
+              -0.1821458249123639
+            ],
+            [
+              -78.48235418295455,
+              -0.1835425146055157
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "id": "bulevar-tribuna-shyris",
+        "nombre": "Bulevar Tribuna de los Shyris",
+        "tipo": "Espacio Público / Bulevar Peatonal",
+        "badge": "Inaugurado y Operativo",
+        "centralidad_id": "la-carolina",
+        "centralidad_nombre": "La Carolina",
+        "centralidad_jerarquia": "Metropolitana",
+        "color": "#f2b705",
+        "center": [
+          -78.482325,
+          -0.182979
+        ],
+        "presupuesto": "$3.10M",
+        "longitud_km": "1.4 km"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "soterramiento-shyris",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -78.48235418295455,
+              -0.1835425146055157
+            ],
+            [
+              -78.48250138596562,
+              -0.1833779944365239
+            ],
+            [
+              -78.48230439370077,
+              -0.1822882647527488
+            ],
+            [
+              -78.48211259683632,
+              -0.1821458249123639
+            ],
+            [
+              -78.48235418295455,
+              -0.1835425146055157
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "id": "soterramiento-shyris",
+        "nombre": "Soterramiento de Redes Bulevar Shyris",
+        "tipo": "Soterramiento de Redes Aéreas",
+        "badge": "Ejecutado",
+        "centralidad_id": "la-carolina",
+        "centralidad_nombre": "La Carolina",
+        "centralidad_jerarquia": "Metropolitana",
+        "color": "#f2b705",
+        "center": [
+          -78.4842,
+          -0.1785
+        ],
+        "presupuesto": "$1.60M",
+        "longitud_km": "1.4 km"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "diagnostico-calderon",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -78.425413,
+            -0.104659
+          ],
+          [
+            -78.419412,
+            -0.098335
+          ]
+        ]
+      },
+      "properties": {
+        "id": "diagnostico-calderon",
+        "nombre": "Plan de Intervención Integral Calderón",
+        "tipo": "Diagnóstico Territorial & PMO",
+        "badge": "Planificado en PUGS",
+        "centralidad_id": "calderon",
+        "centralidad_nombre": "Calderón",
+        "centralidad_jerarquia": "Zonal",
+        "color": "#f2b705",
+        "center": [
+          -78.429033,
+          -0.087919
+        ],
+        "presupuesto": "$704K est.",
+        "longitud_km": "8.3 km de red vial"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "diagnostico-calderon-historico",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -78.425413,
+            -0.104659
+          ],
+          [
+            -78.419412,
+            -0.098335
+          ]
+        ]
+      },
+      "properties": {
+        "id": "diagnostico-calderon-historico",
+        "nombre": "Plan de Intervención Integral Calderón Histórico",
+        "tipo": "Diagnóstico Territorial & PMO",
+        "badge": "Planificado en PUGS",
+        "centralidad_id": "calderon-historico",
+        "centralidad_nombre": "Calderón Histórico",
+        "centralidad_jerarquia": "Sectorial",
+        "color": "#f2b705",
+        "center": [
+          -78.422412,
+          -0.101497
+        ],
+        "presupuesto": "$316K est.",
+        "longitud_km": "3.7 km de red vial"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "diagnostico-conocoto",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -78.47907798026053,
+            -0.2939360585391238
+          ],
+          [
+            -78.47801091174262,
+            -0.2913695973206648
+          ],
+          [
+            -78.47722947460763,
+            -0.291679072822701
+          ],
+          [
+            -78.47609846259418,
+            -0.2922092591692943
+          ],
+          [
+            -78.475291621601,
+            -0.2926441972098815
+          ],
+          [
+            -78.47451288618953,
+            -0.2930679871635106
+          ]
+        ]
+      },
+      "properties": {
+        "id": "diagnostico-conocoto",
+        "nombre": "Plan de Intervención Integral Conocoto",
+        "tipo": "Diagnóstico Territorial & PMO",
+        "badge": "Planificado en PUGS",
+        "centralidad_id": "conocoto",
+        "centralidad_nombre": "Conocoto",
+        "centralidad_jerarquia": "Zonal",
+        "color": "#f2b705",
+        "center": [
+          -78.476704,
+          -0.292484
+        ],
+        "presupuesto": "$767K est.",
+        "longitud_km": "9.0 km de red vial"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "diagnostico-cumbaya",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -78.444761,
+            -0.19731500000000002
+          ],
+          [
+            -78.441261,
+            -0.195915
+          ],
+          [
+            -78.437761,
+            -0.194515
+          ]
+        ]
+      },
+      "properties": {
+        "id": "diagnostico-cumbaya",
+        "nombre": "Plan de Intervención Integral Cumbayá",
+        "tipo": "Diagnóstico Territorial & PMO",
+        "badge": "Planificado en PUGS",
+        "centralidad_id": "cumbaya",
+        "centralidad_nombre": "Cumbayá",
+        "centralidad_jerarquia": "Zonal",
+        "color": "#f2b705",
+        "center": [
+          -78.441261,
+          -0.195915
+        ],
+        "presupuesto": "$872K est.",
+        "longitud_km": "10.3 km de red vial"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "diagnostico-san-patricio",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -78.447033,
+            -0.214422
+          ],
+          [
+            -78.443533,
+            -0.213022
+          ],
+          [
+            -78.440033,
+            -0.21162199999999998
+          ]
+        ]
+      },
+      "properties": {
+        "id": "diagnostico-san-patricio",
+        "nombre": "Plan de Intervención Integral San Patricio",
+        "tipo": "Diagnóstico Territorial & PMO",
+        "badge": "Planificado en PUGS",
+        "centralidad_id": "san-patricio",
+        "centralidad_nombre": "San Patricio",
+        "centralidad_jerarquia": "Sectorial",
+        "color": "#f2b705",
+        "center": [
+          -78.443533,
+          -0.213022
+        ],
+        "presupuesto": "$597K est.",
+        "longitud_km": "7.0 km de red vial"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "diagnostico-mitad-del-mundo",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -78.45372400000001,
+            -0.008321
+          ],
+          [
+            -78.450224,
+            -0.006921
+          ],
+          [
+            -78.446724,
+            -0.005521
+          ]
+        ]
+      },
+      "properties": {
+        "id": "diagnostico-mitad-del-mundo",
+        "nombre": "Plan de Intervención Integral Mitad del Mundo",
+        "tipo": "Diagnóstico Territorial & PMO",
+        "badge": "Planificado en PUGS",
+        "centralidad_id": "mitad-del-mundo",
+        "centralidad_nombre": "Mitad del Mundo",
+        "centralidad_jerarquia": "Zonal",
+        "color": "#f2b705",
+        "center": [
+          -78.450224,
+          -0.006921
+        ],
+        "presupuesto": "$822K est.",
+        "longitud_km": "9.7 km de red vial"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "diagnostico-tumbaco",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -78.40630716083116,
+            -0.2147816393511572
+          ],
+          [
+            -78.40554456121318,
+            -0.2132572388985161
+          ],
+          [
+            -78.40527098698693,
+            -0.212780467559622
+          ],
+          [
+            -78.40510613656879,
+            -0.2124738259421368
+          ],
+          [
+            -78.40479158342491,
+            -0.2118376765280873
+          ]
+        ]
+      },
+      "properties": {
+        "id": "diagnostico-tumbaco",
+        "nombre": "Plan de Intervención Integral Tumbaco",
+        "tipo": "Diagnóstico Territorial & PMO",
+        "badge": "Planificado en PUGS",
+        "centralidad_id": "tumbaco",
+        "centralidad_nombre": "Tumbaco",
+        "centralidad_jerarquia": "Zonal",
+        "color": "#f2b705",
+        "center": [
+          -78.405404,
+          -0.213026
+        ],
+        "presupuesto": "$998K est.",
+        "longitud_km": "11.7 km de red vial"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "diagnostico-carapungo",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -78.4248700090487,
+            -0.104022294959923
+          ],
+          [
+            -78.41961781217543,
+            -0.09874841792167784
+          ],
+          [
+            -78.41945648589845,
+            -0.09851347840312069
+          ]
+        ]
+      },
+      "properties": {
+        "id": "diagnostico-carapungo",
+        "nombre": "Plan de Intervención Integral Carapungo",
+        "tipo": "Diagnóstico Territorial & PMO",
+        "badge": "Planificado en PUGS",
+        "centralidad_id": "carapungo",
+        "centralidad_nombre": "Carapungo",
+        "centralidad_jerarquia": "Zonal",
+        "color": "#f2b705",
+        "center": [
+          -78.45729,
+          -0.10528
+        ],
+        "presupuesto": "$1169K est.",
+        "longitud_km": "13.8 km de red vial"
+      }
+    }
+  ]
+}
