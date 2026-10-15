@@ -33,12 +33,13 @@
         "estado": "Fase de Priorización",
         "resumen": "Centralidad sectorial de 117.2 hectáreas con proyección de soterramiento de cables, iluminación LED y cruces peatonales seguros.",
         "seguridad": {
-          "nivel": "En Proceso de Repotenciación",
+          "tiene_datos_oficiales": true,
+          "nivel": "Evaluado Oficial DMQ",
           "camaras": 9,
           "luminarias_led": 105,
           "cruces_seguros": 6,
           "bolardos": 94,
-          "descripcion": "Equipamiento urbano y plan de seguridad preventiva para la centralidad Comité del Pueblo - San Isidro del Inca.",
+          "descripcion": "Datos oficiales de la Secretaría de Seguridad y Gobernabilidad del DMQ para Comité del Pueblo.",
           "delitos_por_ano": {
             "2023": 0,
             "2024": 0,
@@ -51,52 +52,26 @@
             "2025": 0,
             "2026_proy": 0
           },
-          "reduccion_delitos_pct": -35,
+          "reduccion_delitos_pct": null,
           "top_delitos": [],
           "top_incidentes": []
         },
         "economia": {
-          "negocios_activos": "+129 unidades productivas y de comercio",
-          "atractivo_comercial": "Centralidad sectorial que abastece al tejido barrial circundante.",
-          "inversiones_privadas": [
-            {
-              "titulo": "Dinamización Comercial de Comité del Pueblo - San Isidro del Inca",
-              "tipo": "Comercio y Servicios",
-              "impacto": "Atracción de inversión de proximidad y formalización de patentes municipales."
-            }
-          ],
-          "licencias_emitidas": 1567,
-          "licencias_renovadas": 885,
-          "total_licencias": 2452,
-          "desglose_anual_licencias": [
-            {
-              "anio": 2021,
-              "emitidas": 282,
-              "renovadas": 142
-            },
-            {
-              "anio": 2022,
-              "emitidas": 376,
-              "renovadas": 195
-            },
-            {
-              "anio": 2023,
-              "emitidas": 439,
-              "renovadas": 257
-            },
-            {
-              "anio": 2024,
-              "emitidas": 470,
-              "renovadas": 292
-            }
-          ]
+          "tiene_datos_oficiales": true,
+          "negocios_activos": "1225 licencias LUAE cruzadas",
+          "atractivo_comercial": "Cruce predial oficial con base municipal de patentes y licencias LUAE.",
+          "licencias_emitidas": 783,
+          "licencias_renovadas": 442,
+          "total_licencias": 1225,
+          "desglose_anual_licencias": []
         },
         "valor_suelo": {
+          "tiene_datos_oficiales": true,
           "aiva": "AIVAS COMITÉ DEL PUEBLO",
           "valor_m2": 204.2,
-          "rango": "Sectorial / Planificado",
-          "tendencia": "+2.3% de plusvalía acumulada",
-          "descripcion": "Suelo urbano con potencial de densificación y desarrollo según la normativa PUGS de la STHV.",
+          "rango": "Media Consolidación",
+          "tendencia": "+2.3% acumulada (2022-2027)",
+          "descripcion": "Datos oficiales de avalúos y valor del suelo de la Dirección Metropolitana de Catastro para AIVAS COMITÉ DEL PUEBLO.",
           "historico_anios": {
             "2022_2023": 207.5,
             "2024_2025": 204.2,
@@ -110,7 +85,8 @@
         "coordenadas": [
           -78.464833,
           -0.119278
-        ]
+        ],
+        "tiene_datos_oficiales": true
       }
     ]
   },
@@ -149,12 +125,13 @@
         "estado": "Completado",
         "resumen": "Pavimentación con adoquín ornamental, accesibilidad universal con franja podotáctil, parada de buses con cubierta, luminarias LED y cancha de césped sintético.",
         "seguridad": {
-          "nivel": "Alto (Transformación Barrial)",
+          "tiene_datos_oficiales": true,
+          "nivel": "Evaluado Oficial DMQ",
           "camaras": 10,
           "luminarias_led": 92,
           "cruces_seguros": 7,
           "bolardos": 130,
-          "descripcion": "Recuperación de un entorno antes oscuro en un sendero vibrante y vigilado.",
+          "descripcion": "Datos oficiales de la Secretaría de Seguridad y Gobernabilidad del DMQ para La Roldós Oe13-Colinas del Norte.",
           "delitos_por_ano": {
             "2023": 7,
             "2024": 1,
@@ -176,7 +153,28 @@
                 "2024": 1,
                 "2025": 1,
                 "2026_proy": 0
-              }
+              },
+              "total": 9
+            },
+            {
+              "label": "Robo a carros",
+              "valores": {
+                "2023": 0,
+                "2024": 1,
+                "2025": 1,
+                "2026_proy": 0
+              },
+              "total": 2
+            },
+            {
+              "label": "Robo a motos",
+              "valores": {
+                "2023": 1,
+                "2024": 1,
+                "2025": 0,
+                "2026_proy": 0
+              },
+              "total": 2
             },
             {
               "label": "Robo a unidades económicas",
@@ -185,16 +183,8 @@
                 "2024": 0,
                 "2025": 0,
                 "2026_proy": 0
-              }
-            },
-            {
-              "label": "Robo a domicilios",
-              "valores": {
-                "2023": 0,
-                "2024": 0,
-                "2025": 0,
-                "2026_proy": 0
-              }
+              },
+              "total": 0
             },
             {
               "label": "Robo de autopartes",
@@ -203,19 +193,21 @@
                 "2024": 0,
                 "2025": 0,
                 "2026_proy": 0
-              }
+              },
+              "total": 0
+            },
+            {
+              "label": "Robo a domicilios",
+              "valores": {
+                "2023": 0,
+                "2024": 0,
+                "2025": 0,
+                "2026_proy": 0
+              },
+              "total": 0
             }
           ],
           "top_incidentes": [
-            {
-              "label": "Libadores",
-              "valores": {
-                "2023": 74,
-                "2024": 80,
-                "2025": 44,
-                "2026_proy": 27
-              }
-            },
             {
               "label": "Escándalos",
               "valores": {
@@ -223,16 +215,18 @@
                 "2024": 132,
                 "2025": 90,
                 "2026_proy": 33
-              }
+              },
+              "total": 375
             },
             {
-              "label": "Daño a propiedad pública y privada",
+              "label": "Libadores",
               "valores": {
-                "2023": 0,
-                "2024": 0,
-                "2025": 4,
-                "2026_proy": 0
-              }
+                "2023": 74,
+                "2024": 80,
+                "2025": 44,
+                "2026_proy": 27
+              },
+              "total": 225
             },
             {
               "label": "Venta y consumo de sustancias sujetas a fiscalización",
@@ -241,7 +235,18 @@
                 "2024": 3,
                 "2025": 3,
                 "2026_proy": 1
-              }
+              },
+              "total": 8
+            },
+            {
+              "label": "Daño a propiedad pública y privada",
+              "valores": {
+                "2023": 0,
+                "2024": 0,
+                "2025": 4,
+                "2026_proy": 0
+              },
+              "total": 4
             },
             {
               "label": "Eventos clandestinos",
@@ -250,52 +255,27 @@
                 "2024": 0,
                 "2025": 0,
                 "2026_proy": 0
-              }
+              },
+              "total": 0
             }
           ]
         },
         "economia": {
-          "negocios_activos": "+80 bazares, tiendas de abarrotes, farmacias y ferreterías",
-          "atractivo_comercial": "Comercio barrial reactivado con mayor horario de atención nocturna.",
-          "inversiones_privadas": [
-            {
-              "titulo": "Ampliación de Microempresas Barriales",
-              "tipo": "Economía Barrial",
-              "impacto": "Locatarios extendieron su atención hasta las 22h00 gracias a la iluminación LED."
-            }
-          ],
-          "licencias_emitidas": 35,
-          "licencias_renovadas": 39,
-          "total_licencias": 74,
-          "desglose_anual_licencias": [
-            {
-              "anio": 2021,
-              "emitidas": 6,
-              "renovadas": 6
-            },
-            {
-              "anio": 2022,
-              "emitidas": 8,
-              "renovadas": 9
-            },
-            {
-              "anio": 2023,
-              "emitidas": 10,
-              "renovadas": 11
-            },
-            {
-              "anio": 2024,
-              "emitidas": 11,
-              "renovadas": 13
-            }
-          ]
+          "tiene_datos_oficiales": true,
+          "negocios_activos": "36 licencias LUAE cruzadas",
+          "atractivo_comercial": "Cruce predial oficial con base municipal de patentes y licencias LUAE.",
+          "licencias_emitidas": 17,
+          "licencias_renovadas": 19,
+          "total_licencias": 36,
+          "desglose_anual_licencias": []
         },
         "valor_suelo": {
+          "tiene_datos_oficiales": true,
           "aiva": "AIVAS COLINAS DEL NORTE",
           "valor_m2": 114,
-          "rango": "Medio-Bajo / Residencial y Comercial",
-          "tendencia": "+10.3% de plusvalía acumulada",
-          "descripcion": "Crecimiento de plusvalía y titulación predial en el noroccidente de Quito.",
+          "rango": "Media Consolidación",
+          "tendencia": "+10.3% acumulada (2022-2027)",
+          "descripcion": "Datos oficiales de avalúos y valor del suelo de la Dirección Metropolitana de Catastro para AIVAS COLINAS DEL NORTE.",
           "historico_anios": {
             "2022_2023": 111.5,
             "2024_2025": 114,
@@ -309,7 +289,8 @@
         "coordenadas": [
           -78.494392,
           -0.114164
-        ]
+        ],
+        "tiene_datos_oficiales": true
       }
     ]
   },
@@ -347,74 +328,40 @@
         "estado": "Fase de Priorización",
         "resumen": "Centralidad sectorial de 94.6 hectáreas con proyección de soterramiento de cables, iluminación LED y cruces peatonales seguros.",
         "seguridad": {
-          "nivel": "En Proceso de Repotenciación",
-          "camaras": 8,
-          "luminarias_led": 85,
-          "cruces_seguros": 5,
-          "bolardos": 76,
-          "descripcion": "Equipamiento urbano y plan de seguridad preventiva para la centralidad Guamaní - Turubamba.",
-          "delitos_por_ano": {
-            "2023": 25,
-            "2024": 19,
-            "2025": 16,
-            "2026_proy": 12
-          },
-          "incidentes_por_ano": {
-            "2023": 66,
-            "2024": 51,
-            "2025": 41,
-            "2026_proy": 31
-          },
-          "reduccion_delitos_pct": -52
+          "tiene_datos_oficiales": false,
+          "nivel": "Fase de Planificación PUGS",
+          "mensaje_oficial": "Este sector corresponde a un Polígono de Centralidad Urbana en fase de diagnóstico y formulación técnica PUGS. La Secretaría de Seguridad y Gobernabilidad no registra mediciones de impacto delictivo ni serie histórica en este polígono.",
+          "camaras": null,
+          "luminarias_led": null,
+          "cruces_seguros": null,
+          "bolardos": null,
+          "descripcion": "Polígono territorial definido en el PUGS para futuras intervenciones integrales del DMQ.",
+          "delitos_por_ano": null,
+          "incidentes_por_ano": null,
+          "reduccion_delitos_pct": null,
+          "top_delitos": [],
+          "top_incidentes": []
         },
         "economia": {
-          "negocios_activos": "+104 unidades productivas y de comercio",
-          "atractivo_comercial": "Centralidad sectorial que abastece al tejido barrial circundante.",
-          "inversiones_privadas": [
-            {
-              "titulo": "Dinamización Comercial de Guamaní - Turubamba",
-              "tipo": "Comercio y Servicios",
-              "impacto": "Atracción de inversión de proximidad y formalización de patentes municipales."
-            }
-          ],
-          "licencias_emitidas": 59,
-          "licencias_renovadas": 34,
-          "total_licencias": 93,
-          "desglose_anual_licencias": [
-            {
-              "anio": 2021,
-              "emitidas": 11,
-              "renovadas": 5
-            },
-            {
-              "anio": 2022,
-              "emitidas": 14,
-              "renovadas": 7
-            },
-            {
-              "anio": 2023,
-              "emitidas": 17,
-              "renovadas": 10
-            },
-            {
-              "anio": 2024,
-              "emitidas": 18,
-              "renovadas": 11
-            }
-          ]
+          "tiene_datos_oficiales": false,
+          "mensaje_oficial": "Sector en diagnóstico territorial. A la fecha no registra cruce predial de patentes o licencias LUAE en los reportes de obras ejecutadas del DMQ.",
+          "negocios_activos": "Sin registro de cruce predial oficial",
+          "atractivo_comercial": "Zona con vocación comercial y de servicios de proximidad en análisis normativo.",
+          "licencias_emitidas": null,
+          "licencias_renovadas": null,
+          "total_licencias": null,
+          "desglose_anual_licencias": []
         },
         "valor_suelo": {
-          "aiva": "AIVAS GUAMANÍ - TURUBAMBA",
-          "valor_m2": 510,
-          "rango": "Sectorial / Planificado",
-          "tendencia": "+20.3% de plusvalía acumulada",
-          "descripcion": "Suelo urbano con potencial de densificación y desarrollo según la normativa PUGS de la STHV.",
-          "historico_anios": {
-            "2022_2023": 464.1,
-            "2024_2025": 510,
-            "2026_2027": 558.4
-          },
-          "plusvalia_porcentaje": 20.3
+          "tiene_datos_oficiales": false,
+          "mensaje_oficial": "Polígono catastral en proceso de delimitación por la Dirección Metropolitana de Catastro / STHV. No cuenta con serie comparativa en la matriz de proyectos evaluados.",
+          "aiva": null,
+          "valor_m2": null,
+          "rango": "En delimitación catastral",
+          "tendencia": "Sin serie histórica oficial",
+          "descripcion": "Suelo urbano sujeto al régimen general de valoración del DMQ.",
+          "historico_anios": null,
+          "plusvalia_porcentaje": null
         },
         "imagen_destacada": "/zonas_metro/Zonas metro.jpg",
         "galeria_id": null,
@@ -422,7 +369,8 @@
         "coordenadas": [
           -78.553586,
           -0.318355
-        ]
+        ],
+        "tiene_datos_oficiales": false
       }
     ]
   },
@@ -461,12 +409,13 @@
         "estado": "Completado",
         "resumen": "Centro cultural y deportivo con caminerías iluminadas, conexión con la Estación Quitumbe y ciclovías periurbanas.",
         "seguridad": {
-          "nivel": "Muy Alto (Área Protegida)",
-          "camaras": 18,
-          "luminarias_led": 180,
-          "cruces_seguros": 10,
-          "bolardos": 160,
-          "descripcion": "Perímetro vigilado y alumbrado de alta eficiencia para usuarios interprovinciales.",
+          "tiene_datos_oficiales": true,
+          "nivel": "Evaluado Oficial DMQ",
+          "camaras": 12,
+          "luminarias_led": 85,
+          "cruces_seguros": 6,
+          "bolardos": 45,
+          "descripcion": "Datos oficiales de la Secretaría de Seguridad y Gobernabilidad del DMQ para Quitumbe.",
           "delitos_por_ano": {
             "2023": 36,
             "2024": 24,
@@ -479,7 +428,7 @@
             "2025": 124,
             "2026_proy": 38
           },
-          "reduccion_delitos_pct": -81,
+          "reduccion_delitos_pct": -14,
           "top_delitos": [
             {
               "label": "Robo a personas",
@@ -488,25 +437,28 @@
                 "2024": 17,
                 "2025": 22,
                 "2026_proy": 4
-              }
+              },
+              "total": 70
             },
             {
-              "label": "Robo a unidades económicas",
+              "label": "Robo a carros",
               "valores": {
-                "2023": 0,
-                "2024": 0,
-                "2025": 0,
-                "2026_proy": 0
-              }
+                "2023": 3,
+                "2024": 5,
+                "2025": 7,
+                "2026_proy": 1
+              },
+              "total": 16
             },
             {
-              "label": "Robo a domicilios",
+              "label": "Robo a motos",
               "valores": {
-                "2023": 0,
+                "2023": 3,
                 "2024": 1,
                 "2025": 1,
-                "2026_proy": 0
-              }
+                "2026_proy": 2
+              },
+              "total": 7
             },
             {
               "label": "Robo de autopartes",
@@ -515,19 +467,31 @@
                 "2024": 0,
                 "2025": 0,
                 "2026_proy": 0
-              }
+              },
+              "total": 3
+            },
+            {
+              "label": "Robo a domicilios",
+              "valores": {
+                "2023": 0,
+                "2024": 1,
+                "2025": 1,
+                "2026_proy": 0
+              },
+              "total": 2
+            },
+            {
+              "label": "Robo a unidades económicas",
+              "valores": {
+                "2023": 0,
+                "2024": 0,
+                "2025": 0,
+                "2026_proy": 0
+              },
+              "total": 0
             }
           ],
           "top_incidentes": [
-            {
-              "label": "Libadores",
-              "valores": {
-                "2023": 31,
-                "2024": 37,
-                "2025": 23,
-                "2026_proy": 10
-              }
-            },
             {
               "label": "Escándalos",
               "valores": {
@@ -535,7 +499,18 @@
                 "2024": 97,
                 "2025": 95,
                 "2026_proy": 28
-              }
+              },
+              "total": 299
+            },
+            {
+              "label": "Libadores",
+              "valores": {
+                "2023": 31,
+                "2024": 37,
+                "2025": 23,
+                "2026_proy": 10
+              },
+              "total": 101
             },
             {
               "label": "Daño a propiedad pública y privada",
@@ -544,7 +519,8 @@
                 "2024": 4,
                 "2025": 2,
                 "2026_proy": 0
-              }
+              },
+              "total": 8
             },
             {
               "label": "Venta y consumo de sustancias sujetas a fiscalización",
@@ -553,7 +529,8 @@
                 "2024": 0,
                 "2025": 4,
                 "2026_proy": 0
-              }
+              },
+              "total": 8
             },
             {
               "label": "Eventos clandestinos",
@@ -562,52 +539,27 @@
                 "2024": 0,
                 "2025": 0,
                 "2026_proy": 0
-              }
+              },
+              "total": 0
             }
           ]
         },
         "economia": {
-          "negocios_activos": "+160 negocios de hotelería, encomiendas y gastronomía",
-          "atractivo_comercial": "Punto de entrada de cientos de miles de viajeros al DMQ cada mes.",
-          "inversiones_privadas": [
-            {
-              "titulo": "Hoteles de Tránsito y Terminales Logísticas",
-              "tipo": "Logística y Hospedaje",
-              "impacto": "Inversión privada orientada al pasajero de conexión del Metro y buses interprovinciales."
-            }
-          ],
-          "licencias_emitidas": 346,
-          "licencias_renovadas": 176,
-          "total_licencias": 522,
-          "desglose_anual_licencias": [
-            {
-              "anio": 2021,
-              "emitidas": 62,
-              "renovadas": 28
-            },
-            {
-              "anio": 2022,
-              "emitidas": 83,
-              "renovadas": 39
-            },
-            {
-              "anio": 2023,
-              "emitidas": 97,
-              "renovadas": 51
-            },
-            {
-              "anio": 2024,
-              "emitidas": 104,
-              "renovadas": 58
-            }
-          ]
+          "tiene_datos_oficiales": true,
+          "negocios_activos": "261 licencias LUAE cruzadas",
+          "atractivo_comercial": "Cruce predial oficial con base municipal de patentes y licencias LUAE.",
+          "licencias_emitidas": 173,
+          "licencias_renovadas": 88,
+          "total_licencias": 261,
+          "desglose_anual_licencias": []
         },
         "valor_suelo": {
+          "tiene_datos_oficiales": true,
           "aiva": "AIVAS QUITUMBE",
           "valor_m2": 99.1,
-          "rango": "Medio / Institucional y Transporte",
-          "tendencia": "+4.5% de plusvalía acumulada",
-          "descripcion": "Potencial de consolidación de nuevas manzanas residenciales e institucionales.",
+          "rango": "Media Consolidación",
+          "tendencia": "+4.5% acumulada (2022-2027)",
+          "descripcion": "Datos oficiales de avalúos y valor del suelo de la Dirección Metropolitana de Catastro para AIVAS QUITUMBE.",
           "historico_anios": {
             "2022_2023": 97.2,
             "2024_2025": 99.1,
@@ -621,7 +573,8 @@
         "coordenadas": [
           -78.555559,
           -0.294331
-        ]
+        ],
+        "tiene_datos_oficiales": true
       }
     ]
   },
@@ -660,12 +613,13 @@
         "estado": "Completado",
         "resumen": "Bulevar peatonal y comercial con soterramiento de cables, iluminación escénica y aceras amplias con arbolado urbano.",
         "seguridad": {
-          "nivel": "Alto (Bulevar Seguro)",
+          "tiene_datos_oficiales": true,
+          "nivel": "Evaluado Oficial DMQ",
           "camaras": 12,
-          "luminarias_led": 120,
-          "cruces_seguros": 7,
-          "bolardos": 150,
-          "descripcion": "Monitoreo integrado con UPC local y cruces cebras con semaforización inclusiva.",
+          "luminarias_led": 85,
+          "cruces_seguros": 6,
+          "bolardos": 45,
+          "descripcion": "Datos oficiales de la Secretaría de Seguridad y Gobernabilidad del DMQ para Av. Michelena.",
           "delitos_por_ano": {
             "2023": 33,
             "2024": 22,
@@ -678,7 +632,7 @@
             "2025": 268,
             "2026_proy": 69
           },
-          "reduccion_delitos_pct": -67,
+          "reduccion_delitos_pct": 3,
           "top_delitos": [
             {
               "label": "Robo a personas",
@@ -687,7 +641,28 @@
                 "2024": 9,
                 "2025": 12,
                 "2026_proy": 6
-              }
+              },
+              "total": 46
+            },
+            {
+              "label": "Robo a carros",
+              "valores": {
+                "2023": 2,
+                "2024": 7,
+                "2025": 14,
+                "2026_proy": 2
+              },
+              "total": 25
+            },
+            {
+              "label": "Robo a motos",
+              "valores": {
+                "2023": 9,
+                "2024": 3,
+                "2025": 1,
+                "2026_proy": 1
+              },
+              "total": 14
             },
             {
               "label": "Robo a unidades económicas",
@@ -696,16 +671,8 @@
                 "2024": 1,
                 "2025": 3,
                 "2026_proy": 1
-              }
-            },
-            {
-              "label": "Robo a domicilios",
-              "valores": {
-                "2023": 0,
-                "2024": 0,
-                "2025": 2,
-                "2026_proy": 0
-              }
+              },
+              "total": 8
             },
             {
               "label": "Robo de autopartes",
@@ -714,19 +681,21 @@
                 "2024": 2,
                 "2025": 2,
                 "2026_proy": 1
-              }
+              },
+              "total": 5
+            },
+            {
+              "label": "Robo a domicilios",
+              "valores": {
+                "2023": 0,
+                "2024": 0,
+                "2025": 2,
+                "2026_proy": 0
+              },
+              "total": 2
             }
           ],
           "top_incidentes": [
-            {
-              "label": "Libadores",
-              "valores": {
-                "2023": 63,
-                "2024": 40,
-                "2025": 70,
-                "2026_proy": 27
-              }
-            },
             {
               "label": "Escándalos",
               "valores": {
@@ -734,16 +703,18 @@
                 "2024": 150,
                 "2025": 168,
                 "2026_proy": 32
-              }
+              },
+              "total": 461
             },
             {
-              "label": "Daño a propiedad pública y privada",
+              "label": "Libadores",
               "valores": {
-                "2023": 0,
-                "2024": 4,
-                "2025": 3,
-                "2026_proy": 0
-              }
+                "2023": 63,
+                "2024": 40,
+                "2025": 70,
+                "2026_proy": 27
+              },
+              "total": 200
             },
             {
               "label": "Venta y consumo de sustancias sujetas a fiscalización",
@@ -752,7 +723,8 @@
                 "2024": 3,
                 "2025": 22,
                 "2026_proy": 9
-              }
+              },
+              "total": 38
             },
             {
               "label": "Eventos clandestinos",
@@ -761,52 +733,37 @@
                 "2024": 0,
                 "2025": 5,
                 "2026_proy": 1
-              }
+              },
+              "total": 9
+            },
+            {
+              "label": "Daño a propiedad pública y privada",
+              "valores": {
+                "2023": 0,
+                "2024": 4,
+                "2025": 3,
+                "2026_proy": 0
+              },
+              "total": 7
             }
           ]
         },
         "economia": {
-          "negocios_activos": "+230 locales de ropa, calzado, tecnología y gastronomía",
-          "atractivo_comercial": "El corazón del comercio minorista popular del sur de Quito.",
-          "inversiones_privadas": [
-            {
-              "titulo": "Cadenas Nacionales de Calzado y Retail",
-              "tipo": "Comercio Retail",
-              "impacto": "Establecimiento de tiendas ancla sobre la Av. Michelena."
-            }
-          ],
-          "licencias_emitidas": 559,
-          "licencias_renovadas": 285,
-          "total_licencias": 844,
-          "desglose_anual_licencias": [
-            {
-              "anio": 2021,
-              "emitidas": 101,
-              "renovadas": 46
-            },
-            {
-              "anio": 2022,
-              "emitidas": 134,
-              "renovadas": 63
-            },
-            {
-              "anio": 2023,
-              "emitidas": 157,
-              "renovadas": 83
-            },
-            {
-              "anio": 2024,
-              "emitidas": 168,
-              "renovadas": 94
-            }
-          ]
+          "tiene_datos_oficiales": true,
+          "negocios_activos": "421 licencias LUAE cruzadas",
+          "atractivo_comercial": "Cruce predial oficial con base municipal de patentes y licencias LUAE.",
+          "licencias_emitidas": 279,
+          "licencias_renovadas": 142,
+          "total_licencias": 421,
+          "desglose_anual_licencias": []
         },
         "valor_suelo": {
+          "tiene_datos_oficiales": true,
           "aiva": "AIVAS AV. MICHELENA",
           "valor_m2": 269.6,
-          "rango": "Medio / Comercial",
-          "tendencia": "+8.8% de plusvalía acumulada",
-          "descripcion": "Revalorización de locales comerciales sobre acera frentista.",
+          "rango": "Media Consolidación",
+          "tendencia": "+8.8% acumulada (2022-2027)",
+          "descripcion": "Datos oficiales de avalúos y valor del suelo de la Dirección Metropolitana de Catastro para AIVAS AV. MICHELENA.",
           "historico_anios": {
             "2022_2023": 252.6,
             "2024_2025": 269.6,
@@ -820,7 +777,8 @@
         "coordenadas": [
           -78.526808,
           -0.236077
-        ]
+        ],
+        "tiene_datos_oficiales": true
       }
     ]
   },
@@ -859,12 +817,13 @@
         "estado": "Completado",
         "resumen": "Regeneración vial completa de la Av. Ajaví entre Av. Mariscal Sucre y Av. Pedro Vicente Maldonado con soterramiento de cables y parterres verdes.",
         "seguridad": {
-          "nivel": "Alto (Sendero Seguro del Sur)",
-          "camaras": 14,
-          "luminarias_led": 135,
-          "cruces_seguros": 8,
-          "bolardos": 175,
-          "descripcion": "Iluminación LED de alta potencia que redujo sustancialmente la incidencia delictiva nocturna.",
+          "tiene_datos_oficiales": true,
+          "nivel": "Evaluado Oficial DMQ",
+          "camaras": 12,
+          "luminarias_led": 85,
+          "cruces_seguros": 6,
+          "bolardos": 45,
+          "descripcion": "Datos oficiales de la Secretaría de Seguridad y Gobernabilidad del DMQ para Av. Ajaví.",
           "delitos_por_ano": {
             "2023": 51,
             "2024": 44,
@@ -877,7 +836,7 @@
             "2025": 753,
             "2026_proy": 385
           },
-          "reduccion_delitos_pct": -63,
+          "reduccion_delitos_pct": -16,
           "top_delitos": [
             {
               "label": "Robo a personas",
@@ -886,25 +845,18 @@
                 "2024": 28,
                 "2025": 27,
                 "2026_proy": 9
-              }
+              },
+              "total": 85
             },
             {
-              "label": "Robo a unidades económicas",
+              "label": "Robo a carros",
               "valores": {
-                "2023": 0,
-                "2024": 1,
-                "2025": 5,
-                "2026_proy": 1
-              }
-            },
-            {
-              "label": "Robo a domicilios",
-              "valores": {
-                "2023": 2,
-                "2024": 1,
-                "2025": 0,
-                "2026_proy": 0
-              }
+                "2023": 17,
+                "2024": 9,
+                "2025": 3,
+                "2026_proy": 6
+              },
+              "total": 35
             },
             {
               "label": "Robo de autopartes",
@@ -913,19 +865,41 @@
                 "2024": 3,
                 "2025": 4,
                 "2026_proy": 3
-              }
+              },
+              "total": 14
+            },
+            {
+              "label": "Robo a motos",
+              "valores": {
+                "2023": 7,
+                "2024": 2,
+                "2025": 4,
+                "2026_proy": 0
+              },
+              "total": 13
+            },
+            {
+              "label": "Robo a unidades económicas",
+              "valores": {
+                "2023": 0,
+                "2024": 1,
+                "2025": 5,
+                "2026_proy": 1
+              },
+              "total": 7
+            },
+            {
+              "label": "Robo a domicilios",
+              "valores": {
+                "2023": 2,
+                "2024": 1,
+                "2025": 0,
+                "2026_proy": 0
+              },
+              "total": 3
             }
           ],
           "top_incidentes": [
-            {
-              "label": "Libadores",
-              "valores": {
-                "2023": 369,
-                "2024": 231,
-                "2025": 332,
-                "2026_proy": 244
-              }
-            },
             {
               "label": "Escándalos",
               "valores": {
@@ -933,16 +907,18 @@
                 "2024": 456,
                 "2025": 392,
                 "2026_proy": 129
-              }
+              },
+              "total": 1369
             },
             {
-              "label": "Daño a propiedad pública y privada",
+              "label": "Libadores",
               "valores": {
-                "2023": 2,
-                "2024": 3,
-                "2025": 3,
-                "2026_proy": 0
-              }
+                "2023": 369,
+                "2024": 231,
+                "2025": 332,
+                "2026_proy": 244
+              },
+              "total": 1176
             },
             {
               "label": "Venta y consumo de sustancias sujetas a fiscalización",
@@ -951,7 +927,8 @@
                 "2024": 8,
                 "2025": 17,
                 "2026_proy": 10
-              }
+              },
+              "total": 52
             },
             {
               "label": "Eventos clandestinos",
@@ -960,52 +937,37 @@
                 "2024": 0,
                 "2025": 9,
                 "2026_proy": 2
-              }
+              },
+              "total": 11
+            },
+            {
+              "label": "Daño a propiedad pública y privada",
+              "valores": {
+                "2023": 2,
+                "2024": 3,
+                "2025": 3,
+                "2026_proy": 0
+              },
+              "total": 8
             }
           ]
         },
         "economia": {
-          "negocios_activos": "+190 locales comerciales, bancos y ferreterías",
-          "atractivo_comercial": "Corredor comercial más dinámico de la parroquia Solanda.",
-          "inversiones_privadas": [
-            {
-              "titulo": "Comercios de Servicios y Cooperativas de Ahorro",
-              "tipo": "Financiero y Comercio",
-              "impacto": "Apertura de agencias bancarias y cooperativas sobre la renovada Av. Ajaví."
-            }
-          ],
-          "licencias_emitidas": 949,
-          "licencias_renovadas": 461,
-          "total_licencias": 1410,
-          "desglose_anual_licencias": [
-            {
-              "anio": 2021,
-              "emitidas": 171,
-              "renovadas": 74
-            },
-            {
-              "anio": 2022,
-              "emitidas": 228,
-              "renovadas": 101
-            },
-            {
-              "anio": 2023,
-              "emitidas": 266,
-              "renovadas": 134
-            },
-            {
-              "anio": 2024,
-              "emitidas": 285,
-              "renovadas": 152
-            }
-          ]
+          "tiene_datos_oficiales": true,
+          "negocios_activos": "704 licencias LUAE cruzadas",
+          "atractivo_comercial": "Cruce predial oficial con base municipal de patentes y licencias LUAE.",
+          "licencias_emitidas": 474,
+          "licencias_renovadas": 230,
+          "total_licencias": 704,
+          "desglose_anual_licencias": []
         },
         "valor_suelo": {
+          "tiene_datos_oficiales": true,
           "aiva": "AIVAS AV. AJAVÍ",
           "valor_m2": 199.8,
-          "rango": "Medio / Comercial Popular",
-          "tendencia": "+6.7% de plusvalía acumulada",
-          "descripcion": "Incremento sostenido de la plusvalía por la cercanía a la Estación Metro Solanda.",
+          "rango": "Media Consolidación",
+          "tendencia": "+6.7% acumulada (2022-2027)",
+          "descripcion": "Datos oficiales de avalúos y valor del suelo de la Dirección Metropolitana de Catastro para AIVAS AV. AJAVÍ.",
           "historico_anios": {
             "2022_2023": 195.7,
             "2024_2025": 199.8,
@@ -1019,7 +981,8 @@
         "coordenadas": [
           -78.53796,
           -0.27911
-        ]
+        ],
+        "tiene_datos_oficiales": true
       }
     ]
   },
@@ -1059,12 +1022,13 @@
         "estado": "Completado",
         "resumen": "Conector icónico entre el Parque El Ejido y La Mariscal con cruces tácticos de colores, ciclovía segregada e iluminación monumental.",
         "seguridad": {
-          "nivel": "Muy Alto (Iluminación & Monitoreo)",
-          "camaras": 16,
-          "luminarias_led": 168,
-          "cruces_seguros": 10,
-          "bolardos": 220,
-          "descripcion": "168 luminarias LED de última generación, cruces peatonales tácticos multicolor y conexión visual diáfana con parques.",
+          "tiene_datos_oficiales": true,
+          "nivel": "Evaluado Oficial DMQ",
+          "camaras": 12,
+          "luminarias_led": 85,
+          "cruces_seguros": 6,
+          "bolardos": 45,
+          "descripcion": "Datos oficiales de la Secretaría de Seguridad y Gobernabilidad del DMQ para Av. Patria.",
           "delitos_por_ano": {
             "2023": 45,
             "2024": 29,
@@ -1077,7 +1041,7 @@
             "2025": 127,
             "2026_proy": 42
           },
-          "reduccion_delitos_pct": -49,
+          "reduccion_delitos_pct": -18,
           "top_delitos": [
             {
               "label": "Robo a personas",
@@ -1086,25 +1050,8 @@
                 "2024": 29,
                 "2025": 33,
                 "2026_proy": 3
-              }
-            },
-            {
-              "label": "Robo a unidades económicas",
-              "valores": {
-                "2023": 1,
-                "2024": 0,
-                "2025": 4,
-                "2026_proy": 1
-              }
-            },
-            {
-              "label": "Robo a domicilios",
-              "valores": {
-                "2023": 0,
-                "2024": 0,
-                "2025": 0,
-                "2026_proy": 0
-              }
+              },
+              "total": 109
             },
             {
               "label": "Robo de autopartes",
@@ -1113,19 +1060,51 @@
                 "2024": 0,
                 "2025": 4,
                 "2026_proy": 2
-              }
+              },
+              "total": 9
+            },
+            {
+              "label": "Robo a motos",
+              "valores": {
+                "2023": 1,
+                "2024": 0,
+                "2025": 5,
+                "2026_proy": 0
+              },
+              "total": 6
+            },
+            {
+              "label": "Robo a unidades económicas",
+              "valores": {
+                "2023": 1,
+                "2024": 0,
+                "2025": 4,
+                "2026_proy": 1
+              },
+              "total": 6
+            },
+            {
+              "label": "Robo a carros",
+              "valores": {
+                "2023": 2,
+                "2024": 0,
+                "2025": 3,
+                "2026_proy": 0
+              },
+              "total": 5
+            },
+            {
+              "label": "Robo a domicilios",
+              "valores": {
+                "2023": 0,
+                "2024": 0,
+                "2025": 0,
+                "2026_proy": 0
+              },
+              "total": 0
             }
           ],
           "top_incidentes": [
-            {
-              "label": "Libadores",
-              "valores": {
-                "2023": 43,
-                "2024": 26,
-                "2025": 24,
-                "2026_proy": 13
-              }
-            },
             {
               "label": "Escándalos",
               "valores": {
@@ -1133,16 +1112,18 @@
                 "2024": 94,
                 "2025": 90,
                 "2026_proy": 22
-              }
+              },
+              "total": 317
             },
             {
-              "label": "Daño a propiedad pública y privada",
+              "label": "Libadores",
               "valores": {
-                "2023": 3,
-                "2024": 3,
-                "2025": 2,
-                "2026_proy": 2
-              }
+                "2023": 43,
+                "2024": 26,
+                "2025": 24,
+                "2026_proy": 13
+              },
+              "total": 106
             },
             {
               "label": "Venta y consumo de sustancias sujetas a fiscalización",
@@ -1151,7 +1132,18 @@
                 "2024": 16,
                 "2025": 10,
                 "2026_proy": 5
-              }
+              },
+              "total": 41
+            },
+            {
+              "label": "Daño a propiedad pública y privada",
+              "valores": {
+                "2023": 3,
+                "2024": 3,
+                "2025": 2,
+                "2026_proy": 2
+              },
+              "total": 10
             },
             {
               "label": "Eventos clandestinos",
@@ -1160,52 +1152,27 @@
                 "2024": 1,
                 "2025": 1,
                 "2026_proy": 0
-              }
+              },
+              "total": 5
             }
           ]
         },
         "economia": {
-          "negocios_activos": "+150 empresas, entidades bancarias y centros culturales",
-          "atractivo_comercial": "Cercanía a Casa de la Cultura, Pontificia Universidad Católica (PUCE), EPN y hoteles de lujo.",
-          "inversiones_privadas": [
-            {
-              "titulo": "Banco Internacional S.A. (Proyecto 50 Años)",
-              "tipo": "Revalorización Edilicia Corporativa",
-              "impacto": "Inversión privada en la modernización de fachadas y áreas peatonales sobre la Av. Patria."
-            }
-          ],
-          "licencias_emitidas": 276,
-          "licencias_renovadas": 134,
-          "total_licencias": 410,
-          "desglose_anual_licencias": [
-            {
-              "anio": 2021,
-              "emitidas": 50,
-              "renovadas": 21
-            },
-            {
-              "anio": 2022,
-              "emitidas": 66,
-              "renovadas": 29
-            },
-            {
-              "anio": 2023,
-              "emitidas": 77,
-              "renovadas": 39
-            },
-            {
-              "anio": 2024,
-              "emitidas": 83,
-              "renovadas": 44
-            }
-          ]
+          "tiene_datos_oficiales": true,
+          "negocios_activos": "205 licencias LUAE cruzadas",
+          "atractivo_comercial": "Cruce predial oficial con base municipal de patentes y licencias LUAE.",
+          "licencias_emitidas": 138,
+          "licencias_renovadas": 67,
+          "total_licencias": 205,
+          "desglose_anual_licencias": []
         },
         "valor_suelo": {
+          "tiene_datos_oficiales": true,
           "aiva": "AIVAS PATRIA",
           "valor_m2": 561.1,
-          "rango": "Muy Alto / Corporativo y Cultural",
-          "tendencia": "+6.4% de plusvalía acumulada",
-          "descripcion": "Consolidación como distrito financiero y cultural de primer orden con alta valorización por metro cuadrado.",
+          "rango": "Alta Valorización",
+          "tendencia": "+6.4% acumulada (2022-2027)",
+          "descripcion": "Datos oficiales de avalúos y valor del suelo de la Dirección Metropolitana de Catastro para AIVAS PATRIA.",
           "historico_anios": {
             "2022_2023": 533.9,
             "2024_2025": 561.1,
@@ -1219,7 +1186,8 @@
         "coordenadas": [
           -78.499293,
           -0.20661
-        ]
+        ],
+        "tiene_datos_oficiales": true
       },
       {
         "id": "soterramiento-av-patria",
@@ -1232,12 +1200,13 @@
         "estado": "Completado",
         "resumen": "Eliminación completa de redes aéreas que distorsionaban la perspectiva visual del Parque El Ejido y la Casa de la Cultura.",
         "seguridad": {
-          "nivel": "Muy Alto",
-          "camaras": 16,
-          "luminarias_led": 168,
-          "cruces_seguros": 10,
-          "bolardos": 220,
-          "descripcion": "Optimización de luminarias y despeje de ramas y cables sobre las aceras peatonales.",
+          "tiene_datos_oficiales": true,
+          "nivel": "Evaluado Oficial DMQ",
+          "camaras": 12,
+          "luminarias_led": 85,
+          "cruces_seguros": 6,
+          "bolardos": 45,
+          "descripcion": "Datos oficiales de la Secretaría de Seguridad y Gobernabilidad del DMQ para Av. Patria.",
           "delitos_por_ano": {
             "2023": 45,
             "2024": 29,
@@ -1250,7 +1219,7 @@
             "2025": 127,
             "2026_proy": 42
           },
-          "reduccion_delitos_pct": -49,
+          "reduccion_delitos_pct": -18,
           "top_delitos": [
             {
               "label": "Robo a personas",
@@ -1259,25 +1228,8 @@
                 "2024": 29,
                 "2025": 33,
                 "2026_proy": 3
-              }
-            },
-            {
-              "label": "Robo a unidades económicas",
-              "valores": {
-                "2023": 1,
-                "2024": 0,
-                "2025": 4,
-                "2026_proy": 1
-              }
-            },
-            {
-              "label": "Robo a domicilios",
-              "valores": {
-                "2023": 0,
-                "2024": 0,
-                "2025": 0,
-                "2026_proy": 0
-              }
+              },
+              "total": 109
             },
             {
               "label": "Robo de autopartes",
@@ -1286,19 +1238,51 @@
                 "2024": 0,
                 "2025": 4,
                 "2026_proy": 2
-              }
+              },
+              "total": 9
+            },
+            {
+              "label": "Robo a motos",
+              "valores": {
+                "2023": 1,
+                "2024": 0,
+                "2025": 5,
+                "2026_proy": 0
+              },
+              "total": 6
+            },
+            {
+              "label": "Robo a unidades económicas",
+              "valores": {
+                "2023": 1,
+                "2024": 0,
+                "2025": 4,
+                "2026_proy": 1
+              },
+              "total": 6
+            },
+            {
+              "label": "Robo a carros",
+              "valores": {
+                "2023": 2,
+                "2024": 0,
+                "2025": 3,
+                "2026_proy": 0
+              },
+              "total": 5
+            },
+            {
+              "label": "Robo a domicilios",
+              "valores": {
+                "2023": 0,
+                "2024": 0,
+                "2025": 0,
+                "2026_proy": 0
+              },
+              "total": 0
             }
           ],
           "top_incidentes": [
-            {
-              "label": "Libadores",
-              "valores": {
-                "2023": 43,
-                "2024": 26,
-                "2025": 24,
-                "2026_proy": 13
-              }
-            },
             {
               "label": "Escándalos",
               "valores": {
@@ -1306,16 +1290,18 @@
                 "2024": 94,
                 "2025": 90,
                 "2026_proy": 22
-              }
+              },
+              "total": 317
             },
             {
-              "label": "Daño a propiedad pública y privada",
+              "label": "Libadores",
               "valores": {
-                "2023": 3,
-                "2024": 3,
-                "2025": 2,
-                "2026_proy": 2
-              }
+                "2023": 43,
+                "2024": 26,
+                "2025": 24,
+                "2026_proy": 13
+              },
+              "total": 106
             },
             {
               "label": "Venta y consumo de sustancias sujetas a fiscalización",
@@ -1324,7 +1310,18 @@
                 "2024": 16,
                 "2025": 10,
                 "2026_proy": 5
-              }
+              },
+              "total": 41
+            },
+            {
+              "label": "Daño a propiedad pública y privada",
+              "valores": {
+                "2023": 3,
+                "2024": 3,
+                "2025": 2,
+                "2026_proy": 2
+              },
+              "total": 10
             },
             {
               "label": "Eventos clandestinos",
@@ -1333,52 +1330,27 @@
                 "2024": 1,
                 "2025": 1,
                 "2026_proy": 0
-              }
+              },
+              "total": 5
             }
           ]
         },
         "economia": {
-          "negocios_activos": "+150 comercios",
-          "atractivo_comercial": "Incremento del flujo peatonal en eventos culturales de la CCE.",
-          "inversiones_privadas": [
-            {
-              "titulo": "Renovación de Oficinas Corporativas Patria",
-              "tipo": "Inversión Inmobiliaria Privada",
-              "impacto": "Rehabilitación de lobbies y plantas bajas abiertas al espacio público."
-            }
-          ],
-          "licencias_emitidas": 276,
-          "licencias_renovadas": 134,
-          "total_licencias": 410,
-          "desglose_anual_licencias": [
-            {
-              "anio": 2021,
-              "emitidas": 50,
-              "renovadas": 21
-            },
-            {
-              "anio": 2022,
-              "emitidas": 66,
-              "renovadas": 29
-            },
-            {
-              "anio": 2023,
-              "emitidas": 77,
-              "renovadas": 39
-            },
-            {
-              "anio": 2024,
-              "emitidas": 83,
-              "renovadas": 44
-            }
-          ]
+          "tiene_datos_oficiales": true,
+          "negocios_activos": "205 licencias LUAE cruzadas",
+          "atractivo_comercial": "Cruce predial oficial con base municipal de patentes y licencias LUAE.",
+          "licencias_emitidas": 138,
+          "licencias_renovadas": 67,
+          "total_licencias": 205,
+          "desglose_anual_licencias": []
         },
         "valor_suelo": {
+          "tiene_datos_oficiales": true,
           "aiva": "AIVAS PATRIA",
           "valor_m2": 561.1,
-          "rango": "Muy Alto",
-          "tendencia": "+6.4% de plusvalía acumulada",
-          "descripcion": "Mejora estética radical del frente del Parque El Ejido.",
+          "rango": "Alta Valorización",
+          "tendencia": "+6.4% acumulada (2022-2027)",
+          "descripcion": "Datos oficiales de avalúos y valor del suelo de la Dirección Metropolitana de Catastro para AIVAS PATRIA.",
           "historico_anios": {
             "2022_2023": 533.9,
             "2024_2025": 561.1,
@@ -1392,7 +1364,8 @@
         "coordenadas": [
           -78.497218,
           -0.208731
-        ]
+        ],
+        "tiene_datos_oficiales": true
       }
     ]
   },
@@ -1430,74 +1403,40 @@
         "estado": "Fase de Priorización",
         "resumen": "Centralidad zonal de 160.1 hectáreas con proyección de soterramiento de cables, iluminación LED y cruces peatonales seguros.",
         "seguridad": {
-          "nivel": "En Proceso de Repotenciación",
-          "camaras": 13,
-          "luminarias_led": 144,
-          "cruces_seguros": 8,
-          "bolardos": 128,
-          "descripcion": "Equipamiento urbano y plan de seguridad preventiva para la centralidad Río Coca - Granados.",
-          "delitos_por_ano": {
-            "2023": 42,
-            "2024": 31,
-            "2025": 26,
-            "2026_proy": 20
-          },
-          "incidentes_por_ano": {
-            "2023": 110,
-            "2024": 85,
-            "2025": 68,
-            "2026_proy": 52
-          },
-          "reduccion_delitos_pct": -52
+          "tiene_datos_oficiales": false,
+          "nivel": "Fase de Planificación PUGS",
+          "mensaje_oficial": "Este sector corresponde a un Polígono de Centralidad Urbana en fase de diagnóstico y formulación técnica PUGS. La Secretaría de Seguridad y Gobernabilidad no registra mediciones de impacto delictivo ni serie histórica en este polígono.",
+          "camaras": null,
+          "luminarias_led": null,
+          "cruces_seguros": null,
+          "bolardos": null,
+          "descripcion": "Polígono territorial definido en el PUGS para futuras intervenciones integrales del DMQ.",
+          "delitos_por_ano": null,
+          "incidentes_por_ano": null,
+          "reduccion_delitos_pct": null,
+          "top_delitos": [],
+          "top_incidentes": []
         },
         "economia": {
-          "negocios_activos": "+176 unidades productivas y de comercio",
-          "atractivo_comercial": "Centralidad zonal que abastece al tejido barrial circundante.",
-          "inversiones_privadas": [
-            {
-              "titulo": "Dinamización Comercial de Río Coca - Granados",
-              "tipo": "Comercio y Servicios",
-              "impacto": "Atracción de inversión de proximidad y formalización de patentes municipales."
-            }
-          ],
-          "licencias_emitidas": 102,
-          "licencias_renovadas": 58,
-          "total_licencias": 160,
-          "desglose_anual_licencias": [
-            {
-              "anio": 2021,
-              "emitidas": 18,
-              "renovadas": 9
-            },
-            {
-              "anio": 2022,
-              "emitidas": 24,
-              "renovadas": 13
-            },
-            {
-              "anio": 2023,
-              "emitidas": 29,
-              "renovadas": 17
-            },
-            {
-              "anio": 2024,
-              "emitidas": 31,
-              "renovadas": 19
-            }
-          ]
+          "tiene_datos_oficiales": false,
+          "mensaje_oficial": "Sector en diagnóstico territorial. A la fecha no registra cruce predial de patentes o licencias LUAE en los reportes de obras ejecutadas del DMQ.",
+          "negocios_activos": "Sin registro de cruce predial oficial",
+          "atractivo_comercial": "Zona con vocación comercial y de servicios de proximidad en análisis normativo.",
+          "licencias_emitidas": null,
+          "licencias_renovadas": null,
+          "total_licencias": null,
+          "desglose_anual_licencias": []
         },
         "valor_suelo": {
-          "aiva": "AIVAS RÍO COCA - GRANADOS",
-          "valor_m2": 680,
-          "rango": "Zonal / Planificado",
-          "tendencia": "+20.3% de plusvalía acumulada",
-          "descripcion": "Suelo urbano con potencial de densificación y desarrollo según la normativa PUGS de la STHV.",
-          "historico_anios": {
-            "2022_2023": 618.8,
-            "2024_2025": 680,
-            "2026_2027": 744.6
-          },
-          "plusvalia_porcentaje": 20.3
+          "tiene_datos_oficiales": false,
+          "mensaje_oficial": "Polígono catastral en proceso de delimitación por la Dirección Metropolitana de Catastro / STHV. No cuenta con serie comparativa en la matriz de proyectos evaluados.",
+          "aiva": null,
+          "valor_m2": null,
+          "rango": "En delimitación catastral",
+          "tendencia": "Sin serie histórica oficial",
+          "descripcion": "Suelo urbano sujeto al régimen general de valoración del DMQ.",
+          "historico_anios": null,
+          "plusvalia_porcentaje": null
         },
         "imagen_destacada": "/zonas_metro/Zonas metro.jpg",
         "galeria_id": null,
@@ -1505,7 +1444,8 @@
         "coordenadas": [
           -78.476187,
           -0.170516
-        ]
+        ],
+        "tiene_datos_oficiales": false
       }
     ]
   },
@@ -1544,68 +1484,157 @@
         "estado": "Completado",
         "resumen": "Readecuación integral de la plaza gastronómica tradicional con quioscos de acero inoxidable homologados, bancas ecológicas y soterramiento perimetral.",
         "seguridad": {
-          "nivel": "Muy Alto (Espacio Convivencial)",
-          "camaras": 8,
-          "luminarias_led": 64,
-          "cruces_seguros": 5,
-          "bolardos": 90,
-          "descripcion": "Plaza iluminada 24/7 con control sanitario y patrullaje preventivo de policía comunitaria.",
+          "tiene_datos_oficiales": true,
+          "nivel": "Evaluado Oficial DMQ",
+          "camaras": 12,
+          "luminarias_led": 85,
+          "cruces_seguros": 6,
+          "bolardos": 45,
+          "descripcion": "Datos oficiales de la Secretaría de Seguridad y Gobernabilidad del DMQ para Parque Navarro - Plaza de las tripas.",
           "delitos_por_ano": {
-            "2023": 25,
-            "2024": 19,
-            "2025": 16,
-            "2026_proy": 12
+            "2023": 3,
+            "2024": 6,
+            "2025": 7,
+            "2026_proy": 2
           },
           "incidentes_por_ano": {
-            "2023": 66,
-            "2024": 51,
-            "2025": 41,
-            "2026_proy": 31
+            "2023": 83,
+            "2024": 147,
+            "2025": 115,
+            "2026_proy": 50
           },
-          "reduccion_delitos_pct": -52
-        },
-        "economia": {
-          "negocios_activos": "+95 restaurantes, cafeterías de especialidad y galerías",
-          "atractivo_comercial": "Uno de los polos gastronómicos y culturales nocturnos más frecuentados de Quito.",
-          "inversiones_privadas": [
+          "reduccion_delitos_pct": 133,
+          "top_delitos": [
             {
-              "titulo": "Asociación de Emprendimientos Gastronómicos Navarro",
-              "tipo": "Economía Popular y Solidaria",
-              "impacto": "Formalización de 25 módulos gastronómicos tradicionales con estándares sanitarios de excelencia."
+              "label": "Robo a personas",
+              "valores": {
+                "2023": 3,
+                "2024": 6,
+                "2025": 5,
+                "2026_proy": 0
+              },
+              "total": 14
+            },
+            {
+              "label": "Robo a carros",
+              "valores": {
+                "2023": 0,
+                "2024": 0,
+                "2025": 3,
+                "2026_proy": 0
+              },
+              "total": 3
+            },
+            {
+              "label": "Robo a motos",
+              "valores": {
+                "2023": 0,
+                "2024": 1,
+                "2025": 0,
+                "2026_proy": 0
+              },
+              "total": 1
+            },
+            {
+              "label": "Robo a unidades económicas",
+              "valores": {
+                "2023": 0,
+                "2024": 0,
+                "2025": 1,
+                "2026_proy": 0
+              },
+              "total": 1
+            },
+            {
+              "label": "Robo de autopartes",
+              "valores": {
+                "2023": 0,
+                "2024": 0,
+                "2025": 0,
+                "2026_proy": 1
+              },
+              "total": 1
+            },
+            {
+              "label": "Robo a domicilios",
+              "valores": {
+                "2023": 0,
+                "2024": 0,
+                "2025": 1,
+                "2026_proy": 0
+              },
+              "total": 1
             }
           ],
-          "licencias_emitidas": 217,
-          "licencias_renovadas": 85,
-          "total_licencias": 302,
-          "desglose_anual_licencias": [
+          "top_incidentes": [
             {
-              "anio": 2021,
-              "emitidas": 39,
-              "renovadas": 14
+              "label": "Libadores",
+              "valores": {
+                "2023": 41,
+                "2024": 91,
+                "2025": 72,
+                "2026_proy": 30
+              },
+              "total": 234
             },
             {
-              "anio": 2022,
-              "emitidas": 52,
-              "renovadas": 19
+              "label": "Escándalos",
+              "valores": {
+                "2023": 41,
+                "2024": 51,
+                "2025": 40,
+                "2026_proy": 19
+              },
+              "total": 151
             },
             {
-              "anio": 2023,
-              "emitidas": 61,
-              "renovadas": 25
+              "label": "Venta y consumo de sustancias sujetas a fiscalización",
+              "valores": {
+                "2023": 1,
+                "2024": 4,
+                "2025": 2,
+                "2026_proy": 1
+              },
+              "total": 8
             },
             {
-              "anio": 2024,
-              "emitidas": 65,
-              "renovadas": 28
+              "label": "Eventos clandestinos",
+              "valores": {
+                "2023": 0,
+                "2024": 1,
+                "2025": 1,
+                "2026_proy": 0
+              },
+              "total": 2
+            },
+            {
+              "label": "Daño a propiedad pública y privada",
+              "valores": {
+                "2023": 0,
+                "2024": 0,
+                "2025": 0,
+                "2026_proy": 0
+              },
+              "total": 0
             }
           ]
         },
+        "economia": {
+          "tiene_datos_oficiales": true,
+          "negocios_activos": "150 licencias LUAE cruzadas",
+          "atractivo_comercial": "Cruce predial oficial con base municipal de patentes y licencias LUAE.",
+          "licencias_emitidas": 108,
+          "licencias_renovadas": 42,
+          "total_licencias": 150,
+          "desglose_anual_licencias": []
+        },
         "valor_suelo": {
+          "tiene_datos_oficiales": true,
           "aiva": "AIVAS PARQUE NAVARRO",
           "valor_m2": 319,
-          "rango": "Alto / Residencial y Bohemio",
-          "tendencia": "+9.3% de plusvalía acumulada",
-          "descripcion": "Alta demanda para proyectos de vivienda vertical boutique y estudios de diseño.",
+          "rango": "Media Consolidación",
+          "tendencia": "+9.3% acumulada (2022-2027)",
+          "descripcion": "Datos oficiales de avalúos y valor del suelo de la Dirección Metropolitana de Catastro para AIVAS PARQUE NAVARRO.",
           "historico_anios": {
             "2022_2023": 300,
             "2024_2025": 319,
@@ -1619,7 +1648,8 @@
         "coordenadas": [
           -78.4862,
           -0.2085
-        ]
+        ],
+        "tiene_datos_oficiales": true
       }
     ]
   },
@@ -1659,12 +1689,13 @@
         "estado": "Completado",
         "resumen": "Recuperación de áreas verdes, adoquín geométrico ornamental, nuevo complejo de juegos infantiles y conexión peatonal directa con el Metro.",
         "seguridad": {
-          "nivel": "Muy Alto (Parque Familiar Seguro)",
+          "tiene_datos_oficiales": true,
+          "nivel": "Evaluado Oficial DMQ",
           "camaras": 8,
           "luminarias_led": 85,
           "cruces_seguros": 6,
           "bolardos": 120,
-          "descripcion": "Aceras con guía podotáctil, postes de iluminación ornamental cálida y vigilancia metropolitana.",
+          "descripcion": "Datos oficiales de la Secretaría de Seguridad y Gobernabilidad del DMQ para Isla Tortuga.",
           "delitos_por_ano": {
             "2023": 9,
             "2024": 5,
@@ -1677,7 +1708,7 @@
             "2025": 33,
             "2026_proy": 14
           },
-          "reduccion_delitos_pct": 0,
+          "reduccion_delitos_pct": -56,
           "top_delitos": [
             {
               "label": "Robo a personas",
@@ -1686,25 +1717,8 @@
                 "2024": 5,
                 "2025": 4,
                 "2026_proy": 2
-              }
-            },
-            {
-              "label": "Robo a unidades económicas",
-              "valores": {
-                "2023": 3,
-                "2024": 0,
-                "2025": 0,
-                "2026_proy": 1
-              }
-            },
-            {
-              "label": "Robo a domicilios",
-              "valores": {
-                "2023": 0,
-                "2024": 0,
-                "2025": 0,
-                "2026_proy": 0
-              }
+              },
+              "total": 17
             },
             {
               "label": "Robo de autopartes",
@@ -1713,19 +1727,51 @@
                 "2024": 2,
                 "2025": 4,
                 "2026_proy": 0
-              }
+              },
+              "total": 10
+            },
+            {
+              "label": "Robo a unidades económicas",
+              "valores": {
+                "2023": 3,
+                "2024": 0,
+                "2025": 0,
+                "2026_proy": 1
+              },
+              "total": 4
+            },
+            {
+              "label": "Robo a carros",
+              "valores": {
+                "2023": 0,
+                "2024": 0,
+                "2025": 0,
+                "2026_proy": 1
+              },
+              "total": 1
+            },
+            {
+              "label": "Robo a motos",
+              "valores": {
+                "2023": 0,
+                "2024": 0,
+                "2025": 0,
+                "2026_proy": 0
+              },
+              "total": 0
+            },
+            {
+              "label": "Robo a domicilios",
+              "valores": {
+                "2023": 0,
+                "2024": 0,
+                "2025": 0,
+                "2026_proy": 0
+              },
+              "total": 0
             }
           ],
           "top_incidentes": [
-            {
-              "label": "Libadores",
-              "valores": {
-                "2023": 8,
-                "2024": 4,
-                "2025": 4,
-                "2026_proy": 5
-              }
-            },
             {
               "label": "Escándalos",
               "valores": {
@@ -1733,25 +1779,18 @@
                 "2024": 26,
                 "2025": 29,
                 "2026_proy": 9
-              }
+              },
+              "total": 73
             },
             {
-              "label": "Daño a propiedad pública y privada",
+              "label": "Libadores",
               "valores": {
-                "2023": 0,
-                "2024": 0,
-                "2025": 0,
-                "2026_proy": 0
-              }
-            },
-            {
-              "label": "Venta y consumo de sustancias sujetas a fiscalización",
-              "valores": {
-                "2023": 0,
-                "2024": 1,
-                "2025": 0,
-                "2026_proy": 0
-              }
+                "2023": 8,
+                "2024": 4,
+                "2025": 4,
+                "2026_proy": 5
+              },
+              "total": 21
             },
             {
               "label": "Eventos clandestinos",
@@ -1760,52 +1799,47 @@
                 "2024": 1,
                 "2025": 0,
                 "2026_proy": 0
-              }
+              },
+              "total": 1
+            },
+            {
+              "label": "Venta y consumo de sustancias sujetas a fiscalización",
+              "valores": {
+                "2023": 0,
+                "2024": 1,
+                "2025": 0,
+                "2026_proy": 0
+              },
+              "total": 1
+            },
+            {
+              "label": "Daño a propiedad pública y privada",
+              "valores": {
+                "2023": 0,
+                "2024": 0,
+                "2025": 0,
+                "2026_proy": 0
+              },
+              "total": 0
             }
           ]
         },
         "economia": {
-          "negocios_activos": "+65 comercios de cercanía, farmacias y cafeterías",
-          "atractivo_comercial": "Afluencia continua de usuarios del transporte público intermodal.",
-          "inversiones_privadas": [
-            {
-              "titulo": "Comercios de Servicios en Eje La Y",
-              "tipo": "Comercio Minorista y Salud",
-              "impacto": "Apertura de nuevos locales comerciales y centros médicos de atención ambulatoria."
-            }
-          ],
-          "licencias_emitidas": 79,
-          "licencias_renovadas": 25,
-          "total_licencias": 104,
-          "desglose_anual_licencias": [
-            {
-              "anio": 2021,
-              "emitidas": 14,
-              "renovadas": 4
-            },
-            {
-              "anio": 2022,
-              "emitidas": 19,
-              "renovadas": 6
-            },
-            {
-              "anio": 2023,
-              "emitidas": 22,
-              "renovadas": 7
-            },
-            {
-              "anio": 2024,
-              "emitidas": 24,
-              "renovadas": 8
-            }
-          ]
+          "tiene_datos_oficiales": true,
+          "negocios_activos": "51 licencias LUAE cruzadas",
+          "atractivo_comercial": "Cruce predial oficial con base municipal de patentes y licencias LUAE.",
+          "licencias_emitidas": 39,
+          "licencias_renovadas": 12,
+          "total_licencias": 51,
+          "desglose_anual_licencias": []
         },
         "valor_suelo": {
+          "tiene_datos_oficiales": true,
           "aiva": "AIVAS ISLA TORTUGA",
           "valor_m2": 431,
-          "rango": "Medio-Alto / Residencial y Servicios",
-          "tendencia": "+5.3% de plusvalía acumulada",
-          "descripcion": "Revalorización de condominios residenciales del entorno por acceso directo al Metro.",
+          "rango": "Media Consolidación",
+          "tendencia": "+5.3% acumulada (2022-2027)",
+          "descripcion": "Datos oficiales de avalúos y valor del suelo de la Dirección Metropolitana de Catastro para AIVAS ISLA TORTUGA.",
           "historico_anios": {
             "2022_2023": 422.5,
             "2024_2025": 431,
@@ -1819,7 +1853,8 @@
         "coordenadas": [
           -78.484766,
           -0.164343
-        ]
+        ],
+        "tiene_datos_oficiales": true
       }
     ]
   },
@@ -1859,68 +1894,157 @@
         "estado": "Completado",
         "resumen": "Peatonalización integral con piedra andesita pulida, soterramiento de acometidas patrimoniales y mobiliario urbano de bronce y madera.",
         "seguridad": {
-          "nivel": "Alto (Control Patrimonial)",
-          "camaras": 18,
-          "luminarias_led": 110,
-          "cruces_seguros": 8,
-          "bolardos": 160,
-          "descripcion": "Iluminación patrimonial LED cálida, postes estilo colonial repotenciados y cámaras del ECU-911.",
+          "tiene_datos_oficiales": true,
+          "nivel": "Evaluado Oficial DMQ",
+          "camaras": 12,
+          "luminarias_led": 85,
+          "cruces_seguros": 6,
+          "bolardos": 45,
+          "descripcion": "Datos oficiales de la Secretaría de Seguridad y Gobernabilidad del DMQ para Calle Benalzacar.",
           "delitos_por_ano": {
-            "2023": 63,
-            "2024": 47,
-            "2025": 39,
-            "2026_proy": 30
+            "2023": 14,
+            "2024": 23,
+            "2025": 16,
+            "2026_proy": 15
           },
           "incidentes_por_ano": {
-            "2023": 165,
-            "2024": 128,
-            "2025": 102,
-            "2026_proy": 78
+            "2023": 227,
+            "2024": 229,
+            "2025": 123,
+            "2026_proy": 47
           },
-          "reduccion_delitos_pct": -52
-        },
-        "economia": {
-          "negocios_activos": "+210 comercios tradicionales, artesanías y restaurantes",
-          "atractivo_comercial": "Alta afluencia de turismo nacional y extranjero.",
-          "inversiones_privadas": [
+          "reduccion_delitos_pct": 14,
+          "top_delitos": [
             {
-              "titulo": "Restauración de Hoteles Boutique y Cafeterías",
-              "tipo": "Turismo y Hospitalidad",
-              "impacto": "Inversión privada en casonas patrimoniales convertidas en hoteles boutique."
+              "label": "Robo a personas",
+              "valores": {
+                "2023": 12,
+                "2024": 23,
+                "2025": 14,
+                "2026_proy": 4
+              },
+              "total": 53
+            },
+            {
+              "label": "Robo de autopartes",
+              "valores": {
+                "2023": 1,
+                "2024": 10,
+                "2025": 6,
+                "2026_proy": 0
+              },
+              "total": 17
+            },
+            {
+              "label": "Robo a domicilios",
+              "valores": {
+                "2023": 2,
+                "2024": 0,
+                "2025": 1,
+                "2026_proy": 0
+              },
+              "total": 3
+            },
+            {
+              "label": "Robo a motos",
+              "valores": {
+                "2023": 1,
+                "2024": 0,
+                "2025": 1,
+                "2026_proy": 0
+              },
+              "total": 2
+            },
+            {
+              "label": "Robo a carros",
+              "valores": {
+                "2023": 0,
+                "2024": 1,
+                "2025": 0,
+                "2026_proy": 0
+              },
+              "total": 1
+            },
+            {
+              "label": "Robo a unidades económicas",
+              "valores": {
+                "2023": 0,
+                "2024": 0,
+                "2025": 1,
+                "2026_proy": 0
+              },
+              "total": 1
             }
           ],
-          "licencias_emitidas": 587,
-          "licencias_renovadas": 309,
-          "total_licencias": 896,
-          "desglose_anual_licencias": [
+          "top_incidentes": [
             {
-              "anio": 2021,
-              "emitidas": 106,
-              "renovadas": 49
+              "label": "Libadores",
+              "valores": {
+                "2023": 154,
+                "2024": 98,
+                "2025": 36,
+                "2026_proy": 23
+              },
+              "total": 311
             },
             {
-              "anio": 2022,
-              "emitidas": 141,
-              "renovadas": 68
+              "label": "Escándalos",
+              "valores": {
+                "2023": 51,
+                "2024": 94,
+                "2025": 78,
+                "2026_proy": 21
+              },
+              "total": 244
             },
             {
-              "anio": 2023,
-              "emitidas": 164,
-              "renovadas": 90
+              "label": "Venta y consumo de sustancias sujetas a fiscalización",
+              "valores": {
+                "2023": 22,
+                "2024": 37,
+                "2025": 9,
+                "2026_proy": 3
+              },
+              "total": 71
             },
             {
-              "anio": 2024,
-              "emitidas": 176,
-              "renovadas": 102
+              "label": "Daño a propiedad pública y privada",
+              "valores": {
+                "2023": 0,
+                "2024": 0,
+                "2025": 0,
+                "2026_proy": 0
+              },
+              "total": 0
+            },
+            {
+              "label": "Eventos clandestinos",
+              "valores": {
+                "2023": 0,
+                "2024": 0,
+                "2025": 0,
+                "2026_proy": 0
+              },
+              "total": 0
             }
           ]
         },
+        "economia": {
+          "tiene_datos_oficiales": true,
+          "negocios_activos": "447 licencias LUAE cruzadas",
+          "atractivo_comercial": "Cruce predial oficial con base municipal de patentes y licencias LUAE.",
+          "licencias_emitidas": 293,
+          "licencias_renovadas": 154,
+          "total_licencias": 447,
+          "desglose_anual_licencias": []
+        },
         "valor_suelo": {
+          "tiene_datos_oficiales": true,
           "aiva": "AIVAS BENALCAZAR",
           "valor_m2": 203,
-          "rango": "Alto / Patrimonial",
-          "tendencia": "+2.2% de plusvalía acumulada",
-          "descripcion": "Incentivos de conservación y plusvalía potenciada por la parada San Francisco del Metro.",
+          "rango": "Media Consolidación",
+          "tendencia": "+2.2% acumulada (2022-2027)",
+          "descripcion": "Datos oficiales de avalúos y valor del suelo de la Dirección Metropolitana de Catastro para AIVAS BENALCAZAR.",
           "historico_anios": {
             "2022_2023": 200,
             "2024_2025": 203,
@@ -1934,7 +2058,8 @@
         "coordenadas": [
           -78.513154,
           -0.219301
-        ]
+        ],
+        "tiene_datos_oficiales": true
       },
       {
         "id": "sendero-calle-rocafuerte",
@@ -1947,12 +2072,13 @@
         "estado": "Completado",
         "resumen": "Recuperación del eje tradicional entre el Convento de San Francisco y el Mercado de San Roque, con ensanchamiento de veredas y accesibilidad universal.",
         "seguridad": {
-          "nivel": "Medio-Alto (Sendero Recuperado)",
-          "camaras": 14,
-          "luminarias_led": 95,
+          "tiene_datos_oficiales": true,
+          "nivel": "Evaluado Oficial DMQ",
+          "camaras": 12,
+          "luminarias_led": 85,
           "cruces_seguros": 6,
-          "bolardos": 140,
-          "descripcion": "Recuperación de la percepción de seguridad con iluminación dirigida y agentes de control.",
+          "bolardos": 45,
+          "descripcion": "Datos oficiales de la Secretaría de Seguridad y Gobernabilidad del DMQ para Calle Rocafuerte.",
           "delitos_por_ano": {
             "2023": 6,
             "2024": 3,
@@ -1965,7 +2091,7 @@
             "2025": 220,
             "2026_proy": 111
           },
-          "reduccion_delitos_pct": -67,
+          "reduccion_delitos_pct": -33,
           "top_delitos": [
             {
               "label": "Robo a personas",
@@ -1974,16 +2100,8 @@
                 "2024": 1,
                 "2025": 1,
                 "2026_proy": 0
-              }
-            },
-            {
-              "label": "Robo a unidades económicas",
-              "valores": {
-                "2023": 1,
-                "2024": 1,
-                "2025": 0,
-                "2026_proy": 0
-              }
+              },
+              "total": 6
             },
             {
               "label": "Robo a domicilios",
@@ -1992,7 +2110,8 @@
                 "2024": 1,
                 "2025": 3,
                 "2026_proy": 0
-              }
+              },
+              "total": 5
             },
             {
               "label": "Robo de autopartes",
@@ -2001,7 +2120,38 @@
                 "2024": 1,
                 "2025": 1,
                 "2026_proy": 0
-              }
+              },
+              "total": 3
+            },
+            {
+              "label": "Robo a unidades económicas",
+              "valores": {
+                "2023": 1,
+                "2024": 1,
+                "2025": 0,
+                "2026_proy": 0
+              },
+              "total": 2
+            },
+            {
+              "label": "Robo a carros",
+              "valores": {
+                "2023": 0,
+                "2024": 0,
+                "2025": 0,
+                "2026_proy": 0
+              },
+              "total": 0
+            },
+            {
+              "label": "Robo a motos",
+              "valores": {
+                "2023": 0,
+                "2024": 0,
+                "2025": 0,
+                "2026_proy": 0
+              },
+              "total": 0
             }
           ],
           "top_incidentes": [
@@ -2012,25 +2162,8 @@
                 "2024": 91,
                 "2025": 74,
                 "2026_proy": 52
-              }
-            },
-            {
-              "label": "Escándalos",
-              "valores": {
-                "2023": 78,
-                "2024": 83,
-                "2025": 75,
-                "2026_proy": 18
-              }
-            },
-            {
-              "label": "Daño a propiedad pública y privada",
-              "valores": {
-                "2023": 2,
-                "2024": 0,
-                "2025": 2,
-                "2026_proy": 0
-              }
+              },
+              "total": 381
             },
             {
               "label": "Venta y consumo de sustancias sujetas a fiscalización",
@@ -2039,7 +2172,28 @@
                 "2024": 64,
                 "2025": 69,
                 "2026_proy": 41
-              }
+              },
+              "total": 285
+            },
+            {
+              "label": "Escándalos",
+              "valores": {
+                "2023": 78,
+                "2024": 83,
+                "2025": 75,
+                "2026_proy": 18
+              },
+              "total": 254
+            },
+            {
+              "label": "Daño a propiedad pública y privada",
+              "valores": {
+                "2023": 2,
+                "2024": 0,
+                "2025": 2,
+                "2026_proy": 0
+              },
+              "total": 4
             },
             {
               "label": "Eventos clandestinos",
@@ -2048,52 +2202,27 @@
                 "2024": 0,
                 "2025": 0,
                 "2026_proy": 0
-              }
+              },
+              "total": 1
             }
           ]
         },
         "economia": {
-          "negocios_activos": "+180 comercios y talleres artesanales",
-          "atractivo_comercial": "Ruta gastronómica y comercial tradicional.",
-          "inversiones_privadas": [
-            {
-              "titulo": "Reapertura de Comercios Tradicionales",
-              "tipo": "Comercio Minorista",
-              "impacto": "Regularización LUAE con incremento de aperturas de negocios en la calle Rocafuerte."
-            }
-          ],
-          "licencias_emitidas": 378,
-          "licencias_renovadas": 194,
-          "total_licencias": 572,
-          "desglose_anual_licencias": [
-            {
-              "anio": 2021,
-              "emitidas": 68,
-              "renovadas": 31
-            },
-            {
-              "anio": 2022,
-              "emitidas": 91,
-              "renovadas": 43
-            },
-            {
-              "anio": 2023,
-              "emitidas": 106,
-              "renovadas": 56
-            },
-            {
-              "anio": 2024,
-              "emitidas": 113,
-              "renovadas": 64
-            }
-          ]
+          "tiene_datos_oficiales": true,
+          "negocios_activos": "286 licencias LUAE cruzadas",
+          "atractivo_comercial": "Cruce predial oficial con base municipal de patentes y licencias LUAE.",
+          "licencias_emitidas": 189,
+          "licencias_renovadas": 97,
+          "total_licencias": 286,
+          "desglose_anual_licencias": []
         },
         "valor_suelo": {
+          "tiene_datos_oficiales": true,
           "aiva": "AIVAS ROCAFUERTE",
           "valor_m2": 182,
-          "rango": "Medio-Alto / Comercial",
-          "tendencia": "+3.7% de plusvalía acumulada",
-          "descripcion": "Consolidación del comercio formal en el centro sur patrimonial.",
+          "rango": "Media Consolidación",
+          "tendencia": "+3.7% acumulada (2022-2027)",
+          "descripcion": "Datos oficiales de avalúos y valor del suelo de la Dirección Metropolitana de Catastro para AIVAS ROCAFUERTE.",
           "historico_anios": {
             "2022_2023": 175.5,
             "2024_2025": 182,
@@ -2107,7 +2236,8 @@
         "coordenadas": [
           -78.509404,
           -0.227928
-        ]
+        ],
+        "tiene_datos_oficiales": true
       }
     ]
   },
@@ -2147,12 +2277,13 @@
         "estado": "Completado",
         "resumen": "Eje estructurante norte-centro con ciclovía segregada, señalización táctica, soterramiento de cables y amplia oferta comercial y gastronómica.",
         "seguridad": {
-          "nivel": "Alto (Sendero Seguro)",
+          "tiene_datos_oficiales": true,
+          "nivel": "Evaluado Oficial DMQ",
           "camaras": 12,
-          "luminarias_led": 142,
-          "cruces_seguros": 8,
-          "bolardos": 180,
-          "descripcion": "Alumbrado LED repotenciado, señalización táctica tricolor, cámaras de vigilancia y aceras anchas con accesibilidad universal.",
+          "luminarias_led": 85,
+          "cruces_seguros": 6,
+          "bolardos": 45,
+          "descripcion": "Datos oficiales de la Secretaría de Seguridad y Gobernabilidad del DMQ para Av. Colón.",
           "delitos_por_ano": {
             "2023": 111,
             "2024": 93,
@@ -2174,25 +2305,8 @@
                 "2024": 89,
                 "2025": 63,
                 "2026_proy": 19
-              }
-            },
-            {
-              "label": "Robo a unidades económicas",
-              "valores": {
-                "2023": 22,
-                "2024": 4,
-                "2025": 7,
-                "2026_proy": 1
-              }
-            },
-            {
-              "label": "Robo a domicilios",
-              "valores": {
-                "2023": 7,
-                "2024": 0,
-                "2025": 6,
-                "2026_proy": 1
-              }
+              },
+              "total": 253
             },
             {
               "label": "Robo de autopartes",
@@ -2201,19 +2315,51 @@
                 "2024": 12,
                 "2025": 12,
                 "2026_proy": 4
-              }
+              },
+              "total": 43
+            },
+            {
+              "label": "Robo a unidades económicas",
+              "valores": {
+                "2023": 22,
+                "2024": 4,
+                "2025": 7,
+                "2026_proy": 1
+              },
+              "total": 34
+            },
+            {
+              "label": "Robo a motos",
+              "valores": {
+                "2023": 3,
+                "2024": 4,
+                "2025": 7,
+                "2026_proy": 4
+              },
+              "total": 18
+            },
+            {
+              "label": "Robo a carros",
+              "valores": {
+                "2023": 2,
+                "2024": 5,
+                "2025": 3,
+                "2026_proy": 5
+              },
+              "total": 15
+            },
+            {
+              "label": "Robo a domicilios",
+              "valores": {
+                "2023": 7,
+                "2024": 0,
+                "2025": 6,
+                "2026_proy": 1
+              },
+              "total": 14
             }
           ],
           "top_incidentes": [
-            {
-              "label": "Libadores",
-              "valores": {
-                "2023": 101,
-                "2024": 89,
-                "2025": 87,
-                "2026_proy": 56
-              }
-            },
             {
               "label": "Escándalos",
               "valores": {
@@ -2221,16 +2367,18 @@
                 "2024": 295,
                 "2025": 303,
                 "2026_proy": 104
-              }
+              },
+              "total": 982
             },
             {
-              "label": "Daño a propiedad pública y privada",
+              "label": "Libadores",
               "valores": {
-                "2023": 3,
-                "2024": 5,
-                "2025": 11,
-                "2026_proy": 4
-              }
+                "2023": 101,
+                "2024": 89,
+                "2025": 87,
+                "2026_proy": 56
+              },
+              "total": 333
             },
             {
               "label": "Venta y consumo de sustancias sujetas a fiscalización",
@@ -2239,7 +2387,18 @@
                 "2024": 16,
                 "2025": 25,
                 "2026_proy": 32
-              }
+              },
+              "total": 85
+            },
+            {
+              "label": "Daño a propiedad pública y privada",
+              "valores": {
+                "2023": 3,
+                "2024": 5,
+                "2025": 11,
+                "2026_proy": 4
+              },
+              "total": 23
             },
             {
               "label": "Eventos clandestinos",
@@ -2248,52 +2407,27 @@
                 "2024": 0,
                 "2025": 1,
                 "2026_proy": 0
-              }
+              },
+              "total": 1
             }
           ]
         },
         "economia": {
-          "negocios_activos": "+120 comercios, hoteles y servicios corporativos",
-          "atractivo_comercial": "Polo gastronómico, bancario y de entretenimiento nocturno seguro.",
-          "inversiones_privadas": [
-            {
-              "titulo": "Carl's Jr. Freestanding Colón",
-              "tipo": "Franquicia Internacional",
-              "impacto": "Apertura del primer freestanding de la cadena en Quito con área infantil, drive-thru y horario extendido."
-            }
-          ],
-          "licencias_emitidas": 1405,
-          "licencias_renovadas": 645,
-          "total_licencias": 2050,
-          "desglose_anual_licencias": [
-            {
-              "anio": 2021,
-              "emitidas": 253,
-              "renovadas": 103
-            },
-            {
-              "anio": 2022,
-              "emitidas": 337,
-              "renovadas": 142
-            },
-            {
-              "anio": 2023,
-              "emitidas": 393,
-              "renovadas": 187
-            },
-            {
-              "anio": 2024,
-              "emitidas": 422,
-              "renovadas": 213
-            }
-          ]
+          "tiene_datos_oficiales": true,
+          "negocios_activos": "1024 licencias LUAE cruzadas",
+          "atractivo_comercial": "Cruce predial oficial con base municipal de patentes y licencias LUAE.",
+          "licencias_emitidas": 702,
+          "licencias_renovadas": 322,
+          "total_licencias": 1024,
+          "desglose_anual_licencias": []
         },
         "valor_suelo": {
+          "tiene_datos_oficiales": true,
           "aiva": "AIVAS AV. COLÓN",
           "valor_m2": 757.9,
-          "rango": "Alto / Comercial y Corporativo",
-          "tendencia": "+8% de plusvalía acumulada",
-          "descripcion": "Demanda inmobiliaria potenciada por la renovación integral del perfil vial y soterrado de redes.",
+          "rango": "Alta Valorización",
+          "tendencia": "+8% acumulada (2022-2027)",
+          "descripcion": "Datos oficiales de avalúos y valor del suelo de la Dirección Metropolitana de Catastro para AIVAS AV. COLÓN.",
           "historico_anios": {
             "2022_2023": 718.8,
             "2024_2025": 757.9,
@@ -2307,7 +2441,8 @@
         "coordenadas": [
           -78.4905,
           -0.1985
-        ]
+        ],
+        "tiene_datos_oficiales": true
       },
       {
         "id": "soterramiento-av-colon",
@@ -2320,12 +2455,13 @@
         "estado": "Operativo",
         "resumen": "Retiro del 100% del tallarín de cables aéreos de media y baja tensión y telecomunicaciones, canalizados bajo aceras con cajas subterráneas.",
         "seguridad": {
-          "nivel": "Muy Alto (Despeje Aéreo)",
+          "tiene_datos_oficiales": true,
+          "nivel": "Evaluado Oficial DMQ",
           "camaras": 12,
-          "luminarias_led": 142,
-          "cruces_seguros": 8,
-          "bolardos": 180,
-          "descripcion": "Eliminación del riesgo de colapso de postes y cables de media tensión, mayor visibilidad y campo visual despejado.",
+          "luminarias_led": 85,
+          "cruces_seguros": 6,
+          "bolardos": 45,
+          "descripcion": "Datos oficiales de la Secretaría de Seguridad y Gobernabilidad del DMQ para Av. Colón.",
           "delitos_por_ano": {
             "2023": 111,
             "2024": 93,
@@ -2347,25 +2483,8 @@
                 "2024": 89,
                 "2025": 63,
                 "2026_proy": 19
-              }
-            },
-            {
-              "label": "Robo a unidades económicas",
-              "valores": {
-                "2023": 22,
-                "2024": 4,
-                "2025": 7,
-                "2026_proy": 1
-              }
-            },
-            {
-              "label": "Robo a domicilios",
-              "valores": {
-                "2023": 7,
-                "2024": 0,
-                "2025": 6,
-                "2026_proy": 1
-              }
+              },
+              "total": 253
             },
             {
               "label": "Robo de autopartes",
@@ -2374,19 +2493,51 @@
                 "2024": 12,
                 "2025": 12,
                 "2026_proy": 4
-              }
+              },
+              "total": 43
+            },
+            {
+              "label": "Robo a unidades económicas",
+              "valores": {
+                "2023": 22,
+                "2024": 4,
+                "2025": 7,
+                "2026_proy": 1
+              },
+              "total": 34
+            },
+            {
+              "label": "Robo a motos",
+              "valores": {
+                "2023": 3,
+                "2024": 4,
+                "2025": 7,
+                "2026_proy": 4
+              },
+              "total": 18
+            },
+            {
+              "label": "Robo a carros",
+              "valores": {
+                "2023": 2,
+                "2024": 5,
+                "2025": 3,
+                "2026_proy": 5
+              },
+              "total": 15
+            },
+            {
+              "label": "Robo a domicilios",
+              "valores": {
+                "2023": 7,
+                "2024": 0,
+                "2025": 6,
+                "2026_proy": 1
+              },
+              "total": 14
             }
           ],
           "top_incidentes": [
-            {
-              "label": "Libadores",
-              "valores": {
-                "2023": 101,
-                "2024": 89,
-                "2025": 87,
-                "2026_proy": 56
-              }
-            },
             {
               "label": "Escándalos",
               "valores": {
@@ -2394,16 +2545,18 @@
                 "2024": 295,
                 "2025": 303,
                 "2026_proy": 104
-              }
+              },
+              "total": 982
             },
             {
-              "label": "Daño a propiedad pública y privada",
+              "label": "Libadores",
               "valores": {
-                "2023": 3,
-                "2024": 5,
-                "2025": 11,
-                "2026_proy": 4
-              }
+                "2023": 101,
+                "2024": 89,
+                "2025": 87,
+                "2026_proy": 56
+              },
+              "total": 333
             },
             {
               "label": "Venta y consumo de sustancias sujetas a fiscalización",
@@ -2412,7 +2565,18 @@
                 "2024": 16,
                 "2025": 25,
                 "2026_proy": 32
-              }
+              },
+              "total": 85
+            },
+            {
+              "label": "Daño a propiedad pública y privada",
+              "valores": {
+                "2023": 3,
+                "2024": 5,
+                "2025": 11,
+                "2026_proy": 4
+              },
+              "total": 23
             },
             {
               "label": "Eventos clandestinos",
@@ -2421,52 +2585,27 @@
                 "2024": 0,
                 "2025": 1,
                 "2026_proy": 0
-              }
+              },
+              "total": 1
             }
           ]
         },
         "economia": {
-          "negocios_activos": "+120 establecimientos",
-          "atractivo_comercial": "Despeje estético total de fachadas corporativas y hoteleras.",
-          "inversiones_privadas": [
-            {
-              "titulo": "Inversión en Redes de Fibra Subterránea",
-              "tipo": "Telecomunicaciones Privadas",
-              "impacto": "Modernización del tendido subterráneo de telecomunicaciones de alta velocidad para edificios corporativos."
-            }
-          ],
-          "licencias_emitidas": 1405,
-          "licencias_renovadas": 645,
-          "total_licencias": 2050,
-          "desglose_anual_licencias": [
-            {
-              "anio": 2021,
-              "emitidas": 253,
-              "renovadas": 103
-            },
-            {
-              "anio": 2022,
-              "emitidas": 337,
-              "renovadas": 142
-            },
-            {
-              "anio": 2023,
-              "emitidas": 393,
-              "renovadas": 187
-            },
-            {
-              "anio": 2024,
-              "emitidas": 422,
-              "renovadas": 213
-            }
-          ]
+          "tiene_datos_oficiales": true,
+          "negocios_activos": "1024 licencias LUAE cruzadas",
+          "atractivo_comercial": "Cruce predial oficial con base municipal de patentes y licencias LUAE.",
+          "licencias_emitidas": 702,
+          "licencias_renovadas": 322,
+          "total_licencias": 1024,
+          "desglose_anual_licencias": []
         },
         "valor_suelo": {
+          "tiene_datos_oficiales": true,
           "aiva": "AIVAS AV. COLÓN",
           "valor_m2": 757.9,
-          "rango": "Alto / Comercial",
-          "tendencia": "+8% de plusvalía acumulada",
-          "descripcion": "Valorización inmediata de predios frentistas por descontaminación visual del entorno.",
+          "rango": "Alta Valorización",
+          "tendencia": "+8% acumulada (2022-2027)",
+          "descripcion": "Datos oficiales de avalúos y valor del suelo de la Dirección Metropolitana de Catastro para AIVAS AV. COLÓN.",
           "historico_anios": {
             "2022_2023": 718.8,
             "2024_2025": 757.9,
@@ -2480,7 +2619,8 @@
         "coordenadas": [
           -78.48663,
           -0.202062
-        ]
+        ],
+        "tiene_datos_oficiales": true
       }
     ]
   },
@@ -2519,74 +2659,31 @@
         "estado": "Fase 2",
         "resumen": "Desarrollo del humedal artificial, pistas atléticas reglamentarias, áreas de juegos infantiles y arborización con especies nativas.",
         "seguridad": {
-          "nivel": "Excelente (Parque Seguro)",
-          "camaras": 24,
-          "luminarias_led": 310,
-          "cruces_seguros": 14,
-          "bolardos": 200,
-          "descripcion": "Cámaras de vigilancia 360°, torres de salvamento y patrullaje de agentes metropolitanos en bicicleta.",
-          "delitos_por_ano": {
-            "2023": 63,
-            "2024": 47,
-            "2025": 39,
-            "2026_proy": 30
-          },
-          "incidentes_por_ano": {
-            "2023": 165,
-            "2024": 128,
-            "2025": 102,
-            "2026_proy": 78
-          },
-          "reduccion_delitos_pct": -52
+          "tiene_datos_oficiales": false,
+          "nivel": "Sin medición específica de seguridad",
+          "mensaje_oficial": "Este proyecto no formó parte del polígono de medición delictiva de la Secretaría de Seguridad.",
+          "delitos_por_ano": null,
+          "incidentes_por_ano": null,
+          "reduccion_delitos_pct": null,
+          "top_delitos": [],
+          "top_incidentes": []
         },
         "economia": {
-          "negocios_activos": "Ferias masivas, Centro de Convenciones y concesiones gastronómicas",
-          "atractivo_comercial": "Epicentro de ferias internacionales, conciertos y eventos culturales.",
-          "inversiones_privadas": [
-            {
-              "titulo": "Centro de Convenciones y Eventos Privados",
-              "tipo": "Turismo MICE",
-              "impacto": "Generación de millones de dólares en congresos y exhibiciones empresariales."
-            }
-          ],
-          "licencias_emitidas": 4156,
-          "licencias_renovadas": 1980,
-          "total_licencias": 6136,
-          "desglose_anual_licencias": [
-            {
-              "anio": 2021,
-              "emitidas": 748,
-              "renovadas": 317
-            },
-            {
-              "anio": 2022,
-              "emitidas": 997,
-              "renovadas": 436
-            },
-            {
-              "anio": 2023,
-              "emitidas": 1164,
-              "renovadas": 574
-            },
-            {
-              "anio": 2024,
-              "emitidas": 1247,
-              "renovadas": 653
-            }
-          ]
+          "tiene_datos_oficiales": true,
+          "negocios_activos": "3068 licencias LUAE cruzadas",
+          "atractivo_comercial": "Cruce predial oficial con base municipal de patentes y licencias LUAE.",
+          "licencias_emitidas": 2078,
+          "licencias_renovadas": 990,
+          "total_licencias": 3068,
+          "desglose_anual_licencias": []
         },
         "valor_suelo": {
-          "aiva": "AIVAS BICENTENARIO",
-          "valor_m2": 1050,
-          "rango": "Alto / Residencial y Servicios",
-          "tendencia": "+20.3% de plusvalía acumulada",
-          "descripcion": "Atracción de desarrollos inmobiliarios verticales con vista panorámica al parque.",
-          "historico_anios": {
-            "2022_2023": 955.5,
-            "2024_2025": 1050,
-            "2026_2027": 1149.8
-          },
-          "plusvalia_porcentaje": 20.3
+          "tiene_datos_oficiales": false,
+          "mensaje_oficial": "Sin código de AIVA asignado directamente en la matriz comparativa catastral.",
+          "aiva": null,
+          "valor_m2": null,
+          "historico_anios": null,
+          "plusvalia_porcentaje": null
         },
         "imagen_destacada": "/repotenciacion_parque_bicentenario/Repotenciación del Bicentenario.png",
         "galeria_id": null,
@@ -2594,7 +2691,8 @@
         "coordenadas": [
           -78.490915,
           -0.1369015
-        ]
+        ],
+        "tiene_datos_oficiales": true
       },
       {
         "id": "recuperacion-av-10-agosto",
@@ -2607,74 +2705,31 @@
         "estado": "Completado",
         "resumen": "Repavimentación rígida, ciclovía interconectada con El Labrador y arborización en parterres.",
         "seguridad": {
-          "nivel": "Alto",
-          "camaras": 16,
-          "luminarias_led": 160,
-          "cruces_seguros": 9,
-          "bolardos": 150,
-          "descripcion": "Pasos peatonales con semáforos sonoros y señalética reflectiva.",
-          "delitos_por_ano": {
-            "2023": 63,
-            "2024": 47,
-            "2025": 39,
-            "2026_proy": 30
-          },
-          "incidentes_por_ano": {
-            "2023": 165,
-            "2024": 128,
-            "2025": 102,
-            "2026_proy": 78
-          },
-          "reduccion_delitos_pct": -52
+          "tiene_datos_oficiales": false,
+          "nivel": "Sin medición específica de seguridad",
+          "mensaje_oficial": "Este proyecto no formó parte del polígono de medición delictiva de la Secretaría de Seguridad.",
+          "delitos_por_ano": null,
+          "incidentes_por_ano": null,
+          "reduccion_delitos_pct": null,
+          "top_delitos": [],
+          "top_incidentes": []
         },
         "economia": {
-          "negocios_activos": "+140 comercios",
-          "atractivo_comercial": "Eje automotriz y de servicios logísticos.",
-          "inversiones_privadas": [
-            {
-              "titulo": "Concesionarios y Edificios Corporativos",
-              "tipo": "Automotriz y Servicios",
-              "impacto": "Modernización de vitrinas comerciales y puntos de venta."
-            }
-          ],
-          "licencias_emitidas": 4156,
-          "licencias_renovadas": 1980,
-          "total_licencias": 6136,
-          "desglose_anual_licencias": [
-            {
-              "anio": 2021,
-              "emitidas": 748,
-              "renovadas": 317
-            },
-            {
-              "anio": 2022,
-              "emitidas": 997,
-              "renovadas": 436
-            },
-            {
-              "anio": 2023,
-              "emitidas": 1164,
-              "renovadas": 574
-            },
-            {
-              "anio": 2024,
-              "emitidas": 1247,
-              "renovadas": 653
-            }
-          ]
+          "tiene_datos_oficiales": true,
+          "negocios_activos": "3068 licencias LUAE cruzadas",
+          "atractivo_comercial": "Cruce predial oficial con base municipal de patentes y licencias LUAE.",
+          "licencias_emitidas": 2078,
+          "licencias_renovadas": 990,
+          "total_licencias": 3068,
+          "desglose_anual_licencias": []
         },
         "valor_suelo": {
-          "aiva": "AIVAS 10 DE AGOSTO NORTE",
-          "valor_m2": 980,
-          "rango": "Medio-Alto",
-          "tendencia": "+20.3% de plusvalía acumulada",
-          "descripcion": "Plusvalía empujada por la intermodalidad del Metro El Labrador.",
-          "historico_anios": {
-            "2022_2023": 891.8,
-            "2024_2025": 980,
-            "2026_2027": 1073.1
-          },
-          "plusvalia_porcentaje": 20.3
+          "tiene_datos_oficiales": false,
+          "mensaje_oficial": "Sin código de AIVA asignado directamente en la matriz comparativa catastral.",
+          "aiva": null,
+          "valor_m2": null,
+          "historico_anios": null,
+          "plusvalia_porcentaje": null
         },
         "imagen_destacada": "/recuperacion_urbana_av_10_de_agosto/recuperación_urbana_av10deAgosto.png",
         "galeria_id": null,
@@ -2682,7 +2737,8 @@
         "coordenadas": [
           -78.4889,
           -0.145
-        ]
+        ],
+        "tiene_datos_oficiales": true
       }
     ]
   },
@@ -2722,12 +2778,13 @@
         "estado": "Completado",
         "resumen": "Demolición de la antigua tribuna de cemento y construcción de un bulevar contemporáneo con pórticos escultóricos, ciclovía y jardines.",
         "seguridad": {
-          "nivel": "Excelente (Sendero Modelo)",
-          "camaras": 20,
-          "luminarias_led": 195,
-          "cruces_seguros": 12,
-          "bolardos": 280,
-          "descripcion": "Visibilidad total 360°, eliminación de zonas oscuras, pórticos iluminados y patrullaje metropolitano continuo.",
+          "tiene_datos_oficiales": true,
+          "nivel": "Evaluado Oficial DMQ",
+          "camaras": 12,
+          "luminarias_led": 85,
+          "cruces_seguros": 6,
+          "bolardos": 45,
+          "descripcion": "Datos oficiales de la Secretaría de Seguridad y Gobernabilidad del DMQ para Bulevar Tribuna de los Shyris.",
           "delitos_por_ano": {
             "2023": 6,
             "2024": 11,
@@ -2740,7 +2797,7 @@
             "2025": 22,
             "2026_proy": 6
           },
-          "reduccion_delitos_pct": -17,
+          "reduccion_delitos_pct": 83,
           "top_delitos": [
             {
               "label": "Robo a personas",
@@ -2749,25 +2806,8 @@
                 "2024": 10,
                 "2025": 11,
                 "2026_proy": 1
-              }
-            },
-            {
-              "label": "Robo a unidades económicas",
-              "valores": {
-                "2023": 0,
-                "2024": 1,
-                "2025": 0,
-                "2026_proy": 0
-              }
-            },
-            {
-              "label": "Robo a domicilios",
-              "valores": {
-                "2023": 0,
-                "2024": 0,
-                "2025": 0,
-                "2026_proy": 0
-              }
+              },
+              "total": 28
             },
             {
               "label": "Robo de autopartes",
@@ -2776,19 +2816,51 @@
                 "2024": 7,
                 "2025": 4,
                 "2026_proy": 6
-              }
+              },
+              "total": 21
+            },
+            {
+              "label": "Robo a carros",
+              "valores": {
+                "2023": 1,
+                "2024": 3,
+                "2025": 6,
+                "2026_proy": 0
+              },
+              "total": 10
+            },
+            {
+              "label": "Robo a motos",
+              "valores": {
+                "2023": 0,
+                "2024": 1,
+                "2025": 0,
+                "2026_proy": 1
+              },
+              "total": 2
+            },
+            {
+              "label": "Robo a unidades económicas",
+              "valores": {
+                "2023": 0,
+                "2024": 1,
+                "2025": 0,
+                "2026_proy": 0
+              },
+              "total": 1
+            },
+            {
+              "label": "Robo a domicilios",
+              "valores": {
+                "2023": 0,
+                "2024": 0,
+                "2025": 0,
+                "2026_proy": 0
+              },
+              "total": 0
             }
           ],
           "top_incidentes": [
-            {
-              "label": "Libadores",
-              "valores": {
-                "2023": 54,
-                "2024": 7,
-                "2025": 5,
-                "2026_proy": 2
-              }
-            },
             {
               "label": "Escándalos",
               "valores": {
@@ -2796,7 +2868,18 @@
                 "2024": 19,
                 "2025": 17,
                 "2026_proy": 4
-              }
+              },
+              "total": 80
+            },
+            {
+              "label": "Libadores",
+              "valores": {
+                "2023": 54,
+                "2024": 7,
+                "2025": 5,
+                "2026_proy": 2
+              },
+              "total": 68
             },
             {
               "label": "Daño a propiedad pública y privada",
@@ -2805,16 +2888,8 @@
                 "2024": 0,
                 "2025": 0,
                 "2026_proy": 0
-              }
-            },
-            {
-              "label": "Venta y consumo de sustancias sujetas a fiscalización",
-              "valores": {
-                "2023": 0,
-                "2024": 0,
-                "2025": 0,
-                "2026_proy": 0
-              }
+              },
+              "total": 0
             },
             {
               "label": "Eventos clandestinos",
@@ -2823,52 +2898,37 @@
                 "2024": 0,
                 "2025": 0,
                 "2026_proy": 0
-              }
+              },
+              "total": 0
+            },
+            {
+              "label": "Venta y consumo de sustancias sujetas a fiscalización",
+              "valores": {
+                "2023": 0,
+                "2024": 0,
+                "2025": 0,
+                "2026_proy": 0
+              },
+              "total": 0
             }
           ]
         },
         "economia": {
-          "negocios_activos": "+280 sedes corporativas, cafeterías gourmet y bancos",
-          "atractivo_comercial": "El epicentro financiero y de ocio familiar más cotizado del DMQ.",
-          "inversiones_privadas": [
-            {
-              "titulo": "Torres Corporativas y Nuevas Cafeterías Shyris",
-              "tipo": "Desarrollo Mixto y Gastronomía",
-              "impacto": "Atracción masiva de terrazas gastronómicas y dinamización del comercio diurno y nocturno."
-            }
-          ],
-          "licencias_emitidas": 463,
-          "licencias_renovadas": 183,
-          "total_licencias": 646,
-          "desglose_anual_licencias": [
-            {
-              "anio": 2021,
-              "emitidas": 83,
-              "renovadas": 29
-            },
-            {
-              "anio": 2022,
-              "emitidas": 111,
-              "renovadas": 40
-            },
-            {
-              "anio": 2023,
-              "emitidas": 130,
-              "renovadas": 53
-            },
-            {
-              "anio": 2024,
-              "emitidas": 139,
-              "renovadas": 60
-            }
-          ]
+          "tiene_datos_oficiales": true,
+          "negocios_activos": "322 licencias LUAE cruzadas",
+          "atractivo_comercial": "Cruce predial oficial con base municipal de patentes y licencias LUAE.",
+          "licencias_emitidas": 231,
+          "licencias_renovadas": 91,
+          "total_licencias": 322,
+          "desglose_anual_licencias": []
         },
         "valor_suelo": {
+          "tiene_datos_oficiales": true,
           "aiva": "AIVAS TRIBUNA DE LOS SHYRIS",
           "valor_m2": 1199.7,
-          "rango": "Máximo DMQ / Financiero",
-          "tendencia": "+2.1% de plusvalía acumulada",
-          "descripcion": "El suelo urbano de mayor valorización por metro cuadrado del Distrito Metropolitano.",
+          "rango": "Alta Valorización",
+          "tendencia": "+2.1% acumulada (2022-2027)",
+          "descripcion": "Datos oficiales de avalúos y valor del suelo de la Dirección Metropolitana de Catastro para AIVAS TRIBUNA DE LOS SHYRIS.",
           "historico_anios": {
             "2022_2023": 1191.3,
             "2024_2025": 1199.7,
@@ -2882,7 +2942,8 @@
         "coordenadas": [
           -78.482325,
           -0.182979
-        ]
+        ],
+        "tiene_datos_oficiales": true
       },
       {
         "id": "soterramiento-shyris",
@@ -2895,12 +2956,13 @@
         "estado": "Completado",
         "resumen": "Infraestructura subterránea de ductos para energía y telecomunicaciones que liberó visualmente el frente del Parque La Carolina.",
         "seguridad": {
-          "nivel": "Excelente",
+          "tiene_datos_oficiales": true,
+          "nivel": "Evaluado Oficial DMQ",
           "camaras": 20,
           "luminarias_led": 195,
           "cruces_seguros": 12,
           "bolardos": 280,
-          "descripcion": "Aceras totalmente transitables sin obstáculos de postes ni cables.",
+          "descripcion": "Datos oficiales de la Secretaría de Seguridad y Gobernabilidad del DMQ para La Carolina.",
           "delitos_por_ano": {
             "2023": 50,
             "2024": 66,
@@ -2913,7 +2975,7 @@
             "2025": 168,
             "2026_proy": 46
           },
-          "reduccion_delitos_pct": -84,
+          "reduccion_delitos_pct": -28,
           "top_delitos": [
             {
               "label": "Robo a personas",
@@ -2922,25 +2984,8 @@
                 "2024": 24,
                 "2025": 25,
                 "2026_proy": 7
-              }
-            },
-            {
-              "label": "Robo a unidades económicas",
-              "valores": {
-                "2023": 5,
-                "2024": 7,
-                "2025": 2,
-                "2026_proy": 0
-              }
-            },
-            {
-              "label": "Robo a domicilios",
-              "valores": {
-                "2023": 0,
-                "2024": 2,
-                "2025": 0,
-                "2026_proy": 0
-              }
+              },
+              "total": 79
             },
             {
               "label": "Robo de autopartes",
@@ -2949,19 +2994,51 @@
                 "2024": 29,
                 "2025": 7,
                 "2026_proy": 0
-              }
+              },
+              "total": 54
+            },
+            {
+              "label": "Robo a unidades económicas",
+              "valores": {
+                "2023": 5,
+                "2024": 7,
+                "2025": 2,
+                "2026_proy": 0
+              },
+              "total": 14
+            },
+            {
+              "label": "Robo a carros",
+              "valores": {
+                "2023": 3,
+                "2024": 4,
+                "2025": 2,
+                "2026_proy": 1
+              },
+              "total": 10
+            },
+            {
+              "label": "Robo a domicilios",
+              "valores": {
+                "2023": 0,
+                "2024": 2,
+                "2025": 0,
+                "2026_proy": 0
+              },
+              "total": 2
+            },
+            {
+              "label": "Robo a motos",
+              "valores": {
+                "2023": 1,
+                "2024": 0,
+                "2025": 0,
+                "2026_proy": 0
+              },
+              "total": 1
             }
           ],
           "top_incidentes": [
-            {
-              "label": "Libadores",
-              "valores": {
-                "2023": 26,
-                "2024": 32,
-                "2025": 65,
-                "2026_proy": 19
-              }
-            },
             {
               "label": "Escándalos",
               "valores": {
@@ -2969,16 +3046,18 @@
                 "2024": 65,
                 "2025": 74,
                 "2026_proy": 26
-              }
+              },
+              "total": 220
             },
             {
-              "label": "Daño a propiedad pública y privada",
+              "label": "Libadores",
               "valores": {
-                "2023": 0,
-                "2024": 0,
-                "2025": 2,
-                "2026_proy": 1
-              }
+                "2023": 26,
+                "2024": 32,
+                "2025": 65,
+                "2026_proy": 19
+              },
+              "total": 142
             },
             {
               "label": "Venta y consumo de sustancias sujetas a fiscalización",
@@ -2987,7 +3066,8 @@
                 "2024": 10,
                 "2025": 25,
                 "2026_proy": 0
-              }
+              },
+              "total": 38
             },
             {
               "label": "Eventos clandestinos",
@@ -2996,52 +3076,37 @@
                 "2024": 1,
                 "2025": 2,
                 "2026_proy": 0
-              }
+              },
+              "total": 4
+            },
+            {
+              "label": "Daño a propiedad pública y privada",
+              "valores": {
+                "2023": 0,
+                "2024": 0,
+                "2025": 2,
+                "2026_proy": 1
+              },
+              "total": 3
             }
           ]
         },
         "economia": {
-          "negocios_activos": "+280 establecimientos",
-          "atractivo_comercial": "Revalorización de plantas bajas comerciales.",
-          "inversiones_privadas": [
-            {
-              "titulo": "Inversión en Terrazas de Restaurantes Shyris",
-              "tipo": "Comercio Exterior y Terrazas",
-              "impacto": "Ampliación de áreas de servicio al aire libre sin interferencias."
-            }
-          ],
-          "licencias_emitidas": 363,
-          "licencias_renovadas": 173,
-          "total_licencias": 536,
-          "desglose_anual_licencias": [
-            {
-              "anio": 2021,
-              "emitidas": 65,
-              "renovadas": 28
-            },
-            {
-              "anio": 2022,
-              "emitidas": 87,
-              "renovadas": 38
-            },
-            {
-              "anio": 2023,
-              "emitidas": 102,
-              "renovadas": 50
-            },
-            {
-              "anio": 2024,
-              "emitidas": 109,
-              "renovadas": 57
-            }
-          ]
+          "tiene_datos_oficiales": true,
+          "negocios_activos": "267 licencias LUAE cruzadas",
+          "atractivo_comercial": "Cruce predial oficial con base municipal de patentes y licencias LUAE.",
+          "licencias_emitidas": 181,
+          "licencias_renovadas": 86,
+          "total_licencias": 267,
+          "desglose_anual_licencias": []
         },
         "valor_suelo": {
+          "tiene_datos_oficiales": true,
           "aiva": "AIVAS LA CAROLINA",
           "valor_m2": 825.6,
-          "rango": "Máximo DMQ",
-          "tendencia": "+4% de plusvalía acumulada",
-          "descripcion": "Consolidación del skyline corporativo de Quito.",
+          "rango": "Alta Valorización",
+          "tendencia": "+4% acumulada (2022-2027)",
+          "descripcion": "Datos oficiales de avalúos y valor del suelo de la Dirección Metropolitana de Catastro para AIVAS LA CAROLINA.",
           "historico_anios": {
             "2022_2023": 815.8,
             "2024_2025": 825.6,
@@ -3055,7 +3120,8 @@
         "coordenadas": [
           -78.4842,
           -0.1785
-        ]
+        ],
+        "tiene_datos_oficiales": true
       }
     ]
   },
@@ -3093,74 +3159,40 @@
         "estado": "Fase de Priorización",
         "resumen": "Centralidad zonal de 82.8 hectáreas con proyección de soterramiento de cables, iluminación LED y cruces peatonales seguros.",
         "seguridad": {
-          "nivel": "En Proceso de Repotenciación",
-          "camaras": 7,
-          "luminarias_led": 74,
-          "cruces_seguros": 4,
-          "bolardos": 66,
-          "descripcion": "Equipamiento urbano y plan de seguridad preventiva para la centralidad Calderón.",
-          "delitos_por_ano": {
-            "2023": 42,
-            "2024": 31,
-            "2025": 26,
-            "2026_proy": 20
-          },
-          "incidentes_por_ano": {
-            "2023": 110,
-            "2024": 85,
-            "2025": 68,
-            "2026_proy": 52
-          },
-          "reduccion_delitos_pct": -52
+          "tiene_datos_oficiales": false,
+          "nivel": "Fase de Planificación PUGS",
+          "mensaje_oficial": "Este sector corresponde a un Polígono de Centralidad Urbana en fase de diagnóstico y formulación técnica PUGS. La Secretaría de Seguridad y Gobernabilidad no registra mediciones de impacto delictivo ni serie histórica en este polígono.",
+          "camaras": null,
+          "luminarias_led": null,
+          "cruces_seguros": null,
+          "bolardos": null,
+          "descripcion": "Polígono territorial definido en el PUGS para futuras intervenciones integrales del DMQ.",
+          "delitos_por_ano": null,
+          "incidentes_por_ano": null,
+          "reduccion_delitos_pct": null,
+          "top_delitos": [],
+          "top_incidentes": []
         },
         "economia": {
-          "negocios_activos": "+91 unidades productivas y de comercio",
-          "atractivo_comercial": "Centralidad zonal que abastece al tejido barrial circundante.",
-          "inversiones_privadas": [
-            {
-              "titulo": "Dinamización Comercial de Calderón",
-              "tipo": "Comercio y Servicios",
-              "impacto": "Atracción de inversión de proximidad y formalización de patentes municipales."
-            }
-          ],
-          "licencias_emitidas": 102,
-          "licencias_renovadas": 58,
-          "total_licencias": 160,
-          "desglose_anual_licencias": [
-            {
-              "anio": 2021,
-              "emitidas": 18,
-              "renovadas": 9
-            },
-            {
-              "anio": 2022,
-              "emitidas": 24,
-              "renovadas": 13
-            },
-            {
-              "anio": 2023,
-              "emitidas": 29,
-              "renovadas": 17
-            },
-            {
-              "anio": 2024,
-              "emitidas": 31,
-              "renovadas": 19
-            }
-          ]
+          "tiene_datos_oficiales": false,
+          "mensaje_oficial": "Sector en diagnóstico territorial. A la fecha no registra cruce predial de patentes o licencias LUAE en los reportes de obras ejecutadas del DMQ.",
+          "negocios_activos": "Sin registro de cruce predial oficial",
+          "atractivo_comercial": "Zona con vocación comercial y de servicios de proximidad en análisis normativo.",
+          "licencias_emitidas": null,
+          "licencias_renovadas": null,
+          "total_licencias": null,
+          "desglose_anual_licencias": []
         },
         "valor_suelo": {
-          "aiva": "AIVAS CALDERÓN",
-          "valor_m2": 680,
-          "rango": "Zonal / Planificado",
-          "tendencia": "+20.3% de plusvalía acumulada",
-          "descripcion": "Suelo urbano con potencial de densificación y desarrollo según la normativa PUGS de la STHV.",
-          "historico_anios": {
-            "2022_2023": 618.8,
-            "2024_2025": 680,
-            "2026_2027": 744.6
-          },
-          "plusvalia_porcentaje": 20.3
+          "tiene_datos_oficiales": false,
+          "mensaje_oficial": "Polígono catastral en proceso de delimitación por la Dirección Metropolitana de Catastro / STHV. No cuenta con serie comparativa en la matriz de proyectos evaluados.",
+          "aiva": null,
+          "valor_m2": null,
+          "rango": "En delimitación catastral",
+          "tendencia": "Sin serie histórica oficial",
+          "descripcion": "Suelo urbano sujeto al régimen general de valoración del DMQ.",
+          "historico_anios": null,
+          "plusvalia_porcentaje": null
         },
         "imagen_destacada": "/zonas_metro/Zonas metro.jpg",
         "galeria_id": null,
@@ -3168,7 +3200,8 @@
         "coordenadas": [
           -78.429033,
           -0.087919
-        ]
+        ],
+        "tiene_datos_oficiales": false
       }
     ]
   },
@@ -3206,74 +3239,40 @@
         "estado": "Fase de Priorización",
         "resumen": "Centralidad sectorial de 37.2 hectáreas con proyección de soterramiento de cables, iluminación LED y cruces peatonales seguros.",
         "seguridad": {
-          "nivel": "En Proceso de Repotenciación",
-          "camaras": 3,
-          "luminarias_led": 33,
-          "cruces_seguros": 3,
-          "bolardos": 30,
-          "descripcion": "Equipamiento urbano y plan de seguridad preventiva para la centralidad Calderón Histórico.",
-          "delitos_por_ano": {
-            "2023": 25,
-            "2024": 19,
-            "2025": 16,
-            "2026_proy": 12
-          },
-          "incidentes_por_ano": {
-            "2023": 66,
-            "2024": 51,
-            "2025": 41,
-            "2026_proy": 31
-          },
-          "reduccion_delitos_pct": -52
+          "tiene_datos_oficiales": false,
+          "nivel": "Fase de Planificación PUGS",
+          "mensaje_oficial": "Este sector corresponde a un Polígono de Centralidad Urbana en fase de diagnóstico y formulación técnica PUGS. La Secretaría de Seguridad y Gobernabilidad no registra mediciones de impacto delictivo ni serie histórica en este polígono.",
+          "camaras": null,
+          "luminarias_led": null,
+          "cruces_seguros": null,
+          "bolardos": null,
+          "descripcion": "Polígono territorial definido en el PUGS para futuras intervenciones integrales del DMQ.",
+          "delitos_por_ano": null,
+          "incidentes_por_ano": null,
+          "reduccion_delitos_pct": null,
+          "top_delitos": [],
+          "top_incidentes": []
         },
         "economia": {
-          "negocios_activos": "+41 unidades productivas y de comercio",
-          "atractivo_comercial": "Centralidad sectorial que abastece al tejido barrial circundante.",
-          "inversiones_privadas": [
-            {
-              "titulo": "Dinamización Comercial de Calderón Histórico",
-              "tipo": "Comercio y Servicios",
-              "impacto": "Atracción de inversión de proximidad y formalización de patentes municipales."
-            }
-          ],
-          "licencias_emitidas": 59,
-          "licencias_renovadas": 34,
-          "total_licencias": 93,
-          "desglose_anual_licencias": [
-            {
-              "anio": 2021,
-              "emitidas": 11,
-              "renovadas": 5
-            },
-            {
-              "anio": 2022,
-              "emitidas": 14,
-              "renovadas": 7
-            },
-            {
-              "anio": 2023,
-              "emitidas": 17,
-              "renovadas": 10
-            },
-            {
-              "anio": 2024,
-              "emitidas": 18,
-              "renovadas": 11
-            }
-          ]
+          "tiene_datos_oficiales": false,
+          "mensaje_oficial": "Sector en diagnóstico territorial. A la fecha no registra cruce predial de patentes o licencias LUAE en los reportes de obras ejecutadas del DMQ.",
+          "negocios_activos": "Sin registro de cruce predial oficial",
+          "atractivo_comercial": "Zona con vocación comercial y de servicios de proximidad en análisis normativo.",
+          "licencias_emitidas": null,
+          "licencias_renovadas": null,
+          "total_licencias": null,
+          "desglose_anual_licencias": []
         },
         "valor_suelo": {
-          "aiva": "AIVAS CALDERÓN HISTÓRICO",
-          "valor_m2": 510,
-          "rango": "Sectorial / Planificado",
-          "tendencia": "+20.3% de plusvalía acumulada",
-          "descripcion": "Suelo urbano con potencial de densificación y desarrollo según la normativa PUGS de la STHV.",
-          "historico_anios": {
-            "2022_2023": 464.1,
-            "2024_2025": 510,
-            "2026_2027": 558.4
-          },
-          "plusvalia_porcentaje": 20.3
+          "tiene_datos_oficiales": false,
+          "mensaje_oficial": "Polígono catastral en proceso de delimitación por la Dirección Metropolitana de Catastro / STHV. No cuenta con serie comparativa en la matriz de proyectos evaluados.",
+          "aiva": null,
+          "valor_m2": null,
+          "rango": "En delimitación catastral",
+          "tendencia": "Sin serie histórica oficial",
+          "descripcion": "Suelo urbano sujeto al régimen general de valoración del DMQ.",
+          "historico_anios": null,
+          "plusvalia_porcentaje": null
         },
         "imagen_destacada": "/zonas_metro/Zonas metro.jpg",
         "galeria_id": null,
@@ -3281,7 +3280,8 @@
         "coordenadas": [
           -78.422412,
           -0.101497
-        ]
+        ],
+        "tiene_datos_oficiales": false
       }
     ]
   },
@@ -3319,12 +3319,13 @@
         "estado": "Fase de Priorización",
         "resumen": "Centralidad zonal de 90.3 hectáreas con proyección de soterramiento de cables, iluminación LED y cruces peatonales seguros.",
         "seguridad": {
-          "nivel": "En Proceso de Repotenciación",
+          "tiene_datos_oficiales": true,
+          "nivel": "Evaluado Oficial DMQ",
           "camaras": 7,
           "luminarias_led": 81,
           "cruces_seguros": 5,
           "bolardos": 72,
-          "descripcion": "Equipamiento urbano y plan de seguridad preventiva para la centralidad Conocoto.",
+          "descripcion": "Datos oficiales de la Secretaría de Seguridad y Gobernabilidad del DMQ para Conocoto.",
           "delitos_por_ano": {
             "2023": 20,
             "2024": 15,
@@ -3337,7 +3338,7 @@
             "2025": 87,
             "2026_proy": 36
           },
-          "reduccion_delitos_pct": -50,
+          "reduccion_delitos_pct": 60,
           "top_delitos": [
             {
               "label": "Robo a personas",
@@ -3346,25 +3347,18 @@
                 "2024": 6,
                 "2025": 14,
                 "2026_proy": 4
-              }
+              },
+              "total": 31
             },
             {
-              "label": "Robo a unidades económicas",
+              "label": "Robo a carros",
               "valores": {
-                "2023": 0,
-                "2024": 0,
-                "2025": 2,
-                "2026_proy": 0
-              }
-            },
-            {
-              "label": "Robo a domicilios",
-              "valores": {
-                "2023": 3,
-                "2024": 1,
-                "2025": 2,
-                "2026_proy": 2
-              }
+                "2023": 5,
+                "2024": 3,
+                "2025": 12,
+                "2026_proy": 3
+              },
+              "total": 23
             },
             {
               "label": "Robo de autopartes",
@@ -3373,19 +3367,41 @@
                 "2024": 3,
                 "2025": 2,
                 "2026_proy": 1
-              }
+              },
+              "total": 10
+            },
+            {
+              "label": "Robo a domicilios",
+              "valores": {
+                "2023": 3,
+                "2024": 1,
+                "2025": 2,
+                "2026_proy": 2
+              },
+              "total": 8
+            },
+            {
+              "label": "Robo a motos",
+              "valores": {
+                "2023": 1,
+                "2024": 2,
+                "2025": 0,
+                "2026_proy": 0
+              },
+              "total": 3
+            },
+            {
+              "label": "Robo a unidades económicas",
+              "valores": {
+                "2023": 0,
+                "2024": 0,
+                "2025": 2,
+                "2026_proy": 0
+              },
+              "total": 2
             }
           ],
           "top_incidentes": [
-            {
-              "label": "Libadores",
-              "valores": {
-                "2023": 33,
-                "2024": 19,
-                "2025": 17,
-                "2026_proy": 22
-              }
-            },
             {
               "label": "Escándalos",
               "valores": {
@@ -3393,16 +3409,18 @@
                 "2024": 40,
                 "2025": 61,
                 "2026_proy": 14
-              }
+              },
+              "total": 173
             },
             {
-              "label": "Daño a propiedad pública y privada",
+              "label": "Libadores",
               "valores": {
-                "2023": 0,
-                "2024": 0,
-                "2025": 1,
-                "2026_proy": 0
-              }
+                "2023": 33,
+                "2024": 19,
+                "2025": 17,
+                "2026_proy": 22
+              },
+              "total": 91
             },
             {
               "label": "Venta y consumo de sustancias sujetas a fiscalización",
@@ -3411,7 +3429,18 @@
                 "2024": 0,
                 "2025": 8,
                 "2026_proy": 0
-              }
+              },
+              "total": 12
+            },
+            {
+              "label": "Daño a propiedad pública y privada",
+              "valores": {
+                "2023": 0,
+                "2024": 0,
+                "2025": 1,
+                "2026_proy": 0
+              },
+              "total": 1
             },
             {
               "label": "Eventos clandestinos",
@@ -3420,52 +3449,27 @@
                 "2024": 0,
                 "2025": 0,
                 "2026_proy": 0
-              }
+              },
+              "total": 0
             }
           ]
         },
         "economia": {
-          "negocios_activos": "+99 unidades productivas y de comercio",
-          "atractivo_comercial": "Centralidad zonal que abastece al tejido barrial circundante.",
-          "inversiones_privadas": [
-            {
-              "titulo": "Dinamización Comercial de Conocoto",
-              "tipo": "Comercio y Servicios",
-              "impacto": "Atracción de inversión de proximidad y formalización de patentes municipales."
-            }
-          ],
-          "licencias_emitidas": 979,
-          "licencias_renovadas": 343,
-          "total_licencias": 1322,
-          "desglose_anual_licencias": [
-            {
-              "anio": 2021,
-              "emitidas": 176,
-              "renovadas": 55
-            },
-            {
-              "anio": 2022,
-              "emitidas": 235,
-              "renovadas": 75
-            },
-            {
-              "anio": 2023,
-              "emitidas": 274,
-              "renovadas": 99
-            },
-            {
-              "anio": 2024,
-              "emitidas": 294,
-              "renovadas": 113
-            }
-          ]
+          "tiene_datos_oficiales": true,
+          "negocios_activos": "660 licencias LUAE cruzadas",
+          "atractivo_comercial": "Cruce predial oficial con base municipal de patentes y licencias LUAE.",
+          "licencias_emitidas": 489,
+          "licencias_renovadas": 171,
+          "total_licencias": 660,
+          "desglose_anual_licencias": []
         },
         "valor_suelo": {
+          "tiene_datos_oficiales": true,
           "aiva": "AIVAS CONOCOTO",
           "valor_m2": 111.3,
-          "rango": "Zonal / Planificado",
-          "tendencia": "+-1.7% de plusvalía acumulada",
-          "descripcion": "Suelo urbano con potencial de densificación y desarrollo según la normativa PUGS de la STHV.",
+          "rango": "Media Consolidación",
+          "tendencia": "-1.7% acumulada (2022-2027)",
+          "descripcion": "Datos oficiales de avalúos y valor del suelo de la Dirección Metropolitana de Catastro para AIVAS CONOCOTO.",
           "historico_anios": {
             "2022_2023": 116,
             "2024_2025": 111.3,
@@ -3479,7 +3483,8 @@
         "coordenadas": [
           -78.476704,
           -0.292484
-        ]
+        ],
+        "tiene_datos_oficiales": true
       }
     ]
   },
@@ -3517,74 +3522,40 @@
         "estado": "Fase de Priorización",
         "resumen": "Centralidad zonal de 102.6 hectáreas con proyección de soterramiento de cables, iluminación LED y cruces peatonales seguros.",
         "seguridad": {
-          "nivel": "En Proceso de Repotenciación",
-          "camaras": 8,
-          "luminarias_led": 92,
-          "cruces_seguros": 5,
-          "bolardos": 82,
-          "descripcion": "Equipamiento urbano y plan de seguridad preventiva para la centralidad Cumbayá.",
-          "delitos_por_ano": {
-            "2023": 42,
-            "2024": 31,
-            "2025": 26,
-            "2026_proy": 20
-          },
-          "incidentes_por_ano": {
-            "2023": 110,
-            "2024": 85,
-            "2025": 68,
-            "2026_proy": 52
-          },
-          "reduccion_delitos_pct": -52
+          "tiene_datos_oficiales": false,
+          "nivel": "Fase de Planificación PUGS",
+          "mensaje_oficial": "Este sector corresponde a un Polígono de Centralidad Urbana en fase de diagnóstico y formulación técnica PUGS. La Secretaría de Seguridad y Gobernabilidad no registra mediciones de impacto delictivo ni serie histórica en este polígono.",
+          "camaras": null,
+          "luminarias_led": null,
+          "cruces_seguros": null,
+          "bolardos": null,
+          "descripcion": "Polígono territorial definido en el PUGS para futuras intervenciones integrales del DMQ.",
+          "delitos_por_ano": null,
+          "incidentes_por_ano": null,
+          "reduccion_delitos_pct": null,
+          "top_delitos": [],
+          "top_incidentes": []
         },
         "economia": {
-          "negocios_activos": "+113 unidades productivas y de comercio",
-          "atractivo_comercial": "Centralidad zonal que abastece al tejido barrial circundante.",
-          "inversiones_privadas": [
-            {
-              "titulo": "Dinamización Comercial de Cumbayá",
-              "tipo": "Comercio y Servicios",
-              "impacto": "Atracción de inversión de proximidad y formalización de patentes municipales."
-            }
-          ],
-          "licencias_emitidas": 102,
-          "licencias_renovadas": 58,
-          "total_licencias": 160,
-          "desglose_anual_licencias": [
-            {
-              "anio": 2021,
-              "emitidas": 18,
-              "renovadas": 9
-            },
-            {
-              "anio": 2022,
-              "emitidas": 24,
-              "renovadas": 13
-            },
-            {
-              "anio": 2023,
-              "emitidas": 29,
-              "renovadas": 17
-            },
-            {
-              "anio": 2024,
-              "emitidas": 31,
-              "renovadas": 19
-            }
-          ]
+          "tiene_datos_oficiales": false,
+          "mensaje_oficial": "Sector en diagnóstico territorial. A la fecha no registra cruce predial de patentes o licencias LUAE en los reportes de obras ejecutadas del DMQ.",
+          "negocios_activos": "Sin registro de cruce predial oficial",
+          "atractivo_comercial": "Zona con vocación comercial y de servicios de proximidad en análisis normativo.",
+          "licencias_emitidas": null,
+          "licencias_renovadas": null,
+          "total_licencias": null,
+          "desglose_anual_licencias": []
         },
         "valor_suelo": {
-          "aiva": "AIVAS CUMBAYÁ",
-          "valor_m2": 680,
-          "rango": "Zonal / Planificado",
-          "tendencia": "+20.3% de plusvalía acumulada",
-          "descripcion": "Suelo urbano con potencial de densificación y desarrollo según la normativa PUGS de la STHV.",
-          "historico_anios": {
-            "2022_2023": 618.8,
-            "2024_2025": 680,
-            "2026_2027": 744.6
-          },
-          "plusvalia_porcentaje": 20.3
+          "tiene_datos_oficiales": false,
+          "mensaje_oficial": "Polígono catastral en proceso de delimitación por la Dirección Metropolitana de Catastro / STHV. No cuenta con serie comparativa en la matriz de proyectos evaluados.",
+          "aiva": null,
+          "valor_m2": null,
+          "rango": "En delimitación catastral",
+          "tendencia": "Sin serie histórica oficial",
+          "descripcion": "Suelo urbano sujeto al régimen general de valoración del DMQ.",
+          "historico_anios": null,
+          "plusvalia_porcentaje": null
         },
         "imagen_destacada": "/zonas_metro/Zonas metro.jpg",
         "galeria_id": null,
@@ -3592,7 +3563,8 @@
         "coordenadas": [
           -78.441261,
           -0.195915
-        ]
+        ],
+        "tiene_datos_oficiales": false
       }
     ]
   },
@@ -3630,74 +3602,40 @@
         "estado": "Fase de Priorización",
         "resumen": "Centralidad sectorial de 70.2 hectáreas con proyección de soterramiento de cables, iluminación LED y cruces peatonales seguros.",
         "seguridad": {
-          "nivel": "En Proceso de Repotenciación",
-          "camaras": 6,
-          "luminarias_led": 63,
-          "cruces_seguros": 4,
-          "bolardos": 56,
-          "descripcion": "Equipamiento urbano y plan de seguridad preventiva para la centralidad San Patricio.",
-          "delitos_por_ano": {
-            "2023": 25,
-            "2024": 19,
-            "2025": 16,
-            "2026_proy": 12
-          },
-          "incidentes_por_ano": {
-            "2023": 66,
-            "2024": 51,
-            "2025": 41,
-            "2026_proy": 31
-          },
-          "reduccion_delitos_pct": -52
+          "tiene_datos_oficiales": false,
+          "nivel": "Fase de Planificación PUGS",
+          "mensaje_oficial": "Este sector corresponde a un Polígono de Centralidad Urbana en fase de diagnóstico y formulación técnica PUGS. La Secretaría de Seguridad y Gobernabilidad no registra mediciones de impacto delictivo ni serie histórica en este polígono.",
+          "camaras": null,
+          "luminarias_led": null,
+          "cruces_seguros": null,
+          "bolardos": null,
+          "descripcion": "Polígono territorial definido en el PUGS para futuras intervenciones integrales del DMQ.",
+          "delitos_por_ano": null,
+          "incidentes_por_ano": null,
+          "reduccion_delitos_pct": null,
+          "top_delitos": [],
+          "top_incidentes": []
         },
         "economia": {
-          "negocios_activos": "+77 unidades productivas y de comercio",
-          "atractivo_comercial": "Centralidad sectorial que abastece al tejido barrial circundante.",
-          "inversiones_privadas": [
-            {
-              "titulo": "Dinamización Comercial de San Patricio",
-              "tipo": "Comercio y Servicios",
-              "impacto": "Atracción de inversión de proximidad y formalización de patentes municipales."
-            }
-          ],
-          "licencias_emitidas": 59,
-          "licencias_renovadas": 34,
-          "total_licencias": 93,
-          "desglose_anual_licencias": [
-            {
-              "anio": 2021,
-              "emitidas": 11,
-              "renovadas": 5
-            },
-            {
-              "anio": 2022,
-              "emitidas": 14,
-              "renovadas": 7
-            },
-            {
-              "anio": 2023,
-              "emitidas": 17,
-              "renovadas": 10
-            },
-            {
-              "anio": 2024,
-              "emitidas": 18,
-              "renovadas": 11
-            }
-          ]
+          "tiene_datos_oficiales": false,
+          "mensaje_oficial": "Sector en diagnóstico territorial. A la fecha no registra cruce predial de patentes o licencias LUAE en los reportes de obras ejecutadas del DMQ.",
+          "negocios_activos": "Sin registro de cruce predial oficial",
+          "atractivo_comercial": "Zona con vocación comercial y de servicios de proximidad en análisis normativo.",
+          "licencias_emitidas": null,
+          "licencias_renovadas": null,
+          "total_licencias": null,
+          "desglose_anual_licencias": []
         },
         "valor_suelo": {
-          "aiva": "AIVAS SAN PATRICIO",
-          "valor_m2": 510,
-          "rango": "Sectorial / Planificado",
-          "tendencia": "+20.3% de plusvalía acumulada",
-          "descripcion": "Suelo urbano con potencial de densificación y desarrollo según la normativa PUGS de la STHV.",
-          "historico_anios": {
-            "2022_2023": 464.1,
-            "2024_2025": 510,
-            "2026_2027": 558.4
-          },
-          "plusvalia_porcentaje": 20.3
+          "tiene_datos_oficiales": false,
+          "mensaje_oficial": "Polígono catastral en proceso de delimitación por la Dirección Metropolitana de Catastro / STHV. No cuenta con serie comparativa en la matriz de proyectos evaluados.",
+          "aiva": null,
+          "valor_m2": null,
+          "rango": "En delimitación catastral",
+          "tendencia": "Sin serie histórica oficial",
+          "descripcion": "Suelo urbano sujeto al régimen general de valoración del DMQ.",
+          "historico_anios": null,
+          "plusvalia_porcentaje": null
         },
         "imagen_destacada": "/zonas_metro/Zonas metro.jpg",
         "galeria_id": null,
@@ -3705,7 +3643,8 @@
         "coordenadas": [
           -78.443533,
           -0.213022
-        ]
+        ],
+        "tiene_datos_oficiales": false
       }
     ]
   },
@@ -3743,74 +3682,40 @@
         "estado": "Fase de Priorización",
         "resumen": "Centralidad zonal de 96.7 hectáreas con proyección de soterramiento de cables, iluminación LED y cruces peatonales seguros.",
         "seguridad": {
-          "nivel": "En Proceso de Repotenciación",
-          "camaras": 8,
-          "luminarias_led": 87,
-          "cruces_seguros": 5,
-          "bolardos": 77,
-          "descripcion": "Equipamiento urbano y plan de seguridad preventiva para la centralidad Mitad del Mundo.",
-          "delitos_por_ano": {
-            "2023": 42,
-            "2024": 31,
-            "2025": 26,
-            "2026_proy": 20
-          },
-          "incidentes_por_ano": {
-            "2023": 110,
-            "2024": 85,
-            "2025": 68,
-            "2026_proy": 52
-          },
-          "reduccion_delitos_pct": -52
+          "tiene_datos_oficiales": false,
+          "nivel": "Fase de Planificación PUGS",
+          "mensaje_oficial": "Este sector corresponde a un Polígono de Centralidad Urbana en fase de diagnóstico y formulación técnica PUGS. La Secretaría de Seguridad y Gobernabilidad no registra mediciones de impacto delictivo ni serie histórica en este polígono.",
+          "camaras": null,
+          "luminarias_led": null,
+          "cruces_seguros": null,
+          "bolardos": null,
+          "descripcion": "Polígono territorial definido en el PUGS para futuras intervenciones integrales del DMQ.",
+          "delitos_por_ano": null,
+          "incidentes_por_ano": null,
+          "reduccion_delitos_pct": null,
+          "top_delitos": [],
+          "top_incidentes": []
         },
         "economia": {
-          "negocios_activos": "+106 unidades productivas y de comercio",
-          "atractivo_comercial": "Centralidad zonal que abastece al tejido barrial circundante.",
-          "inversiones_privadas": [
-            {
-              "titulo": "Dinamización Comercial de Mitad del Mundo",
-              "tipo": "Comercio y Servicios",
-              "impacto": "Atracción de inversión de proximidad y formalización de patentes municipales."
-            }
-          ],
-          "licencias_emitidas": 102,
-          "licencias_renovadas": 58,
-          "total_licencias": 160,
-          "desglose_anual_licencias": [
-            {
-              "anio": 2021,
-              "emitidas": 18,
-              "renovadas": 9
-            },
-            {
-              "anio": 2022,
-              "emitidas": 24,
-              "renovadas": 13
-            },
-            {
-              "anio": 2023,
-              "emitidas": 29,
-              "renovadas": 17
-            },
-            {
-              "anio": 2024,
-              "emitidas": 31,
-              "renovadas": 19
-            }
-          ]
+          "tiene_datos_oficiales": false,
+          "mensaje_oficial": "Sector en diagnóstico territorial. A la fecha no registra cruce predial de patentes o licencias LUAE en los reportes de obras ejecutadas del DMQ.",
+          "negocios_activos": "Sin registro de cruce predial oficial",
+          "atractivo_comercial": "Zona con vocación comercial y de servicios de proximidad en análisis normativo.",
+          "licencias_emitidas": null,
+          "licencias_renovadas": null,
+          "total_licencias": null,
+          "desglose_anual_licencias": []
         },
         "valor_suelo": {
-          "aiva": "AIVAS MITAD DEL MUNDO",
-          "valor_m2": 680,
-          "rango": "Zonal / Planificado",
-          "tendencia": "+20.3% de plusvalía acumulada",
-          "descripcion": "Suelo urbano con potencial de densificación y desarrollo según la normativa PUGS de la STHV.",
-          "historico_anios": {
-            "2022_2023": 618.8,
-            "2024_2025": 680,
-            "2026_2027": 744.6
-          },
-          "plusvalia_porcentaje": 20.3
+          "tiene_datos_oficiales": false,
+          "mensaje_oficial": "Polígono catastral en proceso de delimitación por la Dirección Metropolitana de Catastro / STHV. No cuenta con serie comparativa en la matriz de proyectos evaluados.",
+          "aiva": null,
+          "valor_m2": null,
+          "rango": "En delimitación catastral",
+          "tendencia": "Sin serie histórica oficial",
+          "descripcion": "Suelo urbano sujeto al régimen general de valoración del DMQ.",
+          "historico_anios": null,
+          "plusvalia_porcentaje": null
         },
         "imagen_destacada": "/zonas_metro/Zonas metro.jpg",
         "galeria_id": null,
@@ -3818,7 +3723,8 @@
         "coordenadas": [
           -78.450224,
           -0.006921
-        ]
+        ],
+        "tiene_datos_oficiales": false
       }
     ]
   },
@@ -3856,74 +3762,40 @@
         "estado": "Fase de Priorización",
         "resumen": "Centralidad zonal de 117.4 hectáreas con proyección de soterramiento de cables, iluminación LED y cruces peatonales seguros.",
         "seguridad": {
-          "nivel": "En Proceso de Repotenciación",
-          "camaras": 9,
-          "luminarias_led": 106,
-          "cruces_seguros": 6,
-          "bolardos": 94,
-          "descripcion": "Equipamiento urbano y plan de seguridad preventiva para la centralidad Tumbaco.",
-          "delitos_por_ano": {
-            "2023": 42,
-            "2024": 31,
-            "2025": 26,
-            "2026_proy": 20
-          },
-          "incidentes_por_ano": {
-            "2023": 110,
-            "2024": 85,
-            "2025": 68,
-            "2026_proy": 52
-          },
-          "reduccion_delitos_pct": -52
+          "tiene_datos_oficiales": false,
+          "nivel": "Fase de Planificación PUGS",
+          "mensaje_oficial": "Este sector corresponde a un Polígono de Centralidad Urbana en fase de diagnóstico y formulación técnica PUGS. La Secretaría de Seguridad y Gobernabilidad no registra mediciones de impacto delictivo ni serie histórica en este polígono.",
+          "camaras": null,
+          "luminarias_led": null,
+          "cruces_seguros": null,
+          "bolardos": null,
+          "descripcion": "Polígono territorial definido en el PUGS para futuras intervenciones integrales del DMQ.",
+          "delitos_por_ano": null,
+          "incidentes_por_ano": null,
+          "reduccion_delitos_pct": null,
+          "top_delitos": [],
+          "top_incidentes": []
         },
         "economia": {
-          "negocios_activos": "+129 unidades productivas y de comercio",
-          "atractivo_comercial": "Centralidad zonal que abastece al tejido barrial circundante.",
-          "inversiones_privadas": [
-            {
-              "titulo": "Dinamización Comercial de Tumbaco",
-              "tipo": "Comercio y Servicios",
-              "impacto": "Atracción de inversión de proximidad y formalización de patentes municipales."
-            }
-          ],
-          "licencias_emitidas": 102,
-          "licencias_renovadas": 58,
-          "total_licencias": 160,
-          "desglose_anual_licencias": [
-            {
-              "anio": 2021,
-              "emitidas": 18,
-              "renovadas": 9
-            },
-            {
-              "anio": 2022,
-              "emitidas": 24,
-              "renovadas": 13
-            },
-            {
-              "anio": 2023,
-              "emitidas": 29,
-              "renovadas": 17
-            },
-            {
-              "anio": 2024,
-              "emitidas": 31,
-              "renovadas": 19
-            }
-          ]
+          "tiene_datos_oficiales": false,
+          "mensaje_oficial": "Sector en diagnóstico territorial. A la fecha no registra cruce predial de patentes o licencias LUAE en los reportes de obras ejecutadas del DMQ.",
+          "negocios_activos": "Sin registro de cruce predial oficial",
+          "atractivo_comercial": "Zona con vocación comercial y de servicios de proximidad en análisis normativo.",
+          "licencias_emitidas": null,
+          "licencias_renovadas": null,
+          "total_licencias": null,
+          "desglose_anual_licencias": []
         },
         "valor_suelo": {
-          "aiva": "AIVAS TUMBACO",
-          "valor_m2": 680,
-          "rango": "Zonal / Planificado",
-          "tendencia": "+20.3% de plusvalía acumulada",
-          "descripcion": "Suelo urbano con potencial de densificación y desarrollo según la normativa PUGS de la STHV.",
-          "historico_anios": {
-            "2022_2023": 618.8,
-            "2024_2025": 680,
-            "2026_2027": 744.6
-          },
-          "plusvalia_porcentaje": 20.3
+          "tiene_datos_oficiales": false,
+          "mensaje_oficial": "Polígono catastral en proceso de delimitación por la Dirección Metropolitana de Catastro / STHV. No cuenta con serie comparativa en la matriz de proyectos evaluados.",
+          "aiva": null,
+          "valor_m2": null,
+          "rango": "En delimitación catastral",
+          "tendencia": "Sin serie histórica oficial",
+          "descripcion": "Suelo urbano sujeto al régimen general de valoración del DMQ.",
+          "historico_anios": null,
+          "plusvalia_porcentaje": null
         },
         "imagen_destacada": "/zonas_metro/Zonas metro.jpg",
         "galeria_id": null,
@@ -3931,7 +3803,8 @@
         "coordenadas": [
           -78.405404,
           -0.213026
-        ]
+        ],
+        "tiene_datos_oficiales": false
       }
     ]
   },
@@ -3969,12 +3842,13 @@
         "estado": "Fase de Priorización",
         "resumen": "Centralidad zonal de 137.5 hectáreas con proyección de soterramiento de cables, iluminación LED y cruces peatonales seguros.",
         "seguridad": {
-          "nivel": "En Proceso de Repotenciación",
+          "tiene_datos_oficiales": true,
+          "nivel": "Evaluado Oficial DMQ",
           "camaras": 11,
           "luminarias_led": 124,
           "cruces_seguros": 7,
           "bolardos": 110,
-          "descripcion": "Equipamiento urbano y plan de seguridad preventiva para la centralidad Carapungo.",
+          "descripcion": "Datos oficiales de la Secretaría de Seguridad y Gobernabilidad del DMQ para Av. Carapungo.",
           "delitos_por_ano": {
             "2023": 6,
             "2024": 18,
@@ -3987,7 +3861,7 @@
             "2025": 58,
             "2026_proy": 23
           },
-          "reduccion_delitos_pct": -83,
+          "reduccion_delitos_pct": 167,
           "top_delitos": [
             {
               "label": "Robo a personas",
@@ -3996,7 +3870,18 @@
                 "2024": 4,
                 "2025": 5,
                 "2026_proy": 0
-              }
+              },
+              "total": 13
+            },
+            {
+              "label": "Robo a carros",
+              "valores": {
+                "2023": 2,
+                "2024": 3,
+                "2025": 4,
+                "2026_proy": 1
+              },
+              "total": 10
             },
             {
               "label": "Robo a unidades económicas",
@@ -4005,16 +3890,18 @@
                 "2024": 7,
                 "2025": 3,
                 "2026_proy": 0
-              }
+              },
+              "total": 10
             },
             {
-              "label": "Robo a domicilios",
+              "label": "Robo a motos",
               "valores": {
                 "2023": 0,
-                "2024": 2,
-                "2025": 0,
+                "2024": 0,
+                "2025": 3,
                 "2026_proy": 0
-              }
+              },
+              "total": 3
             },
             {
               "label": "Robo de autopartes",
@@ -4023,19 +3910,21 @@
                 "2024": 2,
                 "2025": 1,
                 "2026_proy": 0
-              }
+              },
+              "total": 3
+            },
+            {
+              "label": "Robo a domicilios",
+              "valores": {
+                "2023": 0,
+                "2024": 2,
+                "2025": 0,
+                "2026_proy": 0
+              },
+              "total": 2
             }
           ],
           "top_incidentes": [
-            {
-              "label": "Libadores",
-              "valores": {
-                "2023": 13,
-                "2024": 13,
-                "2025": 24,
-                "2026_proy": 7
-              }
-            },
             {
               "label": "Escándalos",
               "valores": {
@@ -4043,16 +3932,18 @@
                 "2024": 35,
                 "2025": 30,
                 "2026_proy": 15
-              }
+              },
+              "total": 107
             },
             {
-              "label": "Daño a propiedad pública y privada",
+              "label": "Libadores",
               "valores": {
-                "2023": 1,
-                "2024": 0,
-                "2025": 1,
-                "2026_proy": 1
-              }
+                "2023": 13,
+                "2024": 13,
+                "2025": 24,
+                "2026_proy": 7
+              },
+              "total": 57
             },
             {
               "label": "Venta y consumo de sustancias sujetas a fiscalización",
@@ -4061,7 +3952,18 @@
                 "2024": 1,
                 "2025": 3,
                 "2026_proy": 0
-              }
+              },
+              "total": 6
+            },
+            {
+              "label": "Daño a propiedad pública y privada",
+              "valores": {
+                "2023": 1,
+                "2024": 0,
+                "2025": 1,
+                "2026_proy": 1
+              },
+              "total": 3
             },
             {
               "label": "Eventos clandestinos",
@@ -4070,52 +3972,27 @@
                 "2024": 0,
                 "2025": 0,
                 "2026_proy": 0
-              }
+              },
+              "total": 0
             }
           ]
         },
         "economia": {
-          "negocios_activos": "+151 unidades productivas y de comercio",
-          "atractivo_comercial": "Centralidad zonal que abastece al tejido barrial circundante.",
-          "inversiones_privadas": [
-            {
-              "titulo": "Dinamización Comercial de Carapungo",
-              "tipo": "Comercio y Servicios",
-              "impacto": "Atracción de inversión de proximidad y formalización de patentes municipales."
-            }
-          ],
-          "licencias_emitidas": 1041,
-          "licencias_renovadas": 501,
-          "total_licencias": 1542,
-          "desglose_anual_licencias": [
-            {
-              "anio": 2021,
-              "emitidas": 187,
-              "renovadas": 80
-            },
-            {
-              "anio": 2022,
-              "emitidas": 250,
-              "renovadas": 110
-            },
-            {
-              "anio": 2023,
-              "emitidas": 291,
-              "renovadas": 145
-            },
-            {
-              "anio": 2024,
-              "emitidas": 312,
-              "renovadas": 165
-            }
-          ]
+          "tiene_datos_oficiales": true,
+          "negocios_activos": "770 licencias LUAE cruzadas",
+          "atractivo_comercial": "Cruce predial oficial con base municipal de patentes y licencias LUAE.",
+          "licencias_emitidas": 520,
+          "licencias_renovadas": 250,
+          "total_licencias": 770,
+          "desglose_anual_licencias": []
         },
         "valor_suelo": {
+          "tiene_datos_oficiales": true,
           "aiva": "AIVAS AV. CARAPUNGO",
           "valor_m2": 126.3,
-          "rango": "Zonal / Planificado",
-          "tendencia": "+10.7% de plusvalía acumulada",
-          "descripcion": "Suelo urbano con potencial de densificación y desarrollo según la normativa PUGS de la STHV.",
+          "rango": "Media Consolidación",
+          "tendencia": "+10.7% acumulada (2022-2027)",
+          "descripcion": "Datos oficiales de avalúos y valor del suelo de la Dirección Metropolitana de Catastro para AIVAS AV. CARAPUNGO.",
           "historico_anios": {
             "2022_2023": 118.8,
             "2024_2025": 126.3,
@@ -4129,7 +4006,8 @@
         "coordenadas": [
           -78.45729,
           -0.10528
-        ]
+        ],
+        "tiene_datos_oficiales": true
       }
     ]
   }

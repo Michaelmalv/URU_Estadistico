@@ -1109,210 +1109,199 @@ export default function CentralidadesView() {
               {/* 2. SEGURIDAD */}
               {activeProjectTab === 'seguridad' && (
                 <div className="floating-tab-pane">
-                  {/* Banner de Reducción Total de Delitos */}
-                  <div className="security-banner-stat">
-                    <div className="sec-banner-icon">
-                      <Shield size={28} color="#059669" />
-                    </div>
-                    <div className="sec-banner-content">
-                      <span className="sec-banner-label">Evaluación de Impacto en Seguridad y Convivencia</span>
-                      <div className="sec-banner-metrics">
-                        <strong className="sec-banner-pct">
-                          {floatingProject.seguridad.reduccion_delitos_pct || -35}%
-                        </strong>
-                        <span className="sec-banner-sub">
-                          Reducción de Delitos registrada tras la intervención integral en el sector
-                        </span>
+                  {!floatingProject.seguridad || floatingProject.seguridad.tiene_datos_oficiales === false || !floatingProject.seguridad.delitos_por_ano ? (
+                    <div className="official-disclaimer-box">
+                      <div className="disclaimer-icon-wrap" style={{ background: '#eff6ff', color: '#2563eb' }}>
+                        <Shield size={30} />
+                      </div>
+                      <div className="disclaimer-text-wrap">
+                        <div className="disclaimer-header-badge">
+                          <span className="badge-official-status">Fase de Diagnóstico Territorial PUGS</span>
+                        </div>
+                        <h4 className="disclaimer-title">Sin Registro de Evaluación Delictiva Oficial</h4>
+                        <p className="disclaimer-p">
+                          {floatingProject.seguridad?.mensaje_oficial || 
+                           "Este sector corresponde a un Polígono de Centralidad Urbana en etapa de diagnóstico y formulación técnica PUGS. A la fecha, la Secretaría de Seguridad y Gobernabilidad no registra mediciones de impacto delictivo en este polígono."}
+                        </p>
+                        <div className="disclaimer-meta-note">
+                          <span>🏛️ Dirección Metropolitana de Políticas de Seguridad • DMQ</span>
+                        </div>
                       </div>
                     </div>
-                  </div>
-
-                  {/* Histórico Consolidado de Delitos por Año */}
-                  <div className="dimension-subcard">
-                    <div className="subcard-header">
-                      <span className="card-subhead">Evolución de Delitos Registrados por Año</span>
-                      <span className="subhead-tag">Fuente: Reporte de Seguridad DMQ</span>
-                    </div>
-                    <div className="year-metric-cards-4">
-                      {['2023', '2024', '2025', '2026_proy'].map(yr => (
-                        <div key={yr} className={`year-stat-box ${yr === '2026_proy' ? 'projected' : ''}`}>
-                          <span className="year-stat-tag">{yr === '2026_proy' ? '2026 (Proy)' : yr}</span>
-                          <strong className="year-stat-num">
-                            {floatingProject.seguridad.delitos_por_ano?.[yr] ?? '—'}
-                          </strong>
-                          <span className="year-stat-lbl">Delitos Totales</span>
+                  ) : (
+                    <>
+                      {/* Banner de Reducción Total de Delitos */}
+                      <div className="security-banner-stat">
+                        <div className="sec-banner-icon">
+                          <Shield size={28} color="#059669" />
                         </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Histórico de Incidentes de Convivencia Ciudadana */}
-                  <div className="dimension-subcard">
-                    <div className="subcard-header">
-                      <span className="card-subhead">Incidentes de Espacio Público y Convivencia</span>
-                      <span className="subhead-tag">Libadores, Escándalos y Daño a Propiedad</span>
-                    </div>
-                    <div className="year-metric-cards-4">
-                      {['2023', '2024', '2025', '2026_proy'].map(yr => (
-                        <div key={yr} className={`year-stat-box incident-box ${yr === '2026_proy' ? 'projected' : ''}`}>
-                          <span className="year-stat-tag">{yr === '2026_proy' ? '2026 (Proy)' : yr}</span>
-                          <strong className="year-stat-num">
-                            {floatingProject.seguridad.incidentes_por_ano?.[yr] ?? '—'}
-                          </strong>
-                          <span className="year-stat-lbl">Incidentes Atendidos</span>
+                        <div className="sec-banner-content">
+                          <span className="sec-banner-label">Evaluación de Impacto en Seguridad y Convivencia</span>
+                          <div className="sec-banner-metrics">
+                            <strong className="sec-banner-pct">
+                              {floatingProject.seguridad.reduccion_delitos_pct !== null && floatingProject.seguridad.reduccion_delitos_pct !== undefined
+                                ? `${floatingProject.seguridad.reduccion_delitos_pct > 0 ? '+' : ''}${floatingProject.seguridad.reduccion_delitos_pct}%`
+                                : 'Oficial DMQ'}
+                            </strong>
+                            <span className="sec-banner-sub">
+                              {floatingProject.seguridad.reduccion_delitos_pct !== null && floatingProject.seguridad.reduccion_delitos_pct !== undefined
+                                ? 'Variación delictiva oficial registrada en el periodo evaluado'
+                                : 'Cifra oficial registrada por la Secretaría de Seguridad del DMQ'}
+                            </span>
+                          </div>
                         </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Desglose de Delitos Principales si existen en el dataset */}
-                  {floatingProject.seguridad.top_delitos?.length > 0 && (
-                    <div className="dimension-subcard">
-                      <span className="card-subhead">Desglose Comparativo de Delitos por Variable</span>
-                      <div className="table-responsive-clean">
-                        <table className="clean-metric-table">
-                          <thead>
-                            <tr>
-                              <th>Tipo de Delito</th>
-                              <th>2023</th>
-                              <th>2024</th>
-                              <th>2025</th>
-                              <th>2026 (Proy)</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            {floatingProject.seguridad.top_delitos.map((td, i) => (
-                              <tr key={i}>
-                                <td><strong>{td.label}</strong></td>
-                                <td>{td.valores['2023'] ?? '0'}</td>
-                                <td>{td.valores['2024'] ?? '0'}</td>
-                                <td>{td.valores['2025'] ?? '0'}</td>
-                                <td><span className="table-highlight-green">{td.valores['2026_proy'] ?? '0'}</span></td>
-                              </tr>
-                            ))}
-                          </tbody>
-                        </table>
                       </div>
-                    </div>
+
+                      {/* Histórico Consolidado de Delitos por Año */}
+                      <div className="dimension-subcard">
+                        <div className="subcard-header">
+                          <span className="card-subhead">Evolución de Delitos Registrados por Año</span>
+                          <span className="subhead-tag">Fuente: Reporte de Seguridad DMQ</span>
+                        </div>
+                        <div className="year-metric-cards-4">
+                          {['2023', '2024', '2025', '2026_proy'].map(yr => (
+                            <div key={yr} className={`year-stat-box ${yr === '2026_proy' ? 'projected' : ''}`}>
+                              <span className="year-stat-tag">{yr === '2026_proy' ? '2026 (Proy)' : yr}</span>
+                              <strong className="year-stat-num">
+                                {floatingProject.seguridad.delitos_por_ano?.[yr] ?? '—'}
+                              </strong>
+                              <span className="year-stat-lbl">Delitos Totales</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Histórico de Incidentes de Convivencia Ciudadana */}
+                      <div className="dimension-subcard">
+                        <div className="subcard-header">
+                          <span className="card-subhead">Incidentes de Espacio Público y Convivencia</span>
+                          <span className="subhead-tag">Libadores, Escándalos y Daño a Propiedad</span>
+                        </div>
+                        <div className="year-metric-cards-4">
+                          {['2023', '2024', '2025', '2026_proy'].map(yr => (
+                            <div key={yr} className={`year-stat-box incident-box ${yr === '2026_proy' ? 'projected' : ''}`}>
+                              <span className="year-stat-tag">{yr === '2026_proy' ? '2026 (Proy)' : yr}</span>
+                              <strong className="year-stat-num">
+                                {floatingProject.seguridad.incidentes_por_ano?.[yr] ?? '—'}
+                              </strong>
+                              <span className="year-stat-lbl">Incidentes Atendidos</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Desglose de Delitos Principales si existen en el dataset */}
+                      {floatingProject.seguridad.top_delitos?.length > 0 && (
+                        <div className="dimension-subcard">
+                          <span className="card-subhead">Desglose Comparativo de Delitos por Variable</span>
+                          <div className="table-responsive-clean">
+                            <table className="clean-metric-table">
+                              <thead>
+                                <tr>
+                                  <th>Tipo de Delito</th>
+                                  <th>2023</th>
+                                  <th>2024</th>
+                                  <th>2025</th>
+                                  <th>2026 (Proy)</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                {floatingProject.seguridad.top_delitos.map((td, i) => (
+                                  <tr key={i}>
+                                    <td><strong>{td.label}</strong></td>
+                                    <td>{td.valores?.['2023'] ?? '0'}</td>
+                                    <td>{td.valores?.['2024'] ?? '0'}</td>
+                                    <td>{td.valores?.['2025'] ?? '0'}</td>
+                                    <td><span className="table-highlight-green">{td.valores?.['2026_proy'] ?? '0'}</span></td>
+                                  </tr>
+                                ))}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      )}
+
+                      <div className="floating-narrative-card">
+                        <h4 className="card-subhead">Intervención en Seguridad y Convivencia Ciudadana</h4>
+                        <p className="tab-narrative-light">{floatingProject.seguridad.descripcion}</p>
+                      </div>
+                    </>
                   )}
-
-                  {/* Equipamiento Urbano de Seguridad Instalado */}
-                  <div className="kpi-cards-grid-3">
-                    <div className="kpi-item-light">
-                      <Shield size={24} color="#059669" />
-                      <strong className="kpi-val-light" style={{ marginTop: '6px' }}>
-                        {floatingProject.seguridad.camaras}
-                      </strong>
-                      <span className="kpi-lbl-light">Cámaras 24/7 Conectadas</span>
-                    </div>
-                    <div className="kpi-item-light">
-                      <Sparkles size={24} color="#2563eb" />
-                      <strong className="kpi-val-light" style={{ marginTop: '6px' }}>
-                        {floatingProject.seguridad.luminarias_led}
-                      </strong>
-                      <span className="kpi-lbl-light">Luminarias LED Nuevas</span>
-                    </div>
-                    <div className="kpi-item-light">
-                      <CheckCircle2 size={24} color="#d97706" />
-                      <strong className="kpi-val-light" style={{ marginTop: '6px' }}>
-                        {floatingProject.seguridad.cruces_seguros}
-                      </strong>
-                      <span className="kpi-lbl-light">Cruces Peatonales Seguros</span>
-                    </div>
-                  </div>
-
-                  <div className="detail-row-card-light">
-                    <span className="row-label">Nivel de Seguridad Urbana:</span>
-                    <strong className="row-value" style={{ color: '#059669', fontSize: '1.05rem' }}>
-                      {floatingProject.seguridad.nivel}
-                    </strong>
-                  </div>
-
-                  <div className="floating-narrative-card">
-                    <h4 className="card-subhead">Intervención en Seguridad y Convivencia Ciudadana</h4>
-                    <p className="tab-narrative-light">{floatingProject.seguridad.descripcion}</p>
-                  </div>
                 </div>
               )}
 
               {/* 3. ECONOMÍA */}
               {activeProjectTab === 'economia' && (
                 <div className="floating-tab-pane">
-                  {/* Balance de Licencias Comerciales LUAE */}
-                  <div className="kpi-cards-grid-3">
-                    <div className="kpi-item-light">
-                      <TrendingUp size={24} color="#2563eb" />
-                      <strong className="kpi-val-light" style={{ marginTop: '6px', color: '#2563eb' }}>
-                        {floatingProject.economia.licencias_emitidas || 138}
-                      </strong>
-                      <span className="kpi-lbl-light">Licencias Emitidas (Nuevas)</span>
-                    </div>
-                    <div className="kpi-item-light">
-                      <CheckCircle2 size={24} color="#059669" />
-                      <strong className="kpi-val-light" style={{ marginTop: '6px', color: '#059669' }}>
-                        {floatingProject.economia.licencias_renovadas || 67}
-                      </strong>
-                      <span className="kpi-lbl-light">Licencias Renovadas (Continuas)</span>
-                    </div>
-                    <div className="kpi-item-light">
-                      <Building2 size={24} color="#d97706" />
-                      <strong className="kpi-val-light" style={{ marginTop: '6px', color: '#d97706' }}>
-                        {floatingProject.economia.total_licencias || 205}
-                      </strong>
-                      <span className="kpi-lbl-light">Total Actividades Económicas</span>
-                    </div>
-                  </div>
-
-                  {/* Evolución Histórica Anual de Licencias LUAE */}
-                  <div className="dimension-subcard">
-                    <div className="subcard-header">
-                      <span className="card-subhead">Evolución Histórica de Licencias LUAE Emitidas y Renovadas</span>
-                      <span className="subhead-tag">Cruce Predial y Patentes DMQ</span>
-                    </div>
-                    <div className="year-metric-cards-4">
-                      {(floatingProject.economia.desglose_anual_licencias || [
-                        { anio: 2021, emitidas: 50, renovadas: 21 },
-                        { anio: 2022, emitidas: 66, renovadas: 29 },
-                        { anio: 2023, emitidas: 77, renovadas: 39 },
-                        { anio: 2024, emitidas: 83, renovadas: 44 }
-                      ]).map(item => (
-                        <div key={item.anio} className="year-stat-box eco-box">
-                          <span className="year-stat-tag">{item.anio}</span>
-                          <div className="dual-stat-row">
-                            <div>
-                              <span className="mini-stat-lbl">Emitidas:</span>
-                              <strong className="mini-stat-val text-blue">{item.emitidas}</strong>
-                            </div>
-                            <div>
-                              <span className="mini-stat-lbl">Renovadas:</span>
-                              <strong className="mini-stat-val text-green">{item.renovadas}</strong>
-                            </div>
-                          </div>
-                          <span className="year-stat-total">Total: {item.emitidas + item.renovadas}</span>
+                  {!floatingProject.economia || floatingProject.economia.tiene_datos_oficiales === false || floatingProject.economia.licencias_emitidas === null ? (
+                    <div className="official-disclaimer-box">
+                      <div className="disclaimer-icon-wrap" style={{ background: '#ecfdf5', color: '#059669' }}>
+                        <TrendingUp size={30} />
+                      </div>
+                      <div className="disclaimer-text-wrap">
+                        <div className="disclaimer-header-badge">
+                          <span className="badge-official-status" style={{ background: '#ecfdf5', color: '#047857', borderColor: '#a7f3d0' }}>
+                            Fase de Diagnóstico Territorial PUGS
+                          </span>
                         </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="eco-highlight-light">
-                    <span className="eco-lbl">Dinamismo y Atracción Comercial</span>
-                    <strong className="eco-val">{floatingProject.economia.negocios_activos}</strong>
-                    <p className="eco-sub">{floatingProject.economia.atractivo_comercial}</p>
-                  </div>
-
-                  {floatingProject.economia.inversiones_privadas?.length > 0 && (
-                    <div className="investments-block-light">
-                      <span className="mini-section-label">Inversión privada dinamizada en el entorno:</span>
-                      {floatingProject.economia.inversiones_privadas.map((inv, idx) => (
-                        <div key={idx} className="investment-card-light">
-                          <div className="inv-top-row">
-                            <strong className="inv-title">{inv.titulo}</strong>
-                            <span className="inv-badge">{inv.tipo}</span>
-                          </div>
-                          <p className="inv-desc">{inv.impacto}</p>
+                        <h4 className="disclaimer-title">Sin Registro Oficial de Cruce LUAE</h4>
+                        <p className="disclaimer-p">
+                          {floatingProject.economia?.mensaje_oficial || 
+                           "Sector en diagnóstico territorial. A la fecha no registra cruce predial de patentes o licencias LUAE en los reportes de obras ejecutadas del DMQ."}
+                        </p>
+                        <div className="disclaimer-meta-note">
+                          <span>🏢 Dirección Metropolitana Tributaria • DMQ</span>
                         </div>
-                      ))}
+                      </div>
                     </div>
+                  ) : (
+                    <>
+                      {/* Balance de Licencias Comerciales LUAE */}
+                      <div className="kpi-cards-grid-3">
+                        <div className="kpi-item-light">
+                          <TrendingUp size={24} color="#2563eb" />
+                          <strong className="kpi-val-light" style={{ marginTop: '6px', color: '#2563eb' }}>
+                            {floatingProject.economia.licencias_emitidas ?? '—'}
+                          </strong>
+                          <span className="kpi-lbl-light">Licencias Emitidas (Nuevas)</span>
+                        </div>
+                        <div className="kpi-item-light">
+                          <CheckCircle2 size={24} color="#059669" />
+                          <strong className="kpi-val-light" style={{ marginTop: '6px', color: '#059669' }}>
+                            {floatingProject.economia.licencias_renovadas ?? '—'}
+                          </strong>
+                          <span className="kpi-lbl-light">Licencias Renovadas (Continuas)</span>
+                        </div>
+                        <div className="kpi-item-light">
+                          <Building2 size={24} color="#d97706" />
+                          <strong className="kpi-val-light" style={{ marginTop: '6px', color: '#d97706' }}>
+                            {floatingProject.economia.total_licencias ?? '—'}
+                          </strong>
+                          <span className="kpi-lbl-light">Total Actividades Económicas</span>
+                        </div>
+                      </div>
+
+                      <div className="eco-highlight-light">
+                        <span className="eco-lbl">Dinamismo y Atracción Comercial</span>
+                        <strong className="eco-val">{floatingProject.economia.negocios_activos}</strong>
+                        <p className="eco-sub">{floatingProject.economia.atractivo_comercial}</p>
+                      </div>
+
+                      {floatingProject.economia.inversiones_privadas?.length > 0 && (
+                        <div className="investments-block-light">
+                          <span className="mini-section-label">Inversión privada dinamizada en el entorno:</span>
+                          {floatingProject.economia.inversiones_privadas.map((inv, idx) => (
+                            <div key={idx} className="investment-card-light">
+                              <div className="inv-top-row">
+                                <strong className="inv-title">{inv.titulo}</strong>
+                                <span className="inv-badge">{inv.tipo}</span>
+                              </div>
+                              <p className="inv-desc">{inv.impacto}</p>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    </>
                   )}
                 </div>
               )}
@@ -1320,80 +1309,114 @@ export default function CentralidadesView() {
               {/* 4. VALOR DEL SUELO */}
               {activeProjectTab === 'suelo' && (
                 <div className="floating-tab-pane">
-                  {/* Tarjeta de Avalúo Homologado AIVA */}
-                  <div className="land-highlight-light">
-                    <span className="land-lbl">Avalúo Homologado de Suelo (AIVA)</span>
-                    <div className="land-price-row">
-                      <strong className="land-val">
-                        ${floatingProject.valor_suelo.valor_m2 ? floatingProject.valor_suelo.valor_m2.toFixed(1) : '—'}
-                      </strong>
-                      <span className="land-unit">USD / m²</span>
-                    </div>
-                    <span className="land-trend-badge">
-                      <TrendingUp size={14} /> {floatingProject.valor_suelo.tendencia}
-                    </span>
-                  </div>
-
-                  {/* Comparativa Histórica de los Diferentes Años */}
-                  <div className="dimension-subcard">
-                    <div className="subcard-header">
-                      <span className="card-subhead">Evolución Histórica del Valor de Suelo por Periodos</span>
-                      <span className="subhead-tag">Normativa Catastral PUGS / STHV</span>
-                    </div>
-                    <div className="year-metric-cards-3">
-                      <div className="year-stat-box soil-box">
-                        <span className="year-stat-tag">Periodo 2022 — 2023</span>
-                        <strong className="year-stat-num">
-                          ${floatingProject.valor_suelo.historico_anios?.['2022_2023']?.toFixed(1) || (floatingProject.valor_suelo.valor_m2 * 0.92).toFixed(1)}
-                        </strong>
-                        <span className="year-stat-lbl">USD / m² (Base Catastral)</span>
+                  {!floatingProject.valor_suelo || floatingProject.valor_suelo.tiene_datos_oficiales === false || floatingProject.valor_suelo.valor_m2 === null ? (
+                    <div className="official-disclaimer-box">
+                      <div className="disclaimer-icon-wrap" style={{ background: '#fffbeb', color: '#d97706' }}>
+                        <DollarSign size={30} />
                       </div>
-                      <div className="year-stat-box soil-box">
-                        <span className="year-stat-tag">Periodo 2024 — 2025</span>
-                        <strong className="year-stat-num">
-                          ${floatingProject.valor_suelo.historico_anios?.['2024_2025']?.toFixed(1) || floatingProject.valor_suelo.valor_m2.toFixed(1)}
-                        </strong>
-                        <span className="year-stat-lbl">USD / m² (Intervención)</span>
-                      </div>
-                      <div className="year-stat-box soil-box highlighted-soil">
-                        <span className="year-stat-tag">Periodo 2026 — 2027</span>
-                        <strong className="year-stat-num">
-                          ${floatingProject.valor_suelo.historico_anios?.['2026_2027']?.toFixed(1) || (floatingProject.valor_suelo.valor_m2 * 1.09).toFixed(1)}
-                        </strong>
-                        <span className="year-stat-lbl">USD / m² (Proyectado PUGS)</span>
+                      <div className="disclaimer-text-wrap">
+                        <div className="disclaimer-header-badge">
+                          <span className="badge-official-status" style={{ background: '#fffbeb', color: '#b45309', borderColor: '#fde68a' }}>
+                            Fase de Delimitación Catastral
+                          </span>
+                        </div>
+                        <h4 className="disclaimer-title">Sin Código AIVA Asignado Directamente</h4>
+                        <p className="disclaimer-p">
+                          {floatingProject.valor_suelo?.mensaje_oficial || 
+                           "Polígono catastral en proceso de delimitación por la Dirección Metropolitana de Catastro / STHV. No cuenta con serie comparativa en la matriz de proyectos evaluados."}
+                        </p>
+                        <div className="disclaimer-meta-note">
+                          <span>🗺️ Dirección Metropolitana de Catastro • STHV</span>
+                        </div>
                       </div>
                     </div>
-
-                    <div className="plusvalia-progress-card">
-                      <div className="plusvalia-header">
-                        <span>Plusvalía acumulada estimada entre periodos:</span>
-                        <strong className="text-green">
-                          +{floatingProject.valor_suelo.plusvalia_porcentaje || 8.5}%
-                        </strong>
+                  ) : (
+                    <>
+                      {/* Tarjeta de Avalúo Homologado AIVA */}
+                      <div className="land-highlight-light">
+                        <span className="land-lbl">Avalúo Homologado de Suelo (AIVA)</span>
+                        <div className="land-price-row">
+                          <strong className="land-val">
+                            ${floatingProject.valor_suelo.valor_m2 ? floatingProject.valor_suelo.valor_m2.toFixed(1) : '—'}
+                          </strong>
+                          <span className="land-unit">USD / m²</span>
+                        </div>
+                        <span className="land-trend-badge">
+                          <TrendingUp size={14} /> {floatingProject.valor_suelo.tendencia}
+                        </span>
                       </div>
-                      <div className="plusvalia-bar-bg">
-                        <div 
-                          className="plusvalia-bar-fill" 
-                          style={{ width: `${Math.min(100, Math.max(20, (floatingProject.valor_suelo.plusvalia_porcentaje || 8.5) * 6))}%` }}
-                        />
+
+                      {/* Comparativa Histórica de los Diferentes Años */}
+                      <div className="dimension-subcard">
+                        <div className="subcard-header">
+                          <span className="card-subhead">Evolución Histórica del Valor de Suelo por Periodos</span>
+                          <span className="subhead-tag">Normativa Catastral PUGS / STHV</span>
+                        </div>
+                        <div className="year-metric-cards-3">
+                          <div className="year-stat-box soil-box">
+                            <span className="year-stat-tag">Periodo 2022 — 2023</span>
+                            <strong className="year-stat-num">
+                              {floatingProject.valor_suelo.historico_anios?.['2022_2023'] !== undefined
+                                ? `$${floatingProject.valor_suelo.historico_anios['2022_2023'].toFixed(1)}`
+                                : '—'}
+                            </strong>
+                            <span className="year-stat-lbl">USD / m² (Base Catastral)</span>
+                          </div>
+                          <div className="year-stat-box soil-box">
+                            <span className="year-stat-tag">Periodo 2024 — 2025</span>
+                            <strong className="year-stat-num">
+                              {floatingProject.valor_suelo.historico_anios?.['2024_2025'] !== undefined
+                                ? `$${floatingProject.valor_suelo.historico_anios['2024_2025'].toFixed(1)}`
+                                : '—'}
+                            </strong>
+                            <span className="year-stat-lbl">USD / m² (Intervención)</span>
+                          </div>
+                          <div className="year-stat-box soil-box highlighted-soil">
+                            <span className="year-stat-tag">Periodo 2026 — 2027</span>
+                            <strong className="year-stat-num">
+                              {floatingProject.valor_suelo.historico_anios?.['2026_2027'] !== undefined
+                                ? `$${floatingProject.valor_suelo.historico_anios['2026_2027'].toFixed(1)}`
+                                : '—'}
+                            </strong>
+                            <span className="year-stat-lbl">USD / m² (Proyectado PUGS)</span>
+                          </div>
+                        </div>
+
+                        {floatingProject.valor_suelo.plusvalia_porcentaje !== null && floatingProject.valor_suelo.plusvalia_porcentaje !== undefined && (
+                          <div className="plusvalia-progress-card">
+                            <div className="plusvalia-header">
+                              <span>Plusvalía acumulada estimada entre periodos:</span>
+                              <strong className={floatingProject.valor_suelo.plusvalia_porcentaje >= 0 ? 'text-green' : 'text-blue'}>
+                                {floatingProject.valor_suelo.plusvalia_porcentaje > 0 ? '+' : ''}
+                                {floatingProject.valor_suelo.plusvalia_porcentaje}%
+                              </strong>
+                            </div>
+                            <div className="plusvalia-bar-bg">
+                              <div 
+                                className="plusvalia-bar-fill" 
+                                style={{ width: `${Math.min(100, Math.max(15, Math.abs(floatingProject.valor_suelo.plusvalia_porcentaje) * 6))}%` }}
+                              />
+                            </div>
+                          </div>
+                        )}
                       </div>
-                    </div>
-                  </div>
 
-                  <div className="detail-row-card-light">
-                    <span className="row-label">Zona Homologada AIVA:</span>
-                    <strong className="row-value">{floatingProject.valor_suelo.aiva}</strong>
-                  </div>
+                      <div className="detail-row-card-light">
+                        <span className="row-label">Zona Homologada AIVA:</span>
+                        <strong className="row-value">{floatingProject.valor_suelo.aiva || 'Sin AIVA directa'}</strong>
+                      </div>
 
-                  <div className="detail-row-card-light">
-                    <span className="row-label">Rango Comercial Estimado:</span>
-                    <strong className="row-value">{floatingProject.valor_suelo.rango}</strong>
-                  </div>
+                      <div className="detail-row-card-light">
+                        <span className="row-label">Rango Comercial Estimado:</span>
+                        <strong className="row-value">{floatingProject.valor_suelo.rango}</strong>
+                      </div>
 
-                  <div className="floating-narrative-card">
-                    <h4 className="card-subhead">Plusvalía e Impacto Normativo PUGS</h4>
-                    <p className="tab-narrative-light">{floatingProject.valor_suelo.descripcion}</p>
-                  </div>
+                      <div className="floating-narrative-card">
+                        <h4 className="card-subhead">Plusvalía e Impacto Normativo PUGS</h4>
+                        <p className="tab-narrative-light">{floatingProject.valor_suelo.descripcion}</p>
+                      </div>
+                    </>
+                  )}
                 </div>
               )}
             </div>
