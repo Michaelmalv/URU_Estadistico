@@ -7,7 +7,8 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import { 
   Building2, Shield, DollarSign, Info, Sparkles, MapPin, 
   Layers, Search, Compass, CheckCircle2, TrendingUp, Maximize2, 
-  X, ChevronRight, Award, Eye, FileText, ArrowUpRight, ChevronDown, Check
+  X, ChevronRight, Award, Eye, FileText, ArrowUpRight, ChevronDown, Check,
+  Database, AlertTriangle
 } from 'lucide-react';
 import centralidadesData from '@/lib/centralidades_data.json';
 import centralidadesGeoJson from '@/lib/centralidades.json';
@@ -83,6 +84,31 @@ export default function CentralidadesView() {
   const [mapStyle, setMapStyle] = useState('mapbox://styles/mapbox/streets-v12');
   const [modalImage, setModalImage] = useState(null);
   const [floatingProject, setFloatingProject] = useState(null);
+  const [dbStatus, setDbStatus] = useState('checking'); // 'connected' | 'paused' | 'checking'
+  const [dbStats, setDbStats] = useState(null);
+
+  // Verificar conexión en vivo con Supabase
+  useEffect(() => {
+    async function checkDb() {
+      try {
+        const res = await fetch('/api/data');
+        const data = await res.json();
+        if (data.success && data.proyectos && data.proyectos.length > 0) {
+          setDbStatus('connected');
+          setDbStats({
+            proyectos: data.proyectos.length,
+            seguridad: data.seguridad ? data.seguridad.length : 0,
+            suelo: data.valorSuelo ? data.valorSuelo.length : 0
+          });
+        } else {
+          setDbStatus('paused');
+        }
+      } catch (err) {
+        setDbStatus('paused');
+      }
+    }
+    checkDb();
+  }, []);
 
   // Escuchar tecla Escape para cerrar modal flotante
   useEffect(() => {
@@ -737,12 +763,31 @@ export default function CentralidadesView() {
       <aside className="centralidades-sidebar-light">
         {/* 1. Cabecera Ejecutiva Despejada */}
         <div className="sidebar-header-executive">
-          <div className="header-badge-row">
+          <div className="header-badge-row" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '6px' }}>
             <span className="badge-sthv">
               <Compass size={13} />
               <span>STHV • SECRETARÍA DE TERRITORIO Y HÁBITAT</span>
             </span>
+            {dbStatus === 'connected' ? (
+              <span style={{ display: 'inline-flex', alignItems: 'center', gap: '5px', fontSize: '0.73rem', fontWeight: 700, color: '#047857', background: '#ecfdf5', padding: '3px 8px', borderRadius: '999px', border: '1px solid #a7f3d0' }}>
+                <Database size={12} />
+                <span>Supabase Conectado ({dbStats?.proyectos || 43} Proyectos)</span>
+              </span>
+            ) : dbStatus === 'paused' ? (
+              <span style={{ display: 'inline-flex', alignItems: 'center', gap: '5px', fontSize: '0.73rem', fontWeight: 700, color: '#b91c1c', background: '#fef2f2', padding: '3px 8px', borderRadius: '999px', border: '1px solid #fecaca' }}>
+                <AlertTriangle size={12} />
+                <span>Base de Datos Pausada</span>
+              </span>
+            ) : (
+              <span style={{ fontSize: '0.72rem', color: '#64748b' }}>Conectando a Supabase...</span>
+            )}
           </div>
+
+          {dbStatus === 'paused' && (
+            <div style={{ marginTop: '0.65rem', marginBottom: '0.35rem', padding: '0.6rem 0.8rem', background: '#fffbeb', border: '1px solid #fde68a', borderRadius: '8px', color: '#92400e', fontSize: '0.78rem', lineHeight: 1.4 }}>
+              ⚠️ <strong>Base de datos pausada o en reconexión:</strong> Reactive el proyecto en Supabase para sincronizar todas las estadísticas oficiales en vivo.
+            </div>
+          )}
 
           <h2 className="sidebar-main-title">Centralidades Urbanas</h2>
           <p className="sidebar-subtitle-text">

@@ -58,72 +58,13 @@ export async function GET() {
 
     if (sueloError) throw sueloError;
 
-    const ALLOWED_PROJECT_NAMES = [
-      'Av. Colón',
-      'Av. Patria',
-      'Ruiz de Castilla',
-      'Isla Tortuga',
-      'La Roldós Oe13-Colinas del Norte',
-      'Bulevar Tribuna de los Shyris',
-      'Parque Navarro - Plaza de las tripas',
-      'Calle Rocafuerte',
-      'Calle Benalcazar'
-    ];
-
-    const filteredProyectos = (proyectos || []).filter(p => 
-      p.categoria === 'Zonas Metro' || ALLOWED_PROJECT_NAMES.includes(p.nombre)
-    );
-    const allowedIds = new Set(filteredProyectos.map(p => p.id));
-
-    const filteredSeguridad = (seguridad || []).filter(s => allowedIds.has(s.proyecto_id));
-    const filteredFichas = (fichas || []).filter(f => allowedIds.has(f.proyecto_id));
-
-    const ALLOWED_AIVAS_NAMES = [
-      'AIVAS AV. COLÓN',
-      'AIVAS PATRIA',
-      'AIVAS ROCAFUERTE',
-      'AIVAS ISLA TORTUGA',
-      'AIVAS COLINAS DEL NORTE',
-      'AIVAS TRIBUNA DE LOS SHYRIS',
-      'AIVAS PARQUE NAVARRO',
-      'AIVAS BENALCAZAR',
-      // Zonas Metro:
-      'AIVAS QUITUMBE',
-      'AIVAS MORAN VALVERDE',
-      'AIVAS SOLANDA',
-      'AIVAS CARDENAL DE LA TORRE',
-      'AIVAS EL RECREO',
-      'AIVAS LA MAGDALENA',
-      'AIVAS SAN FRANCISCO',
-      'AIVAS ALAMEDA',
-      'AIVAS LA ALAMEDA',
-      'AIVAS EL EJIDO',
-      'AIVAS UNIVERSIDAD CENTRAL',
-      'AIVAS LA PRADERA',
-      'AIVAS LA CAROLINA',
-      'AIVAS IÑAQUITO',
-      'AIVAS JIPIJAPA',
-      'AIVAS EL LABRADOR'
-    ];
-
-    const normalizeAivas = (name) => {
-      if (!name) return '';
-      return name.toString().toLowerCase().trim()
-        .normalize('NFKD').replace(/[\u0300-\u036f]/g, '')
-        .replace(/[^a-z0-9]+/g, ' ')
-        .replace(/\s+/g, ' ')
-        .trim();
-    };
-
-    const normalizedAllowedAivas = ALLOWED_AIVAS_NAMES.map(normalizeAivas);
-    const filteredValorSuelo = (valorSuelo || []).filter(v => normalizedAllowedAivas.includes(normalizeAivas(v.proyecto)));
-
+    // Retornar todos los proyectos y datos oficiales de Supabase sin filtros artificiales
     const resultData = {
       success: true,
-      proyectos: filteredProyectos,
-      seguridad: filteredSeguridad,
-      fichas: filteredFichas,
-      valorSuelo: filteredValorSuelo,
+      proyectos: proyectos || [],
+      seguridad: seguridad || [],
+      fichas: fichas || [],
+      valorSuelo: valorSuelo || [],
     };
     global.cachedData = resultData;
     global.lastFetchTime = now;

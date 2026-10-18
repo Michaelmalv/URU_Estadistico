@@ -7,14 +7,14 @@ import { usePathname } from 'next/navigation';
 export default function Navbar() {
   const pathname = usePathname();
 
-  // Pestañas del portal: Se mantiene únicamente Centralidades Urbanas activa y visible.
-  // Las demás se dejan reservadas en código para reanudarlas cuando el usuario lo solicite.
+  // Pestañas del portal: Se restauran todas las pestañas oficiales conectadas a la base de datos.
   const tabs = [
+    { name: 'INFORMACIÓN', path: '/informacion', visible: true },
     { name: 'CENTRALIDADES URBANAS', path: '/', visible: true },
-    // { name: 'CORREDORES VIVOS', path: '/corredores-vivos', visible: false },
-    // { name: 'ZONAS METRO', path: '/zonas-metro', visible: false },
-    // { name: 'REHABILITACIÓN DEL ESPACIO PÚBLICO', path: '/rehabilitacion-espacio-publico', visible: false },
-    // { name: 'SOTERRAMIENTO', path: '/soterramiento', visible: false },
+    { name: 'CORREDORES VIVOS', path: '/corredores-vivos', visible: true },
+    { name: 'ZONAS METRO', path: '/zonas-metro', visible: true },
+    { name: 'REHABILITACIÓN DEL ESPACIO PÚBLICO', path: '/rehabilitacion-espacio-publico', visible: true },
+    { name: 'SOTERRAMIENTO', path: '/soterramiento', visible: true },
   ];
 
   return (
