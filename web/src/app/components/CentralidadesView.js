@@ -13,6 +13,7 @@ import {
 import centralidadesData from '@/lib/centralidades_data.json';
 import centralidadesGeoJson from '@/lib/centralidades.json';
 import proyectosGeometriasGeoJson from '@/lib/proyectos_geometrias.json';
+import DynamicSeguridadModal from './DynamicSeguridadModal';
 
 const getFallbackToken = () => {
   if (process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN) {
@@ -1236,196 +1237,13 @@ export default function CentralidadesView() {
                 </div>
               )}
 
-              {/* 2. SEGURIDAD */}
+              {/* 2. SEGURIDAD DINÁMICA CON ANIMACIONES Y GRÁFICOS */}
               {activeProjectTab === 'seguridad' && (
                 <div className="floating-tab-pane">
-                  {!floatingProject.seguridad || floatingProject.seguridad.tiene_datos_oficiales === false || !floatingProject.seguridad.delitos_por_ano ? (
-                    <div className="official-disclaimer-box">
-                      <div className="disclaimer-icon-wrap" style={{ background: '#eff6ff', color: '#2563eb' }}>
-                        <Shield size={30} />
-                      </div>
-                      <div className="disclaimer-text-wrap">
-                        <div className="disclaimer-header-badge">
-                          <span className="badge-official-status">Fase de Diagnóstico Territorial PUGS</span>
-                        </div>
-                        <h4 className="disclaimer-title">Sin Registro de Evaluación Delictiva Oficial</h4>
-                        <p className="disclaimer-p">
-                          {floatingProject.seguridad?.mensaje_oficial || 
-                           "Este sector corresponde a un Polígono de Centralidad Urbana en etapa de diagnóstico y formulación técnica PUGS. A la fecha, la Secretaría de Seguridad y Gobernabilidad no registra mediciones de impacto delictivo en este polígono."}
-                        </p>
-                        <div className="disclaimer-meta-note">
-                          <span>🏛️ Dirección Metropolitana de Políticas de Seguridad • DMQ</span>
-                        </div>
-                      </div>
-                    </div>
-                  ) : (
-                    <>
-                      {/* Banner de Reducción Total de Delitos */}
-                      <div className="security-banner-stat">
-                        <div className="sec-banner-icon">
-                          <Shield size={28} color="#059669" />
-                        </div>
-                        <div className="sec-banner-content">
-                          <span className="sec-banner-label">Evaluación de Impacto en Seguridad y Convivencia</span>
-                          <div className="sec-banner-metrics">
-                            <strong className="sec-banner-pct">
-                              {floatingProject.seguridad.reduccion_delitos_pct !== null && floatingProject.seguridad.reduccion_delitos_pct !== undefined
-                                ? `${floatingProject.seguridad.reduccion_delitos_pct > 0 ? '+' : ''}${floatingProject.seguridad.reduccion_delitos_pct}%`
-                                : 'Oficial DMQ'}
-                            </strong>
-                            <span className="sec-banner-sub">
-                              {floatingProject.seguridad.reduccion_delitos_pct !== null && floatingProject.seguridad.reduccion_delitos_pct !== undefined
-                                ? 'Variación delictiva oficial registrada en el periodo evaluado'
-                                : 'Cifra oficial registrada por la Secretaría de Seguridad del DMQ'}
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Histórico Consolidado de Delitos por Año */}
-                      <div className="dimension-subcard">
-                        <div className="subcard-header">
-                          <span className="card-subhead">Evolución de Delitos Registrados por Año</span>
-                          <span className="subhead-tag">Fuente: Reporte de Seguridad DMQ</span>
-                        </div>
-                        <div className="year-metric-cards-5">
-                          {[
-                            { key: '2023', label: '2023', sub: 'Delitos Totales' },
-                            { key: '2024', label: '2024', sub: 'Delitos Totales' },
-                            { key: '2025', label: '2025', sub: 'Delitos Totales' },
-                            { key: '2026_real', label: '2026 (Real)', sub: 'Corte Ene-Abr', isReal: true },
-                            { key: '2026_proy', label: '2026 (Proy)', sub: 'Proy. Anual', isProy: true }
-                          ].map(item => (
-                            <div key={item.key} className={`year-stat-box ${item.isProy ? 'projected' : ''} ${item.isReal ? 'real-cut' : ''}`}>
-                              <span className="year-stat-tag">{item.label}</span>
-                              <strong className="year-stat-num">
-                                {floatingProject.seguridad.delitos_por_ano?.[item.key] ?? '—'}
-                              </strong>
-                              <span className="year-stat-lbl">{item.sub}</span>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-
-                      {/* Histórico de Incidentes de Convivencia Ciudadana */}
-                      <div className="dimension-subcard">
-                        <div className="subcard-header">
-                          <span className="card-subhead">Incidentes de Espacio Público y Convivencia</span>
-                          <span className="subhead-tag">Libadores, Escándalos y Daño a Propiedad</span>
-                        </div>
-                        <div className="year-metric-cards-5">
-                          {[
-                            { key: '2023', label: '2023', sub: 'Incidentes Atendidos' },
-                            { key: '2024', label: '2024', sub: 'Incidentes Atendidos' },
-                            { key: '2025', label: '2025', sub: 'Incidentes Atendidos' },
-                            { key: '2026_real', label: '2026 (Real)', sub: 'Corte Ene-Abr', isReal: true },
-                            { key: '2026_proy', label: '2026 (Proy)', sub: 'Proy. Anual', isProy: true }
-                          ].map(item => (
-                            <div key={item.key} className={`year-stat-box incident-box ${item.isProy ? 'projected' : ''} ${item.isReal ? 'real-cut' : ''}`}>
-                              <span className="year-stat-tag">{item.label}</span>
-                              <strong className="year-stat-num">
-                                {floatingProject.seguridad.incidentes_por_ano?.[item.key] ?? '—'}
-                              </strong>
-                              <span className="year-stat-lbl">{item.sub}</span>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-
-                      {/* Desglose de Delitos Principales si existen en el dataset */}
-                      {floatingProject.seguridad.top_delitos?.length > 0 && (
-                        <div className="dimension-subcard">
-                          <div className="subcard-header">
-                            <span className="card-subhead">Desglose Comparativo de Delitos por Variable</span>
-                            <span className="subhead-tag">Observado Real (Ene-Abr) vs Proyección Anual</span>
-                          </div>
-                          <div className="table-responsive-clean">
-                            <table className="clean-metric-table">
-                              <thead>
-                                <tr>
-                                  <th>Tipo de Delito</th>
-                                  <th>2023</th>
-                                  <th>2024</th>
-                                  <th>2025</th>
-                                  <th style={{ backgroundColor: '#f1f5f9', color: '#0f172a' }}>2026 (Real Ene-Abr)</th>
-                                  <th style={{ backgroundColor: '#ecfdf5', color: '#047857' }}>2026 (Proy Anual)</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                {floatingProject.seguridad.top_delitos.map((td, i) => (
-                                  <tr key={i}>
-                                    <td><strong>{td.label}</strong></td>
-                                    <td>{td.valores?.['2023'] ?? '0'}</td>
-                                    <td>{td.valores?.['2024'] ?? '0'}</td>
-                                    <td>{td.valores?.['2025'] ?? '0'}</td>
-                                    <td>
-                                      <span className="table-highlight-real">
-                                        {td.valores?.['2026_real'] ?? '0'}
-                                      </span>
-                                    </td>
-                                    <td>
-                                      <span className="table-highlight-green">
-                                        {td.valores?.['2026_proy'] ?? '0'}
-                                      </span>
-                                    </td>
-                                  </tr>
-                                ))}
-                              </tbody>
-                            </table>
-                          </div>
-                        </div>
-                      )}
-
-                      {/* Desglose de Incidentes si existen en el dataset */}
-                      {floatingProject.seguridad.top_incidentes?.length > 0 && (
-                        <div className="dimension-subcard">
-                          <div className="subcard-header">
-                            <span className="card-subhead">Desglose Comparativo de Incidentes por Variable</span>
-                            <span className="subhead-tag">Observado Real (Ene-Abr) vs Proyección Anual</span>
-                          </div>
-                          <div className="table-responsive-clean">
-                            <table className="clean-metric-table">
-                              <thead>
-                                <tr>
-                                  <th>Tipo de Incidente</th>
-                                  <th>2023</th>
-                                  <th>2024</th>
-                                  <th>2025</th>
-                                  <th style={{ backgroundColor: '#f1f5f9', color: '#0f172a' }}>2026 (Real Ene-Abr)</th>
-                                  <th style={{ backgroundColor: '#eff6ff', color: '#1d4ed8' }}>2026 (Proy Anual)</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                {floatingProject.seguridad.top_incidentes.map((ti, i) => (
-                                  <tr key={i}>
-                                    <td><strong>{ti.label}</strong></td>
-                                    <td>{ti.valores?.['2023'] ?? '0'}</td>
-                                    <td>{ti.valores?.['2024'] ?? '0'}</td>
-                                    <td>{ti.valores?.['2025'] ?? '0'}</td>
-                                    <td>
-                                      <span className="table-highlight-real">
-                                        {ti.valores?.['2026_real'] ?? '0'}
-                                      </span>
-                                    </td>
-                                    <td>
-                                      <span className="table-highlight-blue">
-                                        {ti.valores?.['2026_proy'] ?? '0'}
-                                      </span>
-                                    </td>
-                                  </tr>
-                                ))}
-                              </tbody>
-                            </table>
-                          </div>
-                        </div>
-                      )}
-
-                      <div className="floating-narrative-card">
-                        <h4 className="card-subhead">Intervención en Seguridad y Convivencia Ciudadana</h4>
-                        <p className="tab-narrative-light">{floatingProject.seguridad.descripcion}</p>
-                      </div>
-                    </>
-                  )}
+                  <DynamicSeguridadModal 
+                    seguridad={floatingProject.seguridad} 
+                    proyectoNombre={floatingProject.nombre} 
+                  />
                 </div>
               )}
 
