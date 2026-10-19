@@ -59,7 +59,7 @@
           },
           "plusvalia_porcentaje": 1.9
         },
-        "imagen_destacada": "/zonas_metro/Zonas metro.jpg",
+        "imagen_destacada": "/imagenes_categorias/zonas_metro/Zonas metro.jpg",
         "galeria_id": null,
         "antes_despues_id": null,
         "coordenadas": [
@@ -290,7 +290,7 @@
           "tiene_datos_oficiales": false,
           "mensaje_oficial": "Sin avalúos catastrales específicos asociados a este sector."
         },
-        "imagen_destacada": "/zonas_metro/Zonas metro.jpg",
+        "imagen_destacada": "/imagenes_categorias/zonas_metro/Zonas metro.jpg",
         "galeria_id": null,
         "antes_despues_id": null,
         "coordenadas": [
@@ -481,7 +481,7 @@
           },
           "plusvalia_porcentaje": 5.2
         },
-        "imagen_destacada": "/arena_del_sur/Arena del Sur.png",
+        "imagen_destacada": "/imagenes_categorias/arena_del_sur/Arena del Sur.png",
         "galeria_id": null,
         "antes_despues_id": null,
         "coordenadas": [
@@ -661,7 +661,7 @@
           },
           "plusvalia_porcentaje": 4.7
         },
-        "imagen_destacada": "/zonas_metro/Zonas metro.jpg",
+        "imagen_destacada": "/imagenes_categorias/zonas_metro/Zonas metro.jpg",
         "coordenadas": [
           -78.548531,
           -0.280597
@@ -874,7 +874,7 @@
           },
           "plusvalia_porcentaje": 8.7
         },
-        "imagen_destacada": "/imagenes_senderos/av_michelena/Michelena_final.png",
+        "imagen_destacada": "/imagenes_senderos/av_michelena/antes_despues.png",
         "galeria_id": null,
         "antes_despues_id": null,
         "coordenadas": [
@@ -1054,7 +1054,7 @@
           },
           "plusvalia_porcentaje": 13.4
         },
-        "imagen_destacada": "/zonas_metro/Zonas metro.jpg",
+        "imagen_destacada": "/imagenes_categorias/zonas_metro/Zonas metro.jpg",
         "coordenadas": [
           -78.521578,
           -0.253074
@@ -1231,7 +1231,7 @@
           },
           "plusvalia_porcentaje": 8.2
         },
-        "imagen_destacada": "/zonas_metro/Zonas metro.jpg",
+        "imagen_destacada": "/imagenes_categorias/zonas_metro/Zonas metro.jpg",
         "coordenadas": [
           -78.524734,
           -0.239136
@@ -1444,7 +1444,7 @@
           },
           "plusvalia_porcentaje": 6.6
         },
-        "imagen_destacada": "/imagenes_senderos/av_ajavi/inicio_av_ajavi.png",
+        "imagen_destacada": "/imagenes_senderos/av_ajavi/extension.png",
         "galeria_id": null,
         "antes_despues_id": null,
         "coordenadas": [
@@ -1624,7 +1624,7 @@
           },
           "plusvalia_porcentaje": 8.3
         },
-        "imagen_destacada": "/zonas_metro/Zonas metro.jpg",
+        "imagen_destacada": "/imagenes_categorias/zonas_metro/Zonas metro.jpg",
         "coordenadas": [
           -78.536724,
           -0.266206
@@ -1801,7 +1801,7 @@
           },
           "plusvalia_porcentaje": 9.6
         },
-        "imagen_destacada": "/zonas_metro/Zonas metro.jpg",
+        "imagen_destacada": "/imagenes_categorias/zonas_metro/Zonas metro.jpg",
         "coordenadas": [
           -78.533896,
           -0.25821
@@ -2373,7 +2373,7 @@
           },
           "plusvalia_porcentaje": 8.6
         },
-        "imagen_destacada": "/zonas_metro/Zonas metro.jpg",
+        "imagen_destacada": "/imagenes_categorias/zonas_metro/Zonas metro.jpg",
         "coordenadas": [
           -78.50222,
           -0.215545
@@ -2550,7 +2550,7 @@
           },
           "plusvalia_porcentaje": 7.3
         },
-        "imagen_destacada": "/zonas_metro/Zonas metro.jpg",
+        "imagen_destacada": "/imagenes_categorias/zonas_metro/Zonas metro.jpg",
         "coordenadas": [
           -78.497218,
           -0.208731
@@ -2606,7 +2606,7 @@
           "tiene_datos_oficiales": false,
           "mensaje_oficial": "Sin avalúos catastrales específicos asociados a este sector."
         },
-        "imagen_destacada": "/zonas_metro/Zonas metro.jpg",
+        "imagen_destacada": "/imagenes_categorias/zonas_metro/Zonas metro.jpg",
         "galeria_id": null,
         "antes_despues_id": null,
         "coordenadas": [
@@ -2808,7 +2808,7 @@
           },
           "plusvalia_porcentaje": 9.3
         },
-        "imagen_destacada": "/imagenes_senderos/parque_navarro/parque_navarro_1.png",
+        "imagen_destacada": "/antes_despues/parque_navarro/despues.jpg",
         "galeria_id": null,
         "antes_despues_id": null,
         "coordenadas": [
@@ -3161,7 +3161,7 @@
           },
           "plusvalia_porcentaje": 0.7
         },
-        "imagen_destacada": "/zonas_metro/Zonas metro.jpg",
+        "imagen_destacada": "/imagenes_categorias/zonas_metro/Zonas metro.jpg",
         "coordenadas": [
           -78.48347,
           -0.164806
@@ -3338,7 +3338,7 @@
           },
           "plusvalia_porcentaje": 8.1
         },
-        "imagen_destacada": "/zonas_metro/Zonas metro.jpg",
+        "imagen_destacada": "/imagenes_categorias/zonas_metro/Zonas metro.jpg",
         "coordenadas": [
           -78.485,
           -0.21
@@ -3530,7 +3530,7 @@
           },
           "plusvalia_porcentaje": 2
         },
-        "imagen_destacada": "/imagenes_senderos/calle_benalcazar/Benalcazar_inicio.png",
+        "imagen_destacada": "/antes_despues/calle_benalcazar/despues.png",
         "galeria_id": null,
         "antes_despues_id": null,
         "coordenadas": [
@@ -3698,7 +3698,7 @@
           },
           "plusvalia_porcentaje": 3.4
         },
-        "imagen_destacada": "/imagenes_senderos/calle_rocafuerte/Rocafuerte_inicio.png",
+        "imagen_destacada": "/antes_despues/calle_rocafuerte/despues.jpg",
         "galeria_id": null,
         "antes_despues_id": null,
         "coordenadas": [
@@ -3856,7 +3856,7 @@
           },
           "plusvalia_porcentaje": 0.9
         },
-        "imagen_destacada": "/zonas_metro/Zonas metro.jpg",
+        "imagen_destacada": "/imagenes_categorias/zonas_metro/Zonas metro.jpg",
         "coordenadas": [
           -78.51464,
           -0.220828
@@ -4451,7 +4451,7 @@
           },
           "plusvalia_porcentaje": 13.5
         },
-        "imagen_destacada": "/zonas_metro/Zonas metro.jpg",
+        "imagen_destacada": "/imagenes_categorias/zonas_metro/Zonas metro.jpg",
         "coordenadas": [
           -78.50002,
           -0.197231
@@ -4639,7 +4639,7 @@
           },
           "plusvalia_porcentaje": 6.3
         },
-        "imagen_destacada": "/zonas_metro/Zonas metro.jpg",
+        "imagen_destacada": "/imagenes_categorias/zonas_metro/Zonas metro.jpg",
         "coordenadas": [
           -78.49181,
           -0.193842
@@ -4696,7 +4696,7 @@
           "tiene_datos_oficiales": false,
           "mensaje_oficial": "Sin avalúos catastrales específicos asociados a este sector."
         },
-        "imagen_destacada": "/repotenciacion_parque_bicentenario/Repotenciación del Bicentenario.png",
+        "imagen_destacada": "/imagenes_categorias/repotenciacion_parque_bicentenario/Repotenciación del Bicentenario.png",
         "galeria_id": null,
         "antes_despues_id": null,
         "coordenadas": [
@@ -4727,7 +4727,7 @@
           "tiene_datos_oficiales": false,
           "mensaje_oficial": "Sin avalúos catastrales específicos asociados a este sector."
         },
-        "imagen_destacada": "/recuperacion_urbana_av_10_de_agosto/recuperación_urbana_av10deAgosto.png",
+        "imagen_destacada": "/imagenes_categorias/recuperacion_urbana_av_10_de_agosto/recuperación_urbana_av10deAgosto.png",
         "galeria_id": null,
         "antes_despues_id": null,
         "coordenadas": [
@@ -5234,7 +5234,7 @@
           },
           "plusvalia_porcentaje": 4
         },
-        "imagen_destacada": "/zonas_metro/Zonas metro.jpg",
+        "imagen_destacada": "/imagenes_categorias/zonas_metro/Zonas metro.jpg",
         "coordenadas": [
           -78.486692,
           -0.191336
@@ -5422,7 +5422,7 @@
           },
           "plusvalia_porcentaje": 4.1
         },
-        "imagen_destacada": "/zonas_metro/Zonas metro.jpg",
+        "imagen_destacada": "/imagenes_categorias/zonas_metro/Zonas metro.jpg",
         "coordenadas": [
           -78.48521,
           -0.175936
@@ -5478,7 +5478,7 @@
           "tiene_datos_oficiales": false,
           "mensaje_oficial": "Sin avalúos catastrales específicos asociados a este sector."
         },
-        "imagen_destacada": "/zonas_metro/Zonas metro.jpg",
+        "imagen_destacada": "/imagenes_categorias/zonas_metro/Zonas metro.jpg",
         "galeria_id": null,
         "antes_despues_id": null,
         "coordenadas": [
@@ -5534,7 +5534,7 @@
           "tiene_datos_oficiales": false,
           "mensaje_oficial": "Sin avalúos catastrales específicos asociados a este sector."
         },
-        "imagen_destacada": "/zonas_metro/Zonas metro.jpg",
+        "imagen_destacada": "/imagenes_categorias/zonas_metro/Zonas metro.jpg",
         "galeria_id": null,
         "antes_despues_id": null,
         "coordenadas": [
@@ -5735,7 +5735,7 @@
           },
           "plusvalia_porcentaje": -1.7
         },
-        "imagen_destacada": "/zonas_metro/Zonas metro.jpg",
+        "imagen_destacada": "/imagenes_categorias/zonas_metro/Zonas metro.jpg",
         "galeria_id": null,
         "antes_despues_id": null,
         "coordenadas": [
@@ -5794,7 +5794,7 @@
           "tiene_datos_oficiales": false,
           "mensaje_oficial": "Sin avalúos catastrales específicos asociados a este sector."
         },
-        "imagen_destacada": "/zonas_metro/Zonas metro.jpg",
+        "imagen_destacada": "/imagenes_categorias/zonas_metro/Zonas metro.jpg",
         "galeria_id": null,
         "antes_despues_id": null,
         "coordenadas": [
@@ -5850,7 +5850,7 @@
           "tiene_datos_oficiales": false,
           "mensaje_oficial": "Sin avalúos catastrales específicos asociados a este sector."
         },
-        "imagen_destacada": "/zonas_metro/Zonas metro.jpg",
+        "imagen_destacada": "/imagenes_categorias/zonas_metro/Zonas metro.jpg",
         "galeria_id": null,
         "antes_despues_id": null,
         "coordenadas": [
@@ -5906,7 +5906,7 @@
           "tiene_datos_oficiales": false,
           "mensaje_oficial": "Sin avalúos catastrales específicos asociados a este sector."
         },
-        "imagen_destacada": "/zonas_metro/Zonas metro.jpg",
+        "imagen_destacada": "/imagenes_categorias/zonas_metro/Zonas metro.jpg",
         "galeria_id": null,
         "antes_despues_id": null,
         "coordenadas": [
@@ -5962,7 +5962,7 @@
           "tiene_datos_oficiales": false,
           "mensaje_oficial": "Sin avalúos catastrales específicos asociados a este sector."
         },
-        "imagen_destacada": "/zonas_metro/Zonas metro.jpg",
+        "imagen_destacada": "/imagenes_categorias/zonas_metro/Zonas metro.jpg",
         "galeria_id": null,
         "antes_despues_id": null,
         "coordenadas": [
@@ -6018,7 +6018,7 @@
           "tiene_datos_oficiales": false,
           "mensaje_oficial": "Sin avalúos catastrales específicos asociados a este sector."
         },
-        "imagen_destacada": "/zonas_metro/Zonas metro.jpg",
+        "imagen_destacada": "/imagenes_categorias/zonas_metro/Zonas metro.jpg",
         "galeria_id": null,
         "antes_despues_id": null,
         "coordenadas": [
@@ -6209,7 +6209,7 @@
           },
           "plusvalia_porcentaje": 5.2
         },
-        "imagen_destacada": "/zonas_metro/Zonas metro.jpg",
+        "imagen_destacada": "/imagenes_categorias/zonas_metro/Zonas metro.jpg",
         "coordenadas": [
           -78.555559,
           -0.294331
@@ -6386,7 +6386,7 @@
           },
           "plusvalia_porcentaje": 4.7
         },
-        "imagen_destacada": "/zonas_metro/Zonas metro.jpg",
+        "imagen_destacada": "/imagenes_categorias/zonas_metro/Zonas metro.jpg",
         "coordenadas": [
           -78.548531,
           -0.280597
@@ -6563,7 +6563,7 @@
           },
           "plusvalia_porcentaje": 8.3
         },
-        "imagen_destacada": "/zonas_metro/Zonas metro.jpg",
+        "imagen_destacada": "/imagenes_categorias/zonas_metro/Zonas metro.jpg",
         "coordenadas": [
           -78.536724,
           -0.266206
@@ -6740,7 +6740,7 @@
           },
           "plusvalia_porcentaje": 9.6
         },
-        "imagen_destacada": "/zonas_metro/Zonas metro.jpg",
+        "imagen_destacada": "/imagenes_categorias/zonas_metro/Zonas metro.jpg",
         "coordenadas": [
           -78.533896,
           -0.25821
@@ -6917,7 +6917,7 @@
           },
           "plusvalia_porcentaje": 13.4
         },
-        "imagen_destacada": "/zonas_metro/Zonas metro.jpg",
+        "imagen_destacada": "/imagenes_categorias/zonas_metro/Zonas metro.jpg",
         "coordenadas": [
           -78.521578,
           -0.253074
@@ -7094,7 +7094,7 @@
           },
           "plusvalia_porcentaje": 8.2
         },
-        "imagen_destacada": "/zonas_metro/Zonas metro.jpg",
+        "imagen_destacada": "/imagenes_categorias/zonas_metro/Zonas metro.jpg",
         "coordenadas": [
           -78.524734,
           -0.239136
@@ -7249,7 +7249,7 @@
           },
           "plusvalia_porcentaje": 0.9
         },
-        "imagen_destacada": "/zonas_metro/Zonas metro.jpg",
+        "imagen_destacada": "/imagenes_categorias/zonas_metro/Zonas metro.jpg",
         "coordenadas": [
           -78.51464,
           -0.220828
@@ -7436,7 +7436,7 @@
           },
           "plusvalia_porcentaje": 8.6
         },
-        "imagen_destacada": "/zonas_metro/Zonas metro.jpg",
+        "imagen_destacada": "/imagenes_categorias/zonas_metro/Zonas metro.jpg",
         "coordenadas": [
           -78.50222,
           -0.215545
@@ -7613,7 +7613,7 @@
           },
           "plusvalia_porcentaje": 7.3
         },
-        "imagen_destacada": "/zonas_metro/Zonas metro.jpg",
+        "imagen_destacada": "/imagenes_categorias/zonas_metro/Zonas metro.jpg",
         "coordenadas": [
           -78.497218,
           -0.208731
@@ -7801,7 +7801,7 @@
           },
           "plusvalia_porcentaje": 13.5
         },
-        "imagen_destacada": "/zonas_metro/Zonas metro.jpg",
+        "imagen_destacada": "/imagenes_categorias/zonas_metro/Zonas metro.jpg",
         "coordenadas": [
           -78.50002,
           -0.197231
@@ -7989,7 +7989,7 @@
           },
           "plusvalia_porcentaje": 6.3
         },
-        "imagen_destacada": "/zonas_metro/Zonas metro.jpg",
+        "imagen_destacada": "/imagenes_categorias/zonas_metro/Zonas metro.jpg",
         "coordenadas": [
           -78.49181,
           -0.193842
@@ -8177,7 +8177,7 @@
           },
           "plusvalia_porcentaje": 4
         },
-        "imagen_destacada": "/zonas_metro/Zonas metro.jpg",
+        "imagen_destacada": "/imagenes_categorias/zonas_metro/Zonas metro.jpg",
         "coordenadas": [
           -78.486692,
           -0.191336
@@ -8365,7 +8365,7 @@
           },
           "plusvalia_porcentaje": 4.1
         },
-        "imagen_destacada": "/zonas_metro/Zonas metro.jpg",
+        "imagen_destacada": "/imagenes_categorias/zonas_metro/Zonas metro.jpg",
         "coordenadas": [
           -78.48521,
           -0.175936
@@ -8531,7 +8531,7 @@
           },
           "plusvalia_porcentaje": 0.7
         },
-        "imagen_destacada": "/zonas_metro/Zonas metro.jpg",
+        "imagen_destacada": "/imagenes_categorias/zonas_metro/Zonas metro.jpg",
         "coordenadas": [
           -78.48347,
           -0.164806
@@ -8708,7 +8708,7 @@
           },
           "plusvalia_porcentaje": 8.1
         },
-        "imagen_destacada": "/zonas_metro/Zonas metro.jpg",
+        "imagen_destacada": "/imagenes_categorias/zonas_metro/Zonas metro.jpg",
         "coordenadas": [
           -78.485,
           -0.21

@@ -68,6 +68,21 @@ const getBadgeStyle = (badge) => {
   return { bg: '#fffbeb', border: '#fde68a', text: '#b45309', bullet: '#d97706' };
 };
 
+const getProjectFallbackImage = (proj) => {
+  if (!proj) return '/header.jpeg';
+  const tipo = (proj.tipo || '').toLowerCase();
+  const nombre = (proj.nombre || '').toLowerCase();
+  if (tipo.includes('metro') || nombre.includes('metro')) return '/imagenes_categorias/zonas_metro/Zonas metro.jpg';
+  if (tipo.includes('sendero') || nombre.includes('sendero')) return '/imagenes_categorias/senderos_seguros/Senderos Seguros.png';
+  if (tipo.includes('soterramiento') || nombre.includes('soterramiento')) return '/imagenes_categorias/soterramiento/soterramiento_portada.png';
+  if (tipo.includes('bicentenario') || nombre.includes('bicentenario')) return '/imagenes_categorias/repotenciacion_parque_bicentenario/Repotenciación del Bicentenario.png';
+  if (tipo.includes('arena del sur') || nombre.includes('arena del sur')) return '/imagenes_categorias/arena_del_sur/Arena del Sur.png';
+  if (tipo.includes('quitop') || nombre.includes('quitop')) return '/imagenes_categorias/quitopia/Quitopia.png';
+  if (tipo.includes('histórico') || nombre.includes('histórico')) return '/imagenes_categorias/rehabilitacion_espacio_publico/Rehabilitación del Centro Historico.jpg';
+  if (nombre.includes('10 de agosto')) return '/imagenes_categorias/recuperacion_urbana_av_10_de_agosto/recuperación_urbana_av10deAgosto.png';
+  return '/header.jpeg';
+};
+
 export default function CentralidadesView() {
   const mapContainerRef = useRef(null);
   const mapRef = useRef(null);
@@ -1217,23 +1232,30 @@ export default function CentralidadesView() {
                     <p className="tab-narrative-light">{floatingProject.resumen}</p>
                   </div>
 
-                  {floatingProject.imagen_destacada && (
-                    <div 
-                      className="photo-card-light floating-photo-card"
-                      onClick={() => setModalImage({
-                        src: floatingProject.imagen_destacada,
-                        title: floatingProject.nombre,
-                        description: floatingProject.resumen
-                      })}
-                      title="Haz clic para ver la fotografía en pantalla completa"
-                    >
-                      <img src={floatingProject.imagen_destacada} alt={floatingProject.nombre} />
-                      <div className="photo-zoom-hint-light">
-                        <Maximize2 size={16} />
-                        <span>Ver Fotografía en Pantalla Completa</span>
-                      </div>
+                  <div 
+                    className="photo-card-light floating-photo-card"
+                    onClick={() => setModalImage({
+                      src: floatingProject.imagen_destacada || getProjectFallbackImage(floatingProject),
+                      title: floatingProject.nombre,
+                      description: floatingProject.resumen
+                    })}
+                    title="Haz clic para ver la fotografía en pantalla completa"
+                  >
+                    <img 
+                      src={floatingProject.imagen_destacada || getProjectFallbackImage(floatingProject)} 
+                      alt={floatingProject.nombre}
+                      onError={(e) => {
+                        const fallback = getProjectFallbackImage(floatingProject);
+                        if (e.target.src !== fallback) {
+                          e.target.src = fallback;
+                        }
+                      }}
+                    />
+                    <div className="photo-zoom-hint-light">
+                      <Maximize2 size={16} />
+                      <span>Ver Fotografía en Pantalla Completa</span>
                     </div>
-                  )}
+                  </div>
                 </div>
               )}
 
