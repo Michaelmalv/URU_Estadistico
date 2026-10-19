@@ -5286,12 +5286,12 @@
       "type": "Feature",
       "properties": {
         "id": "recuperacion-av-10-agosto",
-        "nombre": "Recuperación Urbana Av. 10 de Agosto (Tramo Bicentenario)",
+        "nombre": "Recuperación Urbana Av. 10 de Agosto (Tramo Santa Prisca — Tarqui)",
         "tipo": "Corredor Vivo / Regeneración Vial",
-        "badge": "Ejecutado",
-        "centralidad_id": "bicentenario",
-        "centralidad_nombre": "Bicentenario",
-        "centralidad_jerarquia": "Metropolitana",
+        "badge": "En Ejecución",
+        "centralidad_id": "el-ejido-alameda",
+        "centralidad_nombre": "El Ejido - Alameda",
+        "centralidad_jerarquia": "Zonal",
         "geom_tipo": "LineString",
         "is_metro": false
       },
@@ -5299,12 +5299,20 @@
         "type": "LineString",
         "coordinates": [
           [
-            -78.491672,
-            -0.127511
+            -78.50345,
+            -0.21552
           ],
           [
-            -78.490158,
-            -0.146292
+            -78.50218,
+            -0.21415
+          ],
+          [
+            -78.50085,
+            -0.21272
+          ],
+          [
+            -78.49882,
+            -0.21051
           ]
         ]
       }

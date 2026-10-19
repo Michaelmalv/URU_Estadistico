@@ -2196,6 +2196,37 @@
         "db_categoria": "Corredores Vivos"
       },
       {
+        "id": "recuperacion-av-10-agosto",
+        "nombre": "Recuperación Urbana Av. 10 de Agosto (Tramo Santa Prisca — Tarqui)",
+        "tipo": "Corredor Vivo / Regeneración Vial",
+        "badge": "En Ejecución",
+        "longitud_km": "15.000 m² (1.2 km)",
+        "presupuesto": ".50M",
+        "financiamiento": "Municipio de Quito / EPMMOP / SHOT",
+        "estado": "Polígono 1 Priorizado",
+        "resumen": "Estrategia de renovación urbana con ensanchamiento de aceras, jardines de lluvia (SUDS) para mitigar inundaciones, arborización técnica con especies nativas y conexión peatonal entre los parques La Alameda y El Ejido.",
+        "seguridad": {
+          "tiene_datos_oficiales": false,
+          "mensaje_oficial": "Polígono territorial en fase de ejecución técnica PUGS. Medición de impacto delictivo programada para el cierre del ejercicio fiscal."
+        },
+        "economia": {
+          "tiene_datos_oficiales": false,
+          "mensaje_oficial": "Plaza de comercio seguro y regularizado en fase de implementación dentro del polígono."
+        },
+        "valor_suelo": {
+          "tiene_datos_oficiales": false,
+          "mensaje_oficial": "Políticas de incentivo a la edificabilidad y vivienda colectiva inclusiva en articulación con el PUGS."
+        },
+        "imagen_destacada": "/imagenes_categorias/recuperacion_urbana_av_10_de_agosto/recuperación_urbana_av10deAgosto.png",
+        "galeria_id": null,
+        "antes_despues_id": null,
+        "coordenadas": [
+          -78.5011,
+          -0.213
+        ],
+        "tiene_datos_oficiales": false
+      },
+      {
         "id": "zona-metro-la-alameda",
         "nombre": "Zona Metro La Alameda",
         "tipo": "Zona Metro de Quito",
@@ -4702,37 +4733,6 @@
         "coordenadas": [
           -78.490915,
           -0.1369015
-        ],
-        "tiene_datos_oficiales": false
-      },
-      {
-        "id": "recuperacion-av-10-agosto",
-        "nombre": "Recuperación Urbana Av. 10 de Agosto (Tramo Bicentenario)",
-        "tipo": "Corredor Vivo / Regeneración Vial",
-        "badge": "Ejecutado",
-        "longitud_km": "2.5 km",
-        "presupuesto": "$2.15M",
-        "financiamiento": "EPMMOP",
-        "estado": "Completado",
-        "resumen": "Repavimentación rígida, ciclovía interconectada con El Labrador y arborización en parterres.",
-        "seguridad": {
-          "tiene_datos_oficiales": false,
-          "mensaje_oficial": "Polígono territorial en fase de diagnóstico PUGS. No registra intervenciones físicas ni mediciones delictivas en la base de datos oficial municipal."
-        },
-        "economia": {
-          "tiene_datos_oficiales": false,
-          "mensaje_oficial": "Sin registros económicos LUAE en la base de datos para este sector."
-        },
-        "valor_suelo": {
-          "tiene_datos_oficiales": false,
-          "mensaje_oficial": "Sin avalúos catastrales específicos asociados a este sector."
-        },
-        "imagen_destacada": "/imagenes_categorias/recuperacion_urbana_av_10_de_agosto/recuperación_urbana_av10deAgosto.png",
-        "galeria_id": null,
-        "antes_despues_id": null,
-        "coordenadas": [
-          -78.4889,
-          -0.145
         ],
         "tiene_datos_oficiales": false
       }
