@@ -3524,10 +3524,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hierarchy-pill-light.active {
-  background: #ea580c;
+  background: #f97316;
   color: #ffffff;
-  border-color: #c2410c;
-  box-shadow: 0 4px 12px rgba(234, 88, 12, 0.28);
+  border-color: #fb923c;
+  box-shadow: 0 4px 12px rgba(249, 115, 22, 0.28);
 }
 
 .count-pill {
@@ -4446,8 +4446,8 @@ h1, h2, h3, h4, h5, h6 {
   width: 22px;
   height: 10px;
   border-radius: 50%;
-  background: radial-gradient(ellipse at center, rgba(194, 65, 12, 0.65) 0%, rgba(234, 88, 12, 0.2) 60%, transparent 80%);
-  border: 1.5px solid rgba(194, 65, 12, 0.7);
+  background: radial-gradient(ellipse at center, rgba(249, 115, 22, 0.6) 0%, rgba(253, 186, 116, 0.2) 60%, transparent 80%);
+  border: 1.5px solid rgba(249, 115, 22, 0.7);
   animation: pinRadarPulse 2.2s infinite ease-out;
   pointer-events: none;
 }

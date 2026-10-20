@@ -32,28 +32,28 @@ const getFallbackToken = () => {
 
 const HIERARCHY_THEME = {
   'Metropolitana': {
-    color: '#c2410c',
+    color: '#fb923c',
     bg: '#fff7ed',
     border: '#fed7aa',
-    text: '#9a3412'
+    text: '#ea580c'
   },
   'Zonal': {
-    color: '#ea580c',
+    color: '#fdba74',
     bg: '#fffaf5',
     border: '#ffedd5',
-    text: '#c2410c'
+    text: '#ea580c'
   },
   'Sectorial': {
-    color: '#f59e0b',
+    color: '#fcd34d',
     bg: '#fffbeb',
     border: '#fde68a',
     text: '#b45309'
   },
   'Zonas Metro': {
-    color: '#9a3412',
-    bg: '#fff5f0',
-    border: '#fed7aa',
-    text: '#7c2d12'
+    color: '#0284c7',
+    bg: '#f0f9ff',
+    border: '#bae6fd',
+    text: '#0369a1'
   }
 };
 
@@ -185,13 +185,12 @@ export default function CentralidadesView() {
           'fill-color': [
             'match',
             ['get', 'jerarquia'],
-            'Metropolitana', '#c2410c',
-            'Zonal', '#ea580c',
-            'Sectorial', '#f59e0b',
-            'Zonas Metro', '#9a3412',
-            '#ea580c'
+            'Metropolitana', '#fb923c',
+            'Zonal', '#fdba74',
+            'Sectorial', '#fed7aa',
+            '#fdba74'
           ],
-          'fill-opacity': 0.35
+          'fill-opacity': 0.28
         }
       });
 
@@ -204,14 +203,13 @@ export default function CentralidadesView() {
           'line-color': [
             'match',
             ['get', 'jerarquia'],
-            'Metropolitana', '#9a3412',
-            'Zonal', '#c2410c',
-            'Sectorial', '#d97706',
-            'Zonas Metro', '#7c2d12',
-            '#c2410c'
+            'Metropolitana', '#f97316',
+            'Zonal', '#fb923c',
+            'Sectorial', '#f59e0b',
+            '#fb923c'
           ],
-          'line-width': 2.5,
-          'line-opacity': 0.95
+          'line-width': 2.0,
+          'line-opacity': 0.9
         }
       });
 
@@ -221,8 +219,8 @@ export default function CentralidadesView() {
         type: 'line',
         source: 'centralidades-source',
         paint: {
-          'line-color': '#7c2d12',
-          'line-width': 4.5,
+          'line-color': '#f97316',
+          'line-width': 3.8,
           'line-opacity': 1
         },
         filter: ['==', ['get', 'id'], selectedCentralidad ? selectedCentralidad.id : '']
@@ -423,11 +421,11 @@ export default function CentralidadesView() {
             13, 14,
             16, 22
           ],
-          'circle-color': '#ea580c',
-          'circle-opacity': 0.28,
-          'circle-stroke-width': 1.8,
-          'circle-stroke-color': '#c2410c',
-          'circle-stroke-opacity': 0.75
+          'circle-color': '#fb923c',
+          'circle-opacity': 0.3,
+          'circle-stroke-width': 1.5,
+          'circle-stroke-color': '#f97316',
+          'circle-stroke-opacity': 0.8
         }
       });
 
@@ -443,7 +441,7 @@ export default function CentralidadesView() {
             13, 8,
             16, 12
           ],
-          'circle-color': '#c2410c',
+          'circle-color': '#f97316',
           'circle-stroke-width': 2.5,
           'circle-stroke-color': '#ffffff'
         }
@@ -462,8 +460,8 @@ export default function CentralidadesView() {
           ],
           'circle-color': '#fed7aa',
           'circle-opacity': 0.75,
-          'circle-stroke-width': 3,
-          'circle-stroke-color': '#c2410c'
+          'circle-stroke-width': 2.5,
+          'circle-stroke-color': '#f97316'
         },
         filter: ['all', ['==', ['get', 'geom_tipo'], 'Point'], ['==', ['get', 'id'], '']]
       });
@@ -534,7 +532,7 @@ export default function CentralidadesView() {
           centralidadPopup.setLngLat(e.lngLat)
             .setHTML(`
               <div style="font-family: inherit; font-size: 12px; padding: 4px 6px;">
-                <span style="font-weight: 800; color: #c2410c; text-transform: uppercase; font-size: 11px;">[${jer}]</span>
+                <span style="font-weight: 800; color: #ea580c; text-transform: uppercase; font-size: 11px;">[${jer}]</span>
                 <strong style="display: block; color: #0f172a; font-size: 13px; margin: 2px 0;">${name}</strong>
                 <span style="color: #64748b; font-size: 11px;">${sup} hectáreas</span>
               </div>
@@ -645,10 +643,10 @@ export default function CentralidadesView() {
           <div class="pin-radar-ring"></div>
           <div class="pin-icon-container">
             <svg width="28" height="36" viewBox="0 0 24 32" fill="none" class="pin-svg-graphic">
-              <path d="M12 0C5.373 0 0 5.373 0 12C0 21 12 32 12 32C12 32 24 21 24 12C24 5.373 18.627 0 12 0Z" fill="#c2410c"/>
+              <path d="M12 0C5.373 0 0 5.373 0 12C0 21 12 32 12 32C12 32 24 21 24 12C24 5.373 18.627 0 12 0Z" fill="#f97316"/>
               <path d="M12 1.5C6.201 1.5 1.5 6.201 1.5 12C1.5 19.8 10.8 29.3 12 30.5C13.2 29.3 22.5 19.8 22.5 12C22.5 6.201 17.799 1.5 12 1.5Z" stroke="#ffffff" stroke-width="2"/>
               <circle cx="12" cy="11" r="5.5" fill="#ffffff"/>
-              <path d="M9 13.5V10L12 8L15 10V13.5H9Z" fill="#ea580c"/>
+              <path d="M9 13.5V10L12 8L15 10V13.5H9Z" fill="#fb923c"/>
               <rect x="11" y="11" width="2" height="2.5" fill="#ffffff"/>
             </svg>
             <div class="pin-name-tooltip">📍 ${shortName}</div>
@@ -1509,15 +1507,15 @@ export default function CentralidadesView() {
         <div className="floating-hierarchy-legend">
           <span className="legend-head">PALETA DE CENTRALIDADES DMQ</span>
           <div className="legend-row">
-            <span className="legend-circle" style={{ backgroundColor: '#c2410c' }} />
+            <span className="legend-circle" style={{ backgroundColor: '#fb923c' }} />
             <span>Metropolitana (5)</span>
           </div>
           <div className="legend-row">
-            <span className="legend-circle" style={{ backgroundColor: '#ea580c' }} />
+            <span className="legend-circle" style={{ backgroundColor: '#fdba74' }} />
             <span>Zonal (11)</span>
           </div>
           <div className="legend-row">
-            <span className="legend-circle" style={{ backgroundColor: '#f59e0b' }} />
+            <span className="legend-circle" style={{ backgroundColor: '#fed7aa' }} />
             <span>Sectorial (6)</span>
           </div>
           <div className="legend-divider-light" />
