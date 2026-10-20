@@ -57,9 +57,20 @@ const HIERARCHY_THEME = {
   }
 };
 
+const normalizeBadge = (badge) => {
+  if (!badge) return 'Ejecutado';
+  const b = badge.toString().trim();
+  const lower = b.toLowerCase();
+  if (lower.includes('inaugur') || lower.includes('operac') || lower.includes('complet') || lower.includes('ejecutad')) {
+    return 'Ejecutado';
+  }
+  return b;
+};
+
 const getBadgeStyle = (badge) => {
-  const b = (badge || '').toLowerCase();
-  if (b.includes('inaugur') || b.includes('operac') || b.includes('ejecutad') || b.includes('complet')) {
+  const norm = normalizeBadge(badge);
+  const b = norm.toLowerCase();
+  if (b.includes('ejecutad')) {
     return { bg: '#ecfdf5', border: '#a7f3d0', text: '#059669', bullet: '#059669' };
   }
   if (b.includes('ejecuc') || b.includes('obra')) {
@@ -570,7 +581,7 @@ export default function CentralidadesView() {
                       ${isMetro ? '🚇 POLÍGONO ZONA METRO (LÍNEA 1)' : isPoint ? '📍 PROYECTO ARQUITECTÓNICO (PUNTO)' : '━━ TRAZADO DE PROYECTO'}
                     </span>
                     <span style="font-size: 9.5px; background: ${isMetro ? '#fff7ed' : isPoint ? '#fff7ed' : '#fffbeb'}; color: ${isMetro ? '#9a3412' : isPoint ? '#c2410c' : '#b45309'}; padding: 1px 5px; border-radius: 4px; font-weight: 700;">
-                      ${p.badge}
+                      ${normalizeBadge(p.badge)}
                     </span>
                   </div>
                   <strong style="display: block; color: #0f172a; font-size: 13px; line-height: 1.3; margin: 3px 0 5px 0;">
@@ -1231,7 +1242,7 @@ export default function CentralidadesView() {
                                         color: bStyle.text
                                       }}
                                     >
-                                      {proj.badge}
+                                      {normalizeBadge(proj.badge)}
                                     </span>
                                   </div>
                                 );
@@ -1351,7 +1362,7 @@ export default function CentralidadesView() {
                             color: bStyle.text
                           }}
                         >
-                          {proj.badge}
+                          {normalizeBadge(proj.badge)}
                         </span>
                       </button>
                     );
@@ -1375,7 +1386,7 @@ export default function CentralidadesView() {
                         color: getBadgeStyle(activeProject.badge).text
                       }}
                     >
-                      {activeProject.badge}
+                      {normalizeBadge(activeProject.badge)}
                     </span>
                   </div>
 
@@ -1559,7 +1570,7 @@ export default function CentralidadesView() {
                       color: getBadgeStyle(floatingProject.badge).text
                     }}
                   >
-                    {floatingProject.badge}
+                    {normalizeBadge(floatingProject.badge)}
                   </span>
                 </div>
                 <button 

@@ -15,7 +15,7 @@
     "despues": {
       "imagen": "/antes_despues/av_patria/despues.jpg",
       "etiqueta": "DESPUÉS",
-      "fecha": "Inaugurado y Operativo",
+      "fecha": "Ejecutado",
       "descripcion": "Corredor Vivo iluminado con señalética peatonal de alto impacto, ciclovía segregada, pintura mural y cruces tácticos."
     }
   },
@@ -35,7 +35,7 @@
     "despues": {
       "imagen": "/antes_despues/la_roldos/despues.jpg",
       "etiqueta": "DESPUÉS",
-      "fecha": "Sendero Seguro Inaugurado",
+      "fecha": "Ejecutado",
       "descripcion": "Acera renovada con diseño geométrico tricolor, guía podotáctil continua, parada de buses operativa, mobiliario urbano (bancas y jardineras), bolardos de seguridad y cancha de césped sintético de alta calidad."
     }
   },
@@ -75,7 +75,7 @@
     "despues": {
       "imagen": "/antes_despues/calle_benalcazar/despues.png",
       "etiqueta": "DESPUÉS",
-      "fecha": "Eje Turístico Inaugurado",
+      "fecha": "Ejecutado",
       "descripcion": "Calle Benalcázar revitalizada con amplias aceras adoquinadas en tono terracota, guía podotáctil, mesas de cafetería con parasoles y jardineras, banderas patrimoniales en balcones y alta afluencia ciudadana con vista a San Francisco."
     }
   },
@@ -95,7 +95,7 @@
     "despues": {
       "imagen": "/antes_despues/parque_navarro/despues.jpg",
       "etiqueta": "DESPUÉS",
-      "fecha": "Plaza Gastronómica Inaugurada",
+      "fecha": "Ejecutado",
       "descripcion": "Parque Navarro completamente transformado con pabellón gastronómico cubierto con iluminación moderna, amplias plazas peatonales adoquinadas, carpas para ferias y activación social y cultural."
     }
   },
@@ -135,7 +135,7 @@
     "despues": {
       "imagen": "/antes_despues/ruiz_de_castilla/despues.png",
       "etiqueta": "DESPUÉS",
-      "fecha": "Corredor Vivo Inaugurado",
+      "fecha": "Ejecutado",
       "descripcion": "Despeje visual completo por retiro y soterramiento de redes, calzada asfaltada con cruce cebra y mural de urbanismo táctico azul/rojo, nuevo poste de alumbrado público y aceras renovadas frente al comercio vecinal."
     }
   }

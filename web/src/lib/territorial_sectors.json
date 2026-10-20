@@ -14,7 +14,7 @@
     "estacion_metro_cercana": "Estación Colón (Línea 1 Metro)",
     "distancia_metro": "350 m (4 min a pie)",
     "score_atractivo": 95,
-    "badge": "Inaugurado y Operativo",
+    "badge": "Ejecutado",
     "descripcion_corta": "Eje estructurante norte-centro con ciclovía segregada, soterramiento de cables y amplia oferta comercial.",
     "valor_suelo": {
       "aiva": "AIVAS AV. COLÓN",
@@ -67,7 +67,7 @@
     "estacion_metro_cercana": "Estación El Ejido (Línea 1 Metro)",
     "distancia_metro": "180 m (2 min a pie)",
     "score_atractivo": 96,
-    "badge": "Inaugurado y Operativo",
+    "badge": "Ejecutado",
     "descripcion_corta": "Conector icónico entre el Parque El Ejido y La Mariscal con cruces tácticos de colores e inversión corporativa.",
     "valor_suelo": {
       "aiva": "AIVAS PATRIA",
@@ -120,7 +120,7 @@
     "estacion_metro_cercana": "Estación La Carolina (Línea 1 Metro)",
     "distancia_metro": "280 m (3 min a pie)",
     "score_atractivo": 98,
-    "badge": "Inaugurado y Operativo",
+    "badge": "Ejecutado",
     "descripcion_corta": "Emblemática recuperación del espacio público con demolición de la antigua tribuna, pórticos y caminerías fluidas.",
     "valor_suelo": {
       "aiva": "AIVAS TRIBUNA DE LOS SHYRIS",
@@ -173,7 +173,7 @@
     "estacion_metro_cercana": "Estación La Y (Línea 1 Metro)",
     "distancia_metro": "120 m (1.5 min a pie)",
     "score_atractivo": 96,
-    "badge": "Inaugurado y Operativo",
+    "badge": "Ejecutado",
     "descripcion_corta": "Mega complejo ciudadano multifuncional con 12.000 m² de equipamiento social, teatro, polideportivo y ciclovía.",
     "valor_suelo": {
       "aiva": "AIVAS ISLA TORTUGA",
@@ -226,7 +226,7 @@
     "estacion_metro_cercana": "Estación Universidad Central (Metro)",
     "distancia_metro": "600 m (7 min a pie)",
     "score_atractivo": 91,
-    "badge": "Inaugurado y Operativo",
+    "badge": "Ejecutado",
     "descripcion_corta": "Sendero seguro adoquinado con reactivación comunitaria, áreas verdes y enlace directo al Parque Italia.",
     "valor_suelo": {
       "aiva": "AIVAS CALLE RUIZ DE CASTILLA",
@@ -278,7 +278,7 @@
     "estacion_metro_cercana": "Estación El Labrador (Conexión Alimentador)",
     "distancia_metro": "Conexión directa vía alimentador (12 min)",
     "score_atractivo": 88,
-    "badge": "Inaugurado y Operativo",
+    "badge": "Ejecutado",
     "descripcion_corta": "Transformación urbana en el noroccidente con adoquín ornamental, canchas de césped sintético y parada moderna.",
     "valor_suelo": {
       "aiva": "AIVAS COLINAS DEL NORTE",
@@ -330,7 +330,7 @@
     "estacion_metro_cercana": "Estación San Francisco (Línea 1 Metro)",
     "distancia_metro": "150 m (2 min a pie)",
     "score_atractivo": 97,
-    "badge": "Inaugurado y Operativo",
+    "badge": "Ejecutado",
     "descripcion_corta": "Restauración patrimonial integral con adoquín de piedra, soterramiento de cables y acceso a la Plaza San Francisco.",
     "valor_suelo": {
       "aiva": "AIVAS BENALCAZAR",
@@ -382,7 +382,7 @@
     "estacion_metro_cercana": "Estación La Pradera (Línea 1 Metro)",
     "distancia_metro": "750 m (9 min a pie)",
     "score_atractivo": 94,
-    "badge": "Inaugurado y Operativo",
+    "badge": "Ejecutado",
     "descripcion_corta": "Espacio gastronómico tradicional totalmente higienizado y modernizado en el corazón cultural de La Floresta.",
     "valor_suelo": {
       "aiva": "AIVAS PARQUE NAVARRO",
@@ -434,7 +434,7 @@
     "estacion_metro_cercana": "Estación San Francisco (Línea 1 Metro)",
     "distancia_metro": "400 m (5 min a pie)",
     "score_atractivo": 90,
-    "badge": "Inaugurado y Operativo",
+    "badge": "Ejecutado",
     "descripcion_corta": "Restauración de escalinatas patrimoniales, iluminación artística y recuperación del paso hacia San Roque.",
     "valor_suelo": {
       "aiva": "AIVAS ROCAFUERTE",
@@ -486,7 +486,7 @@
     "estacion_metro_cercana": "Estación Solanda / Cardenal de la Torre",
     "distancia_metro": "450 m (5 min a pie)",
     "score_atractivo": 92,
-    "badge": "Ejecutado e Inaugurado",
+    "badge": "Ejecutado",
     "descripcion_corta": "Gran eje comercial y peatonal del sur de Quito con soterramiento integral de cables y nuevas aceras.",
     "valor_suelo": {
       "aiva": "AIVAS AV. AJAVÍ",
