@@ -8,7 +8,7 @@ import {
   Building2, Shield, DollarSign, Info, Sparkles, MapPin, 
   Layers, Search, Compass, CheckCircle2, TrendingUp, Maximize2, 
   X, ChevronRight, Award, Eye, FileText, ArrowUpRight, ChevronDown, Check,
-  Database, AlertTriangle
+  Database, AlertTriangle, ArrowLeft, Train, TreePine, Zap, BarChart2
 } from 'lucide-react';
 import centralidadesData from '@/lib/centralidades_data.json';
 import centralidadesGeoJson from '@/lib/centralidades.json';
@@ -87,12 +87,8 @@ export default function CentralidadesView() {
   const mapContainerRef = useRef(null);
   const mapRef = useRef(null);
 
-  // Estados de selección y filtros
-  const [selectedCentralidad, setSelectedCentralidad] = useState(
-    centralidadesData.find(c => c.id === 'cotocollao-ofelia') || 
-    centralidadesData.find(c => c.id === 'mariscal') || 
-    centralidadesData[0]
-  );
+  // Estados de selección y filtros (null al inicio para mostrar Vista General de Centralidades)
+  const [selectedCentralidad, setSelectedCentralidad] = useState(null);
   const [selectedProjectIndex, setSelectedProjectIndex] = useState(0);
   const [activeProjectTab, setActiveProjectTab] = useState('info'); // 'info', 'seguridad', 'economia', 'suelo'
   const [hierarchyFilter, setHierarchyFilter] = useState('Todas'); // 'Todas', 'Metropolitana', 'Zonal', 'Sectorial'
@@ -150,10 +146,10 @@ export default function CentralidadesView() {
     const map = new mapboxgl.Map({
       container: mapContainerRef.current,
       style: mapStyle,
-      center: [-78.4900, -0.1950],
-      zoom: 11.5,
-      pitch: 35,
-      bearing: -10
+      center: [-78.4850, -0.1700],
+      zoom: 11.2,
+      pitch: 28,
+      bearing: -8
     });
 
     mapRef.current = map;
@@ -558,6 +554,8 @@ export default function CentralidadesView() {
 
       if (selectedCentralidad) {
         focusCentralidad(selectedCentralidad);
+      } else {
+        fitAllCentralidades();
       }
     });
 
@@ -662,13 +660,13 @@ export default function CentralidadesView() {
   // Actualizar resalte de la centralidad seleccionada
   useEffect(() => {
     if (!mapRef.current || !mapRef.current.isStyleLoaded()) return;
-    mapRef.current.setFilter('centralidades-highlight', ['==', ['get', 'id'], selectedCentralidad.id]);
+    mapRef.current.setFilter('centralidades-highlight', ['==', ['get', 'id'], selectedCentralidad ? selectedCentralidad.id : '']);
   }, [selectedCentralidad]);
 
   // Actualizar resalte para la línea/contorno del proyecto seleccionado
   useEffect(() => {
     if (!mapRef.current || !mapRef.current.isStyleLoaded()) return;
-    const currentProj = floatingProject || (selectedCentralidad.proyectos && selectedCentralidad.proyectos[selectedProjectIndex]);
+    const currentProj = floatingProject || (selectedCentralidad?.proyectos && selectedCentralidad.proyectos[selectedProjectIndex]);
     const targetId = currentProj ? currentProj.id : '';
     
     if (mapRef.current.getLayer('proyectos-geom-selected-glow')) {
@@ -682,8 +680,29 @@ export default function CentralidadesView() {
     }
   }, [floatingProject, selectedProjectIndex, selectedCentralidad]);
 
-  const focusCentralidad = (centralidad) => {
+  const fitAllCentralidades = () => {
     if (!mapRef.current) return;
+    mapRef.current.fitBounds(
+      [[-78.58, -0.34], [-78.38, 0.01]],
+      {
+        padding: { top: 60, bottom: 60, left: 60, right: 60 },
+        pitch: 28,
+        bearing: -8,
+        duration: 1800,
+        maxZoom: 12
+      }
+    );
+  };
+
+  const handleResetToOverview = () => {
+    setSelectedCentralidad(null);
+    setSelectedProjectIndex(0);
+    setFloatingProject(null);
+    fitAllCentralidades();
+  };
+
+  const focusCentralidad = (centralidad) => {
+    if (!mapRef.current || !centralidad) return;
 
     if (centralidad.bbox && centralidad.bbox.length === 4) {
       mapRef.current.fitBounds(
@@ -768,8 +787,15 @@ export default function CentralidadesView() {
     return matchesHierarchy && matchesSearch;
   });
 
-  const activeProject = selectedCentralidad.proyectos[selectedProjectIndex] || selectedCentralidad.proyectos[0];
-  const currentTheme = HIERARCHY_THEME[selectedCentralidad.jerarquia] || HIERARCHY_THEME['Zonal'];
+  const activeProject = selectedCentralidad 
+    ? (selectedCentralidad.proyectos[selectedProjectIndex] || selectedCentralidad.proyectos[0])
+    : null;
+  const currentTheme = selectedCentralidad 
+    ? (HIERARCHY_THEME[selectedCentralidad.jerarquia] || HIERARCHY_THEME['Zonal'])
+    : HIERARCHY_THEME['Zonal'];
+
+  const modalCentralidad = selectedCentralidad || (floatingProject ? centralidadesData.find(c => c.proyectos.some(p => p.id === floatingProject.id)) : null) || { jerarquia: 'DMQ', nombre: 'Distrito Metropolitano', admin_zonal: 'DMQ' };
+  const modalTheme = HIERARCHY_THEME[modalCentralidad.jerarquia] || HIERARCHY_THEME['Zonal'];
 
   return (
     <div className="centralidades-light-dashboard">
@@ -844,13 +870,18 @@ export default function CentralidadesView() {
 
             <div className="select-dropdown-wrapper">
               <select
-                value={selectedCentralidad.id}
+                value={selectedCentralidad ? selectedCentralidad.id : ''}
                 onChange={(e) => {
-                  const found = centralidadesData.find(c => c.id === e.target.value);
-                  if (found) handleSelectCentralidad(found);
+                  if (!e.target.value) {
+                    handleResetToOverview();
+                  } else {
+                    const found = centralidadesData.find(c => c.id === e.target.value);
+                    if (found) handleSelectCentralidad(found);
+                  }
                 }}
                 className="select-field-light"
               >
+                <option value="">🗺️ Vista General: Todas las Centralidades</option>
                 {filteredCentralidades.map((c) => (
                   <option key={c.id} value={c.id}>
                     {c.nombre} [{c.jerarquia}]
@@ -864,207 +895,408 @@ export default function CentralidadesView() {
 
         {/* 2. Contenedor de Contenido con Desplazamiento Suave */}
         <div className="sidebar-scrollable-body">
-          {/* FICHA TERRITORIAL DE LA CENTRALIDAD */}
-          <div className="centralidad-card-light">
-            <div className="centralidad-card-top">
-              <div className="title-and-badge">
-                <span 
-                  className="hierarchy-badge-light"
-                  style={{ 
-                    backgroundColor: currentTheme.bg, 
-                    color: currentTheme.text,
-                    borderColor: currentTheme.border 
-                  }}
-                >
-                  Centralidad {selectedCentralidad.jerarquia}
-                </span>
-                <h3 className="centralidad-name-heading">{selectedCentralidad.nombre}</h3>
+          {!selectedCentralidad ? (
+            /* ============================================================== */
+            /* RESUMEN EJECUTIVO GENERAL CUANDO RECIÉN SE INGRESA             */
+            /* ============================================================== */
+            <div className="overview-summary-container">
+              {/* Tarjeta Hero Panorámica */}
+              <div className="overview-hero-card">
+                <div className="overview-hero-header">
+                  <div className="overview-hero-icon-box">
+                    <Compass size={24} />
+                  </div>
+                  <div className="overview-hero-text">
+                    <span className="overview-hero-pill">PMDOT / PUGS • DMQ</span>
+                    <h3 className="overview-hero-title">Modelo Territorial DMQ</h3>
+                  </div>
+                </div>
+                <p className="overview-hero-desc">
+                  Estructura policéntrica del Distrito Metropolitano de Quito con <strong>22 centralidades urbanas</strong> y la <strong>Red Estratégica Metro</strong>. Conectando proximidad, espacio público, seguridad integral y reactivación económica.
+                </p>
               </div>
-            </div>
 
-            {/* Fila de Métricas Clave (Hectáreas y Zonal) */}
-            <div className="stats-badges-strip">
-              <div className="stat-pill-item">
-                <span className="stat-icon">📐</span>
-                <span className="stat-text"><strong>{selectedCentralidad.superficie_ha.toFixed(1)}</strong> ha</span>
-              </div>
-              <div className="stat-pill-item">
-                <span className="stat-icon">🏛️</span>
-                <span className="stat-text">Zonal <strong>{selectedCentralidad.admin_zonal}</strong></span>
-              </div>
-            </div>
+              {/* Matriz de Indicadores Clave (KPIs) */}
+              <div className="overview-kpi-grid">
+                <div className="overview-kpi-card">
+                  <div className="kpi-icon-wrap" style={{ background: '#eff6ff', color: '#2563eb' }}>
+                    <Building2 size={20} />
+                  </div>
+                  <div className="kpi-data-wrap">
+                    <span className="kpi-main-number">23</span>
+                    <span className="kpi-main-lbl">Centralidades</span>
+                    <span className="kpi-sub-breakdown">5 Metrop. • 11 Zonales • 6 Sect.</span>
+                  </div>
+                </div>
 
-            <p className="centralidad-narrative">
-              {selectedCentralidad.descripcion_territorial}
-            </p>
+                <div className="overview-kpi-card">
+                  <div className="kpi-icon-wrap" style={{ background: '#fef3c7', color: '#d97706' }}>
+                    <Sparkles size={20} />
+                  </div>
+                  <div className="kpi-data-wrap">
+                    <span className="kpi-main-number">56</span>
+                    <span className="kpi-main-lbl">Proyectos Estratégicos</span>
+                    <span className="kpi-sub-breakdown">Senderos, Metro, Bulevares</span>
+                  </div>
+                </div>
 
-            {/* Equipamientos Urbanos Clave */}
-            {selectedCentralidad.equipamientos_clave?.length > 0 && (
-              <div className="equipments-container">
-                <span className="mini-section-label">Equipamientos en el área:</span>
-                <div className="equipments-chips-wrap">
-                  {selectedCentralidad.equipamientos_clave.map((eq, i) => (
-                    <span key={i} className="equipment-chip-light">{eq}</span>
-                  ))}
+                <div className="overview-kpi-card">
+                  <div className="kpi-icon-wrap" style={{ background: '#ecfdf5', color: '#059669' }}>
+                    <Layers size={20} />
+                  </div>
+                  <div className="kpi-data-wrap">
+                    <span className="kpi-main-number">~3.984</span>
+                    <span className="kpi-main-lbl">Hectáreas Totales</span>
+                    <span className="kpi-sub-breakdown">Área Urbana Consolidada</span>
+                  </div>
+                </div>
+
+                <div className="overview-kpi-card">
+                  <div className="kpi-icon-wrap" style={{ background: '#f5f3ff', color: '#7c3aed' }}>
+                    <TrendingUp size={20} />
+                  </div>
+                  <div className="kpi-data-wrap">
+                    <span className="kpi-main-number">4</span>
+                    <span className="kpi-main-lbl">Dimensiones Clave</span>
+                    <span className="kpi-sub-breakdown">Info • Seguridad • Eco • Suelo</span>
+                  </div>
                 </div>
               </div>
-            )}
-          </div>
 
-          {/* LISTA DE PROYECTOS DENTRO DE ESTA CENTRALIDAD */}
-          <div className="projects-selection-section">
-            <div className="section-title-bar">
-              <span className="section-title-text">
-                PROYECTOS ESTRATÉGICOS ({selectedCentralidad.proyectos.length})
-              </span>
+              {/* Tarjeta de Ejes de Intervención */}
+              <div className="overview-interventions-card">
+                <span className="overview-section-label">Ejes de Desarrollo Urbano</span>
+                <div className="overview-interventions-pills">
+                  <div className="intervention-pill-item blue">
+                    <span className="int-title">🚇 Movilidad y Metro</span>
+                    <span className="int-desc">Línea 1 y zonas de influencia directa a 15 estaciones.</span>
+                  </div>
+                  <div className="intervention-pill-item emerald">
+                    <span className="int-title">🛡️ Seguridad Integral</span>
+                    <span className="int-desc">Senderos seguros iluminados y cámaras conectadas.</span>
+                  </div>
+                  <div className="intervention-pill-item green">
+                    <span className="int-title">🌳 Espacio Público</span>
+                    <span className="int-desc">Parques zonales, bulevares y pacificación vial.</span>
+                  </div>
+                  <div className="intervention-pill-item amber">
+                    <span className="int-title">📈 Suelo y Plusvalía</span>
+                    <span className="int-desc">Monitoreo de valor AIVA e incentivos de inversión.</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Directorio General de Centralidades y sus Proyectos Respectivos */}
+              <div className="overview-directory-section">
+                <div className="directory-header-row">
+                  <span className="directory-header-title">
+                    Directorio de Centralidades ({filteredCentralidades.length})
+                  </span>
+                  <span className="directory-hint">
+                    Haz clic en <strong>Ver Detalle</strong> o en cualquier proyecto para enfocarlo en el mapa 3D:
+                  </span>
+                </div>
+
+                <div className="overview-centralidades-list">
+                  {filteredCentralidades.map((c) => {
+                    const theme = HIERARCHY_THEME[c.jerarquia] || HIERARCHY_THEME['Zonal'];
+                    return (
+                      <div key={c.id} className="overview-centralidad-card">
+                        <div className="card-top-header">
+                          <div className="card-top-left">
+                            <span 
+                              className="overview-badge"
+                              style={{
+                                backgroundColor: theme.bg,
+                                color: theme.text,
+                                borderColor: theme.border
+                              }}
+                            >
+                              {c.jerarquia}
+                            </span>
+                            <h4 className="overview-c-name">{c.nombre}</h4>
+                            <span className="overview-c-sub">
+                              📐 {c.superficie_ha.toFixed(1)} ha • 🏛️ {c.admin_zonal}
+                            </span>
+                          </div>
+                          <button
+                            className="overview-explore-btn"
+                            onClick={() => handleSelectCentralidad(c)}
+                            title={`Explorar centralidad ${c.nombre}`}
+                          >
+                            <span>Ver Detalle</span>
+                            <ArrowUpRight size={14} />
+                          </button>
+                        </div>
+
+                        <p className="overview-c-desc">{c.descripcion_territorial}</p>
+
+                        {c.proyectos && c.proyectos.length > 0 && (
+                          <div className="overview-projects-block">
+                            <span className="overview-projects-tag">
+                              Proyectos Estratégicos ({c.proyectos.length}):
+                            </span>
+                            <div className="overview-projects-chips">
+                              {c.proyectos.map((proj, pIdx) => {
+                                const bStyle = getBadgeStyle(proj.badge);
+                                return (
+                                  <div
+                                    key={proj.id}
+                                    className="overview-project-chip"
+                                    onClick={() => {
+                                      setSelectedCentralidad(c);
+                                      setSelectedProjectIndex(pIdx);
+                                      setActiveProjectTab('info');
+                                      setFloatingProject(proj);
+                                      focusProject(proj);
+                                    }}
+                                    title={`Abrir ficha flotante de ${proj.nombre}`}
+                                  >
+                                    <span 
+                                      className="chip-proj-dot" 
+                                      style={{ backgroundColor: bStyle.bullet }} 
+                                    />
+                                    <span className="chip-proj-name">{proj.nombre}</span>
+                                    <span 
+                                      className="chip-badge"
+                                      style={{
+                                        backgroundColor: bStyle.bg,
+                                        borderColor: bStyle.border,
+                                        color: bStyle.text
+                                      }}
+                                    >
+                                      {proj.badge}
+                                    </span>
+                                  </div>
+                                );
+                              })}
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
             </div>
+          ) : (
+            /* ============================================================== */
+            /* DETALLE DE LA CENTRALIDAD SELECCIONADA                         */
+            /* ============================================================== */
+            <>
+              {/* Botón para volver al Resumen General */}
+              <button 
+                className="back-to-overview-btn"
+                onClick={handleResetToOverview}
+                title="Volver al resumen general de todas las centralidades"
+              >
+                <ArrowLeft size={16} />
+                <span>← Volver al Resumen General (Todas las Centralidades)</span>
+              </button>
 
-            <div className="projects-segmented-list">
-              {selectedCentralidad.proyectos.map((proj, pIdx) => {
-                const isSelected = selectedProjectIndex === pIdx;
-                const bStyle = getBadgeStyle(proj.badge);
-                return (
-                  <button
-                    key={proj.id}
-                    className={`project-tab-card ${isSelected ? 'active' : ''}`}
-                    onClick={() => {
-                      setSelectedProjectIndex(pIdx);
-                      setActiveProjectTab('info');
-                      setFloatingProject(proj);
-                      focusProject(proj);
-                    }}
-                    title="Haz clic para abrir la pantalla flotante con información, seguridad, economía y suelo"
-                  >
-                    <div className="project-tab-main-info">
-                      <div className="title-row">
-                        <span className="status-bullet" style={{ backgroundColor: bStyle.bullet }} />
-                        <strong className="proj-tab-title">{proj.nombre}</strong>
-                      </div>
-                      <div className="type-and-cue-row">
-                        <span className="proj-tab-type">{proj.tipo}</span>
-                        <span className="open-cue-text">
-                          <Maximize2 size={11} /> Ver ficha flotante
+              {/* FICHA TERRITORIAL DE LA CENTRALIDAD */}
+              <div className="centralidad-card-light">
+                <div className="centralidad-card-top">
+                  <div className="title-and-badge">
+                    <span 
+                      className="hierarchy-badge-light"
+                      style={{ 
+                        backgroundColor: currentTheme.bg, 
+                        color: currentTheme.text,
+                        borderColor: currentTheme.border 
+                      }}
+                    >
+                      Centralidad {selectedCentralidad.jerarquia}
+                    </span>
+                    <h3 className="centralidad-name-heading">{selectedCentralidad.nombre}</h3>
+                  </div>
+                </div>
+
+                {/* Fila de Métricas Clave (Hectáreas y Zonal) */}
+                <div className="stats-badges-strip">
+                  <div className="stat-pill-item">
+                    <span className="stat-icon">📐</span>
+                    <span className="stat-text"><strong>{selectedCentralidad.superficie_ha.toFixed(1)}</strong> ha</span>
+                  </div>
+                  <div className="stat-pill-item">
+                    <span className="stat-icon">🏛️</span>
+                    <span className="stat-text">Zonal <strong>{selectedCentralidad.admin_zonal}</strong></span>
+                  </div>
+                </div>
+
+                <p className="centralidad-narrative">
+                  {selectedCentralidad.descripcion_territorial}
+                </p>
+
+                {/* Equipamientos Urbanos Clave */}
+                {selectedCentralidad.equipamientos_clave?.length > 0 && (
+                  <div className="equipments-container">
+                    <span className="mini-section-label">Equipamientos en el área:</span>
+                    <div className="equipments-chips-wrap">
+                      {selectedCentralidad.equipamientos_clave.map((eq, i) => (
+                        <span key={i} className="equipment-chip-light">{eq}</span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* LISTA DE PROYECTOS DENTRO DE ESTA CENTRALIDAD */}
+              <div className="projects-selection-section">
+                <div className="section-title-bar">
+                  <span className="section-title-text">
+                    PROYECTOS ESTRATÉGICOS ({selectedCentralidad.proyectos.length})
+                  </span>
+                </div>
+
+                <div className="projects-segmented-list">
+                  {selectedCentralidad.proyectos.map((proj, pIdx) => {
+                    const isSelected = selectedProjectIndex === pIdx;
+                    const bStyle = getBadgeStyle(proj.badge);
+                    return (
+                      <button
+                        key={proj.id}
+                        className={`project-tab-card ${isSelected ? 'active' : ''}`}
+                        onClick={() => {
+                          setSelectedProjectIndex(pIdx);
+                          setActiveProjectTab('info');
+                          setFloatingProject(proj);
+                          focusProject(proj);
+                        }}
+                        title="Haz clic para abrir la pantalla flotante con información, seguridad, economía y suelo"
+                      >
+                        <div className="project-tab-main-info">
+                          <div className="title-row">
+                            <span className="status-bullet" style={{ backgroundColor: bStyle.bullet }} />
+                            <strong className="proj-tab-title">{proj.nombre}</strong>
+                          </div>
+                          <div className="type-and-cue-row">
+                            <span className="proj-tab-type">{proj.tipo}</span>
+                            <span className="open-cue-text">
+                              <Maximize2 size={11} /> Ver ficha flotante
+                            </span>
+                          </div>
+                        </div>
+                        <span 
+                          className="proj-tab-badge"
+                          style={{
+                            backgroundColor: bStyle.bg,
+                            borderColor: bStyle.border,
+                            color: bStyle.text
+                          }}
+                        >
+                          {proj.badge}
                         </span>
-                      </div>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* FICHA RESUMEN DEL PROYECTO SELECCIONADO Y ACCESO DIRECTO A LA PANTALLA FLOTANTE */}
+              {activeProject && (
+                <div className="sidebar-active-project-card">
+                  <div className="active-proj-header">
+                    <div className="proj-lead-badge">
+                      <Sparkles size={13} />
+                      <span>PROYECTO SELECCIONADO</span>
                     </div>
                     <span 
                       className="proj-tab-badge"
                       style={{
-                        backgroundColor: bStyle.bg,
-                        borderColor: bStyle.border,
-                        color: bStyle.text
+                        backgroundColor: getBadgeStyle(activeProject.badge).bg,
+                        borderColor: getBadgeStyle(activeProject.badge).border,
+                        color: getBadgeStyle(activeProject.badge).text
                       }}
                     >
-                      {proj.badge}
+                      {activeProject.badge}
                     </span>
+                  </div>
+
+                  <h4 className="active-proj-name">{activeProject.nombre}</h4>
+                  <p className="active-proj-summary-snippet">{activeProject.resumen}</p>
+
+                  {/* Botón Principal para Abrir la Pantalla Flotante */}
+                  <button 
+                    className="btn-trigger-floating-modal"
+                    onClick={() => {
+                      setActiveProjectTab('info');
+                      setFloatingProject(activeProject);
+                    }}
+                    title="Abrir pantalla flotante con información, seguridad, economía y valor del suelo"
+                  >
+                    <Maximize2 size={15} />
+                    <span>Abrir Pantalla Flotante (4 Dimensiones)</span>
+                    <ArrowUpRight size={15} />
                   </button>
-                );
-              })}
-            </div>
-          </div>
 
-          {/* FICHA RESUMEN DEL PROYECTO SELECCIONADO Y ACCESO DIRECTO A LA PANTALLA FLOTANTE */}
-          {activeProject && (
-            <div className="sidebar-active-project-card">
-              <div className="active-proj-header">
-                <div className="proj-lead-badge">
-                  <Sparkles size={13} />
-                  <span>PROYECTO SELECCIONADO</span>
+                  {/* Botones de Acceso Rápido Directo a Cada Dimensión */}
+                  <div className="mini-dimensions-grid">
+                    <button 
+                      className="mini-dimension-btn"
+                      onClick={() => {
+                        setActiveProjectTab('info');
+                        setFloatingProject(activeProject);
+                      }}
+                      title="Ver Información General"
+                    >
+                      <Info size={13} />
+                      <span>Información</span>
+                    </button>
+                    <button 
+                      className="mini-dimension-btn"
+                      onClick={() => {
+                        setActiveProjectTab('seguridad');
+                        setFloatingProject(activeProject);
+                      }}
+                      title="Ver Seguridad"
+                    >
+                      <Shield size={13} color="#059669" />
+                      <span>Seguridad</span>
+                    </button>
+                    <button 
+                      className="mini-dimension-btn"
+                      onClick={() => {
+                        setActiveProjectTab('economia');
+                        setFloatingProject(activeProject);
+                      }}
+                      title="Ver Economía"
+                    >
+                      <TrendingUp size={13} color="#2563eb" />
+                      <span>Economía</span>
+                    </button>
+                    <button 
+                      className="mini-dimension-btn"
+                      onClick={() => {
+                        setActiveProjectTab('suelo');
+                        setFloatingProject(activeProject);
+                      }}
+                      title="Ver Valor del Suelo"
+                    >
+                      <DollarSign size={13} color="#d97706" />
+                      <span>Suelo</span>
+                    </button>
+                  </div>
                 </div>
-                <span 
-                  className="proj-tab-badge"
-                  style={{
-                    backgroundColor: getBadgeStyle(activeProject.badge).bg,
-                    borderColor: getBadgeStyle(activeProject.badge).border,
-                    color: getBadgeStyle(activeProject.badge).text
-                  }}
-                >
-                  {activeProject.badge}
-                </span>
+              )}
+
+              {/* Carrusel Rápido de Todas las Centralidades al Pie */}
+              <div className="sidebar-footer-chips">
+                <span className="mini-section-label">Explorar otras centralidades:</span>
+                <div className="chips-scroll-wrap">
+                  {filteredCentralidades.map((c) => (
+                    <button
+                      key={c.id}
+                      className={`chip-button-light ${selectedCentralidad?.id === c.id ? 'active' : ''}`}
+                      onClick={() => handleSelectCentralidad(c)}
+                    >
+                      <span>{c.nombre}</span>
+                    </button>
+                  ))}
+                </div>
               </div>
-
-              <h4 className="active-proj-name">{activeProject.nombre}</h4>
-              <p className="active-proj-summary-snippet">{activeProject.resumen}</p>
-
-              {/* Botón Principal para Abrir la Pantalla Flotante */}
-              <button 
-                className="btn-trigger-floating-modal"
-                onClick={() => {
-                  setActiveProjectTab('info');
-                  setFloatingProject(activeProject);
-                }}
-                title="Abrir pantalla flotante con información, seguridad, economía y valor del suelo"
-              >
-                <Maximize2 size={15} />
-                <span>Abrir Pantalla Flotante (4 Dimensiones)</span>
-                <ArrowUpRight size={15} />
-              </button>
-
-              {/* Botones de Acceso Rápido Directo a Cada Dimensión */}
-              <div className="mini-dimensions-grid">
-                <button 
-                  className="mini-dimension-btn"
-                  onClick={() => {
-                    setActiveProjectTab('info');
-                    setFloatingProject(activeProject);
-                  }}
-                  title="Ver Información General"
-                >
-                  <Info size={13} />
-                  <span>Información</span>
-                </button>
-                <button 
-                  className="mini-dimension-btn"
-                  onClick={() => {
-                    setActiveProjectTab('seguridad');
-                    setFloatingProject(activeProject);
-                  }}
-                  title="Ver Seguridad"
-                >
-                  <Shield size={13} color="#059669" />
-                  <span>Seguridad</span>
-                </button>
-                <button 
-                  className="mini-dimension-btn"
-                  onClick={() => {
-                    setActiveProjectTab('economia');
-                    setFloatingProject(activeProject);
-                  }}
-                  title="Ver Economía"
-                >
-                  <TrendingUp size={13} color="#2563eb" />
-                  <span>Economía</span>
-                </button>
-                <button 
-                  className="mini-dimension-btn"
-                  onClick={() => {
-                    setActiveProjectTab('suelo');
-                    setFloatingProject(activeProject);
-                  }}
-                  title="Ver Valor del Suelo"
-                >
-                  <DollarSign size={13} color="#d97706" />
-                  <span>Suelo</span>
-                </button>
-              </div>
-            </div>
+            </>
           )}
-
-          {/* Carrusel Rápido de Todas las Centralidades al Pie */}
-          <div className="sidebar-footer-chips">
-            <span className="mini-section-label">Explorar otras centralidades:</span>
-            <div className="chips-scroll-wrap">
-              {filteredCentralidades.map((c) => (
-                <button
-                  key={c.id}
-                  className={`chip-button-light ${selectedCentralidad.id === c.id ? 'active' : ''}`}
-                  onClick={() => handleSelectCentralidad(c)}
-                >
-                  <span>{c.nombre}</span>
-                </button>
-              ))}
-            </div>
-          </div>
         </div>
       </aside>
 
@@ -1138,12 +1370,12 @@ export default function CentralidadesView() {
                   <span 
                     className="hierarchy-badge-light"
                     style={{ 
-                      backgroundColor: currentTheme.bg, 
-                      color: currentTheme.text,
-                      borderColor: currentTheme.border 
+                      backgroundColor: modalTheme.bg, 
+                      color: modalTheme.text,
+                      borderColor: modalTheme.border 
                     }}
                   >
-                    Centralidad {selectedCentralidad.jerarquia}: {selectedCentralidad.nombre}
+                    Centralidad {modalCentralidad.jerarquia}: {modalCentralidad.nombre}
                   </span>
                   <span 
                     className="proj-tab-badge"
@@ -1169,7 +1401,7 @@ export default function CentralidadesView() {
               <h2 className="floating-modal-title">{floatingProject.nombre}</h2>
               <div className="floating-modal-subtitle">
                 <MapPin size={15} color="#2563eb" />
-                <span>{floatingProject.tipo} • Administración Zonal {selectedCentralidad.admin_zonal}</span>
+                <span>{floatingProject.tipo} • Administración Zonal {modalCentralidad.admin_zonal}</span>
               </div>
             </div>
 
