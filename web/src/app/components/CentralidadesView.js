@@ -1,7 +1,7 @@
 'use strict';
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { 
@@ -98,6 +98,8 @@ export default function CentralidadesView() {
   const mapContainerRef = useRef(null);
   const mapRef = useRef(null);
   const markersRef = useRef([]);
+  const beaconMarkersRef = useRef([]);
+  const blinkIntervalRef = useRef(null);
 
   // Estados de selección y filtros (null al inicio para mostrar Vista General de Centralidades)
   const [selectedCentralidad, setSelectedCentralidad] = useState(null);
@@ -105,12 +107,16 @@ export default function CentralidadesView() {
   const [activeProjectTab, setActiveProjectTab] = useState('info'); // 'info', 'seguridad', 'economia', 'suelo'
   const [hierarchyFilter, setHierarchyFilter] = useState('Todas'); // 'Todas', 'Metropolitana', 'Zonal', 'Sectorial'
   const [statusFilter, setStatusFilter] = useState('Todos'); // 'Todos' | 'Ejecutado' | 'En Ejecución' | 'Planificado'
+  const [isProjectListOpen, setIsProjectListOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [mapStyle, setMapStyle] = useState('mapbox://styles/mapbox/streets-v12');
   const [modalImage, setModalImage] = useState(null);
   const [floatingProject, setFloatingProject] = useState(null);
   const [dbStatus, setDbStatus] = useState('checking'); // 'connected' | 'paused' | 'checking'
   const [dbStats, setDbStats] = useState(null);
+
+  const statusFilterRef = useRef(statusFilter);
+  statusFilterRef.current = statusFilter;
 
   // Conteos de proyectos según estado de ejecución
   const allProjectsList = centralidadesData.flatMap(c => c.proyectos || []);
@@ -120,21 +126,106 @@ export default function CentralidadesView() {
   const countPlanificado = allProjectsList.filter(p => normalizeBadge(p.badge) === 'Planificado').length;
 
   const STATUS_OPTIONS = [
-    { key: 'Todos', label: 'Todos', count: countTodos, activeClass: 'status-todos', floatingClass: 'todos' },
-    { key: 'Ejecutado', label: 'Ejecutado', count: countEjecutado, activeClass: 'status-ejecutado', floatingClass: 'ejecutado', color: '#059669', dotClass: 'green' },
-    { key: 'En Ejecución', label: 'En Ejecución', count: countEnEjecucion, activeClass: 'status-enejecucion', floatingClass: 'enejecucion', color: '#2563eb', dotClass: 'blue' },
-    { key: 'Planificado', label: 'Planificado', count: countPlanificado, activeClass: 'status-planificado', floatingClass: 'planificado', color: '#d97706', dotClass: 'amber' }
+    { key: 'Todos', label: 'Todos', count: countTodos, activeClass: 'status-todos', color: '#0f172a' },
+    { key: 'Ejecutado', label: 'Ejecutado', count: countEjecutado, activeClass: 'status-ejecutado', color: '#059669', dotClass: 'green' },
+    { key: 'En Ejecución', label: 'En Ejecución', count: countEnEjecucion, activeClass: 'status-enejecucion', color: '#2563eb', dotClass: 'blue' },
+    { key: 'Planificado', label: 'Planificado', count: countPlanificado, activeClass: 'status-planificado', color: '#d97706', dotClass: 'amber' }
   ];
 
-  // Función cartográfica: Encender proyectos del estado seleccionado y atenuar los demás
+  // Listado filtrado de proyectos según el estado seleccionado
+  const filteredProjectsByStatus = useMemo(() => {
+    const list = [];
+    centralidadesData.forEach((c) => {
+      (c.proyectos || []).forEach((p) => {
+        const norm = normalizeBadge(p.badge || p.estado);
+        if (statusFilter === 'Todos' || norm === statusFilter) {
+          list.push({
+            proj: p,
+            centralidad: c,
+            normBadge: norm
+          });
+        }
+      });
+    });
+    return list;
+  }, [statusFilter]);
+
+  // Si se selecciona En Ejecución o Planificado (pocos proyectos), mostrar desplegado por defecto
+  useEffect(() => {
+    if (statusFilter === 'En Ejecución' || statusFilter === 'Planificado') {
+      setIsProjectListOpen(true);
+    } else {
+      setIsProjectListOpen(false);
+    }
+  }, [statusFilter]);
+
+  // Renderizador de cada tarjeta de proyecto dentro del filtro de estado lateral
+  const renderStatusProjectItem = (item) => {
+    const { proj, centralidad, normBadge } = item;
+    const isSelected = floatingProject?.id === proj.id;
+    const borderClass = normBadge === 'En Ejecución' 
+      ? 'active-border-blue' 
+      : normBadge === 'Planificado' 
+      ? 'active-border-amber' 
+      : 'active-border-green';
+    const bStyle = getBadgeStyle(proj.badge);
+
+    return (
+      <div
+        key={proj.id}
+        className={`status-project-card ${borderClass} ${isSelected ? 'selected' : ''}`}
+        onClick={() => {
+          setSelectedCentralidad(centralidad);
+          const pIdx = centralidad.proyectos?.findIndex(x => x.id === proj.id);
+          setSelectedProjectIndex(pIdx >= 0 ? pIdx : 0);
+          setActiveProjectTab('info');
+          setFloatingProject(proj);
+          focusProject(proj);
+        }}
+        title={`Enfocar en mapa y ver 4 dimensiones de ${proj.nombre}`}
+      >
+        <div className="status-proj-card-top">
+          <strong className="status-proj-card-name">{proj.nombre}</strong>
+          <span 
+            className="status-proj-card-badge"
+            style={{
+              backgroundColor: bStyle.bg,
+              color: bStyle.text,
+              border: `1px solid ${bStyle.border}`
+            }}
+          >
+            {normBadge}
+          </span>
+        </div>
+        <div className="status-proj-card-meta">
+          <span className="status-proj-card-loc">
+            📍 <span>{centralidad.nombre}</span> • <span style={{ opacity: 0.85 }}>{centralidad.jerarquia}</span>
+          </span>
+          <span className="status-proj-card-cue">
+            Ver en mapa ➔
+          </span>
+        </div>
+      </div>
+    );
+  };
+
+  // Función cartográfica: Encender proyectos del estado seleccionado con parpadeo dinámico y balizas radar
   const applyStatusFilterToMap = (map, filterVal) => {
     if (!map || !map.isStyleLoaded()) return;
 
+    // Detener cualquier animación de parpadeo previa y limpiar balizas
+    if (blinkIntervalRef.current) {
+      clearInterval(blinkIntervalRef.current);
+      blinkIntervalRef.current = null;
+    }
+    beaconMarkersRef.current.forEach(m => m.remove());
+    beaconMarkersRef.current = [];
+
     const isAll = !filterVal || filterVal === 'Todos';
 
-    // 1. Línea principal (LineStrings - Senderos y Soterramientos)
-    if (map.getLayer('proyectos-geom-line-main')) {
-      if (isAll) {
+    if (isAll) {
+      // ESTADO 'TODOS': Restaurar estética equilibrada estándar
+      if (map.getLayer('proyectos-geom-line-main')) {
         map.setPaintProperty('proyectos-geom-line-main', 'line-opacity', 1.0);
         map.setPaintProperty('proyectos-geom-line-main', 'line-width', [
           'interpolate', ['linear'], ['zoom'],
@@ -142,171 +233,197 @@ export default function CentralidadesView() {
           13, 6,
           16, 9
         ]);
-      } else {
-        map.setPaintProperty('proyectos-geom-line-main', 'line-opacity', [
-          'case',
-          ['==', ['coalesce', ['get', 'badge'], ['get', 'estado'], ''], filterVal],
-          1.0,
-          0.12
-        ]);
-        map.setPaintProperty('proyectos-geom-line-main', 'line-width', [
-          'case',
-          ['==', ['coalesce', ['get', 'badge'], ['get', 'estado'], ''], filterVal],
-          ['interpolate', ['linear'], ['zoom'], 10, 5.5, 13, 9, 16, 14],
-          ['interpolate', ['linear'], ['zoom'], 10, 2, 13, 3.5, 16, 5]
-        ]);
       }
-    }
-
-    // 2. Sombra / Casing oscuro de líneas
-    if (map.getLayer('proyectos-geom-line-casing')) {
-      if (isAll) {
+      if (map.getLayer('proyectos-geom-line-casing')) {
         map.setPaintProperty('proyectos-geom-line-casing', 'line-opacity', 0.5);
-      } else {
-        map.setPaintProperty('proyectos-geom-line-casing', 'line-opacity', [
-          'case',
-          ['==', ['coalesce', ['get', 'badge'], ['get', 'estado'], ''], filterVal],
-          0.75,
-          0.05
-        ]);
       }
-    }
-
-    // 3. Relleno y contorno azul distintivo de Polígonos Metro
-    if (map.getLayer('proyectos-geom-metro-fill')) {
-      if (isAll) {
+      if (map.getLayer('proyectos-geom-metro-fill')) {
         map.setPaintProperty('proyectos-geom-metro-fill', 'fill-opacity', 0.38);
-      } else {
-        map.setPaintProperty('proyectos-geom-metro-fill', 'fill-opacity', [
-          'case',
-          ['==', ['coalesce', ['get', 'badge'], ['get', 'estado'], ''], filterVal],
-          0.68,
-          0.06
-        ]);
       }
-    }
-    if (map.getLayer('proyectos-geom-metro-outline')) {
-      if (isAll) {
+      if (map.getLayer('proyectos-geom-metro-outline')) {
         map.setPaintProperty('proyectos-geom-metro-outline', 'line-opacity', 0.95);
         map.setPaintProperty('proyectos-geom-metro-outline', 'line-width', 3);
-      } else {
-        map.setPaintProperty('proyectos-geom-metro-outline', 'line-opacity', [
-          'case',
-          ['==', ['coalesce', ['get', 'badge'], ['get', 'estado'], ''], filterVal],
-          1.0,
-          0.15
-        ]);
-        map.setPaintProperty('proyectos-geom-metro-outline', 'line-width', [
-          'case',
-          ['==', ['coalesce', ['get', 'badge'], ['get', 'estado'], ''], filterVal],
-          4.5,
-          1.5
-        ]);
       }
-    }
-
-    // 4. Relleno y contorno de Polígonos convencionales (ej. Arena del Sur)
-    if (map.getLayer('proyectos-geom-fill')) {
-      if (isAll) {
+      if (map.getLayer('proyectos-geom-fill')) {
         map.setPaintProperty('proyectos-geom-fill', 'fill-opacity', 0.35);
-      } else {
-        map.setPaintProperty('proyectos-geom-fill', 'fill-opacity', [
-          'case',
-          ['==', ['coalesce', ['get', 'badge'], ['get', 'estado'], ''], filterVal],
-          0.72,
-          0.06
-        ]);
       }
-    }
-    if (map.getLayer('proyectos-geom-polygon-outline')) {
-      if (isAll) {
+      if (map.getLayer('proyectos-geom-polygon-outline')) {
         map.setPaintProperty('proyectos-geom-polygon-outline', 'line-opacity', 0.95);
         map.setPaintProperty('proyectos-geom-polygon-outline', 'line-width', 4);
-      } else {
-        map.setPaintProperty('proyectos-geom-polygon-outline', 'line-opacity', [
-          'case',
-          ['==', ['coalesce', ['get', 'badge'], ['get', 'estado'], ''], filterVal],
-          1.0,
-          0.15
-        ]);
-        map.setPaintProperty('proyectos-geom-polygon-outline', 'line-width', [
-          'case',
-          ['==', ['coalesce', ['get', 'badge'], ['get', 'estado'], ''], filterVal],
-          5.5,
-          1.5
-        ]);
       }
-    }
-
-    // 5. Puntos de proyectos arquitectónicos (círculos en canvas)
-    if (map.getLayer('proyectos-geom-point-pulse')) {
-      if (isAll) {
+      if (map.getLayer('proyectos-geom-point-pulse')) {
         map.setPaintProperty('proyectos-geom-point-pulse', 'circle-opacity', 0.3);
-      } else {
-        map.setPaintProperty('proyectos-geom-point-pulse', 'circle-opacity', [
-          'case',
-          ['==', ['coalesce', ['get', 'badge'], ['get', 'estado'], ''], filterVal],
-          0.65,
-          0.05
-        ]);
       }
-    }
-    if (map.getLayer('proyectos-geom-point-core')) {
-      if (isAll) {
+      if (map.getLayer('proyectos-geom-point-core')) {
         map.setPaintProperty('proyectos-geom-point-core', 'circle-opacity', 1.0);
         map.setPaintProperty('proyectos-geom-point-core', 'circle-stroke-opacity', 1.0);
-      } else {
-        map.setPaintProperty('proyectos-geom-point-core', 'circle-opacity', [
-          'case',
-          ['==', ['coalesce', ['get', 'badge'], ['get', 'estado'], ''], filterVal],
-          1.0,
-          0.12
-        ]);
-        map.setPaintProperty('proyectos-geom-point-core', 'circle-stroke-opacity', [
-          'case',
-          ['==', ['coalesce', ['get', 'badge'], ['get', 'estado'], ''], filterVal],
-          1.0,
-          0.12
-        ]);
       }
-    }
-
-    // 6. Rótulos cartográficos de proyectos
-    if (map.getLayer('proyectos-geom-labels')) {
-      if (isAll) {
+      if (map.getLayer('proyectos-geom-labels')) {
         map.setPaintProperty('proyectos-geom-labels', 'text-opacity', 1.0);
-      } else {
-        map.setPaintProperty('proyectos-geom-labels', 'text-opacity', [
-          'case',
-          ['==', ['coalesce', ['get', 'badge'], ['get', 'estado'], ''], filterVal],
-          1.0,
-          0.15
-        ]);
       }
-    }
 
-    // 7. Pines Arquitectónicos HTML (Plaza Navarro, Quitopía)
-    markersRef.current.forEach(({ el, badge }) => {
-      if (!el) return;
-      const normBadge = normalizeBadge(badge);
-      if (isAll) {
+      markersRef.current.forEach(({ el }) => {
+        if (!el) return;
         el.style.opacity = '1';
         el.style.filter = 'none';
         el.style.transform = '';
-        el.style.transition = 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)';
-      } else if (normBadge === filterVal) {
+      });
+      return;
+    }
+
+    // ESTADO FILTRADO ('Ejecutado', 'En Ejecución', 'Planificado'):
+    // 1. Configurar capas atenuadas para los demás (0.08) y resaltadas iniciales para el activo
+    const matchFilter = ['==', ['coalesce', ['get', 'badge'], ['get', 'estado'], ''], filterVal];
+
+    if (map.getLayer('proyectos-geom-line-main')) {
+      map.setPaintProperty('proyectos-geom-line-main', 'line-opacity', [
+        'case', matchFilter, 1.0, 0.08
+      ]);
+      map.setPaintProperty('proyectos-geom-line-main', 'line-width', [
+        'case', matchFilter,
+        ['interpolate', ['linear'], ['zoom'], 10, 7.5, 13, 12, 16, 17],
+        ['interpolate', ['linear'], ['zoom'], 10, 2, 13, 3, 16, 4]
+      ]);
+    }
+    if (map.getLayer('proyectos-geom-line-casing')) {
+      map.setPaintProperty('proyectos-geom-line-casing', 'line-opacity', [
+        'case', matchFilter, 0.95, 0.04
+      ]);
+    }
+    if (map.getLayer('proyectos-geom-metro-fill')) {
+      map.setPaintProperty('proyectos-geom-metro-fill', 'fill-opacity', [
+        'case', matchFilter, 0.70, 0.05
+      ]);
+    }
+    if (map.getLayer('proyectos-geom-metro-outline')) {
+      map.setPaintProperty('proyectos-geom-metro-outline', 'line-opacity', [
+        'case', matchFilter, 1.0, 0.08
+      ]);
+      map.setPaintProperty('proyectos-geom-metro-outline', 'line-width', [
+        'case', matchFilter, 5.5, 1.5
+      ]);
+    }
+    if (map.getLayer('proyectos-geom-fill')) {
+      map.setPaintProperty('proyectos-geom-fill', 'fill-opacity', [
+        'case', matchFilter, 0.75, 0.04
+      ]);
+    }
+    if (map.getLayer('proyectos-geom-polygon-outline')) {
+      map.setPaintProperty('proyectos-geom-polygon-outline', 'line-opacity', [
+        'case', matchFilter, 1.0, 0.08
+      ]);
+      map.setPaintProperty('proyectos-geom-polygon-outline', 'line-width', [
+        'case', matchFilter, 6.5, 1.5
+      ]);
+    }
+    if (map.getLayer('proyectos-geom-labels')) {
+      map.setPaintProperty('proyectos-geom-labels', 'text-opacity', [
+        'case', matchFilter, 1.0, 0.08
+      ]);
+    }
+
+    markersRef.current.forEach(({ el, badge }) => {
+      if (!el) return;
+      const norm = normalizeBadge(badge);
+      if (norm === filterVal) {
         el.style.opacity = '1';
-        el.style.filter = 'drop-shadow(0 0 12px rgba(249, 115, 22, 0.9))';
-        el.style.transform = 'scale(1.15)';
-        el.style.transition = 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)';
+        el.style.filter = 'drop-shadow(0 0 14px rgba(249, 115, 22, 0.95))';
+        el.style.transform = 'scale(1.2)';
       } else {
-        el.style.opacity = '0.15';
+        el.style.opacity = '0.12';
         el.style.filter = 'grayscale(100%)';
         el.style.transform = 'scale(0.85)';
-        el.style.transition = 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)';
       }
     });
+
+    // 2. PARPADEO RÍTMICO CARTOGRÁFICO (Blinking Animation):
+    // Alterna dinámicamente opacidad y grosor de los proyectos activos cada 580ms para que destaquen visiblemente
+    let isBlinkPhase = false;
+    blinkIntervalRef.current = setInterval(() => {
+      if (!map || !map.isStyleLoaded()) return;
+      isBlinkPhase = !isBlinkPhase;
+
+      if (map.getLayer('proyectos-geom-line-main')) {
+        map.setPaintProperty('proyectos-geom-line-main', 'line-opacity', [
+          'case', matchFilter, isBlinkPhase ? 1.0 : 0.20, 0.08
+        ]);
+        map.setPaintProperty('proyectos-geom-line-main', 'line-width', [
+          'case', matchFilter,
+          ['interpolate', ['linear'], ['zoom'], 10, isBlinkPhase ? 8 : 4, 13, isBlinkPhase ? 13 : 6, 16, isBlinkPhase ? 18 : 8],
+          ['interpolate', ['linear'], ['zoom'], 10, 2, 13, 3, 16, 4]
+        ]);
+      }
+      if (map.getLayer('proyectos-geom-line-casing')) {
+        map.setPaintProperty('proyectos-geom-line-casing', 'line-opacity', [
+          'case', matchFilter, isBlinkPhase ? 0.95 : 0.15, 0.04
+        ]);
+      }
+      if (map.getLayer('proyectos-geom-fill')) {
+        map.setPaintProperty('proyectos-geom-fill', 'fill-opacity', [
+          'case', matchFilter, isBlinkPhase ? 0.78 : 0.18, 0.04
+        ]);
+      }
+      if (map.getLayer('proyectos-geom-polygon-outline')) {
+        map.setPaintProperty('proyectos-geom-polygon-outline', 'line-opacity', [
+          'case', matchFilter, isBlinkPhase ? 1.0 : 0.20, 0.08
+        ]);
+        map.setPaintProperty('proyectos-geom-polygon-outline', 'line-width', [
+          'case', matchFilter, isBlinkPhase ? 7 : 2.5, 1.5
+        ]);
+      }
+      if (map.getLayer('proyectos-geom-metro-fill')) {
+        map.setPaintProperty('proyectos-geom-metro-fill', 'fill-opacity', [
+          'case', matchFilter, isBlinkPhase ? 0.72 : 0.18, 0.04
+        ]);
+      }
+      if (map.getLayer('proyectos-geom-metro-outline')) {
+        map.setPaintProperty('proyectos-geom-metro-outline', 'line-opacity', [
+          'case', matchFilter, isBlinkPhase ? 1.0 : 0.20, 0.08
+        ]);
+      }
+    }, 580);
+
+    // 3. BALIZAS RADAR PULSANTES CON ETIQUETAS (Para En Ejecución y Planificado)
+    if (filterVal === 'En Ejecución' || filterVal === 'Planificado') {
+      const beaconClass = filterVal === 'En Ejecución' ? 'beacon-blue' : 'beacon-amber';
+      const tagText = filterVal === 'En Ejecución' ? 'EN EJECUCIÓN' : 'PLANIFICADO';
+
+      centralidadesData.forEach((c) => {
+        (c.proyectos || []).forEach((p) => {
+          if (normalizeBadge(p.badge || p.estado) === filterVal && p.coordenadas) {
+            const bEl = document.createElement('div');
+            bEl.className = `project-radar-beacon ${beaconClass}`;
+            bEl.innerHTML = `
+              <div class="beacon-radar-wave"></div>
+              <div class="beacon-radar-wave delayed"></div>
+              <div class="beacon-core-dot"></div>
+              <div class="beacon-floating-label">
+                <span class="beacon-tag">${tagText}</span>
+                <span>${p.nombre}</span>
+              </div>
+            `;
+
+            bEl.addEventListener('click', (e) => {
+              e.stopPropagation();
+              setSelectedCentralidad(c);
+              const pIdx = c.proyectos.findIndex(x => x.id === p.id);
+              setSelectedProjectIndex(pIdx >= 0 ? pIdx : 0);
+              setActiveProjectTab('info');
+              setFloatingProject(p);
+              focusProject(p);
+            });
+
+            const marker = new mapboxgl.Marker({ element: bEl, anchor: 'center' })
+              .setLngLat(p.coordenadas)
+              .addTo(map);
+
+            beaconMarkersRef.current.push(marker);
+          }
+        });
+      });
+    }
   };
+
 
   // Verificar conexión en vivo con Supabase
   useEffect(() => {
@@ -889,6 +1006,12 @@ export default function CentralidadesView() {
     });
 
     return () => {
+      if (blinkIntervalRef.current) {
+        clearInterval(blinkIntervalRef.current);
+        blinkIntervalRef.current = null;
+      }
+      beaconMarkersRef.current.forEach(m => m.remove());
+      beaconMarkersRef.current = [];
       markersRef.current.forEach(({ marker }) => marker.remove());
       markersRef.current = [];
       map.remove();
@@ -1274,6 +1397,62 @@ export default function CentralidadesView() {
                   </button>
                 );
               })}
+            </div>
+
+            {/* Listado dinámico de proyectos según el filtro escogido */}
+            <div className="status-filtered-projects-panel">
+              {statusFilter === 'Todos' ? (
+                <div>
+                  <button
+                    type="button"
+                    className={`status-dropdown-toggle ${isProjectListOpen ? 'active' : ''}`}
+                    onClick={() => setIsProjectListOpen(!isProjectListOpen)}
+                  >
+                    <div className="status-dropdown-left">
+                      <span className="status-dropdown-icon">{isProjectListOpen ? '▲' : '▼'}</span>
+                      <span>{isProjectListOpen ? 'Ocultar listado de proyectos' : 'Ver listado de los 73 proyectos'}</span>
+                    </div>
+                    <span className="status-dropdown-badge">{filteredProjectsByStatus.length}</span>
+                  </button>
+                  {isProjectListOpen && (
+                    <div className="status-projects-scroll-wrap">
+                      {filteredProjectsByStatus.map(renderStatusProjectItem)}
+                    </div>
+                  )}
+                </div>
+              ) : statusFilter === 'Ejecutado' ? (
+                <div>
+                  <button
+                    type="button"
+                    className={`status-dropdown-toggle ${isProjectListOpen ? 'active' : ''}`}
+                    onClick={() => setIsProjectListOpen(!isProjectListOpen)}
+                  >
+                    <div className="status-dropdown-left">
+                      <span className="status-dropdown-icon">{isProjectListOpen ? '▲' : '▼'}</span>
+                      <span>{isProjectListOpen ? 'Ocultar proyectos ejecutados' : 'Ver listado de 67 proyectos ejecutados'}</span>
+                    </div>
+                    <span className="status-dropdown-badge green">{filteredProjectsByStatus.length}</span>
+                  </button>
+                  {isProjectListOpen && (
+                    <div className="status-projects-scroll-wrap">
+                      {filteredProjectsByStatus.map(renderStatusProjectItem)}
+                    </div>
+                  )}
+                </div>
+              ) : (
+                /* Para En Ejecución (3) y Planificado (3): Se despliegan directamente */
+                <div>
+                  <div className="status-direct-header">
+                    <span className={`status-direct-title ${statusFilter === 'En Ejecución' ? 'blue' : 'amber'}`}>
+                      <span className="status-pill-dot" style={{ backgroundColor: statusFilter === 'En Ejecución' ? '#2563eb' : '#d97706' }} />
+                      Proyectos {statusFilter} ({filteredProjectsByStatus.length}):
+                    </span>
+                  </div>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.45rem', marginTop: '0.35rem' }}>
+                    {filteredProjectsByStatus.map(renderStatusProjectItem)}
+                  </div>
+                </div>
+              )}
             </div>
           </div>
 
@@ -1743,23 +1922,6 @@ export default function CentralidadesView() {
       {/* ============================================================== */}
       <main className="centralidades-map-viewport">
         <div ref={mapContainerRef} className="map-canvas-fill" />
-
-        {/* Barra Flotante de Filtro por Estado (Encendido / Atenuación) */}
-        <div className="floating-status-filter-bar">
-          <span className="floating-status-lbl">Estado:</span>
-          {STATUS_OPTIONS.map((opt) => (
-            <button
-              key={opt.key}
-              className={`floating-status-btn ${statusFilter === opt.key ? `active ${opt.floatingClass}` : ''}`}
-              onClick={() => setStatusFilter(prev => prev === opt.key ? 'Todos' : opt.key)}
-              title={`Filtrar proyectos: ${opt.label} (${opt.count})`}
-            >
-              {opt.color && <span className={`floating-status-dot ${opt.dotClass}`} />}
-              <span>{opt.label}</span>
-              <span style={{ fontSize: '0.68rem', opacity: 0.85, fontWeight: 800 }}>({opt.count})</span>
-            </button>
-          ))}
-        </div>
 
         {/* Selector Flotante de Estilo de Mapa */}
         <div className="floating-map-styles">

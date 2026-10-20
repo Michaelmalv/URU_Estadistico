@@ -6689,91 +6689,375 @@ h1, h2, h3, h4, h5, h6 {
   color: #ffffff;
 }
 
-/* 2. Barra Flotante en el Mapa (Superior) */
-.floating-status-filter-bar {
-  position: absolute;
-  top: 1.5rem;
-  left: 215px;
-  z-index: 10;
+/* ============================================================== */
+/* LISTA DINÁMICA DE PROYECTOS POR ESTADO (SIDEBAR)              */
+/* ============================================================== */
+
+.status-filtered-projects-panel {
+  margin-top: 0.75rem;
+  padding-top: 0.65rem;
+  border-top: 1px dashed #cbd5e1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+/* Encabezado desplegable para listas grandes (Todos / Ejecutado) */
+.status-dropdown-toggle {
   display: flex;
   align-items: center;
-  gap: 0.35rem;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  padding: 0.32rem 0.65rem;
-  border-radius: 9999px;
-  border: 1px solid #e2e8f0;
-  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.1);
-}
-
-.floating-status-lbl {
-  font-size: 0.68rem;
-  font-weight: 800;
-  color: #64748b;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  padding-left: 0.2rem;
-  padding-right: 0.2rem;
-}
-
-.floating-status-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.3rem;
-  padding: 0.28rem 0.65rem;
-  border-radius: 9999px;
-  font-size: 0.74rem;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.45rem 0.65rem;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 0.75rem;
   font-weight: 700;
-  border: 1px solid transparent;
-  background: transparent;
-  color: #475569;
+  color: #334155;
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
-.floating-status-btn:hover {
+.status-dropdown-toggle:hover {
   background: #f1f5f9;
+  border-color: #94a3b8;
   color: #0f172a;
 }
 
-.floating-status-btn.active {
-  color: #ffffff;
-  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.18);
+.status-dropdown-toggle.active {
+  background: #f8fafc;
+  border-color: #64748b;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
 }
 
-.floating-status-btn.active.todos {
-  background: #0f172a;
+.status-dropdown-left {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
 }
 
-.floating-status-btn.active.ejecutado {
-  background: #059669;
+.status-dropdown-icon {
+  font-size: 0.65rem;
+  color: #64748b;
+  transition: transform 0.2s ease;
 }
 
-.floating-status-btn.active.enejecucion {
-  background: #2563eb;
+.status-dropdown-badge {
+  font-size: 0.68rem;
+  padding: 0.1rem 0.45rem;
+  border-radius: 9999px;
+  background: #e2e8f0;
+  color: #475569;
+  font-weight: 800;
 }
 
-.floating-status-btn.active.planificado {
-  background: #d97706;
+.status-dropdown-badge.green {
+  background: #ecfdf5;
+  color: #047857;
+  border: 1px solid #a7f3d0;
 }
 
-.floating-status-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
+.status-dropdown-badge.blue {
+  background: #eff6ff;
+  color: #1d4ed8;
+  border: 1px solid #bfdbfe;
+}
+
+.status-dropdown-badge.amber {
+  background: #fffbeb;
+  color: #b45309;
+  border: 1px solid #fde68a;
+}
+
+/* Contenedor scrollable cuando son muchos */
+.status-projects-scroll-wrap {
+  max-height: 270px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding-right: 0.25rem;
+  margin-top: 0.35rem;
+}
+
+.status-projects-scroll-wrap::-webkit-scrollbar {
+  width: 5px;
+}
+.status-projects-scroll-wrap::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 4px;
+}
+.status-projects-scroll-wrap::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+.status-projects-scroll-wrap::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Indicador de título cuando son pocos (En Ejecución / Planificado) */
+.status-direct-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.2rem;
+  padding: 0 0.2rem;
+}
+
+.status-direct-title {
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.status-direct-title.blue { color: #1d4ed8; }
+.status-direct-title.amber { color: #b45309; }
+
+/* Tarjetas individuales de proyectos en el filtro de estado */
+.status-project-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.55rem 0.7rem;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.03);
+  width: 100%;
+}
+
+.status-project-card:hover {
+  transform: translateY(-1px);
+  border-color: #94a3b8;
+  box-shadow: 0 3px 8px rgba(15, 23, 42, 0.08);
+}
+
+.status-project-card.active-border-blue {
+  border-left: 3.5px solid #2563eb;
+}
+.status-project-card.active-border-blue:hover {
+  border-color: #2563eb;
+  background: #f8faff;
+}
+
+.status-project-card.active-border-amber {
+  border-left: 3.5px solid #d97706;
+}
+.status-project-card.active-border-amber:hover {
+  border-color: #d97706;
+  background: #fffdfa;
+}
+
+.status-project-card.active-border-green {
+  border-left: 3px solid #059669;
+}
+
+.status-proj-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.35rem;
+}
+
+.status-proj-card-name {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.25;
+}
+
+.status-proj-card-badge {
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 0.08rem 0.4rem;
+  border-radius: 4px;
   flex-shrink: 0;
 }
 
-.floating-status-dot.green { background-color: #10b981; }
-.floating-status-dot.blue { background-color: #3b82f6; }
-.floating-status-dot.amber { background-color: #f59e0b; }
+.status-proj-card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.69rem;
+  color: #64748b;
+  margin-top: 0.1rem;
+}
 
-@media (max-width: 900px) {
-  .floating-status-filter-bar {
-    top: 4.5rem;
-    left: 1.5rem;
-    right: auto;
+.status-proj-card-loc {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.status-proj-card-cue {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #ea580c;
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
+}
+
+.status-project-card:hover .status-proj-card-cue {
+  color: #c2410c;
+  text-decoration: underline;
+}
+
+/* ============================================================== */
+/* BALIZAS RADAR PULSANTES EN EL MAPA (BEACONS PARA PARPADEO)     */
+/* ============================================================== */
+
+@keyframes beaconRadarPing {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.95;
   }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(3.4);
+    opacity: 0;
+  }
+}
+
+@keyframes beaconCoreGlow {
+  0%, 100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 6px currentColor);
+  }
+  50% {
+    transform: scale(1.35);
+    filter: drop-shadow(0 0 18px currentColor);
+  }
+}
+
+.project-radar-beacon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.beacon-radar-wave {
+  position: absolute;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: beaconRadarPing 1.8s cubic-bezier(0.2, 0.8, 0.4, 1) infinite;
+}
+
+.beacon-radar-wave.delayed {
+  animation-delay: 0.9s;
+}
+
+.beacon-blue .beacon-radar-wave {
+  border: 2.5px solid #2563eb;
+  background: rgba(37, 99, 235, 0.25);
+}
+
+.beacon-amber .beacon-radar-wave {
+  border: 2.5px solid #d97706;
+  background: rgba(217, 119, 6, 0.25);
+}
+
+.beacon-green .beacon-radar-wave {
+  border: 2.5px solid #059669;
+  background: rgba(5, 150, 105, 0.25);
+}
+
+.beacon-core-dot {
+  position: relative;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 2.5px solid #ffffff;
+  animation: beaconCoreGlow 1.4s ease-in-out infinite;
+  z-index: 2;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.beacon-blue .beacon-core-dot {
+  background-color: #2563eb;
+  color: #2563eb;
+}
+
+.beacon-amber .beacon-core-dot {
+  background-color: #d97706;
+  color: #d97706;
+}
+
+.beacon-green .beacon-core-dot {
+  background-color: #059669;
+  color: #059669;
+}
+
+.beacon-floating-label {
+  position: absolute;
+  top: -36px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: rgba(15, 23, 42, 0.94);
+  color: #ffffff;
+  padding: 0.28rem 0.6rem;
+  border-radius: 6px;
+  font-size: 0.73rem;
+  font-weight: 700;
+  white-space: nowrap;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+  pointer-events: none;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  z-index: 3;
+}
+
+.beacon-floating-label::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 4px solid rgba(15, 23, 42, 0.94);
+}
+
+.beacon-tag {
+  font-size: 0.62rem;
+  font-weight: 800;
+  padding: 0.06rem 0.32rem;
+  border-radius: 3px;
+  text-transform: uppercase;
+}
+
+.beacon-blue .beacon-tag {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+.beacon-amber .beacon-tag {
+  background: #d97706;
+  color: #ffffff;
+}
+
+.beacon-green .beacon-tag {
+  background: #059669;
+  color: #ffffff;
 }
 
 
