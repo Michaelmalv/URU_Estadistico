@@ -1098,7 +1098,9 @@ export default function CentralidadesView() {
                     <Sparkles size={20} />
                   </div>
                   <div className="kpi-data-wrap">
-                    <span className="kpi-main-number">56</span>
+                    <span className="kpi-main-number">
+                      {centralidadesData.reduce((acc, c) => acc + (c.proyectos?.length || 0), 0)}
+                    </span>
                     <span className="kpi-main-lbl">Proyectos Estratégicos</span>
                     <span className="kpi-sub-breakdown">Senderos, Metro, Bulevares</span>
                   </div>
@@ -1514,7 +1516,7 @@ export default function CentralidadesView() {
           <div className="legend-divider-light" />
           <div className="legend-row">
             <span className="legend-line-project-yellow" />
-            <span>Trazados / Contornos (25)</span>
+            <span>Trazados / Contornos ({proyectosGeometriasGeoJson.features.filter(f => f.geometry?.type !== 'Point').length})</span>
           </div>
           <div className="legend-row">
             <span style={{ fontSize: '13px', lineHeight: 1 }}>📍</span>
