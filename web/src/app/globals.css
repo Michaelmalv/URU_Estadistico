@@ -6561,4 +6561,220 @@ h1, h2, h3, h4, h5, h6 {
   animation: fadeInSlideUp 0.3s ease-out forwards;
 }
 
+/* ============================================================== */
+/* FILTRO DE ESTADO DE PROYECTOS (EJECUTADO, EN EJECUCIÓN, PLANIFICADO) */
+/* ============================================================== */
+
+/* 1. Contenedor en la barra lateral */
+.status-filter-container {
+  margin-top: 0.85rem;
+  margin-bottom: 0.95rem;
+  padding: 0.75rem 0.9rem;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+}
+
+.status-filter-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.status-filter-title {
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.status-filter-reset-btn {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #ea580c;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.status-filter-reset-btn:hover {
+  background: #ffedd5;
+  color: #c2410c;
+}
+
+.status-pills-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.status-filter-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.7rem;
+  border-radius: 9999px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+}
+
+.status-filter-pill:hover {
+  background: #f1f5f9;
+  border-color: #94a3b8;
+  color: #0f172a;
+  transform: translateY(-1px);
+}
+
+.status-filter-pill.active {
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+  transform: translateY(-1px);
+}
+
+.status-filter-pill.active.status-todos {
+  background: #0f172a;
+  color: #ffffff;
+  border-color: #0f172a;
+}
+
+.status-filter-pill.active.status-ejecutado {
+  background: #059669;
+  color: #ffffff;
+  border-color: #047857;
+  box-shadow: 0 4px 12px rgba(5, 150, 105, 0.35);
+}
+
+.status-filter-pill.active.status-enejecucion {
+  background: #2563eb;
+  color: #ffffff;
+  border-color: #1d4ed8;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
+}
+
+.status-filter-pill.active.status-planificado {
+  background: #d97706;
+  color: #ffffff;
+  border-color: #b45309;
+  box-shadow: 0 4px 12px rgba(217, 119, 6, 0.35);
+}
+
+.status-pill-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.status-pill-count {
+  font-size: 0.68rem;
+  padding: 0.08rem 0.35rem;
+  border-radius: 9999px;
+  background: rgba(0, 0, 0, 0.08);
+  font-weight: 800;
+}
+
+.status-filter-pill.active .status-pill-count {
+  background: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+}
+
+/* 2. Barra Flotante en el Mapa (Superior) */
+.floating-status-filter-bar {
+  position: absolute;
+  top: 1.5rem;
+  left: 215px;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 0.32rem 0.65rem;
+  border-radius: 9999px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.1);
+}
+
+.floating-status-lbl {
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding-left: 0.2rem;
+  padding-right: 0.2rem;
+}
+
+.floating-status-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.28rem 0.65rem;
+  border-radius: 9999px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  border: 1px solid transparent;
+  background: transparent;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.floating-status-btn:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+.floating-status-btn.active {
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.18);
+}
+
+.floating-status-btn.active.todos {
+  background: #0f172a;
+}
+
+.floating-status-btn.active.ejecutado {
+  background: #059669;
+}
+
+.floating-status-btn.active.enejecucion {
+  background: #2563eb;
+}
+
+.floating-status-btn.active.planificado {
+  background: #d97706;
+}
+
+.floating-status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.floating-status-dot.green { background-color: #10b981; }
+.floating-status-dot.blue { background-color: #3b82f6; }
+.floating-status-dot.amber { background-color: #f59e0b; }
+
+@media (max-width: 900px) {
+  .floating-status-filter-bar {
+    top: 4.5rem;
+    left: 1.5rem;
+    right: auto;
+  }
+}
+
+
 
