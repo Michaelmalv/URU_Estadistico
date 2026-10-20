@@ -4390,6 +4390,17 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0.2rem 0;
 }
 
+.legend-polygon-metro-blue {
+  width: 18px;
+  height: 8px;
+  border-radius: 3px;
+  background: rgba(2, 132, 199, 0.45);
+  border: 1.5px solid #0284c7;
+  box-shadow: 0 0 6px rgba(2, 132, 199, 0.6);
+  flex-shrink: 0;
+  display: inline-block;
+}
+
 .legend-line-project-yellow {
   width: 18px;
   height: 6px;

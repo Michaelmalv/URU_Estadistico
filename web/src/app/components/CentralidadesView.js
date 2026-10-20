@@ -577,10 +577,10 @@ export default function CentralidadesView() {
               .setHTML(`
                 <div style="font-family: inherit; font-size: 12px; padding: 5px 8px; max-width: 270px;">
                   <div style="display: flex; align-items: center; justify-content: space-between; gap: 6px; margin-bottom: 3px;">
-                    <span style="font-weight: 800; color: ${isMetro ? '#9a3412' : isPoint ? '#c2410c' : '#b45309'}; text-transform: uppercase; font-size: 9.5px; letter-spacing: 0.04em;">
-                      ${isMetro ? '🚇 POLÍGONO ZONA METRO (LÍNEA 1)' : isPoint ? '📍 PROYECTO ARQUITECTÓNICO (PUNTO)' : '━━ TRAZADO DE PROYECTO'}
+                    <span style="font-weight: 800; color: ${isMetro ? '#0284c7' : isPoint ? '#c2410c' : '#b45309'}; text-transform: uppercase; font-size: 9.5px; letter-spacing: 0.04em;">
+                      ${isMetro ? '🚇 POLÍGONO AZUL: ZONA METRO (LÍNEA 1)' : isPoint ? '📍 PROYECTO ARQUITECTÓNICO (PUNTO)' : '━━ TRAZADO DE PROYECTO'}
                     </span>
-                    <span style="font-size: 9.5px; background: ${isMetro ? '#fff7ed' : isPoint ? '#fff7ed' : '#fffbeb'}; color: ${isMetro ? '#9a3412' : isPoint ? '#c2410c' : '#b45309'}; padding: 1px 5px; border-radius: 4px; font-weight: 700;">
+                    <span style="font-size: 9.5px; background: ${isMetro ? '#e0f2fe' : isPoint ? '#fff7ed' : '#fffbeb'}; color: ${isMetro ? '#0369a1' : isPoint ? '#c2410c' : '#b45309'}; padding: 1px 5px; border-radius: 4px; font-weight: 700;">
                       ${normalizeBadge(p.badge)}
                     </span>
                   </div>
@@ -1520,14 +1520,14 @@ export default function CentralidadesView() {
             <span className="legend-circle" style={{ backgroundColor: '#f59e0b' }} />
             <span>Sectorial (6)</span>
           </div>
-          <div className="legend-row">
-            <span className="legend-circle" style={{ backgroundColor: '#9a3412' }} />
-            <span>Zonas Metro (15)</span>
-          </div>
           <div className="legend-divider-light" />
           <div className="legend-row">
+            <span className="legend-polygon-metro-blue" />
+            <span>Color Azul: Zonas Metro (15)</span>
+          </div>
+          <div className="legend-row">
             <span className="legend-line-project-yellow" />
-            <span>Trazados / Contornos ({proyectosGeometriasGeoJson.features.filter(f => f.geometry?.type !== 'Point').length})</span>
+            <span>Trazados / Contornos ({proyectosGeometriasGeoJson.features.filter(f => f.geometry?.type !== 'Point' && !f.properties?.is_metro).length})</span>
           </div>
           <div className="legend-row">
             <span style={{ fontSize: '13px', lineHeight: 1 }}>📍</span>
