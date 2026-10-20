@@ -32,28 +32,28 @@ const getFallbackToken = () => {
 
 const HIERARCHY_THEME = {
   'Metropolitana': {
-    color: '#2563eb',
-    bg: '#eff6ff',
-    border: '#bfdbfe',
-    text: '#1d4ed8'
+    color: '#c2410c',
+    bg: '#fff7ed',
+    border: '#fed7aa',
+    text: '#9a3412'
   },
   'Zonal': {
-    color: '#059669',
-    bg: '#ecfdf5',
-    border: '#a7f3d0',
-    text: '#047857'
+    color: '#ea580c',
+    bg: '#fffaf5',
+    border: '#ffedd5',
+    text: '#c2410c'
   },
   'Sectorial': {
-    color: '#d97706',
+    color: '#f59e0b',
     bg: '#fffbeb',
     border: '#fde68a',
     text: '#b45309'
   },
   'Zonas Metro': {
-    color: '#0284c7',
-    bg: '#f0f9ff',
-    border: '#bae6fd',
-    text: '#0369a1'
+    color: '#9a3412',
+    bg: '#fff5f0',
+    border: '#fed7aa',
+    text: '#7c2d12'
   }
 };
 
@@ -86,6 +86,7 @@ const getProjectFallbackImage = (proj) => {
 export default function CentralidadesView() {
   const mapContainerRef = useRef(null);
   const mapRef = useRef(null);
+  const markersRef = useRef([]);
 
   // Estados de selección y filtros (null al inicio para mostrar Vista General de Centralidades)
   const [selectedCentralidad, setSelectedCentralidad] = useState(null);
@@ -173,13 +174,13 @@ export default function CentralidadesView() {
           'fill-color': [
             'match',
             ['get', 'jerarquia'],
-            'Metropolitana', '#2563eb',
-            'Zonal', '#059669',
-            'Sectorial', '#d97706',
-            'Zonas Metro', '#0284c7',
-            '#3b82f6'
+            'Metropolitana', '#c2410c',
+            'Zonal', '#ea580c',
+            'Sectorial', '#f59e0b',
+            'Zonas Metro', '#9a3412',
+            '#ea580c'
           ],
-          'fill-opacity': 0.32
+          'fill-opacity': 0.35
         }
       });
 
@@ -192,11 +193,11 @@ export default function CentralidadesView() {
           'line-color': [
             'match',
             ['get', 'jerarquia'],
-            'Metropolitana', '#2563eb',
-            'Zonal', '#059669',
+            'Metropolitana', '#9a3412',
+            'Zonal', '#c2410c',
             'Sectorial', '#d97706',
-            'Zonas Metro', '#0284c7',
-            '#1e293b'
+            'Zonas Metro', '#7c2d12',
+            '#c2410c'
           ],
           'line-width': 2.5,
           'line-opacity': 0.95
@@ -209,7 +210,7 @@ export default function CentralidadesView() {
         type: 'line',
         source: 'centralidades-source',
         paint: {
-          'line-color': '#0f172a',
+          'line-color': '#7c2d12',
           'line-width': 4.5,
           'line-opacity': 1
         },
@@ -398,6 +399,64 @@ export default function CentralidadesView() {
         filter: ['all', ['==', ['get', 'geom_tipo'], 'Polygon'], ['==', ['get', 'id'], '']]
       });
 
+      // CAPAS CARTOGRÁFICAS PARA PROYECTOS ARQUITECTÓNICOS (PUNTO / FIGURA DE UBICACIÓN)
+      map.addLayer({
+        id: 'proyectos-geom-point-pulse',
+        type: 'circle',
+        source: 'proyectos-geometrias-source',
+        filter: ['==', ['get', 'geom_tipo'], 'Point'],
+        paint: {
+          'circle-radius': [
+            'interpolate', ['linear'], ['zoom'],
+            10, 8,
+            13, 14,
+            16, 22
+          ],
+          'circle-color': '#ea580c',
+          'circle-opacity': 0.28,
+          'circle-stroke-width': 1.8,
+          'circle-stroke-color': '#c2410c',
+          'circle-stroke-opacity': 0.75
+        }
+      });
+
+      map.addLayer({
+        id: 'proyectos-geom-point-core',
+        type: 'circle',
+        source: 'proyectos-geometrias-source',
+        filter: ['==', ['get', 'geom_tipo'], 'Point'],
+        paint: {
+          'circle-radius': [
+            'interpolate', ['linear'], ['zoom'],
+            10, 5,
+            13, 8,
+            16, 12
+          ],
+          'circle-color': '#c2410c',
+          'circle-stroke-width': 2.5,
+          'circle-stroke-color': '#ffffff'
+        }
+      });
+
+      map.addLayer({
+        id: 'proyectos-geom-selected-point',
+        type: 'circle',
+        source: 'proyectos-geometrias-source',
+        paint: {
+          'circle-radius': [
+            'interpolate', ['linear'], ['zoom'],
+            10, 14,
+            13, 20,
+            16, 28
+          ],
+          'circle-color': '#fed7aa',
+          'circle-opacity': 0.75,
+          'circle-stroke-width': 3,
+          'circle-stroke-color': '#c2410c'
+        },
+        filter: ['all', ['==', ['get', 'geom_tipo'], 'Point'], ['==', ['get', 'id'], '']]
+      });
+
       // Etiquetas con nombres de proyectos (visibles con zoom >= 12.5)
       map.addLayer({
         id: 'proyectos-geom-labels',
@@ -443,7 +502,9 @@ export default function CentralidadesView() {
         'proyectos-geom-fill',
         'proyectos-geom-polygon-outline',
         'proyectos-geom-metro-fill',
-        'proyectos-geom-metro-outline'
+        'proyectos-geom-metro-outline',
+        'proyectos-geom-point-core',
+        'proyectos-geom-point-pulse'
       ];
 
       // Hover en Polígonos de Centralidades
@@ -462,7 +523,7 @@ export default function CentralidadesView() {
           centralidadPopup.setLngLat(e.lngLat)
             .setHTML(`
               <div style="font-family: inherit; font-size: 12px; padding: 4px 6px;">
-                <span style="font-weight: 800; color: #2563eb; text-transform: uppercase; font-size: 11px;">[${jer}]</span>
+                <span style="font-weight: 800; color: #c2410c; text-transform: uppercase; font-size: 11px;">[${jer}]</span>
                 <strong style="display: block; color: #0f172a; font-size: 13px; margin: 2px 0;">${name}</strong>
                 <span style="color: #64748b; font-size: 11px;">${sup} hectáreas</span>
               </div>
@@ -491,7 +552,7 @@ export default function CentralidadesView() {
         }
       });
 
-      // Hover en Trazados / Contornos de Proyectos Estratégicos
+      // Hover en Trazados / Contornos y Puntos de Proyectos Estratégicos
       projectInteractiveLayers.forEach((layerId) => {
         map.on('mousemove', layerId, (e) => {
           centralidadPopup.remove();
@@ -499,26 +560,27 @@ export default function CentralidadesView() {
           if (e.features && e.features.length > 0) {
             const p = e.features[0].properties;
             const isMetro = p.is_metro === true || p.is_metro === 'true';
+            const isPoint = p.geom_tipo === 'Point';
 
             projectPopup.setLngLat(e.lngLat)
               .setHTML(`
                 <div style="font-family: inherit; font-size: 12px; padding: 5px 8px; max-width: 270px;">
                   <div style="display: flex; align-items: center; justify-content: space-between; gap: 6px; margin-bottom: 3px;">
-                    <span style="font-weight: 800; color: ${isMetro ? '#0284c7' : '#b45309'}; text-transform: uppercase; font-size: 9.5px; letter-spacing: 0.04em;">
-                      ${isMetro ? '🚇 POLÍGONO ZONA METRO (LÍNEA 1)' : '━━ TRAZADO DE PROYECTO'}
+                    <span style="font-weight: 800; color: ${isMetro ? '#9a3412' : isPoint ? '#c2410c' : '#b45309'}; text-transform: uppercase; font-size: 9.5px; letter-spacing: 0.04em;">
+                      ${isMetro ? '🚇 POLÍGONO ZONA METRO (LÍNEA 1)' : isPoint ? '📍 PROYECTO ARQUITECTÓNICO (PUNTO)' : '━━ TRAZADO DE PROYECTO'}
                     </span>
-                    <span style="font-size: 9.5px; background: ${isMetro ? '#e0f2fe' : '#fef3c7'}; color: ${isMetro ? '#0369a1' : '#b45309'}; padding: 1px 5px; border-radius: 4px; font-weight: 700;">
+                    <span style="font-size: 9.5px; background: ${isMetro ? '#fff7ed' : isPoint ? '#fff7ed' : '#fffbeb'}; color: ${isMetro ? '#9a3412' : isPoint ? '#c2410c' : '#b45309'}; padding: 1px 5px; border-radius: 4px; font-weight: 700;">
                       ${p.badge}
                     </span>
                   </div>
                   <strong style="display: block; color: #0f172a; font-size: 13px; line-height: 1.3; margin: 3px 0 5px 0;">
                     ${p.nombre}
                   </strong>
-                  <div style="background: ${isMetro ? '#f0f9ff' : '#fffbeb'}; border: 1px solid ${isMetro ? '#bae6fd' : '#fde68a'}; border-radius: 6px; padding: 5px 7px; margin-bottom: 4px; font-size: 11px; color: ${isMetro ? '#0369a1' : '#92400e'};">
+                  <div style="background: #fff7ed; border: 1px solid #fed7aa; border-radius: 6px; padding: 5px 7px; margin-bottom: 4px; font-size: 11px; color: #9a3412;">
                     📍 <strong>Centralidad:</strong> ${p.centralidad_nombre} 
                     <span style="font-weight: 700;">(${p.centralidad_jerarquia})</span>
                   </div>
-                  <div style="font-size: 10px; color: #2563eb; font-weight: 700;">
+                  <div style="font-size: 10px; color: #ea580c; font-weight: 700;">
                     👉 Clic para abrir las 4 Dimensiones
                   </div>
                 </div>
@@ -532,7 +594,7 @@ export default function CentralidadesView() {
           projectPopup.remove();
         });
 
-        // Clic en Trazado de Proyecto: abre pantalla flotante y resalta centralidad
+        // Clic en Trazado o Punto de Proyecto: abre pantalla flotante y resalta centralidad
         map.on('click', layerId, (e) => {
           if (e.features && e.features.length > 0) {
             const pProps = e.features[0].properties;
@@ -552,6 +614,59 @@ export default function CentralidadesView() {
         });
       });
 
+      // CREACIÓN DE FIGURAS DE UBICACIÓN (PINS ARQUITECTÓNICOS REFERENCIALES)
+      markersRef.current.forEach(({ marker }) => marker.remove());
+      markersRef.current = [];
+
+      const pointFeatures = proyectosGeometriasGeoJson.features.filter(f => f.geometry.type === 'Point' || f.properties.geom_tipo === 'Point');
+      pointFeatures.forEach((f) => {
+        const el = document.createElement('div');
+        el.className = 'architectural-pin-marker';
+        el.setAttribute('data-id', f.properties.id);
+        
+        const shortName = f.properties.nombre.includes('Navarro') 
+          ? 'Plaza Navarro' 
+          : f.properties.nombre.includes('QUITOPIA') 
+          ? 'QUITOPIA La Y' 
+          : f.properties.nombre;
+
+        el.innerHTML = `
+          <div class="pin-radar-ring"></div>
+          <div class="pin-icon-container">
+            <svg width="28" height="36" viewBox="0 0 24 32" fill="none" class="pin-svg-graphic">
+              <path d="M12 0C5.373 0 0 5.373 0 12C0 21 12 32 12 32C12 32 24 21 24 12C24 5.373 18.627 0 12 0Z" fill="#c2410c"/>
+              <path d="M12 1.5C6.201 1.5 1.5 6.201 1.5 12C1.5 19.8 10.8 29.3 12 30.5C13.2 29.3 22.5 19.8 22.5 12C22.5 6.201 17.799 1.5 12 1.5Z" stroke="#ffffff" stroke-width="2"/>
+              <circle cx="12" cy="11" r="5.5" fill="#ffffff"/>
+              <path d="M9 13.5V10L12 8L15 10V13.5H9Z" fill="#ea580c"/>
+              <rect x="11" y="11" width="2" height="2.5" fill="#ffffff"/>
+            </svg>
+            <div class="pin-name-tooltip">📍 ${shortName}</div>
+          </div>
+        `;
+
+        el.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const cent = centralidadesData.find(c => c.id === f.properties.centralidad_id);
+          if (cent) {
+            setSelectedCentralidad(cent);
+            const pIdx = cent.proyectos.findIndex(p => p.id === f.properties.id);
+            const proj = cent.proyectos[pIdx >= 0 ? pIdx : 0];
+            if (proj) {
+              setSelectedProjectIndex(pIdx >= 0 ? pIdx : 0);
+              setActiveProjectTab('info');
+              setFloatingProject(proj);
+              focusProject(proj);
+            }
+          }
+        });
+
+        const marker = new mapboxgl.Marker({ element: el, anchor: 'bottom' })
+          .setLngLat(f.geometry.coordinates)
+          .addTo(map);
+
+        markersRef.current.push({ marker, jerarquia: f.properties.centralidad_jerarquia });
+      });
+
       if (selectedCentralidad) {
         focusCentralidad(selectedCentralidad);
       } else {
@@ -560,11 +675,13 @@ export default function CentralidadesView() {
     });
 
     return () => {
+      markersRef.current.forEach(({ marker }) => marker.remove());
+      markersRef.current = [];
       map.remove();
     };
   }, [mapStyle]);
 
-  // Actualizar filtro de jerarquía en el mapa (tanto polígonos de centralidades como líneas de proyectos)
+  // Actualizar filtro de jerarquía en el mapa (tanto polígonos de centralidades como líneas y puntos de proyectos)
   useEffect(() => {
     if (!mapRef.current || !mapRef.current.isStyleLoaded()) return;
 
@@ -591,9 +708,20 @@ export default function CentralidadesView() {
       if (mapRef.current.getLayer('proyectos-geom-metro-outline')) {
         mapRef.current.setFilter('proyectos-geom-metro-outline', ['==', ['get', 'is_metro'], true]);
       }
+      if (mapRef.current.getLayer('proyectos-geom-point-pulse')) {
+        mapRef.current.setFilter('proyectos-geom-point-pulse', ['==', ['get', 'geom_tipo'], 'Point']);
+      }
+      if (mapRef.current.getLayer('proyectos-geom-point-core')) {
+        mapRef.current.setFilter('proyectos-geom-point-core', ['==', ['get', 'geom_tipo'], 'Point']);
+      }
       if (mapRef.current.getLayer('proyectos-geom-labels')) {
         mapRef.current.setFilter('proyectos-geom-labels', null);
       }
+
+      markersRef.current.forEach(({ marker }) => {
+        const el = marker.getElement();
+        if (el) el.style.display = 'flex';
+      });
     } else if (hierarchyFilter === 'Zonas Metro') {
       // Enfocar únicamente en la red de 15 estaciones del Metro de Quito
       mapRef.current.setFilter('centralidades-fill', ['==', ['get', 'id'], 'none']);
@@ -618,9 +746,20 @@ export default function CentralidadesView() {
       if (mapRef.current.getLayer('proyectos-geom-metro-outline')) {
         mapRef.current.setFilter('proyectos-geom-metro-outline', ['==', ['get', 'is_metro'], true]);
       }
+      if (mapRef.current.getLayer('proyectos-geom-point-pulse')) {
+        mapRef.current.setFilter('proyectos-geom-point-pulse', ['==', ['get', 'id'], 'none']);
+      }
+      if (mapRef.current.getLayer('proyectos-geom-point-core')) {
+        mapRef.current.setFilter('proyectos-geom-point-core', ['==', ['get', 'id'], 'none']);
+      }
       if (mapRef.current.getLayer('proyectos-geom-labels')) {
         mapRef.current.setFilter('proyectos-geom-labels', ['==', ['get', 'is_metro'], true]);
       }
+
+      markersRef.current.forEach(({ marker }) => {
+        const el = marker.getElement();
+        if (el) el.style.display = 'none';
+      });
 
       // Encuadre completo al eje del Metro
       mapRef.current.fitBounds(
@@ -651,9 +790,20 @@ export default function CentralidadesView() {
       if (mapRef.current.getLayer('proyectos-geom-metro-outline')) {
         mapRef.current.setFilter('proyectos-geom-metro-outline', ['all', ['==', ['get', 'is_metro'], true], ['==', ['get', 'centralidad_jerarquia'], hierarchyFilter]]);
       }
+      if (mapRef.current.getLayer('proyectos-geom-point-pulse')) {
+        mapRef.current.setFilter('proyectos-geom-point-pulse', ['all', ['==', ['get', 'geom_tipo'], 'Point'], ['==', ['get', 'centralidad_jerarquia'], hierarchyFilter]]);
+      }
+      if (mapRef.current.getLayer('proyectos-geom-point-core')) {
+        mapRef.current.setFilter('proyectos-geom-point-core', ['all', ['==', ['get', 'geom_tipo'], 'Point'], ['==', ['get', 'centralidad_jerarquia'], hierarchyFilter]]);
+      }
       if (mapRef.current.getLayer('proyectos-geom-labels')) {
         mapRef.current.setFilter('proyectos-geom-labels', ['==', ['get', 'centralidad_jerarquia'], hierarchyFilter]);
       }
+
+      markersRef.current.forEach(({ marker, jerarquia }) => {
+        const el = marker.getElement();
+        if (el) el.style.display = (jerarquia === hierarchyFilter) ? 'flex' : 'none';
+      });
     }
   }, [hierarchyFilter]);
 
@@ -663,7 +813,7 @@ export default function CentralidadesView() {
     mapRef.current.setFilter('centralidades-highlight', ['==', ['get', 'id'], selectedCentralidad ? selectedCentralidad.id : '']);
   }, [selectedCentralidad]);
 
-  // Actualizar resalte para la línea/contorno del proyecto seleccionado
+  // Actualizar resalte para la línea/contorno o punto del proyecto seleccionado
   useEffect(() => {
     if (!mapRef.current || !mapRef.current.isStyleLoaded()) return;
     const currentProj = floatingProject || (selectedCentralidad?.proyectos && selectedCentralidad.proyectos[selectedProjectIndex]);
@@ -677,6 +827,9 @@ export default function CentralidadesView() {
     }
     if (mapRef.current.getLayer('proyectos-geom-selected-polygon-fill')) {
       mapRef.current.setFilter('proyectos-geom-selected-polygon-fill', ['all', ['==', ['get', 'geom_tipo'], 'Polygon'], ['==', ['get', 'id'], targetId]]);
+    }
+    if (mapRef.current.getLayer('proyectos-geom-selected-point')) {
+      mapRef.current.setFilter('proyectos-geom-selected-point', ['all', ['==', ['get', 'geom_tipo'], 'Point'], ['==', ['get', 'id'], targetId]]);
     }
   }, [floatingProject, selectedProjectIndex, selectedCentralidad]);
 
@@ -730,6 +883,17 @@ export default function CentralidadesView() {
     if (!mapRef.current || !proj) return;
     const feat = proyectosGeometriasGeoJson.features.find(f => f.properties.id === proj.id);
     if (feat && feat.geometry) {
+      if (feat.geometry.type === 'Point') {
+        mapRef.current.flyTo({
+          center: feat.geometry.coordinates,
+          zoom: 16.5,
+          pitch: 42,
+          bearing: -8,
+          duration: 1600
+        });
+        return;
+      }
+
       let minX = 999, maxX = -999, minY = 999, maxY = -999;
       const coords = feat.geometry.type === 'Polygon' 
         ? feat.geometry.coordinates[0] 
@@ -1330,23 +1494,31 @@ export default function CentralidadesView() {
 
         {/* Leyenda Cartográfica Flotante */}
         <div className="floating-hierarchy-legend">
-          <span className="legend-head">MODELO TERRITORIAL DMQ</span>
+          <span className="legend-head">PALETA DE CENTRALIDADES DMQ</span>
           <div className="legend-row">
-            <span className="legend-circle" style={{ backgroundColor: '#2563eb' }} />
+            <span className="legend-circle" style={{ backgroundColor: '#c2410c' }} />
             <span>Metropolitana (5)</span>
           </div>
           <div className="legend-row">
-            <span className="legend-circle" style={{ backgroundColor: '#059669' }} />
+            <span className="legend-circle" style={{ backgroundColor: '#ea580c' }} />
             <span>Zonal (11)</span>
           </div>
           <div className="legend-row">
-            <span className="legend-circle" style={{ backgroundColor: '#d97706' }} />
+            <span className="legend-circle" style={{ backgroundColor: '#f59e0b' }} />
             <span>Sectorial (6)</span>
+          </div>
+          <div className="legend-row">
+            <span className="legend-circle" style={{ backgroundColor: '#9a3412' }} />
+            <span>Zonas Metro (15)</span>
           </div>
           <div className="legend-divider-light" />
           <div className="legend-row">
             <span className="legend-line-project-yellow" />
-            <span>Trazados / Contornos de Proyectos (27)</span>
+            <span>Trazados / Contornos (25)</span>
+          </div>
+          <div className="legend-row">
+            <span style={{ fontSize: '13px', lineHeight: 1 }}>📍</span>
+            <span>Puntos Arquitectónicos (Plaza Navarro, Quitopía)</span>
           </div>
         </div>
       </main>
@@ -1400,7 +1572,7 @@ export default function CentralidadesView() {
 
               <h2 className="floating-modal-title">{floatingProject.nombre}</h2>
               <div className="floating-modal-subtitle">
-                <MapPin size={15} color="#2563eb" />
+                <MapPin size={15} color="#ea580c" />
                 <span>{floatingProject.tipo} • Administración Zonal {modalCentralidad.admin_zonal}</span>
               </div>
             </div>

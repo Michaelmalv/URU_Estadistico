@@ -3427,68 +3427,21 @@
       "type": "Feature",
       "properties": {
         "id": "parque-navarro-floresta",
-        "nombre": "Parque Navarro — Corredor Gastronómico La Floresta",
-        "tipo": "Espacio Público / Corredor Gastronómico",
+        "nombre": "Plaza Gastronómica Parque Navarro",
+        "tipo": "Espacio Público / Proyecto Arquitectónico",
         "badge": "Inaugurado y Operativo",
         "centralidad_id": "la-floresta",
         "centralidad_nombre": "La Floresta",
         "centralidad_jerarquia": "Sectorial",
-        "geom_tipo": "Polygon",
-        "is_metro": false
+        "geom_tipo": "Point",
+        "is_metro": false,
+        "is_architectural": true
       },
       "geometry": {
-        "type": "Polygon",
+        "type": "Point",
         "coordinates": [
-          [
-            [
-              -78.48466440432847,
-              -0.2132883843726878
-            ],
-            [
-              -78.48425050409732,
-              -0.2128632303806473
-            ],
-            [
-              -78.4846436227269,
-              -0.2125857113224927
-            ],
-            [
-              -78.48465661122788,
-              -0.2125675275462771
-            ],
-            [
-              -78.48467652692939,
-              -0.2125289952585117
-            ],
-            [
-              -78.48499777585357,
-              -0.2125904737400695
-            ],
-            [
-              -78.48505752295807,
-              -0.212654549903686
-            ],
-            [
-              -78.48507830455964,
-              -0.2126831244089969
-            ],
-            [
-              -78.48508956126047,
-              -0.2127164613317926
-            ],
-            [
-              -78.48509432371083,
-              -0.2127502312015642
-            ],
-            [
-              -78.48509475666089,
-              -0.2128106273146254
-            ],
-            [
-              -78.48466440432847,
-              -0.2132883843726878
-            ]
-          ]
+          -78.4847,
+          -0.2128
         ]
       }
     },
@@ -3496,30 +3449,21 @@
       "type": "Feature",
       "properties": {
         "id": "sendero-isla-tortuga",
-        "nombre": "Sendero Seguro Isla Tortuga / QUITOPIA La Y",
-        "tipo": "Sendero Seguro / Equipamiento Recreativo",
+        "nombre": "Campus QUITOPIA La Y / Isla Tortuga",
+        "tipo": "Equipamiento Arquitectónico / QUITOPIA",
         "badge": "Inaugurado y Operativo",
         "centralidad_id": "la-y",
         "centralidad_nombre": "La \"Y\"",
         "centralidad_jerarquia": "Sectorial",
-        "geom_tipo": "LineString",
-        "is_metro": false
+        "geom_tipo": "Point",
+        "is_metro": false,
+        "is_architectural": true
       },
       "geometry": {
-        "type": "LineString",
+        "type": "Point",
         "coordinates": [
-          [
-            -78.48463523834597,
-            -0.1652876203668965
-          ],
-          [
-            -78.484254053788,
-            -0.1656376560889247
-          ],
-          [
-            -78.47929420490907,
-            -0.1665157117711971
-          ]
+          -78.484766,
+          -0.164343
         ]
       }
     },

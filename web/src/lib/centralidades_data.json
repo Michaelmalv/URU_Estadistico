@@ -2674,8 +2674,8 @@
     "proyectos": [
       {
         "id": "parque-navarro-floresta",
-        "nombre": "Parque Navarro — Corredor Gastronómico La Floresta",
-        "tipo": "Espacio Público / Corredor Gastronómico",
+        "nombre": "Plaza Gastronómica Parque Navarro",
+        "tipo": "Espacio Público / Proyecto Arquitectónico",
         "badge": "Inaugurado y Operativo",
         "longitud_km": "0.6 km",
         "presupuesto": "$890K",
@@ -2843,8 +2843,8 @@
         "galeria_id": null,
         "antes_despues_id": null,
         "coordenadas": [
-          -78.4862,
-          -0.2085
+          -78.4847,
+          -0.2128
         ],
         "tiene_datos_oficiales": true,
         "db_proyecto_id": "095a4268-271f-4a57-9359-19356232fad5",
@@ -2880,8 +2880,8 @@
     "proyectos": [
       {
         "id": "sendero-isla-tortuga",
-        "nombre": "Sendero Seguro Isla Tortuga / QUITOPIA La Y",
-        "tipo": "Sendero Seguro / Equipamiento Recreativo",
+        "nombre": "Campus QUITOPIA La Y / Isla Tortuga",
+        "tipo": "Equipamiento Arquitectónico / QUITOPIA",
         "badge": "Inaugurado y Operativo",
         "longitud_km": "582 m",
         "presupuesto": "USD 418.35 mil",
