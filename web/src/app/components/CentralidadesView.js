@@ -94,6 +94,40 @@ const getProjectFallbackImage = (proj) => {
   return '/header.jpeg';
 };
 
+const hasProjectSeguridad = (proj) => {
+  if (!proj || !proj.seguridad) return false;
+  if (proj.seguridad.tiene_datos_oficiales === false) return false;
+  if (!proj.seguridad.delitos_por_ano) return false;
+  const delitos = proj.seguridad.delitos_por_ano || {};
+  const incidentes = proj.seguridad.incidentes_por_ano || {};
+  const hasValues = Object.values(delitos).some(v => Number(v) > 0) || Object.values(incidentes).some(v => Number(v) > 0);
+  const hasTop = Array.isArray(proj.seguridad.top_delitos) && proj.seguridad.top_delitos.length > 0;
+  return hasValues || hasTop;
+};
+
+const hasProjectEconomia = (proj) => {
+  if (!proj || !proj.economia) return false;
+  if (proj.economia.tiene_datos_oficiales === false) return false;
+  if (proj.economia.licencias_emitidas === null || proj.economia.licencias_emitidas === undefined) return false;
+  return true;
+};
+
+const hasProjectSuelo = (proj) => {
+  if (!proj || !proj.valor_suelo) return false;
+  if (proj.valor_suelo.tiene_datos_oficiales === false) return false;
+  if (proj.valor_suelo.valor_m2 === null || proj.valor_suelo.valor_m2 === undefined) return false;
+  return true;
+};
+
+const getProjectDimensionsCount = (proj) => {
+  if (!proj) return 1;
+  let count = 1;
+  if (hasProjectSeguridad(proj)) count++;
+  if (hasProjectEconomia(proj)) count++;
+  if (hasProjectSuelo(proj)) count++;
+  return count;
+};
+
 export default function CentralidadesView() {
   const mapContainerRef = useRef(null);
   const mapRef = useRef(null);
@@ -114,6 +148,19 @@ export default function CentralidadesView() {
   const [floatingProject, setFloatingProject] = useState(null);
   const [dbStatus, setDbStatus] = useState('checking'); // 'connected' | 'paused' | 'checking'
   const [dbStats, setDbStats] = useState(null);
+
+  // Asegurar que si el proyecto flotante no tiene la dimensión activa, vuelva a 'info'
+  useEffect(() => {
+    if (floatingProject) {
+      if (activeProjectTab === 'seguridad' && !hasProjectSeguridad(floatingProject)) {
+        setActiveProjectTab('info');
+      } else if (activeProjectTab === 'economia' && !hasProjectEconomia(floatingProject)) {
+        setActiveProjectTab('info');
+      } else if (activeProjectTab === 'suelo' && !hasProjectSuelo(floatingProject)) {
+        setActiveProjectTab('info');
+      }
+    }
+  }, [floatingProject, activeProjectTab]);
 
   const statusFilterRef = useRef(statusFilter);
   statusFilterRef.current = statusFilter;
@@ -1840,14 +1887,18 @@ export default function CentralidadesView() {
                       setActiveProjectTab('info');
                       setFloatingProject(activeProject);
                     }}
-                    title="Abrir pantalla flotante con información, seguridad, economía y valor del suelo"
+                    title="Abrir pantalla flotante con información del proyecto"
                   >
                     <Maximize2 size={15} />
-                    <span>Abrir Pantalla Flotante (4 Dimensiones)</span>
+                    <span>
+                      {getProjectDimensionsCount(activeProject) === 1
+                        ? "Abrir Ficha Técnica del Proyecto"
+                        : `Abrir Pantalla Flotante (${getProjectDimensionsCount(activeProject)} Dimensiones)`}
+                    </span>
                     <ArrowUpRight size={15} />
                   </button>
 
-                  {/* Botones de Acceso Rápido Directo a Cada Dimensión */}
+                  {/* Botones de Acceso Rápido Directo a Cada Dimensión que exista */}
                   <div className="mini-dimensions-grid">
                     <button 
                       className="mini-dimension-btn"
@@ -1860,39 +1911,45 @@ export default function CentralidadesView() {
                       <Info size={13} />
                       <span>Información</span>
                     </button>
-                    <button 
-                      className="mini-dimension-btn"
-                      onClick={() => {
-                        setActiveProjectTab('seguridad');
-                        setFloatingProject(activeProject);
-                      }}
-                      title="Ver Seguridad"
-                    >
-                      <Shield size={13} color="#059669" />
-                      <span>Seguridad</span>
-                    </button>
-                    <button 
-                      className="mini-dimension-btn"
-                      onClick={() => {
-                        setActiveProjectTab('economia');
-                        setFloatingProject(activeProject);
-                      }}
-                      title="Ver Economía"
-                    >
-                      <TrendingUp size={13} color="#2563eb" />
-                      <span>Economía</span>
-                    </button>
-                    <button 
-                      className="mini-dimension-btn"
-                      onClick={() => {
-                        setActiveProjectTab('suelo');
-                        setFloatingProject(activeProject);
-                      }}
-                      title="Ver Valor del Suelo"
-                    >
-                      <DollarSign size={13} color="#d97706" />
-                      <span>Suelo</span>
-                    </button>
+                    {hasProjectSeguridad(activeProject) && (
+                      <button 
+                        className="mini-dimension-btn"
+                        onClick={() => {
+                          setActiveProjectTab('seguridad');
+                          setFloatingProject(activeProject);
+                        }}
+                        title="Ver Seguridad"
+                      >
+                        <Shield size={13} color="#059669" />
+                        <span>Seguridad</span>
+                      </button>
+                    )}
+                    {hasProjectEconomia(activeProject) && (
+                      <button 
+                        className="mini-dimension-btn"
+                        onClick={() => {
+                          setActiveProjectTab('economia');
+                          setFloatingProject(activeProject);
+                        }}
+                        title="Ver Economía"
+                      >
+                        <TrendingUp size={13} color="#2563eb" />
+                        <span>Economía</span>
+                      </button>
+                    )}
+                    {hasProjectSuelo(activeProject) && (
+                      <button 
+                        className="mini-dimension-btn"
+                        onClick={() => {
+                          setActiveProjectTab('suelo');
+                          setFloatingProject(activeProject);
+                        }}
+                        title="Ver Valor del Suelo"
+                      >
+                        <DollarSign size={13} color="#d97706" />
+                        <span>Suelo</span>
+                      </button>
+                    )}
                   </div>
                 </div>
               )}
@@ -2030,7 +2087,7 @@ export default function CentralidadesView() {
               </div>
             </div>
 
-            {/* Selector de las 4 Dimensiones en el Modal */}
+            {/* Selector de Dimensiones en el Modal */}
             <div className="floating-modal-tabs">
               <button
                 className={`floating-tab-btn ${activeProjectTab === 'info' ? 'active' : ''}`}
@@ -2039,27 +2096,33 @@ export default function CentralidadesView() {
                 <Info size={16} />
                 <span>Información General</span>
               </button>
-              <button
-                className={`floating-tab-btn ${activeProjectTab === 'seguridad' ? 'active' : ''}`}
-                onClick={() => setActiveProjectTab('seguridad')}
-              >
-                <Shield size={16} />
-                <span>Seguridad</span>
-              </button>
-              <button
-                className={`floating-tab-btn ${activeProjectTab === 'economia' ? 'active' : ''}`}
-                onClick={() => setActiveProjectTab('economia')}
-              >
-                <TrendingUp size={16} />
-                <span>Economía</span>
-              </button>
-              <button
-                className={`floating-tab-btn ${activeProjectTab === 'suelo' ? 'active' : ''}`}
-                onClick={() => setActiveProjectTab('suelo')}
-              >
-                <DollarSign size={16} />
-                <span>Valor del Suelo</span>
-              </button>
+              {hasProjectSeguridad(floatingProject) && (
+                <button
+                  className={`floating-tab-btn ${activeProjectTab === 'seguridad' ? 'active' : ''}`}
+                  onClick={() => setActiveProjectTab('seguridad')}
+                >
+                  <Shield size={16} />
+                  <span>Seguridad</span>
+                </button>
+              )}
+              {hasProjectEconomia(floatingProject) && (
+                <button
+                  className={`floating-tab-btn ${activeProjectTab === 'economia' ? 'active' : ''}`}
+                  onClick={() => setActiveProjectTab('economia')}
+                >
+                  <TrendingUp size={16} />
+                  <span>Economía</span>
+                </button>
+              )}
+              {hasProjectSuelo(floatingProject) && (
+                <button
+                  className={`floating-tab-btn ${activeProjectTab === 'suelo' ? 'active' : ''}`}
+                  onClick={() => setActiveProjectTab('suelo')}
+                >
+                  <DollarSign size={16} />
+                  <span>Valor del Suelo</span>
+                </button>
+              )}
             </div>
 
             {/* Contenido Espacioso de la Dimensión Activa */}

@@ -288,48 +288,22 @@
         "resumen": "Eliminación del cableado aéreo, ductería subterránea e instalación de nuevas luminarias en el eje vial de Av. La Prensa conectando la estación multimodal La Ofelia con el núcleo de Cotocollao.",
         "seguridad": {
           "tiene_datos_oficiales": false,
-          "nivel": "En proceso de medición",
-          "delitos_por_ano": {
-            "2023": 0,
-            "2024": 0,
-            "2025": 0,
-            "2026_real": 0,
-            "2026_proy": 0
-          },
-          "incidentes_por_ano": {
-            "2023": 0,
-            "2024": 0,
-            "2025": 0,
-            "2026_real": 0,
-            "2026_proy": 0
-          },
-          "reduccion_delitos_pct": 0,
+          "delitos_por_ano": null,
+          "incidentes_por_ano": null,
           "top_delitos": [],
-          "top_incidentes": [],
-          "descripcion": "Monitoreo continuo en el sector de Soterramiento de Cables Av. La Prensa conforme al plan de seguridad integral del DMQ."
+          "top_incidentes": []
         },
         "economia": {
-          "tiene_datos_oficiales": true,
-          "negocios_activos": "Base catastral y licencias LUAE",
-          "atractivo_comercial": "Cruce predial oficial con base municipal de patentes y licencias LUAE.",
-          "licencias_emitidas": 24,
-          "licencias_renovadas": 38,
-          "total_licencias": 62,
-          "desglose_anual_licencias": []
+          "tiene_datos_oficiales": false,
+          "licencias_emitidas": null,
+          "licencias_renovadas": null,
+          "total_licencias": null
         },
         "valor_suelo": {
-          "tiene_datos_oficiales": true,
-          "aiva": "AIVA SOTERRAMIENTO DE CABLES AV. LA PRENSA",
-          "valor_m2": 185,
-          "rango": "En Consolidación",
-          "tendencia": "+12.4% acumulada (2022-2026)",
-          "descripcion": "Avalúos oficiales de la Dirección Metropolitana de Catastro / STHV en el sector de Soterramiento de Cables Av. La Prensa.",
-          "historico_anios": {
-            "2022_2023": 172,
-            "2024_2025": 185,
-            "2026_2027": 196
-          },
-          "plusvalia_porcentaje": 13.9
+          "tiene_datos_oficiales": false,
+          "valor_m2": null,
+          "aiva": null,
+          "historico_anios": null
         },
         "imagen_destacada": "/imagenes_categorias/soterramiento/soterramiento_portada.png",
         "galeria_id": null,
@@ -1446,48 +1420,22 @@
         "resumen": "Canalización subterránea en la Av. Rodrigo de Chávez facilitando la integración visual y paisajística en La Villaflora.",
         "seguridad": {
           "tiene_datos_oficiales": false,
-          "nivel": "En proceso de medición",
-          "delitos_por_ano": {
-            "2023": 0,
-            "2024": 0,
-            "2025": 0,
-            "2026_real": 0,
-            "2026_proy": 0
-          },
-          "incidentes_por_ano": {
-            "2023": 0,
-            "2024": 0,
-            "2025": 0,
-            "2026_real": 0,
-            "2026_proy": 0
-          },
-          "reduccion_delitos_pct": 0,
+          "delitos_por_ano": null,
+          "incidentes_por_ano": null,
           "top_delitos": [],
-          "top_incidentes": [],
-          "descripcion": "Monitoreo continuo en el sector de Soterramiento de Redes Av. Rodrigo de Chávez conforme al plan de seguridad integral del DMQ."
+          "top_incidentes": []
         },
         "economia": {
-          "tiene_datos_oficiales": true,
-          "negocios_activos": "Base catastral y licencias LUAE",
-          "atractivo_comercial": "Cruce predial oficial con base municipal de patentes y licencias LUAE.",
-          "licencias_emitidas": 24,
-          "licencias_renovadas": 38,
-          "total_licencias": 62,
-          "desglose_anual_licencias": []
+          "tiene_datos_oficiales": false,
+          "licencias_emitidas": null,
+          "licencias_renovadas": null,
+          "total_licencias": null
         },
         "valor_suelo": {
-          "tiene_datos_oficiales": true,
-          "aiva": "AIVA SOTERRAMIENTO DE REDES AV. RODRIGO DE CHÁVEZ",
-          "valor_m2": 185,
-          "rango": "En Consolidación",
-          "tendencia": "+12.4% acumulada (2022-2026)",
-          "descripcion": "Avalúos oficiales de la Dirección Metropolitana de Catastro / STHV en el sector de Soterramiento de Redes Av. Rodrigo de Chávez.",
-          "historico_anios": {
-            "2022_2023": 172,
-            "2024_2025": 185,
-            "2026_2027": 196
-          },
-          "plusvalia_porcentaje": 13.9
+          "tiene_datos_oficiales": false,
+          "valor_m2": null,
+          "aiva": null,
+          "historico_anios": null
         },
         "imagen_destacada": "/imagenes_categorias/soterramiento/soterramiento_portada.png",
         "galeria_id": null,
@@ -2681,48 +2629,22 @@
         "resumen": "Rediseño de calzadas, arborización urbana, cruces a nivel con accesibilidad universal y rehabilitación de aceras patrimoniales.",
         "seguridad": {
           "tiene_datos_oficiales": false,
-          "nivel": "En proceso de medición",
-          "delitos_por_ano": {
-            "2023": 0,
-            "2024": 0,
-            "2025": 0,
-            "2026_real": 0,
-            "2026_proy": 0
-          },
-          "incidentes_por_ano": {
-            "2023": 0,
-            "2024": 0,
-            "2025": 0,
-            "2026_real": 0,
-            "2026_proy": 0
-          },
-          "reduccion_delitos_pct": 0,
+          "delitos_por_ano": null,
+          "incidentes_por_ano": null,
           "top_delitos": [],
-          "top_incidentes": [],
-          "descripcion": "Monitoreo continuo en el sector de Recuperación Urbana Av. 10 de Agosto (Tramo Santa Prisca — Tarqui) conforme al plan de seguridad integral del DMQ."
+          "top_incidentes": []
         },
         "economia": {
-          "tiene_datos_oficiales": true,
-          "negocios_activos": "Base catastral y licencias LUAE",
-          "atractivo_comercial": "Cruce predial oficial con base municipal de patentes y licencias LUAE.",
-          "licencias_emitidas": 24,
-          "licencias_renovadas": 38,
-          "total_licencias": 62,
-          "desglose_anual_licencias": []
+          "tiene_datos_oficiales": false,
+          "licencias_emitidas": null,
+          "licencias_renovadas": null,
+          "total_licencias": null
         },
         "valor_suelo": {
-          "tiene_datos_oficiales": true,
-          "aiva": "AIVA RECUPERACIÓN URBANA AV. 10 DE AGOSTO (TRAMO SANTA PRISCA — TARQUI)",
-          "valor_m2": 185,
-          "rango": "En Consolidación",
-          "tendencia": "+12.4% acumulada (2022-2026)",
-          "descripcion": "Avalúos oficiales de la Dirección Metropolitana de Catastro / STHV en el sector de Recuperación Urbana Av. 10 de Agosto (Tramo Santa Prisca — Tarqui).",
-          "historico_anios": {
-            "2022_2023": 172,
-            "2024_2025": 185,
-            "2026_2027": 196
-          },
-          "plusvalia_porcentaje": 13.9
+          "tiene_datos_oficiales": false,
+          "valor_m2": null,
+          "aiva": null,
+          "historico_anios": null
         },
         "imagen_destacada": "/imagenes_categorias/recuperacion_urbana_av_10_de_agosto/recuperación_urbana_av10deAgosto.png",
         "galeria_id": null,
@@ -3162,48 +3084,22 @@
         "resumen": "Despeje de cables aéreos e infraestructura subterránea en la Av. El Inca en su aproximación hacia la Av. 6 de Diciembre y Río Coca.",
         "seguridad": {
           "tiene_datos_oficiales": false,
-          "nivel": "En proceso de medición",
-          "delitos_por_ano": {
-            "2023": 0,
-            "2024": 0,
-            "2025": 0,
-            "2026_real": 0,
-            "2026_proy": 0
-          },
-          "incidentes_por_ano": {
-            "2023": 0,
-            "2024": 0,
-            "2025": 0,
-            "2026_real": 0,
-            "2026_proy": 0
-          },
-          "reduccion_delitos_pct": 0,
+          "delitos_por_ano": null,
+          "incidentes_por_ano": null,
           "top_delitos": [],
-          "top_incidentes": [],
-          "descripcion": "Monitoreo continuo en el sector de Soterramiento de Redes Av. El Inca conforme al plan de seguridad integral del DMQ."
+          "top_incidentes": []
         },
         "economia": {
-          "tiene_datos_oficiales": true,
-          "negocios_activos": "Base catastral y licencias LUAE",
-          "atractivo_comercial": "Cruce predial oficial con base municipal de patentes y licencias LUAE.",
-          "licencias_emitidas": 24,
-          "licencias_renovadas": 38,
-          "total_licencias": 62,
-          "desglose_anual_licencias": []
+          "tiene_datos_oficiales": false,
+          "licencias_emitidas": null,
+          "licencias_renovadas": null,
+          "total_licencias": null
         },
         "valor_suelo": {
-          "tiene_datos_oficiales": true,
-          "aiva": "AIVA SOTERRAMIENTO DE REDES AV. EL INCA",
-          "valor_m2": 185,
-          "rango": "En Consolidación",
-          "tendencia": "+12.4% acumulada (2022-2026)",
-          "descripcion": "Avalúos oficiales de la Dirección Metropolitana de Catastro / STHV en el sector de Soterramiento de Redes Av. El Inca.",
-          "historico_anios": {
-            "2022_2023": 172,
-            "2024_2025": 185,
-            "2026_2027": 196
-          },
-          "plusvalia_porcentaje": 13.9
+          "tiene_datos_oficiales": false,
+          "valor_m2": null,
+          "aiva": null,
+          "historico_anios": null
         },
         "imagen_destacada": "/imagenes_categorias/soterramiento/soterramiento_portada.png",
         "galeria_id": null,
@@ -3231,48 +3127,22 @@
         "resumen": "Planificación para la optimización del nodo intermodal de transferencia Río Coca y la regeneración urbana de la Av. Granados.",
         "seguridad": {
           "tiene_datos_oficiales": false,
-          "nivel": "En proceso de medición",
-          "delitos_por_ano": {
-            "2023": 0,
-            "2024": 0,
-            "2025": 0,
-            "2026_real": 0,
-            "2026_proy": 0
-          },
-          "incidentes_por_ano": {
-            "2023": 0,
-            "2024": 0,
-            "2025": 0,
-            "2026_real": 0,
-            "2026_proy": 0
-          },
-          "reduccion_delitos_pct": 0,
+          "delitos_por_ano": null,
+          "incidentes_por_ano": null,
           "top_delitos": [],
-          "top_incidentes": [],
-          "descripcion": "Monitoreo continuo en el sector de Plan de Intervención Integral Río Coca - Granados conforme al plan de seguridad integral del DMQ."
+          "top_incidentes": []
         },
         "economia": {
-          "tiene_datos_oficiales": true,
-          "negocios_activos": "Base catastral y licencias LUAE",
-          "atractivo_comercial": "Cruce predial oficial con base municipal de patentes y licencias LUAE.",
-          "licencias_emitidas": 24,
-          "licencias_renovadas": 38,
-          "total_licencias": 62,
-          "desglose_anual_licencias": []
+          "tiene_datos_oficiales": false,
+          "licencias_emitidas": null,
+          "licencias_renovadas": null,
+          "total_licencias": null
         },
         "valor_suelo": {
-          "tiene_datos_oficiales": true,
-          "aiva": "AIVA PLAN DE INTERVENCIÓN INTEGRAL RÍO COCA - GRANADOS",
-          "valor_m2": 185,
-          "rango": "En Consolidación",
-          "tendencia": "+12.4% acumulada (2022-2026)",
-          "descripcion": "Avalúos oficiales de la Dirección Metropolitana de Catastro / STHV en el sector de Plan de Intervención Integral Río Coca - Granados.",
-          "historico_anios": {
-            "2022_2023": 172,
-            "2024_2025": 185,
-            "2026_2027": 196
-          },
-          "plusvalia_porcentaje": 13.9
+          "tiene_datos_oficiales": false,
+          "valor_m2": null,
+          "aiva": null,
+          "historico_anios": null
         },
         "imagen_destacada": "/header.jpeg",
         "galeria_id": null,
@@ -3671,48 +3541,22 @@
         "resumen": "Canalización subterránea de redes eléctricas y de datos en el entorno de la estación de transferencia La Y y el Campus Quitopía.",
         "seguridad": {
           "tiene_datos_oficiales": false,
-          "nivel": "En proceso de medición",
-          "delitos_por_ano": {
-            "2023": 0,
-            "2024": 0,
-            "2025": 0,
-            "2026_real": 0,
-            "2026_proy": 0
-          },
-          "incidentes_por_ano": {
-            "2023": 0,
-            "2024": 0,
-            "2025": 0,
-            "2026_real": 0,
-            "2026_proy": 0
-          },
-          "reduccion_delitos_pct": 0,
+          "delitos_por_ano": null,
+          "incidentes_por_ano": null,
           "top_delitos": [],
-          "top_incidentes": [],
-          "descripcion": "Monitoreo continuo en el sector de Soterramiento Quitopía La Y conforme al plan de seguridad integral del DMQ."
+          "top_incidentes": []
         },
         "economia": {
-          "tiene_datos_oficiales": true,
-          "negocios_activos": "Base catastral y licencias LUAE",
-          "atractivo_comercial": "Cruce predial oficial con base municipal de patentes y licencias LUAE.",
-          "licencias_emitidas": 24,
-          "licencias_renovadas": 38,
-          "total_licencias": 62,
-          "desglose_anual_licencias": []
+          "tiene_datos_oficiales": false,
+          "licencias_emitidas": null,
+          "licencias_renovadas": null,
+          "total_licencias": null
         },
         "valor_suelo": {
-          "tiene_datos_oficiales": true,
-          "aiva": "AIVA SOTERRAMIENTO QUITOPÍA LA Y",
-          "valor_m2": 185,
-          "rango": "En Consolidación",
-          "tendencia": "+12.4% acumulada (2022-2026)",
-          "descripcion": "Avalúos oficiales de la Dirección Metropolitana de Catastro / STHV en el sector de Soterramiento Quitopía La Y.",
-          "historico_anios": {
-            "2022_2023": 172,
-            "2024_2025": 185,
-            "2026_2027": 196
-          },
-          "plusvalia_porcentaje": 13.9
+          "tiene_datos_oficiales": false,
+          "valor_m2": null,
+          "aiva": null,
+          "historico_anios": null
         },
         "imagen_destacada": "/imagenes_categorias/soterramiento/soterramiento_portada.png",
         "galeria_id": null,
@@ -5605,48 +5449,22 @@
         "resumen": "Nuevos bulevares perimetrales, pistas de trote, arborización con especies nativas, iluminación deportiva e integración con el Metro.",
         "seguridad": {
           "tiene_datos_oficiales": false,
-          "nivel": "En proceso de medición",
-          "delitos_por_ano": {
-            "2023": 0,
-            "2024": 0,
-            "2025": 0,
-            "2026_real": 0,
-            "2026_proy": 0
-          },
-          "incidentes_por_ano": {
-            "2023": 0,
-            "2024": 0,
-            "2025": 0,
-            "2026_real": 0,
-            "2026_proy": 0
-          },
-          "reduccion_delitos_pct": 0,
+          "delitos_por_ano": null,
+          "incidentes_por_ano": null,
           "top_delitos": [],
-          "top_incidentes": [],
-          "descripcion": "Monitoreo continuo en el sector de Repotenciación Integral Parque Bicentenario conforme al plan de seguridad integral del DMQ."
+          "top_incidentes": []
         },
         "economia": {
-          "tiene_datos_oficiales": true,
-          "negocios_activos": "Base catastral y licencias LUAE",
-          "atractivo_comercial": "Cruce predial oficial con base municipal de patentes y licencias LUAE.",
-          "licencias_emitidas": 24,
-          "licencias_renovadas": 38,
-          "total_licencias": 62,
-          "desglose_anual_licencias": []
+          "tiene_datos_oficiales": false,
+          "licencias_emitidas": null,
+          "licencias_renovadas": null,
+          "total_licencias": null
         },
         "valor_suelo": {
-          "tiene_datos_oficiales": true,
-          "aiva": "AIVA REPOTENCIACIÓN INTEGRAL PARQUE BICENTENARIO",
-          "valor_m2": 185,
-          "rango": "En Consolidación",
-          "tendencia": "+12.4% acumulada (2022-2026)",
-          "descripcion": "Avalúos oficiales de la Dirección Metropolitana de Catastro / STHV en el sector de Repotenciación Integral Parque Bicentenario.",
-          "historico_anios": {
-            "2022_2023": 172,
-            "2024_2025": 185,
-            "2026_2027": 196
-          },
-          "plusvalia_porcentaje": 13.9
+          "tiene_datos_oficiales": false,
+          "valor_m2": null,
+          "aiva": null,
+          "historico_anios": null
         },
         "imagen_destacada": "/imagenes_categorias/repotenciacion_parque_bicentenario/Repotenciación del Bicentenario.png",
         "galeria_id": null,
@@ -5674,48 +5492,22 @@
         "resumen": "Soterramiento de cables en el perímetro de acceso al Parque Bicentenario y el centro de convenciones metropolitano.",
         "seguridad": {
           "tiene_datos_oficiales": false,
-          "nivel": "En proceso de medición",
-          "delitos_por_ano": {
-            "2023": 0,
-            "2024": 0,
-            "2025": 0,
-            "2026_real": 0,
-            "2026_proy": 0
-          },
-          "incidentes_por_ano": {
-            "2023": 0,
-            "2024": 0,
-            "2025": 0,
-            "2026_real": 0,
-            "2026_proy": 0
-          },
-          "reduccion_delitos_pct": 0,
+          "delitos_por_ano": null,
+          "incidentes_por_ano": null,
           "top_delitos": [],
-          "top_incidentes": [],
-          "descripcion": "Monitoreo continuo en el sector de Soterramiento Eje Bicentenario conforme al plan de seguridad integral del DMQ."
+          "top_incidentes": []
         },
         "economia": {
-          "tiene_datos_oficiales": true,
-          "negocios_activos": "Base catastral y licencias LUAE",
-          "atractivo_comercial": "Cruce predial oficial con base municipal de patentes y licencias LUAE.",
-          "licencias_emitidas": 24,
-          "licencias_renovadas": 38,
-          "total_licencias": 62,
-          "desglose_anual_licencias": []
+          "tiene_datos_oficiales": false,
+          "licencias_emitidas": null,
+          "licencias_renovadas": null,
+          "total_licencias": null
         },
         "valor_suelo": {
-          "tiene_datos_oficiales": true,
-          "aiva": "AIVA SOTERRAMIENTO EJE BICENTENARIO",
-          "valor_m2": 185,
-          "rango": "En Consolidación",
-          "tendencia": "+12.4% acumulada (2022-2026)",
-          "descripcion": "Avalúos oficiales de la Dirección Metropolitana de Catastro / STHV en el sector de Soterramiento Eje Bicentenario.",
-          "historico_anios": {
-            "2022_2023": 172,
-            "2024_2025": 185,
-            "2026_2027": 196
-          },
-          "plusvalia_porcentaje": 13.9
+          "tiene_datos_oficiales": false,
+          "valor_m2": null,
+          "aiva": null,
+          "historico_anios": null
         },
         "imagen_destacada": "/imagenes_categorias/soterramiento/soterramiento_portada.png",
         "galeria_id": null,
@@ -6362,48 +6154,22 @@
         "resumen": "Eliminación del cableado aéreo en la Av. 6 de Diciembre en el tramo comprendido entre República y Eloy Alfaro.",
         "seguridad": {
           "tiene_datos_oficiales": false,
-          "nivel": "En proceso de medición",
-          "delitos_por_ano": {
-            "2023": 0,
-            "2024": 0,
-            "2025": 0,
-            "2026_real": 0,
-            "2026_proy": 0
-          },
-          "incidentes_por_ano": {
-            "2023": 0,
-            "2024": 0,
-            "2025": 0,
-            "2026_real": 0,
-            "2026_proy": 0
-          },
-          "reduccion_delitos_pct": 0,
+          "delitos_por_ano": null,
+          "incidentes_por_ano": null,
           "top_delitos": [],
-          "top_incidentes": [],
-          "descripcion": "Monitoreo continuo en el sector de Soterramiento Av. 6 de Diciembre (Eje La Carolina) conforme al plan de seguridad integral del DMQ."
+          "top_incidentes": []
         },
         "economia": {
-          "tiene_datos_oficiales": true,
-          "negocios_activos": "Base catastral y licencias LUAE",
-          "atractivo_comercial": "Cruce predial oficial con base municipal de patentes y licencias LUAE.",
-          "licencias_emitidas": 24,
-          "licencias_renovadas": 38,
-          "total_licencias": 62,
-          "desglose_anual_licencias": []
+          "tiene_datos_oficiales": false,
+          "licencias_emitidas": null,
+          "licencias_renovadas": null,
+          "total_licencias": null
         },
         "valor_suelo": {
-          "tiene_datos_oficiales": true,
-          "aiva": "AIVAS LA CAROLINA",
-          "valor_m2": 826,
-          "rango": "Consolidado Alto",
-          "tendencia": "+4% acumulada (2022-2026)",
-          "descripcion": "Avalúos catastrales oficiales del DMQ para AIVAS LA CAROLINA (5 zonas de homogeneidad inmobiliaria).",
-          "historico_anios": {
-            "2022_2023": 816,
-            "2024_2025": 826,
-            "2026_2027": 849
-          },
-          "plusvalia_porcentaje": 4
+          "tiene_datos_oficiales": false,
+          "valor_m2": null,
+          "aiva": null,
+          "historico_anios": null
         },
         "imagen_destacada": "/imagenes_categorias/soterramiento/soterramiento_portada.png",
         "galeria_id": null,
@@ -7027,48 +6793,22 @@
         "resumen": "Canalización subterránea de redes eléctricas y de telecomunicaciones a lo largo del sendero seguro central de Calderón.",
         "seguridad": {
           "tiene_datos_oficiales": false,
-          "nivel": "En proceso de medición",
-          "delitos_por_ano": {
-            "2023": 0,
-            "2024": 0,
-            "2025": 0,
-            "2026_real": 0,
-            "2026_proy": 0
-          },
-          "incidentes_por_ano": {
-            "2023": 0,
-            "2024": 0,
-            "2025": 0,
-            "2026_real": 0,
-            "2026_proy": 0
-          },
-          "reduccion_delitos_pct": 0,
+          "delitos_por_ano": null,
+          "incidentes_por_ano": null,
           "top_delitos": [],
-          "top_incidentes": [],
-          "descripcion": "Monitoreo continuo en el sector de Soterramiento Sendero Seguro Calderón conforme al plan de seguridad integral del DMQ."
+          "top_incidentes": []
         },
         "economia": {
-          "tiene_datos_oficiales": true,
-          "negocios_activos": "Base catastral y licencias LUAE",
-          "atractivo_comercial": "Cruce predial oficial con base municipal de patentes y licencias LUAE.",
-          "licencias_emitidas": 24,
-          "licencias_renovadas": 38,
-          "total_licencias": 62,
-          "desglose_anual_licencias": []
+          "tiene_datos_oficiales": false,
+          "licencias_emitidas": null,
+          "licencias_renovadas": null,
+          "total_licencias": null
         },
         "valor_suelo": {
-          "tiene_datos_oficiales": true,
-          "aiva": "AIVA SOTERRAMIENTO SENDERO SEGURO CALDERÓN",
-          "valor_m2": 185,
-          "rango": "En Consolidación",
-          "tendencia": "+12.4% acumulada (2022-2026)",
-          "descripcion": "Avalúos oficiales de la Dirección Metropolitana de Catastro / STHV en el sector de Soterramiento Sendero Seguro Calderón.",
-          "historico_anios": {
-            "2022_2023": 172,
-            "2024_2025": 185,
-            "2026_2027": 196
-          },
-          "plusvalia_porcentaje": 13.9
+          "tiene_datos_oficiales": false,
+          "valor_m2": null,
+          "aiva": null,
+          "historico_anios": null
         },
         "imagen_destacada": "/imagenes_categorias/soterramiento/soterramiento_portada.png",
         "galeria_id": null,
@@ -7648,48 +7388,22 @@
         "resumen": "Desarrollo urbano integral de nueva generación con redes subterráneas, parques lineales y conectividad sustentable hacia el valle de Cumbayá.",
         "seguridad": {
           "tiene_datos_oficiales": false,
-          "nivel": "En proceso de medición",
-          "delitos_por_ano": {
-            "2023": 0,
-            "2024": 0,
-            "2025": 0,
-            "2026_real": 0,
-            "2026_proy": 0
-          },
-          "incidentes_por_ano": {
-            "2023": 0,
-            "2024": 0,
-            "2025": 0,
-            "2026_real": 0,
-            "2026_proy": 0
-          },
-          "reduccion_delitos_pct": 0,
+          "delitos_por_ano": null,
+          "incidentes_por_ano": null,
           "top_delitos": [],
-          "top_incidentes": [],
-          "descripcion": "Monitoreo continuo en el sector de Plan Urbano y Soterramiento PUAE San Patricio conforme al plan de seguridad integral del DMQ."
+          "top_incidentes": []
         },
         "economia": {
-          "tiene_datos_oficiales": true,
-          "negocios_activos": "Base catastral y licencias LUAE",
-          "atractivo_comercial": "Cruce predial oficial con base municipal de patentes y licencias LUAE.",
-          "licencias_emitidas": 24,
-          "licencias_renovadas": 38,
-          "total_licencias": 62,
-          "desglose_anual_licencias": []
+          "tiene_datos_oficiales": false,
+          "licencias_emitidas": null,
+          "licencias_renovadas": null,
+          "total_licencias": null
         },
         "valor_suelo": {
-          "tiene_datos_oficiales": true,
-          "aiva": "AIVA PLAN URBANO Y SOTERRAMIENTO PUAE SAN PATRICIO",
-          "valor_m2": 185,
-          "rango": "En Consolidación",
-          "tendencia": "+12.4% acumulada (2022-2026)",
-          "descripcion": "Avalúos oficiales de la Dirección Metropolitana de Catastro / STHV en el sector de Plan Urbano y Soterramiento PUAE San Patricio.",
-          "historico_anios": {
-            "2022_2023": 172,
-            "2024_2025": 185,
-            "2026_2027": 196
-          },
-          "plusvalia_porcentaje": 13.9
+          "tiene_datos_oficiales": false,
+          "valor_m2": null,
+          "aiva": null,
+          "historico_anios": null
         },
         "imagen_destacada": "/header.jpeg",
         "galeria_id": null,
@@ -7742,48 +7456,22 @@
         "resumen": "Plan maestro de movilidad, espacio público y protección patrimonial en el núcleo turístico ecuatorial de San Antonio de Pichincha.",
         "seguridad": {
           "tiene_datos_oficiales": false,
-          "nivel": "En proceso de medición",
-          "delitos_por_ano": {
-            "2023": 0,
-            "2024": 0,
-            "2025": 0,
-            "2026_real": 0,
-            "2026_proy": 0
-          },
-          "incidentes_por_ano": {
-            "2023": 0,
-            "2024": 0,
-            "2025": 0,
-            "2026_real": 0,
-            "2026_proy": 0
-          },
-          "reduccion_delitos_pct": 0,
+          "delitos_por_ano": null,
+          "incidentes_por_ano": null,
           "top_delitos": [],
-          "top_incidentes": [],
-          "descripcion": "Monitoreo continuo en el sector de Plan de Intervención Integral Mitad del Mundo conforme al plan de seguridad integral del DMQ."
+          "top_incidentes": []
         },
         "economia": {
-          "tiene_datos_oficiales": true,
-          "negocios_activos": "Base catastral y licencias LUAE",
-          "atractivo_comercial": "Cruce predial oficial con base municipal de patentes y licencias LUAE.",
-          "licencias_emitidas": 24,
-          "licencias_renovadas": 38,
-          "total_licencias": 62,
-          "desglose_anual_licencias": []
+          "tiene_datos_oficiales": false,
+          "licencias_emitidas": null,
+          "licencias_renovadas": null,
+          "total_licencias": null
         },
         "valor_suelo": {
-          "tiene_datos_oficiales": true,
-          "aiva": "AIVA PLAN DE INTERVENCIÓN INTEGRAL MITAD DEL MUNDO",
-          "valor_m2": 185,
-          "rango": "En Consolidación",
-          "tendencia": "+12.4% acumulada (2022-2026)",
-          "descripcion": "Avalúos oficiales de la Dirección Metropolitana de Catastro / STHV en el sector de Plan de Intervención Integral Mitad del Mundo.",
-          "historico_anios": {
-            "2022_2023": 172,
-            "2024_2025": 185,
-            "2026_2027": 196
-          },
-          "plusvalia_porcentaje": 13.9
+          "tiene_datos_oficiales": false,
+          "valor_m2": null,
+          "aiva": null,
+          "historico_anios": null
         },
         "imagen_destacada": "/header.jpeg",
         "galeria_id": null,
@@ -10390,34 +10078,124 @@
         "estado": "Ejecutado",
         "resumen": "Área de influencia directa de la estación Zona Metro El Labrador de la Primera Línea del Metro de Quito, articulando multimodalidad, seguridad integral y alta plusvalía urbana.",
         "seguridad": {
-          "tiene_datos_oficiales": false,
-          "nivel": "En proceso de medición",
+          "tiene_datos_oficiales": true,
+          "nivel": "Evaluado Oficial DMQ",
           "delitos_por_ano": {
-            "2023": 0,
-            "2024": 0,
-            "2025": 0,
-            "2026_real": 0,
+            "2023": 37,
+            "2024": 30,
+            "2025": 32,
+            "2026_real": 13,
             "2026_proy": 0
           },
           "incidentes_por_ano": {
-            "2023": 0,
-            "2024": 0,
-            "2025": 0,
-            "2026_real": 0,
+            "2023": 145,
+            "2024": 188,
+            "2025": 167,
+            "2026_real": 60,
             "2026_proy": 0
           },
-          "reduccion_delitos_pct": 0,
-          "top_delitos": [],
-          "top_incidentes": [],
-          "descripcion": "Monitoreo continuo en el sector de Zona Metro El Labrador conforme al plan de seguridad integral del DMQ."
+          "reduccion_delitos_pct": -14,
+          "top_delitos": [
+            {
+              "label": "Robo a personas",
+              "isDelito": true,
+              "valores": {
+                "2023": 22,
+                "2024": 19,
+                "2025": 18,
+                "2026_real": 5,
+                "2026_proy": 0
+              }
+            },
+            {
+              "label": "Robo de autopartes",
+              "isDelito": true,
+              "valores": {
+                "2023": 7,
+                "2024": 6,
+                "2025": 2,
+                "2026_real": 3,
+                "2026_proy": 0
+              }
+            },
+            {
+              "label": "Robo a carros",
+              "isDelito": true,
+              "valores": {
+                "2023": 4,
+                "2024": 0,
+                "2025": 6,
+                "2026_real": 3,
+                "2026_proy": 0
+              }
+            },
+            {
+              "label": "Robo a unidades económicas",
+              "isDelito": true,
+              "valores": {
+                "2023": 2,
+                "2024": 2,
+                "2025": 1,
+                "2026_real": 1,
+                "2026_proy": 0
+              }
+            }
+          ],
+          "top_incidentes": [
+            {
+              "label": "Libadores",
+              "isDelito": false,
+              "valores": {
+                "2023": 76,
+                "2024": 86,
+                "2025": 73,
+                "2026_real": 31,
+                "2026_proy": 0
+              }
+            },
+            {
+              "label": "Escándalos",
+              "isDelito": false,
+              "valores": {
+                "2023": 64,
+                "2024": 95,
+                "2025": 86,
+                "2026_real": 28,
+                "2026_proy": 0
+              }
+            },
+            {
+              "label": "Venta y consumo de sustancias",
+              "isDelito": false,
+              "valores": {
+                "2023": 4,
+                "2024": 4,
+                "2025": 4,
+                "2026_real": 1,
+                "2026_proy": 0
+              }
+            },
+            {
+              "label": "Daño a propiedad pública y privada",
+              "isDelito": false,
+              "valores": {
+                "2023": 1,
+                "2024": 3,
+                "2025": 4,
+                "2026_real": 0,
+                "2026_proy": 0
+              }
+            }
+          ],
+          "descripcion": "Datos oficiales de la Secretaría General de Seguridad y Gobernabilidad del DMQ para Zona Metro El Labrador."
         },
         "economia": {
           "tiene_datos_oficiales": true,
-          "negocios_activos": "Nodo Comercial de Alta Frecuencia",
+          "negocios_activos": "Base catastral y licencias LUAE",
           "atractivo_comercial": "Cruce predial oficial con base municipal de patentes y licencias LUAE.",
-          "licencias_emitidas": 45,
-          "licencias_renovadas": 92,
-          "total_licencias": 137,
+          "licencias_emitidas": 24,
+          "licencias_renovadas": 38,
+          "total_licencias": 62,
           "desglose_anual_licencias": []
         },
         "valor_suelo": {
@@ -10442,8 +10220,8 @@
           -0.154707
         ],
         "tiene_datos_oficiales": true,
-        "db_proyecto_id": null,
-        "db_nombre_oficial": "Zona Metro El Labrador",
+        "db_proyecto_id": "2b646b84-5645-4969-9cad-677427c60fa3",
+        "db_nombre_oficial": "El Labrador: Bulevar y Parque de la Resiliencia",
         "db_categoria": "Zonas Metro"
       }
     ]
