@@ -4156,21 +4156,15 @@
         "centralidad_jerarquia": "Metropolitana",
         "badge": "Ejecutado",
         "estado": "Ejecutado",
-        "geom_tipo": "LineString",
-        "is_metro": true,
-        "is_architectural": false
+        "geom_tipo": "Point",
+        "is_metro": false,
+        "is_architectural": true
       },
       "geometry": {
-        "type": "LineString",
+        "type": "Point",
         "coordinates": [
-          [
-            -78.491672,
-            -0.127511
-          ],
-          [
-            -78.490158,
-            -0.146292
-          ]
+          -78.490915,
+          -0.1369015
         ]
       }
     },

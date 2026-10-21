@@ -232,7 +232,12 @@ export default function CentralidadesView() {
         title={`Enfocar en mapa y ver 4 dimensiones de ${proj.nombre}`}
       >
         <div className="status-proj-card-top">
-          <strong className="status-proj-card-name">{proj.nombre}</strong>
+          <strong className="status-proj-card-name">
+            {proj.id === 'repotenciacion-parque-bicentenario' && (
+              <span style={{ marginRight: '4px', fontSize: '13px' }}>📍</span>
+            )}
+            {proj.nombre}
+          </strong>
           <span 
             className="status-proj-card-badge"
             style={{
@@ -998,6 +1003,8 @@ export default function CentralidadesView() {
           ? 'Plaza Navarro' 
           : f.properties.nombre.includes('QUITOPIA') 
           ? 'QUITOPIA La Y' 
+          : f.properties.nombre.includes('Bicentenario')
+          ? 'Parque Bicentenario'
           : f.properties.nombre;
 
         el.innerHTML = `
@@ -1709,10 +1716,14 @@ export default function CentralidadesView() {
                                     }}
                                     title={`Abrir ficha flotante de ${proj.nombre}`}
                                   >
-                                    <span 
-                                      className="chip-proj-dot" 
-                                      style={{ backgroundColor: bStyle.bullet }} 
-                                    />
+                                    {proj.id === 'repotenciacion-parque-bicentenario' ? (
+                                      <span style={{ fontSize: '13px', lineHeight: 1, marginRight: '3px' }}>📍</span>
+                                    ) : (
+                                      <span 
+                                        className="chip-proj-dot" 
+                                        style={{ backgroundColor: bStyle.bullet }} 
+                                      />
+                                    )}
                                     <span className="chip-proj-name">{proj.nombre}</span>
                                     <span 
                                       className="chip-badge"
@@ -1831,7 +1842,11 @@ export default function CentralidadesView() {
                       >
                         <div className="project-tab-main-info">
                           <div className="title-row">
-                            <span className="status-bullet" style={{ backgroundColor: bStyle.bullet }} />
+                            {proj.id === 'repotenciacion-parque-bicentenario' ? (
+                              <span className="location-pin-emoji" style={{ fontSize: '15px', marginRight: '4px', lineHeight: 1, display: 'inline-flex', alignItems: 'center' }} title="Proyecto con ubicación geográfica puntual">📍</span>
+                            ) : (
+                              <span className="status-bullet" style={{ backgroundColor: bStyle.bullet }} />
+                            )}
                             <strong className="proj-tab-title">{proj.nombre}</strong>
                           </div>
                           <div className="type-and-cue-row">
@@ -1877,7 +1892,12 @@ export default function CentralidadesView() {
                     </span>
                   </div>
 
-                  <h4 className="active-proj-name">{activeProject.nombre}</h4>
+                  <h4 className="active-proj-name">
+                    {activeProject.id === 'repotenciacion-parque-bicentenario' && (
+                      <span style={{ marginRight: '5px' }}>📍</span>
+                    )}
+                    {activeProject.nombre}
+                  </h4>
                   <p className="active-proj-summary-snippet">{activeProject.resumen}</p>
 
                   {/* Botón Principal para Abrir la Pantalla Flotante */}
@@ -2028,7 +2048,7 @@ export default function CentralidadesView() {
           </div>
           <div className="legend-row">
             <span style={{ fontSize: '13px', lineHeight: 1 }}>📍</span>
-            <span>Puntos Arquitectónicos (Plaza Navarro, Quitopía)</span>
+            <span>Puntos y Equipamientos (Plaza Navarro, Quitopía, Bicentenario)</span>
           </div>
         </div>
       </main>
@@ -2080,7 +2100,12 @@ export default function CentralidadesView() {
                 </button>
               </div>
 
-              <h2 className="floating-modal-title">{floatingProject.nombre}</h2>
+              <h2 className="floating-modal-title">
+                {floatingProject.id === 'repotenciacion-parque-bicentenario' && (
+                  <span style={{ marginRight: '6px' }}>📍</span>
+                )}
+                {floatingProject.nombre}
+              </h2>
               <div className="floating-modal-subtitle">
                 <MapPin size={15} color="#ea580c" />
                 <span>{floatingProject.tipo} • Administración Zonal {modalCentralidad.admin_zonal}</span>

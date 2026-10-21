@@ -5477,8 +5477,8 @@
         "db_proyecto_id": null,
         "db_nombre_oficial": "Repotenciación Integral Parque Bicentenario",
         "db_categoria": "Proyectos Estratégicos",
-        "is_architectural": false,
-        "geom_tipo": "LineString"
+        "is_architectural": true,
+        "geom_tipo": "Point"
       },
       {
         "id": "soterramiento-bicentenario",
