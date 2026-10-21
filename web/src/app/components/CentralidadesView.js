@@ -1364,156 +1364,45 @@ export default function CentralidadesView() {
       {/* BARRA LATERAL (SIDEBAR) RE-DISEÑADA: LIGERA, ESPACIOSA Y CLARA */}
       {/* ============================================================== */}
       <aside className="centralidades-sidebar-light">
-        {/* 1. Cabecera Ejecutiva Despejada */}
+        {/* 1. Cabecera Ejecutiva Compacta y Moderna */}
         <div className="sidebar-header-executive">
-          <div className="header-badge-row" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '6px' }}>
-            <span className="badge-sthv">
-              <Compass size={13} />
-              <span>STHV • SECRETARÍA DE TERRITORIO Y HÁBITAT</span>
-            </span>
+          {/* Fila Superior: Título + Badge de Modelo + Estado Supabase */}
+          <div className="sidebar-header-top-row">
+            <div className="sidebar-brand-group">
+              <h2 className="sidebar-main-title">Centralidades Urbanas</h2>
+              <span className="badge-sthv-compact">
+                <Compass size={11} />
+                <span>PMDOT • PUGS</span>
+              </span>
+            </div>
+
             {dbStatus === 'connected' ? (
-              <span style={{ display: 'inline-flex', alignItems: 'center', gap: '5px', fontSize: '0.73rem', fontWeight: 700, color: '#047857', background: '#ecfdf5', padding: '3px 8px', borderRadius: '999px', border: '1px solid #a7f3d0' }}>
-                <Database size={12} />
-                <span>Supabase Conectado ({dbStats?.proyectos || 43} Proyectos)</span>
+              <span className="db-status-pill-compact" title={`Supabase Conectado (${dbStats?.proyectos || 43} Proyectos)`}>
+                <span className="db-status-dot online" />
+                <span>{dbStats?.proyectos || 43} Proy.</span>
               </span>
             ) : dbStatus === 'paused' ? (
-              <span style={{ display: 'inline-flex', alignItems: 'center', gap: '5px', fontSize: '0.73rem', fontWeight: 700, color: '#b91c1c', background: '#fef2f2', padding: '3px 8px', borderRadius: '999px', border: '1px solid #fecaca' }}>
-                <AlertTriangle size={12} />
-                <span>Base de Datos Pausada</span>
+              <span className="db-status-pill-compact paused" title="Base de Datos Pausada">
+                <AlertTriangle size={11} />
+                <span>Pausada</span>
               </span>
             ) : (
-              <span style={{ fontSize: '0.72rem', color: '#64748b' }}>Conectando a Supabase...</span>
+              <span className="db-status-pill-compact connecting">
+                <span>Conectando...</span>
+              </span>
             )}
           </div>
 
           {dbStatus === 'paused' && (
-            <div style={{ marginTop: '0.65rem', marginBottom: '0.35rem', padding: '0.6rem 0.8rem', background: '#fffbeb', border: '1px solid #fde68a', borderRadius: '8px', color: '#92400e', fontSize: '0.78rem', lineHeight: 1.4 }}>
-              ⚠️ <strong>Base de datos pausada o en reconexión:</strong> Reactive el proyecto en Supabase para sincronizar todas las estadísticas oficiales en vivo.
+            <div className="db-paused-alert-compact">
+              ⚠️ <strong>Base de datos pausada:</strong> Reactive el proyecto en Supabase para sincronizar estadísticas en vivo.
             </div>
           )}
 
-          <h2 className="sidebar-main-title">Centralidades Urbanas</h2>
-          <p className="sidebar-subtitle-text">
-            Modelo territorial del DMQ (PMDOT / PUGS). Selecciona un sector en el mapa o en el buscador para ver sus proyectos estratégicos.
-          </p>
-
-          {/* Filtros de Jerarquía Urbana */}
-          <div className="hierarchy-pills-row">
-            {['Todas', 'Metropolitana', 'Zonal', 'Sectorial', 'Zonas Metro'].map((jer) => {
-              const count = jer === 'Todas' 
-                ? centralidadesData.length 
-                : centralidadesData.filter(c => c.jerarquia === jer).length;
-              return (
-                <button
-                  key={jer}
-                  className={`hierarchy-pill-light ${hierarchyFilter === jer ? 'active' : ''}`}
-                  onClick={() => setHierarchyFilter(jer)}
-                >
-                  <span>{jer === 'Todas' ? 'Todas' : jer}</span>
-                  <span className="count-pill">{count}</span>
-                </button>
-              );
-            })}
-          </div>
-
-          {/* Filtro de Estado de Proyectos (Ejecutado, En Ejecución, Planificado) */}
-          <div className="status-filter-container">
-            <div className="status-filter-header">
-              <span className="status-filter-title">Filtrar por Estado de Proyecto</span>
-              {statusFilter !== 'Todos' && (
-                <button 
-                  className="status-filter-reset-btn"
-                  onClick={() => setStatusFilter('Todos')}
-                  title="Restablecer filtro a Todos"
-                >
-                  Restablecer
-                </button>
-              )}
-            </div>
-            <div className="status-pills-row">
-              {STATUS_OPTIONS.map((opt) => {
-                const isActive = statusFilter === opt.key;
-                return (
-                  <button
-                    key={opt.key}
-                    className={`status-filter-pill ${isActive ? `active ${opt.activeClass}` : ''}`}
-                    onClick={() => setStatusFilter(prev => prev === opt.key ? 'Todos' : opt.key)}
-                    title={`Ver proyectos: ${opt.label} (${opt.count})`}
-                  >
-                    {opt.color && (
-                      <span 
-                        className="status-pill-dot" 
-                        style={{ backgroundColor: isActive ? '#ffffff' : opt.color }} 
-                      />
-                    )}
-                    <span>{opt.label}</span>
-                    <span className="status-pill-count">{opt.count}</span>
-                  </button>
-                );
-              })}
-            </div>
-
-            {/* Listado dinámico de proyectos según el filtro escogido */}
-            <div className="status-filtered-projects-panel">
-              {statusFilter === 'Todos' ? (
-                <div>
-                  <button
-                    type="button"
-                    className={`status-dropdown-toggle ${isProjectListOpen ? 'active' : ''}`}
-                    onClick={() => setIsProjectListOpen(!isProjectListOpen)}
-                  >
-                    <div className="status-dropdown-left">
-                      <span className="status-dropdown-icon">{isProjectListOpen ? '▲' : '▼'}</span>
-                      <span>{isProjectListOpen ? 'Ocultar listado de proyectos' : 'Ver listado de los 73 proyectos'}</span>
-                    </div>
-                    <span className="status-dropdown-badge">{filteredProjectsByStatus.length}</span>
-                  </button>
-                  {isProjectListOpen && (
-                    <div className="status-projects-scroll-wrap">
-                      {filteredProjectsByStatus.map(renderStatusProjectItem)}
-                    </div>
-                  )}
-                </div>
-              ) : statusFilter === 'Ejecutado' ? (
-                <div>
-                  <button
-                    type="button"
-                    className={`status-dropdown-toggle ${isProjectListOpen ? 'active' : ''}`}
-                    onClick={() => setIsProjectListOpen(!isProjectListOpen)}
-                  >
-                    <div className="status-dropdown-left">
-                      <span className="status-dropdown-icon">{isProjectListOpen ? '▲' : '▼'}</span>
-                      <span>{isProjectListOpen ? 'Ocultar proyectos ejecutados' : 'Ver listado de 67 proyectos ejecutados'}</span>
-                    </div>
-                    <span className="status-dropdown-badge green">{filteredProjectsByStatus.length}</span>
-                  </button>
-                  {isProjectListOpen && (
-                    <div className="status-projects-scroll-wrap">
-                      {filteredProjectsByStatus.map(renderStatusProjectItem)}
-                    </div>
-                  )}
-                </div>
-              ) : (
-                /* Para En Ejecución (3) y Planificado (3): Se despliegan directamente */
-                <div>
-                  <div className="status-direct-header">
-                    <span className={`status-direct-title ${statusFilter === 'En Ejecución' ? 'blue' : 'amber'}`}>
-                      <span className="status-pill-dot" style={{ backgroundColor: statusFilter === 'En Ejecución' ? '#2563eb' : '#d97706' }} />
-                      Proyectos {statusFilter} ({filteredProjectsByStatus.length}):
-                    </span>
-                  </div>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.45rem', marginTop: '0.35rem' }}>
-                    {filteredProjectsByStatus.map(renderStatusProjectItem)}
-                  </div>
-                </div>
-              )}
-            </div>
-          </div>
-
-          {/* Buscador y Selector Directo */}
+          {/* Fila 2: Buscador y Selector Directo en 2 columnas paralelas */}
           <div className="toolbar-search-select-grid">
             <div className="search-input-wrapper">
-              <Search size={15} className="search-icon-light" />
+              <Search size={14} className="search-icon-light" />
               <input
                 type="text"
                 placeholder="Buscar centralidad o proyecto..."
@@ -1536,20 +1425,120 @@ export default function CentralidadesView() {
                 }}
                 className="select-field-light"
               >
-                <option value="">🗺️ Vista General: Todas las Centralidades</option>
+                <option value="">🗺️ Todas las Centralidades</option>
                 {filteredCentralidades.map((c) => (
                   <option key={c.id} value={c.id}>
                     {c.nombre} [{c.jerarquia}]
                   </option>
                 ))}
               </select>
-              <ChevronDown size={15} className="select-arrow-light" />
+              <ChevronDown size={14} className="select-arrow-light" />
+            </div>
+          </div>
+
+          {/* Fila 3: Filtros Compactos (Jerarquía y Estado) */}
+          <div className="compact-filters-container">
+            {/* Filtros de Jerarquía */}
+            <div className="compact-filter-strip">
+              <span className="compact-filter-tag">Jerarquía:</span>
+              <div className="compact-filter-pills-row">
+                {['Todas', 'Metropolitana', 'Zonal', 'Sectorial', 'Zonas Metro'].map((jer) => {
+                  const count = jer === 'Todas' 
+                    ? centralidadesData.length 
+                    : centralidadesData.filter(c => c.jerarquia === jer).length;
+                  return (
+                    <button
+                      key={jer}
+                      type="button"
+                      className={`compact-pill-btn ${hierarchyFilter === jer ? 'active-hierarchy' : ''}`}
+                      onClick={() => setHierarchyFilter(jer)}
+                      title={`Jerarquía: ${jer}`}
+                    >
+                      <span>{jer === 'Zonas Metro' ? 'Metro' : jer}</span>
+                      <span className="compact-pill-badge">{count}</span>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Filtros de Estado */}
+            <div className="compact-filter-strip">
+              <span className="compact-filter-tag">Estado:</span>
+              <div className="compact-filter-pills-row">
+                {STATUS_OPTIONS.map((opt) => {
+                  const isActive = statusFilter === opt.key;
+                  return (
+                    <button
+                      key={opt.key}
+                      type="button"
+                      className={`compact-pill-btn ${isActive ? `active-status ${opt.activeClass}` : ''}`}
+                      onClick={() => setStatusFilter(prev => prev === opt.key ? 'Todos' : opt.key)}
+                      title={`Estado: ${opt.label} (${opt.count})`}
+                    >
+                      {opt.color && (
+                        <span 
+                          className="compact-status-dot" 
+                          style={{ backgroundColor: isActive ? '#ffffff' : opt.color }} 
+                        />
+                      )}
+                      <span>{opt.label}</span>
+                      <span className="compact-pill-badge">{opt.count}</span>
+                    </button>
+                  );
+                })}
+                {statusFilter !== 'Todos' && (
+                  <button 
+                    type="button"
+                    className="compact-reset-btn"
+                    onClick={() => setStatusFilter('Todos')}
+                    title="Restablecer filtro a Todos"
+                  >
+                    ✕ Limpiar
+                  </button>
+                )}
+              </div>
             </div>
           </div>
         </div>
 
-        {/* 2. Contenedor de Contenido con Desplazamiento Suave */}
+        {/* 2. Contenedor de Contenido con Desplazamiento Suave y Máximo Espacio */}
         <div className="sidebar-scrollable-body">
+          {/* Si hay un filtro de estado activo (distinto de Todos), mostrar panel en el cuerpo scrollable con amplio espacio */}
+          {statusFilter !== 'Todos' && (
+            <div className="status-filtered-body-panel">
+              <div className="status-filtered-body-header">
+                <div className="status-filtered-title-group">
+                  <span 
+                    className="status-pill-dot" 
+                    style={{ 
+                      backgroundColor: statusFilter === 'En Ejecución' ? '#2563eb' : statusFilter === 'Planificado' ? '#d97706' : '#059669',
+                      width: '8px',
+                      height: '8px'
+                    }} 
+                  />
+                  <strong>Proyectos con Estado: {statusFilter}</strong>
+                  <span className={`status-dropdown-badge ${statusFilter === 'Ejecutado' ? 'green' : statusFilter === 'En Ejecución' ? 'blue' : 'amber'}`}>
+                    {filteredProjectsByStatus.length}
+                  </span>
+                </div>
+                <button
+                  type="button"
+                  className="status-filtered-clear-btn"
+                  onClick={() => setStatusFilter('Todos')}
+                  title="Restablecer a Todos"
+                >
+                  ✕ Quitar Filtro
+                </button>
+              </div>
+              <p className="status-filtered-help-text">
+                📍 Resaltados con balizas activas en el mapa 3D. Haz clic en un proyecto para enfocarlo:
+              </p>
+              <div className="status-filtered-cards-grid">
+                {filteredProjectsByStatus.map(renderStatusProjectItem)}
+              </div>
+            </div>
+          )}
           {!selectedCentralidad ? (
             /* ============================================================== */
             /* RESUMEN EJECUTIVO GENERAL CUANDO RECIÉN SE INGRESA             */

@@ -3410,11 +3410,11 @@ h1, h2, h3, h4, h5, h6 {
 
 .centralidades-light-dashboard {
   display: flex;
-  gap: 1.25rem;
+  gap: 1.15rem;
   width: 100%;
-  height: calc(100vh - 210px);
-  min-height: 800px;
-  border-radius: 20px;
+  height: calc(100vh - 120px);
+  min-height: 720px;
+  border-radius: 18px;
   overflow: hidden;
   background: #f8fafc;
   border: 1px solid #e2e8f0;
@@ -3434,9 +3434,9 @@ h1, h2, h3, h4, h5, h6 {
 
 /* 1. BARRA LATERAL (SIDEBAR) PERMANENTE */
 .centralidades-sidebar-light {
-  width: 510px;
+  width: 530px;
   min-width: 480px;
-  max-width: 530px;
+  max-width: 560px;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -3447,54 +3447,298 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 4px 0 24px rgba(15, 23, 42, 0.04);
 }
 
-/* Cabecera Ejecutiva */
+/* Cabecera Ejecutiva Compacta */
 .sidebar-header-executive {
-  padding: 1.4rem 1.6rem 1.1rem;
+  padding: 0.85rem 1.15rem 0.75rem;
   border-bottom: 1px solid #e2e8f0;
   display: flex;
   flex-direction: column;
-  gap: 0.8rem;
+  gap: 0.5rem;
   background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
   flex-shrink: 0;
 }
 
-.header-badge-row {
+.sidebar-header-top-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 0.5rem;
 }
 
-.badge-sthv {
-  display: inline-flex;
+.sidebar-brand-group {
+  display: flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.35rem 0.75rem;
+  flex-wrap: wrap;
+}
+
+.badge-sthv-compact {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.18rem 0.55rem;
   border-radius: 9999px;
   background: #eff6ff;
   border: 1px solid #bfdbfe;
   color: #1d4ed8;
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   font-weight: 800;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.02em;
+}
+
+.db-status-pill-compact {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #047857;
+  background: #ecfdf5;
+  padding: 0.2rem 0.55rem;
+  border-radius: 9999px;
+  border: 1px solid #a7f3d0;
+}
+
+.db-status-pill-compact.paused {
+  color: #b91c1c;
+  background: #fef2f2;
+  border-color: #fecaca;
+}
+
+.db-status-dot.online {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.25);
+}
+
+.db-paused-alert-compact {
+  padding: 0.4rem 0.65rem;
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  border-radius: 6px;
+  color: #92400e;
+  font-size: 0.72rem;
+  line-height: 1.35;
 }
 
 .sidebar-main-title {
-  font-size: 1.7rem;
+  font-size: 1.15rem;
   font-weight: 800;
   color: #0f172a;
   margin: 0;
-  letter-spacing: -0.025em;
-  line-height: 1.15;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
 }
 
 .sidebar-subtitle-text {
-  font-size: 0.84rem;
+  font-size: 0.8rem;
   color: #64748b;
   margin: 0;
-  line-height: 1.55;
+  line-height: 1.45;
 }
 
-/* Pastillas de Jerarquía */
+/* Barra de Búsqueda y Selector en 2 Columnas */
+.toolbar-search-select-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.45rem;
+  width: 100%;
+}
+
+.search-input-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon-light {
+  position: absolute;
+  left: 0.65rem;
+  color: #94a3b8;
+  pointer-events: none;
+}
+
+.search-field-light {
+  width: 100%;
+  padding: 0.42rem 0.65rem 0.42rem 1.95rem;
+  border-radius: 8px;
+  background: #ffffff;
+  border: 1.5px solid #cbd5e1;
+  color: #0f172a;
+  font-size: 0.79rem;
+  font-family: inherit;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.search-field-light:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2.5px rgba(37, 99, 235, 0.12);
+}
+
+.select-dropdown-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.select-field-light {
+  width: 100%;
+  padding: 0.42rem 1.8rem 0.42rem 0.65rem;
+  border-radius: 8px;
+  background: #f8fafc;
+  border: 1.5px solid #cbd5e1;
+  color: #0f172a;
+  font-size: 0.79rem;
+  font-weight: 700;
+  font-family: inherit;
+  appearance: none;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.select-field-light:focus {
+  border-color: #2563eb;
+  background: #ffffff;
+  box-shadow: 0 0 0 2.5px rgba(37, 99, 235, 0.12);
+}
+
+.select-arrow-light {
+  position: absolute;
+  right: 0.65rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #64748b;
+  pointer-events: none;
+}
+
+/* Filtros Compactos */
+.compact-filters-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.compact-filter-strip {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.compact-filter-tag {
+  font-size: 0.64rem;
+  font-weight: 800;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  min-width: 58px;
+  flex-shrink: 0;
+}
+
+.compact-filter-pills-row {
+  display: flex;
+  align-items: center;
+  gap: 0.28rem;
+  flex-wrap: wrap;
+}
+
+.compact-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.2rem 0.45rem;
+  border-radius: 6px;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  color: #475569;
+  font-size: 0.71rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  white-space: nowrap;
+}
+
+.compact-pill-btn:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+.compact-pill-btn.active-hierarchy {
+  background: #ea580c;
+  color: #ffffff;
+  border-color: #c2410c;
+  box-shadow: 0 2px 6px rgba(234, 88, 12, 0.25);
+}
+
+.compact-pill-btn.active-status.status-todos {
+  background: #0f172a;
+  color: #ffffff;
+  border-color: #0f172a;
+}
+
+.compact-pill-btn.active-status.status-ejecutado {
+  background: #059669;
+  color: #ffffff;
+  border-color: #047857;
+  box-shadow: 0 2px 6px rgba(5, 150, 105, 0.25);
+}
+
+.compact-pill-btn.active-status.status-enejecucion {
+  background: #2563eb;
+  color: #ffffff;
+  border-color: #1d4ed8;
+  box-shadow: 0 2px 6px rgba(37, 99, 235, 0.25);
+}
+
+.compact-pill-btn.active-status.status-planificado {
+  background: #d97706;
+  color: #ffffff;
+  border-color: #b45309;
+  box-shadow: 0 2px 6px rgba(217, 119, 6, 0.25);
+}
+
+.compact-status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.compact-pill-badge {
+  font-size: 0.63rem;
+  padding: 0.05rem 0.3rem;
+  border-radius: 9999px;
+  background: rgba(0, 0, 0, 0.08);
+  font-weight: 800;
+}
+
+.compact-pill-btn.active-hierarchy .compact-pill-badge,
+.compact-pill-btn.active-status .compact-pill-badge {
+  background: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+}
+
+.compact-reset-btn {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #dc2626;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 6px;
+  padding: 0.2rem 0.45rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.compact-reset-btn:hover {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+/* Pastillas de Jerarquía y Estados legacy */
 .hierarchy-pills-row {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -3543,89 +3787,15 @@ h1, h2, h3, h4, h5, h6 {
   color: #ffffff;
 }
 
-/* Barra de Búsqueda y Selector */
-.toolbar-search-select-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 0.55rem;
-}
-
-.search-input-wrapper {
-  position: relative;
-  width: 100%;
-  display: flex;
-  align-items: center;
-}
-
-.search-icon-light {
-  position: absolute;
-  left: 0.85rem;
-  color: #94a3b8;
-  pointer-events: none;
-}
-
-.search-field-light {
-  width: 100%;
-  padding: 0.55rem 0.85rem 0.55rem 2.3rem;
-  border-radius: 10px;
-  background: #ffffff;
-  border: 1.5px solid #cbd5e1;
-  color: #0f172a;
-  font-size: 0.84rem;
-  font-family: inherit;
-  outline: none;
-  transition: all 0.2s ease;
-}
-
-.search-field-light:focus {
-  border-color: #2563eb;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
-}
-
-.select-dropdown-wrapper {
-  position: relative;
-  width: 100%;
-}
-
-.select-field-light {
-  width: 100%;
-  padding: 0.6rem 2.2rem 0.6rem 0.85rem;
-  border-radius: 10px;
-  background: #f8fafc;
-  border: 1.5px solid #cbd5e1;
-  color: #0f172a;
-  font-size: 0.84rem;
-  font-weight: 700;
-  font-family: inherit;
-  appearance: none;
-  cursor: pointer;
-  outline: none;
-  transition: all 0.2s ease;
-}
-
-.select-field-light:focus {
-  border-color: #2563eb;
-  background: #ffffff;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
-}
-
-.select-arrow-light {
-  position: absolute;
-  right: 0.85rem;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #64748b;
-  pointer-events: none;
-}
-
-/* Cuerpo Desplazable del Sidebar */
+/* Cuerpo Desplazable del Sidebar - Amplio, Cómodo y con Máximo Espacio */
 .sidebar-scrollable-body {
   flex: 1;
+  min-height: 0;
   overflow-y: auto;
-  padding: 1.35rem 1.6rem;
+  padding: 1.15rem 1.35rem 1.6rem;
   display: flex;
   flex-direction: column;
-  gap: 1.35rem;
+  gap: 1.15rem;
   scrollbar-width: thin;
   scrollbar-color: #cbd5e1 transparent;
 }
@@ -3637,6 +3807,65 @@ h1, h2, h3, h4, h5, h6 {
 .sidebar-scrollable-body::-webkit-scrollbar-thumb {
   background: #cbd5e1;
   border-radius: 4px;
+}
+
+/* Panel de proyectos filtrados dentro del cuerpo scrollable */
+.status-filtered-body-panel {
+  background: #ffffff;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 12px;
+  padding: 0.85rem 0.95rem;
+  box-shadow: 0 4px 14px -3px rgba(15, 23, 42, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  margin-bottom: 0.25rem;
+}
+
+.status-filtered-body-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.status-filtered-title-group {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.82rem;
+  color: #0f172a;
+}
+
+.status-filtered-clear-btn {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #ea580c;
+  background: #fff7ed;
+  border: 1px solid #ffedd5;
+  border-radius: 6px;
+  padding: 0.22rem 0.55rem;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.status-filtered-clear-btn:hover {
+  background: #ffedd5;
+  color: #c2410c;
+}
+
+.status-filtered-help-text {
+  font-size: 0.74rem;
+  color: #64748b;
+  margin: 0;
+}
+
+.status-filtered-cards-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  max-height: 460px;
+  overflow-y: auto;
+  padding-right: 0.2rem;
 }
 
 /* Ficha Territorial de la Centralidad */
@@ -6911,6 +7140,12 @@ h1, h2, h3, h4, h5, h6 {
 .status-project-card:hover .status-proj-card-cue {
   color: #c2410c;
   text-decoration: underline;
+}
+
+.status-project-card.selected {
+  border-color: #f97316;
+  box-shadow: 0 0 0 2px rgba(249, 115, 22, 0.25), 0 4px 12px rgba(15, 23, 42, 0.08);
+  background: #fffbf7;
 }
 
 /* ============================================================== */
