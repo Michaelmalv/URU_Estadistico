@@ -4,7 +4,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { CATEGORIAS_INFO } from '../components/categorias_info';
-import { ArrowRight, ChevronDown, ChevronUp, CalendarClock, Sparkles, MapPin, Building2, Layers } from 'lucide-react';
+import { ArrowRight, CalendarClock, Sparkles, MapPin, Building2, Layers } from 'lucide-react';
 
 const CATEGORY_ROUTES = {
   'Corredores Vivos': '/corredores-vivos',
@@ -27,7 +27,6 @@ const PROYECTOS_PLANIFICADOS_KEYS = [
 
 export default function InformacionPage() {
   const [activeCategory, setActiveCategory] = useState(null);
-  const [isPlanificadosOpen, setIsPlanificadosOpen] = useState(false);
 
   // Separar categorías principales de los proyectos planificados
   const mainCategories = Object.entries(CATEGORIAS_INFO).filter(
@@ -196,34 +195,25 @@ export default function InformacionPage() {
         </div>
       </div>
 
-      {/* 2. VIÑETA DESPLEGABLE DE PROYECTOS PLANIFICADOS */}
+      {/* 2. CATEGORÍA PERMANENTE DE PROYECTOS PLANIFICADOS */}
       <div 
-        className="planned-projects-collapsible"
+        className="planned-projects-permanent-section"
         style={{
           marginTop: '3.5rem',
           borderRadius: '16px',
-          border: '1px solid #fed7aa',
+          border: '1.5px solid #fed7aa',
           background: 'linear-gradient(180deg, #fffaf5 0%, #ffffff 100%)',
-          boxShadow: '0 4px 20px rgba(249, 115, 22, 0.05)',
-          overflow: 'hidden',
-          transition: 'all 0.3s ease'
+          boxShadow: '0 6px 24px rgba(249, 115, 22, 0.06)',
+          overflow: 'hidden'
         }}
       >
-        {/* Encabezado / Botón Desplegable */}
-        <button
-          type="button"
-          onClick={() => setIsPlanificadosOpen(!isPlanificadosOpen)}
-          aria-expanded={isPlanificadosOpen}
+        {/* Encabezado Permanente */}
+        <div
           style={{
-            width: '100%',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
-            padding: '1.25rem 1.75rem',
-            background: 'transparent',
-            border: 'none',
-            cursor: 'pointer',
-            textAlign: 'left',
+            padding: '1.5rem 1.75rem 1.25rem 1.75rem',
             gap: '1rem',
             flexWrap: 'wrap'
           }}
@@ -276,51 +266,47 @@ export default function InformacionPage() {
             style={{ 
               display: 'inline-flex', 
               alignItems: 'center', 
-              gap: '0.5rem', 
-              background: isPlanificadosOpen ? '#fed7aa' : '#ffffff', 
-              color: '#9a3412', 
-              border: '1px solid #fdba74', 
-              padding: '0.55rem 1.15rem', 
+              gap: '0.45rem', 
+              background: '#fff7ed', 
+              color: '#c2410c', 
+              border: '1px solid #fed7aa', 
+              padding: '0.45rem 1rem', 
               borderRadius: '999px',
-              fontSize: '0.88rem',
-              fontWeight: 700,
-              boxShadow: '0 2px 6px rgba(0,0,0,0.03)',
-              transition: 'all 0.2s ease'
+              fontSize: '0.82rem',
+              fontWeight: 800,
+              boxShadow: '0 1px 3px rgba(0,0,0,0.03)'
             }}
           >
-            <span>{isPlanificadosOpen ? 'Ocultar proyectos planificados' : 'Ver proyectos planificados'}</span>
-            {isPlanificadosOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+            <span>📌 Cartera Estratégica</span>
           </div>
-        </button>
+        </div>
 
-        {/* Contenido Desplegable */}
-        {isPlanificadosOpen && (
-          <div style={{ padding: '0 1.75rem 1.75rem 1.75rem', borderTop: '1px solid #fed7aa', marginTop: '0.25rem', paddingTop: '1.25rem' }}>
-            <div 
-              style={{ 
-                marginBottom: '1.5rem', 
-                padding: '0.85rem 1.1rem', 
-                background: '#fff7ed', 
-                border: '1px solid #ffedd5', 
-                borderRadius: '10px', 
-                fontSize: '0.88rem', 
-                color: '#9a3412',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '0.5rem'
-              }}
-            >
-              <Sparkles size={16} style={{ flexShrink: 0, color: '#ea580c' }} />
-              <span>
-                Los siguientes proyectos corresponden a iniciativas estratégicas en estructuración (<strong>Arena del Bicentenario</strong>, <strong>Arena del Sur</strong> y <strong>Repotenciación Parque Bicentenario</strong>) con estudios de diseño e impacto territorial.
-              </span>
-            </div>
-
-            <div className="info-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem' }}>
-              {plannedProjects.map(([nombre, info]) => renderCard(nombre, info, true))}
-            </div>
+        {/* Contenido Permanente Visible */}
+        <div style={{ padding: '0 1.75rem 1.75rem 1.75rem', borderTop: '1px solid #fed7aa', paddingTop: '1.25rem' }}>
+          <div 
+            style={{ 
+              marginBottom: '1.5rem', 
+              padding: '0.85rem 1.1rem', 
+              background: '#fff7ed', 
+              border: '1px solid #ffedd5', 
+              borderRadius: '10px', 
+              fontSize: '0.88rem', 
+              color: '#9a3412',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.5rem'
+            }}
+          >
+            <Sparkles size={16} style={{ flexShrink: 0, color: '#ea580c' }} />
+            <span>
+              Los siguientes proyectos corresponden a iniciativas estratégicas en estructuración (<strong>Arena del Bicentenario</strong>, <strong>Arena del Sur</strong> y <strong>Repotenciación Parque Bicentenario</strong>) con estudios de diseño e impacto territorial.
+            </span>
           </div>
-        )}
+
+          <div className="info-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem' }}>
+            {plannedProjects.map(([nombre, info]) => renderCard(nombre, info, true))}
+          </div>
+        </div>
       </div>
     </div>
   );
