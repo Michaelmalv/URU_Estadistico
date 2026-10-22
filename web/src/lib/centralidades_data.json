@@ -736,8 +736,8 @@
         "galeria_id": null,
         "antes_despues_id": "Quitumbe",
         "coordenadas": [
-          -78.555559,
-          -0.294331
+          -78.54697866760513,
+          -0.29417499909501943
         ],
         "tiene_datos_oficiales": true,
         "db_proyecto_id": "7889b05b-b106-4280-8f14-e3d0bcb91d2f",
@@ -5441,11 +5441,11 @@
         "id": "repotenciacion-parque-bicentenario",
         "nombre": "Repotenciación Integral Parque Bicentenario",
         "tipo": "Parque Metropolitano / Equipamiento Ecológico",
-        "badge": "Ejecutado",
+        "badge": "En Ejecución",
         "longitud_km": "—",
         "presupuesto": "—",
         "financiamiento": "Adm. Zonal Eugenio Espejo",
-        "estado": "Ejecutado",
+        "estado": "En Ejecución",
         "resumen": "Nuevos bulevares perimetrales, pistas de trote, arborización con especies nativas, iluminación deportiva e integración con el Metro.",
         "seguridad": {
           "tiene_datos_oficiales": false,
@@ -5470,8 +5470,8 @@
         "galeria_id": null,
         "antes_despues_id": "Repotenciación Integral Parque Bicentenario",
         "coordenadas": [
-          -78.490915,
-          -0.1369015
+          -78.48805864024744,
+          -0.14287508722616624
         ],
         "tiene_datos_oficiales": true,
         "db_proyecto_id": null,

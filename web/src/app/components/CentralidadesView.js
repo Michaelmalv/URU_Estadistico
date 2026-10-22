@@ -233,7 +233,7 @@ export default function CentralidadesView() {
       >
         <div className="status-proj-card-top">
           <strong className="status-proj-card-name">
-            {proj.id === 'repotenciacion-parque-bicentenario' && (
+            {['repotenciacion-parque-bicentenario', 'bulevar-tribuna-shyris', 'arena-del-sur-quitumbe', 'parque-navarro-floresta', 'sendero-isla-tortuga'].includes(proj.id) && (
               <span style={{ marginRight: '4px', fontSize: '13px' }}>📍</span>
             )}
             {proj.nombre}
@@ -1005,6 +1005,10 @@ export default function CentralidadesView() {
           ? 'QUITOPIA La Y' 
           : f.properties.nombre.includes('Bicentenario')
           ? 'Parque Bicentenario'
+          : f.properties.nombre.includes('Shyris')
+          ? 'Bulevar Shyris'
+          : f.properties.nombre.includes('Arena del Sur')
+          ? 'Arena del Sur'
           : f.properties.nombre;
 
         el.innerHTML = `
@@ -1831,7 +1835,7 @@ export default function CentralidadesView() {
                       >
                         <div className="project-tab-main-info">
                           <div className="title-row">
-                            {proj.id === 'repotenciacion-parque-bicentenario' ? (
+                            {['repotenciacion-parque-bicentenario', 'bulevar-tribuna-shyris', 'arena-del-sur-quitumbe', 'parque-navarro-floresta', 'sendero-isla-tortuga'].includes(proj.id) ? (
                               <span className="location-pin-emoji" style={{ fontSize: '15px', marginRight: '4px', lineHeight: 1, display: 'inline-flex', alignItems: 'center' }} title="Proyecto con ubicación geográfica puntual">📍</span>
                             ) : (
                               <span className="status-bullet" style={{ backgroundColor: bStyle.bullet }} />
@@ -2013,7 +2017,7 @@ export default function CentralidadesView() {
 
         {/* Leyenda Cartográfica Flotante */}
         <div className="floating-hierarchy-legend">
-          <span className="legend-head">PALETA DE CENTRALIDADES DMQ</span>
+          <span className="legend-head">PROYECTOS ESTRATÉGICOS</span>
           <div className="legend-row">
             <span className="legend-circle" style={{ backgroundColor: '#fb923c' }} />
             <span>Metropolitana (5)</span>
@@ -2035,9 +2039,17 @@ export default function CentralidadesView() {
             <span className="legend-line-project-yellow" />
             <span>Trazados / Contornos ({proyectosGeometriasGeoJson.features.filter(f => f.geometry?.type !== 'Point' && !f.properties?.is_metro).length})</span>
           </div>
-          <div className="legend-row">
-            <span style={{ fontSize: '13px', lineHeight: 1 }}>📍</span>
-            <span>Puntos y Equipamientos (Plaza Navarro, Quitopía, Bicentenario)</span>
+          <div className="legend-row" style={{ display: 'flex', alignItems: 'center', gap: '7px' }}>
+            <span style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '16px', height: '20px', flexShrink: 0 }}>
+              <svg width="16" height="20" viewBox="0 0 24 32" fill="none" style={{ filter: 'drop-shadow(0 1px 2px rgba(249, 115, 22, 0.4))' }}>
+                <path d="M12 0C5.373 0 0 5.373 0 12C0 21 12 32 12 32C12 32 24 21 24 12C24 5.373 18.627 0 12 0Z" fill="#f97316"/>
+                <path d="M12 1.5C6.201 1.5 1.5 6.201 1.5 12C1.5 19.8 10.8 29.3 12 30.5C13.2 29.3 22.5 19.8 22.5 12C22.5 6.201 17.799 1.5 12 1.5Z" stroke="#ffffff" stroke-width="2"/>
+                <circle cx="12" cy="11" r="5.5" fill="#ffffff"/>
+                <path d="M9 13.5V10L12 8L15 10V13.5H9Z" fill="#fb923c"/>
+                <rect x="11" y="11" width="2" height="2.5" fill="#ffffff"/>
+              </svg>
+            </span>
+            <span>Puntos y Equipamientos</span>
           </div>
         </div>
       </main>

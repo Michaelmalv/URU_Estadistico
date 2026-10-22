@@ -4154,8 +4154,8 @@
         "centralidad_id": "bicentenario",
         "centralidad_nombre": "Bicentenario",
         "centralidad_jerarquia": "Metropolitana",
-        "badge": "Ejecutado",
-        "estado": "Ejecutado",
+        "badge": "En Ejecución",
+        "estado": "En Ejecución",
         "geom_tipo": "Point",
         "is_metro": false,
         "is_architectural": true
@@ -4163,8 +4163,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -78.490915,
-          -0.1369015
+          -78.48805864024744,
+          -0.14287508722616624
         ]
       }
     },
@@ -8050,6 +8050,52 @@
             -78.447224,
             -0.005921
           ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "bulevar-tribuna-shyris",
+        "nombre": "Bulevar Tribuna de los Shyris",
+        "tipo": "Espacio Público / Bulevar Central",
+        "centralidad_id": "la-carolina",
+        "centralidad_nombre": "La Carolina",
+        "centralidad_jerarquia": "Metropolitana",
+        "badge": "Ejecutado",
+        "estado": "Ejecutado",
+        "geom_tipo": "Point",
+        "is_metro": false,
+        "is_architectural": true
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -78.482325,
+          -0.182979
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "arena-del-sur-quitumbe",
+        "nombre": "Arena del Sur y Espacio Público Quitumbe",
+        "tipo": "Parque Urbano y Escenario Multipropósito",
+        "centralidad_id": "quitumbe",
+        "centralidad_nombre": "Quitumbe",
+        "centralidad_jerarquia": "Metropolitana",
+        "badge": "En Ejecución",
+        "estado": "En Ejecución",
+        "geom_tipo": "Point",
+        "is_metro": false,
+        "is_architectural": true
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -78.54697866760513,
+          -0.29417499909501943
         ]
       }
     }
