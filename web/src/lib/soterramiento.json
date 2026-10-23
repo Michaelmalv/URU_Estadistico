@@ -1,1066 +1,1438 @@
 [
     {
-        "id":  "sot_36",
-        "nro":  36,
-        "nombre":  "Quicentro Norte",
-        "nombre_original":  "PROYECTO QUICENTRO NORTE",
-        "ano":  2023,
-        "ejecutor":  "PRIVADO",
-        "estado":  "EJECUTADO",
-        "tipo_proyecto":  "REGENERACIÓN URBANA",
-        "kilometros":  0.47459,
-        "provincia":  "PICHINCHA",
-        "canton":  "QUITO",
-        "parroquia":  "Iñaquito",
-        "via_principal":  "El Comercio",
-        "coordenadas_inicial":  {
-                                    "lat":  -0.176073,
-                                    "lng":  -78.477781
-                                },
-        "coordenadas_final":  {
-                                  "lat":  -0.1755,
-                                  "lng":  -78.480635
-                              },
-        "fuente_financiamiento":  "Inversión Privada",
-        "inversion_telecom":  66955.71,
-        "monto_total":  215869.57,
-        "inversion_obra_civil":  null,
-        "observaciones":  "Se remite el costo referencial mediante documento s/n con fecha 24 de marzo del 2023."
+        "id": "sot_36",
+        "nro": 36,
+        "nombre": "Quicentro Norte",
+        "nombre_original": "PROYECTO QUICENTRO NORTE",
+        "ano": 2023,
+        "ejecutor": "PRIVADO",
+        "estado": "EJECUTADO",
+        "tipo_proyecto": "REGENERACIÓN URBANA",
+        "kilometros": 0.47459,
+        "provincia": "PICHINCHA",
+        "canton": "QUITO",
+        "parroquia": "Iñaquito",
+        "via_principal": "El Comercio",
+        "coordenadas_inicial": {
+            "lat": -0.175809,
+            "lng": -78.47897
+        },
+        "coordenadas_final": {
+            "lat": -0.175853,
+            "lng": -78.479148
+        },
+        "fuente_financiamiento": "Inversión Privada",
+        "inversion_telecom": 66955.71,
+        "monto_total": 215869.57,
+        "inversion_obra_civil": null,
+        "observaciones": "Se remite el costo referencial mediante documento s/n con fecha 24 de marzo del 2023.",
+        "centro": {
+            "lat": -0.175792,
+            "lng": -78.479109
+        },
+        "bbox": [
+            -78.480633,
+            -0.176104,
+            -78.477744,
+            -0.17549
+        ],
+        "poligono_codigo": "QUI",
+        "coordenadas_actualizadas": true
     },
     {
-        "id":  "sot_37",
-        "nro":  37,
-        "nombre":  "Gran Marcelino",
-        "nombre_original":  "PROYECTO GRAN MARCELINO",
-        "ano":  2023,
-        "ejecutor":  "PRIVADO",
-        "estado":  "EJECUTADO",
-        "tipo_proyecto":  "NUEVA URBANIZACIÓN",
-        "kilometros":  0.1845,
-        "provincia":  "PICHINCHA",
-        "canton":  "QUITO",
-        "parroquia":  "Tumbaco",
-        "via_principal":  "CALLE RODRIGO NUÑEZ",
-        "coordenadas_inicial":  {
-                                    "lat":  -0.212853,
-                                    "lng":  -78.410331
-                                },
-        "coordenadas_final":  {
-                                  "lat":  -0.211742,
-                                  "lng":  -78.409958
-                              },
-        "fuente_financiamiento":  "Inversión Privada",
-        "inversion_telecom":  25350,
-        "monto_total":  null,
-        "inversion_obra_civil":  null,
-        "observaciones":  "Se remite el costo referencial en base al documento Nro. 22-2023 de 17 de mayo de 2023."
+        "id": "sot_37",
+        "nro": 37,
+        "nombre": "Gran Marcelino",
+        "nombre_original": "PROYECTO GRAN MARCELINO",
+        "ano": 2023,
+        "ejecutor": "PRIVADO",
+        "estado": "EJECUTADO",
+        "tipo_proyecto": "NUEVA URBANIZACIÓN",
+        "kilometros": 0.1845,
+        "provincia": "PICHINCHA",
+        "canton": "QUITO",
+        "parroquia": "Tumbaco",
+        "via_principal": "CALLE RODRIGO NUÑEZ",
+        "coordenadas_inicial": {
+            "lat": -0.212815,
+            "lng": -78.410362
+        },
+        "coordenadas_final": {
+            "lat": -0.211722,
+            "lng": -78.409908
+        },
+        "fuente_financiamiento": "Inversión Privada",
+        "inversion_telecom": 25350,
+        "monto_total": null,
+        "inversion_obra_civil": null,
+        "observaciones": "Se remite el costo referencial en base al documento Nro. 22-2023 de 17 de mayo de 2023.",
+        "centro": {
+            "lat": -0.212333,
+            "lng": -78.410162
+        },
+        "bbox": [
+            -78.410362,
+            -0.212844,
+            -78.409908,
+            -0.211703
+        ],
+        "poligono_codigo": "GM",
+        "coordenadas_actualizadas": true
     },
     {
-        "id":  "sot_38",
-        "nro":  38,
-        "nombre":  "Senna",
-        "nombre_original":  "PROYECTO SENNA",
-        "ano":  2023,
-        "ejecutor":  "PRIVADO",
-        "estado":  "EJECUTADO",
-        "tipo_proyecto":  "NUEVA URBANIZACIÓN",
-        "kilometros":  0.1979779,
-        "provincia":  "PICHINCHA",
-        "canton":  "QUITO",
-        "parroquia":  "Jipijapa",
-        "via_principal":  "De los Viñedos",
-        "coordenadas_inicial":  {
-                                    "lat":  -0.15911,
-                                    "lng":  -78.474693
-                                },
-        "coordenadas_final":  {
-                                  "lat":  -0.160675,
-                                  "lng":  -78.475048
-                              },
-        "fuente_financiamiento":  "Inversión Privada",
-        "inversion_telecom":  18471.21,
-        "monto_total":  null,
-        "inversion_obra_civil":  null,
-        "observaciones":  "Se remite el costo referencial en base al documento s/n de 01 de noviembre del 2023 por parte del promotor."
+        "id": "sot_38",
+        "nro": 38,
+        "nombre": "Senna",
+        "nombre_original": "PROYECTO SENNA",
+        "ano": 2023,
+        "ejecutor": "PRIVADO",
+        "estado": "EJECUTADO",
+        "tipo_proyecto": "NUEVA URBANIZACIÓN",
+        "kilometros": 0.1979779,
+        "provincia": "PICHINCHA",
+        "canton": "QUITO",
+        "parroquia": "Jipijapa",
+        "via_principal": "De los Viñedos",
+        "coordenadas_inicial": {
+            "lat": -0.159102,
+            "lng": -78.47475
+        },
+        "coordenadas_final": {
+            "lat": -0.160675,
+            "lng": -78.475045
+        },
+        "fuente_financiamiento": "Inversión Privada",
+        "inversion_telecom": 18471.21,
+        "monto_total": null,
+        "inversion_obra_civil": null,
+        "observaciones": "Se remite el costo referencial en base al documento s/n de 01 de noviembre del 2023 por parte del promotor.",
+        "centro": {
+            "lat": -0.159877,
+            "lng": -78.474892
+        },
+        "bbox": [
+            -78.475097,
+            -0.160675,
+            -78.474664,
+            -0.159102
+        ],
+        "poligono_codigo": "ES",
+        "coordenadas_actualizadas": true
     },
     {
-        "id":  "sot_39",
-        "nro":  39,
-        "nombre":  "Epiq",
-        "nombre_original":  "PROYECTO EPIQ",
-        "ano":  2023,
-        "ejecutor":  "PRIVADO",
-        "estado":  "EJECUTADO",
-        "tipo_proyecto":  "NUEVA URBANIZACIÓN",
-        "kilometros":  0.337,
-        "provincia":  "PICHINCHA",
-        "canton":  "QUITO",
-        "parroquia":  "Iñaquito",
-        "via_principal":  "Av. Mariana de Jesús",
-        "coordenadas_inicial":  {
-                                    "lat":  -0.190244,
-                                    "lng":  -78.486639
-                                },
-        "coordenadas_final":  {
-                                  "lat":  -0.190588,
-                                  "lng":  -78.487174
-                              },
-        "fuente_financiamiento":  "Inversión Privada",
-        "inversion_telecom":  49707.94,
-        "monto_total":  null,
-        "inversion_obra_civil":  null,
-        "observaciones":  "Se remite el costo referencial en base al document de cotización Nro. 2023-01-001 de 01 de noviembre del 2023 por parte del promotor."
+        "id": "sot_39",
+        "nro": 39,
+        "nombre": "Epiq",
+        "nombre_original": "PROYECTO EPIQ",
+        "ano": 2023,
+        "ejecutor": "PRIVADO",
+        "estado": "EJECUTADO",
+        "tipo_proyecto": "NUEVA URBANIZACIÓN",
+        "kilometros": 0.337,
+        "provincia": "PICHINCHA",
+        "canton": "QUITO",
+        "parroquia": "Iñaquito",
+        "via_principal": "Av. Mariana de Jesús",
+        "coordenadas_inicial": {
+            "lat": -0.190769,
+            "lng": -78.487559
+        },
+        "coordenadas_final": {
+            "lat": -0.190541,
+            "lng": -78.486533
+        },
+        "fuente_financiamiento": "Inversión Privada",
+        "inversion_telecom": 49707.94,
+        "monto_total": null,
+        "inversion_obra_civil": null,
+        "observaciones": "Se remite el costo referencial en base al document de cotización Nro. 2023-01-001 de 01 de noviembre del 2023 por parte del promotor.",
+        "centro": {
+            "lat": -0.190827,
+            "lng": -78.487006
+        },
+        "bbox": [
+            -78.487559,
+            -0.191461,
+            -78.48649,
+            -0.190235
+        ],
+        "poligono_codigo": "EQ",
+        "coordenadas_actualizadas": true
     },
     {
-        "id":  "sot_40",
-        "nro":  40,
-        "nombre":  "Puente Gualó",
-        "nombre_original":  "PROYECTO PUENTE GUALÓ",
-        "ano":  2023,
-        "ejecutor":  "EPMMOP",
-        "estado":  "EJECUTADO",
-        "tipo_proyecto":  "NUEVA URBANIZACIÓN",
-        "kilometros":  0.24444,
-        "provincia":  "PICHINCHA",
-        "canton":  "QUITO",
-        "parroquia":  "Llano Chico",
-        "via_principal":  "Av. Simón Bolivar",
-        "coordenadas_inicial":  {
-                                    "lat":  -0.140793,
-                                    "lng":  -78.444422
-                                },
-        "coordenadas_final":  {
-                                  "lat":  -0.14154,
-                                  "lng":  -78.44369
-                              },
-        "fuente_financiamiento":  "Inversión Pública",
-        "inversion_telecom":  30041.65,
-        "monto_total":  null,
-        "inversion_obra_civil":  null,
-        "observaciones":  "Se remite mediante correo electrónico con fecha 14 de noviembre de 2023, el costo de la infraestructura de telecomunicaciones."
+        "id": "sot_40",
+        "nro": 40,
+        "nombre": "Puente Gualó",
+        "nombre_original": "PROYECTO PUENTE GUALÓ",
+        "ano": 2023,
+        "ejecutor": "EPMMOP",
+        "estado": "EJECUTADO",
+        "tipo_proyecto": "NUEVA URBANIZACIÓN",
+        "kilometros": 0.24444,
+        "provincia": "PICHINCHA",
+        "canton": "QUITO",
+        "parroquia": "Llano Chico",
+        "via_principal": "Av. Simón Bolivar",
+        "coordenadas_inicial": {
+            "lat": -0.141414,
+            "lng": -78.443599
+        },
+        "coordenadas_final": {
+            "lat": -0.140912,
+            "lng": -78.444515
+        },
+        "fuente_financiamiento": "Inversión Pública",
+        "inversion_telecom": 30041.65,
+        "monto_total": null,
+        "inversion_obra_civil": null,
+        "observaciones": "Se remite mediante correo electrónico con fecha 14 de noviembre de 2023, el costo de la infraestructura de telecomunicaciones.",
+        "centro": {
+            "lat": -0.141213,
+            "lng": -78.443963
+        },
+        "bbox": [
+            -78.444515,
+            -0.141628,
+            -78.443599,
+            -0.140695
+        ],
+        "poligono_codigo": "PG",
+        "coordenadas_actualizadas": true
     },
     {
-        "id":  "sot_41",
-        "nro":  41,
-        "nombre":  "Puente Conde IV",
-        "nombre_original":  "PROYECTO PUENTE CONDE IV",
-        "ano":  2023,
-        "ejecutor":  "EPMMOP",
-        "estado":  "EJECUTADO",
-        "tipo_proyecto":  "NUEVA URBANIZACIÓN",
-        "kilometros":  0.30658,
-        "provincia":  "PICHINCHA",
-        "canton":  "QUITO",
-        "parroquia":  "Quitumbe",
-        "via_principal":  "Av. Simón Bolivar",
-        "coordenadas_inicial":  {
-                                    "lat":  -0.322727,
-                                    "lng":  -78.520296
-                                },
-        "coordenadas_final":  {
-                                  "lat":  -0.323843,
-                                  "lng":  -78.519937
-                              },
-        "fuente_financiamiento":  "Inversión Pública",
-        "inversion_telecom":  34168.07,
-        "monto_total":  null,
-        "inversion_obra_civil":  null,
-        "observaciones":  "Se remite el valor del costo de infraestructura de telecomunicaciones."
+        "id": "sot_41",
+        "nro": 41,
+        "nombre": "Puente Conde IV",
+        "nombre_original": "PROYECTO PUENTE CONDE IV",
+        "ano": 2023,
+        "ejecutor": "EPMMOP",
+        "estado": "EJECUTADO",
+        "tipo_proyecto": "NUEVA URBANIZACIÓN",
+        "kilometros": 0.30658,
+        "provincia": "PICHINCHA",
+        "canton": "QUITO",
+        "parroquia": "Quitumbe",
+        "via_principal": "Av. Simón Bolivar",
+        "coordenadas_inicial": {
+            "lat": -0.322709,
+            "lng": -78.520192
+        },
+        "coordenadas_final": {
+            "lat": -0.32388,
+            "lng": -78.520096
+        },
+        "fuente_financiamiento": "Inversión Pública",
+        "inversion_telecom": 34168.07,
+        "monto_total": null,
+        "inversion_obra_civil": null,
+        "observaciones": "Se remite el valor del costo de infraestructura de telecomunicaciones.",
+        "centro": {
+            "lat": -0.323187,
+            "lng": -78.520124
+        },
+        "bbox": [
+            -78.520438,
+            -0.32388,
+            -78.519825,
+            -0.322709
+        ],
+        "poligono_codigo": "PC",
+        "coordenadas_actualizadas": true
     },
     {
-        "id":  "sot_42",
-        "nro":  42,
-        "nombre":  "PUAE San Patricio",
-        "nombre_original":  "PROYECTO PUAE SAN PATRICIO",
-        "ano":  2024,
-        "ejecutor":  "PRIVADO",
-        "estado":  "EJECUTADO",
-        "tipo_proyecto":  "NUEVA URBANIZACIÓN",
-        "kilometros":  4.888,
-        "provincia":  "PICHINCHA",
-        "canton":  "QUITO",
-        "parroquia":  "Cumbayá",
-        "via_principal":  "AV. LAMIÑA",
-        "coordenadas_inicial":  {
-                                    "lat":  -0.213022,
-                                    "lng":  -78.443533
-                                },
-        "coordenadas_final":  {
-                                  "lat":  -0.220372,
-                                  "lng":  -78.445436
-                              },
-        "fuente_financiamiento":  "Inversión Privada",
-        "inversion_telecom":  null,
-        "monto_total":  null,
-        "inversion_obra_civil":  null,
-        "observaciones":  null
+        "id": "sot_42",
+        "nro": 42,
+        "nombre": "PUAE San Patricio",
+        "nombre_original": "PROYECTO PUAE SAN PATRICIO",
+        "ano": 2024,
+        "ejecutor": "PRIVADO",
+        "estado": "EJECUTADO",
+        "tipo_proyecto": "NUEVA URBANIZACIÓN",
+        "kilometros": 4.888,
+        "provincia": "PICHINCHA",
+        "canton": "QUITO",
+        "parroquia": "Cumbayá",
+        "via_principal": "AV. LAMIÑA",
+        "coordenadas_inicial": {
+            "lat": -0.215926,
+            "lng": -78.444014
+        },
+        "coordenadas_final": {
+            "lat": -0.220802,
+            "lng": -78.445813
+        },
+        "fuente_financiamiento": "Inversión Privada",
+        "inversion_telecom": null,
+        "monto_total": null,
+        "inversion_obra_civil": null,
+        "observaciones": null,
+        "centro": {
+            "lat": -0.218117,
+            "lng": -78.444709
+        },
+        "bbox": [
+            -78.449244,
+            -0.22086,
+            -78.440087,
+            -0.213561
+        ],
+        "poligono_codigo": "SP",
+        "coordenadas_actualizadas": true
     },
     {
-        "id":  "sot_43",
-        "nro":  43,
-        "nombre":  "Puente Peatonal El Mirador",
-        "nombre_original":  "PROYECTO PUENTE PEATONAL - EL MIRADOR",
-        "ano":  2024,
-        "ejecutor":  "EPMMOP",
-        "estado":  "EJECUTADO",
-        "tipo_proyecto":  "REGENERACIÓN URBANA",
-        "kilometros":  0.09074,
-        "provincia":  "PICHINCHA",
-        "canton":  "QUITO",
-        "parroquia":  "Quitumbe",
-        "via_principal":  "Av. Simón Bolivar",
-        "coordenadas_inicial":  {
-                                    "lat":  -0.311476,
-                                    "lng":  -78.522334
-                                },
-        "coordenadas_final":  {
-                                  "lat":  -0.313636,
-                                  "lng":  -78.522306
-                              },
-        "fuente_financiamiento":  "Inversión Pública",
-        "inversion_telecom":  25867.47,
-        "monto_total":  null,
-        "inversion_obra_civil":  null,
-        "observaciones":  "En base a la Ordenanza Metropolitana 042, se establece que las empresas públicas están excentas de pago de la Tasa de la LMU 40-A que autoriza la la construcción de infraestructura físicas de redes de servicio.\n\nMediante el expediente entregado para la Emisión de la autorización, la EPMMOP indicó que el costo estimado para la ejecución del proyecto de infraestructura de telecomunicaciones asciende a USD 25867.47."
+        "id": "sot_43",
+        "nro": 43,
+        "nombre": "Puente Peatonal El Mirador",
+        "nombre_original": "PROYECTO PUENTE PEATONAL - EL MIRADOR",
+        "ano": 2024,
+        "ejecutor": "EPMMOP",
+        "estado": "EJECUTADO",
+        "tipo_proyecto": "REGENERACIÓN URBANA",
+        "kilometros": 0.09074,
+        "provincia": "PICHINCHA",
+        "canton": "QUITO",
+        "parroquia": "Quitumbe",
+        "via_principal": "Av. Simón Bolivar",
+        "coordenadas_inicial": {
+            "lat": -0.312171,
+            "lng": -78.522925
+        },
+        "coordenadas_final": {
+            "lat": -0.313139,
+            "lng": -78.522299
+        },
+        "fuente_financiamiento": "Inversión Pública",
+        "inversion_telecom": 25867.47,
+        "monto_total": null,
+        "inversion_obra_civil": null,
+        "observaciones": "En base a la Ordenanza Metropolitana 042, se establece que las empresas públicas están excentas de pago de la Tasa de la LMU 40-A que autoriza la la construcción de infraestructura físicas de redes de servicio.\n\nMediante el expediente entregado para la Emisión de la autorización, la EPMMOP indicó que el costo estimado para la ejecución del proyecto de infraestructura de telecomunicaciones asciende a USD 25867.47.",
+        "centro": {
+            "lat": -0.312471,
+            "lng": -78.52241
+        },
+        "bbox": [
+            -78.522925,
+            -0.31363,
+            -78.522179,
+            -0.311476
+        ],
+        "poligono_codigo": "PEM",
+        "coordenadas_actualizadas": true
     },
     {
-        "id":  "sot_44",
-        "nro":  44,
-        "nombre":  "Sendero Seguro Calderón",
-        "nombre_original":  "PROYECTO SENDERO SEGURO CALDERÓN",
-        "ano":  2024,
-        "ejecutor":  "EPMMOP",
-        "estado":  "EJECUTADO",
-        "tipo_proyecto":  "REGENERACIÓN URBANA",
-        "kilometros":  7.7,
-        "provincia":  "PICHINCHA",
-        "canton":  "QUITO",
-        "parroquia":  "Calderón",
-        "via_principal":  "Carapungo",
-        "coordenadas_inicial":  {
-                                    "lat":  -0.104659,
-                                    "lng":  -78.425413
-                                },
-        "coordenadas_final":  {
-                                  "lat":  -0.098335,
-                                  "lng":  -78.419412
-                              },
-        "fuente_financiamiento":  "Inversión Pública",
-        "inversion_telecom":  16594.8,
-        "monto_total":  null,
-        "inversion_obra_civil":  null,
-        "observaciones":  "En base a la Ordenanza Metropolitana 042, se establece que las empresas públicas están excentas de pago de la Tasa de la LMU 40-A que autoriza la la construcción de infraestructura físicas de redes de servicio.\n\nMediante el formulario para la Emisión de la LMU40-A, de fecha 28 de mayo de 2024, el ejecutor de obra de la EPMMOP declaró y suscribió que el costo estimado para la ejecución del proyecto de infraestructura de telecomunicaciones asciende a USD 16594.80."
+        "id": "sot_44",
+        "nro": 44,
+        "nombre": "Sendero Seguro Calderón",
+        "nombre_original": "PROYECTO SENDERO SEGURO CALDERÓN",
+        "ano": 2024,
+        "ejecutor": "EPMMOP",
+        "estado": "EJECUTADO",
+        "tipo_proyecto": "REGENERACIÓN URBANA",
+        "kilometros": 7.7,
+        "provincia": "PICHINCHA",
+        "canton": "QUITO",
+        "parroquia": "Calderón",
+        "via_principal": "Carapungo",
+        "coordenadas_inicial": {
+            "lat": -0.104314,
+            "lng": -78.426987
+        },
+        "coordenadas_final": {
+            "lat": -0.098154,
+            "lng": -78.419946
+        },
+        "fuente_financiamiento": "Inversión Pública",
+        "inversion_telecom": 16594.8,
+        "monto_total": null,
+        "inversion_obra_civil": null,
+        "observaciones": "En base a la Ordenanza Metropolitana 042, se establece que las empresas públicas están excentas de pago de la Tasa de la LMU 40-A que autoriza la la construcción de infraestructura físicas de redes de servicio.\n\nMediante el formulario para la Emisión de la LMU40-A, de fecha 28 de mayo de 2024, el ejecutor de obra de la EPMMOP declaró y suscribió que el costo estimado para la ejecución del proyecto de infraestructura de telecomunicaciones asciende a USD 16594.80.",
+        "centro": {
+            "lat": -0.101649,
+            "lng": -78.422729
+        },
+        "bbox": [
+            -78.426987,
+            -0.104608,
+            -78.419385,
+            -0.098063
+        ],
+        "poligono_codigo": "CD",
+        "coordenadas_actualizadas": true
     },
     {
-        "id":  "sot_45",
-        "nro":  45,
-        "nombre":  "Sendero Seguro Colón",
-        "nombre_original":  "PROYECTO SENDERO SEGURO COLON",
-        "ano":  2024,
-        "ejecutor":  "EPMMOP",
-        "estado":  "EJECUTADO",
-        "tipo_proyecto":  "REGENERACIÓN URBANA",
-        "kilometros":  1.8,
-        "provincia":  "PICHINCHA",
-        "canton":  "QUITO",
-        "parroquia":  "Iñaquito",
-        "via_principal":  "Av. Cristobal Colón",
-        "coordenadas_inicial":  {
-                                    "lat":  -0.202062,
-                                    "lng":  -78.48663
-                                },
-        "coordenadas_final":  {
-                                  "lat":  -0.204133,
-                                  "lng":  -78.482633
-                              },
-        "fuente_financiamiento":  "Inversión Pública",
-        "inversion_telecom":  228926.58,
-        "monto_total":  null,
-        "inversion_obra_civil":  null,
-        "observaciones":  "En base a la Ordenanza Metropolitana 042, se establece que las empresas públicas están excentas de pago de la Tasa de la LMU 40-A que autoriza la la construcción de infraestructura físicas de redes de servicio.\n\nMediante el formulario para la Emisión de la LMU40-A, de fecha 01 de abril de 2024, la EPMMOP declaró y suscribió que el costo estimado para la ejecución del proyecto de infraestructura de telecomunicaciones asciende a USD 228.926,58."
+        "id": "sot_45",
+        "nro": 45,
+        "nombre": "Sendero Seguro Colón",
+        "nombre_original": "PROYECTO SENDERO SEGURO COLON",
+        "ano": 2024,
+        "ejecutor": "EPMMOP",
+        "estado": "EJECUTADO",
+        "tipo_proyecto": "REGENERACIÓN URBANA",
+        "kilometros": 1.8,
+        "provincia": "PICHINCHA",
+        "canton": "QUITO",
+        "parroquia": "Iñaquito",
+        "via_principal": "Av. Cristobal Colón",
+        "coordenadas_inicial": {
+            "lat": -0.202219,
+            "lng": -78.486559
+        },
+        "coordenadas_final": {
+            "lat": -0.203091,
+            "lng": -78.482517
+        },
+        "fuente_financiamiento": "Inversión Pública",
+        "inversion_telecom": 228926.58,
+        "monto_total": null,
+        "inversion_obra_civil": null,
+        "observaciones": "En base a la Ordenanza Metropolitana 042, se establece que las empresas públicas están excentas de pago de la Tasa de la LMU 40-A que autoriza la la construcción de infraestructura físicas de redes de servicio.\n\nMediante el formulario para la Emisión de la LMU40-A, de fecha 01 de abril de 2024, la EPMMOP declaró y suscribió que el costo estimado para la ejecución del proyecto de infraestructura de telecomunicaciones asciende a USD 228.926,58.",
+        "centro": {
+            "lat": -0.203027,
+            "lng": -78.484271
+        },
+        "bbox": [
+            -78.486702,
+            -0.20418,
+            -78.482368,
+            -0.201927
+        ],
+        "poligono_codigo": "CL",
+        "coordenadas_actualizadas": true
     },
     {
-        "id":  "sot_46",
-        "nro":  46,
-        "nombre":  "Puente Peatonal Pueblo Blanco",
-        "nombre_original":  "PROYECTO PUENTE PEATONAL - PUEBLO BLANCO",
-        "ano":  2024,
-        "ejecutor":  "EPMMOP",
-        "estado":  "EJECUTADO",
-        "tipo_proyecto":  "REGENERACIÓN URBANA",
-        "kilometros":  0.17714,
-        "provincia":  "PICHINCHA",
-        "canton":  "QUITO",
-        "parroquia":  "Calderón",
-        "via_principal":  "Av. Simón Bolivar",
-        "coordenadas_inicial":  {
-                                    "lat":  -0.115947,
-                                    "lng":  -78.453809
-                                },
-        "coordenadas_final":  {
-                                  "lat":  -0.116995,
-                                  "lng":  -78.452497
-                              },
-        "fuente_financiamiento":  "Inversión Pública",
-        "inversion_telecom":  18598.61,
-        "monto_total":  null,
-        "inversion_obra_civil":  null,
-        "observaciones":  "En base a la Ordenanza Metropolitana 042, se establece que las empresas públicas están excentas de pago de la Tasa de la LMU 40-A que autoriza la la construcción de infraestructura físicas de redes de servicio.\n\nMediante el formulario para la Emisión de la LMU40-A, de fecha 07 de febrero de 2024, donde la EPMMOP declaró y suscribió que el costo estimado para la ejecución del proyecto de infraestructura de telecomunicaciones asciende a USD 18598.61."
+        "id": "sot_46",
+        "nro": 46,
+        "nombre": "Puente Peatonal Pueblo Blanco",
+        "nombre_original": "PROYECTO PUENTE PEATONAL - PUEBLO BLANCO",
+        "ano": 2024,
+        "ejecutor": "EPMMOP",
+        "estado": "EJECUTADO",
+        "tipo_proyecto": "REGENERACIÓN URBANA",
+        "kilometros": 0.17714,
+        "provincia": "PICHINCHA",
+        "canton": "QUITO",
+        "parroquia": "Calderón",
+        "via_principal": "Av. Simón Bolivar",
+        "coordenadas_inicial": {
+            "lat": -0.115882,
+            "lng": -78.453778
+        },
+        "coordenadas_final": {
+            "lat": -0.117022,
+            "lng": -78.452521
+        },
+        "fuente_financiamiento": "Inversión Pública",
+        "inversion_telecom": 18598.61,
+        "monto_total": null,
+        "inversion_obra_civil": null,
+        "observaciones": "En base a la Ordenanza Metropolitana 042, se establece que las empresas públicas están excentas de pago de la Tasa de la LMU 40-A que autoriza la la construcción de infraestructura físicas de redes de servicio.\n\nMediante el formulario para la Emisión de la LMU40-A, de fecha 07 de febrero de 2024, donde la EPMMOP declaró y suscribió que el costo estimado para la ejecución del proyecto de infraestructura de telecomunicaciones asciende a USD 18598.61.",
+        "centro": {
+            "lat": -0.116344,
+            "lng": -78.453269
+        },
+        "bbox": [
+            -78.453831,
+            -0.117022,
+            -78.452436,
+            -0.115882
+        ],
+        "poligono_codigo": "PPB",
+        "coordenadas_actualizadas": true
     },
     {
-        "id":  "sot_47",
-        "nro":  47,
-        "nombre":  "Hacienda Málaga - OPA",
-        "nombre_original":  "PROYECTO INTEGRAL HACIENDA MÁLAGA - OPA",
-        "ano":  2025,
-        "ejecutor":  "PRIVADO",
-        "estado":  "EJECUTADO",
-        "tipo_proyecto":  "NUEVA URBANIZACIÓN",
-        "kilometros":  0.254,
-        "provincia":  "PICHINCHA",
-        "canton":  "QUITO",
-        "parroquia":  "Cumbayá",
-        "via_principal":  "Alfonso Lamiña",
-        "coordenadas_inicial":  {
-                                    "lat":  -0.216035,
-                                    "lng":  -78.446937
-                                },
-        "coordenadas_final":  {
-                                  "lat":  -0.217763,
-                                  "lng":  -78.447956
-                              },
-        "fuente_financiamiento":  "Inversión Privada",
-        "inversion_telecom":  null,
-        "monto_total":  null,
-        "inversion_obra_civil":  null,
-        "observaciones":  null
+        "id": "sot_47",
+        "nro": 47,
+        "nombre": "Hacienda Málaga - OPA",
+        "nombre_original": "PROYECTO INTEGRAL HACIENDA MÁLAGA - OPA",
+        "ano": 2025,
+        "ejecutor": "PRIVADO",
+        "estado": "EJECUTADO",
+        "tipo_proyecto": "NUEVA URBANIZACIÓN",
+        "kilometros": 0.254,
+        "provincia": "PICHINCHA",
+        "canton": "QUITO",
+        "parroquia": "Cumbayá",
+        "via_principal": "Alfonso Lamiña",
+        "coordenadas_inicial": {
+            "lat": -0.216957,
+            "lng": -78.44747
+        },
+        "coordenadas_final": {
+            "lat": -0.217428,
+            "lng": -78.447551
+        },
+        "fuente_financiamiento": "Inversión Privada",
+        "inversion_telecom": null,
+        "monto_total": null,
+        "inversion_obra_civil": null,
+        "observaciones": null,
+        "centro": {
+            "lat": -0.217028,
+            "lng": -78.447463
+        },
+        "bbox": [
+            -78.448,
+            -0.217764,
+            -78.446913,
+            -0.216036
+        ],
+        "poligono_codigo": "MAL",
+        "coordenadas_actualizadas": true
     },
     {
-        "id":  "sot_48",
-        "nro":  48,
-        "nombre":  "Pradera II",
-        "nombre_original":  "PROYECTO PRADERA II",
-        "ano":  2025,
-        "ejecutor":  "EPMMOP",
-        "estado":  "EJECUTADO",
-        "tipo_proyecto":  "REGENERACIÓN URBANA",
-        "kilometros":  7.9,
-        "provincia":  "PICHINCHA",
-        "canton":  "QUITO",
-        "parroquia":  "Iñaquito",
-        "via_principal":  "Av. de la República",
-        "coordenadas_inicial":  {
-                                    "lat":  -0.190527,
-                                    "lng":  -78.480665
-                                },
-        "coordenadas_final":  {
-                                  "lat":  -0.189042,
-                                  "lng":  -78.482926
-                              },
-        "fuente_financiamiento":  "Inversión Pública",
-        "inversion_telecom":  1008458.48,
-        "monto_total":  null,
-        "inversion_obra_civil":  null,
-        "observaciones":  "En base a la Ordenanza Metropolitana 042, se establece que las empresas públicas están excentas de pago de la Tasa de la LMU 40-A que autoriza la la construcción de infraestructura físicas de redes de servicio.\n\nMediante el formulario para la Emisión de la LMU40-A, de fecha 29 de agosto de 2024, el ejecutor de obra de la EPMMOP declaró y suscribió que el costo estimado para la ejecución del proyecto de infraestructura de telecomunicaciones asciende a USD 1008458.48."
+        "id": "sot_48",
+        "nro": 48,
+        "nombre": "Pradera II",
+        "nombre_original": "PROYECTO PRADERA II",
+        "ano": 2025,
+        "ejecutor": "EPMMOP",
+        "estado": "EJECUTADO",
+        "tipo_proyecto": "REGENERACIÓN URBANA",
+        "kilometros": 7.9,
+        "provincia": "PICHINCHA",
+        "canton": "QUITO",
+        "parroquia": "Iñaquito",
+        "via_principal": "Av. de la República",
+        "coordenadas_inicial": {
+            "lat": -0.190254,
+            "lng": -78.482108
+        },
+        "coordenadas_final": {
+            "lat": -0.196561,
+            "lng": -78.482904
+        },
+        "fuente_financiamiento": "Inversión Pública",
+        "inversion_telecom": 1008458.48,
+        "monto_total": null,
+        "inversion_obra_civil": null,
+        "observaciones": "En base a la Ordenanza Metropolitana 042, se establece que las empresas públicas están excentas de pago de la Tasa de la LMU 40-A que autoriza la la construcción de infraestructura físicas de redes de servicio.\n\nMediante el formulario para la Emisión de la LMU40-A, de fecha 29 de agosto de 2024, el ejecutor de obra de la EPMMOP declaró y suscribió que el costo estimado para la ejecución del proyecto de infraestructura de telecomunicaciones asciende a USD 1008458.48.",
+        "centro": {
+            "lat": -0.193276,
+            "lng": -78.483401
+        },
+        "bbox": [
+            -78.487035,
+            -0.197575,
+            -78.480634,
+            -0.189042
+        ],
+        "poligono_codigo": "PRAD",
+        "coordenadas_actualizadas": true
     },
     {
-        "id":  "sot_49",
-        "nro":  49,
-        "nombre":  "Puente Río Monjas",
-        "nombre_original":  "PROYECTO PUENTE RÍO MONJAS",
-        "ano":  2025,
-        "ejecutor":  "EPMMOP",
-        "estado":  "EJECUTADO",
-        "tipo_proyecto":  "REGENERACIÓN URBANA",
-        "kilometros":  0.307,
-        "provincia":  "PICHINCHA",
-        "canton":  "QUITO",
-        "parroquia":  "Pomasqui",
-        "via_principal":  "Juan Bautista",
-        "coordenadas_inicial":  {
-                                    "lat":  -0.040616,
-                                    "lng":  -78.451749
-                                },
-        "coordenadas_final":  {
-                                  "lat":  -0.041094,
-                                  "lng":  -78.449884
-                              },
-        "fuente_financiamiento":  "Inversión Pública",
-        "inversion_telecom":  14507.83,
-        "monto_total":  null,
-        "inversion_obra_civil":  null,
-        "observaciones":  "En base a la Ordenanza Metropolitana 042, se establece que las empresas públicas están excentas de pago de la Tasa de la LMU 40-A que autoriza la la construcción de infraestructura físicas de redes de servicio."
+        "id": "sot_49",
+        "nro": 49,
+        "nombre": "Puente Río Monjas",
+        "nombre_original": "PROYECTO PUENTE RÍO MONJAS",
+        "ano": 2025,
+        "ejecutor": "EPMMOP",
+        "estado": "EJECUTADO",
+        "tipo_proyecto": "REGENERACIÓN URBANA",
+        "kilometros": 0.307,
+        "provincia": "PICHINCHA",
+        "canton": "QUITO",
+        "parroquia": "Pomasqui",
+        "via_principal": "Juan Bautista",
+        "coordenadas_inicial": {
+            "lat": -0.041133,
+            "lng": -78.449917
+        },
+        "coordenadas_final": {
+            "lat": -0.040584,
+            "lng": -78.450793
+        },
+        "fuente_financiamiento": "Inversión Pública",
+        "inversion_telecom": 14507.83,
+        "monto_total": null,
+        "inversion_obra_civil": null,
+        "observaciones": "En base a la Ordenanza Metropolitana 042, se establece que las empresas públicas están excentas de pago de la Tasa de la LMU 40-A que autoriza la la construcción de infraestructura físicas de redes de servicio.",
+        "centro": {
+            "lat": -0.040723,
+            "lng": -78.450414
+        },
+        "bbox": [
+            -78.451751,
+            -0.041133,
+            -78.449854,
+            -0.040345
+        ],
+        "poligono_codigo": "RMONJ",
+        "coordenadas_actualizadas": true
     },
     {
-        "id":  "sot_50",
-        "nro":  50,
-        "nombre":  "Av. 6 de Diciembre",
-        "nombre_original":  "PROYECTO AV. 6 DE DICIEMBRE",
-        "ano":  2025,
-        "ejecutor":  "EPMMOP",
-        "estado":  "EJECUTADO",
-        "tipo_proyecto":  "REGENERACIÓN URBANA",
-        "kilometros":  2.8,
-        "provincia":  "PICHINCHA",
-        "canton":  "QUITO",
-        "parroquia":  "Iñaquito",
-        "via_principal":  "Av. 6 de Diciembre",
-        "coordenadas_inicial":  {
-                                    "lat":  -0.170516,
-                                    "lng":  -78.476187
-                                },
-        "coordenadas_final":  {
-                                  "lat":  -0.178331,
-                                  "lng":  -78.477759
-                              },
-        "fuente_financiamiento":  "Inversión Pública",
-        "inversion_telecom":  314138.55,
-        "monto_total":  null,
-        "inversion_obra_civil":  null,
-        "observaciones":  "En base a la Ordenanza Metropolitana 042, se establece que las empresas públicas están excentas de pago de la Tasa de la LMU 40-A que autoriza la la construcción de infraestructura físicas de redes de servicio.\n\nMediante el formulario para la Emisión de la LMU40-A, de fecha 19 de marzo de 2026, la EPMMOP declaró y suscribió que el costo estimado para la ejecución del proyecto de infraestructura de telecomunicaciones asciende a USD 314.138,55."
+        "id": "sot_50",
+        "nro": 50,
+        "nombre": "Av. 6 de Diciembre",
+        "nombre_original": "PROYECTO AV. 6 DE DICIEMBRE",
+        "ano": 2025,
+        "ejecutor": "EPMMOP",
+        "estado": "EJECUTADO",
+        "tipo_proyecto": "REGENERACIÓN URBANA",
+        "kilometros": 2.8,
+        "provincia": "PICHINCHA",
+        "canton": "QUITO",
+        "parroquia": "Iñaquito",
+        "via_principal": "Av. 6 de Diciembre",
+        "coordenadas_inicial": {
+            "lat": -0.170546,
+            "lng": -78.476044
+        },
+        "coordenadas_final": {
+            "lat": -0.176907,
+            "lng": -78.477721
+        },
+        "fuente_financiamiento": "Inversión Pública",
+        "inversion_telecom": 314138.55,
+        "monto_total": null,
+        "inversion_obra_civil": null,
+        "observaciones": "En base a la Ordenanza Metropolitana 042, se establece que las empresas públicas están excentas de pago de la Tasa de la LMU 40-A que autoriza la la construcción de infraestructura físicas de redes de servicio.\n\nMediante el formulario para la Emisión de la LMU40-A, de fecha 19 de marzo de 2026, la EPMMOP declaró y suscribió que el costo estimado para la ejecución del proyecto de infraestructura de telecomunicaciones asciende a USD 314.138,55.",
+        "centro": {
+            "lat": -0.174865,
+            "lng": -78.476653
+        },
+        "bbox": [
+            -78.477952,
+            -0.178326,
+            -78.473573,
+            -0.170523
+        ],
+        "poligono_codigo": "6DIC",
+        "coordenadas_actualizadas": true
     },
     {
-        "id":  "sot_51",
-        "nro":  51,
-        "nombre":  "Av. Patria",
-        "nombre_original":  "AV. PATRIA",
-        "ano":  2025,
-        "ejecutor":  "EPMMOP",
-        "estado":  "EJECUTADO",
-        "tipo_proyecto":  "REGENERACIÓN URBANA",
-        "kilometros":  2.6,
-        "provincia":  "PICHINCHA",
-        "canton":  "QUITO",
-        "parroquia":  "Mariscal Sucre",
-        "via_principal":  "Av. Patria",
-        "coordenadas_inicial":  {
-                                    "lat":  -0.20661,
-                                    "lng":  -78.499293
-                                },
-        "coordenadas_final":  {
-                                  "lat":  -0.209419,
-                                  "lng":  -78.492118
-                              },
-        "fuente_financiamiento":  "Inversión Pública",
-        "inversion_telecom":  743275,
-        "monto_total":  null,
-        "inversion_obra_civil":  null,
-        "observaciones":  "En base a la Ordenanza Metropolitana 042, se establece que las empresas públicas están excentas de pago de la Tasa de la LMU 40-A que autoriza la la construcción de infraestructura físicas de redes de servicio.\n\nMediante Oficio Nro.Oficio Nro. EPMMOP-GOP-2026-1897-O de 29 de julio de 2026, se emite mediante una matriz adjunta el valor aproximado del proyecto de soterramient."
+        "id": "sot_51",
+        "nro": 51,
+        "nombre": "Av. Patria",
+        "nombre_original": "AV. PATRIA",
+        "ano": 2025,
+        "ejecutor": "EPMMOP",
+        "estado": "EJECUTADO",
+        "tipo_proyecto": "REGENERACIÓN URBANA",
+        "kilometros": 2.6,
+        "provincia": "PICHINCHA",
+        "canton": "QUITO",
+        "parroquia": "Mariscal Sucre",
+        "via_principal": "Av. Patria",
+        "coordenadas_inicial": {
+            "lat": -0.207653,
+            "lng": -78.497016
+        },
+        "coordenadas_final": {
+            "lat": -0.211,
+            "lng": -78.493865
+        },
+        "fuente_financiamiento": "Inversión Pública",
+        "inversion_telecom": 743275,
+        "monto_total": null,
+        "inversion_obra_civil": null,
+        "observaciones": "En base a la Ordenanza Metropolitana 042, se establece que las empresas públicas están excentas de pago de la Tasa de la LMU 40-A que autoriza la la construcción de infraestructura físicas de redes de servicio.\n\nMediante Oficio Nro.Oficio Nro. EPMMOP-GOP-2026-1897-O de 29 de julio de 2026, se emite mediante una matriz adjunta el valor aproximado del proyecto de soterramient.",
+        "centro": {
+            "lat": -0.209177,
+            "lng": -78.495195
+        },
+        "bbox": [
+            -78.499355,
+            -0.211,
+            -78.492129,
+            -0.206318
+        ],
+        "poligono_codigo": "PA",
+        "coordenadas_actualizadas": true
     },
     {
-        "id":  "sot_52",
-        "nro":  52,
-        "nombre":  "Av. Rodrigo de Chávez",
-        "nombre_original":  "PROYECTO RODRIGO DE CHÁVEZ",
-        "ano":  2025,
-        "ejecutor":  "EPMMOP",
-        "estado":  "EJECUTADO",
-        "tipo_proyecto":  "REGENERACIÓN URBANA",
-        "kilometros":  3.5,
-        "provincia":  "PICHINCHA",
-        "canton":  "QUITO",
-        "parroquia":  "La Magdalena",
-        "via_principal":  "Av. Rodrigo de Chávez",
-        "coordenadas_inicial":  {
-                                    "lat":  -0.236077,
-                                    "lng":  -78.526808
-                                },
-        "coordenadas_final":  {
-                                  "lat":  -0.244784,
-                                  "lng":  -78.518606
-                              },
-        "fuente_financiamiento":  "Inversión Pública",
-        "inversion_telecom":  850000,
-        "monto_total":  null,
-        "inversion_obra_civil":  null,
-        "observaciones":  "En base a la Ordenanza Metropolitana 042, se establece que las empresas públicas están excentas de pago de la Tasa de la LMU 40-A que autoriza la la construcción de infraestructura físicas de redes de servicio.\n\nMediante Oficio Nro.Oficio Nro. EPMMOP-GOP-2026-1897-O de 29 de julio de 2026, se emite mediante una matriz adjunta el valor aproximado del proyecto de soterramient."
+        "id": "sot_52",
+        "nro": 52,
+        "nombre": "Av. Rodrigo de Chávez",
+        "nombre_original": "PROYECTO RODRIGO DE CHÁVEZ",
+        "ano": 2025,
+        "ejecutor": "EPMMOP",
+        "estado": "EJECUTADO",
+        "tipo_proyecto": "REGENERACIÓN URBANA",
+        "kilometros": 3.5,
+        "provincia": "PICHINCHA",
+        "canton": "QUITO",
+        "parroquia": "La Magdalena",
+        "via_principal": "Av. Rodrigo de Chávez",
+        "coordenadas_inicial": {
+            "lat": -0.244549,
+            "lng": -78.518483
+        },
+        "coordenadas_final": {
+            "lat": -0.238936,
+            "lng": -78.525869
+        },
+        "fuente_financiamiento": "Inversión Pública",
+        "inversion_telecom": 850000,
+        "monto_total": null,
+        "inversion_obra_civil": null,
+        "observaciones": "En base a la Ordenanza Metropolitana 042, se establece que las empresas públicas están excentas de pago de la Tasa de la LMU 40-A que autoriza la la construcción de infraestructura físicas de redes de servicio.\n\nMediante Oficio Nro.Oficio Nro. EPMMOP-GOP-2026-1897-O de 29 de julio de 2026, se emite mediante una matriz adjunta el valor aproximado del proyecto de soterramient.",
+        "centro": {
+            "lat": -0.240848,
+            "lng": -78.522536
+        },
+        "bbox": [
+            -78.526931,
+            -0.244876,
+            -78.518483,
+            -0.236054
+        ],
+        "poligono_codigo": "RCHAV",
+        "coordenadas_actualizadas": true
     },
     {
-        "id":  "sot_53",
-        "nro":  53,
-        "nombre":  "San Blas",
-        "nombre_original":  "PROYECTO SAN BLAS",
-        "ano":  2025,
-        "ejecutor":  "EEQ",
-        "estado":  "EJECUTADO",
-        "tipo_proyecto":  "REGENERACIÓN URBANA",
-        "kilometros":  2.36,
-        "provincia":  "PICHINCHA",
-        "canton":  "QUITO",
-        "parroquia":  "Centro Histórico",
-        "via_principal":  "Los Ríos",
-        "coordenadas_inicial":  {
-                                    "lat":  -0.21729299999999999,
-                                    "lng":  -78.503334
-                                },
-        "coordenadas_final":  {
-                                  "lat":  -0.221696,
-                                  "lng":  -78.504787
-                              },
-        "fuente_financiamiento":  "Inversión Pública",
-        "inversion_telecom":  null,
-        "monto_total":  5742298.29,
-        "inversion_obra_civil":  null,
-        "observaciones":  "En base a la Ordenanza Metropolitana 042, se establece que las empresas públicas están excentas de pago de la Tasa de la LMU 40-A que autoriza la la construcción de infraestructura físicas de redes de servicio.\n\nMediante Oficio Nro. EEQ-UPCH-2022-0021-OF, de fecha 06 de octubre de 2026, se señala que el costo total de la inversión asciende a USD 5.742.298,29."
+        "id": "sot_53",
+        "nro": 53,
+        "nombre": "San Blas",
+        "nombre_original": "PROYECTO SAN BLAS",
+        "ano": 2025,
+        "ejecutor": "EEQ",
+        "estado": "EJECUTADO",
+        "tipo_proyecto": "REGENERACIÓN URBANA",
+        "kilometros": 2.36,
+        "provincia": "PICHINCHA",
+        "canton": "QUITO",
+        "parroquia": "Centro Histórico",
+        "via_principal": "Los Ríos",
+        "coordenadas_inicial": {
+            "lat": -0.217524,
+            "lng": -78.505449
+        },
+        "coordenadas_final": {
+            "lat": -0.21991,
+            "lng": -78.504268
+        },
+        "fuente_financiamiento": "Inversión Pública",
+        "inversion_telecom": null,
+        "monto_total": 5742298.29,
+        "inversion_obra_civil": null,
+        "observaciones": "En base a la Ordenanza Metropolitana 042, se establece que las empresas públicas están excentas de pago de la Tasa de la LMU 40-A que autoriza la la construcción de infraestructura físicas de redes de servicio.\n\nMediante Oficio Nro. EEQ-UPCH-2022-0021-OF, de fecha 06 de octubre de 2026, se señala que el costo total de la inversión asciende a USD 5.742.298,29.",
+        "centro": {
+            "lat": -0.218827,
+            "lng": -78.504606
+        },
+        "bbox": [
+            -78.506706,
+            -0.221685,
+            -78.503164,
+            -0.217282
+        ],
+        "poligono_codigo": "SBLAS",
+        "coordenadas_actualizadas": true
     },
     {
-        "id":  "sot_54",
-        "nro":  54,
-        "nombre":  "Koen",
-        "nombre_original":  "KOEN",
-        "ano":  2026,
-        "ejecutor":  "PRIVADO",
-        "estado":  "EJECUTADO",
-        "tipo_proyecto":  "NUEVA URBANIZACIÓN",
-        "kilometros":  0.5343,
-        "provincia":  "PICHINCHA",
-        "canton":  "QUITO",
-        "parroquia":  "Tumbaco",
-        "via_principal":  "2 De Agosto",
-        "coordenadas_inicial":  {
-                                    "lat":  -0.220286,
-                                    "lng":  -78.421808
-                                },
-        "coordenadas_final":  {
-                                  "lat":  -0.219403,
-                                  "lng":  -78.419892
-                              },
-        "fuente_financiamiento":  "Inversión Privada",
-        "inversion_telecom":  null,
-        "monto_total":  null,
-        "inversion_obra_civil":  null,
-        "observaciones":  null
+        "id": "sot_54",
+        "nro": 54,
+        "nombre": "Koen",
+        "nombre_original": "KOEN",
+        "ano": 2026,
+        "ejecutor": "PRIVADO",
+        "estado": "EJECUTADO",
+        "tipo_proyecto": "NUEVA URBANIZACIÓN",
+        "kilometros": 0.5343,
+        "provincia": "PICHINCHA",
+        "canton": "QUITO",
+        "parroquia": "Tumbaco",
+        "via_principal": "2 De Agosto",
+        "coordenadas_inicial": {
+            "lat": -0.220565,
+            "lng": -78.42056
+        },
+        "coordenadas_final": {
+            "lat": -0.219909,
+            "lng": -78.420647
+        },
+        "fuente_financiamiento": "Inversión Privada",
+        "inversion_telecom": null,
+        "monto_total": null,
+        "inversion_obra_civil": null,
+        "observaciones": null,
+        "centro": {
+            "lat": -0.219979,
+            "lng": -78.420511
+        },
+        "bbox": [
+            -78.420893,
+            -0.220584,
+            -78.419862,
+            -0.219353
+        ],
+        "poligono_codigo": "KOEN",
+        "coordenadas_actualizadas": true
     },
     {
-        "id":  "sot_55",
-        "nro":  55,
-        "nombre":  "PUAE Santa Mónica",
-        "nombre_original":  "PUAE SANTA MÓNICA",
-        "ano":  2026,
-        "ejecutor":  "PRIVADO",
-        "estado":  "EJECUTADO",
-        "tipo_proyecto":  "NUEVA URBANIZACIÓN",
-        "kilometros":  2.58594,
-        "provincia":  "PICHINCHA",
-        "canton":  "QUITO",
-        "parroquia":  "Cumbayá",
-        "via_principal":  "Alfonso Lamiña",
-        "coordenadas_inicial":  {
-                                    "lat":  -0.220361,
-                                    "lng":  -78.447847
-                                },
-        "coordenadas_final":  {
-                                  "lat":  -0.223444,
-                                  "lng":  -78.4452
-                              },
-        "fuente_financiamiento":  "Inversión Privada",
-        "inversion_telecom":  null,
-        "monto_total":  1059860.02,
-        "inversion_obra_civil":  null,
-        "observaciones":  "En base a la Ordenanza Metropolitana 042, se establece que las empresas públicas están excentas de pago de la Tasa de la LMU 40-A que autoriza la la construcción de infraestructura físicas de redes de servicio.\n\nMediante Oficio Nro. EEQ-UPCH-2022-0021-OF, de fecha 06 de octubre de 2026, se señala que el costo total de la inversión asciende a USD 5.742.298,29."
+        "id": "sot_55",
+        "nro": 55,
+        "nombre": "PUAE Santa Mónica",
+        "nombre_original": "PUAE SANTA MÓNICA",
+        "ano": 2026,
+        "ejecutor": "PRIVADO",
+        "estado": "EJECUTADO",
+        "tipo_proyecto": "NUEVA URBANIZACIÓN",
+        "kilometros": 2.58594,
+        "provincia": "PICHINCHA",
+        "canton": "QUITO",
+        "parroquia": "Cumbayá",
+        "via_principal": "Alfonso Lamiña",
+        "coordenadas_inicial": {
+            "lat": -0.22086,
+            "lng": -78.445975
+        },
+        "coordenadas_final": {
+            "lat": -0.220595,
+            "lng": -78.447871
+        },
+        "fuente_financiamiento": "Inversión Privada",
+        "inversion_telecom": null,
+        "monto_total": 1059860.02,
+        "inversion_obra_civil": null,
+        "observaciones": "En base a la Ordenanza Metropolitana 042, se establece que las empresas públicas están excentas de pago de la Tasa de la LMU 40-A que autoriza la la construcción de infraestructura físicas de redes de servicio.\n\nMediante Oficio Nro. EEQ-UPCH-2022-0021-OF, de fecha 06 de octubre de 2026, se señala que el costo total de la inversión asciende a USD 5.742.298,29.",
+        "centro": {
+            "lat": -0.221166,
+            "lng": -78.446554
+        },
+        "bbox": [
+            -78.448929,
+            -0.223687,
+            -78.444461,
+            -0.220363
+        ],
+        "poligono_codigo": "PSMON",
+        "coordenadas_actualizadas": true
     },
     {
-        "id":  "sot_56",
-        "nro":  56,
-        "nombre":  "Plaza Calderón",
-        "nombre_original":  "PLAZA CALDERON",
-        "ano":  2026,
-        "ejecutor":  "PRIVADO",
-        "estado":  "EJECUTADO",
-        "tipo_proyecto":  "NUEVA URBANIZACIÓN",
-        "kilometros":  0.33726,
-        "provincia":  "PICHINCHA",
-        "canton":  "QUITO",
-        "parroquia":  "Calderón",
-        "via_principal":  "José Viteri",
-        "coordenadas_inicial":  {
-                                    "lat":  -0.098952,
-                                    "lng":  -78.4447
-                                },
-        "coordenadas_final":  {
-                                  "lat":  -0.100815,
-                                  "lng":  -78.444773
-                              },
-        "fuente_financiamiento":  "Inversión Privada",
-        "inversion_telecom":  null,
-        "monto_total":  null,
-        "inversion_obra_civil":  null,
-        "observaciones":  null
+        "id": "sot_56",
+        "nro": 56,
+        "nombre": "Plaza Calderón",
+        "nombre_original": "PLAZA CALDERON",
+        "ano": 2026,
+        "ejecutor": "PRIVADO",
+        "estado": "EJECUTADO",
+        "tipo_proyecto": "NUEVA URBANIZACIÓN",
+        "kilometros": 0.33726,
+        "provincia": "PICHINCHA",
+        "canton": "QUITO",
+        "parroquia": "Calderón",
+        "via_principal": "José Viteri",
+        "coordenadas_inicial": {
+            "lat": -0.101512,
+            "lng": -78.444144
+        },
+        "coordenadas_final": {
+            "lat": -0.100172,
+            "lng": -78.44536
+        },
+        "fuente_financiamiento": "Inversión Privada",
+        "inversion_telecom": null,
+        "monto_total": null,
+        "inversion_obra_civil": null,
+        "observaciones": null,
+        "centro": {
+            "lat": -0.100622,
+            "lng": -78.444982
+        },
+        "bbox": [
+            -78.445922,
+            -0.101523,
+            -78.444144,
+            -0.099665
+        ],
+        "poligono_codigo": "PCAL",
+        "coordenadas_actualizadas": true
     },
     {
-        "id":  "sot_57",
-        "nro":  57,
-        "nombre":  "Pampite Artz",
-        "nombre_original":  "PAMPITE ARTZ",
-        "ano":  2026,
-        "ejecutor":  "PRIVADO",
-        "estado":  "EJECUTADO",
-        "tipo_proyecto":  "NUEVA URBANIZACIÓN",
-        "kilometros":  0.222,
-        "provincia":  "PICHINCHA",
-        "canton":  "QUITO",
-        "parroquia":  "Cumbayá",
-        "via_principal":  "Av. Pampite",
-        "coordenadas_inicial":  {
-                                    "lat":  -0.195915,
-                                    "lng":  -78.441261
-                                },
-        "coordenadas_final":  {
-                                  "lat":  -0.194291,
-                                  "lng":  -78.438882
-                              },
-        "fuente_financiamiento":  "Inversión Privada",
-        "inversion_telecom":  null,
-        "monto_total":  null,
-        "inversion_obra_civil":  null,
-        "observaciones":  null
+        "id": "sot_57",
+        "nro": 57,
+        "nombre": "Pampite Artz",
+        "nombre_original": "PAMPITE ARTZ",
+        "ano": 2026,
+        "ejecutor": "PRIVADO",
+        "estado": "EJECUTADO",
+        "tipo_proyecto": "NUEVA URBANIZACIÓN",
+        "kilometros": 0.222,
+        "provincia": "PICHINCHA",
+        "canton": "QUITO",
+        "parroquia": "Cumbayá",
+        "via_principal": "Av. Pampite",
+        "coordenadas_inicial": {
+            "lat": -0.194379,
+            "lng": -78.438864
+        },
+        "coordenadas_final": {
+            "lat": -0.195109,
+            "lng": -78.440314
+        },
+        "fuente_financiamiento": "Inversión Privada",
+        "inversion_telecom": null,
+        "monto_total": null,
+        "inversion_obra_civil": null,
+        "observaciones": null,
+        "centro": {
+            "lat": -0.194739,
+            "lng": -78.439628
+        },
+        "bbox": [
+            -78.440581,
+            -0.195259,
+            -78.438856,
+            -0.194379
+        ],
+        "poligono_codigo": "PARTZ",
+        "coordenadas_actualizadas": true
     },
     {
-        "id":  "sot_58",
-        "nro":  58,
-        "nombre":  "Av. El Inca",
-        "nombre_original":  "AV. EL INCA",
-        "ano":  2026,
-        "ejecutor":  "EPMMOP",
-        "estado":  "EN EJECUCIÓN",
-        "tipo_proyecto":  "REGENERACIÓN URBANA",
-        "kilometros":  7.09396,
-        "provincia":  "PICHINCHA",
-        "canton":  "QUITO",
-        "parroquia":  "Kennedy",
-        "via_principal":  "Av. El Inca",
-        "coordenadas_inicial":  {
-                                    "lat":  -0.154961,
-                                    "lng":  -78.477939
-                                },
-        "coordenadas_final":  {
-                                  "lat":  -0.152369,
-                                  "lng":  -78.464986
-                              },
-        "fuente_financiamiento":  "Inversión Pública",
-        "inversion_telecom":  975000,
-        "monto_total":  null,
-        "inversion_obra_civil":  null,
-        "observaciones":  "En base a la Ordenanza Metropolitana 042, se establece que las empresas públicas están excentas de pago de la Tasa de la LMU 40-A que autoriza la la construcción de infraestructura físicas de redes de servicio.\n\nMediante Oficio Nro.Oficio Nro. EPMMOP-GOP-2026-1897-O de 29 de julio de 2026, se emite mediante una matriz adjunta el valor aproximado del proyecto de soterramient."
+        "id": "sot_58",
+        "nro": 58,
+        "nombre": "Av. El Inca",
+        "nombre_original": "AV. EL INCA",
+        "ano": 2026,
+        "ejecutor": "EPMMOP",
+        "estado": "EN EJECUCIÓN",
+        "tipo_proyecto": "REGENERACIÓN URBANA",
+        "kilometros": 7.09396,
+        "provincia": "PICHINCHA",
+        "canton": "QUITO",
+        "parroquia": "Kennedy",
+        "via_principal": "Av. El Inca",
+        "coordenadas_inicial": {
+            "lat": -0.152063,
+            "lng": -78.465032
+        },
+        "coordenadas_final": {
+            "lat": -0.151405,
+            "lng": -78.474224
+        },
+        "fuente_financiamiento": "Inversión Pública",
+        "inversion_telecom": 975000,
+        "monto_total": null,
+        "inversion_obra_civil": null,
+        "observaciones": "En base a la Ordenanza Metropolitana 042, se establece que las empresas públicas están excentas de pago de la Tasa de la LMU 40-A que autoriza la la construcción de infraestructura físicas de redes de servicio.\n\nMediante Oficio Nro.Oficio Nro. EPMMOP-GOP-2026-1897-O de 29 de julio de 2026, se emite mediante una matriz adjunta el valor aproximado del proyecto de soterramient.",
+        "centro": {
+            "lat": -0.152652,
+            "lng": -78.473685
+        },
+        "bbox": [
+            -78.477983,
+            -0.155426,
+            -78.464879,
+            -0.148583
+        ],
+        "poligono_codigo": "AVINC",
+        "coordenadas_actualizadas": true
     },
     {
-        "id":  "sot_59",
-        "nro":  59,
-        "nombre":  "Av. Ajaví",
-        "nombre_original":  "AV. AJAVI",
-        "ano":  2026,
-        "ejecutor":  "EPMMOP",
-        "estado":  "EN EJECUCIÓN",
-        "tipo_proyecto":  "REGENERACIÓN URBANA",
-        "kilometros":  3.43177,
-        "provincia":  "PICHINCHA",
-        "canton":  "QUITO",
-        "parroquia":  "San Bartolo",
-        "via_principal":  "Av. Ajaví",
-        "coordenadas_inicial":  {
-                                    "lat":  -0.256853,
-                                    "lng":  -78.54275
-                                },
-        "coordenadas_final":  {
-                                  "lat":  -0.268703,
-                                  "lng":  -78.533272
-                              },
-        "fuente_financiamiento":  "Inversión Pública",
-        "inversion_telecom":  1274038.52,
-        "monto_total":  null,
-        "inversion_obra_civil":  null,
-        "observaciones":  "En base a la Ordenanza Metropolitana 042, se establece que las empresas públicas están excentas de pago de la Tasa de la LMU 40-A que autoriza la la construcción de infraestructura físicas de redes de servicio.\n\nMediante Oficio Nro.Oficio Nro. EPMMOP-GOP-2026-1897-O de 29 de julio de 2026, se emite mediante una matriz adjunta el valor aproximado del proyecto de soterramient."
+        "id": "sot_59",
+        "nro": 59,
+        "nombre": "Av. Ajaví",
+        "nombre_original": "AV. AJAVI",
+        "ano": 2026,
+        "ejecutor": "EPMMOP",
+        "estado": "EN EJECUCIÓN",
+        "tipo_proyecto": "REGENERACIÓN URBANA",
+        "kilometros": 3.43177,
+        "provincia": "PICHINCHA",
+        "canton": "QUITO",
+        "parroquia": "San Bartolo",
+        "via_principal": "Av. Ajaví",
+        "coordenadas_inicial": {
+            "lat": -0.256708,
+            "lng": -78.542643
+        },
+        "coordenadas_final": {
+            "lat": -0.266532,
+            "lng": -78.534579
+        },
+        "fuente_financiamiento": "Inversión Pública",
+        "inversion_telecom": 1274038.52,
+        "monto_total": null,
+        "inversion_obra_civil": null,
+        "observaciones": "En base a la Ordenanza Metropolitana 042, se establece que las empresas públicas están excentas de pago de la Tasa de la LMU 40-A que autoriza la la construcción de infraestructura físicas de redes de servicio.\n\nMediante Oficio Nro.Oficio Nro. EPMMOP-GOP-2026-1897-O de 29 de julio de 2026, se emite mediante una matriz adjunta el valor aproximado del proyecto de soterramient.",
+        "centro": {
+            "lat": -0.26201,
+            "lng": -78.537864
+        },
+        "bbox": [
+            -78.542948,
+            -0.268574,
+            -78.532933,
+            -0.256708
+        ],
+        "poligono_codigo": "AVAJA",
+        "coordenadas_actualizadas": true
     },
     {
-        "id":  "sot_60",
-        "nro":  60,
-        "nombre":  "Av. Cusubamba",
-        "nombre_original":  "AV. CUSUBAMBA",
-        "ano":  2026,
-        "ejecutor":  "EPMMOP",
-        "estado":  "EN EJECUCIÓN",
-        "tipo_proyecto":  "REGENERACIÓN URBANA",
-        "kilometros":  4.17318,
-        "provincia":  "PICHINCHA",
-        "canton":  "QUITO",
-        "parroquia":  "La Mena",
-        "via_principal":  "Cusubamba",
-        "coordenadas_inicial":  {
-                                    "lat":  -0.2712,
-                                    "lng":  -78.551817
-                                },
-        "coordenadas_final":  {
-                                  "lat":  -0.276778,
-                                  "lng":  -78.542528
-                              },
-        "fuente_financiamiento":  "Inversión Pública",
-        "inversion_telecom":  1155000,
-        "monto_total":  null,
-        "inversion_obra_civil":  null,
-        "observaciones":  "En base a la Ordenanza Metropolitana 042, se establece que las empresas públicas están excentas de pago de la Tasa de la LMU 40-A que autoriza la la construcción de infraestructura físicas de redes de servicio.\n\nMediante Oficio Nro.Oficio Nro. EPMMOP-GOP-2026-1897-O de 29 de julio de 2026, se emite mediante una matriz adjunta el valor aproximado del proyecto de soterramient."
+        "id": "sot_60",
+        "nro": 60,
+        "nombre": "Av. Cusubamba",
+        "nombre_original": "AV. CUSUBAMBA",
+        "ano": 2026,
+        "ejecutor": "EPMMOP",
+        "estado": "EN EJECUCIÓN",
+        "tipo_proyecto": "REGENERACIÓN URBANA",
+        "kilometros": 4.17318,
+        "provincia": "PICHINCHA",
+        "canton": "QUITO",
+        "parroquia": "La Mena",
+        "via_principal": "Cusubamba",
+        "coordenadas_inicial": {
+            "lat": -0.277161,
+            "lng": -78.54259
+        },
+        "coordenadas_final": {
+            "lat": -0.271288,
+            "lng": -78.551721
+        },
+        "fuente_financiamiento": "Inversión Pública",
+        "inversion_telecom": 1155000,
+        "monto_total": null,
+        "inversion_obra_civil": null,
+        "observaciones": "En base a la Ordenanza Metropolitana 042, se establece que las empresas públicas están excentas de pago de la Tasa de la LMU 40-A que autoriza la la construcción de infraestructura físicas de redes de servicio.\n\nMediante Oficio Nro.Oficio Nro. EPMMOP-GOP-2026-1897-O de 29 de julio de 2026, se emite mediante una matriz adjunta el valor aproximado del proyecto de soterramient.",
+        "centro": {
+            "lat": -0.274365,
+            "lng": -78.545474
+        },
+        "bbox": [
+            -78.551819,
+            -0.277161,
+            -78.54224,
+            -0.271124
+        ],
+        "poligono_codigo": "AVCUS",
+        "coordenadas_actualizadas": true
     },
     {
-        "id":  "sot_61",
-        "nro":  61,
-        "nombre":  "Av. La Prensa",
-        "nombre_original":  "AV. PRENSA",
-        "ano":  2026,
-        "ejecutor":  "EPMMOP",
-        "estado":  "EN EJECUCIÓN",
-        "tipo_proyecto":  "REGENERACIÓN URBANA",
-        "kilometros":  7.09396,
-        "provincia":  "PICHINCHA",
-        "canton":  "QUITO",
-        "parroquia":  "Ponceano",
-        "via_principal":  "Av. La Prensa",
-        "coordenadas_inicial":  {
-                                    "lat":  -0.121664,
-                                    "lng":  -78.493978
-                                },
-        "coordenadas_final":  {
-                                  "lat":  -0.111,
-                                  "lng":  -78.490014
-                              },
-        "fuente_financiamiento":  "Inversión Pública",
-        "inversion_telecom":  1162787.34,
-        "monto_total":  null,
-        "inversion_obra_civil":  null,
-        "observaciones":  "En base a la Ordenanza Metropolitana 042, se establece que las empresas públicas están excentas de pago de la Tasa de la LMU 40-A que autoriza la la construcción de infraestructura físicas de redes de servicio.\n\nMediante el formulario para la Emisión de la LMU40-A, de fecha 05 de enero de 2026, la EPMMOP declaró y suscribió que el costo estimado para la ejecución del proyecto de infraestructura de telecomunicaciones asciende a USD 1.162.787,34."
+        "id": "sot_61",
+        "nro": 61,
+        "nombre": "Av. La Prensa",
+        "nombre_original": "AV. PRENSA",
+        "ano": 2026,
+        "ejecutor": "EPMMOP",
+        "estado": "EN EJECUCIÓN",
+        "tipo_proyecto": "REGENERACIÓN URBANA",
+        "kilometros": 7.09396,
+        "provincia": "PICHINCHA",
+        "canton": "QUITO",
+        "parroquia": "Ponceano",
+        "via_principal": "Av. La Prensa",
+        "coordenadas_inicial": {
+            "lat": -0.121657,
+            "lng": -78.494026
+        },
+        "coordenadas_final": {
+            "lat": -0.111718,
+            "lng": -78.492284
+        },
+        "fuente_financiamiento": "Inversión Pública",
+        "inversion_telecom": 1162787.34,
+        "monto_total": null,
+        "inversion_obra_civil": null,
+        "observaciones": "En base a la Ordenanza Metropolitana 042, se establece que las empresas públicas están excentas de pago de la Tasa de la LMU 40-A que autoriza la la construcción de infraestructura físicas de redes de servicio.\n\nMediante el formulario para la Emisión de la LMU40-A, de fecha 05 de enero de 2026, la EPMMOP declaró y suscribió que el costo estimado para la ejecución del proyecto de infraestructura de telecomunicaciones asciende a USD 1.162.787,34.",
+        "centro": {
+            "lat": -0.115745,
+            "lng": -78.493697
+        },
+        "bbox": [
+            -78.495267,
+            -0.121662,
+            -78.490527,
+            -0.111162
+        ],
+        "poligono_codigo": "AVPRE",
+        "coordenadas_actualizadas": true
     },
     {
-        "id":  "sot_62",
-        "nro":  62,
-        "nombre":  "Bicentenario",
-        "nombre_original":  "BICENTENARIO",
-        "ano":  2026,
-        "ejecutor":  "EPMMOP",
-        "estado":  "EN EJECUCIÓN",
-        "tipo_proyecto":  "REGENERACIÓN URBANA",
-        "kilometros":  2.888586,
-        "provincia":  "PICHINCHA",
-        "canton":  "QUITO",
-        "parroquia":  "La Concepción",
-        "via_principal":  "Prolongación De La Av. Amazonas",
-        "coordenadas_inicial":  {
-                                    "lat":  -0.127511,
-                                    "lng":  -78.491672
-                                },
-        "coordenadas_final":  {
-                                  "lat":  -0.146292,
-                                  "lng":  -78.490158
-                              },
-        "fuente_financiamiento":  "Inversión Pública",
-        "inversion_telecom":  1155000,
-        "monto_total":  null,
-        "inversion_obra_civil":  null,
-        "observaciones":  "En base a la Ordenanza Metropolitana 042, se establece que las empresas públicas están excentas de pago de la Tasa de la LMU 40-A que autoriza la la construcción de infraestructura físicas de redes de servicio.\n\nMediante Oficio Nro.Oficio Nro. EPMMOP-GOP-2026-1897-O de 29 de julio de 2026, se emite mediante una matriz adjunta el valor aproximado del proyecto de soterramient."
+        "id": "sot_62",
+        "nro": 62,
+        "nombre": "Bicentenario",
+        "nombre_original": "BICENTENARIO",
+        "ano": 2026,
+        "ejecutor": "EPMMOP",
+        "estado": "EN EJECUCIÓN",
+        "tipo_proyecto": "REGENERACIÓN URBANA",
+        "kilometros": 2.888586,
+        "provincia": "PICHINCHA",
+        "canton": "QUITO",
+        "parroquia": "La Concepción",
+        "via_principal": "Prolongación De La Av. Amazonas",
+        "coordenadas_inicial": {
+            "lat": -0.145696,
+            "lng": -78.490629
+        },
+        "coordenadas_final": {
+            "lat": -0.131502,
+            "lng": -78.490763
+        },
+        "fuente_financiamiento": "Inversión Pública",
+        "inversion_telecom": 1155000,
+        "monto_total": null,
+        "inversion_obra_civil": null,
+        "observaciones": "En base a la Ordenanza Metropolitana 042, se establece que las empresas públicas están excentas de pago de la Tasa de la LMU 40-A que autoriza la la construcción de infraestructura físicas de redes de servicio.\n\nMediante Oficio Nro.Oficio Nro. EPMMOP-GOP-2026-1897-O de 29 de julio de 2026, se emite mediante una matriz adjunta el valor aproximado del proyecto de soterramient.",
+        "centro": {
+            "lat": -0.139539,
+            "lng": -78.490218
+        },
+        "bbox": [
+            -78.491672,
+            -0.145696,
+            -78.489284,
+            -0.127482
+        ],
+        "poligono_codigo": "BICEN",
+        "coordenadas_actualizadas": true
     },
     {
-        "id":  "sot_63",
-        "nro":  63,
-        "nombre":  "Quitopía La Y",
-        "nombre_original":  "QUITOPIA LA Y",
-        "ano":  2026,
-        "ejecutor":  "EPMHV",
-        "estado":  "EN EJECUCIÓN",
-        "tipo_proyecto":  "REGENERACIÓN URBANA",
-        "kilometros":  1.459,
-        "provincia":  "PICHINCHA",
-        "canton":  "QUITO",
-        "parroquia":  "Jipijapa",
-        "via_principal":  "Proyecto Integral La Y",
-        "coordenadas_inicial":  {
-                                    "lat":  -0.166664,
-                                    "lng":  -78.486347
-                                },
-        "coordenadas_final":  {
-                                  "lat":  -0.162022,
-                                  "lng":  -78.483186
-                              },
-        "fuente_financiamiento":  "Inversión Pública",
-        "inversion_telecom":  105514.26,
-        "monto_total":  null,
-        "inversion_obra_civil":  null,
-        "observaciones":  "En base a la Ordenanza Metropolitana 042, se establece que las empresas públicas están excentas de pago de la Tasa de la LMU 40-A que autoriza la la construcción de infraestructura físicas de redes de servicio.\n\nMediante Oficio Nro.Oficio Nro. Oficio Nro. EPMHV-GG-2026-0932-O  de 07 de agosto de 2026, se emite mediante el formulario adjunto el valor aproximado del proyecto de soterramient."
+        "id": "sot_63",
+        "nro": 63,
+        "nombre": "Quitopía La Y",
+        "nombre_original": "QUITOPIA LA Y",
+        "ano": 2026,
+        "ejecutor": "EPMHV",
+        "estado": "EN EJECUCIÓN",
+        "tipo_proyecto": "REGENERACIÓN URBANA",
+        "kilometros": 1.459,
+        "provincia": "PICHINCHA",
+        "canton": "QUITO",
+        "parroquia": "Jipijapa",
+        "via_principal": "Proyecto Integral La Y",
+        "coordenadas_inicial": {
+            "lat": -0.166416,
+            "lng": -78.48641
+        },
+        "coordenadas_final": {
+            "lat": -0.162688,
+            "lng": -78.483374
+        },
+        "fuente_financiamiento": "Inversión Pública",
+        "inversion_telecom": 105514.26,
+        "monto_total": null,
+        "inversion_obra_civil": null,
+        "observaciones": "En base a la Ordenanza Metropolitana 042, se establece que las empresas públicas están excentas de pago de la Tasa de la LMU 40-A que autoriza la la construcción de infraestructura físicas de redes de servicio.\n\nMediante Oficio Nro.Oficio Nro. Oficio Nro. EPMHV-GG-2026-0932-O  de 07 de agosto de 2026, se emite mediante el formulario adjunto el valor aproximado del proyecto de soterramient.",
+        "centro": {
+            "lat": -0.163769,
+            "lng": -78.484927
+        },
+        "bbox": [
+            -78.486437,
+            -0.166951,
+            -78.48324,
+            -0.161608
+        ],
+        "poligono_codigo": "QLAY",
+        "coordenadas_actualizadas": true
     },
     {
-        "id":  "sot_64",
-        "nro":  64,
-        "nombre":  "Puente Ciudad Bicentenario",
-        "nombre_original":  "PUENTE CIUDAD BICENTENARIO",
-        "ano":  2026,
-        "ejecutor":  "EPMMOP",
-        "estado":  "EN EJECUCIÓN",
-        "tipo_proyecto":  "REGENERACIÓN URBANA",
-        "kilometros":  0.31673,
-        "provincia":  "PICHINCHA",
-        "canton":  "QUITO",
-        "parroquia":  "Calderón",
-        "via_principal":  "Av. Simón Bolivar",
-        "coordenadas_inicial":  {
-                                    "lat":  -0.064119,
-                                    "lng":  -78.453106
-                                },
-        "coordenadas_final":  {
-                                  "lat":  -0.061422,
-                                  "lng":  -78.452803
-                              },
-        "fuente_financiamiento":  "Inversión Pública",
-        "inversion_telecom":  36958.49,
-        "monto_total":  null,
-        "inversion_obra_civil":  null,
-        "observaciones":  "En base a la Ordenanza Metropolitana 042, se establece que las empresas públicas están excentas de pago de la Tasa de la LMU 40-A que autoriza la la construcción de infraestructura físicas de redes de servicio.\n\nMediante el formulario para la Emisión de la LMU40-A, de fecha 26 de enero de 2026, la EPMMOP declaró y suscribió que el costo estimado para la ejecución del proyecto de infraestructura de telecomunicaciones asciende a USD 36.958,49."
+        "id": "sot_64",
+        "nro": 64,
+        "nombre": "Puente Ciudad Bicentenario",
+        "nombre_original": "PUENTE CIUDAD BICENTENARIO",
+        "ano": 2026,
+        "ejecutor": "EPMMOP",
+        "estado": "EN EJECUCIÓN",
+        "tipo_proyecto": "REGENERACIÓN URBANA",
+        "kilometros": 0.31673,
+        "provincia": "PICHINCHA",
+        "canton": "QUITO",
+        "parroquia": "Calderón",
+        "via_principal": "Av. Simón Bolivar",
+        "coordenadas_inicial": {
+            "lat": -0.064149,
+            "lng": -78.453049
+        },
+        "coordenadas_final": {
+            "lat": -0.061447,
+            "lng": -78.452775
+        },
+        "fuente_financiamiento": "Inversión Pública",
+        "inversion_telecom": 36958.49,
+        "monto_total": null,
+        "inversion_obra_civil": null,
+        "observaciones": "En base a la Ordenanza Metropolitana 042, se establece que las empresas públicas están excentas de pago de la Tasa de la LMU 40-A que autoriza la la construcción de infraestructura físicas de redes de servicio.\n\nMediante el formulario para la Emisión de la LMU40-A, de fecha 26 de enero de 2026, la EPMMOP declaró y suscribió que el costo estimado para la ejecución del proyecto de infraestructura de telecomunicaciones asciende a USD 36.958,49.",
+        "centro": {
+            "lat": -0.062949,
+            "lng": -78.45303
+        },
+        "bbox": [
+            -78.453161,
+            -0.064157,
+            -78.452775,
+            -0.061413
+        ],
+        "poligono_codigo": "PCBIC",
+        "coordenadas_actualizadas": true
     },
     {
-        "id":  "sot_65",
-        "nro":  65,
-        "nombre":  "Av. Teniente Hugo Ortiz",
-        "nombre_original":  "AV. TENIENTE HUGO ORTIZ",
-        "ano":  "2026 - 2027",
-        "ejecutor":  "EPMMOP",
-        "estado":  "PLANIFICADO",
-        "tipo_proyecto":  "REGENERACIÓN URBANA",
-        "kilometros":  7.09396,
-        "provincia":  "PICHINCHA",
-        "canton":  "QUITO",
-        "parroquia":  "La Magdalena",
-        "via_principal":  "Av. Teniente Hugo Ortiz",
-        "coordenadas_inicial":  {
-                                    "lat":  -0.241753,
-                                    "lng":  -78.532189
-                                },
-        "coordenadas_final":  {
-                                  "lat":  -0.279183,
-                                  "lng":  -78.542833
-                              },
-        "fuente_financiamiento":  "Inversión Pública",
-        "inversion_telecom":  1854323.5,
-        "monto_total":  null,
-        "inversion_obra_civil":  null,
-        "observaciones":  "En base a la Ordenanza Metropolitana 042, se establece que las empresas públicas están excentas de pago de la Tasa de la LMU 40-A que autoriza la la construcción de infraestructura físicas de redes de servicio.\n\nMediante Oficio Nro.Oficio Nro. EPMMOP-GOP-2026-1897-O de 29 de julio de 2026, se emite mediante una matriz adjunta el valor aproximado del proyecto de soterramient."
+        "id": "sot_65",
+        "nro": 65,
+        "nombre": "Av. Teniente Hugo Ortiz",
+        "nombre_original": "AV. TENIENTE HUGO ORTIZ",
+        "ano": "2026 - 2027",
+        "ejecutor": "EPMMOP",
+        "estado": "PLANIFICADO",
+        "tipo_proyecto": "REGENERACIÓN URBANA",
+        "kilometros": 7.09396,
+        "provincia": "PICHINCHA",
+        "canton": "QUITO",
+        "parroquia": "La Magdalena",
+        "via_principal": "Av. Teniente Hugo Ortiz",
+        "coordenadas_inicial": {
+            "lat": -0.241753,
+            "lng": -78.532189
+        },
+        "coordenadas_final": {
+            "lat": -0.279183,
+            "lng": -78.542833
+        },
+        "fuente_financiamiento": "Inversión Pública",
+        "inversion_telecom": 1854323.5,
+        "monto_total": null,
+        "inversion_obra_civil": null,
+        "observaciones": "En base a la Ordenanza Metropolitana 042, se establece que las empresas públicas están excentas de pago de la Tasa de la LMU 40-A que autoriza la la construcción de infraestructura físicas de redes de servicio.\n\nMediante Oficio Nro.Oficio Nro. EPMMOP-GOP-2026-1897-O de 29 de julio de 2026, se emite mediante una matriz adjunta el valor aproximado del proyecto de soterramient."
     },
     {
-        "id":  "sot_66",
-        "nro":  66,
-        "nombre":  "Av. Mañosca",
-        "nombre_original":  "AV. MAÑOSCA",
-        "ano":  "2026 - 2027",
-        "ejecutor":  "EPMMOP",
-        "estado":  "PLANIFICADO",
-        "tipo_proyecto":  "REGENERACIÓN URBANA",
-        "kilometros":  4.40646,
-        "provincia":  "PICHINCHA",
-        "canton":  "QUITO",
-        "parroquia":  "Rumipamba",
-        "via_principal":  "Av. Mañosca",
-        "coordenadas_inicial":  {
-                                    "lat":  -0.175233,
-                                    "lng":  -78.501197
-                                },
-        "coordenadas_final":  {
-                                  "lat":  -0.177778,
-                                  "lng":  -78.488972
-                              },
-        "fuente_financiamiento":  "Inversión Pública",
-        "inversion_telecom":  650000,
-        "monto_total":  null,
-        "inversion_obra_civil":  null,
-        "observaciones":  "En base a la Ordenanza Metropolitana 042, se establece que las empresas públicas están excentas de pago de la Tasa de la LMU 40-A que autoriza la la construcción de infraestructura físicas de redes de servicio.\n\nMediante Oficio Nro.Oficio Nro. EPMMOP-GOP-2026-1897-O de 29 de julio de 2026, se emite mediante una matriz adjunta el valor aproximado del proyecto de soterramient."
+        "id": "sot_66",
+        "nro": 66,
+        "nombre": "Av. Mañosca",
+        "nombre_original": "AV. MAÑOSCA",
+        "ano": "2026 - 2027",
+        "ejecutor": "EPMMOP",
+        "estado": "PLANIFICADO",
+        "tipo_proyecto": "REGENERACIÓN URBANA",
+        "kilometros": 4.40646,
+        "provincia": "PICHINCHA",
+        "canton": "QUITO",
+        "parroquia": "Rumipamba",
+        "via_principal": "Av. Mañosca",
+        "coordenadas_inicial": {
+            "lat": -0.175233,
+            "lng": -78.501197
+        },
+        "coordenadas_final": {
+            "lat": -0.177778,
+            "lng": -78.488972
+        },
+        "fuente_financiamiento": "Inversión Pública",
+        "inversion_telecom": 650000,
+        "monto_total": null,
+        "inversion_obra_civil": null,
+        "observaciones": "En base a la Ordenanza Metropolitana 042, se establece que las empresas públicas están excentas de pago de la Tasa de la LMU 40-A que autoriza la la construcción de infraestructura físicas de redes de servicio.\n\nMediante Oficio Nro.Oficio Nro. EPMMOP-GOP-2026-1897-O de 29 de julio de 2026, se emite mediante una matriz adjunta el valor aproximado del proyecto de soterramient."
     },
     {
-        "id":  "sot_67",
-        "nro":  67,
-        "nombre":  "Av. La Gasca",
-        "nombre_original":  "AV. LA GASCA",
-        "ano":  "2026 - 2027",
-        "ejecutor":  "EPMMOP",
-        "estado":  "PLANIFICADO",
-        "tipo_proyecto":  "REGENERACIÓN URBANA",
-        "kilometros":  3.4834,
-        "provincia":  "PICHINCHA",
-        "canton":  "QUITO",
-        "parroquia":  "Belisario Quevedo",
-        "via_principal":  "AV. LA GASCA",
-        "coordenadas_inicial":  {
-                                    "lat":  -0.194611,
-                                    "lng":  -78.511528
-                                },
-        "coordenadas_final":  {
-                                  "lat":  -0.197778,
-                                  "lng":  -78.500028
-                              },
-        "fuente_financiamiento":  "Inversión Pública",
-        "inversion_telecom":  510000,
-        "monto_total":  null,
-        "inversion_obra_civil":  null,
-        "observaciones":  "En base a la Ordenanza Metropolitana 042, se establece que las empresas públicas están excentas de pago de la Tasa de la LMU 40-A que autoriza la la construcción de infraestructura físicas de redes de servicio.\n\nMediante Oficio Nro.Oficio Nro. EPMMOP-GOP-2026-1897-O de 29 de julio de 2026, se emite mediante una matriz adjunta el valor aproximado del proyecto de soterramient."
+        "id": "sot_67",
+        "nro": 67,
+        "nombre": "Av. La Gasca",
+        "nombre_original": "AV. LA GASCA",
+        "ano": "2026 - 2027",
+        "ejecutor": "EPMMOP",
+        "estado": "PLANIFICADO",
+        "tipo_proyecto": "REGENERACIÓN URBANA",
+        "kilometros": 3.4834,
+        "provincia": "PICHINCHA",
+        "canton": "QUITO",
+        "parroquia": "Belisario Quevedo",
+        "via_principal": "AV. LA GASCA",
+        "coordenadas_inicial": {
+            "lat": -0.194611,
+            "lng": -78.511528
+        },
+        "coordenadas_final": {
+            "lat": -0.197778,
+            "lng": -78.500028
+        },
+        "fuente_financiamiento": "Inversión Pública",
+        "inversion_telecom": 510000,
+        "monto_total": null,
+        "inversion_obra_civil": null,
+        "observaciones": "En base a la Ordenanza Metropolitana 042, se establece que las empresas públicas están excentas de pago de la Tasa de la LMU 40-A que autoriza la la construcción de infraestructura físicas de redes de servicio.\n\nMediante Oficio Nro.Oficio Nro. EPMMOP-GOP-2026-1897-O de 29 de julio de 2026, se emite mediante una matriz adjunta el valor aproximado del proyecto de soterramient."
     },
     {
-        "id":  "sot_68",
-        "nro":  68,
-        "nombre":  "Av. 12 de Octubre",
-        "nombre_original":  "AV. 12 DE OCTUBRE",
-        "ano":  "2026 - 2027",
-        "ejecutor":  "EPMMOP",
-        "estado":  "PLANIFICADO",
-        "tipo_proyecto":  "REGENERACIÓN URBANA",
-        "kilometros":  5.55433,
-        "provincia":  "PICHINCHA",
-        "canton":  "QUITO",
-        "parroquia":  "Itchimbía",
-        "via_principal":  "Av. 12 De Octubre",
-        "coordenadas_inicial":  {
-                                    "lat":  -0.211611,
-                                    "lng":  -78.49875
-                                },
-        "coordenadas_final":  {
-                                  "lat":  -0.197114,
-                                  "lng":  -78.481806
-                              },
-        "fuente_financiamiento":  "Inversión Pública",
-        "inversion_telecom":  974796,
-        "monto_total":  null,
-        "inversion_obra_civil":  null,
-        "observaciones":  "En base a la Ordenanza Metropolitana 042, se establece que las empresas públicas están excentas de pago de la Tasa de la LMU 40-A que autoriza la la construcción de infraestructura físicas de redes de servicio.\n\nMediante Oficio Nro.Oficio Nro. EPMMOP-GOP-2026-1897-O de 29 de julio de 2026, se emite mediante una matriz adjunta el valor aproximado del proyecto de soterramient."
+        "id": "sot_68",
+        "nro": 68,
+        "nombre": "Av. 12 de Octubre",
+        "nombre_original": "AV. 12 DE OCTUBRE",
+        "ano": "2026 - 2027",
+        "ejecutor": "EPMMOP",
+        "estado": "PLANIFICADO",
+        "tipo_proyecto": "REGENERACIÓN URBANA",
+        "kilometros": 5.55433,
+        "provincia": "PICHINCHA",
+        "canton": "QUITO",
+        "parroquia": "Itchimbía",
+        "via_principal": "Av. 12 De Octubre",
+        "coordenadas_inicial": {
+            "lat": -0.211611,
+            "lng": -78.49875
+        },
+        "coordenadas_final": {
+            "lat": -0.197114,
+            "lng": -78.481806
+        },
+        "fuente_financiamiento": "Inversión Pública",
+        "inversion_telecom": 974796,
+        "monto_total": null,
+        "inversion_obra_civil": null,
+        "observaciones": "En base a la Ordenanza Metropolitana 042, se establece que las empresas públicas están excentas de pago de la Tasa de la LMU 40-A que autoriza la la construcción de infraestructura físicas de redes de servicio.\n\nMediante Oficio Nro.Oficio Nro. EPMMOP-GOP-2026-1897-O de 29 de julio de 2026, se emite mediante una matriz adjunta el valor aproximado del proyecto de soterramient."
     },
     {
-        "id":  "sot_69",
-        "nro":  69,
-        "nombre":  "Av. 6 de Diciembre (Planificado)",
-        "nombre_original":  "AV. 6 DE DICIEMBRE",
-        "ano":  "2026 - 2027",
-        "ejecutor":  "EPMMOP",
-        "estado":  "PLANIFICADO",
-        "tipo_proyecto":  "REGENERACIÓN URBANA",
-        "kilometros":  2.18291,
-        "provincia":  "PICHINCHA",
-        "canton":  "QUITO",
-        "parroquia":  "Jipijapa",
-        "via_principal":  "Av. 6 de Diciembre",
-        "coordenadas_inicial":  {
-                                    "lat":  -0.170306,
-                                    "lng":  -78.476306
-                                },
-        "coordenadas_final":  {
-                                  "lat":  -0.1785,
-                                  "lng":  -78.478167
-                              },
-        "fuente_financiamiento":  "Inversión Pública",
-        "inversion_telecom":  664641.23,
-        "monto_total":  null,
-        "inversion_obra_civil":  null,
-        "observaciones":  "En base a la Ordenanza Metropolitana 042, se establece que las empresas públicas están excentas de pago de la Tasa de la LMU 40-A que autoriza la la construcción de infraestructura físicas de redes de servicio.\n\nMediante Oficio Nro.Oficio Nro. EPMMOP-GOP-2026-1897-O de 29 de julio de 2026, se emite mediante una matriz adjunta el valor aproximado del proyecto de soterramient."
+        "id": "sot_69",
+        "nro": 69,
+        "nombre": "Av. 6 de Diciembre (Planificado)",
+        "nombre_original": "AV. 6 DE DICIEMBRE",
+        "ano": "2026 - 2027",
+        "ejecutor": "EPMMOP",
+        "estado": "PLANIFICADO",
+        "tipo_proyecto": "REGENERACIÓN URBANA",
+        "kilometros": 2.18291,
+        "provincia": "PICHINCHA",
+        "canton": "QUITO",
+        "parroquia": "Jipijapa",
+        "via_principal": "Av. 6 de Diciembre",
+        "coordenadas_inicial": {
+            "lat": -0.170546,
+            "lng": -78.476044
+        },
+        "coordenadas_final": {
+            "lat": -0.176907,
+            "lng": -78.477721
+        },
+        "fuente_financiamiento": "Inversión Pública",
+        "inversion_telecom": 664641.23,
+        "monto_total": null,
+        "inversion_obra_civil": null,
+        "observaciones": "En base a la Ordenanza Metropolitana 042, se establece que las empresas públicas están excentas de pago de la Tasa de la LMU 40-A que autoriza la la construcción de infraestructura físicas de redes de servicio.\n\nMediante Oficio Nro.Oficio Nro. EPMMOP-GOP-2026-1897-O de 29 de julio de 2026, se emite mediante una matriz adjunta el valor aproximado del proyecto de soterramient.",
+        "centro": {
+            "lat": -0.174865,
+            "lng": -78.476653
+        },
+        "bbox": [
+            -78.477952,
+            -0.178326,
+            -78.473573,
+            -0.170523
+        ],
+        "poligono_codigo": "6DIC",
+        "coordenadas_actualizadas": true
     },
     {
-        "id":  "sot_70",
-        "nro":  70,
-        "nombre":  "Calle Jorge Garcés",
-        "nombre_original":  "CALLE JORGE GARCÉS",
-        "ano":  "2026 - 2027",
-        "ejecutor":  "EPMMOP",
-        "estado":  "PLANIFICADO",
-        "tipo_proyecto":  "REGENERACIÓN URBANA",
-        "kilometros":  3.06959,
-        "provincia":  "PICHINCHA",
-        "canton":  "QUITO",
-        "parroquia":  "Comité del Pueblo",
-        "via_principal":  "CALLE JORGE GARCÉS",
-        "coordenadas_inicial":  {
-                                    "lat":  -0.119278,
-                                    "lng":  -78.464833
-                                },
-        "coordenadas_final":  {
-                                  "lat":  -0.128764,
-                                  "lng":  -78.472119
-                              },
-        "fuente_financiamiento":  "Inversión Pública",
-        "inversion_telecom":  724116.27,
-        "monto_total":  null,
-        "inversion_obra_civil":  null,
-        "observaciones":  "En base a la Ordenanza Metropolitana 042, se establece que las empresas públicas están excentas de pago de la Tasa de la LMU 40-A que autoriza la la construcción de infraestructura físicas de redes de servicio.\n\nMediante Oficio Nro.Oficio Nro. EPMMOP-GOP-2026-1897-O de 29 de julio de 2026, se emite mediante una matriz adjunta el valor aproximado del proyecto de soterramient."
+        "id": "sot_70",
+        "nro": 70,
+        "nombre": "Calle Jorge Garcés",
+        "nombre_original": "CALLE JORGE GARCÉS",
+        "ano": "2026 - 2027",
+        "ejecutor": "EPMMOP",
+        "estado": "PLANIFICADO",
+        "tipo_proyecto": "REGENERACIÓN URBANA",
+        "kilometros": 3.06959,
+        "provincia": "PICHINCHA",
+        "canton": "QUITO",
+        "parroquia": "Comité del Pueblo",
+        "via_principal": "CALLE JORGE GARCÉS",
+        "coordenadas_inicial": {
+            "lat": -0.119278,
+            "lng": -78.464833
+        },
+        "coordenadas_final": {
+            "lat": -0.128764,
+            "lng": -78.472119
+        },
+        "fuente_financiamiento": "Inversión Pública",
+        "inversion_telecom": 724116.27,
+        "monto_total": null,
+        "inversion_obra_civil": null,
+        "observaciones": "En base a la Ordenanza Metropolitana 042, se establece que las empresas públicas están excentas de pago de la Tasa de la LMU 40-A que autoriza la la construcción de infraestructura físicas de redes de servicio.\n\nMediante Oficio Nro.Oficio Nro. EPMMOP-GOP-2026-1897-O de 29 de julio de 2026, se emite mediante una matriz adjunta el valor aproximado del proyecto de soterramient."
     },
     {
-        "id":  "sot_71",
-        "nro":  71,
-        "nombre":  "Av. Mariscal Sucre y Alonso de Angulo",
-        "nombre_original":  "AV. MARISCAL SUCRE Y ALONSO DE ANGULO",
-        "ano":  "2026 - 2027",
-        "ejecutor":  "EPMMOP",
-        "estado":  "PLANIFICADO",
-        "tipo_proyecto":  "REGENERACIÓN URBANA",
-        "kilometros":  10.2,
-        "provincia":  "PICHINCHA",
-        "canton":  "QUITO",
-        "parroquia":  "Chilibulo",
-        "via_principal":  "Av. Mariscal Sucre y Alonso de Angúlo",
-        "coordenadas_inicial":  {
-                                    "lat":  -0.236042,
-                                    "lng":  -78.526825
-                                },
-        "coordenadas_final":  {
-                                  "lat":  -0.245611,
-                                  "lng":  -78.519528
-                              },
-        "fuente_financiamiento":  "Inversión Pública",
-        "inversion_telecom":  2130521.69,
-        "monto_total":  null,
-        "inversion_obra_civil":  null,
-        "observaciones":  "En base a la Ordenanza Metropolitana 042, se establece que las empresas públicas están excentas de pago de la Tasa de la LMU 40-A que autoriza la la construcción de infraestructura físicas de redes de servicio.\n\nMediante Oficio Nro.Oficio Nro. EPMMOP-GOP-2026-1897-O de 29 de julio de 2026, se emite mediante una matriz adjunta el valor aproximado del proyecto de soterramient."
+        "id": "sot_71",
+        "nro": 71,
+        "nombre": "Av. Mariscal Sucre y Alonso de Angulo",
+        "nombre_original": "AV. MARISCAL SUCRE Y ALONSO DE ANGULO",
+        "ano": "2026 - 2027",
+        "ejecutor": "EPMMOP",
+        "estado": "PLANIFICADO",
+        "tipo_proyecto": "REGENERACIÓN URBANA",
+        "kilometros": 10.2,
+        "provincia": "PICHINCHA",
+        "canton": "QUITO",
+        "parroquia": "Chilibulo",
+        "via_principal": "Av. Mariscal Sucre y Alonso de Angúlo",
+        "coordenadas_inicial": {
+            "lat": -0.235739,
+            "lng": -78.526674
+        },
+        "coordenadas_final": {
+            "lat": -0.245202,
+            "lng": -78.519395
+        },
+        "fuente_financiamiento": "Inversión Pública",
+        "inversion_telecom": 2130521.69,
+        "monto_total": null,
+        "inversion_obra_civil": null,
+        "observaciones": "En base a la Ordenanza Metropolitana 042, se establece que las empresas públicas están excentas de pago de la Tasa de la LMU 40-A que autoriza la la construcción de infraestructura físicas de redes de servicio.\n\nMediante Oficio Nro.Oficio Nro. EPMMOP-GOP-2026-1897-O de 29 de julio de 2026, se emite mediante una matriz adjunta el valor aproximado del proyecto de soterramient.",
+        "centro": {
+            "lat": -0.246286,
+            "lng": -78.529501
+        },
+        "bbox": [
+            -78.53709,
+            -0.250709,
+            -78.519368,
+            -0.235739
+        ],
+        "poligono_codigo": "MSAA",
+        "coordenadas_actualizadas": true
     },
     {
-        "id":  "sot_72",
-        "nro":  72,
-        "nombre":  "Av. América",
-        "nombre_original":  "AV. AMÉRICA",
-        "ano":  "2026 - 2027",
-        "ejecutor":  "EPMMOP",
-        "estado":  "PLANIFICADO",
-        "tipo_proyecto":  "REGENERACIÓN URBANA",
-        "kilometros":  4.3,
-        "provincia":  "PICHINCHA",
-        "canton":  "QUITO",
-        "parroquia":  "Rumipamba",
-        "via_principal":  "Av. América",
-        "coordenadas_inicial":  {
-                                    "lat":  -0.196147,
-                                    "lng":  -78.499411
-                                },
-        "coordenadas_final":  {
-                                  "lat":  -0.176419,
-                                  "lng":  -78.493833
-                              },
-        "fuente_financiamiento":  "Inversión Pública",
-        "inversion_telecom":  710000,
-        "monto_total":  null,
-        "inversion_obra_civil":  null,
-        "observaciones":  "En base a la Ordenanza Metropolitana 042, se establece que las empresas públicas están excentas de pago de la Tasa de la LMU 40-A que autoriza la la construcción de infraestructura físicas de redes de servicio.\n\nMediante Oficio Nro.Oficio Nro. EPMMOP-GOP-2026-1897-O de 29 de julio de 2026, se emite mediante una matriz adjunta el valor aproximado del proyecto de soterramient."
+        "id": "sot_72",
+        "nro": 72,
+        "nombre": "Av. América",
+        "nombre_original": "AV. AMÉRICA",
+        "ano": "2026 - 2027",
+        "ejecutor": "EPMMOP",
+        "estado": "PLANIFICADO",
+        "tipo_proyecto": "REGENERACIÓN URBANA",
+        "kilometros": 4.3,
+        "provincia": "PICHINCHA",
+        "canton": "QUITO",
+        "parroquia": "Rumipamba",
+        "via_principal": "Av. América",
+        "coordenadas_inicial": {
+            "lat": -0.196147,
+            "lng": -78.499411
+        },
+        "coordenadas_final": {
+            "lat": -0.176419,
+            "lng": -78.493833
+        },
+        "fuente_financiamiento": "Inversión Pública",
+        "inversion_telecom": 710000,
+        "monto_total": null,
+        "inversion_obra_civil": null,
+        "observaciones": "En base a la Ordenanza Metropolitana 042, se establece que las empresas públicas están excentas de pago de la Tasa de la LMU 40-A que autoriza la la construcción de infraestructura físicas de redes de servicio.\n\nMediante Oficio Nro.Oficio Nro. EPMMOP-GOP-2026-1897-O de 29 de julio de 2026, se emite mediante una matriz adjunta el valor aproximado del proyecto de soterramient."
     },
     {
-        "id":  "sot_73",
-        "nro":  73,
-        "nombre":  "Av. Galo Plaza Lasso",
-        "nombre_original":  "AV. GALO PLAZA LASSO",
-        "ano":  "2026 - 2027",
-        "ejecutor":  "EPMMOP",
-        "estado":  "PLANIFICADO",
-        "tipo_proyecto":  "REGENERACIÓN URBANA",
-        "kilometros":  11,
-        "provincia":  "PICHINCHA",
-        "canton":  "QUITO",
-        "parroquia":  "La Concepción",
-        "via_principal":  "Calle Oe3G",
-        "coordenadas_inicial":  {
-                                    "lat":  -0.146331,
-                                    "lng":  -78.490214
-                                },
-        "coordenadas_final":  {
-                                  "lat":  -0.127869,
-                                  "lng":  -78.491583
-                              },
-        "fuente_financiamiento":  "Inversión Pública",
-        "inversion_telecom":  2118761.09,
-        "monto_total":  null,
-        "inversion_obra_civil":  null,
-        "observaciones":  "En base a la Ordenanza Metropolitana 042, se establece que las empresas públicas están excentas de pago de la Tasa de la LMU 40-A que autoriza la la construcción de infraestructura físicas de redes de servicio.\n\nMediante Oficio Nro.Oficio Nro. EPMMOP-GOP-2026-1897-O de 29 de julio de 2026, se emite mediante una matriz adjunta el valor aproximado del proyecto de soterramient."
+        "id": "sot_73",
+        "nro": 73,
+        "nombre": "Av. Galo Plaza Lasso",
+        "nombre_original": "AV. GALO PLAZA LASSO",
+        "ano": "2026 - 2027",
+        "ejecutor": "EPMMOP",
+        "estado": "PLANIFICADO",
+        "tipo_proyecto": "REGENERACIÓN URBANA",
+        "kilometros": 11,
+        "provincia": "PICHINCHA",
+        "canton": "QUITO",
+        "parroquia": "La Concepción",
+        "via_principal": "Calle Oe3G",
+        "coordenadas_inicial": {
+            "lat": -0.146331,
+            "lng": -78.490214
+        },
+        "coordenadas_final": {
+            "lat": -0.127869,
+            "lng": -78.491583
+        },
+        "fuente_financiamiento": "Inversión Pública",
+        "inversion_telecom": 2118761.09,
+        "monto_total": null,
+        "inversion_obra_civil": null,
+        "observaciones": "En base a la Ordenanza Metropolitana 042, se establece que las empresas públicas están excentas de pago de la Tasa de la LMU 40-A que autoriza la la construcción de infraestructura físicas de redes de servicio.\n\nMediante Oficio Nro.Oficio Nro. EPMMOP-GOP-2026-1897-O de 29 de julio de 2026, se emite mediante una matriz adjunta el valor aproximado del proyecto de soterramient."
     }
 ]
