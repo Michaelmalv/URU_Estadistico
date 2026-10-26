@@ -2217,7 +2217,7 @@ export default function CentralidadesView() {
             {/* Selector de Dimensiones en el Modal */}
             <div className="floating-modal-tabs">
               <button
-                className={`floating-tab-btn ${activeProjectTab === 'info' ? 'active' : ''}`}
+                className={`floating-tab-btn ${activeProjectTab === 'info' ? 'active tab-info' : ''}`}
                 onClick={() => setActiveProjectTab('info')}
               >
                 <Info size={16} />
@@ -2225,7 +2225,7 @@ export default function CentralidadesView() {
               </button>
               {hasProjectSeguridad(floatingProject) && (
                 <button
-                  className={`floating-tab-btn ${activeProjectTab === 'seguridad' ? 'active' : ''}`}
+                  className={`floating-tab-btn ${activeProjectTab === 'seguridad' ? 'active tab-seguridad' : ''}`}
                   onClick={() => setActiveProjectTab('seguridad')}
                 >
                   <Shield size={16} />
@@ -2234,7 +2234,7 @@ export default function CentralidadesView() {
               )}
               {hasProjectEconomia(floatingProject) && (
                 <button
-                  className={`floating-tab-btn ${activeProjectTab === 'economia' ? 'active' : ''}`}
+                  className={`floating-tab-btn ${activeProjectTab === 'economia' ? 'active tab-economia' : ''}`}
                   onClick={() => setActiveProjectTab('economia')}
                 >
                   <TrendingUp size={16} />
@@ -2243,7 +2243,7 @@ export default function CentralidadesView() {
               )}
               {hasProjectSuelo(floatingProject) && (
                 <button
-                  className={`floating-tab-btn ${activeProjectTab === 'suelo' ? 'active' : ''}`}
+                  className={`floating-tab-btn ${activeProjectTab === 'suelo' ? 'active tab-suelo' : ''}`}
                   onClick={() => setActiveProjectTab('suelo')}
                 >
                   <DollarSign size={16} />
