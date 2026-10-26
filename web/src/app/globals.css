@@ -4630,6 +4630,17 @@ h1, h2, h3, h4, h5, h6 {
   display: inline-block;
 }
 
+.legend-polygon-soterramiento-brown {
+  width: 18px;
+  height: 8px;
+  border-radius: 3px;
+  background: rgba(120, 53, 15, 0.5);
+  border: 1.5px solid #78350f;
+  box-shadow: 0 0 6px rgba(120, 53, 15, 0.55);
+  flex-shrink: 0;
+  display: inline-block;
+}
+
 .legend-line-project-yellow {
   width: 18px;
   height: 6px;

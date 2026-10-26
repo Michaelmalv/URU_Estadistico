@@ -233,7 +233,8 @@
         "id": "51",
         "nombre": "Patria",
         "poligono": "PA",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -370,7 +371,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "calle caldas y antepara": {
     "center": [
@@ -886,7 +888,8 @@
         "id": "72",
         "nombre": "Av. AjavÃ­",
         "poligono": "AVAJA",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -1627,7 +1630,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "av ramon borja": {
     "center": [
@@ -8360,7 +8364,8 @@
         "id": "56",
         "nombre": "Sendero Seguro Av. CalderÃ³n",
         "poligono": "CD",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -8649,7 +8654,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "av 6 de diciembre": {
     "center": [
@@ -8663,7 +8669,8 @@
         "id": "65",
         "nombre": "6 diciembre",
         "poligono": "6DIC",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -9012,7 +9019,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "av rodrigo de chavez": {
     "center": [
@@ -9026,7 +9034,8 @@
         "id": "61",
         "nombre": "Rodrigo de ChÃ¡vez",
         "poligono": "RCHAV",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -9367,7 +9376,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "av el inca": {
     "center": [
@@ -9381,7 +9391,8 @@
         "id": "71",
         "nombre": "Av. El Inca",
         "poligono": "AVINC",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -11246,7 +11257,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "av la prensa": {
     "center": [
@@ -11260,7 +11272,8 @@
         "id": "74",
         "nombre": "Av. Prensa",
         "poligono": "AVPRE",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -12193,7 +12206,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "bicentenario": {
     "center": [
@@ -12207,7 +12221,8 @@
         "id": "75",
         "nombre": "Bicentenario",
         "poligono": "BICEN",
-        "estado": "EN EJECUCIÃN"
+        "estado": "EN EJECUCIÃN",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -12540,7 +12555,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "quitopia la y": {
     "center": [
@@ -12554,7 +12570,8 @@
         "id": "76",
         "nombre": "QuitopÃ­a La Y",
         "poligono": "QLAY",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -12763,7 +12780,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "arena del sur": {
     "center": [
@@ -12791,7 +12809,8 @@
         "id": "55",
         "nombre": "Puente El Mirador",
         "poligono": "PEM",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -21240,7 +21259,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento puente el mirador": {
     "center": [
@@ -21254,7 +21274,8 @@
         "id": "55",
         "nombre": "Puente El Mirador",
         "poligono": "PEM",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -29703,7 +29724,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "puente peatonal el mirador": {
     "center": [
@@ -29717,7 +29739,8 @@
         "id": "55",
         "nombre": "Puente El Mirador",
         "poligono": "PEM",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -38166,7 +38189,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento puente peatonal el mirador": {
     "center": [
@@ -38180,7 +38204,8 @@
         "id": "55",
         "nombre": "Puente El Mirador",
         "poligono": "PEM",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -46629,7 +46654,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "boulevard amazonas etapa 1": {
     "center": [
@@ -46643,7 +46669,8 @@
         "id": "1",
         "nombre": "Boulevard Amazonas Etapa 1",
         "poligono": "BAB",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -46840,7 +46867,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento boulevard amazonas etapa 1": {
     "center": [
@@ -46854,7 +46882,8 @@
         "id": "1",
         "nombre": "Boulevard Amazonas Etapa 1",
         "poligono": "BAB",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -47051,7 +47080,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento boulevard amazonas etapa1": {
     "center": [
@@ -47065,7 +47095,8 @@
         "id": "1",
         "nombre": "Boulevard Amazonas Etapa 1",
         "poligono": "BAB",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -47262,7 +47293,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "boulevard amazonas etapa1": {
     "center": [
@@ -47276,7 +47308,8 @@
         "id": "1",
         "nombre": "Boulevard Amazonas Etapa 1",
         "poligono": "BAB",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -47473,7 +47506,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "napo": {
     "center": [
@@ -47487,7 +47521,8 @@
         "id": "2",
         "nombre": "Napo",
         "poligono": "NPO",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -47740,7 +47775,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento napo": {
     "center": [
@@ -47754,7 +47790,8 @@
         "id": "2",
         "nombre": "Napo",
         "poligono": "NPO",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -48007,7 +48044,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "catalina aldaz": {
     "center": [
@@ -48021,7 +48059,8 @@
         "id": "25",
         "nombre": "Catalina Aldaz",
         "poligono": "CAZ",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -48102,7 +48141,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento catalina aldaz": {
     "center": [
@@ -48116,7 +48156,8 @@
         "id": "25",
         "nombre": "Catalina Aldaz",
         "poligono": "CAZ",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -48197,7 +48238,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "boulevard cola n": {
     "center": [
@@ -48211,7 +48253,8 @@
         "id": "3",
         "nombre": "Boulevard ColÃ³n",
         "poligono": "BCL",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -48312,7 +48355,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento boulevard cola n": {
     "center": [
@@ -48326,7 +48370,8 @@
         "id": "3",
         "nombre": "Boulevard ColÃ³n",
         "poligono": "BCL",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -48427,7 +48472,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "intercambiador carapungo": {
     "center": [
@@ -48441,7 +48487,8 @@
         "id": "4",
         "nombre": "Intercambiador Carapungo",
         "poligono": "ICP",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -48664,7 +48711,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento intercambiador carapungo": {
     "center": [
@@ -48678,7 +48726,8 @@
         "id": "4",
         "nombre": "Intercambiador Carapungo",
         "poligono": "ICP",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -48901,7 +48950,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "intercambiador granados": {
     "center": [
@@ -48915,7 +48965,8 @@
         "id": "5",
         "nombre": "Intercambiador Granados",
         "poligono": "IGR",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -49152,7 +49203,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento intercambiador granados": {
     "center": [
@@ -49166,7 +49218,8 @@
         "id": "5",
         "nombre": "Intercambiador Granados",
         "poligono": "IGR",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -49403,7 +49456,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "josa alema n": {
     "center": [
@@ -49417,7 +49471,8 @@
         "id": "6",
         "nombre": "JosÃ© AlemÃ¡n",
         "poligono": "JAL",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -49590,7 +49645,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento josa alema n": {
     "center": [
@@ -49604,7 +49660,8 @@
         "id": "6",
         "nombre": "JosÃ© AlemÃ¡n",
         "poligono": "JAL",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -49777,7 +49834,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "mariscal i": {
     "center": [
@@ -49791,7 +49849,8 @@
         "id": "7",
         "nombre": "Mariscal I",
         "poligono": "MRL",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -49844,7 +49903,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento mariscal i": {
     "center": [
@@ -49858,7 +49918,8 @@
         "id": "7",
         "nombre": "Mariscal I",
         "poligono": "MRL",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -49911,7 +49972,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento mariscal 1": {
     "center": [
@@ -49925,7 +49987,8 @@
         "id": "7",
         "nombre": "Mariscal I",
         "poligono": "MRL",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -49978,7 +50041,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "mariscal 1": {
     "center": [
@@ -49992,7 +50056,8 @@
         "id": "7",
         "nombre": "Mariscal I",
         "poligono": "MRL",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -50045,7 +50110,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "naciones unidas": {
     "center": [
@@ -50059,7 +50125,8 @@
         "id": "9",
         "nombre": "Naciones Unidas",
         "poligono": "NNUU",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -50144,7 +50211,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento naciones unidas": {
     "center": [
@@ -50158,7 +50226,8 @@
         "id": "9",
         "nombre": "Naciones Unidas",
         "poligono": "NNUU",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -50243,7 +50312,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "metro quito jipijapa": {
     "center": [
@@ -50257,7 +50327,8 @@
         "id": "18",
         "nombre": "Metro Quito Jipijapa",
         "poligono": "MJJ",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -50354,7 +50425,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento metro quito jipijapa": {
     "center": [
@@ -50368,7 +50440,8 @@
         "id": "18",
         "nombre": "Metro Quito Jipijapa",
         "poligono": "MJJ",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -50465,7 +50538,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "puente baquerizo moreno": {
     "center": [
@@ -50479,7 +50553,8 @@
         "id": "15",
         "nombre": "Puente Baquerizo Moreno",
         "poligono": "PBM",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -50512,7 +50587,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento puente baquerizo moreno": {
     "center": [
@@ -50526,7 +50602,8 @@
         "id": "15",
         "nombre": "Puente Baquerizo Moreno",
         "poligono": "PBM",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -50559,7 +50636,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "paseo san francisco": {
     "center": [
@@ -50573,7 +50651,8 @@
         "id": "37",
         "nombre": "Paseo San Francisco",
         "poligono": "PSF",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -50634,7 +50713,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento paseo san francisco": {
     "center": [
@@ -50648,7 +50728,8 @@
         "id": "37",
         "nombre": "Paseo San Francisco",
         "poligono": "PSF",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -50709,7 +50790,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "repa blica del salvador": {
     "center": [
@@ -50723,7 +50805,8 @@
         "id": "10",
         "nombre": "RepÃºblica del Salvador",
         "poligono": "RDS",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -51760,7 +51843,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento repa blica del salvador": {
     "center": [
@@ -51774,7 +51858,8 @@
         "id": "10",
         "nombre": "RepÃºblica del Salvador",
         "poligono": "RDS",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -52811,7 +52896,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento rep del salvador": {
     "center": [
@@ -52825,7 +52911,8 @@
         "id": "10",
         "nombre": "RepÃºblica del Salvador",
         "poligono": "RDS",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -53862,7 +53949,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "rep del salvador": {
     "center": [
@@ -53876,7 +53964,8 @@
         "id": "10",
         "nombre": "RepÃºblica del Salvador",
         "poligono": "RDS",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -54913,7 +55002,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "arenas 10 de agosto": {
     "center": [
@@ -54927,7 +55017,8 @@
         "id": "11",
         "nombre": "Arenas 10 de Agosto",
         "poligono": "ARN",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -55248,7 +55339,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento arenas 10 de agosto": {
     "center": [
@@ -55262,7 +55354,8 @@
         "id": "11",
         "nombre": "Arenas 10 de Agosto",
         "poligono": "ARN",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -55583,7 +55676,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "intercambiador el condado": {
     "center": [
@@ -55597,7 +55691,8 @@
         "id": "12",
         "nombre": "Intercambiador El Condado",
         "poligono": "ICO",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -55990,7 +56085,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento intercambiador el condado": {
     "center": [
@@ -56004,7 +56100,8 @@
         "id": "12",
         "nombre": "Intercambiador El Condado",
         "poligono": "ICO",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -56397,7 +56494,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "gribaldo mia o": {
     "center": [
@@ -56411,7 +56509,8 @@
         "id": "13",
         "nombre": "Gribaldo MiÃ±o",
         "poligono": "GMÃ",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -56640,7 +56739,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento gribaldo mia o": {
     "center": [
@@ -56654,7 +56754,8 @@
         "id": "13",
         "nombre": "Gribaldo MiÃ±o",
         "poligono": "GMÃ",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -56883,7 +56984,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "yoo cumbaya": {
     "center": [
@@ -56897,7 +56999,8 @@
         "id": "29",
         "nombre": "Yoo CumbayÃ¡",
         "poligono": "YOC",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -56958,7 +57061,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento yoo cumbaya": {
     "center": [
@@ -56972,7 +57076,8 @@
         "id": "29",
         "nombre": "Yoo CumbayÃ¡",
         "poligono": "YOC",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -57033,7 +57138,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "hospital iess sur": {
     "center": [
@@ -57047,7 +57153,8 @@
         "id": "38",
         "nombre": "Hospital IESS Sur",
         "poligono": "HIS",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -57124,7 +57231,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento hospital iess sur": {
     "center": [
@@ -57138,7 +57246,8 @@
         "id": "38",
         "nombre": "Hospital IESS Sur",
         "poligono": "HIS",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -57215,7 +57324,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "yoo quito": {
     "center": [
@@ -57229,7 +57339,8 @@
         "id": "28",
         "nombre": "Yoo Quito",
         "poligono": "YOQ",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -57290,7 +57401,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento yoo quito": {
     "center": [
@@ -57304,7 +57416,8 @@
         "id": "28",
         "nombre": "Yoo Quito",
         "poligono": "YOQ",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -57365,7 +57478,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "ruta viva fase 1": {
     "center": [
@@ -57379,7 +57493,8 @@
         "id": "14",
         "nombre": "Ruta Viva Fase 1",
         "poligono": "RV1",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -59632,7 +59747,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento ruta viva fase 1": {
     "center": [
@@ -59646,7 +59762,8 @@
         "id": "14",
         "nombre": "Ruta Viva Fase 1",
         "poligono": "RV1",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -61899,7 +62016,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento ruta viva fase1": {
     "center": [
@@ -61913,7 +62031,8 @@
         "id": "14",
         "nombre": "Ruta Viva Fase 1",
         "poligono": "RV1",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -64166,7 +64285,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "ruta viva fase1": {
     "center": [
@@ -64180,7 +64300,8 @@
         "id": "14",
         "nombre": "Ruta Viva Fase 1",
         "poligono": "RV1",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -66433,7 +66554,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "equivida": {
     "center": [
@@ -66447,7 +66569,8 @@
         "id": "34",
         "nombre": "Equivida",
         "poligono": "EQV",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -66480,7 +66603,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento equivida": {
     "center": [
@@ -66494,7 +66618,8 @@
         "id": "34",
         "nombre": "Equivida",
         "poligono": "EQV",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -66527,7 +66652,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "pucara": {
     "center": [
@@ -66541,7 +66667,8 @@
         "id": "31",
         "nombre": "PucarÃ¡",
         "poligono": "PCA",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -66590,7 +66717,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento pucara": {
     "center": [
@@ -66604,7 +66732,8 @@
         "id": "31",
         "nombre": "PucarÃ¡",
         "poligono": "PCA",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -66653,7 +66782,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "metro quito cardenal de la torre": {
     "center": [
@@ -66667,7 +66797,8 @@
         "id": "16",
         "nombre": "Metro Quito Cardenal de la Torre",
         "poligono": "MCT",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -66796,7 +66927,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento metro quito cardenal de la torre": {
     "center": [
@@ -66810,7 +66942,8 @@
         "id": "16",
         "nombre": "Metro Quito Cardenal de la Torre",
         "poligono": "MCT",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -66939,7 +67072,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "metro quito ia aquito": {
     "center": [
@@ -66953,7 +67087,8 @@
         "id": "17",
         "nombre": "Metro Quito IÃ±aquito",
         "poligono": "MIÃ",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -67002,7 +67137,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento metro quito ia aquito": {
     "center": [
@@ -67016,7 +67152,8 @@
         "id": "17",
         "nombre": "Metro Quito IÃ±aquito",
         "poligono": "MIÃ",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -67065,7 +67202,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "plaza pomasqui": {
     "center": [
@@ -67079,7 +67217,8 @@
         "id": "33",
         "nombre": "Plaza Pomasqui",
         "poligono": "PLP",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -67132,7 +67271,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento plaza pomasqui": {
     "center": [
@@ -67146,7 +67286,8 @@
         "id": "33",
         "nombre": "Plaza Pomasqui",
         "poligono": "PLP",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -67199,7 +67340,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "cc scala": {
     "center": [
@@ -67213,7 +67355,8 @@
         "id": "32",
         "nombre": "CC Scala",
         "poligono": "CCE",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -67266,7 +67409,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento cc scala": {
     "center": [
@@ -67280,7 +67424,8 @@
         "id": "32",
         "nombre": "CC Scala",
         "poligono": "CCE",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -67333,7 +67478,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "fedecomip": {
     "center": [
@@ -67347,7 +67493,8 @@
         "id": "24",
         "nombre": "Fedecomip",
         "poligono": "FDC",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -67392,7 +67539,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento fedecomip": {
     "center": [
@@ -67406,7 +67554,8 @@
         "id": "24",
         "nombre": "Fedecomip",
         "poligono": "FDC",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -67451,7 +67600,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "casanova": {
     "center": [
@@ -67465,7 +67615,8 @@
         "id": "35",
         "nombre": "Casanova",
         "poligono": "CNV",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -67494,7 +67645,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento casanova": {
     "center": [
@@ -67508,7 +67660,8 @@
         "id": "35",
         "nombre": "Casanova",
         "poligono": "CNV",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -67537,7 +67690,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "aquarela": {
     "center": [
@@ -67551,7 +67705,8 @@
         "id": "27",
         "nombre": "Aquarela",
         "poligono": "AQL",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -67636,7 +67791,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento aquarela": {
     "center": [
@@ -67650,7 +67806,8 @@
         "id": "27",
         "nombre": "Aquarela",
         "poligono": "AQL",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -67735,7 +67892,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "jeep": {
     "center": [
@@ -67749,7 +67907,8 @@
         "id": "36",
         "nombre": "Jeep",
         "poligono": "JEP",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -67826,7 +67985,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento jeep": {
     "center": [
@@ -67840,7 +68000,8 @@
         "id": "36",
         "nombre": "Jeep",
         "poligono": "JEP",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -67917,7 +68078,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "metro quito pradera": {
     "center": [
@@ -67931,7 +68093,8 @@
         "id": "23",
         "nombre": "Metro Quito Pradera",
         "poligono": "PDR",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -68160,7 +68323,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento metro quito pradera": {
     "center": [
@@ -68174,7 +68338,8 @@
         "id": "23",
         "nombre": "Metro Quito Pradera",
         "poligono": "PDR",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -68403,7 +68568,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "metro quito estacia n quitumbe": {
     "center": [
@@ -68417,7 +68583,8 @@
         "id": "19",
         "nombre": "Metro Quito EstaciÃ³n Quitumbe",
         "poligono": "MEQ",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -68662,7 +68829,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento metro quito estacia n quitumbe": {
     "center": [
@@ -68676,7 +68844,8 @@
         "id": "19",
         "nombre": "Metro Quito EstaciÃ³n Quitumbe",
         "poligono": "MEQ",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -68921,7 +69090,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento metro estacion quitumbe": {
     "center": [
@@ -68935,7 +69105,8 @@
         "id": "19",
         "nombre": "Metro Quito EstaciÃ³n Quitumbe",
         "poligono": "MEQ",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -69180,7 +69351,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "metro estacion quitumbe": {
     "center": [
@@ -69194,7 +69366,8 @@
         "id": "19",
         "nombre": "Metro Quito EstaciÃ³n Quitumbe",
         "poligono": "MEQ",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -69439,7 +69612,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "metro quito solanda": {
     "center": [
@@ -69453,7 +69627,8 @@
         "id": "22",
         "nombre": "Metro Quito Solanda",
         "poligono": "SLD",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -69530,7 +69705,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento metro quito solanda": {
     "center": [
@@ -69544,7 +69720,8 @@
         "id": "22",
         "nombre": "Metro Quito Solanda",
         "poligono": "SLD",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -69621,7 +69798,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "mariscal ii": {
     "center": [
@@ -69635,7 +69813,8 @@
         "id": "8",
         "nombre": "Mariscal II",
         "poligono": "MRL",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -69708,7 +69887,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento mariscal ii": {
     "center": [
@@ -69722,7 +69902,8 @@
         "id": "8",
         "nombre": "Mariscal II",
         "poligono": "MRL",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -69795,7 +69976,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento mariscal 2": {
     "center": [
@@ -69809,7 +69991,8 @@
         "id": "8",
         "nombre": "Mariscal II",
         "poligono": "MRL",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -69882,7 +70065,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "mariscal 2": {
     "center": [
@@ -69896,7 +70080,8 @@
         "id": "8",
         "nombre": "Mariscal II",
         "poligono": "MRL",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -69969,7 +70154,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "metro quito mora n valverde": {
     "center": [
@@ -69983,7 +70169,8 @@
         "id": "20",
         "nombre": "Metro Quito MorÃ¡n Valverde",
         "poligono": "MMV",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -70048,7 +70235,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento metro quito mora n valverde": {
     "center": [
@@ -70062,7 +70250,8 @@
         "id": "20",
         "nombre": "Metro Quito MorÃ¡n Valverde",
         "poligono": "MMV",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -70127,7 +70316,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento metro mora n valverde": {
     "center": [
@@ -70141,7 +70331,8 @@
         "id": "20",
         "nombre": "Metro Quito MorÃ¡n Valverde",
         "poligono": "MMV",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -70206,7 +70397,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "metro mora n valverde": {
     "center": [
@@ -70220,7 +70412,8 @@
         "id": "20",
         "nombre": "Metro Quito MorÃ¡n Valverde",
         "poligono": "MMV",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -70285,7 +70478,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "metro quito universidad central": {
     "center": [
@@ -70299,7 +70493,8 @@
         "id": "21",
         "nombre": "Metro Quito Universidad Central",
         "poligono": "MUV",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -70376,7 +70571,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento metro quito universidad central": {
     "center": [
@@ -70390,7 +70586,8 @@
         "id": "21",
         "nombre": "Metro Quito Universidad Central",
         "poligono": "MUV",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -70467,7 +70664,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento metro universidad central": {
     "center": [
@@ -70481,7 +70679,8 @@
         "id": "21",
         "nombre": "Metro Quito Universidad Central",
         "poligono": "MUV",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -70558,7 +70757,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "metro universidad central": {
     "center": [
@@ -70572,7 +70772,8 @@
         "id": "21",
         "nombre": "Metro Quito Universidad Central",
         "poligono": "MUV",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -70649,7 +70850,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "torre 6": {
     "center": [
@@ -70663,7 +70865,8 @@
         "id": "26",
         "nombre": "Torre 6",
         "poligono": "ET6",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -70716,7 +70919,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento torre 6": {
     "center": [
@@ -70730,7 +70934,8 @@
         "id": "26",
         "nombre": "Torre 6",
         "poligono": "ET6",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -70783,7 +70988,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento edificio torre 6": {
     "center": [
@@ -70797,7 +71003,8 @@
         "id": "26",
         "nombre": "Torre 6",
         "poligono": "ET6",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -70850,7 +71057,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "edificio torre 6": {
     "center": [
@@ -70864,7 +71072,8 @@
         "id": "26",
         "nombre": "Torre 6",
         "poligono": "ET6",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -70917,7 +71126,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "ecopark": {
     "center": [
@@ -70931,7 +71141,8 @@
         "id": "30",
         "nombre": "Ecopark",
         "poligono": "ECO",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -71128,7 +71339,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento ecopark": {
     "center": [
@@ -71142,7 +71354,8 @@
         "id": "30",
         "nombre": "Ecopark",
         "poligono": "ECO",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -71339,7 +71552,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento ciclista ecopark": {
     "center": [
@@ -71353,7 +71567,8 @@
         "id": "30",
         "nombre": "Ecopark",
         "poligono": "ECO",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -71550,7 +71765,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "ciclista ecopark": {
     "center": [
@@ -71564,7 +71780,8 @@
         "id": "30",
         "nombre": "Ecopark",
         "poligono": "ECO",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -71761,7 +71978,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "calle loja": {
     "center": [
@@ -71775,7 +71993,8 @@
         "id": "39",
         "nombre": "Calle Loja",
         "poligono": "CLJ",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -71872,7 +72091,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento calle loja": {
     "center": [
@@ -71886,7 +72106,8 @@
         "id": "39",
         "nombre": "Calle Loja",
         "poligono": "CLJ",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -71983,7 +72204,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "prados de san mateo": {
     "center": [
@@ -71997,7 +72219,8 @@
         "id": "40",
         "nombre": "Prados de San Mateo",
         "poligono": "PSM",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -72030,7 +72253,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento prados de san mateo": {
     "center": [
@@ -72044,7 +72268,8 @@
         "id": "40",
         "nombre": "Prados de San Mateo",
         "poligono": "PSM",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -72077,7 +72302,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento prados san mateo": {
     "center": [
@@ -72091,7 +72317,8 @@
         "id": "40",
         "nombre": "Prados de San Mateo",
         "poligono": "PSM",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -72124,7 +72351,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "prados san mateo": {
     "center": [
@@ -72138,7 +72366,8 @@
         "id": "40",
         "nombre": "Prados de San Mateo",
         "poligono": "PSM",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -72171,7 +72400,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "urbanizacia n kentia": {
     "center": [
@@ -72185,7 +72415,8 @@
         "id": "41",
         "nombre": "UrbanizaciÃ³n Kentia",
         "poligono": "UKT",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -72218,7 +72449,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento urbanizacia n kentia": {
     "center": [
@@ -72232,7 +72464,8 @@
         "id": "41",
         "nombre": "UrbanizaciÃ³n Kentia",
         "poligono": "UKT",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -72265,7 +72498,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "pillagua barranco": {
     "center": [
@@ -72279,7 +72513,8 @@
         "id": "42",
         "nombre": "Pillagua Barranco",
         "poligono": "PBC",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -72344,7 +72579,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento pillagua barranco": {
     "center": [
@@ -72358,7 +72594,8 @@
         "id": "42",
         "nombre": "Pillagua Barranco",
         "poligono": "PBC",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -72423,7 +72660,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "kiro": {
     "center": [
@@ -72437,7 +72675,8 @@
         "id": "43",
         "nombre": "Kiro",
         "poligono": "EKI",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -72474,7 +72713,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento kiro": {
     "center": [
@@ -72488,7 +72728,8 @@
         "id": "43",
         "nombre": "Kiro",
         "poligono": "EKI",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -72525,7 +72766,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento edificio kiro": {
     "center": [
@@ -72539,7 +72781,8 @@
         "id": "43",
         "nombre": "Kiro",
         "poligono": "EKI",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -72576,7 +72819,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "edificio kiro": {
     "center": [
@@ -72590,7 +72834,8 @@
         "id": "43",
         "nombre": "Kiro",
         "poligono": "EKI",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -72627,7 +72872,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "plaza quitumbe": {
     "center": [
@@ -72641,7 +72887,8 @@
         "id": "44",
         "nombre": "Plaza Quitumbe",
         "poligono": "PLQ",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -72686,7 +72933,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento plaza quitumbe": {
     "center": [
@@ -72700,7 +72948,8 @@
         "id": "44",
         "nombre": "Plaza Quitumbe",
         "poligono": "PLQ",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -72745,7 +72994,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "ra o centro": {
     "center": [
@@ -72759,7 +73009,8 @@
         "id": "45",
         "nombre": "RÃ­o Centro",
         "poligono": "RC",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -72800,7 +73051,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento ra o centro": {
     "center": [
@@ -72814,7 +73066,8 @@
         "id": "45",
         "nombre": "RÃ­o Centro",
         "poligono": "RC",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -72855,7 +73108,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento rio centro": {
     "center": [
@@ -72869,7 +73123,8 @@
         "id": "45",
         "nombre": "RÃ­o Centro",
         "poligono": "RC",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -72910,7 +73165,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "rio centro": {
     "center": [
@@ -72924,7 +73180,8 @@
         "id": "45",
         "nombre": "RÃ­o Centro",
         "poligono": "RC",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -72965,7 +73222,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "quicentro norte": {
     "center": [
@@ -72979,7 +73237,8 @@
         "id": "46",
         "nombre": "Quicentro Norte",
         "poligono": "QUI",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -73068,7 +73327,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento quicentro norte": {
     "center": [
@@ -73082,7 +73342,8 @@
         "id": "46",
         "nombre": "Quicentro Norte",
         "poligono": "QUI",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -73171,7 +73432,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento quicentro norte ii": {
     "center": [
@@ -73185,7 +73447,8 @@
         "id": "46",
         "nombre": "Quicentro Norte",
         "poligono": "QUI",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -73274,7 +73537,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "quicentro norte ii": {
     "center": [
@@ -73288,7 +73552,8 @@
         "id": "46",
         "nombre": "Quicentro Norte",
         "poligono": "QUI",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -73377,7 +73642,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "grupo superior": {
     "center": [
@@ -73391,7 +73657,8 @@
         "id": "47",
         "nombre": "Grupo Superior",
         "poligono": "GS",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -73556,7 +73823,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento grupo superior": {
     "center": [
@@ -73570,7 +73838,8 @@
         "id": "47",
         "nombre": "Grupo Superior",
         "poligono": "GS",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -73735,7 +74004,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento grupo superior1": {
     "center": [
@@ -73749,7 +74019,8 @@
         "id": "47",
         "nombre": "Grupo Superior",
         "poligono": "GS",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -73914,7 +74185,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "grupo superior1": {
     "center": [
@@ -73928,7 +74200,8 @@
         "id": "47",
         "nombre": "Grupo Superior",
         "poligono": "GS",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -74093,7 +74366,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "gran marcelino": {
     "center": [
@@ -74107,7 +74381,8 @@
         "id": "48",
         "nombre": "Gran Marcelino",
         "poligono": "GM",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -74144,7 +74419,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento gran marcelino": {
     "center": [
@@ -74158,7 +74434,8 @@
         "id": "48",
         "nombre": "Gran Marcelino",
         "poligono": "GM",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -74195,7 +74472,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "edificio senna": {
     "center": [
@@ -74209,7 +74487,8 @@
         "id": "49",
         "nombre": "Edificio Senna",
         "poligono": "ES",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -74250,7 +74529,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento edificio senna": {
     "center": [
@@ -74264,7 +74544,8 @@
         "id": "49",
         "nombre": "Edificio Senna",
         "poligono": "ES",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -74305,7 +74586,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "senna": {
     "center": [
@@ -74319,7 +74601,8 @@
         "id": "49",
         "nombre": "Edificio Senna",
         "poligono": "ES",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -74360,7 +74643,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento senna": {
     "center": [
@@ -74374,7 +74658,8 @@
         "id": "49",
         "nombre": "Edificio Senna",
         "poligono": "ES",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -74415,7 +74700,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "epiq": {
     "center": [
@@ -74429,7 +74715,8 @@
         "id": "50",
         "nombre": "Epiq",
         "poligono": "EQ",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -74506,7 +74793,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento epiq": {
     "center": [
@@ -74520,7 +74808,8 @@
         "id": "50",
         "nombre": "Epiq",
         "poligono": "EQ",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -74597,7 +74886,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "patria": {
     "center": [
@@ -74611,7 +74901,8 @@
         "id": "51",
         "nombre": "Patria",
         "poligono": "PA",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -74748,7 +75039,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento patria": {
     "center": [
@@ -74762,7 +75054,8 @@
         "id": "51",
         "nombre": "Patria",
         "poligono": "PA",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -74899,7 +75192,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento av patria": {
     "center": [
@@ -74913,7 +75207,8 @@
         "id": "51",
         "nombre": "Patria",
         "poligono": "PA",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -75050,7 +75345,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "gualo": {
     "center": [
@@ -75064,7 +75360,8 @@
         "id": "52",
         "nombre": "Gualo",
         "poligono": "PG",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -75093,7 +75390,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento gualo": {
     "center": [
@@ -75107,7 +75405,8 @@
         "id": "52",
         "nombre": "Gualo",
         "poligono": "PG",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -75136,7 +75435,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento puente gualo": {
     "center": [
@@ -75150,7 +75450,8 @@
         "id": "52",
         "nombre": "Gualo",
         "poligono": "PG",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -75179,7 +75480,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "puente gualo": {
     "center": [
@@ -75193,7 +75495,8 @@
         "id": "52",
         "nombre": "Gualo",
         "poligono": "PG",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -75222,7 +75525,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "conde iv": {
     "center": [
@@ -75236,7 +75540,8 @@
         "id": "53",
         "nombre": "Conde IV",
         "poligono": "PC",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -75269,7 +75574,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento conde iv": {
     "center": [
@@ -75283,7 +75589,8 @@
         "id": "53",
         "nombre": "Conde IV",
         "poligono": "PC",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -75316,7 +75623,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento puente conde iv": {
     "center": [
@@ -75330,7 +75638,8 @@
         "id": "53",
         "nombre": "Conde IV",
         "poligono": "PC",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -75363,7 +75672,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "puente conde iv": {
     "center": [
@@ -75377,7 +75687,8 @@
         "id": "53",
         "nombre": "Conde IV",
         "poligono": "PC",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -75410,7 +75721,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "san patricio": {
     "center": [
@@ -75424,7 +75736,8 @@
         "id": "54",
         "nombre": "San Patricio",
         "poligono": "SP",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -76289,7 +76602,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento san patricio": {
     "center": [
@@ -76303,7 +76617,8 @@
         "id": "54",
         "nombre": "San Patricio",
         "poligono": "SP",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -77168,7 +77483,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "puae san patricio": {
     "center": [
@@ -77182,7 +77498,8 @@
         "id": "54",
         "nombre": "San Patricio",
         "poligono": "SP",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -78047,7 +78364,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento puae san patricio": {
     "center": [
@@ -78061,7 +78379,8 @@
         "id": "54",
         "nombre": "San Patricio",
         "poligono": "SP",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -78926,7 +79245,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "sendero seguro av cola n": {
     "center": [
@@ -78940,7 +79260,8 @@
         "id": "58",
         "nombre": "Sendero Seguro Av. ColÃ³n",
         "poligono": "CL",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -79037,7 +79358,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento sendero seguro av cola n": {
     "center": [
@@ -79051,7 +79373,8 @@
         "id": "58",
         "nombre": "Sendero Seguro Av. ColÃ³n",
         "poligono": "CL",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -79148,7 +79471,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento av cola n sendero seguro": {
     "center": [
@@ -79162,7 +79486,8 @@
         "id": "58",
         "nombre": "Sendero Seguro Av. ColÃ³n",
         "poligono": "CL",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -79259,7 +79584,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "av cola n sendero seguro": {
     "center": [
@@ -79273,7 +79599,8 @@
         "id": "58",
         "nombre": "Sendero Seguro Av. ColÃ³n",
         "poligono": "CL",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -79370,7 +79697,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "sendero seguro colon": {
     "center": [
@@ -79384,7 +79712,8 @@
         "id": "58",
         "nombre": "Sendero Seguro Av. ColÃ³n",
         "poligono": "CL",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -79481,7 +79810,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento sendero seguro colon": {
     "center": [
@@ -79495,7 +79825,8 @@
         "id": "58",
         "nombre": "Sendero Seguro Av. ColÃ³n",
         "poligono": "CL",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -79592,7 +79923,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "sendero seguro av caldera n 9 de agosto": {
     "center": [
@@ -79606,7 +79938,8 @@
         "id": "57",
         "nombre": "Sendero Seguro Av. CalderÃ³n (9 de agosto)",
         "poligono": "CD-9AG",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -79739,7 +80072,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento sendero seguro av caldera n 9 de agosto": {
     "center": [
@@ -79753,7 +80087,8 @@
         "id": "57",
         "nombre": "Sendero Seguro Av. CalderÃ³n (9 de agosto)",
         "poligono": "CD-9AG",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -79886,7 +80221,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento av caldera n 9 de agosto": {
     "center": [
@@ -79900,7 +80236,8 @@
         "id": "57",
         "nombre": "Sendero Seguro Av. CalderÃ³n (9 de agosto)",
         "poligono": "CD-9AG",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -80033,7 +80370,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "av caldera n 9 de agosto": {
     "center": [
@@ -80047,7 +80385,8 @@
         "id": "57",
         "nombre": "Sendero Seguro Av. CalderÃ³n (9 de agosto)",
         "poligono": "CD-9AG",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -80180,7 +80519,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "sendero seguro av caldera n": {
     "center": [
@@ -80194,7 +80534,8 @@
         "id": "56",
         "nombre": "Sendero Seguro Av. CalderÃ³n",
         "poligono": "CD",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -80483,7 +80824,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento sendero seguro av caldera n": {
     "center": [
@@ -80497,7 +80839,8 @@
         "id": "56",
         "nombre": "Sendero Seguro Av. CalderÃ³n",
         "poligono": "CD",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -80786,7 +81129,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento av caldera n carapungo": {
     "center": [
@@ -80800,7 +81144,8 @@
         "id": "56",
         "nombre": "Sendero Seguro Av. CalderÃ³n",
         "poligono": "CD",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -81089,7 +81434,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "av caldera n carapungo": {
     "center": [
@@ -81103,7 +81449,8 @@
         "id": "56",
         "nombre": "Sendero Seguro Av. CalderÃ³n",
         "poligono": "CD",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -81392,7 +81739,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento sendero seguro calderon": {
     "center": [
@@ -81406,7 +81754,8 @@
         "id": "56",
         "nombre": "Sendero Seguro Av. CalderÃ³n",
         "poligono": "CD",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -81695,7 +82044,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "puente peatonal pueblo blanco": {
     "center": [
@@ -81709,7 +82059,8 @@
         "id": "59",
         "nombre": "Puente peatonal Pueblo Blanco",
         "poligono": "PPB",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -81738,7 +82089,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento puente peatonal pueblo blanco": {
     "center": [
@@ -81752,7 +82104,8 @@
         "id": "59",
         "nombre": "Puente peatonal Pueblo Blanco",
         "poligono": "PPB",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -81781,7 +82134,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "6 diciembre": {
     "center": [
@@ -81795,7 +82149,8 @@
         "id": "65",
         "nombre": "6 diciembre",
         "poligono": "6DIC",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -82144,7 +82499,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento 6 diciembre": {
     "center": [
@@ -82158,7 +82514,8 @@
         "id": "65",
         "nombre": "6 diciembre",
         "poligono": "6DIC",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -82507,7 +82864,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento av 6 de diciembre": {
     "center": [
@@ -82521,7 +82879,8 @@
         "id": "65",
         "nombre": "6 diciembre",
         "poligono": "6DIC",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -82870,7 +83229,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "ma laga": {
     "center": [
@@ -82884,7 +83244,8 @@
         "id": "64",
         "nombre": "MÃ¡laga",
         "poligono": "MAL",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -82989,7 +83350,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento ma laga": {
     "center": [
@@ -83003,7 +83365,8 @@
         "id": "64",
         "nombre": "MÃ¡laga",
         "poligono": "MAL",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -83108,7 +83471,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "hacienda malaga opa": {
     "center": [
@@ -83122,7 +83486,8 @@
         "id": "64",
         "nombre": "MÃ¡laga",
         "poligono": "MAL",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -83227,7 +83592,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento hacienda malaga opa": {
     "center": [
@@ -83241,7 +83607,8 @@
         "id": "64",
         "nombre": "MÃ¡laga",
         "poligono": "MAL",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -83346,7 +83713,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "pradera ii": {
     "center": [
@@ -83360,7 +83728,8 @@
         "id": "60",
         "nombre": "Pradera II",
         "poligono": "PRAD",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -83703,7 +84072,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento pradera ii": {
     "center": [
@@ -83717,7 +84087,8 @@
         "id": "60",
         "nombre": "Pradera II",
         "poligono": "PRAD",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -84060,7 +84431,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "ra o monjas": {
     "center": [
@@ -84074,7 +84446,8 @@
         "id": "62",
         "nombre": "RÃ­o Monjas",
         "poligono": "RMONJ",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -84231,7 +84604,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento ra o monjas": {
     "center": [
@@ -84245,7 +84619,8 @@
         "id": "62",
         "nombre": "RÃ­o Monjas",
         "poligono": "RMONJ",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -84402,7 +84777,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento rio monjas": {
     "center": [
@@ -84416,7 +84792,8 @@
         "id": "62",
         "nombre": "RÃ­o Monjas",
         "poligono": "RMONJ",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -84573,7 +84950,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "rio monjas": {
     "center": [
@@ -84587,7 +84965,8 @@
         "id": "62",
         "nombre": "RÃ­o Monjas",
         "poligono": "RMONJ",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -84744,7 +85123,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "puente rio monjas": {
     "center": [
@@ -84758,7 +85138,8 @@
         "id": "62",
         "nombre": "RÃ­o Monjas",
         "poligono": "RMONJ",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -84915,7 +85296,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento puente rio monjas": {
     "center": [
@@ -84929,7 +85311,8 @@
         "id": "62",
         "nombre": "RÃ­o Monjas",
         "poligono": "RMONJ",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -85086,7 +85469,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "rodrigo de cha vez": {
     "center": [
@@ -85100,7 +85484,8 @@
         "id": "61",
         "nombre": "Rodrigo de ChÃ¡vez",
         "poligono": "RCHAV",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -85441,7 +85826,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento rodrigo de cha vez": {
     "center": [
@@ -85455,7 +85841,8 @@
         "id": "61",
         "nombre": "Rodrigo de ChÃ¡vez",
         "poligono": "RCHAV",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -85796,7 +86183,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento av rodrigo de chavez": {
     "center": [
@@ -85810,7 +86198,8 @@
         "id": "61",
         "nombre": "Rodrigo de ChÃ¡vez",
         "poligono": "RCHAV",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -86151,7 +86540,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "san blas": {
     "center": [
@@ -86165,7 +86555,8 @@
         "id": "63",
         "nombre": "San Blas",
         "poligono": "SBLAS",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -86522,7 +86913,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento san blas": {
     "center": [
@@ -86536,7 +86928,8 @@
         "id": "63",
         "nombre": "San Blas",
         "poligono": "SBLAS",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -86893,7 +87286,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "koen": {
     "center": [
@@ -86907,7 +87301,8 @@
         "id": "67",
         "nombre": "Koen",
         "poligono": "KOEN",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -87032,7 +87427,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento koen": {
     "center": [
@@ -87046,7 +87442,8 @@
         "id": "67",
         "nombre": "Koen",
         "poligono": "KOEN",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -87171,7 +87568,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "puae santa ma nica": {
     "center": [
@@ -87185,7 +87583,8 @@
         "id": "68",
         "nombre": "PUAE Santa MÃ³nica",
         "poligono": "PSMON",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -87342,7 +87741,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento puae santa ma nica": {
     "center": [
@@ -87356,7 +87756,8 @@
         "id": "68",
         "nombre": "PUAE Santa MÃ³nica",
         "poligono": "PSMON",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -87513,7 +87914,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento puae santa ma nca": {
     "center": [
@@ -87527,7 +87929,8 @@
         "id": "68",
         "nombre": "PUAE Santa MÃ³nica",
         "poligono": "PSMON",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -87684,7 +88087,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "puae santa ma nca": {
     "center": [
@@ -87698,7 +88102,8 @@
         "id": "68",
         "nombre": "PUAE Santa MÃ³nica",
         "poligono": "PSMON",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -87855,7 +88260,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "puae santa monica": {
     "center": [
@@ -87869,7 +88275,8 @@
         "id": "68",
         "nombre": "PUAE Santa MÃ³nica",
         "poligono": "PSMON",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -88026,7 +88433,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento puae santa monica": {
     "center": [
@@ -88040,7 +88448,8 @@
         "id": "68",
         "nombre": "PUAE Santa MÃ³nica",
         "poligono": "PSMON",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -88197,7 +88606,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "plaza caldera n": {
     "center": [
@@ -88211,7 +88621,8 @@
         "id": "69",
         "nombre": "Plaza CalderÃ³n",
         "poligono": "PCAL",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -88348,7 +88759,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento plaza caldera n": {
     "center": [
@@ -88362,7 +88774,8 @@
         "id": "69",
         "nombre": "Plaza CalderÃ³n",
         "poligono": "PCAL",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -88499,7 +88912,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "plaza calderon": {
     "center": [
@@ -88513,7 +88927,8 @@
         "id": "69",
         "nombre": "Plaza CalderÃ³n",
         "poligono": "PCAL",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -88650,7 +89065,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento plaza calderon": {
     "center": [
@@ -88664,7 +89080,8 @@
         "id": "69",
         "nombre": "Plaza CalderÃ³n",
         "poligono": "PCAL",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -88801,7 +89218,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "pampite artz": {
     "center": [
@@ -88815,7 +89233,8 @@
         "id": "70",
         "nombre": "Pampite Artz",
         "poligono": "PARTZ",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -88920,7 +89339,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento pampite artz": {
     "center": [
@@ -88934,7 +89354,8 @@
         "id": "70",
         "nombre": "Pampite Artz",
         "poligono": "PARTZ",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -89039,7 +89460,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento av el inca": {
     "center": [
@@ -89053,7 +89475,8 @@
         "id": "71",
         "nombre": "Av. El Inca",
         "poligono": "AVINC",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -90918,7 +91341,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "av ajava": {
     "center": [
@@ -90932,7 +91356,8 @@
         "id": "72",
         "nombre": "Av. AjavÃ­",
         "poligono": "AVAJA",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -91673,7 +92098,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento av ajava": {
     "center": [
@@ -91687,7 +92113,8 @@
         "id": "72",
         "nombre": "Av. AjavÃ­",
         "poligono": "AVAJA",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -92428,7 +92855,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento av ajavi": {
     "center": [
@@ -92442,7 +92870,8 @@
         "id": "72",
         "nombre": "Av. AjavÃ­",
         "poligono": "AVAJA",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -93183,7 +93612,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "av cusubamba": {
     "center": [
@@ -93197,7 +93627,8 @@
         "id": "73",
         "nombre": "Av. Cusubamba",
         "poligono": "AVCUS",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -93598,7 +94029,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento av cusubamba": {
     "center": [
@@ -93612,7 +94044,8 @@
         "id": "73",
         "nombre": "Av. Cusubamba",
         "poligono": "AVCUS",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -94013,7 +94446,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "av prensa": {
     "center": [
@@ -94027,7 +94461,8 @@
         "id": "74",
         "nombre": "Av. Prensa",
         "poligono": "AVPRE",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -94960,7 +95395,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento av prensa": {
     "center": [
@@ -94974,7 +95410,8 @@
         "id": "74",
         "nombre": "Av. Prensa",
         "poligono": "AVPRE",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -95907,7 +96344,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento av la prensa": {
     "center": [
@@ -95921,7 +96359,8 @@
         "id": "74",
         "nombre": "Av. Prensa",
         "poligono": "AVPRE",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -96854,7 +97293,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento bicentenario": {
     "center": [
@@ -96868,7 +97308,8 @@
         "id": "75",
         "nombre": "Bicentenario",
         "poligono": "BICEN",
-        "estado": "EN EJECUCIÃN"
+        "estado": "EN EJECUCIÃN",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -97201,7 +97642,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "quitopa a la y": {
     "center": [
@@ -97215,7 +97657,8 @@
         "id": "76",
         "nombre": "QuitopÃ­a La Y",
         "poligono": "QLAY",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -97424,7 +97867,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento quitopa a la y": {
     "center": [
@@ -97438,7 +97882,8 @@
         "id": "76",
         "nombre": "QuitopÃ­a La Y",
         "poligono": "QLAY",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -97647,7 +98092,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento quitopia la y": {
     "center": [
@@ -97661,7 +98107,8 @@
         "id": "76",
         "nombre": "QuitopÃ­a La Y",
         "poligono": "QLAY",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -97870,7 +98317,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "mariscal sucre y alonso de angulo": {
     "center": [
@@ -97884,7 +98332,8 @@
         "id": "78",
         "nombre": "Mariscal Sucre y Alonso de Angulo",
         "poligono": "MSAA",
-        "estado": "EN EJECUCIÃN"
+        "estado": "EN EJECUCIÃN",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -98949,7 +99398,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento mariscal sucre y alonso de angulo": {
     "center": [
@@ -98963,7 +99413,8 @@
         "id": "78",
         "nombre": "Mariscal Sucre y Alonso de Angulo",
         "poligono": "MSAA",
-        "estado": "EN EJECUCIÃN"
+        "estado": "EN EJECUCIÃN",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -100028,7 +100479,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "av mariscal sucre y alonso de angulo": {
     "center": [
@@ -100042,7 +100494,8 @@
         "id": "78",
         "nombre": "Mariscal Sucre y Alonso de Angulo",
         "poligono": "MSAA",
-        "estado": "EN EJECUCIÃN"
+        "estado": "EN EJECUCIÃN",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -101107,7 +101560,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento av mariscal sucre y alonso de angulo": {
     "center": [
@@ -101121,7 +101575,8 @@
         "id": "78",
         "nombre": "Mariscal Sucre y Alonso de Angulo",
         "poligono": "MSAA",
-        "estado": "EN EJECUCIÃN"
+        "estado": "EN EJECUCIÃN",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -102186,7 +102641,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "puente ciudad bicentenario": {
     "center": [
@@ -102200,7 +102656,8 @@
         "id": "77",
         "nombre": "Puente Ciudad Bicentenario",
         "poligono": "PCBIC",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -102293,7 +102750,8 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   },
   "soterramiento puente ciudad bicentenario": {
     "center": [
@@ -102307,7 +102765,8 @@
         "id": "77",
         "nombre": "Puente Ciudad Bicentenario",
         "poligono": "PCBIC",
-        "estado": "EJECUTADO"
+        "estado": "EJECUTADO",
+        "is_soterramiento": true
       },
       "geometry": {
         "type": "Polygon",
@@ -102400,6 +102859,7 @@
           ]
         ]
       }
-    }
+    },
+    "is_soterramiento": true
   }
 }

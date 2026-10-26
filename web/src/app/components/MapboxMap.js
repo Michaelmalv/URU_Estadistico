@@ -78,6 +78,9 @@ export default function MapboxMap({ projectKey, projectName }) {
             });
 
             const geomType = config.geojson.geometry?.type;
+            const isSot = config.is_soterramiento || config.geojson.properties?.is_soterramiento;
+            const themeColor = isSot ? '#78350f' : '#f2b705';
+            const themeOpacity = isSot ? 0.45 : 0.25;
 
             if (geomType === 'Polygon') {
               map.addLayer({
@@ -85,8 +88,8 @@ export default function MapboxMap({ projectKey, projectName }) {
                 type: 'fill',
                 source: 'route',
                 paint: {
-                  'fill-color': '#f2b705',
-                  'fill-opacity': 0.25
+                  'fill-color': themeColor,
+                  'fill-opacity': themeOpacity
                 }
               });
 
@@ -99,9 +102,9 @@ export default function MapboxMap({ projectKey, projectName }) {
                   'line-cap': 'round'
                 },
                 paint: {
-                  'line-color': '#f2b705',
-                  'line-width': 3,
-                  'line-opacity': 0.85
+                  'line-color': themeColor,
+                  'line-width': 3.5,
+                  'line-opacity': 0.95
                 }
               });
             } else {
@@ -114,7 +117,7 @@ export default function MapboxMap({ projectKey, projectName }) {
                   'line-cap': 'round'
                 },
                 paint: {
-                  'line-color': '#f2b705',
+                  'line-color': themeColor,
                   'line-width': 6,
                   'line-opacity': 0.85
                 }

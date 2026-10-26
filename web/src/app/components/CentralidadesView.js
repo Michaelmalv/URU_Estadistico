@@ -296,6 +296,16 @@ export default function CentralidadesView() {
         map.setPaintProperty('proyectos-geom-metro-outline', 'line-opacity', 0.95);
         map.setPaintProperty('proyectos-geom-metro-outline', 'line-width', 3);
       }
+      if (map.getLayer('proyectos-geom-soterramiento-fill')) {
+        map.setPaintProperty('proyectos-geom-soterramiento-fill', 'fill-opacity', 0.45);
+      }
+      if (map.getLayer('proyectos-geom-soterramiento-outline')) {
+        map.setPaintProperty('proyectos-geom-soterramiento-outline', 'line-opacity', 0.95);
+        map.setPaintProperty('proyectos-geom-soterramiento-outline', 'line-width', 3.5);
+      }
+      if (map.getLayer('proyectos-geom-soterramiento-line')) {
+        map.setPaintProperty('proyectos-geom-soterramiento-line', 'line-opacity', 1.0);
+      }
       if (map.getLayer('proyectos-geom-fill')) {
         map.setPaintProperty('proyectos-geom-fill', 'fill-opacity', 0.35);
       }
@@ -353,6 +363,24 @@ export default function CentralidadesView() {
       ]);
       map.setPaintProperty('proyectos-geom-metro-outline', 'line-width', [
         'case', matchFilter, 5.5, 1.5
+      ]);
+    }
+    if (map.getLayer('proyectos-geom-soterramiento-fill')) {
+      map.setPaintProperty('proyectos-geom-soterramiento-fill', 'fill-opacity', [
+        'case', matchFilter, 0.72, 0.05
+      ]);
+    }
+    if (map.getLayer('proyectos-geom-soterramiento-outline')) {
+      map.setPaintProperty('proyectos-geom-soterramiento-outline', 'line-opacity', [
+        'case', matchFilter, 1.0, 0.08
+      ]);
+      map.setPaintProperty('proyectos-geom-soterramiento-outline', 'line-width', [
+        'case', matchFilter, 5.5, 1.5
+      ]);
+    }
+    if (map.getLayer('proyectos-geom-soterramiento-line')) {
+      map.setPaintProperty('proyectos-geom-soterramiento-line', 'line-opacity', [
+        'case', matchFilter, 1.0, 0.08
       ]);
     }
     if (map.getLayer('proyectos-geom-fill')) {
@@ -430,6 +458,24 @@ export default function CentralidadesView() {
       }
       if (map.getLayer('proyectos-geom-metro-outline')) {
         map.setPaintProperty('proyectos-geom-metro-outline', 'line-opacity', [
+          'case', matchFilter, isBlinkPhase ? 1.0 : 0.20, 0.08
+        ]);
+      }
+      if (map.getLayer('proyectos-geom-soterramiento-fill')) {
+        map.setPaintProperty('proyectos-geom-soterramiento-fill', 'fill-opacity', [
+          'case', matchFilter, isBlinkPhase ? 0.75 : 0.18, 0.04
+        ]);
+      }
+      if (map.getLayer('proyectos-geom-soterramiento-outline')) {
+        map.setPaintProperty('proyectos-geom-soterramiento-outline', 'line-opacity', [
+          'case', matchFilter, isBlinkPhase ? 1.0 : 0.20, 0.08
+        ]);
+        map.setPaintProperty('proyectos-geom-soterramiento-outline', 'line-width', [
+          'case', matchFilter, isBlinkPhase ? 6.5 : 2, 1.5
+        ]);
+      }
+      if (map.getLayer('proyectos-geom-soterramiento-line')) {
+        map.setPaintProperty('proyectos-geom-soterramiento-line', 'line-opacity', [
           'case', matchFilter, isBlinkPhase ? 1.0 : 0.20, 0.08
         ]);
       }
@@ -647,12 +693,63 @@ export default function CentralidadesView() {
         }
       });
 
+      // Relleno CAFÉ distintivo para Polígonos de Soterramientos
+      map.addLayer({
+        id: 'proyectos-geom-soterramiento-fill',
+        type: 'fill',
+        source: 'proyectos-geometrias-source',
+        filter: ['all', ['==', ['get', 'geom_tipo'], 'Polygon'], ['==', ['get', 'is_soterramiento'], true]],
+        paint: {
+          'fill-color': '#78350f',
+          'fill-opacity': 0.45
+        }
+      });
+
+      // Contorno CAFÉ para Polígonos de Soterramientos
+      map.addLayer({
+        id: 'proyectos-geom-soterramiento-outline',
+        type: 'line',
+        source: 'proyectos-geometrias-source',
+        filter: ['all', ['==', ['get', 'geom_tipo'], 'Polygon'], ['==', ['get', 'is_soterramiento'], true]],
+        layout: {
+          'line-join': 'round',
+          'line-cap': 'round'
+        },
+        paint: {
+          'line-color': '#78350f',
+          'line-width': 3.5,
+          'line-opacity': 0.95
+        }
+      });
+
+      // Líneas CAFÉ para Soterramientos tipo LineString
+      map.addLayer({
+        id: 'proyectos-geom-soterramiento-line',
+        type: 'line',
+        source: 'proyectos-geometrias-source',
+        filter: ['all', ['==', ['get', 'geom_tipo'], 'LineString'], ['==', ['get', 'is_soterramiento'], true]],
+        layout: {
+          'line-join': 'round',
+          'line-cap': 'round'
+        },
+        paint: {
+          'line-color': '#78350f',
+          'line-width': [
+            'interpolate', ['linear'], ['zoom'],
+            10, 3.5,
+            13, 6,
+            16, 9
+          ],
+          'line-opacity': 1
+        }
+      });
+
       // Relleno suave amarillo para proyectos tipo Polígono convencionales (parques, bulevares zonales)
       map.addLayer({
         id: 'proyectos-geom-fill',
         type: 'fill',
         source: 'proyectos-geometrias-source',
-        filter: ['all', ['==', ['get', 'geom_tipo'], 'Polygon'], ['!=', ['get', 'is_metro'], true]],
+        filter: ['all', ['==', ['get', 'geom_tipo'], 'Polygon'], ['!=', ['get', 'is_metro'], true], ['!=', ['get', 'is_soterramiento'], true]],
         paint: {
           'fill-color': '#f2b705',
           'fill-opacity': 0.35
@@ -664,7 +761,7 @@ export default function CentralidadesView() {
         id: 'proyectos-geom-polygon-outline',
         type: 'line',
         source: 'proyectos-geometrias-source',
-        filter: ['all', ['==', ['get', 'geom_tipo'], 'Polygon'], ['!=', ['get', 'is_metro'], true]],
+        filter: ['all', ['==', ['get', 'geom_tipo'], 'Polygon'], ['!=', ['get', 'is_metro'], true], ['!=', ['get', 'is_soterramiento'], true]],
         layout: {
           'line-join': 'round',
           'line-cap': 'round'
@@ -681,7 +778,7 @@ export default function CentralidadesView() {
         id: 'proyectos-geom-line-casing',
         type: 'line',
         source: 'proyectos-geometrias-source',
-        filter: ['==', ['get', 'geom_tipo'], 'LineString'],
+        filter: ['all', ['==', ['get', 'geom_tipo'], 'LineString'], ['!=', ['get', 'is_soterramiento'], true]],
         layout: {
           'line-join': 'round',
           'line-cap': 'round'
@@ -703,7 +800,7 @@ export default function CentralidadesView() {
         id: 'proyectos-geom-line-main',
         type: 'line',
         source: 'proyectos-geometrias-source',
-        filter: ['==', ['get', 'geom_tipo'], 'LineString'],
+        filter: ['all', ['==', ['get', 'geom_tipo'], 'LineString'], ['!=', ['get', 'is_soterramiento'], true]],
         layout: {
           'line-join': 'round',
           'line-cap': 'round'
@@ -878,6 +975,9 @@ export default function CentralidadesView() {
         'proyectos-geom-polygon-outline',
         'proyectos-geom-metro-fill',
         'proyectos-geom-metro-outline',
+        'proyectos-geom-soterramiento-fill',
+        'proyectos-geom-soterramiento-outline',
+        'proyectos-geom-soterramiento-line',
         'proyectos-geom-point-core',
         'proyectos-geom-point-pulse'
       ];
@@ -935,17 +1035,18 @@ export default function CentralidadesView() {
           if (e.features && e.features.length > 0) {
             const p = e.features[0].properties;
             const isMetro = p.is_metro === true || p.is_metro === 'true';
+            const isSot = p.is_soterramiento === true || p.is_soterramiento === 'true';
             const isPoint = p.geom_tipo === 'Point';
 
             projectPopup.setLngLat(e.lngLat)
               .setHTML(`
                 <div style="font-family: inherit; font-size: 12px; padding: 5px 8px; max-width: 270px;">
                   <div style="display: flex; align-items: center; justify-content: space-between; gap: 6px; margin-bottom: 3px;">
-                    <span style="font-weight: 800; color: ${isMetro ? '#0284c7' : isPoint ? '#c2410c' : '#b45309'}; text-transform: uppercase; font-size: 9.5px; letter-spacing: 0.04em;">
-                      ${isMetro ? '🚇 POLÍGONO AZUL: ZONA METRO (LÍNEA 1)' : isPoint ? '📍 PROYECTO ARQUITECTÓNICO (PUNTO)' : '━━ TRAZADO DE PROYECTO'}
+                    <span style="font-weight: 800; color: ${isMetro ? '#0284c7' : isSot ? '#78350f' : isPoint ? '#c2410c' : '#b45309'}; text-transform: uppercase; font-size: 9.5px; letter-spacing: 0.04em;">
+                      ${isMetro ? '🚇 POLÍGONO AZUL: ZONA METRO (LÍNEA 1)' : isSot ? '⚡ POLÍGONO CAFÉ: SOTERRAMIENTO DE REDES' : isPoint ? '📍 PROYECTO ARQUITECTÓNICO (PUNTO)' : '━━ TRAZADO DE PROYECTO'}
                     </span>
-                    <span style="font-size: 9.5px; background: ${isMetro ? '#e0f2fe' : isPoint ? '#fff7ed' : '#fffbeb'}; color: ${isMetro ? '#0369a1' : isPoint ? '#c2410c' : '#b45309'}; padding: 1px 5px; border-radius: 4px; font-weight: 700;">
-                      ${normalizeBadge(p.badge)}
+                    <span style="font-size: 9.5px; background: ${isMetro ? '#e0f2fe' : isSot ? '#fef3c7' : isPoint ? '#fff7ed' : '#fffbeb'}; color: ${isMetro ? '#0369a1' : isSot ? '#78350f' : isPoint ? '#c2410c' : '#b45309'}; padding: 1px 5px; border-radius: 4px; font-weight: 700;">
+                      ${normalizeBadge(p.badge || p.estado)}
                     </span>
                   </div>
                   <strong style="display: block; color: #0f172a; font-size: 13px; line-height: 1.3; margin: 3px 0 5px 0;">
@@ -2036,8 +2137,12 @@ export default function CentralidadesView() {
             <span>Color Azul: Zonas Metro (15)</span>
           </div>
           <div className="legend-row">
+            <span className="legend-polygon-soterramiento-brown" />
+            <span>Color Café: Soterramientos ({proyectosGeometriasGeoJson.features.filter(f => f.properties?.is_soterramiento).length})</span>
+          </div>
+          <div className="legend-row">
             <span className="legend-line-project-yellow" />
-            <span>Trazados / Contornos ({proyectosGeometriasGeoJson.features.filter(f => f.geometry?.type !== 'Point' && !f.properties?.is_metro).length})</span>
+            <span>Trazados / Contornos ({proyectosGeometriasGeoJson.features.filter(f => f.geometry?.type !== 'Point' && !f.properties?.is_metro && !f.properties?.is_soterramiento).length})</span>
           </div>
           <div className="legend-row" style={{ display: 'flex', alignItems: 'center', gap: '7px' }}>
             <span style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '16px', height: '20px', flexShrink: 0 }}>

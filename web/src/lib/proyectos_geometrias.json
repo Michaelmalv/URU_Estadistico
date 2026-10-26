@@ -14,7 +14,8 @@
         "estado": "Ejecutado",
         "geom_tipo": "LineString",
         "is_metro": false,
-        "is_architectural": false
+        "is_architectural": false,
+        "is_soterramiento": false
       },
       "geometry": {
         "type": "LineString",
@@ -45,7 +46,7 @@
         "centralidad_jerarquia": "Zonal",
         "badge": "Ejecutado",
         "estado": "Ejecutado",
-        "geom_tipo": "LineString",
+        "geom_tipo": "Polygon",
         "is_metro": false,
         "is_architectural": false,
         "coordenadas_exactas": true,
@@ -53,7 +54,9 @@
           -78.493697,
           -0.115745
         ],
-        "poligono_codigo": "AVPRE"
+        "poligono_codigo": "AVPRE",
+        "is_soterramiento": true,
+        "color": "#78350f"
       },
       "geometry": {
         "type": "Polygon",
@@ -1000,7 +1003,8 @@
         "estado": "Ejecutado",
         "geom_tipo": "LineString",
         "is_metro": false,
-        "is_architectural": false
+        "is_architectural": false,
+        "is_soterramiento": false
       },
       "geometry": {
         "type": "LineString",
@@ -1085,7 +1089,8 @@
         "estado": "Ejecutado",
         "geom_tipo": "LineString",
         "is_metro": false,
-        "is_architectural": false
+        "is_architectural": false,
+        "is_soterramiento": false
       },
       "geometry": {
         "type": "LineString",
@@ -1116,7 +1121,7 @@
         "centralidad_jerarquia": "Sectorial",
         "badge": "Ejecutado",
         "estado": "Ejecutado",
-        "geom_tipo": "LineString",
+        "geom_tipo": "Polygon",
         "is_metro": false,
         "is_architectural": false,
         "coordenadas_exactas": true,
@@ -1124,7 +1129,9 @@
           -78.422729,
           -0.101649
         ],
-        "poligono_codigo": "CD"
+        "poligono_codigo": "CD",
+        "is_soterramiento": true,
+        "color": "#78350f"
       },
       "geometry": {
         "type": "Polygon",
@@ -1427,7 +1434,8 @@
         "estado": "En Ejecución",
         "geom_tipo": "LineString",
         "is_metro": false,
-        "is_architectural": false
+        "is_architectural": false,
+        "is_soterramiento": false
       },
       "geometry": {
         "type": "LineString",
@@ -1456,7 +1464,8 @@
         "estado": "Ejecutado",
         "geom_tipo": "LineString",
         "is_metro": false,
-        "is_architectural": false
+        "is_architectural": false,
+        "is_soterramiento": false
       },
       "geometry": {
         "type": "LineString",
@@ -1485,7 +1494,8 @@
         "estado": "Ejecutado",
         "geom_tipo": "LineString",
         "is_metro": false,
-        "is_architectural": false
+        "is_architectural": false,
+        "is_soterramiento": false
       },
       "geometry": {
         "type": "LineString",
@@ -1526,7 +1536,8 @@
         "estado": "Ejecutado",
         "geom_tipo": "LineString",
         "is_metro": false,
-        "is_architectural": false
+        "is_architectural": false,
+        "is_soterramiento": false
       },
       "geometry": {
         "type": "LineString",
@@ -1619,7 +1630,8 @@
         "estado": "En Ejecución",
         "geom_tipo": "LineString",
         "is_metro": false,
-        "is_architectural": false
+        "is_architectural": false,
+        "is_soterramiento": false
       },
       "geometry": {
         "type": "LineString",
@@ -1652,7 +1664,8 @@
         "estado": "Ejecutado",
         "geom_tipo": "LineString",
         "is_metro": false,
-        "is_architectural": false
+        "is_architectural": false,
+        "is_soterramiento": false
       },
       "geometry": {
         "type": "LineString",
@@ -1685,7 +1698,8 @@
         "estado": "Ejecutado",
         "geom_tipo": "LineString",
         "is_metro": false,
-        "is_architectural": false
+        "is_architectural": false,
+        "is_soterramiento": false
       },
       "geometry": {
         "type": "LineString",
@@ -1718,7 +1732,8 @@
         "estado": "Ejecutado",
         "geom_tipo": "LineString",
         "is_metro": false,
-        "is_architectural": false
+        "is_architectural": false,
+        "is_soterramiento": false
       },
       "geometry": {
         "type": "LineString",
@@ -1767,7 +1782,8 @@
         "estado": "Ejecutado",
         "geom_tipo": "LineString",
         "is_metro": false,
-        "is_architectural": false
+        "is_architectural": false,
+        "is_soterramiento": false
       },
       "geometry": {
         "type": "LineString",
@@ -1832,7 +1848,8 @@
         "estado": "Ejecutado",
         "geom_tipo": "LineString",
         "is_metro": false,
-        "is_architectural": false
+        "is_architectural": false,
+        "is_soterramiento": false
       },
       "geometry": {
         "type": "LineString",
@@ -1897,7 +1914,8 @@
         "estado": "Ejecutado",
         "geom_tipo": "LineString",
         "is_metro": false,
-        "is_architectural": false
+        "is_architectural": false,
+        "is_soterramiento": false
       },
       "geometry": {
         "type": "LineString",
@@ -1962,7 +1980,8 @@
         "estado": "Ejecutado",
         "geom_tipo": "Polygon",
         "is_metro": true,
-        "is_architectural": false
+        "is_architectural": false,
+        "is_soterramiento": false
       },
       "geometry": {
         "type": "Polygon",
@@ -2193,7 +2212,8 @@
         "estado": "En Ejecución",
         "geom_tipo": "Polygon",
         "is_metro": false,
-        "is_architectural": false
+        "is_architectural": false,
+        "is_soterramiento": false
       },
       "geometry": {
         "type": "Polygon",
@@ -2432,7 +2452,8 @@
         "estado": "Ejecutado",
         "geom_tipo": "LineString",
         "is_metro": false,
-        "is_architectural": false
+        "is_architectural": false,
+        "is_soterramiento": false
       },
       "geometry": {
         "type": "LineString",
@@ -2469,7 +2490,8 @@
         "estado": "Ejecutado",
         "geom_tipo": "Polygon",
         "is_metro": true,
-        "is_architectural": false
+        "is_architectural": false,
+        "is_soterramiento": false
       },
       "geometry": {
         "type": "Polygon",
@@ -2720,7 +2742,8 @@
         "estado": "Ejecutado",
         "geom_tipo": "Polygon",
         "is_metro": true,
-        "is_architectural": false
+        "is_architectural": false,
+        "is_soterramiento": false
       },
       "geometry": {
         "type": "Polygon",
@@ -2959,7 +2982,8 @@
         "estado": "Ejecutado",
         "geom_tipo": "LineString",
         "is_metro": false,
-        "is_architectural": false
+        "is_architectural": false,
+        "is_soterramiento": false
       },
       "geometry": {
         "type": "LineString",
@@ -2998,7 +3022,7 @@
         "centralidad_jerarquia": "Zonal",
         "badge": "Ejecutado",
         "estado": "Ejecutado",
-        "geom_tipo": "LineString",
+        "geom_tipo": "Polygon",
         "is_metro": false,
         "is_architectural": false,
         "coordenadas_exactas": true,
@@ -3006,7 +3030,9 @@
           -78.495195,
           -0.209177
         ],
-        "poligono_codigo": "PA"
+        "poligono_codigo": "PA",
+        "is_soterramiento": true,
+        "color": "#78350f"
       },
       "geometry": {
         "type": "Polygon",
@@ -3157,7 +3183,8 @@
         "estado": "Ejecutado",
         "geom_tipo": "LineString",
         "is_metro": false,
-        "is_architectural": false
+        "is_architectural": false,
+        "is_soterramiento": false
       },
       "geometry": {
         "type": "LineString",
@@ -3190,7 +3217,8 @@
         "estado": "Ejecutado",
         "geom_tipo": "LineString",
         "is_metro": false,
-        "is_architectural": false
+        "is_architectural": false,
+        "is_soterramiento": false
       },
       "geometry": {
         "type": "LineString",
@@ -3227,7 +3255,8 @@
         "estado": "Ejecutado",
         "geom_tipo": "Polygon",
         "is_metro": true,
-        "is_architectural": false
+        "is_architectural": false,
+        "is_soterramiento": false
       },
       "geometry": {
         "type": "Polygon",
@@ -3866,7 +3895,8 @@
         "estado": "Ejecutado",
         "geom_tipo": "Polygon",
         "is_metro": true,
-        "is_architectural": false
+        "is_architectural": false,
+        "is_soterramiento": false
       },
       "geometry": {
         "type": "Polygon",
@@ -4233,7 +4263,8 @@
         "estado": "Ejecutado",
         "geom_tipo": "LineString",
         "is_metro": false,
-        "is_architectural": false
+        "is_architectural": false,
+        "is_soterramiento": false
       },
       "geometry": {
         "type": "LineString",
@@ -4276,7 +4307,7 @@
         "centralidad_jerarquia": "Metropolitana",
         "badge": "Ejecutado",
         "estado": "Ejecutado",
-        "geom_tipo": "LineString",
+        "geom_tipo": "Polygon",
         "is_metro": false,
         "is_architectural": false,
         "coordenadas_exactas": true,
@@ -4284,7 +4315,9 @@
           -78.484271,
           -0.203027
         ],
-        "poligono_codigo": "CL"
+        "poligono_codigo": "CL",
+        "is_soterramiento": true,
+        "color": "#78350f"
       },
       "geometry": {
         "type": "Polygon",
@@ -4395,7 +4428,8 @@
         "estado": "Ejecutado",
         "geom_tipo": "LineString",
         "is_metro": false,
-        "is_architectural": false
+        "is_architectural": false,
+        "is_soterramiento": false
       },
       "geometry": {
         "type": "LineString",
@@ -4432,7 +4466,8 @@
         "estado": "Ejecutado",
         "geom_tipo": "LineString",
         "is_metro": false,
-        "is_architectural": false
+        "is_architectural": false,
+        "is_soterramiento": false
       },
       "geometry": {
         "type": "LineString",
@@ -4513,7 +4548,8 @@
         "estado": "Ejecutado",
         "geom_tipo": "Polygon",
         "is_metro": true,
-        "is_architectural": false
+        "is_architectural": false,
+        "is_soterramiento": false
       },
       "geometry": {
         "type": "Polygon",
@@ -4920,7 +4956,8 @@
         "estado": "Ejecutado",
         "geom_tipo": "Polygon",
         "is_metro": true,
-        "is_architectural": false
+        "is_architectural": false,
+        "is_soterramiento": false
       },
       "geometry": {
         "type": "Polygon",
@@ -5443,7 +5480,8 @@
         "estado": "Ejecutado",
         "geom_tipo": "LineString",
         "is_metro": false,
-        "is_architectural": false
+        "is_architectural": false,
+        "is_soterramiento": false
       },
       "geometry": {
         "type": "LineString",
@@ -5486,7 +5524,7 @@
         "centralidad_jerarquia": "Zonal",
         "badge": "Ejecutado",
         "estado": "Ejecutado",
-        "geom_tipo": "LineString",
+        "geom_tipo": "Polygon",
         "is_metro": false,
         "is_architectural": false,
         "coordenadas_exactas": true,
@@ -5494,7 +5532,9 @@
           -78.473685,
           -0.152652
         ],
-        "poligono_codigo": "AVINC"
+        "poligono_codigo": "AVINC",
+        "is_soterramiento": true,
+        "color": "#78350f"
       },
       "geometry": {
         "type": "Polygon",
@@ -7373,7 +7413,8 @@
         "estado": "Planificado",
         "geom_tipo": "LineString",
         "is_metro": false,
-        "is_architectural": false
+        "is_architectural": false,
+        "is_soterramiento": false
       },
       "geometry": {
         "type": "LineString",
@@ -7406,7 +7447,8 @@
         "estado": "En Ejecución",
         "geom_tipo": "Point",
         "is_metro": false,
-        "is_architectural": true
+        "is_architectural": true,
+        "is_soterramiento": false
       },
       "geometry": {
         "type": "Point",
@@ -7427,7 +7469,7 @@
         "centralidad_jerarquia": "Metropolitana",
         "badge": "Ejecutado",
         "estado": "Ejecutado",
-        "geom_tipo": "LineString",
+        "geom_tipo": "Polygon",
         "is_metro": false,
         "is_architectural": false,
         "coordenadas_exactas": true,
@@ -7435,7 +7477,9 @@
           -78.490218,
           -0.139539
         ],
-        "poligono_codigo": "BICEN"
+        "poligono_codigo": "BICEN",
+        "is_soterramiento": true,
+        "color": "#78350f"
       },
       "geometry": {
         "type": "Polygon",
@@ -7782,7 +7826,8 @@
         "estado": "Ejecutado",
         "geom_tipo": "LineString",
         "is_metro": false,
-        "is_architectural": false
+        "is_architectural": false,
+        "is_soterramiento": false
       },
       "geometry": {
         "type": "LineString",
@@ -7811,7 +7856,8 @@
         "estado": "Ejecutado",
         "geom_tipo": "Polygon",
         "is_metro": true,
-        "is_architectural": false
+        "is_architectural": false,
+        "is_soterramiento": false
       },
       "geometry": {
         "type": "Polygon",
@@ -8374,7 +8420,8 @@
         "estado": "Ejecutado",
         "geom_tipo": "Polygon",
         "is_metro": false,
-        "is_architectural": false
+        "is_architectural": false,
+        "is_soterramiento": false
       },
       "geometry": {
         "type": "Polygon",
@@ -8417,7 +8464,9 @@
         "estado": "Ejecutado",
         "geom_tipo": "Polygon",
         "is_metro": false,
-        "is_architectural": false
+        "is_architectural": false,
+        "is_soterramiento": true,
+        "color": "#78350f"
       },
       "geometry": {
         "type": "Polygon",
@@ -8458,7 +8507,7 @@
         "centralidad_jerarquia": "Metropolitana",
         "badge": "Ejecutado",
         "estado": "Ejecutado",
-        "geom_tipo": "LineString",
+        "geom_tipo": "Polygon",
         "is_metro": false,
         "is_architectural": false,
         "coordenadas_exactas": true,
@@ -8466,7 +8515,9 @@
           -78.476653,
           -0.174865
         ],
-        "poligono_codigo": "6DIC"
+        "poligono_codigo": "6DIC",
+        "is_soterramiento": true,
+        "color": "#78350f"
       },
       "geometry": {
         "type": "Polygon",
@@ -8829,7 +8880,8 @@
         "estado": "Ejecutado",
         "geom_tipo": "Polygon",
         "is_metro": true,
-        "is_architectural": false
+        "is_architectural": false,
+        "is_soterramiento": false
       },
       "geometry": {
         "type": "Polygon",
@@ -9412,7 +9464,8 @@
         "estado": "Ejecutado",
         "geom_tipo": "Polygon",
         "is_metro": true,
-        "is_architectural": false
+        "is_architectural": false,
+        "is_soterramiento": false
       },
       "geometry": {
         "type": "Polygon",
@@ -9683,7 +9736,8 @@
         "estado": "Ejecutado",
         "geom_tipo": "LineString",
         "is_metro": false,
-        "is_architectural": false
+        "is_architectural": false,
+        "is_soterramiento": false
       },
       "geometry": {
         "type": "LineString",
@@ -9714,7 +9768,7 @@
         "centralidad_jerarquia": "Zonal",
         "badge": "Ejecutado",
         "estado": "Ejecutado",
-        "geom_tipo": "LineString",
+        "geom_tipo": "Polygon",
         "is_metro": false,
         "is_architectural": false,
         "coordenadas_exactas": true,
@@ -9722,7 +9776,9 @@
           -78.522536,
           -0.240848
         ],
-        "poligono_codigo": "RCHAV"
+        "poligono_codigo": "RCHAV",
+        "is_soterramiento": true,
+        "color": "#78350f"
       },
       "geometry": {
         "type": "Polygon",
@@ -10077,7 +10133,8 @@
         "estado": "Ejecutado",
         "geom_tipo": "Polygon",
         "is_metro": true,
-        "is_architectural": false
+        "is_architectural": false,
+        "is_soterramiento": false
       },
       "geometry": {
         "type": "Polygon",
@@ -10520,7 +10577,8 @@
         "estado": "Ejecutado",
         "geom_tipo": "Polygon",
         "is_metro": true,
-        "is_architectural": false
+        "is_architectural": false,
+        "is_soterramiento": false
       },
       "geometry": {
         "type": "Polygon",
@@ -10925,7 +10983,7 @@
         "centralidad_jerarquia": "Zonal",
         "badge": "Ejecutado",
         "estado": "Ejecutado",
-        "geom_tipo": "LineString",
+        "geom_tipo": "Polygon",
         "is_metro": false,
         "is_architectural": false,
         "coordenadas_exactas": true,
@@ -10933,7 +10991,9 @@
           -78.537864,
           -0.26201
         ],
-        "poligono_codigo": "AVAJA"
+        "poligono_codigo": "AVAJA",
+        "is_soterramiento": true,
+        "color": "#78350f"
       },
       "geometry": {
         "type": "Polygon",
@@ -11688,7 +11748,8 @@
         "estado": "Ejecutado",
         "geom_tipo": "Polygon",
         "is_metro": true,
-        "is_architectural": false
+        "is_architectural": false,
+        "is_soterramiento": false
       },
       "geometry": {
         "type": "Polygon",
@@ -12227,7 +12288,8 @@
         "estado": "Ejecutado",
         "geom_tipo": "Polygon",
         "is_metro": true,
-        "is_architectural": false
+        "is_architectural": false,
+        "is_soterramiento": false
       },
       "geometry": {
         "type": "Polygon",
@@ -12490,7 +12552,8 @@
         "estado": "Ejecutado",
         "geom_tipo": "Point",
         "is_metro": false,
-        "is_architectural": true
+        "is_architectural": true,
+        "is_soterramiento": false
       },
       "geometry": {
         "type": "Point",
@@ -12513,7 +12576,8 @@
         "estado": "Ejecutado",
         "geom_tipo": "Point",
         "is_metro": false,
-        "is_architectural": true
+        "is_architectural": true,
+        "is_soterramiento": false
       },
       "geometry": {
         "type": "Point",
@@ -12534,7 +12598,7 @@
         "centralidad_jerarquia": "Sectorial",
         "badge": "Ejecutado",
         "estado": "Ejecutado",
-        "geom_tipo": "LineString",
+        "geom_tipo": "Polygon",
         "is_metro": false,
         "is_architectural": false,
         "coordenadas_exactas": true,
@@ -12542,7 +12606,9 @@
           -78.484927,
           -0.163769
         ],
-        "poligono_codigo": "QLAY"
+        "poligono_codigo": "QLAY",
+        "is_soterramiento": true,
+        "color": "#78350f"
       },
       "geometry": {
         "type": "Polygon",
@@ -12765,7 +12831,8 @@
         "estado": "Ejecutado",
         "geom_tipo": "Polygon",
         "is_metro": true,
-        "is_architectural": false
+        "is_architectural": false,
+        "is_soterramiento": false
       },
       "geometry": {
         "type": "Polygon",
@@ -13146,7 +13213,7 @@
         "centralidad_jerarquia": "Sectorial",
         "badge": "Planificado",
         "estado": "Planificado",
-        "geom_tipo": "LineString",
+        "geom_tipo": "Polygon",
         "is_metro": false,
         "is_architectural": false,
         "coordenadas_exactas": true,
@@ -13154,7 +13221,9 @@
           -78.444709,
           -0.218117
         ],
-        "poligono_codigo": "SP"
+        "poligono_codigo": "SP",
+        "is_soterramiento": true,
+        "color": "#78350f"
       },
       "geometry": {
         "type": "Polygon",
@@ -14033,7 +14102,8 @@
         "estado": "Planificado",
         "geom_tipo": "LineString",
         "is_metro": false,
-        "is_architectural": false
+        "is_architectural": false,
+        "is_soterramiento": false
       },
       "geometry": {
         "type": "LineString",
@@ -14066,7 +14136,8 @@
         "estado": "Ejecutado",
         "geom_tipo": "Point",
         "is_metro": false,
-        "is_architectural": true
+        "is_architectural": true,
+        "is_soterramiento": false
       },
       "geometry": {
         "type": "Point",
@@ -14089,7 +14160,8 @@
         "estado": "En Ejecución",
         "geom_tipo": "Point",
         "is_metro": false,
-        "is_architectural": true
+        "is_architectural": true,
+        "is_soterramiento": false
       },
       "geometry": {
         "type": "Point",
@@ -14111,7 +14183,11 @@
           -78.52241,
           -0.312471
         ],
-        "coordenadas_exactas": true
+        "coordenadas_exactas": true,
+        "geom_tipo": "Polygon",
+        "is_soterramiento": true,
+        "is_metro": false,
+        "color": "#78350f"
       },
       "geometry": {
         "type": "Polygon",
@@ -22573,7 +22649,11 @@
           -78.488109,
           -0.151046
         ],
-        "coordenadas_exactas": true
+        "coordenadas_exactas": true,
+        "geom_tipo": "Polygon",
+        "is_soterramiento": true,
+        "is_metro": false,
+        "color": "#78350f"
       },
       "geometry": {
         "type": "Polygon",
@@ -22783,7 +22863,11 @@
           -78.514627,
           -0.24346
         ],
-        "coordenadas_exactas": true
+        "coordenadas_exactas": true,
+        "geom_tipo": "Polygon",
+        "is_soterramiento": true,
+        "is_metro": false,
+        "color": "#78350f"
       },
       "geometry": {
         "type": "Polygon",
@@ -23049,7 +23133,11 @@
           -78.477127,
           -0.183562
         ],
-        "coordenadas_exactas": true
+        "coordenadas_exactas": true,
+        "geom_tipo": "Polygon",
+        "is_soterramiento": true,
+        "is_metro": false,
+        "color": "#78350f"
       },
       "geometry": {
         "type": "Polygon",
@@ -23143,7 +23231,11 @@
           -78.494264,
           -0.198785
         ],
-        "coordenadas_exactas": true
+        "coordenadas_exactas": true,
+        "geom_tipo": "Polygon",
+        "is_soterramiento": true,
+        "is_metro": false,
+        "color": "#78350f"
       },
       "geometry": {
         "type": "Polygon",
@@ -23257,7 +23349,11 @@
           -78.457763,
           -0.108618
         ],
-        "coordenadas_exactas": true
+        "coordenadas_exactas": true,
+        "geom_tipo": "Polygon",
+        "is_soterramiento": true,
+        "is_metro": false,
+        "color": "#78350f"
       },
       "geometry": {
         "type": "Polygon",
@@ -23493,7 +23589,11 @@
           -78.4657,
           -0.164408
         ],
-        "coordenadas_exactas": true
+        "coordenadas_exactas": true,
+        "geom_tipo": "Polygon",
+        "is_soterramiento": true,
+        "is_metro": false,
+        "color": "#78350f"
       },
       "geometry": {
         "type": "Polygon",
@@ -23743,7 +23843,11 @@
           -78.538293,
           -0.266918
         ],
-        "coordenadas_exactas": true
+        "coordenadas_exactas": true,
+        "geom_tipo": "Polygon",
+        "is_soterramiento": true,
+        "is_metro": false,
+        "color": "#78350f"
       },
       "geometry": {
         "type": "Polygon",
@@ -23929,7 +24033,11 @@
           -78.494502,
           -0.206031
         ],
-        "coordenadas_exactas": true
+        "coordenadas_exactas": true,
+        "geom_tipo": "Polygon",
+        "is_soterramiento": true,
+        "is_metro": false,
+        "color": "#78350f"
       },
       "geometry": {
         "type": "Polygon",
@@ -23995,7 +24103,11 @@
           -78.482659,
           -0.176364
         ],
-        "coordenadas_exactas": true
+        "coordenadas_exactas": true,
+        "geom_tipo": "Polygon",
+        "is_soterramiento": true,
+        "is_metro": false,
+        "color": "#78350f"
       },
       "geometry": {
         "type": "Polygon",
@@ -24093,7 +24205,11 @@
           -78.483702,
           -0.165041
         ],
-        "coordenadas_exactas": true
+        "coordenadas_exactas": true,
+        "geom_tipo": "Polygon",
+        "is_soterramiento": true,
+        "is_metro": false,
+        "color": "#78350f"
       },
       "geometry": {
         "type": "Polygon",
@@ -24203,7 +24319,11 @@
           -78.418961,
           -0.205113
         ],
-        "coordenadas_exactas": true
+        "coordenadas_exactas": true,
+        "geom_tipo": "Polygon",
+        "is_soterramiento": true,
+        "is_metro": false,
+        "color": "#78350f"
       },
       "geometry": {
         "type": "Polygon",
@@ -24249,7 +24369,11 @@
           -78.436957,
           -0.198622
         ],
-        "coordenadas_exactas": true
+        "coordenadas_exactas": true,
+        "geom_tipo": "Polygon",
+        "is_soterramiento": true,
+        "is_metro": false,
+        "color": "#78350f"
       },
       "geometry": {
         "type": "Polygon",
@@ -24323,7 +24447,11 @@
           -78.480103,
           -0.182692
         ],
-        "coordenadas_exactas": true
+        "coordenadas_exactas": true,
+        "geom_tipo": "Polygon",
+        "is_soterramiento": true,
+        "is_metro": false,
+        "color": "#78350f"
       },
       "geometry": {
         "type": "Polygon",
@@ -25373,7 +25501,11 @@
           -78.502323,
           -0.212919
         ],
-        "coordenadas_exactas": true
+        "coordenadas_exactas": true,
+        "geom_tipo": "Polygon",
+        "is_soterramiento": true,
+        "is_metro": false,
+        "color": "#78350f"
       },
       "geometry": {
         "type": "Polygon",
@@ -25707,7 +25839,11 @@
           -78.490703,
           -0.102401
         ],
-        "coordenadas_exactas": true
+        "coordenadas_exactas": true,
+        "geom_tipo": "Polygon",
+        "is_soterramiento": true,
+        "is_metro": false,
+        "color": "#78350f"
       },
       "geometry": {
         "type": "Polygon",
@@ -26113,7 +26249,11 @@
           -78.47265,
           -0.312142
         ],
-        "coordenadas_exactas": true
+        "coordenadas_exactas": true,
+        "geom_tipo": "Polygon",
+        "is_soterramiento": true,
+        "is_metro": false,
+        "color": "#78350f"
       },
       "geometry": {
         "type": "Polygon",
@@ -26355,7 +26495,11 @@
           -78.438122,
           -0.19456
         ],
-        "coordenadas_exactas": true
+        "coordenadas_exactas": true,
+        "geom_tipo": "Polygon",
+        "is_soterramiento": true,
+        "is_metro": false,
+        "color": "#78350f"
       },
       "geometry": {
         "type": "Polygon",
@@ -26429,7 +26573,11 @@
           -78.52476,
           -0.258095
         ],
-        "coordenadas_exactas": true
+        "coordenadas_exactas": true,
+        "geom_tipo": "Polygon",
+        "is_soterramiento": true,
+        "is_metro": false,
+        "color": "#78350f"
       },
       "geometry": {
         "type": "Polygon",
@@ -26519,7 +26667,11 @@
           -78.481076,
           -0.202187
         ],
-        "coordenadas_exactas": true
+        "coordenadas_exactas": true,
+        "geom_tipo": "Polygon",
+        "is_soterramiento": true,
+        "is_metro": false,
+        "color": "#78350f"
       },
       "geometry": {
         "type": "Polygon",
@@ -26593,7 +26745,11 @@
           -78.43492,
           -0.211636
         ],
-        "coordenadas_exactas": true
+        "coordenadas_exactas": true,
+        "geom_tipo": "Polygon",
+        "is_soterramiento": true,
+        "is_metro": false,
+        "color": "#78350f"
       },
       "geometry": {
         "type": "Polygon",
@@ -28859,7 +29015,11 @@
           -78.47483,
           -0.167897
         ],
-        "coordenadas_exactas": true
+        "coordenadas_exactas": true,
+        "geom_tipo": "Polygon",
+        "is_soterramiento": true,
+        "is_metro": false,
+        "color": "#78350f"
       },
       "geometry": {
         "type": "Polygon",
@@ -28905,7 +29065,11 @@
           -78.48482,
           -0.193719
         ],
-        "coordenadas_exactas": true
+        "coordenadas_exactas": true,
+        "geom_tipo": "Polygon",
+        "is_soterramiento": true,
+        "is_metro": false,
+        "color": "#78350f"
       },
       "geometry": {
         "type": "Polygon",
@@ -28967,7 +29131,11 @@
           -78.534235,
           -0.258417
         ],
-        "coordenadas_exactas": true
+        "coordenadas_exactas": true,
+        "geom_tipo": "Polygon",
+        "is_soterramiento": true,
+        "is_metro": false,
+        "color": "#78350f"
       },
       "geometry": {
         "type": "Polygon",
@@ -29109,7 +29277,11 @@
           -78.484527,
           -0.177944
         ],
-        "coordenadas_exactas": true
+        "coordenadas_exactas": true,
+        "geom_tipo": "Polygon",
+        "is_soterramiento": true,
+        "is_metro": false,
+        "color": "#78350f"
       },
       "geometry": {
         "type": "Polygon",
@@ -29171,7 +29343,11 @@
           -78.456044,
           -0.051794
         ],
-        "coordenadas_exactas": true
+        "coordenadas_exactas": true,
+        "geom_tipo": "Polygon",
+        "is_soterramiento": true,
+        "is_metro": false,
+        "color": "#78350f"
       },
       "geometry": {
         "type": "Polygon",
@@ -29237,7 +29413,11 @@
           -78.426256,
           -0.208075
         ],
-        "coordenadas_exactas": true
+        "coordenadas_exactas": true,
+        "geom_tipo": "Polygon",
+        "is_soterramiento": true,
+        "is_metro": false,
+        "color": "#78350f"
       },
       "geometry": {
         "type": "Polygon",
@@ -29303,7 +29483,11 @@
           -78.507051,
           -0.22915
         ],
-        "coordenadas_exactas": true
+        "coordenadas_exactas": true,
+        "geom_tipo": "Polygon",
+        "is_soterramiento": true,
+        "is_metro": false,
+        "color": "#78350f"
       },
       "geometry": {
         "type": "Polygon",
@@ -29361,7 +29545,11 @@
           -78.476399,
           -0.181437
         ],
-        "coordenadas_exactas": true
+        "coordenadas_exactas": true,
+        "geom_tipo": "Polygon",
+        "is_soterramiento": true,
+        "is_metro": false,
+        "color": "#78350f"
       },
       "geometry": {
         "type": "Polygon",
@@ -29403,7 +29591,11 @@
           -78.440873,
           -0.198133
         ],
-        "coordenadas_exactas": true
+        "coordenadas_exactas": true,
+        "geom_tipo": "Polygon",
+        "is_soterramiento": true,
+        "is_metro": false,
+        "color": "#78350f"
       },
       "geometry": {
         "type": "Polygon",
@@ -29501,7 +29693,11 @@
           -78.550238,
           -0.326879
         ],
-        "coordenadas_exactas": true
+        "coordenadas_exactas": true,
+        "geom_tipo": "Polygon",
+        "is_soterramiento": true,
+        "is_metro": false,
+        "color": "#78350f"
       },
       "geometry": {
         "type": "Polygon",
@@ -29591,7 +29787,11 @@
           -78.492985,
           -0.194467
         ],
-        "coordenadas_exactas": true
+        "coordenadas_exactas": true,
+        "geom_tipo": "Polygon",
+        "is_soterramiento": true,
+        "is_metro": false,
+        "color": "#78350f"
       },
       "geometry": {
         "type": "Polygon",
@@ -29833,7 +30033,11 @@
           -78.554367,
           -0.298011
         ],
-        "coordenadas_exactas": true
+        "coordenadas_exactas": true,
+        "geom_tipo": "Polygon",
+        "is_soterramiento": true,
+        "is_metro": false,
+        "color": "#78350f"
       },
       "geometry": {
         "type": "Polygon",
@@ -30091,7 +30295,11 @@
           -78.536643,
           -0.266826
         ],
-        "coordenadas_exactas": true
+        "coordenadas_exactas": true,
+        "geom_tipo": "Polygon",
+        "is_soterramiento": true,
+        "is_metro": false,
+        "color": "#78350f"
       },
       "geometry": {
         "type": "Polygon",
@@ -30181,7 +30389,11 @@
           -78.548613,
           -0.280539
         ],
-        "coordenadas_exactas": true
+        "coordenadas_exactas": true,
+        "geom_tipo": "Polygon",
+        "is_soterramiento": true,
+        "is_metro": false,
+        "color": "#78350f"
       },
       "geometry": {
         "type": "Polygon",
@@ -30259,7 +30471,11 @@
           -78.499969,
           -0.198391
         ],
-        "coordenadas_exactas": true
+        "coordenadas_exactas": true,
+        "geom_tipo": "Polygon",
+        "is_soterramiento": true,
+        "is_metro": false,
+        "color": "#78350f"
       },
       "geometry": {
         "type": "Polygon",
@@ -30349,7 +30565,11 @@
           -78.480616,
           -0.191628
         ],
-        "coordenadas_exactas": true
+        "coordenadas_exactas": true,
+        "geom_tipo": "Polygon",
+        "is_soterramiento": true,
+        "is_metro": false,
+        "color": "#78350f"
       },
       "geometry": {
         "type": "Polygon",
@@ -30415,7 +30635,11 @@
           -78.458769,
           -0.16197
         ],
-        "coordenadas_exactas": true
+        "coordenadas_exactas": true,
+        "geom_tipo": "Polygon",
+        "is_soterramiento": true,
+        "is_metro": false,
+        "color": "#78350f"
       },
       "geometry": {
         "type": "Polygon",
@@ -30625,7 +30849,11 @@
           -78.522,
           -0.220571
         ],
-        "coordenadas_exactas": true
+        "coordenadas_exactas": true,
+        "geom_tipo": "Polygon",
+        "is_soterramiento": true,
+        "is_metro": false,
+        "color": "#78350f"
       },
       "geometry": {
         "type": "Polygon",
@@ -30735,7 +30963,11 @@
           -78.468003,
           -0.150137
         ],
-        "coordenadas_exactas": true
+        "coordenadas_exactas": true,
+        "geom_tipo": "Polygon",
+        "is_soterramiento": true,
+        "is_metro": false,
+        "color": "#78350f"
       },
       "geometry": {
         "type": "Polygon",
@@ -30781,7 +31013,11 @@
           -78.442536,
           -0.205558
         ],
-        "coordenadas_exactas": true
+        "coordenadas_exactas": true,
+        "geom_tipo": "Polygon",
+        "is_soterramiento": true,
+        "is_metro": false,
+        "color": "#78350f"
       },
       "geometry": {
         "type": "Polygon",
@@ -30827,7 +31063,11 @@
           -78.410773,
           -0.194244
         ],
-        "coordenadas_exactas": true
+        "coordenadas_exactas": true,
+        "geom_tipo": "Polygon",
+        "is_soterramiento": true,
+        "is_metro": false,
+        "color": "#78350f"
       },
       "geometry": {
         "type": "Polygon",
@@ -30905,7 +31145,11 @@
           -78.422815,
           -0.203276
         ],
-        "coordenadas_exactas": true
+        "coordenadas_exactas": true,
+        "geom_tipo": "Polygon",
+        "is_soterramiento": true,
+        "is_metro": false,
+        "color": "#78350f"
       },
       "geometry": {
         "type": "Polygon",
@@ -30955,7 +31199,11 @@
           -78.546984,
           -0.294587
         ],
-        "coordenadas_exactas": true
+        "coordenadas_exactas": true,
+        "geom_tipo": "Polygon",
+        "is_soterramiento": true,
+        "is_metro": false,
+        "color": "#78350f"
       },
       "geometry": {
         "type": "Polygon",
@@ -31013,7 +31261,11 @@
           -78.475851,
           -0.166572
         ],
-        "coordenadas_exactas": true
+        "coordenadas_exactas": true,
+        "geom_tipo": "Polygon",
+        "is_soterramiento": true,
+        "is_metro": false,
+        "color": "#78350f"
       },
       "geometry": {
         "type": "Polygon",
@@ -31067,7 +31319,11 @@
           -78.479109,
           -0.175792
         ],
-        "coordenadas_exactas": true
+        "coordenadas_exactas": true,
+        "geom_tipo": "Polygon",
+        "is_soterramiento": true,
+        "is_metro": false,
+        "color": "#78350f"
       },
       "geometry": {
         "type": "Polygon",
@@ -31169,7 +31425,11 @@
           -78.479755,
           -0.191407
         ],
-        "coordenadas_exactas": true
+        "coordenadas_exactas": true,
+        "geom_tipo": "Polygon",
+        "is_soterramiento": true,
+        "is_metro": false,
+        "color": "#78350f"
       },
       "geometry": {
         "type": "Polygon",
@@ -31347,7 +31607,11 @@
           -78.410162,
           -0.212333
         ],
-        "coordenadas_exactas": true
+        "coordenadas_exactas": true,
+        "geom_tipo": "Polygon",
+        "is_soterramiento": true,
+        "is_metro": false,
+        "color": "#78350f"
       },
       "geometry": {
         "type": "Polygon",
@@ -31397,7 +31661,11 @@
           -78.474892,
           -0.159877
         ],
-        "coordenadas_exactas": true
+        "coordenadas_exactas": true,
+        "geom_tipo": "Polygon",
+        "is_soterramiento": true,
+        "is_metro": false,
+        "color": "#78350f"
       },
       "geometry": {
         "type": "Polygon",
@@ -31451,7 +31719,11 @@
           -78.487006,
           -0.190827
         ],
-        "coordenadas_exactas": true
+        "coordenadas_exactas": true,
+        "geom_tipo": "Polygon",
+        "is_soterramiento": true,
+        "is_metro": false,
+        "color": "#78350f"
       },
       "geometry": {
         "type": "Polygon",
@@ -31541,7 +31813,11 @@
           -78.443963,
           -0.141213
         ],
-        "coordenadas_exactas": true
+        "coordenadas_exactas": true,
+        "geom_tipo": "Polygon",
+        "is_soterramiento": true,
+        "is_metro": false,
+        "color": "#78350f"
       },
       "geometry": {
         "type": "Polygon",
@@ -31583,7 +31859,11 @@
           -78.520124,
           -0.323187
         ],
-        "coordenadas_exactas": true
+        "coordenadas_exactas": true,
+        "geom_tipo": "Polygon",
+        "is_soterramiento": true,
+        "is_metro": false,
+        "color": "#78350f"
       },
       "geometry": {
         "type": "Polygon",
@@ -31629,7 +31909,11 @@
           -78.423944,
           -0.101159
         ],
-        "coordenadas_exactas": true
+        "coordenadas_exactas": true,
+        "geom_tipo": "Polygon",
+        "is_soterramiento": true,
+        "is_metro": false,
+        "color": "#78350f"
       },
       "geometry": {
         "type": "Polygon",
@@ -31775,7 +32059,11 @@
           -78.453269,
           -0.116344
         ],
-        "coordenadas_exactas": true
+        "coordenadas_exactas": true,
+        "geom_tipo": "Polygon",
+        "is_soterramiento": true,
+        "is_metro": false,
+        "color": "#78350f"
       },
       "geometry": {
         "type": "Polygon",
@@ -31817,7 +32105,11 @@
           -78.447463,
           -0.217028
         ],
-        "coordenadas_exactas": true
+        "coordenadas_exactas": true,
+        "geom_tipo": "Polygon",
+        "is_soterramiento": true,
+        "is_metro": false,
+        "color": "#78350f"
       },
       "geometry": {
         "type": "Polygon",
@@ -31935,7 +32227,11 @@
           -78.483401,
           -0.193276
         ],
-        "coordenadas_exactas": true
+        "coordenadas_exactas": true,
+        "geom_tipo": "Polygon",
+        "is_soterramiento": true,
+        "is_metro": false,
+        "color": "#78350f"
       },
       "geometry": {
         "type": "Polygon",
@@ -32291,7 +32587,11 @@
           -78.450414,
           -0.040723
         ],
-        "coordenadas_exactas": true
+        "coordenadas_exactas": true,
+        "geom_tipo": "Polygon",
+        "is_soterramiento": true,
+        "is_metro": false,
+        "color": "#78350f"
       },
       "geometry": {
         "type": "Polygon",
@@ -32461,7 +32761,11 @@
           -78.504606,
           -0.218827
         ],
-        "coordenadas_exactas": true
+        "coordenadas_exactas": true,
+        "geom_tipo": "Polygon",
+        "is_soterramiento": true,
+        "is_metro": false,
+        "color": "#78350f"
       },
       "geometry": {
         "type": "Polygon",
@@ -32831,7 +33135,11 @@
           -78.420511,
           -0.219979
         ],
-        "coordenadas_exactas": true
+        "coordenadas_exactas": true,
+        "geom_tipo": "Polygon",
+        "is_soterramiento": true,
+        "is_metro": false,
+        "color": "#78350f"
       },
       "geometry": {
         "type": "Polygon",
@@ -32969,7 +33277,11 @@
           -78.446554,
           -0.221166
         ],
-        "coordenadas_exactas": true
+        "coordenadas_exactas": true,
+        "geom_tipo": "Polygon",
+        "is_soterramiento": true,
+        "is_metro": false,
+        "color": "#78350f"
       },
       "geometry": {
         "type": "Polygon",
@@ -33139,7 +33451,11 @@
           -78.444982,
           -0.100622
         ],
-        "coordenadas_exactas": true
+        "coordenadas_exactas": true,
+        "geom_tipo": "Polygon",
+        "is_soterramiento": true,
+        "is_metro": false,
+        "color": "#78350f"
       },
       "geometry": {
         "type": "Polygon",
@@ -33289,7 +33605,11 @@
           -78.439628,
           -0.194739
         ],
-        "coordenadas_exactas": true
+        "coordenadas_exactas": true,
+        "geom_tipo": "Polygon",
+        "is_soterramiento": true,
+        "is_metro": false,
+        "color": "#78350f"
       },
       "geometry": {
         "type": "Polygon",
@@ -33407,7 +33727,11 @@
           -78.545474,
           -0.274365
         ],
-        "coordenadas_exactas": true
+        "coordenadas_exactas": true,
+        "geom_tipo": "Polygon",
+        "is_soterramiento": true,
+        "is_metro": false,
+        "color": "#78350f"
       },
       "geometry": {
         "type": "Polygon",
@@ -33821,7 +34145,11 @@
           -78.529501,
           -0.246286
         ],
-        "coordenadas_exactas": true
+        "coordenadas_exactas": true,
+        "geom_tipo": "Polygon",
+        "is_soterramiento": true,
+        "is_metro": false,
+        "color": "#78350f"
       },
       "geometry": {
         "type": "Polygon",
@@ -34899,7 +35227,11 @@
           -78.45303,
           -0.062949
         ],
-        "coordenadas_exactas": true
+        "coordenadas_exactas": true,
+        "geom_tipo": "Polygon",
+        "is_soterramiento": true,
+        "is_metro": false,
+        "color": "#78350f"
       },
       "geometry": {
         "type": "Polygon",
