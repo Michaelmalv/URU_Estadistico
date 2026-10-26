@@ -1057,7 +1057,7 @@ export default function CentralidadesView() {
                     <span style="font-weight: 700;">(${p.centralidad_jerarquia})</span>
                   </div>
                   <div style="font-size: 10px; color: #ea580c; font-weight: 700;">
-                    👉 Clic para abrir las 4 Dimensiones
+                    👉 Clic para ver más información
                   </div>
                 </div>
               `)
@@ -1932,7 +1932,7 @@ export default function CentralidadesView() {
                           setFloatingProject(proj);
                           focusProject(proj);
                         }}
-                        title="Haz clic para abrir la pantalla flotante con información, seguridad, economía y suelo"
+                        title="Haz clic para ver más información (detalles, seguridad, economía y suelo)"
                       >
                         <div className="project-tab-main-info">
                           <div className="title-row">
@@ -1946,7 +1946,7 @@ export default function CentralidadesView() {
                           <div className="type-and-cue-row">
                             <span className="proj-tab-type">{proj.tipo}</span>
                             <span className="open-cue-text">
-                              <Maximize2 size={11} /> Ver ficha flotante
+                              <Maximize2 size={11} /> Ver más información
                             </span>
                           </div>
                         </div>
@@ -1994,21 +1994,17 @@ export default function CentralidadesView() {
                   </h4>
                   <p className="active-proj-summary-snippet">{activeProject.resumen}</p>
 
-                  {/* Botón Principal para Abrir la Pantalla Flotante */}
+                  {/* Botón Principal para Ver Más Información */}
                   <button 
                     className="btn-trigger-floating-modal"
                     onClick={() => {
                       setActiveProjectTab('info');
                       setFloatingProject(activeProject);
                     }}
-                    title="Abrir pantalla flotante con información del proyecto"
+                    title="Ver más información del proyecto"
                   >
                     <Maximize2 size={15} />
-                    <span>
-                      {getProjectDimensionsCount(activeProject) === 1
-                        ? "Abrir Ficha Técnica del Proyecto"
-                        : `Abrir Pantalla Flotante (${getProjectDimensionsCount(activeProject)} Dimensiones)`}
-                    </span>
+                    <span>Ver más información</span>
                     <ArrowUpRight size={15} />
                   </button>
 
@@ -2199,7 +2195,7 @@ export default function CentralidadesView() {
                 <button 
                   className="floating-modal-close-btn" 
                   onClick={() => setFloatingProject(null)}
-                  title="Cerrar pantalla flotante (Esc)"
+                  title="Cerrar ventana (Esc)"
                   aria-label="Cerrar ventana"
                 >
                   <X size={20} />
