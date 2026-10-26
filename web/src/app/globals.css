@@ -4875,26 +4875,34 @@ h1, h2, h3, h4, h5, h6 {
   border-bottom: 1.5px solid #e2e8f0;
   padding: 0 0.75rem;
   overflow-x: auto;
+  overflow-y: hidden;
   flex-shrink: 0;
-  min-height: 48px;
-  height: 48px;
+  min-height: 52px;
+  height: 52px;
   position: relative;
   z-index: 10;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.floating-modal-tabs::-webkit-scrollbar {
+  display: none;
 }
 
 .floating-tab-btn {
   flex: 1;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  height: 100%;
-  padding: 0 1.15rem;
+  height: 52px;
+  box-sizing: border-box;
+  padding: 0 1.25rem;
   background: transparent;
   border: none;
   border-bottom: 3px solid transparent;
-  font-size: 0.85rem;
+  font-size: 0.88rem;
   font-weight: 700;
   color: #64748b;
   cursor: pointer;
