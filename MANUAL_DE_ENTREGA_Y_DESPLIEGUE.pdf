@@ -1,0 +1,1384 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
+endobj
+2 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>
+endobj
+3 0 obj
+<< /Length 5556 >>
+stream
+
+q
+0.08 0.18 0.36 rg
+42 809.89 511.28 3.5 re f
+0.82 0.86 0.92 RG
+0.5 w
+42 797.89 m 553.28 797.89 l S
+BT
+/F2 7.5 Tf
+0.25 0.32 0.45 rg
+42 800.89 Td
+(MUNICIPIO DEL DISTRITO METROPOLITANO DE QUITO | SECRETARIA DE HABITAT Y ORDENAMIENTO TERRITORIAL) Tj
+ET
+BT
+/F2 7.5 Tf
+0.15 0.35 0.65 rg
+418.28 800.89 Td
+(TRANSFERENCIA TECNOLOGICA Y DESPLIEGUE) Tj
+ET
+Q
+
+q
+BT
+/F2 13 Tf
+0.08 0.18 0.36 rg
+42 776.89 Td
+(MANUAL DE TRANSFERENCIA TECNOLOGICA Y DESPLIEGUE AUTONOMO) Tj
+ET
+Q
+
+q
+BT
+/F2 9.5 Tf
+0.15 0.40 0.75 rg
+42 758.89 Td
+(Portal de Seguimiento y Evaluacion de Proyectos Estrategicos DMQ \(PMDOT / PUGS\)) Tj
+ET
+Q
+
+q
+0.95 0.97 0.99 rg
+42 722.89 511.28 30 re f
+0.82 0.88 0.95 RG
+0.75 w
+42 722.89 511.28 30 re S
+BT
+/F2 7.5 Tf
+0.20 0.28 0.40 rg
+50 744.89 Td
+(REPOSITORIO: ) Tj
+/F1 7.5 Tf
+(github.com/Michaelmalv/URU_Estadistico) Tj
+ET
+BT
+/F2 7.5 Tf
+0.20 0.28 0.40 rg
+302 744.89 Td
+(ESTADO: ) Tj
+/F2 7.5 Tf
+0.08 0.55 0.25 rg
+(LLAVE EN MANO / 100% OPERATIVO) Tj
+ET
+BT
+/F2 7.5 Tf
+0.20 0.28 0.40 rg
+50 732.89 Td
+(TECNOLOGIA: ) Tj
+/F1 7.5 Tf
+(Next.js 16 - React 19 - Mapbox - Supabase) Tj
+ET
+Q
+
+q
+0.94 0.96 0.99 rg
+42 703.89 511.28 17 re f
+0.80 0.86 0.94 RG
+0.75 w
+42 703.89 511.28 17 re S
+0.10 0.25 0.55 rg
+42 703.89 3.5 17 re f
+BT
+/F2 9 Tf
+0.08 0.18 0.36 rg
+50 709.39 Td
+(1. OBJETIVO Y ALCANCE DE LA TRANSFERENCIA) Tj
+ET
+Q
+
+q
+BT
+/F1 8.5 Tf
+0.15 0.18 0.22 rg
+42 685.89 Td
+(El presente documento establece la guia oficial y el procedimiento paso a paso para que la entidad receptora \(Municipio del) Tj
+ET
+Q
+
+q
+BT
+/F1 8.5 Tf
+0.15 0.18 0.22 rg
+42 674.1899999999999 Td
+(DMQ / Secretaria de Territorio, Habitat y Vivienda\) asuma el control tecnico absoluto, codigo fuente, bases de datos y) Tj
+ET
+Q
+
+q
+BT
+/F1 8.5 Tf
+0.15 0.18 0.22 rg
+42 662.4899999999999 Td
+(despliegue del portal sin depender de cuentas personales de terceros.) Tj
+ET
+Q
+
+q
+0.15 0.40 0.75 rg
+46 649.7899999999998 3 3 re f
+Q
+
+q
+BT
+/F2 8.5 Tf
+0.15 0.18 0.22 rg
+56 650.7899999999998 Td
+(Autonomia Total en Cuentas Institucionales:) Tj
+ET
+Q
+
+q
+BT
+/F1 8.2 Tf
+0.15 0.18 0.22 rg
+56 639.0899999999998 Td
+(El equipo receptor gestionara su propio repositorio en GitHub, su propia base de datos PostgreSQL en Supabase, su propio token) Tj
+ET
+Q
+
+q
+BT
+/F1 8.2 Tf
+0.15 0.18 0.22 rg
+56 627.6899999999998 Td
+(cartografico en Mapbox y su propio hosting en Vercel, asegurando soberania sobre los datos y capacidad de programar nuevas) Tj
+ET
+Q
+
+q
+BT
+/F1 8.2 Tf
+0.15 0.18 0.22 rg
+56 616.2899999999998 Td
+(caracteristicas.) Tj
+ET
+Q
+
+q
+0.94 0.96 0.99 rg
+42 594.8899999999999 511.28 17 re f
+0.80 0.86 0.94 RG
+0.75 w
+42 594.8899999999999 511.28 17 re S
+0.10 0.25 0.55 rg
+42 594.8899999999999 3.5 17 re f
+BT
+/F2 9 Tf
+0.08 0.18 0.36 rg
+50 600.3899999999999 Td
+(2. REPOSITORIO GITHUB Y ENTORNO DE PROGRAMACION LOCAL) Tj
+ET
+Q
+
+q
+BT
+/F1 8.5 Tf
+0.15 0.18 0.22 rg
+42 576.8899999999999 Td
+(El codigo completo del proyecto se entrega a traves del repositorio unico maestro:) Tj
+ET
+Q
+
+q
+BT
+/F1 8.5 Tf
+0.15 0.18 0.22 rg
+42 565.1899999999998 Td
+(https://github.com/Michaelmalv/URU_Estadistico. Este contiene el backend analitico, los scripts de reproyeccion espacial, las) Tj
+ET
+Q
+
+q
+BT
+/F1 8.5 Tf
+0.15 0.18 0.22 rg
+42 553.4899999999998 Td
+(matrices oficiales de datos y la aplicacion web \(en la carpeta /web\).) Tj
+ET
+Q
+
+q
+0.15 0.40 0.75 rg
+46 540.7899999999997 3 3 re f
+Q
+
+q
+BT
+/F2 8.5 Tf
+0.15 0.18 0.22 rg
+56 541.7899999999997 Td
+(Paso 2.1: Migrar a la Cuenta Institucional de GitHub) Tj
+ET
+Q
+
+q
+BT
+/F1 8.2 Tf
+0.15 0.18 0.22 rg
+56 530.0899999999997 Td
+(Clone el repositorio y cambie el origen remoto hacia su propia organizacion de GitHub:) Tj
+ET
+Q
+
+q
+0.07 0.10 0.16 rg
+52 450.6899999999997 491.28 72 re f
+0.20 0.28 0.40 RG
+0.75 w
+52 450.6899999999997 491.28 72 re S
+Q
+
+q
+BT
+/F1 8 Tf
+0.90 0.94 0.98 rg
+60 509.6899999999997 Td
+($ git clone https://github.com/Michaelmalv/URU_Estadistico.git) Tj
+ET
+Q
+
+q
+BT
+/F1 8 Tf
+0.90 0.94 0.98 rg
+60 497.6899999999997 Td
+($ cd URU_Estadistico) Tj
+ET
+Q
+
+q
+BT
+/F1 8 Tf
+0.90 0.94 0.98 rg
+60 485.6899999999997 Td
+($ git remote set-url origin https://github.com/SuOrganizacion/URU_Estadistico.git) Tj
+ET
+Q
+
+q
+BT
+/F1 8 Tf
+0.90 0.94 0.98 rg
+60 473.6899999999997 Td
+($ git push -u origin main) Tj
+ET
+Q
+
+q
+BT
+/F1 8 Tf
+0.90 0.94 0.98 rg
+60 461.6899999999997 Td
+($ git push origin master) Tj
+ET
+Q
+
+q
+0.15 0.40 0.75 rg
+46 436.6899999999997 3 3 re f
+Q
+
+q
+BT
+/F2 8.5 Tf
+0.15 0.18 0.22 rg
+56 437.6899999999997 Td
+(Paso 2.2: Programacion y Modificaciones en Local \(Entorno de Desarrollo\)) Tj
+ET
+Q
+
+q
+BT
+/F1 8.2 Tf
+0.15 0.18 0.22 rg
+56 425.9899999999997 Td
+(Para programar nuevos modulos, modificar el mapa, editar indicadores o ajustar estilos CSS, ejecute el servidor local de) Tj
+ET
+Q
+
+q
+BT
+/F1 8.2 Tf
+0.15 0.18 0.22 rg
+56 414.58999999999975 Td
+(desarrollo con recarga automatica en vivo:) Tj
+ET
+Q
+
+q
+0.07 0.10 0.16 rg
+52 359.18999999999977 491.28 48 re f
+0.20 0.28 0.40 RG
+0.75 w
+52 359.18999999999977 491.28 48 re S
+Q
+
+q
+BT
+/F1 8 Tf
+0.90 0.94 0.98 rg
+60 394.18999999999977 Td
+($ cd web) Tj
+ET
+Q
+
+q
+BT
+/F1 8 Tf
+0.90 0.94 0.98 rg
+60 382.18999999999977 Td
+($ npm install) Tj
+ET
+Q
+
+q
+BT
+/F1 8 Tf
+0.90 0.94 0.98 rg
+60 370.18999999999977 Td
+($ npm run dev) Tj
+ET
+Q
+
+q
+BT
+/F1 8.5 Tf
+0.15 0.18 0.22 rg
+42 346.18999999999977 Td
+(El entorno se abrira en http://localhost:3000. Cualquier edicion se refresca de inmediato en pantalla mediante Fast Refresh.) Tj
+ET
+Q
+
+q
+0.82 0.86 0.92 RG
+0.5 w
+42 36 m 553.28 36 l S
+BT
+/F1 7.5 Tf
+0.45 0.50 0.58 rg
+42 26 Td
+(Manual Tecnico de Entrega, Cuentas Propias y Despliegue - Portal de Proyectos Estrategicos DMQ) Tj
+ET
+BT
+/F2 7.5 Tf
+0.15 0.25 0.40 rg
+488.28 26 Td
+(Pagina 1 de 3) Tj
+ET
+Q
+
+endstream
+endobj
+4 0 obj
+<< /Type /Page /Parent 9 0 R /MediaBox [0 0 595.28 841.89] /Contents 3 0 R /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> >>
+endobj
+5 0 obj
+<< /Length 6996 >>
+stream
+
+q
+0.08 0.18 0.36 rg
+42 809.89 511.28 3.5 re f
+0.82 0.86 0.92 RG
+0.5 w
+42 797.89 m 553.28 797.89 l S
+BT
+/F2 7.5 Tf
+0.25 0.32 0.45 rg
+42 800.89 Td
+(MUNICIPIO DEL DISTRITO METROPOLITANO DE QUITO | SECRETARIA DE HABITAT Y ORDENAMIENTO TERRITORIAL) Tj
+ET
+BT
+/F2 7.5 Tf
+0.15 0.35 0.65 rg
+418.28 800.89 Td
+(TRANSFERENCIA TECNOLOGICA Y DESPLIEGUE) Tj
+ET
+Q
+
+q
+0.94 0.96 0.99 rg
+42 769.89 511.28 17 re f
+0.80 0.86 0.94 RG
+0.75 w
+42 769.89 511.28 17 re S
+0.10 0.25 0.55 rg
+42 769.89 3.5 17 re f
+BT
+/F2 9 Tf
+0.08 0.18 0.36 rg
+50 775.39 Td
+(3. CONFIGURACION DE LA BASE DE DATOS PROPIA EN SUPABASE) Tj
+ET
+Q
+
+q
+BT
+/F1 8.5 Tf
+0.15 0.18 0.22 rg
+42 751.89 Td
+(Para que los datos esten alojados en los servidores de la institucion, se ha generado un script SQL de migracion integral que) Tj
+ET
+Q
+
+q
+BT
+/F1 8.5 Tf
+0.15 0.18 0.22 rg
+42 740.1899999999999 Td
+(crea el esquema relacional e inserta todos los datos historicos en 1 clic.) Tj
+ET
+Q
+
+q
+0.15 0.40 0.75 rg
+46 727.4899999999999 3 3 re f
+Q
+
+q
+BT
+/F2 8.5 Tf
+0.15 0.18 0.22 rg
+56 728.4899999999999 Td
+(Paso 3.1: Crear Proyecto en Supabase) Tj
+ET
+Q
+
+q
+BT
+/F1 8.2 Tf
+0.15 0.18 0.22 rg
+56 716.7899999999998 Td
+(Ingrese a https://supabase.com con su correo institucional, cree un proyecto nuevo \(ej. proyectos-estrategicos-dmq\) y) Tj
+ET
+Q
+
+q
+BT
+/F1 8.2 Tf
+0.15 0.18 0.22 rg
+56 705.3899999999999 Td
+(seleccione la region mas cercana.) Tj
+ET
+Q
+
+q
+0.15 0.40 0.75 rg
+46 689.9899999999999 3 3 re f
+Q
+
+q
+BT
+/F2 8.5 Tf
+0.15 0.18 0.22 rg
+56 690.9899999999999 Td
+(Paso 3.2: Ejecutar Script de Migracion Automatica) Tj
+ET
+Q
+
+q
+BT
+/F1 8.2 Tf
+0.15 0.18 0.22 rg
+56 679.2899999999998 Td
+(Abra el archivo "scripts/supabase_migration_complete.sql" ubicado en la raiz del repositorio. En el panel de Supabase vaya a) Tj
+ET
+Q
+
+q
+BT
+/F1 8.2 Tf
+0.15 0.18 0.22 rg
+56 667.8899999999999 Td
+("SQL Editor", pegue todo el contenido del script y presione el boton "RUN".) Tj
+ET
+Q
+
+q
+0.94 0.99 0.95 rg
+42 623.4899999999999 511.28 38 re f
+0.25 0.70 0.35 RG
+0.75 w
+42 623.4899999999999 511.28 38 re S
+0.15 0.60 0.25 rg
+42 623.4899999999999 3.5 38 re f
+BT
+/F2 8.5 Tf
+0.10 0.45 0.18 rg
+52 651.4899999999999 Td
+(Resultado Automatico de la Migracion:) Tj
+ET
+Q
+
+q
+BT
+/F1 8 Tf
+0.15 0.20 0.25 rg
+52 639.4899999999999 Td
+(El script creara las tablas de proyectos, seguridad, economia \(LUAEs\), valor de suelo y fichas institucionales, habilitando) Tj
+ET
+Q
+
+q
+BT
+/F1 8 Tf
+0.15 0.20 0.25 rg
+52 628.4899999999999 Td
+(politicas de lectura publica segura \(Row Level Security\) y precargando todos los registros.) Tj
+ET
+Q
+
+q
+0.15 0.40 0.75 rg
+46 609.4899999999999 3 3 re f
+Q
+
+q
+BT
+/F2 8.5 Tf
+0.15 0.18 0.22 rg
+56 610.4899999999999 Td
+(Paso 3.3: Obtener Credenciales de Base de Datos) Tj
+ET
+Q
+
+q
+BT
+/F1 8.2 Tf
+0.15 0.18 0.22 rg
+56 598.7899999999998 Td
+(En Supabase dirijase a Project Settings -> Data API y copie sus dos claves:) Tj
+ET
+Q
+
+q
+0.90 0.94 0.98 rg
+42 577.3899999999999 511.28 15 re f
+0.75 0.82 0.90 RG
+0.75 w
+42 577.3899999999999 511.28 15 re S
+Q
+
+q
+BT
+/F2 7.5 Tf
+0.10 0.20 0.35 rg
+48 583.3899999999999 Td
+(PARAMETRO SUPABASE) Tj
+ET
+Q
+
+q
+BT
+/F2 7.5 Tf
+0.10 0.20 0.35 rg
+198 583.3899999999999 Td
+(VARIABLE DE ENTORNO) Tj
+ET
+Q
+
+q
+BT
+/F2 7.5 Tf
+0.10 0.20 0.35 rg
+358 583.3899999999999 Td
+(PROPOSITO) Tj
+ET
+Q
+
+q
+1 1 1 rg
+42 562.3899999999999 511.28 15 re f
+0.85 0.88 0.92 RG
+0.5 w
+42 562.3899999999999 511.28 15 re S
+Q
+
+q
+BT
+/F2 7.5 Tf
+0.15 0.18 0.22 rg
+48 568.3899999999999 Td
+(Project URL) Tj
+ET
+Q
+
+q
+BT
+/F1 7.5 Tf
+0.15 0.18 0.22 rg
+198 568.3899999999999 Td
+(NEXT_PUBLIC_SUPABASE_URL) Tj
+ET
+Q
+
+q
+BT
+/F1 7.5 Tf
+0.15 0.18 0.22 rg
+358 568.3899999999999 Td
+(Punto de enlace HTTPS del servidor) Tj
+ET
+Q
+
+q
+0.97 0.98 0.99 rg
+42 547.3899999999999 511.28 15 re f
+0.85 0.88 0.92 RG
+0.5 w
+42 547.3899999999999 511.28 15 re S
+Q
+
+q
+BT
+/F2 7.5 Tf
+0.15 0.18 0.22 rg
+48 553.3899999999999 Td
+(Anon / Public Key) Tj
+ET
+Q
+
+q
+BT
+/F1 7.5 Tf
+0.15 0.18 0.22 rg
+198 553.3899999999999 Td
+(NEXT_PUBLIC_SUPABASE_ANON_KEY) Tj
+ET
+Q
+
+q
+BT
+/F1 7.5 Tf
+0.15 0.18 0.22 rg
+358 553.3899999999999 Td
+(Clave publica de lectura para el frontend) Tj
+ET
+Q
+
+q
+1 1 1 rg
+42 532.3899999999999 511.28 15 re f
+0.85 0.88 0.92 RG
+0.5 w
+42 532.3899999999999 511.28 15 re S
+Q
+
+q
+BT
+/F2 7.5 Tf
+0.15 0.18 0.22 rg
+48 538.3899999999999 Td
+(Database Password) Tj
+ET
+Q
+
+q
+BT
+/F1 7.5 Tf
+0.15 0.18 0.22 rg
+198 538.3899999999999 Td
+(N/A \(Interna\)) Tj
+ET
+Q
+
+q
+BT
+/F1 7.5 Tf
+0.15 0.18 0.22 rg
+358 538.3899999999999 Td
+(Clave administrativa para backups SQL) Tj
+ET
+Q
+
+q
+0.94 0.96 0.99 rg
+42 511.3899999999999 511.28 17 re f
+0.80 0.86 0.94 RG
+0.75 w
+42 511.3899999999999 511.28 17 re S
+0.10 0.25 0.55 rg
+42 511.3899999999999 3.5 17 re f
+BT
+/F2 9 Tf
+0.08 0.18 0.36 rg
+50 516.8899999999999 Td
+(4. GENERACION DE API Y CUENTA PROPIA DE MAPBOX \(OBLIGATORIO\)) Tj
+ET
+Q
+
+q
+0.99 0.98 0.94 rg
+42 463.3899999999999 511.28 38 re f
+0.85 0.65 0.20 RG
+0.75 w
+42 463.3899999999999 511.28 38 re S
+0.85 0.55 0.10 rg
+42 463.3899999999999 3.5 38 re f
+BT
+/F2 8.5 Tf
+0.55 0.35 0.05 rg
+52 491.3899999999999 Td
+(AVISO OBLIGATORIO DE SEGURIDAD Y SOBERANIA CARTOGRAFICA:) Tj
+ET
+Q
+
+q
+BT
+/F1 8 Tf
+0.15 0.20 0.25 rg
+52 479.3899999999999 Td
+(Por politicas de seguridad y gobernanza de datos, la institucion DEBE utilizar su propio token de Mapbox. No se deben) Tj
+ET
+Q
+
+q
+BT
+/F1 8 Tf
+0.15 0.20 0.25 rg
+52 468.3899999999999 Td
+(utilizar claves personales ajenas para evitar suspensiones de servicio o bloqueos por exceso de consumo.) Tj
+ET
+Q
+
+q
+BT
+/F1 8.5 Tf
+0.15 0.18 0.22 rg
+42 450.3899999999999 Td
+(Mapbox proporciona un plan gratuito de 50.000 cargas mensuales de mapas, suficiente para la operacion institucional.) Tj
+ET
+Q
+
+q
+0.15 0.40 0.75 rg
+46 437.6899999999999 3 3 re f
+Q
+
+q
+BT
+/F2 8.5 Tf
+0.15 0.18 0.22 rg
+56 438.6899999999999 Td
+(Paso 4.1: Registro de Cuenta Institucional) Tj
+ET
+Q
+
+q
+BT
+/F1 8.2 Tf
+0.15 0.18 0.22 rg
+56 426.9899999999999 Td
+(Ingrese a https://account.mapbox.com y registre una cuenta con el correo oficial de la entidad.) Tj
+ET
+Q
+
+q
+0.15 0.40 0.75 rg
+46 411.5899999999999 3 3 re f
+Q
+
+q
+BT
+/F2 8.5 Tf
+0.15 0.18 0.22 rg
+56 412.5899999999999 Td
+(Paso 4.2: Creacion y Restriccion del Access Token) Tj
+ET
+Q
+
+q
+BT
+/F1 8.2 Tf
+0.15 0.18 0.22 rg
+56 400.88999999999993 Td
+(Vaya a "Tokens" -> "Create a token". Asigne el nombre "Portal-DMQ-Produccion". En la seccion "URL Restrictions", escriba el) Tj
+ET
+Q
+
+q
+BT
+/F1 8.2 Tf
+0.15 0.18 0.22 rg
+56 389.48999999999995 Td
+(dominio donde estara la web \(ej. *.vercel.app o *.quito.gob.ec\). Esto impide que personas ajenas utilicen su cuota de mapas.) Tj
+ET
+Q
+
+q
+0.15 0.40 0.75 rg
+46 374.09 3 3 re f
+Q
+
+q
+BT
+/F2 8.5 Tf
+0.15 0.18 0.22 rg
+56 375.09 Td
+(Paso 4.3: Variable de Entorno de Mapa) Tj
+ET
+Q
+
+q
+BT
+/F1 8.2 Tf
+0.15 0.18 0.22 rg
+56 363.39 Td
+(Copie el token generado \(inicia con pk.eyJ1...\). Este valor corresponde a: NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN.) Tj
+ET
+Q
+
+q
+0.82 0.86 0.92 RG
+0.5 w
+42 36 m 553.28 36 l S
+BT
+/F1 7.5 Tf
+0.45 0.50 0.58 rg
+42 26 Td
+(Manual Tecnico de Entrega, Cuentas Propias y Despliegue - Portal de Proyectos Estrategicos DMQ) Tj
+ET
+BT
+/F2 7.5 Tf
+0.15 0.25 0.40 rg
+488.28 26 Td
+(Pagina 2 de 3) Tj
+ET
+Q
+
+endstream
+endobj
+6 0 obj
+<< /Type /Page /Parent 9 0 R /MediaBox [0 0 595.28 841.89] /Contents 5 0 R /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> >>
+endobj
+7 0 obj
+<< /Length 7282 >>
+stream
+
+q
+0.08 0.18 0.36 rg
+42 809.89 511.28 3.5 re f
+0.82 0.86 0.92 RG
+0.5 w
+42 797.89 m 553.28 797.89 l S
+BT
+/F2 7.5 Tf
+0.25 0.32 0.45 rg
+42 800.89 Td
+(MUNICIPIO DEL DISTRITO METROPOLITANO DE QUITO | SECRETARIA DE HABITAT Y ORDENAMIENTO TERRITORIAL) Tj
+ET
+BT
+/F2 7.5 Tf
+0.15 0.35 0.65 rg
+418.28 800.89 Td
+(TRANSFERENCIA TECNOLOGICA Y DESPLIEGUE) Tj
+ET
+Q
+
+q
+0.94 0.96 0.99 rg
+42 769.89 511.28 17 re f
+0.80 0.86 0.94 RG
+0.75 w
+42 769.89 511.28 17 re S
+0.10 0.25 0.55 rg
+42 769.89 3.5 17 re f
+BT
+/F2 9 Tf
+0.08 0.18 0.36 rg
+50 775.39 Td
+(5. DESPLIEGUE EN LA CUENTA PROPIA DE VERCEL \(PRODUCCION CLOUD\)) Tj
+ET
+Q
+
+q
+BT
+/F1 8.5 Tf
+0.15 0.18 0.22 rg
+42 751.89 Td
+(Vercel es la infraestructura cloud nativa de Next.js que proporciona hosting de alta disponibilidad, certificados SSL) Tj
+ET
+Q
+
+q
+BT
+/F1 8.5 Tf
+0.15 0.18 0.22 rg
+42 740.1899999999999 Td
+(automaticos y despliegue continuo ante cada cambio en GitHub.) Tj
+ET
+Q
+
+q
+0.15 0.40 0.75 rg
+46 727.4899999999999 3 3 re f
+Q
+
+q
+BT
+/F2 8.5 Tf
+0.15 0.18 0.22 rg
+56 728.4899999999999 Td
+(Paso 5.1: Conectar el Repositorio GitHub a Vercel) Tj
+ET
+Q
+
+q
+BT
+/F1 8.2 Tf
+0.15 0.18 0.22 rg
+56 716.7899999999998 Td
+(Inicie sesion en https://vercel.com con la cuenta institucional. Haga clic en "Add New..." -> "Project" y seleccione el) Tj
+ET
+Q
+
+q
+BT
+/F1 8.2 Tf
+0.15 0.18 0.22 rg
+56 705.3899999999999 Td
+(repositorio URU_Estadistico.) Tj
+ET
+Q
+
+q
+0.99 0.98 0.94 rg
+42 660.9899999999999 511.28 38 re f
+0.85 0.65 0.20 RG
+0.75 w
+42 660.9899999999999 511.28 38 re S
+0.85 0.55 0.10 rg
+42 660.9899999999999 3.5 38 re f
+BT
+/F2 8.5 Tf
+0.55 0.35 0.05 rg
+52 688.9899999999999 Td
+(PASO CRITICO OBLIGATORIO EN VERCEL \(Root Directory\):) Tj
+ET
+Q
+
+q
+BT
+/F1 8 Tf
+0.15 0.20 0.25 rg
+52 676.9899999999999 Td
+(En la pantalla de importacion de Vercel, ubique la seccion "Root Directory", haga clic en EDIT y seleccione la subcarpeta) Tj
+ET
+Q
+
+q
+BT
+/F1 8 Tf
+0.15 0.20 0.25 rg
+52 665.9899999999999 Td
+("web". Esto es indispensable para que Vercel detecte Next.js y compile sin errores.) Tj
+ET
+Q
+
+q
+0.15 0.40 0.75 rg
+46 646.9899999999999 3 3 re f
+Q
+
+q
+BT
+/F2 8.5 Tf
+0.15 0.18 0.22 rg
+56 647.9899999999999 Td
+(Paso 5.2: Cargar las Variables de Entorno Propias) Tj
+ET
+Q
+
+q
+BT
+/F1 8.2 Tf
+0.15 0.18 0.22 rg
+56 636.2899999999998 Td
+(En la seccion "Environment Variables" de Vercel, ingrese las 3 variables obtenidas en los pasos anteriores:) Tj
+ET
+Q
+
+q
+0.90 0.94 0.98 rg
+42 614.8899999999999 511.28 15 re f
+0.75 0.82 0.90 RG
+0.75 w
+42 614.8899999999999 511.28 15 re S
+Q
+
+q
+BT
+/F2 7.5 Tf
+0.10 0.20 0.35 rg
+48 620.8899999999999 Td
+(VARIABLE EN VERCEL) Tj
+ET
+Q
+
+q
+BT
+/F2 7.5 Tf
+0.10 0.20 0.35 rg
+198 620.8899999999999 Td
+(ORIGEN DEL VALOR) Tj
+ET
+Q
+
+q
+BT
+/F2 7.5 Tf
+0.10 0.20 0.35 rg
+358 620.8899999999999 Td
+(DESCRIPCION) Tj
+ET
+Q
+
+q
+1 1 1 rg
+42 599.8899999999999 511.28 15 re f
+0.85 0.88 0.92 RG
+0.5 w
+42 599.8899999999999 511.28 15 re S
+Q
+
+q
+BT
+/F2 7.5 Tf
+0.15 0.18 0.22 rg
+48 605.8899999999999 Td
+(NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN) Tj
+ET
+Q
+
+q
+BT
+/F1 7.5 Tf
+0.15 0.18 0.22 rg
+198 605.8899999999999 Td
+(Cuenta Mapbox de la entidad) Tj
+ET
+Q
+
+q
+BT
+/F1 7.5 Tf
+0.15 0.18 0.22 rg
+358 605.8899999999999 Td
+(Token propio con restriccion de dominio) Tj
+ET
+Q
+
+q
+0.97 0.98 0.99 rg
+42 584.8899999999999 511.28 15 re f
+0.85 0.88 0.92 RG
+0.5 w
+42 584.8899999999999 511.28 15 re S
+Q
+
+q
+BT
+/F2 7.5 Tf
+0.15 0.18 0.22 rg
+48 590.8899999999999 Td
+(NEXT_PUBLIC_SUPABASE_URL) Tj
+ET
+Q
+
+q
+BT
+/F1 7.5 Tf
+0.15 0.18 0.22 rg
+198 590.8899999999999 Td
+(Proyecto Supabase institucional) Tj
+ET
+Q
+
+q
+BT
+/F1 7.5 Tf
+0.15 0.18 0.22 rg
+358 590.8899999999999 Td
+(URL HTTPS generada en el Paso 3) Tj
+ET
+Q
+
+q
+1 1 1 rg
+42 569.8899999999999 511.28 15 re f
+0.85 0.88 0.92 RG
+0.5 w
+42 569.8899999999999 511.28 15 re S
+Q
+
+q
+BT
+/F2 7.5 Tf
+0.15 0.18 0.22 rg
+48 575.8899999999999 Td
+(NEXT_PUBLIC_SUPABASE_ANON_KEY) Tj
+ET
+Q
+
+q
+BT
+/F1 7.5 Tf
+0.15 0.18 0.22 rg
+198 575.8899999999999 Td
+(Proyecto Supabase institucional) Tj
+ET
+Q
+
+q
+BT
+/F1 7.5 Tf
+0.15 0.18 0.22 rg
+358 575.8899999999999 Td
+(Anon Key publica generada en el Paso 3) Tj
+ET
+Q
+
+q
+0.15 0.40 0.75 rg
+46 554.8899999999999 3 3 re f
+Q
+
+q
+BT
+/F2 8.5 Tf
+0.15 0.18 0.22 rg
+56 555.8899999999999 Td
+(Paso 5.3: Despliegue y Publicacion) Tj
+ET
+Q
+
+q
+BT
+/F1 8.2 Tf
+0.15 0.18 0.22 rg
+56 544.1899999999998 Td
+(Haga clic en el boton "Deploy". En 60 segundos la plataforma estara compilada y en linea bajo el dominio institucional) Tj
+ET
+Q
+
+q
+BT
+/F1 8.2 Tf
+0.15 0.18 0.22 rg
+56 532.7899999999998 Td
+(asignado. A partir de ese momento, cada "git push" en GitHub actualizara la web de forma automatica.) Tj
+ET
+Q
+
+q
+0.94 0.96 0.99 rg
+42 511.3899999999999 511.28 17 re f
+0.80 0.86 0.94 RG
+0.75 w
+42 511.3899999999999 511.28 17 re S
+0.10 0.25 0.55 rg
+42 511.3899999999999 3.5 17 re f
+BT
+/F2 9 Tf
+0.08 0.18 0.36 rg
+50 516.8899999999999 Td
+(6. CARGA DE NUEVOS PROYECTOS Y MANTENIMIENTO DE DATOS) Tj
+ET
+Q
+
+q
+0.15 0.40 0.75 rg
+46 492.3899999999999 3 3 re f
+Q
+
+q
+BT
+/F2 8.5 Tf
+0.15 0.18 0.22 rg
+56 493.3899999999999 Td
+(Estructura de Capas Cartograficas \(GeoJSON\):) Tj
+ET
+Q
+
+q
+BT
+/F1 8.2 Tf
+0.15 0.18 0.22 rg
+56 481.6899999999999 Td
+(Todas las geometrias de soterramientos \(77 poligonos\), zonas metro \(15 estaciones\) y senderos seguros residen en) Tj
+ET
+Q
+
+q
+BT
+/F1 8.2 Tf
+0.15 0.18 0.22 rg
+56 470.2899999999999 Td
+("web/src/lib/proyectos_geometrias.json" en formato estandar WGS84 \(EPSG:4326\).) Tj
+ET
+Q
+
+q
+0.15 0.40 0.75 rg
+46 454.88999999999993 3 3 re f
+Q
+
+q
+BT
+/F2 8.5 Tf
+0.15 0.18 0.22 rg
+56 455.88999999999993 Td
+(Reproyeccion de Nuevos Shapefiles:) Tj
+ET
+Q
+
+q
+BT
+/F1 8.2 Tf
+0.15 0.18 0.22 rg
+56 444.18999999999994 Td
+(Si en el futuro se incorporan nuevos shapefiles oficiales \(.shp en UTM 17S\), el script) Tj
+ET
+Q
+
+q
+BT
+/F1 8.2 Tf
+0.15 0.18 0.22 rg
+56 432.78999999999996 Td
+("scratch/prepare_soterramiento_geometries.js" realiza la reproyeccion matematica y actualizacion automatica de las capas.) Tj
+ET
+Q
+
+q
+0.15 0.40 0.75 rg
+46 417.39 3 3 re f
+Q
+
+q
+BT
+/F2 8.5 Tf
+0.15 0.18 0.22 rg
+56 418.39 Td
+(Alta Resiliencia y Tolerancia a Fallos:) Tj
+ET
+Q
+
+q
+BT
+/F1 8.2 Tf
+0.15 0.18 0.22 rg
+56 406.69 Td
+(El portal web cuenta con un motor hibrido: si el servidor de base de datos se encuentra temporalmente fuera de linea por) Tj
+ET
+Q
+
+q
+BT
+/F1 8.2 Tf
+0.15 0.18 0.22 rg
+56 395.29 Td
+(mantenimiento, el frontend lee automaticamente las fuentes JSON locales precargadas en "web/src/lib/", garantizando) Tj
+ET
+Q
+
+q
+BT
+/F1 8.2 Tf
+0.15 0.18 0.22 rg
+56 383.89000000000004 Td
+(disponibilidad 24/7 sin pantallas en blanco.) Tj
+ET
+Q
+
+q
+0.93 0.97 1.00 rg
+42 339.49000000000007 511.28 38 re f
+0.25 0.60 0.85 RG
+0.75 w
+42 339.49000000000007 511.28 38 re S
+0.10 0.45 0.75 rg
+42 339.49000000000007 3.5 38 re f
+BT
+/F2 8.5 Tf
+0.08 0.30 0.55 rg
+52 367.49000000000007 Td
+(CONCLUSION DE LA TRANSFERENCIA:) Tj
+ET
+Q
+
+q
+BT
+/F1 8 Tf
+0.15 0.20 0.25 rg
+52 355.49000000000007 Td
+(Con este procedimiento, la entidad receptora cuenta con soberania tecnologica total sobre su plataforma, codigo fuente) Tj
+ET
+Q
+
+q
+BT
+/F1 8 Tf
+0.15 0.20 0.25 rg
+52 344.49000000000007 Td
+(abierto y administracion independiente de sus bases de datos y servicios cartograficos.) Tj
+ET
+Q
+
+q
+0.82 0.86 0.92 RG
+0.5 w
+42 36 m 553.28 36 l S
+BT
+/F1 7.5 Tf
+0.45 0.50 0.58 rg
+42 26 Td
+(Manual Tecnico de Entrega, Cuentas Propias y Despliegue - Portal de Proyectos Estrategicos DMQ) Tj
+ET
+BT
+/F2 7.5 Tf
+0.15 0.25 0.40 rg
+488.28 26 Td
+(Pagina 3 de 3) Tj
+ET
+Q
+
+endstream
+endobj
+8 0 obj
+<< /Type /Page /Parent 9 0 R /MediaBox [0 0 595.28 841.89] /Contents 7 0 R /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> >>
+endobj
+9 0 obj
+<< /Type /Pages /Kids [4 0 R 6 0 R 8 0 R] /Count 3 >>
+endobj
+10 0 obj
+<< /Type /Catalog /Pages 9 0 R >>
+endobj
+xref
+0 11
+0000000000 65535 f 
+0000000009 00000 n 
+0000000106 00000 n 
+0000000208 00000 n 
+0000005816 00000 n 
+0000005958 00000 n 
+0000013006 00000 n 
+0000013148 00000 n 
+0000020482 00000 n 
+0000020624 00000 n 
+0000020693 00000 n 
+trailer
+<< /Size 11 /Root 10 0 R >>
+startxref
+20743
+%%EOF

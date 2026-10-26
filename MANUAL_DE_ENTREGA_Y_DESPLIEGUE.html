@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Manual de Transferencia Tecnológica y Despliegue - Portal de Proyectos Estratégicos DMQ</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap');
+
+    @page {
+      size: A4;
+      margin: 18mm 16mm 18mm 16mm;
+      @bottom-right {
+        content: counter(page) " / " counter(pages);
+        font-family: 'Inter', sans-serif;
+        font-size: 8pt;
+        color: #64748b;
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: #1e293b;
+      line-height: 1.55;
+      font-size: 9.5pt;
+      background-color: #ffffff;
+    }
+
+    /* HEADER & FOOTER ON EVERY PAGE */
+    .header-bar {
+      border-bottom: 2px solid #0284c7;
+      padding-bottom: 8px;
+      margin-bottom: 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    .header-bar .inst-name {
+      font-size: 8.5pt;
+      font-weight: 700;
+      color: #0f172a;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+    .header-bar .doc-tag {
+      font-size: 8pt;
+      font-weight: 600;
+      color: #0284c7;
+      background: #f0f9ff;
+      padding: 3px 8px;
+      border-radius: 4px;
+      border: 1px solid #bae6fd;
+    }
+
+    /* COVER / TITLE BLOCK */
+    .title-block {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 60%, #0369a1 100%);
+      color: #ffffff;
+      padding: 28px 24px;
+      border-radius: 10px;
+      margin-bottom: 22px;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+    }
+    .title-block .badge-top {
+      display: inline-block;
+      background: rgba(56, 189, 248, 0.2);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      color: #38bdf8;
+      font-size: 8pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-bottom: 10px;
+    }
+    .title-block h1 {
+      font-size: 18pt;
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+    }
+    .title-block p.subtitle {
+      font-size: 10.5pt;
+      color: #cbd5e1;
+      font-weight: 400;
+      line-height: 1.4;
+      max-width: 90%;
+    }
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 18px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+      font-size: 8.5pt;
+    }
+    .meta-grid .item-label {
+      color: #94a3b8;
+      font-size: 7.5pt;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 2px;
+    }
+    .meta-grid .item-val {
+      font-weight: 600;
+      color: #f8fafc;
+    }
+
+    /* HEADINGS */
+    h2 {
+      font-size: 13pt;
+      font-weight: 800;
+      color: #0f172a;
+      margin-top: 22px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      letter-spacing: -0.01em;
+      border-bottom: 1.5px solid #e2e8f0;
+      padding-bottom: 5px;
+    }
+    h2 .num-badge {
+      background: #0284c7;
+      color: #ffffff;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 8.5pt;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    h3 {
+      font-size: 10.5pt;
+      font-weight: 700;
+      color: #1e293b;
+      margin-top: 14px;
+      margin-bottom: 6px;
+    }
+
+    p {
+      margin-bottom: 10px;
+      color: #334155;
+    }
+
+    /* CODE & TERMINAL BLOCKS */
+    pre, code {
+      font-family: 'JetBrains Mono', Consolas, Monaco, monospace;
+    }
+    code.inline-code {
+      background: #f1f5f9;
+      color: #0f172a;
+      padding: 1.5px 5px;
+      border-radius: 4px;
+      font-size: 8.5pt;
+      border: 1px solid #e2e8f0;
+    }
+    pre.code-block {
+      background: #0f172a;
+      color: #f8fafc;
+      padding: 12px 14px;
+      border-radius: 7px;
+      font-size: 8.2pt;
+      line-height: 1.45;
+      overflow-x: auto;
+      margin-bottom: 12px;
+      border: 1px solid #334155;
+    }
+    pre.code-block .cmd-prompt {
+      color: #38bdf8;
+      user-select: none;
+    }
+    pre.code-block .comment {
+      color: #94a3b8;
+      font-style: italic;
+    }
+
+    /* TABLES */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0 16px 0;
+      font-size: 8.5pt;
+    }
+    th, td {
+      border: 1px solid #cbd5e1;
+      padding: 7px 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background: #f8fafc;
+      font-weight: 700;
+      color: #0f172a;
+      text-transform: uppercase;
+      font-size: 7.5pt;
+      letter-spacing: 0.04em;
+    }
+    tr:nth-child(even) td {
+      background: #fbfcfe;
+    }
+
+    /* CALLOUT / ALERT BOXES */
+    .callout {
+      border-radius: 6px;
+      padding: 10px 14px;
+      margin: 12px 0;
+      font-size: 8.8pt;
+      line-height: 1.45;
+    }
+    .callout-info {
+      background: #f0f9ff;
+      border-left: 4px solid #0284c7;
+      color: #0c4a6e;
+    }
+    .callout-warning {
+      background: #fffbeb;
+      border-left: 4px solid #d97706;
+      color: #78350f;
+    }
+    .callout-success {
+      background: #f0fdf4;
+      border-left: 4px solid #16a34a;
+      color: #14532d;
+    }
+    .callout-title {
+      font-weight: 700;
+      margin-bottom: 3px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* STEPS BOX */
+    .step-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 14px 16px;
+      margin-bottom: 14px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+    }
+    .step-card-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+    .step-number-tag {
+      background: #e0f2fe;
+      color: #0369a1;
+      font-weight: 800;
+      font-size: 8.5pt;
+      padding: 3px 8px;
+      border-radius: 5px;
+      border: 1px solid #bae6fd;
+    }
+    .step-card-title {
+      font-weight: 700;
+      font-size: 10pt;
+      color: #0f172a;
+    }
+
+    /* PAGE BREAK HELPERS */
+    .page-break {
+      page-break-before: always;
+    }
+    .avoid-break {
+      page-break-inside: avoid;
+    }
+
+    ul, ol {
+      margin-left: 20px;
+      margin-bottom: 12px;
+      color: #334155;
+    }
+    li {
+      margin-bottom: 4px;
+    }
+
+    .footer-note {
+      text-align: center;
+      font-size: 8pt;
+      color: #94a3b8;
+      margin-top: 30px;
+      padding-top: 10px;
+      border-top: 1px solid #e2e8f0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER INSTITUCIONAL -->
+  <div class="header-bar">
+    <div class="inst-name">MUNICIPIO DEL DISTRITO METROPOLITANO DE QUITO • STHV</div>
+    <div class="doc-tag">MANUAL DE TRANSFERENCIA TECNOLÓGICA</div>
+  </div>
+
+  <!-- PORTADA / TÍTULO -->
+  <div class="title-block">
+    <div class="badge-top">Guía Oficial de Despliegue e Infraestructura</div>
+    <h1>Portal de Evaluación y Seguimiento de Proyectos Estratégicos (DMQ)</h1>
+    <p class="subtitle">Procedimiento completo de traspaso tecnológico, configuración de cuentas propias (GitHub, Supabase, Mapbox y Vercel) y entorno de programación local.</p>
+    
+    <div class="meta-grid">
+      <div>
+        <div class="item-label">Repositorio Maestro</div>
+        <div class="item-val">github.com/Michaelmalv/URU_Estadistico</div>
+      </div>
+      <div>
+        <div class="item-label">Stack Tecnológico</div>
+        <div class="item-val">Next.js 16 • React • Mapbox • Supabase</div>
+      </div>
+      <div>
+        <div class="item-label">Fecha de Entrega</div>
+        <div class="item-val">Octubre 2026</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECCIÓN 1: INTRODUCCIÓN -->
+  <div class="avoid-break">
+    <h2><span class="num-badge">1</span> Visión General de la Entrega y Cuentas Propias</h2>
+    <p>El propósito de este manual es garantizar que el equipo receptor cuente con <strong>autonomía técnica absoluta</strong> sobre la plataforma. El objetivo es que la entidad receptora administre sus propios servicios en la nube, programe libremente nuevas funcionalidades y mantenga su propia base de datos institucional sin depender de credenciales ni servidores externos.</p>
+
+    <div class="callout callout-info">
+      <div class="callout-title">📌 Los 4 Pilares que el Equipo Receptor debe Configurar en sus Propias Cuentas:</div>
+      <ol style="margin-left: 18px; margin-top: 4px; margin-bottom: 0;">
+        <li><strong>GitHub Institucional:</strong> Para almacenar el código fuente, recibir aportes del equipo técnico y activar integración continua.</li>
+        <li><strong>Base de Datos Supabase Propia:</strong> Servidor PostgreSQL en la nube para alojar y consultar las métricas e indicadores.</li>
+        <li><strong>Cuenta y API de Mapbox Propia:</strong> Proveedor cartográfico para renderizar los mapas 3D y capas vectoriales de la ciudad.</li>
+        <li><strong>Servidor de Despliegue Vercel Propio:</strong> Infraestructura web autogestionada con publicación instantánea ante cada cambio de código.</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- SECCIÓN 2: REPOSITORIO GITHUB -->
+  <div class="avoid-break" style="margin-top: 15px;">
+    <h2><span class="num-badge">2</span> Repositorio Oficial y Entorno de Programación Local</h2>
+    <p>El código fuente completo debe ser descargado desde el repositorio principal:</p>
+    <p style="text-align: center; margin: 8px 0;">
+      <code class="inline-code" style="font-size: 10pt; font-weight: 700; padding: 4px 10px;">https://github.com/Michaelmalv/URU_Estadistico.git</code>
+    </p>
+
+    <div class="step-card">
+      <div class="step-card-header">
+        <span class="step-number-tag">Paso 2.1</span>
+        <span class="step-card-title">Migrar el Repositorio a la Cuenta Institucional de GitHub</span>
+      </div>
+      <p>Para transferir el código a la cuenta o servidor de GitHub propio de la entidad, ejecute en su terminal:</p>
+      <pre class="code-block"><span class="comment"># 1. Clonar el repositorio localmente</span>
+<span class="cmd-prompt">$</span> git clone https://github.com/Michaelmalv/URU_Estadistico.git
+<span class="cmd-prompt">$</span> cd URU_Estadistico
+
+<span class="comment"># 2. Vincular el repositorio a su nueva cuenta institucional de GitHub</span>
+<span class="cmd-prompt">$</span> git remote set-url origin https://github.com/SuOrganizacion/URU_Estadistico.git
+
+<span class="comment"># 3. Subir todas las ramas al nuevo servidor institucional</span>
+<span class="cmd-prompt">$</span> git push -u origin main
+<span class="cmd-prompt">$</span> git push origin master</pre>
+    </div>
+
+    <div class="step-card">
+      <div class="step-card-header">
+        <span class="step-number-tag">Paso 2.2</span>
+        <span class="step-card-title">Instalación y Programación en Entorno Local (Desarrollo)</span>
+      </div>
+      <p>Cualquier programador del equipo puede modificar el diseño, agregar pestañas, editar métricas o integrar nuevas centralidades ejecutando el servidor local de desarrollo:</p>
+      <pre class="code-block"><span class="comment"># Navegar al directorio de la aplicación web</span>
+<span class="cmd-prompt">$</span> cd web
+
+<span class="comment"># Instalar las dependencias de Node.js</span>
+<span class="cmd-prompt">$</span> npm install
+
+<span class="comment"># Iniciar el servidor local de desarrollo con recarga en vivo</span>
+<span class="cmd-prompt">$</span> npm run dev</pre>
+      <p>La aplicación estará disponible inmediatamente en su navegador en: <code class="inline-code">http://localhost:3000</code>. Todos los cambios realizados en archivos <code class="inline-code">.js</code> o <code class="inline-code">.css</code> se actualizan de manera instantánea en pantalla (Fast Refresh).</p>
+    </div>
+  </div>
+
+  <div class="page-break"></div>
+
+  <!-- HEADER PÁGINA 2 -->
+  <div class="header-bar">
+    <div class="inst-name">MUNICIPIO DEL DISTRITO METROPOLITANO DE QUITO • STHV</div>
+    <div class="doc-tag">MANUAL DE TRANSFERENCIA TECNOLÓGICA</div>
+  </div>
+
+  <!-- SECCIÓN 3: BASE DE DATOS SUPABASE -->
+  <div class="avoid-break">
+    <h2><span class="num-badge">3</span> Configuración de la Base de Datos Propia en Supabase</h2>
+    <p>Para que la entidad cuente con su propia base de datos PostgreSQL en la nube (sin compartir accesos ni límites con cuentas personales), se ha incluido un script de migración integral llave en mano:</p>
+
+    <div class="step-card">
+      <div class="step-card-header">
+        <span class="step-number-tag">Paso 3.1</span>
+        <span class="step-card-title">Creación del Proyecto en Supabase</span>
+      </div>
+      <ol style="margin-left: 18px; margin-bottom: 8px;">
+        <li>Acceda al portal oficial: <code class="inline-code">https://supabase.com</code> e inicie sesión con la cuenta institucional de la entidad.</li>
+        <li>Haga clic en el botón <strong>"New Project"</strong>.</li>
+        <li>Defina el nombre del proyecto (ejemplo: <code class="inline-code">proyectos-estrategicos-dmq</code>), establezca una contraseña segura para la base de datos y seleccione la región geográfica más cercana (ejemplo: <em>South America / São Paulo</em> o <em>US East</em>).</li>
+      </ol>
+    </div>
+
+    <div class="step-card">
+      <div class="step-card-header">
+        <span class="step-number-tag">Paso 3.2</span>
+        <span class="step-card-title">Ejecución del Script de Migración Automática (Esquema + Datos)</span>
+      </div>
+      <p>En el repositorio del proyecto se encuentra el archivo:</p>
+      <p style="text-align: center; margin: 6px 0;">
+        <code class="inline-code" style="font-size: 9pt; font-weight: 700; color: #0284c7;">scripts/supabase_migration_complete.sql</code>
+      </p>
+      <ol style="margin-left: 18px;">
+        <li>En el panel lateral izquierdo de su proyecto Supabase, haga clic en <strong>SQL Editor</strong>.</li>
+        <li>Haga clic en <strong>"New Query"</strong>.</li>
+        <li>Abra el archivo <code class="inline-code">scripts/supabase_migration_complete.sql</code>, copie la totalidad de su contenido y péguelo en el editor SQL.</li>
+        <li>Haga clic en el botón verde <strong>"RUN"</strong>.</li>
+      </ol>
+      <div class="callout callout-success" style="margin-top: 8px;">
+        <div class="callout-title">✓ Resultado Automático del Script:</div>
+        Se crearán todas las tablas (<code class="inline-code">proyectos</code>, <code class="inline-code">seguridad_estadisticas</code>, <code class="inline-code">economia_registros</code>, <code class="inline-code">valor_suelo</code>, <code class="inline-code">senderos_fichas</code>), los índices de optimización geográfica y se insertarán todos los registros históricos consolidados.
+      </div>
+    </div>
+
+    <div class="step-card">
+      <div class="step-card-header">
+        <span class="step-number-tag">Paso 3.3</span>
+        <span class="step-card-title">Obtener las Credenciales de Conexión</span>
+      </div>
+      <p>Una vez ejecutado el script, diríjase a <strong>Project Settings ➔ Data API</strong> y copie sus dos variables institucionales:</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Parámetro en Supabase</th>
+            <th>Variable de Entorno en el Proyecto</th>
+            <th>Descripción</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Project URL</strong></td>
+            <td><code class="inline-code">NEXT_PUBLIC_SUPABASE_URL</code></td>
+            <td>Punto de enlace HTTPS del servidor (ej. <em>https://xyz.supabase.co</em>)</td>
+          </tr>
+          <tr>
+            <td><strong>Project API Key (anon / public)</strong></td>
+            <td><code class="inline-code">NEXT_PUBLIC_SUPABASE_ANON_KEY</code></td>
+            <td>Clave de acceso seguro de lectura pública para el frontend React.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- SECCIÓN 4: MAPBOX -->
+  <div class="avoid-break" style="margin-top: 15px;">
+    <h2><span class="num-badge">4</span> Cuenta y Token Propio de Mapbox (Obligatorio)</h2>
+    <p>Para la visualización cartográfica en 3D, relieves topográficos y capas vectoriales de Quito, el sistema utiliza <strong>Mapbox GL JS</strong>. La entidad <strong>debe generar su propia cuenta institucional de Mapbox</strong> por motivos de seguridad, soberanía de datos y cuotas de consumo.</p>
+
+    <div class="callout callout-warning">
+      <div class="callout-title">⚠️ Importante sobre la API de Mapbox:</div>
+      Mapbox ofrece un plan gratuito generoso de hasta <strong>50.000 cargas de mapa mensuales gratuitas</strong>, suficiente para operación institucional. La entidad no debe utilizar tokens personales ajenos, sino su propia clave registrada con el dominio institucional.
+    </div>
+
+    <div class="step-card">
+      <div class="step-card-header">
+        <span class="step-number-tag">Paso 4.1</span>
+        <span class="step-card-title">Creación de Token en Mapbox</span>
+      </div>
+      <ol style="margin-left: 18px;">
+        <li>Ingrese a <code class="inline-code">https://account.mapbox.com</code> y cree una cuenta con el correo oficial del departamento o institución.</li>
+        <li>En la sección <strong>"Access Tokens"</strong>, haga clic en <strong>"Create a token"</strong>.</li>
+        <li>Asigne un nombre (ejemplo: <code class="inline-code">Portal-DMQ-Produccion</code>).</li>
+        <li><em>(Recomendado para seguridad):</em> En el campo <strong>URL Restrictions</strong>, ingrese el dominio donde estará publicado el portal (ejemplo: <code class="inline-code">*.vercel.app</code> o el subdominio municipal <code class="inline-code">*.quito.gob.ec</code>) para impedir que terceros usen su cuota.</li>
+        <li>Copie el token generado (inicia siempre con el prefijo <code class="inline-code">pk.eyJ1...</code>).</li>
+      </ol>
+      <p style="margin-top: 8px;">Este valor se asignará a la variable de entorno: <code class="inline-code" style="font-weight: 700;">NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN</code>.</p>
+    </div>
+  </div>
+
+  <div class="page-break"></div>
+
+  <!-- HEADER PÁGINA 3 -->
+  <div class="header-bar">
+    <div class="inst-name">MUNICIPIO DEL DISTRITO METROPOLITANO DE QUITO • STHV</div>
+    <div class="doc-tag">MANUAL DE TRANSFERENCIA TECNOLÓGICA</div>
+  </div>
+
+  <!-- SECCIÓN 5: VERCEL -->
+  <div class="avoid-break">
+    <h2><span class="num-badge">5</span> Despliegue en la Cuenta Propia de Vercel (Producción)</h2>
+    <p>Vercel es la plataforma en la nube recomendada para hospedar la aplicación Next.js, brindando despliegues automáticos globales (Edge Network), certificados SSL (HTTPS) gratuitos y compresión dinámica de imágenes.</p>
+
+    <div class="step-card">
+      <div class="step-card-header">
+        <span class="step-number-tag">Paso 5.1</span>
+        <span class="step-card-title">Vincular Repositorio y Configurar la Carpeta Raíz ("Root Directory")</span>
+      </div>
+      <ol style="margin-left: 18px;">
+        <li>Inicie sesión en <code class="inline-code">https://vercel.com</code> con la cuenta de la institución.</li>
+        <li>Haga clic en el botón <strong>"Add New..." ➔ "Project"</strong>.</li>
+        <li>Seleccione su repositorio de GitHub (<code class="inline-code">URU_Estadistico</code>).</li>
+        <li><strong style="color: #b91c1c;">PASO CRÍTICO:</strong> En la sección <strong>"Root Directory"</strong> de la pantalla de configuración, haga clic en <strong>Edit</strong> y seleccione la carpeta:
+          <div style="margin: 6px 0; text-align: center;">
+            <code class="inline-code" style="font-size: 11pt; font-weight: 800; background: #fee2e2; border-color: #fca5a5; color: #991b1b; padding: 4px 14px;">web</code>
+          </div>
+          <em>(Esto le indica a Vercel que la aplicación web se encuentra dentro de la carpeta <code class="inline-code">web/</code> y evitará cualquier error de detección de framework).</em>
+        </li>
+      </ol>
+    </div>
+
+    <div class="step-card">
+      <div class="step-card-header">
+        <span class="step-number-tag">Paso 5.2</span>
+        <span class="step-card-title">Configurar las Variables de Entorno Propias</span>
+      </div>
+      <p>En la misma pantalla de Vercel, despliegue la sección <strong>"Environment Variables"</strong> e ingrese las 3 llaves obtenidas en los pasos anteriores:</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Nombre de la Variable</th>
+            <th>Valor a Colocar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN</strong></td>
+            <td>El token propio creado en la cuenta Mapbox de la institución (<code class="inline-code">pk.eyJ1...</code>).</td>
+          </tr>
+          <tr>
+            <td><strong>NEXT_PUBLIC_SUPABASE_URL</strong></td>
+            <td>La URL del nuevo proyecto Supabase (<code class="inline-code">https://xxxx.supabase.co</code>).</td>
+          </tr>
+          <tr>
+            <td><strong>NEXT_PUBLIC_SUPABASE_ANON_KEY</strong></td>
+            <td>La llave pública (anon key) del nuevo proyecto Supabase (<code class="inline-code">eyJhbGciOi...</code>).</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <ol start="5" style="margin-left: 18px; margin-top: 10px;">
+        <li>Haga clic en el botón azul <strong>"Deploy"</strong>.</li>
+      </ol>
+      <div class="callout callout-success" style="margin-top: 8px;">
+        <div class="callout-title">🚀 Despliegue Automático Listo:</div>
+        En aproximadamente 60 segundos el portal estará compilado y activo bajo el dominio institucional asignado por Vercel. A partir de este momento, cada <code class="inline-code">git push</code> que realice el equipo técnico actualizará la web automáticamente.
+      </div>
+    </div>
+  </div>
+
+  <!-- SECCIÓN 6: BUENAS PRÁCTICAS Y ESTRUCTURA -->
+  <div class="avoid-break" style="margin-top: 15px;">
+    <h2><span class="num-badge">6</span> Arquitectura de Archivos y Carga de Nuevos Datos</h2>
+    <p>Para cargar nuevos proyectos, modificar coordenadas o actualizar capas cartográficas en el futuro, el equipo técnico debe conocer la estructura de datos interna:</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Ubicación del Archivo</th>
+          <th>Función y Contenido</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code class="inline-code">web/src/lib/proyectos_geometrias.json</code></td>
+          <td>Capa cartográfica maestra en formato GeoJSON. Contiene los 77 polígonos de soterramientos, las 15 zonas de metro y los senderos en coordenadas WGS84.</td>
+        </tr>
+        <tr>
+          <td><code class="inline-code">web/src/app/components/CentralidadesView.js</code></td>
+          <td>Controlador principal del visor de centralidades, lógica de filtros, búsqueda, animaciones de radar y capas de visualización Mapbox.</td>
+        </tr>
+        <tr>
+          <td><code class="inline-code">web/src/app/components/MapboxMap.js</code></td>
+          <td>Componente modular de mapa para las fichas técnicas individuales y vistas de soterramiento.</td>
+        </tr>
+        <tr>
+          <td><code class="inline-code">web/src/app/globals.css</code></td>
+          <td>Sistema de diseño visual, paleta cromática municipal (azul DMQ, dorado, tonos café para soterramiento) y maquetación responsive.</td>
+        </tr>
+        <tr>
+          <td><code class="inline-code">data/Coordenadas Soterramiento Actualizado/</code></td>
+          <td>Shapefiles vectoriales oficiales del SIRES (<code class="inline-code">.shp</code>, <code class="inline-code">.dbf</code>, <code class="inline-code">.prj</code>) en coordenadas métricas UTM Zona 17S.</td>
+        </tr>
+        <tr>
+          <td><code class="inline-code">scratch/prepare_soterramiento_geometries.js</code></td>
+          <td>Script en Node.js para reproyectar y sincronizar automáticamente nuevos shapefiles a GeoJSON.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout callout-info" style="margin-top: 12px;">
+      <div class="callout-title">💡 Respaldo sin Base de Datos (Tolerancia a Fallos):</div>
+      El portal cuenta con <strong>arquitectura desacoplada resiliente</strong>: si el servidor de Supabase experimenta mantenimiento o interrupción, el frontend de Next.js activa automáticamente las fuentes JSON locales de respaldo (<code class="inline-code">web/src/lib/</code>), garantizando que el portal municipal nunca muestre pantallas en blanco ni errores a la ciudadanía.
+    </div>
+
+    <div class="footer-note">
+      Documento técnico oficial de entrega • Secretaría de Territorio, Hábitat y Vivienda (STHV) • Municipio del Distrito Metropolitano de Quito
+    </div>
+  </div>
+
+</body>
+</html>
