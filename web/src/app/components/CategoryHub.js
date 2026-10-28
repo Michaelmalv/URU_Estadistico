@@ -1,7 +1,8 @@
 'use strict';
 'use client';
 
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, useRef, Suspense } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { Info, Shield, TrendingUp, Landmark } from 'lucide-react';
 import InformacionGeneralView from './InformacionGeneralView';
 import SeguridadView from './SeguridadView';
@@ -9,6 +10,15 @@ import EconomiaView from './EconomiaView';
 import ValorSueloView from './ValorSueloView';
 
 import soterramientoData from '@/lib/soterramiento.json';
+
+function normalizeText(text) {
+  if (!text) return '';
+  return text.toString().trim().toLowerCase()
+    .normalize('NFKD').replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
 
 const getProyectoDisplayName = (nombre) => {
   if (!nombre) return '';
@@ -18,18 +28,23 @@ const getProyectoDisplayName = (nombre) => {
   return nombre;
 };
 
-export default function CategoryHub({
+function CategoryHubInner({
   categoryKey,
   title,
   subtitle,
   defaultSubTab = 'info-general'
 }) {
+  const searchParams = useSearchParams();
+  const queryProyecto = searchParams ? searchParams.get('proyecto') : null;
+  const queryTab = searchParams ? searchParams.get('tab') : null;
+
   const [activeSubTab, setActiveSubTab] = useState(defaultSubTab);
   const [proyectos, setProyectos] = useState([]);
   const [selectedProyecto, setSelectedProyecto] = useState('');
   const [loading, setLoading] = useState(true);
 
   const isSoterramiento = categoryKey === 'Soterramiento';
+  const initializedQueryRef = useRef(false);
 
   const subTabs = useMemo(() => {
     if (isSoterramiento) {
@@ -45,11 +60,38 @@ export default function CategoryHub({
     ];
   }, [isSoterramiento]);
 
+  // Sincronizar subpestaña inicial desde la URL si existe
+  useEffect(() => {
+    if (queryTab) {
+      const tabMap = {
+        'info': 'info-general',
+        'info-general': 'info-general',
+        'seguridad': 'seguridad',
+        'economia': 'economia',
+        'suelo': 'valor-suelo',
+        'valor-suelo': 'valor-suelo'
+      };
+      const mapped = tabMap[queryTab];
+      if (mapped) {
+        if (isSoterramiento) {
+          setActiveSubTab('info-general');
+        } else {
+          setActiveSubTab(mapped);
+        }
+      }
+    }
+  }, [queryTab, isSoterramiento]);
+
   useEffect(() => {
     if (isSoterramiento && activeSubTab !== 'info-general') {
       setActiveSubTab('info-general');
     }
   }, [isSoterramiento, activeSubTab]);
+
+  // Si cambia el parámetro de proyecto en la URL, permitir re-sincronizar
+  useEffect(() => {
+    initializedQueryRef.current = false;
+  }, [queryProyecto]);
 
   // Cargar proyectos disponibles desde la API
   useEffect(() => {
@@ -106,6 +148,22 @@ export default function CategoryHub({
   // Inicializar o ajustar el proyecto seleccionado
   useEffect(() => {
     if (availableProjects.length > 0) {
+      if (queryProyecto && !initializedQueryRef.current) {
+        const normQuery = normalizeText(queryProyecto);
+        const matched = availableProjects.find(p => {
+          const normNombre = normalizeText(p.nombre);
+          const normDb = normalizeText(p.db_nombre_oficial || '');
+          const normId = normalizeText(p.id || '');
+          return normNombre === normQuery || normDb === normQuery || normId === normQuery ||
+                 normNombre.includes(normQuery) || normQuery.includes(normNombre);
+        });
+        if (matched) {
+          setSelectedProyecto(matched.nombre);
+          initializedQueryRef.current = true;
+          return;
+        }
+      }
+
       const exists = availableProjects.some(p => p.nombre === selectedProyecto);
       if (!exists) {
         setSelectedProyecto(availableProjects[0].nombre);
@@ -113,7 +171,7 @@ export default function CategoryHub({
     } else {
       setSelectedProyecto('');
     }
-  }, [availableProjects, selectedProyecto]);
+  }, [availableProjects, queryProyecto, selectedProyecto]);
 
   return (
     <div className="category-hub">
@@ -133,7 +191,10 @@ export default function CategoryHub({
             <select
               className="filter-select"
               value={selectedProyecto}
-              onChange={(e) => setSelectedProyecto(e.target.value)}
+              onChange={(e) => {
+                initializedQueryRef.current = true;
+                setSelectedProyecto(e.target.value);
+              }}
             >
               {availableProjects.map((p) => (
                 <option key={p.id || p.nombre} value={p.nombre}>
@@ -215,6 +276,14 @@ export default function CategoryHub({
         )}
       </div>
     </div>
+  );
+}
+
+export default function CategoryHub(props) {
+  return (
+    <Suspense fallback={<div className="category-hub" style={{ padding: '2rem', textAlign: 'center', color: '#64748b' }}>Cargando información...</div>}>
+      <CategoryHubInner {...props} />
+    </Suspense>
   );
 }
 

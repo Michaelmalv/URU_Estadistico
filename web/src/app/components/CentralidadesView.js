@@ -2,13 +2,14 @@
 'use client';
 
 import React, { useState, useEffect, useRef, useMemo } from 'react';
+import { useRouter } from 'next/navigation';
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { 
   Building2, Shield, DollarSign, Info, Sparkles, MapPin, 
   Layers, Search, Compass, CheckCircle2, TrendingUp, Maximize2, 
   X, ChevronRight, Award, Eye, FileText, ArrowUpRight, ChevronDown, Check,
-  Database, AlertTriangle, ArrowLeft, Train, TreePine, Zap, BarChart2
+  Database, AlertTriangle, ArrowLeft, Train, TreePine, Zap, BarChart2, ArrowRight
 } from 'lucide-react';
 import centralidadesData from '@/lib/centralidades_data.json';
 import centralidadesGeoJson from '@/lib/centralidades.json';
@@ -129,6 +130,7 @@ const getProjectDimensionsCount = (proj) => {
 };
 
 export default function CentralidadesView() {
+  const router = useRouter();
   const mapContainerRef = useRef(null);
   const mapRef = useRef(null);
   const markersRef = useRef([]);
@@ -146,8 +148,74 @@ export default function CentralidadesView() {
   const [mapStyle, setMapStyle] = useState('mapbox://styles/mapbox/streets-v12');
   const [modalImage, setModalImage] = useState(null);
   const [floatingProject, setFloatingProject] = useState(null);
+  const [floatingEcoLive, setFloatingEcoLive] = useState(null);
   const [dbStatus, setDbStatus] = useState('checking'); // 'connected' | 'paused' | 'checking'
   const [dbStats, setDbStats] = useState(null);
+
+  // Determina la ruta y parámetros de navegación al presionar 'Ver más' en la pantalla flotante
+  const getProjectNavigationTarget = (proj, currentTab) => {
+    if (!proj) return { url: '/informacion' };
+
+    // Verificar si cuenta con dimensiones evaluadas oficiales
+    const hasDimensions = Boolean(
+      (proj.seguridad && proj.seguridad.tiene_datos_oficiales) ||
+      (proj.economia && proj.economia.tiene_datos_oficiales) ||
+      (proj.valor_suelo && proj.valor_suelo.tiene_datos_oficiales)
+    );
+
+    // En los proyectos que solo existan Información General, enviar a la pestaña principal de Información
+    if (!hasDimensions) {
+      return { url: '/informacion' };
+    }
+
+    // Mapeo de la subpestaña del modal a la subpestaña de la página de destino
+    const tabParamMap = {
+      'info': 'info-general',
+      'seguridad': 'seguridad',
+      'economia': 'economia',
+      'suelo': 'valor-suelo'
+    };
+    const targetSubTab = tabParamMap[currentTab] || 'info-general';
+
+    // Determinar la categoría y la ruta principal correspondiente
+    const id = (proj.id || '').toLowerCase();
+    const nombre = (proj.nombre || '').toLowerCase();
+    const tipo = (proj.tipo || '').toLowerCase();
+    const projName = proj.db_nombre_oficial || proj.nombre;
+
+    let route = '/corredores-vivos';
+
+    if (tipo.includes('metro') || nombre.includes('zona metro') || id.includes('zona-metro')) {
+      route = '/zonas-metro';
+    } else if (tipo.includes('soterramiento') || nombre.includes('soterramiento') || id.includes('soterramiento')) {
+      route = '/soterramiento';
+    } else if (
+      id.includes('shyris') ||
+      id.includes('parque-navarro') ||
+      id.includes('calle-rocafuerte') ||
+      id.includes('calle-benalcazar') ||
+      nombre.includes('tribuna de los shyris') ||
+      nombre.includes('parque navarro') ||
+      nombre.includes('calle rocafuerte') ||
+      nombre.includes('calle benalcázar') ||
+      nombre.includes('calle benalcazar')
+    ) {
+      if (nombre.includes('michelena')) {
+        route = '/corredores-vivos';
+      } else {
+        route = '/rehabilitacion-espacio-publico';
+      }
+    } else {
+      route = '/corredores-vivos';
+    }
+
+    const query = new URLSearchParams({
+      proyecto: projName,
+      tab: targetSubTab
+    }).toString();
+
+    return { url: `${route}?${query}` };
+  };
 
   // Asegurar que si el proyecto flotante no tiene la dimensión activa, vuelva a 'info'
   useEffect(() => {
@@ -159,6 +227,25 @@ export default function CentralidadesView() {
       } else if (activeProjectTab === 'suelo' && !hasProjectSuelo(floatingProject)) {
         setActiveProjectTab('info');
       }
+    }
+  }, [floatingProject, activeProjectTab]);
+
+  // Sincronizar en vivo las estadísticas económicas cuando se visualiza la dimensión de economía en el modal
+  useEffect(() => {
+    if (floatingProject && activeProjectTab === 'economia') {
+      const projName = floatingProject.db_nombre_oficial || floatingProject.nombre;
+      fetch(`/api/economia?sector=${encodeURIComponent(projName)}`)
+        .then(res => res.json())
+        .then(data => {
+          if (data && data.success) {
+            setFloatingEcoLive(data);
+          } else {
+            setFloatingEcoLive(null);
+          }
+        })
+        .catch(() => setFloatingEcoLive(null));
+    } else {
+      setFloatingEcoLive(null);
     }
   }, [floatingProject, activeProjectTab]);
 
@@ -2278,31 +2365,6 @@ export default function CentralidadesView() {
                     <h4 className="card-subhead">Resumen Ejecutivo del Proyecto</h4>
                     <p className="tab-narrative-light">{floatingProject.resumen}</p>
                   </div>
-
-                  <div 
-                    className="photo-card-light floating-photo-card"
-                    onClick={() => setModalImage({
-                      src: floatingProject.imagen_destacada || getProjectFallbackImage(floatingProject),
-                      title: floatingProject.nombre,
-                      description: floatingProject.resumen
-                    })}
-                    title="Haz clic para ver la fotografía en pantalla completa"
-                  >
-                    <img 
-                      src={floatingProject.imagen_destacada || getProjectFallbackImage(floatingProject)} 
-                      alt={floatingProject.nombre}
-                      onError={(e) => {
-                        const fallback = getProjectFallbackImage(floatingProject);
-                        if (e.target.src !== fallback) {
-                          e.target.src = fallback;
-                        }
-                      }}
-                    />
-                    <div className="photo-zoom-hint-light">
-                      <Maximize2 size={16} />
-                      <span>Ver Fotografía en Pantalla Completa</span>
-                    </div>
-                  </div>
                 </div>
               )}
 
@@ -2343,29 +2405,39 @@ export default function CentralidadesView() {
                   ) : (
                     <>
                       {/* Balance de Licencias Comerciales LUAE */}
-                      <div className="kpi-cards-grid-3">
-                        <div className="kpi-item-light">
-                          <TrendingUp size={24} color="#2563eb" />
-                          <strong className="kpi-val-light" style={{ marginTop: '6px', color: '#2563eb' }}>
-                            {floatingProject.economia.licencias_emitidas ?? '—'}
-                          </strong>
-                          <span className="kpi-lbl-light">Licencias Emitidas (Nuevas)</span>
-                        </div>
-                        <div className="kpi-item-light">
-                          <CheckCircle2 size={24} color="#059669" />
-                          <strong className="kpi-val-light" style={{ marginTop: '6px', color: '#059669' }}>
-                            {floatingProject.economia.licencias_renovadas ?? '—'}
-                          </strong>
-                          <span className="kpi-lbl-light">Licencias Renovadas (Continuas)</span>
-                        </div>
-                        <div className="kpi-item-light">
-                          <Building2 size={24} color="#d97706" />
-                          <strong className="kpi-val-light" style={{ marginTop: '6px', color: '#d97706' }}>
-                            {floatingProject.economia.total_licencias ?? '—'}
-                          </strong>
-                          <span className="kpi-lbl-light">Total Actividades Económicas</span>
-                        </div>
-                      </div>
+                      {(() => {
+                        const ecoEmitidas = floatingEcoLive ? floatingEcoLive.abiertos : floatingProject.economia?.licencias_emitidas;
+                        const ecoRenovadas = floatingEcoLive ? floatingEcoLive.renovados : floatingProject.economia?.licencias_renovadas;
+                        const ecoTotal = (ecoEmitidas !== null && ecoEmitidas !== undefined && ecoRenovadas !== null && ecoRenovadas !== undefined)
+                          ? (ecoEmitidas + ecoRenovadas)
+                          : (floatingProject.economia?.total_licencias ?? '—');
+
+                        return (
+                          <div className="kpi-cards-grid-3">
+                            <div className="kpi-item-light">
+                              <TrendingUp size={24} color="#2563eb" />
+                              <strong className="kpi-val-light" style={{ marginTop: '6px', color: '#2563eb' }}>
+                                {ecoEmitidas ?? '—'}
+                              </strong>
+                              <span className="kpi-lbl-light">Licencias Emitidas (Nuevas)</span>
+                            </div>
+                            <div className="kpi-item-light">
+                              <CheckCircle2 size={24} color="#059669" />
+                              <strong className="kpi-val-light" style={{ marginTop: '6px', color: '#059669' }}>
+                                {ecoRenovadas ?? '—'}
+                              </strong>
+                              <span className="kpi-lbl-light">Licencias Renovadas (Continuas)</span>
+                            </div>
+                            <div className="kpi-item-light">
+                              <Building2 size={24} color="#d97706" />
+                              <strong className="kpi-val-light" style={{ marginTop: '6px', color: '#d97706' }}>
+                                {ecoTotal}
+                              </strong>
+                              <span className="kpi-lbl-light">Total Actividades Económicas</span>
+                            </div>
+                          </div>
+                        );
+                      })()}
 
                       <div className="eco-highlight-light">
                         <span className="eco-lbl">Dinamismo y Atracción Comercial</span>
@@ -2423,7 +2495,7 @@ export default function CentralidadesView() {
                         <span className="land-lbl">Avalúo Homologado de Suelo (AIVA)</span>
                         <div className="land-price-row">
                           <strong className="land-val">
-                            ${floatingProject.valor_suelo.valor_m2 ? floatingProject.valor_suelo.valor_m2.toFixed(1) : '—'}
+                            ${floatingProject.valor_suelo.valor_m2 ? floatingProject.valor_suelo.valor_m2.toFixed(2) : '—'}
                           </strong>
                           <span className="land-unit">USD / m²</span>
                         </div>
@@ -2443,7 +2515,7 @@ export default function CentralidadesView() {
                             <span className="year-stat-tag">Periodo 2022 — 2023</span>
                             <strong className="year-stat-num">
                               {floatingProject.valor_suelo.historico_anios?.['2022_2023'] !== undefined
-                                ? `$${floatingProject.valor_suelo.historico_anios['2022_2023'].toFixed(1)}`
+                                ? `$${floatingProject.valor_suelo.historico_anios['2022_2023'].toFixed(2)}`
                                 : '—'}
                             </strong>
                             <span className="year-stat-lbl">USD / m² (Base Catastral)</span>
@@ -2452,7 +2524,7 @@ export default function CentralidadesView() {
                             <span className="year-stat-tag">Periodo 2024 — 2025</span>
                             <strong className="year-stat-num">
                               {floatingProject.valor_suelo.historico_anios?.['2024_2025'] !== undefined
-                                ? `$${floatingProject.valor_suelo.historico_anios['2024_2025'].toFixed(1)}`
+                                ? `$${floatingProject.valor_suelo.historico_anios['2024_2025'].toFixed(2)}`
                                 : '—'}
                             </strong>
                             <span className="year-stat-lbl">USD / m² (Intervención)</span>
@@ -2461,7 +2533,7 @@ export default function CentralidadesView() {
                             <span className="year-stat-tag">Periodo 2026 — 2027</span>
                             <strong className="year-stat-num">
                               {floatingProject.valor_suelo.historico_anios?.['2026_2027'] !== undefined
-                                ? `$${floatingProject.valor_suelo.historico_anios['2026_2027'].toFixed(1)}`
+                                ? `$${floatingProject.valor_suelo.historico_anios['2026_2027'].toFixed(2)}`
                                 : '—'}
                             </strong>
                             <span className="year-stat-lbl">USD / m² (Proyectado PUGS)</span>
@@ -2521,9 +2593,15 @@ export default function CentralidadesView() {
               </button>
               <button 
                 className="modal-action-btn-primary"
-                onClick={() => setFloatingProject(null)}
+                onClick={() => {
+                  const target = getProjectNavigationTarget(floatingProject, activeProjectTab);
+                  setFloatingProject(null);
+                  router.push(target.url);
+                }}
+                title="Ver más información en la sección principal del proyecto"
               >
-                <span>Cerrar Ficha</span>
+                <span>Ver más</span>
+                <ArrowRight size={16} />
               </button>
             </div>
           </div>

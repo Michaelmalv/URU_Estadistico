@@ -9,7 +9,7 @@ import {
 import { 
   Shield, ShieldCheck, TrendingDown, TrendingUp, Activity, 
   BarChart3, CheckCircle2, AlertTriangle, Sparkles, 
-  User, Car, Bike, Info
+  User, Car, Bike, Info, Building2, Home
 } from 'lucide-react';
 
 // Hook para animar números de 0 a targetValue
@@ -73,6 +73,8 @@ function getVariableIcon(label = '') {
   if (l.includes('moto')) return <Bike size={14} className="text-amber-500" />;
   if (l.includes('carro') || l.includes('auto') || l.includes('vehic')) return <Car size={14} className="text-blue-500" />;
   if (l.includes('persona')) return <User size={14} className="text-rose-500" />;
+  if (l.includes('econ') || l.includes('comerc') || l.includes('negocio') || l.includes('unidad')) return <Building2 size={14} className="text-indigo-500" />;
+  if (l.includes('domicilio') || l.includes('casa') || l.includes('resid') || l.includes('hogar')) return <Home size={14} className="text-emerald-500" />;
   return <AlertTriangle size={14} className="text-slate-500" />;
 }
 
@@ -475,7 +477,8 @@ export default function DynamicSeguridadModal({ seguridad, proyectoNombre }) {
                     const v23 = td.valores?.['2023'] ?? 0;
                     const vReal = td.valores?.['2026_real'] ?? 0;
                     const vProy = td.valores?.['2026_proy'] ?? 0;
-                    const isErradicado = v23 > 0 && vReal === 0;
+                    const has23 = typeof v23 === 'number' && v23 > 0;
+                    const pct = has23 ? Math.round(((vProy - v23) / v23) * 100) : null;
 
                     return (
                       <tr key={i} className="interactive-tr">
@@ -499,20 +502,38 @@ export default function DynamicSeguridadModal({ seguridad, proyectoNombre }) {
                           </span>
                         </td>
                         <td>
-                          {isErradicado ? (
-                            <span className="status-badge-success">
-                              <CheckCircle2 size={12} />
-                              <span>-100% Sin casos en 2026</span>
-                            </span>
-                          ) : v23 === 0 ? (
-                            <span className="status-badge-neutral">
-                              Sin incidencia previa
-                            </span>
+                          {has23 ? (
+                            vProy === 0 ? (
+                              <span className="status-badge-success">
+                                <CheckCircle2 size={12} />
+                                <span>-100% Sin casos proyectados</span>
+                              </span>
+                            ) : pct < 0 ? (
+                              <span className="status-badge-drop">
+                                <TrendingDown size={12} />
+                                <span>{pct}% Disminución</span>
+                              </span>
+                            ) : pct > 0 ? (
+                              <span className="status-badge-drop" style={{ color: '#ea580c', background: '#fff7ed', borderColor: '#fed7aa' }}>
+                                <TrendingUp size={12} />
+                                <span>+{pct}% Variación</span>
+                              </span>
+                            ) : (
+                              <span className="status-badge-neutral">
+                                0% Estable
+                              </span>
+                            )
                           ) : (
-                            <span className="status-badge-drop">
-                              <TrendingDown size={12} />
-                              Disminución registrada
-                            </span>
+                            vProy === 0 ? (
+                              <span className="status-badge-neutral">
+                                Sin incidencia previa
+                              </span>
+                            ) : (
+                              <span className="status-badge-drop" style={{ color: '#ea580c', background: '#fff7ed', borderColor: '#fed7aa' }}>
+                                <TrendingUp size={12} />
+                                <span>+{vProy} casos nuevos</span>
+                              </span>
+                            )
                           )}
                         </td>
                       </tr>
