@@ -2224,15 +2224,15 @@ export default function CentralidadesView() {
           <div className="legend-divider-light" />
           <div className="legend-row">
             <span className="legend-polygon-metro-blue" />
-            <span>Color Azul: Zonas Metro (15)</span>
+            <span>Zonas Metro (15)</span>
           </div>
           <div className="legend-row">
             <span className="legend-polygon-soterramiento-brown" />
-            <span>Color Café: Soterramientos ({proyectosGeometriasGeoJson.features.filter(f => f.properties?.is_soterramiento).length})</span>
+            <span>Soterramientos ({proyectosGeometriasGeoJson.features.filter(f => f.properties?.is_soterramiento).length})</span>
           </div>
           <div className="legend-row">
             <span className="legend-line-project-yellow" />
-            <span>Trazados / Contornos ({proyectosGeometriasGeoJson.features.filter(f => f.geometry?.type !== 'Point' && !f.properties?.is_metro && !f.properties?.is_soterramiento).length})</span>
+            <span>Corredores vivos ({proyectosGeometriasGeoJson.features.filter(f => f.geometry?.type !== 'Point' && !f.properties?.is_metro && !f.properties?.is_soterramiento).length})</span>
           </div>
           <div className="legend-row" style={{ display: 'flex', alignItems: 'center', gap: '7px' }}>
             <span style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '16px', height: '20px', flexShrink: 0 }}>
