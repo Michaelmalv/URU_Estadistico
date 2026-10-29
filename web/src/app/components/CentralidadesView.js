@@ -1999,7 +1999,14 @@ export default function CentralidadesView() {
                 </div>
 
                 <div className="projects-segmented-list">
-                  {selectedCentralidad.proyectos.map((proj, pIdx) => {
+                  {selectedCentralidad.proyectos.length === 0 ? (
+                    <div style={{ padding: '1.25rem', textAlign: 'center', background: '#f8fafc', borderRadius: '8px', border: '1px dashed #cbd5e1', margin: '0.5rem 0' }}>
+                      <p style={{ margin: 0, fontSize: '0.85rem', color: '#64748b', lineHeight: 1.4 }}>
+                        Esta centralidad se encuentra en etapa de diagnóstico y delimitación territorial PUGS. Actualmente no cuenta con proyectos u obras en ejecución en esta área.
+                      </p>
+                    </div>
+                  ) : (
+                    selectedCentralidad.proyectos.map((proj, pIdx) => {
                     const isSelected = selectedProjectIndex === pIdx;
                     const bStyle = getBadgeStyle(proj.badge);
                     const normBadge = normalizeBadge(proj.badge);
@@ -2049,7 +2056,7 @@ export default function CentralidadesView() {
                         </span>
                       </button>
                     );
-                  })}
+                  }))}
                 </div>
               </div>
 

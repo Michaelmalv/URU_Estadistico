@@ -2091,52 +2091,6 @@
         "geom_tipo": "LineString"
       },
       {
-        "id": "recuperacion-av-10-agosto",
-        "nombre": "Recuperación Urbana Av. 10 de Agosto (Tramo Santa Prisca — Tarqui)",
-        "tipo": "Regeneración Urbana / Bulevar Central",
-        "badge": "Ejecutado",
-        "longitud_km": "—",
-        "presupuesto": "—",
-        "financiamiento": "Adm. Zonal Eugenio Espejo",
-        "estado": "Ejecutado",
-        "resumen": "Rediseño de calzadas, arborización urbana, cruces a nivel con accesibilidad universal y rehabilitación de aceras patrimoniales.",
-        "seguridad": {
-          "tiene_datos_oficiales": false,
-          "delitos_por_ano": null,
-          "incidentes_por_ano": null,
-          "top_delitos": [],
-          "top_incidentes": []
-        },
-        "economia": {
-          "tiene_datos_oficiales": false,
-          "mensaje_oficial": "Sector en diagnóstico territorial. A la fecha no registra cruce predial de patentes o licencias LUAE en los reportes de obras ejecutadas del DMQ.",
-          "licencias_emitidas": null,
-          "licencias_renovadas": null,
-          "total_licencias": null,
-          "desglose_anual_licencias": []
-        },
-        "valor_suelo": {
-          "tiene_datos_oficiales": false,
-          "mensaje_oficial": "Polígono catastral en proceso de delimitación por la Dirección Metropolitana de Catastro / STHV. No cuenta con serie comparativa en la matriz de proyectos evaluados.",
-          "valor_m2": null,
-          "historico_anios": null,
-          "plusvalia_porcentaje": null
-        },
-        "imagen_destacada": "/imagenes_categorias/recuperacion_urbana_av_10_de_agosto/recuperación_urbana_av10deAgosto.png",
-        "galeria_id": null,
-        "antes_despues_id": "Recuperación Urbana Av. 10 de Agosto (Tramo Santa Prisca — Tarqui)",
-        "coordenadas": [
-          -78.5011,
-          -0.213
-        ],
-        "tiene_datos_oficiales": true,
-        "db_proyecto_id": null,
-        "db_nombre_oficial": "Recuperación Urbana Av. 10 de Agosto (Tramo Santa Prisca — Tarqui)",
-        "db_categoria": "Proyectos Estratégicos",
-        "is_architectural": false,
-        "geom_tipo": "LineString"
-      },
-      {
         "id": "sendero-rio-de-janeiro",
         "nombre": "Sendero Seguro Río de Janeiro",
         "tipo": "Sendero Seguro / Conexión San Juan",
@@ -2531,52 +2485,6 @@
         "db_categoria": "Proyectos Estratégicos",
         "is_architectural": false,
         "geom_tipo": "LineString"
-      },
-      {
-        "id": "diagnostico-rio-coca-granados",
-        "nombre": "Plan de Intervención Integral Río Coca - Granados",
-        "tipo": "Diagnóstico Territorial / PUGS",
-        "badge": "Planificado",
-        "longitud_km": "—",
-        "presupuesto": "—",
-        "financiamiento": "Adm. Zonal Eugenio Espejo",
-        "estado": "Planificado",
-        "resumen": "Planificación para la optimización del nodo intermodal de transferencia Río Coca y la regeneración urbana de la Av. Granados.",
-        "seguridad": {
-          "tiene_datos_oficiales": false,
-          "delitos_por_ano": null,
-          "incidentes_por_ano": null,
-          "top_delitos": [],
-          "top_incidentes": []
-        },
-        "economia": {
-          "tiene_datos_oficiales": false,
-          "mensaje_oficial": "Sector en diagnóstico territorial. A la fecha no registra cruce predial de patentes o licencias LUAE en los reportes de obras ejecutadas del DMQ.",
-          "licencias_emitidas": null,
-          "licencias_renovadas": null,
-          "total_licencias": null,
-          "desglose_anual_licencias": []
-        },
-        "valor_suelo": {
-          "tiene_datos_oficiales": false,
-          "mensaje_oficial": "Polígono catastral en proceso de delimitación por la Dirección Metropolitana de Catastro / STHV. No cuenta con serie comparativa en la matriz de proyectos evaluados.",
-          "valor_m2": null,
-          "historico_anios": null,
-          "plusvalia_porcentaje": null
-        },
-        "imagen_destacada": "/header.jpeg",
-        "galeria_id": null,
-        "antes_despues_id": "Plan de Intervención Integral Río Coca - Granados",
-        "coordenadas": [
-          -78.476187,
-          -0.170516
-        ],
-        "tiene_datos_oficiales": true,
-        "db_proyecto_id": null,
-        "db_nombre_oficial": "Plan de Intervención Integral Río Coca - Granados",
-        "db_categoria": "Proyectos Estratégicos",
-        "is_architectural": true,
-        "geom_tipo": "Point"
       }
     ]
   },
@@ -3991,97 +3899,6 @@
         "tiene_datos_oficiales": true,
         "db_proyecto_id": "95a6a9b5-eef6-4278-b255-8c48b8cc8896",
         "db_nombre_oficial": "Ruiz de Castilla",
-        "db_categoria": "Corredores Vivos",
-        "is_architectural": false,
-        "geom_tipo": "LineString"
-      },
-      {
-        "id": "sendero-la-mariscal",
-        "nombre": "Sendero Urbano La Mariscal",
-        "tipo": "Sendero Seguro / Distrito Turístico",
-        "badge": "Ejecutado",
-        "longitud_km": "1.690 m",
-        "presupuesto": "USD 648.443,98",
-        "financiamiento": "Adm. Zonal La Mariscal",
-        "estado": "Ejecutado",
-        "resumen": "Regeneración de aceras, ciclovía y luminarias LED turísticas en la zona rosa y cultural de La Mariscal.",
-        "seguridad": {
-          "tiene_datos_oficiales": false,
-          "nivel": "En proceso de medición",
-          "delitos_por_ano": {
-            "2023": 0,
-            "2024": 0,
-            "2025": 0,
-            "2026_real": 0,
-            "2026_proy": 0
-          },
-          "incidentes_por_ano": {
-            "2023": 0,
-            "2024": 0,
-            "2025": 0,
-            "2026_real": 0,
-            "2026_proy": 0
-          },
-          "reduccion_delitos_pct": 0,
-          "top_delitos": [],
-          "top_incidentes": [],
-          "descripcion": "Monitoreo continuo en el sector de Sendero Urbano La Mariscal conforme al plan de seguridad integral del DMQ."
-        },
-        "economia": {
-          "tiene_datos_oficiales": true,
-          "negocios_activos": "Base catastral y licencias LUAE",
-          "atractivo_comercial": "Cruce predial oficial con base municipal de patentes y licencias LUAE.",
-          "licencias_emitidas": 374,
-          "licencias_renovadas": 205,
-          "total_licencias": 579,
-          "desglose_anual_licencias": [
-            {
-              "anio": 2023,
-              "abiertos": 92,
-              "renovados": 145
-            },
-            {
-              "anio": 2024,
-              "abiertos": 72,
-              "renovados": 42
-            },
-            {
-              "anio": 2025,
-              "abiertos": 192,
-              "renovados": 6
-            },
-            {
-              "anio": 2026,
-              "abiertos": 18,
-              "renovados": 12
-            }
-          ],
-          "excluidos_fecha_inauguracion": 0
-        },
-        "valor_suelo": {
-          "tiene_datos_oficiales": true,
-          "aiva": "AIVAS LA MARISCAL",
-          "valor_m2": 786,
-          "rango": "Consolidado Alto",
-          "tendencia": "+7.9% acumulada (2022-2026)",
-          "descripcion": "Avalúos catastrales oficiales del DMQ para AIVAS LA MARISCAL (5 zonas de homogeneidad inmobiliaria).",
-          "historico_anios": {
-            "2022_2023": 739,
-            "2024_2025": 786,
-            "2026_2027": 797.6
-          },
-          "plusvalia_porcentaje": 7.9
-        },
-        "imagen_destacada": "/header.jpeg",
-        "galeria_id": null,
-        "antes_despues_id": "La Mariscal",
-        "coordenadas": [
-          -78.4908,
-          -0.2062
-        ],
-        "tiene_datos_oficiales": true,
-        "db_proyecto_id": "3e9be04b-bf6e-48ef-84f2-a355037862c8",
-        "db_nombre_oficial": "La Mariscal",
         "db_categoria": "Corredores Vivos",
         "is_architectural": false,
         "geom_tipo": "LineString"
@@ -6020,54 +5837,7 @@
       -78.443069,
       -0.000799
     ],
-    "proyectos": [
-      {
-        "id": "diagnostico-mitad-del-mundo",
-        "nombre": "Plan de Intervención Integral Mitad del Mundo",
-        "tipo": "Diagnóstico Territorial / PUGS",
-        "badge": "Planificado",
-        "longitud_km": "—",
-        "presupuesto": "—",
-        "financiamiento": "Adm. Zonal Eugenio Espejo",
-        "estado": "Planificado",
-        "resumen": "Plan maestro de movilidad, espacio público y protección patrimonial en el núcleo turístico ecuatorial de San Antonio de Pichincha.",
-        "seguridad": {
-          "tiene_datos_oficiales": false,
-          "delitos_por_ano": null,
-          "incidentes_por_ano": null,
-          "top_delitos": [],
-          "top_incidentes": []
-        },
-        "economia": {
-          "tiene_datos_oficiales": false,
-          "mensaje_oficial": "Sector en diagnóstico territorial. A la fecha no registra cruce predial de patentes o licencias LUAE en los reportes de obras ejecutadas del DMQ.",
-          "licencias_emitidas": null,
-          "licencias_renovadas": null,
-          "total_licencias": null,
-          "desglose_anual_licencias": []
-        },
-        "valor_suelo": {
-          "tiene_datos_oficiales": false,
-          "mensaje_oficial": "Polígono catastral en proceso de delimitación por la Dirección Metropolitana de Catastro / STHV. No cuenta con serie comparativa en la matriz de proyectos evaluados.",
-          "valor_m2": null,
-          "historico_anios": null,
-          "plusvalia_porcentaje": null
-        },
-        "imagen_destacada": "/header.jpeg",
-        "galeria_id": null,
-        "antes_despues_id": "Plan de Intervención Integral Mitad del Mundo",
-        "coordenadas": [
-          -78.450224,
-          -0.006921
-        ],
-        "tiene_datos_oficiales": true,
-        "db_proyecto_id": null,
-        "db_nombre_oficial": "Plan de Intervención Integral Mitad del Mundo",
-        "db_categoria": "Proyectos Estratégicos",
-        "is_architectural": true,
-        "geom_tipo": "Point"
-      }
-    ]
+    "proyectos": []
   },
   {
     "id": "tumbaco",

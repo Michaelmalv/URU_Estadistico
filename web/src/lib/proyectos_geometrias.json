@@ -3173,52 +3173,6 @@
     {
       "type": "Feature",
       "properties": {
-        "id": "recuperacion-av-10-agosto",
-        "nombre": "Recuperación Urbana Av. 10 de Agosto (Tramo Santa Prisca — Tarqui)",
-        "tipo": "Regeneración Urbana / Bulevar Central",
-        "centralidad_id": "el-ejido-alameda",
-        "centralidad_nombre": "El Ejido - Alameda",
-        "centralidad_jerarquia": "Zonal",
-        "badge": "Ejecutado",
-        "estado": "Ejecutado",
-        "geom_tipo": "LineString",
-        "is_metro": false,
-        "is_architectural": false,
-        "is_soterramiento": false,
-        "center": [
-          -78.5011,
-          -0.213
-        ]
-      },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            -78.50345,
-            -0.21552
-          ],
-          [
-            -78.50218,
-            -0.21415
-          ],
-          [
-            -78.50085,
-            -0.21272
-          ],
-          [
-            -78.49982,
-            -0.2116
-          ],
-          [
-            -78.49882,
-            -0.21051
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "id": "sendero-rio-de-janeiro",
         "nombre": "Sendero Seguro Río de Janeiro",
         "tipo": "Sendero Seguro / Conexión San Juan",
@@ -4461,52 +4415,6 @@
           [
             -78.49902013012434,
             -0.1922673569718887
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "id": "sendero-la-mariscal",
-        "nombre": "Sendero Urbano La Mariscal",
-        "tipo": "Sendero Seguro / Distrito Turístico",
-        "centralidad_id": "mariscal",
-        "centralidad_nombre": "Mariscal",
-        "centralidad_jerarquia": "Metropolitana",
-        "badge": "Ejecutado",
-        "estado": "Ejecutado",
-        "geom_tipo": "LineString",
-        "is_metro": false,
-        "is_architectural": false,
-        "is_soterramiento": false,
-        "center": [
-          -78.4908,
-          -0.2062
-        ]
-      },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            -78.48785,
-            -0.2078
-          ],
-          [
-            -78.48912,
-            -0.2071
-          ],
-          [
-            -78.4904,
-            -0.2064
-          ],
-          [
-            -78.49185,
-            -0.20565
-          ],
-          [
-            -78.4938,
-            -0.20465
           ]
         ]
       }
@@ -7373,34 +7281,6 @@
               -0.152063
             ]
           ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "id": "diagnostico-rio-coca-granados",
-        "nombre": "Plan de Intervención Integral Río Coca - Granados",
-        "tipo": "Diagnóstico Territorial / PUGS",
-        "centralidad_id": "rio-coca-granados",
-        "centralidad_nombre": "Río Coca - Granados",
-        "centralidad_jerarquia": "Zonal",
-        "badge": "Planificado",
-        "estado": "Planificado",
-        "geom_tipo": "Point",
-        "is_metro": false,
-        "is_architectural": false,
-        "is_soterramiento": false,
-        "center": [
-          -78.476187,
-          -0.170516
-        ]
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -78.476187,
-          -0.170516
         ]
       }
     },
@@ -14056,34 +13936,6 @@
               -0.215926
             ]
           ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "id": "diagnostico-mitad-del-mundo",
-        "nombre": "Plan de Intervención Integral Mitad del Mundo",
-        "tipo": "Diagnóstico Territorial / PUGS",
-        "centralidad_id": "mitad-del-mundo",
-        "centralidad_nombre": "Mitad del Mundo",
-        "centralidad_jerarquia": "Zonal",
-        "badge": "Planificado",
-        "estado": "Planificado",
-        "geom_tipo": "Point",
-        "is_metro": false,
-        "is_architectural": false,
-        "is_soterramiento": false,
-        "center": [
-          -78.450224,
-          -0.006921
-        ]
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -78.450224,
-          -0.006921
         ]
       }
     },
