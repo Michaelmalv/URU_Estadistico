@@ -2575,8 +2575,8 @@
         "db_proyecto_id": null,
         "db_nombre_oficial": "Plan de Intervención Integral Río Coca - Granados",
         "db_categoria": "Proyectos Estratégicos",
-        "is_architectural": false,
-        "geom_tipo": "LineString"
+        "is_architectural": true,
+        "geom_tipo": "Point"
       }
     ]
   },
@@ -4076,8 +4076,8 @@
         "galeria_id": null,
         "antes_despues_id": "La Mariscal",
         "coordenadas": [
-          -78.488656,
-          -0.203092
+          -78.4908,
+          -0.2062
         ],
         "tiene_datos_oficiales": true,
         "db_proyecto_id": "3e9be04b-bf6e-48ef-84f2-a355037862c8",
@@ -6064,8 +6064,8 @@
         "db_proyecto_id": null,
         "db_nombre_oficial": "Plan de Intervención Integral Mitad del Mundo",
         "db_categoria": "Proyectos Estratégicos",
-        "is_architectural": false,
-        "geom_tipo": "LineString"
+        "is_architectural": true,
+        "geom_tipo": "Point"
       }
     ]
   },

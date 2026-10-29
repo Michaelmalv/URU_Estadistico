@@ -1130,7 +1130,7 @@ export default function CentralidadesView() {
                 <div style="font-family: inherit; font-size: 12px; padding: 5px 8px; max-width: 270px;">
                   <div style="display: flex; align-items: center; justify-content: space-between; gap: 6px; margin-bottom: 3px;">
                     <span style="font-weight: 800; color: ${isMetro ? '#0284c7' : isSot ? '#78350f' : isPoint ? '#c2410c' : '#b45309'}; text-transform: uppercase; font-size: 9.5px; letter-spacing: 0.04em;">
-                      ${isMetro ? '🚇 POLÍGONO AZUL: ZONA METRO (LÍNEA 1)' : isSot ? '⚡ POLÍGONO CAFÉ: SOTERRAMIENTO DE REDES' : isPoint ? '📍 PROYECTO ARQUITECTÓNICO (PUNTO)' : '━━ TRAZADO DE PROYECTO'}
+                      ${isMetro ? '🚇 POLÍGONO AZUL: ZONA METRO (LÍNEA 1)' : isSot ? '⚡ POLÍGONO CAFÉ: SOTERRAMIENTO DE REDES' : isPoint ? '📍 PROYECTO ESTRATÉGICO / EQUIPAMIENTO' : '━━ TRAZADO DE PROYECTO'}
                     </span>
                     <span style="font-size: 9.5px; background: ${isMetro ? '#e0f2fe' : isSot ? '#fef3c7' : isPoint ? '#fff7ed' : '#fffbeb'}; color: ${isMetro ? '#0369a1' : isSot ? '#78350f' : isPoint ? '#c2410c' : '#b45309'}; padding: 1px 5px; border-radius: 4px; font-weight: 700;">
                       ${normalizeBadge(p.badge || p.estado)}
