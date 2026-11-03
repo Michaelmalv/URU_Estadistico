@@ -158,11 +158,12 @@ h1, h2, h3, h4, h5, h6 {
 
 .navbar-container {
   display: flex;
-  max-width: 1300px;
-  width: 94%;
+  max-width: 1400px;
+  width: 98%;
   margin: 0 auto;
   overflow-x: auto;
   scrollbar-width: none; /* Firefox */
+  justify-content: center;
 }
 
 .navbar-container::-webkit-scrollbar {
@@ -170,16 +171,18 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .nav-link {
-  padding: 1rem 2rem;
+  padding: 0.85rem clamp(0.65rem, 1.15vw, 1.35rem);
   text-decoration: none;
   color: var(--text-muted);
   font-weight: 600;
   font-family: var(--font-heading);
-  font-size: 0.95rem;
+  font-size: clamp(0.82rem, 0.88vw, 0.92rem);
+  letter-spacing: 0.015em;
   border-bottom: 3px solid transparent;
   transition: all 0.2s ease;
   white-space: nowrap;
   cursor: pointer;
+  flex-shrink: 0;
 }
 
 .nav-link:hover {
@@ -740,7 +743,7 @@ h1, h2, h3, h4, h5, h6 {
   .nav-link:nth-child(2n) {
     border-right: none;
   }
-  .nav-link:nth-child(3), .nav-link:nth-child(4) {
+  .nav-link:nth-child(5), .nav-link:nth-child(6) {
     border-bottom: none;
   }
   .nav-link.active {
