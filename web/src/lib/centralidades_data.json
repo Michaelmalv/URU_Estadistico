@@ -5770,13 +5770,13 @@
       {
         "id": "soterramiento-puae-san-patricio",
         "nombre": "Plan Urbano y Soterramiento PUAE San Patricio",
-        "tipo": "Proyecto Urbanístico / PUAE",
-        "badge": "Planificado",
-        "longitud_km": "—",
+        "tipo": "Soterramiento de Redes / PUAE",
+        "badge": "Ejecutado",
+        "longitud_km": "4.89 km",
         "presupuesto": "—",
-        "financiamiento": "Adm. Zonal Eugenio Espejo",
-        "estado": "Planificado",
-        "resumen": "Desarrollo urbano integral de nueva generación con redes subterráneas, parques lineales y conectividad sustentable hacia el valle de Cumbayá.",
+        "financiamiento": "Inversión Privada",
+        "estado": "Ejecutado",
+        "resumen": "Desarrollo urbano integral de nueva generación con 4.89 km de redes subterráneas y conectividad sustentable hacia el valle de Cumbayá (Ejecutado por Inversión Privada).",
         "seguridad": {
           "tiene_datos_oficiales": false,
           "delitos_por_ano": null,
@@ -5811,7 +5811,7 @@
         "db_nombre_oficial": "Plan Urbano y Soterramiento PUAE San Patricio",
         "db_categoria": "Proyectos Estratégicos",
         "is_architectural": false,
-        "geom_tipo": "LineString"
+        "geom_tipo": "Polygon"
       }
     ]
   },

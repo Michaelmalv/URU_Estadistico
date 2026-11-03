@@ -156,39 +156,33 @@ export default function CentralidadesView() {
   const getProjectNavigationTarget = (proj, currentTab) => {
     if (!proj) return { url: '/informacion' };
 
-    // Verificar si cuenta con dimensiones evaluadas oficiales
-    const hasDimensions = Boolean(
-      (proj.seguridad && proj.seguridad.tiene_datos_oficiales) ||
-      (proj.economia && proj.economia.tiene_datos_oficiales) ||
-      (proj.valor_suelo && proj.valor_suelo.tiene_datos_oficiales)
-    );
-
-    // En los proyectos que solo existan Información General, enviar a la pestaña principal de Información
-    if (!hasDimensions) {
-      return { url: '/informacion' };
-    }
-
-    // Mapeo de la subpestaña del modal a la subpestaña de la página de destino
-    const tabParamMap = {
-      'info': 'info-general',
-      'seguridad': 'seguridad',
-      'economia': 'economia',
-      'suelo': 'valor-suelo'
-    };
-    const targetSubTab = tabParamMap[currentTab] || 'info-general';
-
     // Determinar la categoría y la ruta principal correspondiente
     const id = (proj.id || '').toLowerCase();
     const nombre = (proj.nombre || '').toLowerCase();
     const tipo = (proj.tipo || '').toLowerCase();
-    const projName = proj.db_nombre_oficial || proj.nombre;
+    const isSot = Boolean(
+      proj.is_soterramiento ||
+      id.includes('soterramiento') ||
+      nombre.includes('soterramiento') ||
+      tipo.includes('soterramiento') ||
+      id.includes('puae') ||
+      nombre.includes('puae')
+    );
+    const isMetro = Boolean(
+      proj.is_metro ||
+      tipo.includes('metro') ||
+      nombre.includes('zona metro') ||
+      id.includes('zona-metro')
+    );
 
     let route = '/corredores-vivos';
+    let targetSubTab = 'info-general';
 
-    if (tipo.includes('metro') || nombre.includes('zona metro') || id.includes('zona-metro')) {
-      route = '/zonas-metro';
-    } else if (tipo.includes('soterramiento') || nombre.includes('soterramiento') || id.includes('soterramiento')) {
+    if (isSot) {
       route = '/soterramiento';
+      targetSubTab = 'info-general';
+    } else if (isMetro) {
+      route = '/zonas-metro';
     } else if (
       id.includes('shyris') ||
       id.includes('parque-navarro') ||
@@ -209,8 +203,24 @@ export default function CentralidadesView() {
       route = '/corredores-vivos';
     }
 
+    if (!isSot) {
+      // Mapeo de la subpestaña del modal a la subpestaña de la página de destino
+      const tabParamMap = {
+        'info': 'info-general',
+        'seguridad': 'seguridad',
+        'economia': 'economia',
+        'suelo': 'valor-suelo'
+      };
+      targetSubTab = tabParamMap[currentTab] || 'info-general';
+    }
+
+    let projQueryName = proj.db_nombre_oficial || proj.nombre;
+    if (isSot && (nombre.includes('san patricio') || id.includes('san-patricio'))) {
+      projQueryName = 'PUAE San Patricio';
+    }
+
     const query = new URLSearchParams({
-      proyecto: projName,
+      proyecto: projQueryName,
       tab: targetSubTab
     }).toString();
 
