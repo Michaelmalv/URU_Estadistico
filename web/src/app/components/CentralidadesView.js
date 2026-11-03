@@ -751,35 +751,7 @@ export default function CentralidadesView() {
         data: proyectosGeometriasGeoJson
       });
 
-      // Relleno cyan / azul distintivo para Polígonos de Zonas Metro
-      map.addLayer({
-        id: 'proyectos-geom-metro-fill',
-        type: 'fill',
-        source: 'proyectos-geometrias-source',
-        filter: ['all', ['==', ['get', 'geom_tipo'], 'Polygon'], ['==', ['get', 'is_metro'], true]],
-        paint: {
-          'fill-color': '#0284c7',
-          'fill-opacity': 0.38
-        }
-      });
-
-      // Contorno cyan / azul para Polígonos de Zonas Metro
-      map.addLayer({
-        id: 'proyectos-geom-metro-outline',
-        type: 'line',
-        source: 'proyectos-geometrias-source',
-        filter: ['all', ['==', ['get', 'geom_tipo'], 'Polygon'], ['==', ['get', 'is_metro'], true]],
-        layout: {
-          'line-join': 'round',
-          'line-cap': 'round'
-        },
-        paint: {
-          'line-color': '#0284c7',
-          'line-width': 3,
-          'line-opacity': 0.95
-        }
-      });
-
+      // --- CAPA 1 (ABAJO DE TODO): CAFÉ - Soterramientos ---
       // Relleno CAFÉ distintivo para Polígonos de Soterramientos
       map.addLayer({
         id: 'proyectos-geom-soterramiento-fill',
@@ -831,6 +803,37 @@ export default function CentralidadesView() {
         }
       });
 
+      // --- CAPA 2 (INTERMEDIA): AZUL - Zonas Metro (sobre soterramientos) ---
+      // Relleno cyan / azul distintivo para Polígonos de Zonas Metro
+      map.addLayer({
+        id: 'proyectos-geom-metro-fill',
+        type: 'fill',
+        source: 'proyectos-geometrias-source',
+        filter: ['all', ['==', ['get', 'geom_tipo'], 'Polygon'], ['==', ['get', 'is_metro'], true]],
+        paint: {
+          'fill-color': '#0284c7',
+          'fill-opacity': 0.38
+        }
+      });
+
+      // Contorno cyan / azul para Polígonos de Zonas Metro
+      map.addLayer({
+        id: 'proyectos-geom-metro-outline',
+        type: 'line',
+        source: 'proyectos-geometrias-source',
+        filter: ['all', ['==', ['get', 'geom_tipo'], 'Polygon'], ['==', ['get', 'is_metro'], true]],
+        layout: {
+          'line-join': 'round',
+          'line-cap': 'round'
+        },
+        paint: {
+          'line-color': '#0284c7',
+          'line-width': 3,
+          'line-opacity': 0.95
+        }
+      });
+
+      // --- CAPA 3 (ARRIBA): AMARILLO - Corredores vivos (sobre zonas metro y soterramientos) ---
       // Relleno suave amarillo para proyectos tipo Polígono convencionales (parques, bulevares zonales)
       map.addLayer({
         id: 'proyectos-geom-fill',
@@ -1057,6 +1060,8 @@ export default function CentralidadesView() {
       });
 
       const projectInteractiveLayers = [
+        'proyectos-geom-point-core',
+        'proyectos-geom-point-pulse',
         'proyectos-geom-line-main',
         'proyectos-geom-fill',
         'proyectos-geom-polygon-outline',
@@ -1064,9 +1069,7 @@ export default function CentralidadesView() {
         'proyectos-geom-metro-outline',
         'proyectos-geom-soterramiento-fill',
         'proyectos-geom-soterramiento-outline',
-        'proyectos-geom-soterramiento-line',
-        'proyectos-geom-point-core',
-        'proyectos-geom-point-pulse'
+        'proyectos-geom-soterramiento-line'
       ];
 
       // Hover en Polígonos de Centralidades
@@ -1119,37 +1122,42 @@ export default function CentralidadesView() {
         map.on('mousemove', layerId, (e) => {
           centralidadPopup.remove();
           map.getCanvas().style.cursor = 'pointer';
-          if (e.features && e.features.length > 0) {
-            const p = e.features[0].properties;
-            const isMetro = p.is_metro === true || p.is_metro === 'true';
-            const isSot = p.is_soterramiento === true || p.is_soterramiento === 'true';
-            const isPoint = p.geom_tipo === 'Point';
+          
+          // Asegurar que solo la capa visualmente superior responda al evento
+          const topFeats = map.queryRenderedFeatures(e.point, { layers: projectInteractiveLayers });
+          const targetFeat = (topFeats && topFeats.length > 0) ? topFeats[0] : (e.features && e.features[0]);
+          if (!targetFeat) return;
+          if (e.features && e.features.length > 0 && e.features[0].layer.id !== targetFeat.layer.id) return;
 
-            projectPopup.setLngLat(e.lngLat)
-              .setHTML(`
-                <div style="font-family: inherit; font-size: 12px; padding: 5px 8px; max-width: 270px;">
-                  <div style="display: flex; align-items: center; justify-content: space-between; gap: 6px; margin-bottom: 3px;">
-                    <span style="font-weight: 800; color: ${isMetro ? '#0284c7' : isSot ? '#78350f' : isPoint ? '#c2410c' : '#b45309'}; text-transform: uppercase; font-size: 9.5px; letter-spacing: 0.04em;">
-                      ${isMetro ? '🚇 POLÍGONO AZUL: ZONA METRO (LÍNEA 1)' : isSot ? '⚡ POLÍGONO CAFÉ: SOTERRAMIENTO DE REDES' : isPoint ? '📍 PROYECTO ESTRATÉGICO / EQUIPAMIENTO' : '━━ TRAZADO DE PROYECTO'}
-                    </span>
-                    <span style="font-size: 9.5px; background: ${isMetro ? '#e0f2fe' : isSot ? '#fef3c7' : isPoint ? '#fff7ed' : '#fffbeb'}; color: ${isMetro ? '#0369a1' : isSot ? '#78350f' : isPoint ? '#c2410c' : '#b45309'}; padding: 1px 5px; border-radius: 4px; font-weight: 700;">
-                      ${normalizeBadge(p.badge || p.estado)}
-                    </span>
-                  </div>
-                  <strong style="display: block; color: #0f172a; font-size: 13px; line-height: 1.3; margin: 3px 0 5px 0;">
-                    ${p.nombre}
-                  </strong>
-                  <div style="background: #fff7ed; border: 1px solid #fed7aa; border-radius: 6px; padding: 5px 7px; margin-bottom: 4px; font-size: 11px; color: #9a3412;">
-                    📍 <strong>Centralidad:</strong> ${p.centralidad_nombre} 
-                    <span style="font-weight: 700;">(${p.centralidad_jerarquia})</span>
-                  </div>
-                  <div style="font-size: 10px; color: #ea580c; font-weight: 700;">
-                    👉 Clic para ver más información
-                  </div>
+          const p = targetFeat.properties;
+          const isMetro = p.is_metro === true || p.is_metro === 'true';
+          const isSot = p.is_soterramiento === true || p.is_soterramiento === 'true';
+          const isPoint = p.geom_tipo === 'Point';
+
+          projectPopup.setLngLat(e.lngLat)
+            .setHTML(`
+              <div style="font-family: inherit; font-size: 12px; padding: 5px 8px; max-width: 270px;">
+                <div style="display: flex; align-items: center; justify-content: space-between; gap: 6px; margin-bottom: 3px;">
+                  <span style="font-weight: 800; color: ${isMetro ? '#0284c7' : isSot ? '#78350f' : isPoint ? '#c2410c' : '#b45309'}; text-transform: uppercase; font-size: 9.5px; letter-spacing: 0.04em;">
+                    ${isMetro ? '🚇 POLÍGONO AZUL: ZONA METRO (LÍNEA 1)' : isSot ? '⚡ POLÍGONO CAFÉ: SOTERRAMIENTO DE REDES' : isPoint ? '📍 PROYECTO ESTRATÉGICO / EQUIPAMIENTO' : '━━ TRAZADO DE PROYECTO'}
+                  </span>
+                  <span style="font-size: 9.5px; background: ${isMetro ? '#e0f2fe' : isSot ? '#fef3c7' : isPoint ? '#fff7ed' : '#fffbeb'}; color: ${isMetro ? '#0369a1' : isSot ? '#78350f' : isPoint ? '#c2410c' : '#b45309'}; padding: 1px 5px; border-radius: 4px; font-weight: 700;">
+                    ${normalizeBadge(p.badge || p.estado)}
+                  </span>
                 </div>
-              `)
-              .addTo(map);
-          }
+                <strong style="display: block; color: #0f172a; font-size: 13px; line-height: 1.3; margin: 3px 0 5px 0;">
+                  ${p.nombre}
+                </strong>
+                <div style="background: #fff7ed; border: 1px solid #fed7aa; border-radius: 6px; padding: 5px 7px; margin-bottom: 4px; font-size: 11px; color: #9a3412;">
+                  📍 <strong>Centralidad:</strong> ${p.centralidad_nombre} 
+                  <span style="font-weight: 700;">(${p.centralidad_jerarquia})</span>
+                </div>
+                <div style="font-size: 10px; color: #ea580c; font-weight: 700;">
+                  👉 Clic para ver más información
+                </div>
+              </div>
+            `)
+            .addTo(map);
         });
 
         map.on('mouseleave', layerId, () => {
@@ -1159,19 +1167,22 @@ export default function CentralidadesView() {
 
         // Clic en Trazado o Punto de Proyecto: abre pantalla flotante y resalta centralidad
         map.on('click', layerId, (e) => {
-          if (e.features && e.features.length > 0) {
-            const pProps = e.features[0].properties;
-            const cent = centralidadesData.find(c => c.id === pProps.centralidad_id);
-            if (cent) {
-              setSelectedCentralidad(cent);
-              const pIdx = cent.proyectos.findIndex(p => p.id === pProps.id);
-              const proj = cent.proyectos[pIdx >= 0 ? pIdx : 0];
-              if (proj) {
-                setSelectedProjectIndex(pIdx >= 0 ? pIdx : 0);
-                setActiveProjectTab('info');
-                setFloatingProject(proj);
-                focusProject(proj);
-              }
+          const topFeats = map.queryRenderedFeatures(e.point, { layers: projectInteractiveLayers });
+          const targetFeat = (topFeats && topFeats.length > 0) ? topFeats[0] : (e.features && e.features[0]);
+          if (!targetFeat) return;
+          if (e.features && e.features.length > 0 && e.features[0].layer.id !== targetFeat.layer.id) return;
+
+          const pProps = targetFeat.properties;
+          const cent = centralidadesData.find(c => c.id === pProps.centralidad_id);
+          if (cent) {
+            setSelectedCentralidad(cent);
+            const pIdx = cent.proyectos.findIndex(p => p.id === pProps.id);
+            const proj = cent.proyectos[pIdx >= 0 ? pIdx : 0];
+            if (proj) {
+              setSelectedProjectIndex(pIdx >= 0 ? pIdx : 0);
+              setActiveProjectTab('info');
+              setFloatingProject(proj);
+              focusProject(proj);
             }
           }
         });
